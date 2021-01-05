@@ -180,15 +180,15 @@ type ClusterParameterGroupInput interface {
 	ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput
 }
 
-func (ClusterParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterParameterGroup)(nil)).Elem()
+func (*ClusterParameterGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroup)(nil))
 }
 
-func (i ClusterParameterGroup) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {
+func (i *ClusterParameterGroup) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {
 	return i.ToClusterParameterGroupOutputWithContext(context.Background())
 }
 
-func (i ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
+func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupOutput)
 }
 
@@ -197,7 +197,7 @@ type ClusterParameterGroupOutput struct {
 }
 
 func (ClusterParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterParameterGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ClusterParameterGroup)(nil))
 }
 
 func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {

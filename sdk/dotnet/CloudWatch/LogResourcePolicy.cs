@@ -119,6 +119,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
     public partial class LogResourcePolicy : Pulumi.CustomResource
     {
         /// <summary>

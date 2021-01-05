@@ -208,15 +208,15 @@ type AccountPasswordPolicyInput interface {
 	ToAccountPasswordPolicyOutputWithContext(ctx context.Context) AccountPasswordPolicyOutput
 }
 
-func (AccountPasswordPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPasswordPolicy)(nil)).Elem()
+func (*AccountPasswordPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPasswordPolicy)(nil))
 }
 
-func (i AccountPasswordPolicy) ToAccountPasswordPolicyOutput() AccountPasswordPolicyOutput {
+func (i *AccountPasswordPolicy) ToAccountPasswordPolicyOutput() AccountPasswordPolicyOutput {
 	return i.ToAccountPasswordPolicyOutputWithContext(context.Background())
 }
 
-func (i AccountPasswordPolicy) ToAccountPasswordPolicyOutputWithContext(ctx context.Context) AccountPasswordPolicyOutput {
+func (i *AccountPasswordPolicy) ToAccountPasswordPolicyOutputWithContext(ctx context.Context) AccountPasswordPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPasswordPolicyOutput)
 }
 
@@ -225,7 +225,7 @@ type AccountPasswordPolicyOutput struct {
 }
 
 func (AccountPasswordPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPasswordPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccountPasswordPolicy)(nil))
 }
 
 func (o AccountPasswordPolicyOutput) ToAccountPasswordPolicyOutput() AccountPasswordPolicyOutput {

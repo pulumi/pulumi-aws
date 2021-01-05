@@ -93,6 +93,7 @@ namespace Pulumi.Aws.WorkLink
     ///  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:worklink/fleet:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>

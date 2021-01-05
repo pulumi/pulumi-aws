@@ -150,15 +150,15 @@ type PortfolioInput interface {
 	ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput
 }
 
-func (Portfolio) ElementType() reflect.Type {
-	return reflect.TypeOf((*Portfolio)(nil)).Elem()
+func (*Portfolio) ElementType() reflect.Type {
+	return reflect.TypeOf((*Portfolio)(nil))
 }
 
-func (i Portfolio) ToPortfolioOutput() PortfolioOutput {
+func (i *Portfolio) ToPortfolioOutput() PortfolioOutput {
 	return i.ToPortfolioOutputWithContext(context.Background())
 }
 
-func (i Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
+func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioOutput)
 }
 
@@ -167,7 +167,7 @@ type PortfolioOutput struct {
 }
 
 func (PortfolioOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioOutput)(nil)).Elem()
+	return reflect.TypeOf((*Portfolio)(nil))
 }
 
 func (o PortfolioOutput) ToPortfolioOutput() PortfolioOutput {

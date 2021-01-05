@@ -100,15 +100,15 @@ type RestApiPolicyInput interface {
 	ToRestApiPolicyOutputWithContext(ctx context.Context) RestApiPolicyOutput
 }
 
-func (RestApiPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApiPolicy)(nil)).Elem()
+func (*RestApiPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiPolicy)(nil))
 }
 
-func (i RestApiPolicy) ToRestApiPolicyOutput() RestApiPolicyOutput {
+func (i *RestApiPolicy) ToRestApiPolicyOutput() RestApiPolicyOutput {
 	return i.ToRestApiPolicyOutputWithContext(context.Background())
 }
 
-func (i RestApiPolicy) ToRestApiPolicyOutputWithContext(ctx context.Context) RestApiPolicyOutput {
+func (i *RestApiPolicy) ToRestApiPolicyOutputWithContext(ctx context.Context) RestApiPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyOutput)
 }
 
@@ -117,7 +117,7 @@ type RestApiPolicyOutput struct {
 }
 
 func (RestApiPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApiPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*RestApiPolicy)(nil))
 }
 
 func (o RestApiPolicyOutput) ToRestApiPolicyOutput() RestApiPolicyOutput {

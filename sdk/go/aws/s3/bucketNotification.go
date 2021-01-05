@@ -275,15 +275,15 @@ type BucketNotificationInput interface {
 	ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput
 }
 
-func (BucketNotification) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotification)(nil)).Elem()
+func (*BucketNotification) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotification)(nil))
 }
 
-func (i BucketNotification) ToBucketNotificationOutput() BucketNotificationOutput {
+func (i *BucketNotification) ToBucketNotificationOutput() BucketNotificationOutput {
 	return i.ToBucketNotificationOutputWithContext(context.Background())
 }
 
-func (i BucketNotification) ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput {
+func (i *BucketNotification) ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationOutput)
 }
 
@@ -292,7 +292,7 @@ type BucketNotificationOutput struct {
 }
 
 func (BucketNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotificationOutput)(nil)).Elem()
+	return reflect.TypeOf((*BucketNotification)(nil))
 }
 
 func (o BucketNotificationOutput) ToBucketNotificationOutput() BucketNotificationOutput {

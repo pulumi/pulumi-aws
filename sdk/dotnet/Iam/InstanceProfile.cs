@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/instanceProfile:InstanceProfile")]
     public partial class InstanceProfile : Pulumi.CustomResource
     {
         /// <summary>

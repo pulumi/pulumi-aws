@@ -382,15 +382,15 @@ type DeploymentGroupInput interface {
 	ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput
 }
 
-func (DeploymentGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroup)(nil)).Elem()
+func (*DeploymentGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroup)(nil))
 }
 
-func (i DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
+func (i *DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
 	return i.ToDeploymentGroupOutputWithContext(context.Background())
 }
 
-func (i DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
+func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
 }
 
@@ -399,7 +399,7 @@ type DeploymentGroupOutput struct {
 }
 
 func (DeploymentGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeploymentGroup)(nil))
 }
 
 func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {

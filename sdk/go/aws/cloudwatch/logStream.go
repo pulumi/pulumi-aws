@@ -137,15 +137,15 @@ type LogStreamInput interface {
 	ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput
 }
 
-func (LogStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogStream)(nil)).Elem()
+func (*LogStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogStream)(nil))
 }
 
-func (i LogStream) ToLogStreamOutput() LogStreamOutput {
+func (i *LogStream) ToLogStreamOutput() LogStreamOutput {
 	return i.ToLogStreamOutputWithContext(context.Background())
 }
 
-func (i LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
+func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamOutput)
 }
 
@@ -154,7 +154,7 @@ type LogStreamOutput struct {
 }
 
 func (LogStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogStreamOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogStream)(nil))
 }
 
 func (o LogStreamOutput) ToLogStreamOutput() LogStreamOutput {

@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/certificate:Certificate test arn:aws:dms:us-west-2:123456789:cert:xxxxxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

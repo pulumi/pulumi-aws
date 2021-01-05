@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/mailFrom:MailFrom")]
     public partial class MailFrom : Pulumi.CustomResource
     {
         /// <summary>

@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/delegationSet:DelegationSet")]
     public partial class DelegationSet : Pulumi.CustomResource
     {
         /// <summary>

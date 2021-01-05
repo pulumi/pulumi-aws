@@ -94,6 +94,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")]
     public partial class CachesIscsiVolume : Pulumi.CustomResource
     {
         /// <summary>

@@ -175,15 +175,15 @@ type AnalyzerInput interface {
 	ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput
 }
 
-func (Analyzer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analyzer)(nil)).Elem()
+func (*Analyzer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Analyzer)(nil))
 }
 
-func (i Analyzer) ToAnalyzerOutput() AnalyzerOutput {
+func (i *Analyzer) ToAnalyzerOutput() AnalyzerOutput {
 	return i.ToAnalyzerOutputWithContext(context.Background())
 }
 
-func (i Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
+func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
 }
 
@@ -192,7 +192,7 @@ type AnalyzerOutput struct {
 }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyzerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Analyzer)(nil))
 }
 
 func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {

@@ -121,6 +121,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:rds/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : Pulumi.CustomResource
     {
         /// <summary>

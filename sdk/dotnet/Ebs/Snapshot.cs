@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Ebs
     ///  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ebs/snapshot:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>

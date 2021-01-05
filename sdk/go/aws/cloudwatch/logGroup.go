@@ -182,15 +182,15 @@ type LogGroupInput interface {
 	ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput
 }
 
-func (LogGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogGroup)(nil)).Elem()
+func (*LogGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroup)(nil))
 }
 
-func (i LogGroup) ToLogGroupOutput() LogGroupOutput {
+func (i *LogGroup) ToLogGroupOutput() LogGroupOutput {
 	return i.ToLogGroupOutputWithContext(context.Background())
 }
 
-func (i LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
+func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
 }
 
@@ -199,7 +199,7 @@ type LogGroupOutput struct {
 }
 
 func (LogGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogGroup)(nil))
 }
 
 func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {

@@ -123,15 +123,15 @@ type EmailIdentityInput interface {
 	ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput
 }
 
-func (EmailIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailIdentity)(nil)).Elem()
+func (*EmailIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentity)(nil))
 }
 
-func (i EmailIdentity) ToEmailIdentityOutput() EmailIdentityOutput {
+func (i *EmailIdentity) ToEmailIdentityOutput() EmailIdentityOutput {
 	return i.ToEmailIdentityOutputWithContext(context.Background())
 }
 
-func (i EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
+func (i *EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityOutput)
 }
 
@@ -140,7 +140,7 @@ type EmailIdentityOutput struct {
 }
 
 func (EmailIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailIdentityOutput)(nil)).Elem()
+	return reflect.TypeOf((*EmailIdentity)(nil))
 }
 
 func (o EmailIdentityOutput) ToEmailIdentityOutput() EmailIdentityOutput {

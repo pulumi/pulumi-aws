@@ -57,6 +57,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
     public partial class ApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>

@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/amiCopy:AmiCopy")]
     public partial class AmiCopy : Pulumi.CustomResource
     {
         /// <summary>

@@ -59,6 +59,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
     public partial class DocumentationVersion : Pulumi.CustomResource
     {
         /// <summary>

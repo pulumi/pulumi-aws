@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         [Output("arn")]

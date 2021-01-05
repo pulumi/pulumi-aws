@@ -39,6 +39,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")]
     public partial class PublicDnsNamespace : Pulumi.CustomResource
     {
         /// <summary>

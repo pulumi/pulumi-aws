@@ -199,15 +199,15 @@ type SigningProfilePermissionInput interface {
 	ToSigningProfilePermissionOutputWithContext(ctx context.Context) SigningProfilePermissionOutput
 }
 
-func (SigningProfilePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfilePermission)(nil)).Elem()
+func (*SigningProfilePermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningProfilePermission)(nil))
 }
 
-func (i SigningProfilePermission) ToSigningProfilePermissionOutput() SigningProfilePermissionOutput {
+func (i *SigningProfilePermission) ToSigningProfilePermissionOutput() SigningProfilePermissionOutput {
 	return i.ToSigningProfilePermissionOutputWithContext(context.Background())
 }
 
-func (i SigningProfilePermission) ToSigningProfilePermissionOutputWithContext(ctx context.Context) SigningProfilePermissionOutput {
+func (i *SigningProfilePermission) ToSigningProfilePermissionOutputWithContext(ctx context.Context) SigningProfilePermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionOutput)
 }
 
@@ -216,7 +216,7 @@ type SigningProfilePermissionOutput struct {
 }
 
 func (SigningProfilePermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfilePermissionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SigningProfilePermission)(nil))
 }
 
 func (o SigningProfilePermissionOutput) ToSigningProfilePermissionOutput() SigningProfilePermissionOutput {

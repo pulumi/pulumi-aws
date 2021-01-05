@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Swf
     ///  $ pulumi import aws:swf/domain:Domain foo test-domain
     /// ```
     /// </summary>
+    [AwsResourceType("aws:swf/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

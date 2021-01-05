@@ -42,6 +42,7 @@ namespace Pulumi.Aws.WorkLink
     ///  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
     /// ```
     /// </summary>
+    [AwsResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]
     public partial class WebsiteCertificateAuthorityAssociation : Pulumi.CustomResource
     {
         /// <summary>

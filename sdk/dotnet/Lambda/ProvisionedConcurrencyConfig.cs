@@ -62,6 +62,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
     public partial class ProvisionedConcurrencyConfig : Pulumi.CustomResource
     {
         /// <summary>

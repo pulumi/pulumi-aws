@@ -215,15 +215,15 @@ type IPSetInput interface {
 	ToIPSetOutputWithContext(ctx context.Context) IPSetOutput
 }
 
-func (IPSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSet)(nil)).Elem()
+func (*IPSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSet)(nil))
 }
 
-func (i IPSet) ToIPSetOutput() IPSetOutput {
+func (i *IPSet) ToIPSetOutput() IPSetOutput {
 	return i.ToIPSetOutputWithContext(context.Background())
 }
 
-func (i IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
+func (i *IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetOutput)
 }
 
@@ -232,7 +232,7 @@ type IPSetOutput struct {
 }
 
 func (IPSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*IPSet)(nil))
 }
 
 func (o IPSetOutput) ToIPSetOutput() IPSetOutput {

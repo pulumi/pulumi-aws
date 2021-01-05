@@ -107,15 +107,15 @@ type LogServiceInput interface {
 	ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput
 }
 
-func (LogService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogService)(nil)).Elem()
+func (*LogService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogService)(nil))
 }
 
-func (i LogService) ToLogServiceOutput() LogServiceOutput {
+func (i *LogService) ToLogServiceOutput() LogServiceOutput {
 	return i.ToLogServiceOutputWithContext(context.Background())
 }
 
-func (i LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
+func (i *LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceOutput)
 }
 
@@ -124,7 +124,7 @@ type LogServiceOutput struct {
 }
 
 func (LogServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogService)(nil))
 }
 
 func (o LogServiceOutput) ToLogServiceOutput() LogServiceOutput {

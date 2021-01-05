@@ -311,15 +311,15 @@ type AuthorizerInput interface {
 	ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput
 }
 
-func (Authorizer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authorizer)(nil)).Elem()
+func (*Authorizer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Authorizer)(nil))
 }
 
-func (i Authorizer) ToAuthorizerOutput() AuthorizerOutput {
+func (i *Authorizer) ToAuthorizerOutput() AuthorizerOutput {
 	return i.ToAuthorizerOutputWithContext(context.Background())
 }
 
-func (i Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
+func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
 }
 
@@ -328,7 +328,7 @@ type AuthorizerOutput struct {
 }
 
 func (AuthorizerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Authorizer)(nil))
 }
 
 func (o AuthorizerOutput) ToAuthorizerOutput() AuthorizerOutput {

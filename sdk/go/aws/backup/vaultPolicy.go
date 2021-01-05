@@ -145,15 +145,15 @@ type VaultPolicyInput interface {
 	ToVaultPolicyOutputWithContext(ctx context.Context) VaultPolicyOutput
 }
 
-func (VaultPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPolicy)(nil)).Elem()
+func (*VaultPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPolicy)(nil))
 }
 
-func (i VaultPolicy) ToVaultPolicyOutput() VaultPolicyOutput {
+func (i *VaultPolicy) ToVaultPolicyOutput() VaultPolicyOutput {
 	return i.ToVaultPolicyOutputWithContext(context.Background())
 }
 
-func (i VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultPolicyOutput {
+func (i *VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyOutput)
 }
 
@@ -162,7 +162,7 @@ type VaultPolicyOutput struct {
 }
 
 func (VaultPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*VaultPolicy)(nil))
 }
 
 func (o VaultPolicyOutput) ToVaultPolicyOutput() VaultPolicyOutput {

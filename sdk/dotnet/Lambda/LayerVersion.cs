@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
     /// </summary>
+    [AwsResourceType("aws:lambda/layerVersion:LayerVersion")]
     public partial class LayerVersion : Pulumi.CustomResource
     {
         /// <summary>

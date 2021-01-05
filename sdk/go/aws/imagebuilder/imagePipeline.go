@@ -250,15 +250,15 @@ type ImagePipelineInput interface {
 	ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput
 }
 
-func (ImagePipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePipeline)(nil)).Elem()
+func (*ImagePipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipeline)(nil))
 }
 
-func (i ImagePipeline) ToImagePipelineOutput() ImagePipelineOutput {
+func (i *ImagePipeline) ToImagePipelineOutput() ImagePipelineOutput {
 	return i.ToImagePipelineOutputWithContext(context.Background())
 }
 
-func (i ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
+func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
 }
 
@@ -267,7 +267,7 @@ type ImagePipelineOutput struct {
 }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePipelineOutput)(nil)).Elem()
+	return reflect.TypeOf((*ImagePipeline)(nil))
 }
 
 func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {

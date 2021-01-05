@@ -130,6 +130,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/securityGroupRule:SecurityGroupRule")]
     public partial class SecurityGroupRule : Pulumi.CustomResource
     {
         /// <summary>

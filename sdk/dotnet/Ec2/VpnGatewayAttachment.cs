@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// This resource does not support importing.
     /// </summary>
+    [AwsResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
     public partial class VpnGatewayAttachment : Pulumi.CustomResource
     {
         /// <summary>

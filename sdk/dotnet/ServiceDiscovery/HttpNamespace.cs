@@ -37,6 +37,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicediscovery/httpNamespace:HttpNamespace")]
     public partial class HttpNamespace : Pulumi.CustomResource
     {
         /// <summary>

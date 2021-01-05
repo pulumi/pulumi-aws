@@ -124,15 +124,15 @@ type LoadBalancerPolicyInput interface {
 	ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput
 }
 
-func (LoadBalancerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicy)(nil)).Elem()
+func (*LoadBalancerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerPolicy)(nil))
 }
 
-func (i LoadBalancerPolicy) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
+func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
 	return i.ToLoadBalancerPolicyOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerPolicy) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
+func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyOutput)
 }
 
@@ -141,7 +141,7 @@ type LoadBalancerPolicyOutput struct {
 }
 
 func (LoadBalancerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerPolicy)(nil))
 }
 
 func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {

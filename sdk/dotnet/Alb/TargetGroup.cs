@@ -91,6 +91,7 @@ namespace Pulumi.Aws.Alb
     ///  $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
     /// ```
     /// </summary>
+    [AwsResourceType("aws:alb/targetGroup:TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource
     {
         /// <summary>

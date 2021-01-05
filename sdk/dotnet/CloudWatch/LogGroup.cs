@@ -43,6 +43,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
         /// <summary>

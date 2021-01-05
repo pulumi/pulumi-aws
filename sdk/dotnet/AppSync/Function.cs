@@ -88,6 +88,7 @@ namespace Pulumi.Aws.AppSync
     ///  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appsync/function:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>

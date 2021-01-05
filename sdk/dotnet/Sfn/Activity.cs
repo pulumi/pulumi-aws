@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Sfn
     ///  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sfn/activity:Activity")]
     public partial class Activity : Pulumi.CustomResource
     {
         /// <summary>

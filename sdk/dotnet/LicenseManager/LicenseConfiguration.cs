@@ -63,6 +63,7 @@ namespace Pulumi.Aws.LicenseManager
     ///  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
     /// ```
     /// </summary>
+    [AwsResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
     public partial class LicenseConfiguration : Pulumi.CustomResource
     {
         /// <summary>

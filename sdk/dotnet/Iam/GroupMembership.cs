@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Iam
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/groupMembership:GroupMembership")]
     public partial class GroupMembership : Pulumi.CustomResource
     {
         /// <summary>

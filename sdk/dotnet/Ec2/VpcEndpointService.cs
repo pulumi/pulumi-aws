@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcEndpointService:VpcEndpointService")]
     public partial class VpcEndpointService : Pulumi.CustomResource
     {
         /// <summary>

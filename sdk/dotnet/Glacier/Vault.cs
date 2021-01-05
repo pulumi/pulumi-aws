@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Glacier
     ///  $ pulumi import aws:glacier/vault:Vault archive my_archive
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glacier/vault:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

@@ -58,6 +58,7 @@ namespace Pulumi.Aws.SecretsManager
     ///  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
     /// ```
     /// </summary>
+    [AwsResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]
     public partial class SecretPolicy : Pulumi.CustomResource
     {
         /// <summary>

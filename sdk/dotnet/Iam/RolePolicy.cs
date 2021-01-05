@@ -69,6 +69,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/rolePolicy:RolePolicy")]
     public partial class RolePolicy : Pulumi.CustomResource
     {
         /// <summary>

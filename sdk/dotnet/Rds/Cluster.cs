@@ -150,6 +150,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

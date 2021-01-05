@@ -209,15 +209,15 @@ type EndpointGroupInput interface {
 	ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput
 }
 
-func (EndpointGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointGroup)(nil)).Elem()
+func (*EndpointGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGroup)(nil))
 }
 
-func (i EndpointGroup) ToEndpointGroupOutput() EndpointGroupOutput {
+func (i *EndpointGroup) ToEndpointGroupOutput() EndpointGroupOutput {
 	return i.ToEndpointGroupOutputWithContext(context.Background())
 }
 
-func (i EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
+func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) EndpointGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupOutput)
 }
 
@@ -226,7 +226,7 @@ type EndpointGroupOutput struct {
 }
 
 func (EndpointGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointGroup)(nil))
 }
 
 func (o EndpointGroupOutput) ToEndpointGroupOutput() EndpointGroupOutput {

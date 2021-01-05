@@ -40,6 +40,7 @@ namespace Pulumi.Aws.MediaPackage
     ///  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
     /// ```
     /// </summary>
+    [AwsResourceType("aws:mediapackage/channel:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>

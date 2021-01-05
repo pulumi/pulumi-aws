@@ -71,6 +71,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

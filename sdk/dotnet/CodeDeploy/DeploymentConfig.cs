@@ -140,6 +140,7 @@ namespace Pulumi.Aws.CodeDeploy
     ///  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
     public partial class DeploymentConfig : Pulumi.CustomResource
     {
         /// <summary>

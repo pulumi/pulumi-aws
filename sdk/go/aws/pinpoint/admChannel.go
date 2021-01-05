@@ -162,15 +162,15 @@ type AdmChannelInput interface {
 	ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput
 }
 
-func (AdmChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmChannel)(nil)).Elem()
+func (*AdmChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmChannel)(nil))
 }
 
-func (i AdmChannel) ToAdmChannelOutput() AdmChannelOutput {
+func (i *AdmChannel) ToAdmChannelOutput() AdmChannelOutput {
 	return i.ToAdmChannelOutputWithContext(context.Background())
 }
 
-func (i AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
+func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
 }
 
@@ -179,7 +179,7 @@ type AdmChannelOutput struct {
 }
 
 func (AdmChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*AdmChannel)(nil))
 }
 
 func (o AdmChannelOutput) ToAdmChannelOutput() AdmChannelOutput {

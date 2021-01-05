@@ -277,15 +277,15 @@ type GlobalClusterInput interface {
 	ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput
 }
 
-func (GlobalCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalCluster)(nil)).Elem()
+func (*GlobalCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalCluster)(nil))
 }
 
-func (i GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
+func (i *GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
 	return i.ToGlobalClusterOutputWithContext(context.Background())
 }
 
-func (i GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
+func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterOutput)
 }
 
@@ -294,7 +294,7 @@ type GlobalClusterOutput struct {
 }
 
 func (GlobalClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*GlobalCluster)(nil))
 }
 
 func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {

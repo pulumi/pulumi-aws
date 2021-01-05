@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
     public partial class CodeSigningConfig : Pulumi.CustomResource
     {
         /// <summary>

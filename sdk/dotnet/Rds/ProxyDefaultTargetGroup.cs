@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")]
     public partial class ProxyDefaultTargetGroup : Pulumi.CustomResource
     {
         /// <summary>

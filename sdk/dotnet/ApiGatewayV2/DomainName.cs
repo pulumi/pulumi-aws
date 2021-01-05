@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/domainName:DomainName")]
     public partial class DomainName : Pulumi.CustomResource
     {
         /// <summary>

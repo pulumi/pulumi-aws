@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Organizations
     ///  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
         /// <summary>

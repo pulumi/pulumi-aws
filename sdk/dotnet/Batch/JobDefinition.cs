@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Batch
     ///  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
     /// ```
     /// </summary>
+    [AwsResourceType("aws:batch/jobDefinition:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>

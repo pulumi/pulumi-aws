@@ -116,15 +116,15 @@ type NotebookInstanceLifecycleConfigurationInput interface {
 	ToNotebookInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationOutput
 }
 
-func (NotebookInstanceLifecycleConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstanceLifecycleConfiguration)(nil)).Elem()
+func (*NotebookInstanceLifecycleConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfiguration)(nil))
 }
 
-func (i NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConfigurationOutput() NotebookInstanceLifecycleConfigurationOutput {
+func (i *NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConfigurationOutput() NotebookInstanceLifecycleConfigurationOutput {
 	return i.ToNotebookInstanceLifecycleConfigurationOutputWithContext(context.Background())
 }
 
-func (i NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationOutput {
+func (i *NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigurationOutput)
 }
 
@@ -133,7 +133,7 @@ type NotebookInstanceLifecycleConfigurationOutput struct {
 }
 
 func (NotebookInstanceLifecycleConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstanceLifecycleConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfiguration)(nil))
 }
 
 func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycleConfigurationOutput() NotebookInstanceLifecycleConfigurationOutput {

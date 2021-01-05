@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
         /// <summary>

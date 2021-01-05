@@ -170,15 +170,15 @@ type InstanceProfileInput interface {
 	ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput
 }
 
-func (InstanceProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfile)(nil)).Elem()
+func (*InstanceProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfile)(nil))
 }
 
-func (i InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
+func (i *InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
 	return i.ToInstanceProfileOutputWithContext(context.Background())
 }
 
-func (i InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
+func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
 }
 
@@ -187,7 +187,7 @@ type InstanceProfileOutput struct {
 }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*InstanceProfile)(nil))
 }
 
 func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {

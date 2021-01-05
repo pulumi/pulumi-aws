@@ -107,6 +107,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/queryLog:QueryLog")]
     public partial class QueryLog : Pulumi.CustomResource
     {
         /// <summary>

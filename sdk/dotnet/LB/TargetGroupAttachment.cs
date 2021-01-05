@@ -87,6 +87,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// Target Group Attachments cannot be imported.
     /// </summary>
+    [AwsResourceType("aws:lb/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

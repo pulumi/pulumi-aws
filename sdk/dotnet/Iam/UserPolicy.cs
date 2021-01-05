@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/userPolicy:UserPolicy")]
     public partial class UserPolicy : Pulumi.CustomResource
     {
         /// <summary>

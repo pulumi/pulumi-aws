@@ -192,15 +192,15 @@ type EventPermissionInput interface {
 	ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput
 }
 
-func (EventPermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventPermission)(nil)).Elem()
+func (*EventPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventPermission)(nil))
 }
 
-func (i EventPermission) ToEventPermissionOutput() EventPermissionOutput {
+func (i *EventPermission) ToEventPermissionOutput() EventPermissionOutput {
 	return i.ToEventPermissionOutputWithContext(context.Background())
 }
 
-func (i EventPermission) ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput {
+func (i *EventPermission) ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionOutput)
 }
 
@@ -209,7 +209,7 @@ type EventPermissionOutput struct {
 }
 
 func (EventPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventPermissionOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventPermission)(nil))
 }
 
 func (o EventPermissionOutput) ToEventPermissionOutput() EventPermissionOutput {

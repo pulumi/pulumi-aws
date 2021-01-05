@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/carrierGateway:CarrierGateway")]
     public partial class CarrierGateway : Pulumi.CustomResource
     {
         /// <summary>

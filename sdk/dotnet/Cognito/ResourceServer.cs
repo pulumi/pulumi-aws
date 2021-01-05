@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/resourceServer:ResourceServer example xxx_yyyyy|https://example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/resourceServer:ResourceServer")]
     public partial class ResourceServer : Pulumi.CustomResource
     {
         /// <summary>

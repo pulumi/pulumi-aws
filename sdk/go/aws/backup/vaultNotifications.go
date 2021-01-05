@@ -169,15 +169,15 @@ type VaultNotificationsInput interface {
 	ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput
 }
 
-func (VaultNotifications) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultNotifications)(nil)).Elem()
+func (*VaultNotifications) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultNotifications)(nil))
 }
 
-func (i VaultNotifications) ToVaultNotificationsOutput() VaultNotificationsOutput {
+func (i *VaultNotifications) ToVaultNotificationsOutput() VaultNotificationsOutput {
 	return i.ToVaultNotificationsOutputWithContext(context.Background())
 }
 
-func (i VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
+func (i *VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsOutput)
 }
 
@@ -186,7 +186,7 @@ type VaultNotificationsOutput struct {
 }
 
 func (VaultNotificationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultNotificationsOutput)(nil)).Elem()
+	return reflect.TypeOf((*VaultNotifications)(nil))
 }
 
 func (o VaultNotificationsOutput) ToVaultNotificationsOutput() VaultNotificationsOutput {

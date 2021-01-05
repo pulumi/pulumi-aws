@@ -244,15 +244,15 @@ type AccessPointInput interface {
 	ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput
 }
 
-func (AccessPoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPoint)(nil)).Elem()
+func (*AccessPoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPoint)(nil))
 }
 
-func (i AccessPoint) ToAccessPointOutput() AccessPointOutput {
+func (i *AccessPoint) ToAccessPointOutput() AccessPointOutput {
 	return i.ToAccessPointOutputWithContext(context.Background())
 }
 
-func (i AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
+func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
 }
 
@@ -261,7 +261,7 @@ type AccessPointOutput struct {
 }
 
 func (AccessPointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccessPoint)(nil))
 }
 
 func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {

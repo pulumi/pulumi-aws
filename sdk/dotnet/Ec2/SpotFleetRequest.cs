@@ -228,6 +228,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/spotFleetRequest:SpotFleetRequest")]
     public partial class SpotFleetRequest : Pulumi.CustomResource
     {
         /// <summary>

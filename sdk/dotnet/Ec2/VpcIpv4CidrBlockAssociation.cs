@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]
     public partial class VpcIpv4CidrBlockAssociation : Pulumi.CustomResource
     {
         /// <summary>

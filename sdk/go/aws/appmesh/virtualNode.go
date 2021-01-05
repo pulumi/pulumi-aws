@@ -368,15 +368,15 @@ type VirtualNodeInput interface {
 	ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput
 }
 
-func (VirtualNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNode)(nil)).Elem()
+func (*VirtualNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNode)(nil))
 }
 
-func (i VirtualNode) ToVirtualNodeOutput() VirtualNodeOutput {
+func (i *VirtualNode) ToVirtualNodeOutput() VirtualNodeOutput {
 	return i.ToVirtualNodeOutputWithContext(context.Background())
 }
 
-func (i VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
+func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
 }
 
@@ -385,7 +385,7 @@ type VirtualNodeOutput struct {
 }
 
 func (VirtualNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNode)(nil))
 }
 
 func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {

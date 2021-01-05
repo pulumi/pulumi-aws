@@ -18,6 +18,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
     public partial class BucketOwnershipControls : Pulumi.CustomResource
     {
         /// <summary>

@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Iot
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
         /// <summary>

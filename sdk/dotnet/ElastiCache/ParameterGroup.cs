@@ -54,6 +54,7 @@ namespace Pulumi.Aws.ElastiCache
     ///  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticache/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

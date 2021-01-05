@@ -366,15 +366,15 @@ type DirectoryInput interface {
 	ToDirectoryOutputWithContext(ctx context.Context) DirectoryOutput
 }
 
-func (Directory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Directory)(nil)).Elem()
+func (*Directory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Directory)(nil))
 }
 
-func (i Directory) ToDirectoryOutput() DirectoryOutput {
+func (i *Directory) ToDirectoryOutput() DirectoryOutput {
 	return i.ToDirectoryOutputWithContext(context.Background())
 }
 
-func (i Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryOutput {
+func (i *Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryOutput)
 }
 
@@ -383,7 +383,7 @@ type DirectoryOutput struct {
 }
 
 func (DirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Directory)(nil))
 }
 
 func (o DirectoryOutput) ToDirectoryOutput() DirectoryOutput {

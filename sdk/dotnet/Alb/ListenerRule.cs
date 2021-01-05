@@ -284,6 +284,7 @@ namespace Pulumi.Aws.Alb
     ///  $ pulumi import aws:alb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
     /// ```
     /// </summary>
+    [AwsResourceType("aws:alb/listenerRule:ListenerRule")]
     public partial class ListenerRule : Pulumi.CustomResource
     {
         /// <summary>

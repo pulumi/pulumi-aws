@@ -148,15 +148,15 @@ type ContainerPolicyInput interface {
 	ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput
 }
 
-func (ContainerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPolicy)(nil)).Elem()
+func (*ContainerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPolicy)(nil))
 }
 
-func (i ContainerPolicy) ToContainerPolicyOutput() ContainerPolicyOutput {
+func (i *ContainerPolicy) ToContainerPolicyOutput() ContainerPolicyOutput {
 	return i.ToContainerPolicyOutputWithContext(context.Background())
 }
 
-func (i ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput {
+func (i *ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyOutput)
 }
 
@@ -165,7 +165,7 @@ type ContainerPolicyOutput struct {
 }
 
 func (ContainerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ContainerPolicy)(nil))
 }
 
 func (o ContainerPolicyOutput) ToContainerPolicyOutput() ContainerPolicyOutput {

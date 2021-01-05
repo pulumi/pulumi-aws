@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Emr
     ///  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_greoup j-123456ABCDEF/ig-15EK4O09RZLNR
     /// ```
     /// </summary>
+    [AwsResourceType("aws:emr/instanceGroup:InstanceGroup")]
     public partial class InstanceGroup : Pulumi.CustomResource
     {
         /// <summary>

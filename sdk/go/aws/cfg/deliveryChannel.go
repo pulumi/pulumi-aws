@@ -194,15 +194,15 @@ type DeliveryChannelInput interface {
 	ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput
 }
 
-func (DeliveryChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryChannel)(nil)).Elem()
+func (*DeliveryChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannel)(nil))
 }
 
-func (i DeliveryChannel) ToDeliveryChannelOutput() DeliveryChannelOutput {
+func (i *DeliveryChannel) ToDeliveryChannelOutput() DeliveryChannelOutput {
 	return i.ToDeliveryChannelOutputWithContext(context.Background())
 }
 
-func (i DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
+func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelOutput)
 }
 
@@ -211,7 +211,7 @@ type DeliveryChannelOutput struct {
 }
 
 func (DeliveryChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeliveryChannel)(nil))
 }
 
 func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {

@@ -438,15 +438,15 @@ type ListenerInput interface {
 	ToListenerOutputWithContext(ctx context.Context) ListenerOutput
 }
 
-func (Listener) ElementType() reflect.Type {
-	return reflect.TypeOf((*Listener)(nil)).Elem()
+func (*Listener) ElementType() reflect.Type {
+	return reflect.TypeOf((*Listener)(nil))
 }
 
-func (i Listener) ToListenerOutput() ListenerOutput {
+func (i *Listener) ToListenerOutput() ListenerOutput {
 	return i.ToListenerOutputWithContext(context.Background())
 }
 
-func (i Listener) ToListenerOutputWithContext(ctx context.Context) ListenerOutput {
+func (i *Listener) ToListenerOutputWithContext(ctx context.Context) ListenerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerOutput)
 }
 
@@ -455,7 +455,7 @@ type ListenerOutput struct {
 }
 
 func (ListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Listener)(nil))
 }
 
 func (o ListenerOutput) ToListenerOutput() ListenerOutput {

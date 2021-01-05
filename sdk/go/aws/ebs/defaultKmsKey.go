@@ -124,15 +124,15 @@ type DefaultKmsKeyInput interface {
 	ToDefaultKmsKeyOutputWithContext(ctx context.Context) DefaultKmsKeyOutput
 }
 
-func (DefaultKmsKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultKmsKey)(nil)).Elem()
+func (*DefaultKmsKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultKmsKey)(nil))
 }
 
-func (i DefaultKmsKey) ToDefaultKmsKeyOutput() DefaultKmsKeyOutput {
+func (i *DefaultKmsKey) ToDefaultKmsKeyOutput() DefaultKmsKeyOutput {
 	return i.ToDefaultKmsKeyOutputWithContext(context.Background())
 }
 
-func (i DefaultKmsKey) ToDefaultKmsKeyOutputWithContext(ctx context.Context) DefaultKmsKeyOutput {
+func (i *DefaultKmsKey) ToDefaultKmsKeyOutputWithContext(ctx context.Context) DefaultKmsKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyOutput)
 }
 
@@ -141,7 +141,7 @@ type DefaultKmsKeyOutput struct {
 }
 
 func (DefaultKmsKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultKmsKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*DefaultKmsKey)(nil))
 }
 
 func (o DefaultKmsKeyOutput) ToDefaultKmsKeyOutput() DefaultKmsKeyOutput {

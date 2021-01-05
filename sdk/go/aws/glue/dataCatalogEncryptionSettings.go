@@ -136,15 +136,15 @@ type DataCatalogEncryptionSettingsInput interface {
 	ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput
 }
 
-func (DataCatalogEncryptionSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil)).Elem()
+func (*DataCatalogEncryptionSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
 }
 
-func (i DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {
+func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {
 	return i.ToDataCatalogEncryptionSettingsOutputWithContext(context.Background())
 }
 
-func (i DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
+func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsOutput)
 }
 
@@ -153,7 +153,7 @@ type DataCatalogEncryptionSettingsOutput struct {
 }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettingsOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
 }
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {

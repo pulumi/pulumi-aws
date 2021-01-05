@@ -99,6 +99,7 @@ namespace Pulumi.Aws.Glacier
     ///  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glacier/vaultLock:VaultLock")]
     public partial class VaultLock : Pulumi.CustomResource
     {
         /// <summary>

@@ -195,15 +195,15 @@ type BgpPeerInput interface {
 	ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput
 }
 
-func (BgpPeer) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpPeer)(nil)).Elem()
+func (*BgpPeer) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeer)(nil))
 }
 
-func (i BgpPeer) ToBgpPeerOutput() BgpPeerOutput {
+func (i *BgpPeer) ToBgpPeerOutput() BgpPeerOutput {
 	return i.ToBgpPeerOutputWithContext(context.Background())
 }
 
-func (i BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
+func (i *BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerOutput)
 }
 
@@ -212,7 +212,7 @@ type BgpPeerOutput struct {
 }
 
 func (BgpPeerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpPeerOutput)(nil)).Elem()
+	return reflect.TypeOf((*BgpPeer)(nil))
 }
 
 func (o BgpPeerOutput) ToBgpPeerOutput() BgpPeerOutput {

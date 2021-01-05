@@ -44,6 +44,7 @@ namespace Pulumi.Aws.AppSync
     ///  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appsync/apiKey:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         /// <summary>

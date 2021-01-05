@@ -169,15 +169,15 @@ type ResolverQueryLogConfigInput interface {
 	ToResolverQueryLogConfigOutputWithContext(ctx context.Context) ResolverQueryLogConfigOutput
 }
 
-func (ResolverQueryLogConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLogConfig)(nil)).Elem()
+func (*ResolverQueryLogConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverQueryLogConfig)(nil))
 }
 
-func (i ResolverQueryLogConfig) ToResolverQueryLogConfigOutput() ResolverQueryLogConfigOutput {
+func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigOutput() ResolverQueryLogConfigOutput {
 	return i.ToResolverQueryLogConfigOutputWithContext(context.Background())
 }
 
-func (i ResolverQueryLogConfig) ToResolverQueryLogConfigOutputWithContext(ctx context.Context) ResolverQueryLogConfigOutput {
+func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigOutputWithContext(ctx context.Context) ResolverQueryLogConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigOutput)
 }
 
@@ -186,7 +186,7 @@ type ResolverQueryLogConfigOutput struct {
 }
 
 func (ResolverQueryLogConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLogConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResolverQueryLogConfig)(nil))
 }
 
 func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutput() ResolverQueryLogConfigOutput {

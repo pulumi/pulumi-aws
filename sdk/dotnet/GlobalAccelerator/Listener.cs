@@ -60,6 +60,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:globalaccelerator/listener:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>

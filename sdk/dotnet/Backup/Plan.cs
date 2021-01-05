@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/plan:Plan")]
     public partial class Plan : Pulumi.CustomResource
     {
         /// <summary>

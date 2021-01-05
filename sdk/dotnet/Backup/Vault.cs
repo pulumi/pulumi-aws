@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/vault:Vault test-vault TestVault
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/vault:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

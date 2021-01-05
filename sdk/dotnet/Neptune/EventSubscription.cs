@@ -88,6 +88,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         [Output("arn")]

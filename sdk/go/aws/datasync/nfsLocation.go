@@ -170,15 +170,15 @@ type NfsLocationInput interface {
 	ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput
 }
 
-func (NfsLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*NfsLocation)(nil)).Elem()
+func (*NfsLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsLocation)(nil))
 }
 
-func (i NfsLocation) ToNfsLocationOutput() NfsLocationOutput {
+func (i *NfsLocation) ToNfsLocationOutput() NfsLocationOutput {
 	return i.ToNfsLocationOutputWithContext(context.Background())
 }
 
-func (i NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput {
+func (i *NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOutput)
 }
 
@@ -187,7 +187,7 @@ type NfsLocationOutput struct {
 }
 
 func (NfsLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NfsLocationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NfsLocation)(nil))
 }
 
 func (o NfsLocationOutput) ToNfsLocationOutput() NfsLocationOutput {

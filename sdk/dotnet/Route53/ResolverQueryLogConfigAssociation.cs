@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
     public partial class ResolverQueryLogConfigAssociation : Pulumi.CustomResource
     {
         /// <summary>

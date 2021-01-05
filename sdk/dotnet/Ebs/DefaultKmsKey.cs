@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Ebs
     ///  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
     public partial class DefaultKmsKey : Pulumi.CustomResource
     {
         /// <summary>

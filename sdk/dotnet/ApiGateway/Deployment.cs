@@ -71,6 +71,7 @@ namespace Pulumi.Aws.ApiGateway
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/deployment:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
         /// <summary>

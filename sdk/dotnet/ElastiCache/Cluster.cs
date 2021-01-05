@@ -96,6 +96,7 @@ namespace Pulumi.Aws.ElastiCache
     ///  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticache/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

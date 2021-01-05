@@ -166,15 +166,15 @@ type S3LocationInput interface {
 	ToS3LocationOutputWithContext(ctx context.Context) S3LocationOutput
 }
 
-func (S3Location) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3Location)(nil)).Elem()
+func (*S3Location) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3Location)(nil))
 }
 
-func (i S3Location) ToS3LocationOutput() S3LocationOutput {
+func (i *S3Location) ToS3LocationOutput() S3LocationOutput {
 	return i.ToS3LocationOutputWithContext(context.Background())
 }
 
-func (i S3Location) ToS3LocationOutputWithContext(ctx context.Context) S3LocationOutput {
+func (i *S3Location) ToS3LocationOutputWithContext(ctx context.Context) S3LocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationOutput)
 }
 
@@ -183,7 +183,7 @@ type S3LocationOutput struct {
 }
 
 func (S3LocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3LocationOutput)(nil)).Elem()
+	return reflect.TypeOf((*S3Location)(nil))
 }
 
 func (o S3LocationOutput) ToS3LocationOutput() S3LocationOutput {

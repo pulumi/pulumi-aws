@@ -214,6 +214,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/crawler:Crawler")]
     public partial class Crawler : Pulumi.CustomResource
     {
         /// <summary>

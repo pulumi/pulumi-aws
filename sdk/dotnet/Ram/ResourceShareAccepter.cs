@@ -67,6 +67,7 @@ namespace Pulumi.Aws.Ram
     ///  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ram/resourceShareAccepter:ResourceShareAccepter")]
     public partial class ResourceShareAccepter : Pulumi.CustomResource
     {
         /// <summary>

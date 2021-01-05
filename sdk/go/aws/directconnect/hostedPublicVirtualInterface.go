@@ -247,15 +247,15 @@ type HostedPublicVirtualInterfaceInput interface {
 	ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput
 }
 
-func (HostedPublicVirtualInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedPublicVirtualInterface)(nil)).Elem()
+func (*HostedPublicVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPublicVirtualInterface)(nil))
 }
 
-func (i HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput {
+func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput {
 	return i.ToHostedPublicVirtualInterfaceOutputWithContext(context.Background())
 }
 
-func (i HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput {
+func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceOutput)
 }
 
@@ -264,7 +264,7 @@ type HostedPublicVirtualInterfaceOutput struct {
 }
 
 func (HostedPublicVirtualInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedPublicVirtualInterfaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*HostedPublicVirtualInterface)(nil))
 }
 
 func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput {

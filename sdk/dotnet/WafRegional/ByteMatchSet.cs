@@ -52,6 +52,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/byteMatchSet:ByteMatchSet")]
     public partial class ByteMatchSet : Pulumi.CustomResource
     {
         /// <summary>

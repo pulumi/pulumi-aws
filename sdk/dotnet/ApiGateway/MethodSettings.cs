@@ -99,6 +99,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/methodSettings:MethodSettings")]
     public partial class MethodSettings : Pulumi.CustomResource
     {
         /// <summary>

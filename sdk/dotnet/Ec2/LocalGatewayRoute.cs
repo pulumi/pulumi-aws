@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
     public partial class LocalGatewayRoute : Pulumi.CustomResource
     {
         /// <summary>

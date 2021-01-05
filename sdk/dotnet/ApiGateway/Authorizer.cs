@@ -20,6 +20,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/authorizer:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>

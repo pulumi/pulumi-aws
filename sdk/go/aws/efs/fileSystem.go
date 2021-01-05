@@ -237,15 +237,15 @@ type FileSystemInput interface {
 	ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput
 }
 
-func (FileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystem)(nil)).Elem()
+func (*FileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystem)(nil))
 }
 
-func (i FileSystem) ToFileSystemOutput() FileSystemOutput {
+func (i *FileSystem) ToFileSystemOutput() FileSystemOutput {
 	return i.ToFileSystemOutputWithContext(context.Background())
 }
 
-func (i FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
+func (i *FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOutput)
 }
 
@@ -254,7 +254,7 @@ type FileSystemOutput struct {
 }
 
 func (FileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemOutput)(nil)).Elem()
+	return reflect.TypeOf((*FileSystem)(nil))
 }
 
 func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {

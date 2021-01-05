@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
     public partial class DefaultVpcDhcpOptions : Pulumi.CustomResource
     {
         /// <summary>

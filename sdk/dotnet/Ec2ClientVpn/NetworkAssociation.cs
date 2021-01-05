@@ -66,6 +66,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///  $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
     public partial class NetworkAssociation : Pulumi.CustomResource
     {
         /// <summary>

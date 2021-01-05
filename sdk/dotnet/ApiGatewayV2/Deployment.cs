@@ -46,6 +46,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     ///  The `triggers` argument cannot be imported.
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/deployment:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
         /// <summary>

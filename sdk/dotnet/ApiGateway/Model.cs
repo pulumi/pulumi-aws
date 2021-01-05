@@ -49,6 +49,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/model:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>

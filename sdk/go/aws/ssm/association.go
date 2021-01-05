@@ -206,15 +206,15 @@ type AssociationInput interface {
 	ToAssociationOutputWithContext(ctx context.Context) AssociationOutput
 }
 
-func (Association) ElementType() reflect.Type {
-	return reflect.TypeOf((*Association)(nil)).Elem()
+func (*Association) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil))
 }
 
-func (i Association) ToAssociationOutput() AssociationOutput {
+func (i *Association) ToAssociationOutput() AssociationOutput {
 	return i.ToAssociationOutputWithContext(context.Background())
 }
 
-func (i Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+func (i *Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
@@ -223,7 +223,7 @@ type AssociationOutput struct {
 }
 
 func (AssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Association)(nil))
 }
 
 func (o AssociationOutput) ToAssociationOutput() AssociationOutput {

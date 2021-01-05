@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Quicksight
     ///  $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:quicksight/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

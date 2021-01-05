@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2transitgateway/routeTable:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>

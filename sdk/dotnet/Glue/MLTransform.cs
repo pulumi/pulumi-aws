@@ -158,6 +158,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/mLTransform:MLTransform")]
     public partial class MLTransform : Pulumi.CustomResource
     {
         /// <summary>

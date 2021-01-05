@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
     public partial class MaintenanceWindow : Pulumi.CustomResource
     {
         /// <summary>

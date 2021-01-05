@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/regionSettings:RegionSettings")]
     public partial class RegionSettings : Pulumi.CustomResource
     {
         /// <summary>

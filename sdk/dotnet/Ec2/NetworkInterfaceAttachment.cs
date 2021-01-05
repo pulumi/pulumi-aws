@@ -33,6 +33,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : Pulumi.CustomResource
     {
         /// <summary>

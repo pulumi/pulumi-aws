@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")]
     public partial class PeeringAttachment : Pulumi.CustomResource
     {
         /// <summary>

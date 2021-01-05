@@ -300,15 +300,15 @@ type NodejsAppLayerInput interface {
 	ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput
 }
 
-func (NodejsAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodejsAppLayer)(nil)).Elem()
+func (*NodejsAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayer)(nil))
 }
 
-func (i NodejsAppLayer) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
+func (i *NodejsAppLayer) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
 	return i.ToNodejsAppLayerOutputWithContext(context.Background())
 }
 
-func (i NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
+func (i *NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
 }
 
@@ -317,7 +317,7 @@ type NodejsAppLayerOutput struct {
 }
 
 func (NodejsAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodejsAppLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*NodejsAppLayer)(nil))
 }
 
 func (o NodejsAppLayerOutput) ToNodejsAppLayerOutput() NodejsAppLayerOutput {

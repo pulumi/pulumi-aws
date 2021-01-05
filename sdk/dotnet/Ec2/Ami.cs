@@ -59,6 +59,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/ami:Ami example ami-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/ami:Ami")]
     public partial class Ami : Pulumi.CustomResource
     {
         /// <summary>

@@ -77,4 +77,11 @@ namespace Pulumi.Aws
             }
         }
     }
+
+    internal sealed class AwsResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public AwsResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

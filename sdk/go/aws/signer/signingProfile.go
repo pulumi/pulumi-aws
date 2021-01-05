@@ -203,15 +203,15 @@ type SigningProfileInput interface {
 	ToSigningProfileOutputWithContext(ctx context.Context) SigningProfileOutput
 }
 
-func (SigningProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfile)(nil)).Elem()
+func (*SigningProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningProfile)(nil))
 }
 
-func (i SigningProfile) ToSigningProfileOutput() SigningProfileOutput {
+func (i *SigningProfile) ToSigningProfileOutput() SigningProfileOutput {
 	return i.ToSigningProfileOutputWithContext(context.Background())
 }
 
-func (i SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) SigningProfileOutput {
+func (i *SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) SigningProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileOutput)
 }
 
@@ -220,7 +220,7 @@ type SigningProfileOutput struct {
 }
 
 func (SigningProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*SigningProfile)(nil))
 }
 
 func (o SigningProfileOutput) ToSigningProfileOutput() SigningProfileOutput {

@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/samlProvider:SamlProvider")]
     public partial class SamlProvider : Pulumi.CustomResource
     {
         /// <summary>

@@ -218,15 +218,15 @@ type MountTargetInput interface {
 	ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput
 }
 
-func (MountTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTarget)(nil)).Elem()
+func (*MountTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTarget)(nil))
 }
 
-func (i MountTarget) ToMountTargetOutput() MountTargetOutput {
+func (i *MountTarget) ToMountTargetOutput() MountTargetOutput {
 	return i.ToMountTargetOutputWithContext(context.Background())
 }
 
-func (i MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
+func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetOutput)
 }
 
@@ -235,7 +235,7 @@ type MountTargetOutput struct {
 }
 
 func (MountTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*MountTarget)(nil))
 }
 
 func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {

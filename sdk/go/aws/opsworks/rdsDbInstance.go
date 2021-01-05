@@ -153,15 +153,15 @@ type RdsDbInstanceInput interface {
 	ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput
 }
 
-func (RdsDbInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*RdsDbInstance)(nil)).Elem()
+func (*RdsDbInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*RdsDbInstance)(nil))
 }
 
-func (i RdsDbInstance) ToRdsDbInstanceOutput() RdsDbInstanceOutput {
+func (i *RdsDbInstance) ToRdsDbInstanceOutput() RdsDbInstanceOutput {
 	return i.ToRdsDbInstanceOutputWithContext(context.Background())
 }
 
-func (i RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput {
+func (i *RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceOutput)
 }
 
@@ -170,7 +170,7 @@ type RdsDbInstanceOutput struct {
 }
 
 func (RdsDbInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RdsDbInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*RdsDbInstance)(nil))
 }
 
 func (o RdsDbInstanceOutput) ToRdsDbInstanceOutput() RdsDbInstanceOutput {

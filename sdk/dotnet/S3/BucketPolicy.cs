@@ -60,6 +60,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]
     public partial class BucketPolicy : Pulumi.CustomResource
     {
         /// <summary>

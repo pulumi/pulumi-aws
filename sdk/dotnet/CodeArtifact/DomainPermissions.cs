@@ -60,6 +60,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]
     public partial class DomainPermissions : Pulumi.CustomResource
     {
         /// <summary>

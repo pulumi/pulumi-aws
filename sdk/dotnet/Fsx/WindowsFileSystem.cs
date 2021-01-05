@@ -102,6 +102,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:fsx/windowsFileSystem:WindowsFileSystem")]
     public partial class WindowsFileSystem : Pulumi.CustomResource
     {
         /// <summary>

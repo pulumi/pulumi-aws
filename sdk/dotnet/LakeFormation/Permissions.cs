@@ -42,6 +42,7 @@ namespace Pulumi.Aws.LakeFormation
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : Pulumi.CustomResource
     {
         /// <summary>

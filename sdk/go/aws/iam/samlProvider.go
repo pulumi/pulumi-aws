@@ -116,15 +116,15 @@ type SamlProviderInput interface {
 	ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput
 }
 
-func (SamlProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlProvider)(nil)).Elem()
+func (*SamlProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProvider)(nil))
 }
 
-func (i SamlProvider) ToSamlProviderOutput() SamlProviderOutput {
+func (i *SamlProvider) ToSamlProviderOutput() SamlProviderOutput {
 	return i.ToSamlProviderOutputWithContext(context.Background())
 }
 
-func (i SamlProvider) ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput {
+func (i *SamlProvider) ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderOutput)
 }
 
@@ -133,7 +133,7 @@ type SamlProviderOutput struct {
 }
 
 func (SamlProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamlProvider)(nil))
 }
 
 func (o SamlProviderOutput) ToSamlProviderOutput() SamlProviderOutput {

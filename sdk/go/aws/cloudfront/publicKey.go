@@ -127,15 +127,15 @@ type PublicKeyInput interface {
 	ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput
 }
 
-func (PublicKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKey)(nil)).Elem()
+func (*PublicKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKey)(nil))
 }
 
-func (i PublicKey) ToPublicKeyOutput() PublicKeyOutput {
+func (i *PublicKey) ToPublicKeyOutput() PublicKeyOutput {
 	return i.ToPublicKeyOutputWithContext(context.Background())
 }
 
-func (i PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
+func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyOutput)
 }
 
@@ -144,7 +144,7 @@ type PublicKeyOutput struct {
 }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicKey)(nil))
 }
 
 func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {

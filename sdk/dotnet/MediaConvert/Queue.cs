@@ -38,6 +38,7 @@ namespace Pulumi.Aws.MediaConvert
     ///  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
     /// ```
     /// </summary>
+    [AwsResourceType("aws:mediaconvert/queue:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

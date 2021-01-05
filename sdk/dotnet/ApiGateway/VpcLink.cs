@@ -58,6 +58,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/vpcLink:VpcLink example &lt;vpc_link_id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]
     public partial class VpcLink : Pulumi.CustomResource
     {
         [Output("arn")]

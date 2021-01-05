@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Elb
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")]
     public partial class LoadBalancerCookieStickinessPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -185,6 +185,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/trigger:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>

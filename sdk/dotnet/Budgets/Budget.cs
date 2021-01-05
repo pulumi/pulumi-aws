@@ -176,6 +176,7 @@ namespace Pulumi.Aws.Budgets
     ///  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
     /// ```
     /// </summary>
+    [AwsResourceType("aws:budgets/budget:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>

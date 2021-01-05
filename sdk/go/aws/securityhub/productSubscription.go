@@ -136,15 +136,15 @@ type ProductSubscriptionInput interface {
 	ToProductSubscriptionOutputWithContext(ctx context.Context) ProductSubscriptionOutput
 }
 
-func (ProductSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSubscription)(nil)).Elem()
+func (*ProductSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductSubscription)(nil))
 }
 
-func (i ProductSubscription) ToProductSubscriptionOutput() ProductSubscriptionOutput {
+func (i *ProductSubscription) ToProductSubscriptionOutput() ProductSubscriptionOutput {
 	return i.ToProductSubscriptionOutputWithContext(context.Background())
 }
 
-func (i ProductSubscription) ToProductSubscriptionOutputWithContext(ctx context.Context) ProductSubscriptionOutput {
+func (i *ProductSubscription) ToProductSubscriptionOutputWithContext(ctx context.Context) ProductSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionOutput)
 }
 
@@ -153,7 +153,7 @@ type ProductSubscriptionOutput struct {
 }
 
 func (ProductSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProductSubscription)(nil))
 }
 
 func (o ProductSubscriptionOutput) ToProductSubscriptionOutput() ProductSubscriptionOutput {

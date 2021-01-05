@@ -27,6 +27,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>

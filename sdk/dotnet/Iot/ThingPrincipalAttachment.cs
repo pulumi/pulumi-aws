@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Iot
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
     public partial class ThingPrincipalAttachment : Pulumi.CustomResource
     {
         /// <summary>

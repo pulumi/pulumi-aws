@@ -31,6 +31,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/memcachedLayer:MemcachedLayer")]
     public partial class MemcachedLayer : Pulumi.CustomResource
     {
         /// <summary>

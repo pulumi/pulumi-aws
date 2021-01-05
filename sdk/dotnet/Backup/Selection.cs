@@ -119,6 +119,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/selection:Selection")]
     public partial class Selection : Pulumi.CustomResource
     {
         /// <summary>

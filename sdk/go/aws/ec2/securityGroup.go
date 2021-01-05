@@ -279,15 +279,15 @@ type SecurityGroupInput interface {
 	ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput
 }
 
-func (SecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroup)(nil)).Elem()
+func (*SecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroup)(nil))
 }
 
-func (i SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
+func (i *SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
 	return i.ToSecurityGroupOutputWithContext(context.Background())
 }
 
-func (i SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
+func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
 }
 
@@ -296,7 +296,7 @@ type SecurityGroupOutput struct {
 }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityGroup)(nil))
 }
 
 func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {

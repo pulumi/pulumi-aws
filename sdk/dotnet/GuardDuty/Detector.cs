@@ -41,6 +41,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/detector:Detector")]
     public partial class Detector : Pulumi.CustomResource
     {
         /// <summary>

@@ -133,15 +133,15 @@ type UploadBufferInput interface {
 	ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput
 }
 
-func (UploadBuffer) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadBuffer)(nil)).Elem()
+func (*UploadBuffer) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadBuffer)(nil))
 }
 
-func (i UploadBuffer) ToUploadBufferOutput() UploadBufferOutput {
+func (i *UploadBuffer) ToUploadBufferOutput() UploadBufferOutput {
 	return i.ToUploadBufferOutputWithContext(context.Background())
 }
 
-func (i UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
+func (i *UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferOutput)
 }
 
@@ -150,7 +150,7 @@ type UploadBufferOutput struct {
 }
 
 func (UploadBufferOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadBufferOutput)(nil)).Elem()
+	return reflect.TypeOf((*UploadBuffer)(nil))
 }
 
 func (o UploadBufferOutput) ToUploadBufferOutput() UploadBufferOutput {

@@ -164,15 +164,15 @@ type UserGroupMembershipInput interface {
 	ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput
 }
 
-func (UserGroupMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupMembership)(nil)).Elem()
+func (*UserGroupMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupMembership)(nil))
 }
 
-func (i UserGroupMembership) ToUserGroupMembershipOutput() UserGroupMembershipOutput {
+func (i *UserGroupMembership) ToUserGroupMembershipOutput() UserGroupMembershipOutput {
 	return i.ToUserGroupMembershipOutputWithContext(context.Background())
 }
 
-func (i UserGroupMembership) ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput {
+func (i *UserGroupMembership) ToUserGroupMembershipOutputWithContext(ctx context.Context) UserGroupMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMembershipOutput)
 }
 
@@ -181,7 +181,7 @@ type UserGroupMembershipOutput struct {
 }
 
 func (UserGroupMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupMembershipOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserGroupMembership)(nil))
 }
 
 func (o UserGroupMembershipOutput) ToUserGroupMembershipOutput() UserGroupMembershipOutput {

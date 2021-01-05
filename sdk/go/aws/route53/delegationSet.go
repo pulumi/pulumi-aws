@@ -139,15 +139,15 @@ type DelegationSetInput interface {
 	ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput
 }
 
-func (DelegationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegationSet)(nil)).Elem()
+func (*DelegationSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSet)(nil))
 }
 
-func (i DelegationSet) ToDelegationSetOutput() DelegationSetOutput {
+func (i *DelegationSet) ToDelegationSetOutput() DelegationSetOutput {
 	return i.ToDelegationSetOutputWithContext(context.Background())
 }
 
-func (i DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
+func (i *DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetOutput)
 }
 
@@ -156,7 +156,7 @@ type DelegationSetOutput struct {
 }
 
 func (DelegationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegationSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*DelegationSet)(nil))
 }
 
 func (o DelegationSetOutput) ToDelegationSetOutput() DelegationSetOutput {

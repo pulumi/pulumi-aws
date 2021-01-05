@@ -474,6 +474,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
     /// </summary>
+    [AwsResourceType("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")]
     public partial class FirehoseDeliveryStream : Pulumi.CustomResource
     {
         /// <summary>

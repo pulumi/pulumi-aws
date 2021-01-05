@@ -81,6 +81,7 @@ namespace Pulumi.Aws.AutoScaling
     ///  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]
     public partial class LifecycleHook : Pulumi.CustomResource
     {
         /// <summary>

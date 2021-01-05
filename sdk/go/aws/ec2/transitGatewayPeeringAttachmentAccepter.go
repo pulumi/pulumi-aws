@@ -151,15 +151,15 @@ type TransitGatewayPeeringAttachmentAccepterInput interface {
 	ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterOutput
 }
 
-func (TransitGatewayPeeringAttachmentAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepter)(nil)).Elem()
+func (*TransitGatewayPeeringAttachmentAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepter)(nil))
 }
 
-func (i TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterOutput() TransitGatewayPeeringAttachmentAccepterOutput {
+func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterOutput() TransitGatewayPeeringAttachmentAccepterOutput {
 	return i.ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(context.Background())
 }
 
-func (i TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterOutput {
+func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterOutput)
 }
 
@@ -168,7 +168,7 @@ type TransitGatewayPeeringAttachmentAccepterOutput struct {
 }
 
 func (TransitGatewayPeeringAttachmentAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepterOutput)(nil)).Elem()
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepter)(nil))
 }
 
 func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAttachmentAccepterOutput() TransitGatewayPeeringAttachmentAccepterOutput {

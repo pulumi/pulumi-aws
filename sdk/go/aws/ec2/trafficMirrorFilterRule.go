@@ -261,15 +261,15 @@ type TrafficMirrorFilterRuleInput interface {
 	ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput
 }
 
-func (TrafficMirrorFilterRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil)).Elem()
+func (*TrafficMirrorFilterRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil))
 }
 
-func (i TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {
+func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {
 	return i.ToTrafficMirrorFilterRuleOutputWithContext(context.Background())
 }
 
-func (i TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
+func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleOutput)
 }
 
@@ -278,7 +278,7 @@ type TrafficMirrorFilterRuleOutput struct {
 }
 
 func (TrafficMirrorFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorFilterRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil))
 }
 
 func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {

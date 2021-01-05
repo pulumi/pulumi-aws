@@ -140,6 +140,7 @@ namespace Pulumi.Aws.Ecs
     ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecs/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

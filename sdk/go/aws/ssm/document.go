@@ -308,15 +308,15 @@ type DocumentInput interface {
 	ToDocumentOutputWithContext(ctx context.Context) DocumentOutput
 }
 
-func (Document) ElementType() reflect.Type {
-	return reflect.TypeOf((*Document)(nil)).Elem()
+func (*Document) ElementType() reflect.Type {
+	return reflect.TypeOf((*Document)(nil))
 }
 
-func (i Document) ToDocumentOutput() DocumentOutput {
+func (i *Document) ToDocumentOutput() DocumentOutput {
 	return i.ToDocumentOutputWithContext(context.Background())
 }
 
-func (i Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
+func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
 }
 
@@ -325,7 +325,7 @@ type DocumentOutput struct {
 }
 
 func (DocumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Document)(nil))
 }
 
 func (o DocumentOutput) ToDocumentOutput() DocumentOutput {

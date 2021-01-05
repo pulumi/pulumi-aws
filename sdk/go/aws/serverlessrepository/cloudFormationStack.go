@@ -195,15 +195,15 @@ type CloudFormationStackInput interface {
 	ToCloudFormationStackOutputWithContext(ctx context.Context) CloudFormationStackOutput
 }
 
-func (CloudFormationStack) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationStack)(nil)).Elem()
+func (*CloudFormationStack) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationStack)(nil))
 }
 
-func (i CloudFormationStack) ToCloudFormationStackOutput() CloudFormationStackOutput {
+func (i *CloudFormationStack) ToCloudFormationStackOutput() CloudFormationStackOutput {
 	return i.ToCloudFormationStackOutputWithContext(context.Background())
 }
 
-func (i CloudFormationStack) ToCloudFormationStackOutputWithContext(ctx context.Context) CloudFormationStackOutput {
+func (i *CloudFormationStack) ToCloudFormationStackOutputWithContext(ctx context.Context) CloudFormationStackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackOutput)
 }
 
@@ -212,7 +212,7 @@ type CloudFormationStackOutput struct {
 }
 
 func (CloudFormationStackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationStackOutput)(nil)).Elem()
+	return reflect.TypeOf((*CloudFormationStack)(nil))
 }
 
 func (o CloudFormationStackOutput) ToCloudFormationStackOutput() CloudFormationStackOutput {

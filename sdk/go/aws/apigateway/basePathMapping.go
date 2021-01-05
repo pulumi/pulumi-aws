@@ -135,15 +135,15 @@ type BasePathMappingInput interface {
 	ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput
 }
 
-func (BasePathMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMapping)(nil)).Elem()
+func (*BasePathMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasePathMapping)(nil))
 }
 
-func (i BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
+func (i *BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
 	return i.ToBasePathMappingOutputWithContext(context.Background())
 }
 
-func (i BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
+func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
 }
 
@@ -152,7 +152,7 @@ type BasePathMappingOutput struct {
 }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*BasePathMapping)(nil))
 }
 
 func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {

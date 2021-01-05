@@ -131,15 +131,15 @@ type VpcEndpointRouteTableAssociationInput interface {
 	ToVpcEndpointRouteTableAssociationOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationOutput
 }
 
-func (VpcEndpointRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointRouteTableAssociation)(nil)).Elem()
+func (*VpcEndpointRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointRouteTableAssociation)(nil))
 }
 
-func (i VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOutput() VpcEndpointRouteTableAssociationOutput {
+func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOutput() VpcEndpointRouteTableAssociationOutput {
 	return i.ToVpcEndpointRouteTableAssociationOutputWithContext(context.Background())
 }
 
-func (i VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationOutput {
+func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationOutput)
 }
 
@@ -148,7 +148,7 @@ type VpcEndpointRouteTableAssociationOutput struct {
 }
 
 func (VpcEndpointRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointRouteTableAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcEndpointRouteTableAssociation)(nil))
 }
 
 func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociationOutput() VpcEndpointRouteTableAssociationOutput {

@@ -147,15 +147,15 @@ type DetectorInput interface {
 	ToDetectorOutputWithContext(ctx context.Context) DetectorOutput
 }
 
-func (Detector) ElementType() reflect.Type {
-	return reflect.TypeOf((*Detector)(nil)).Elem()
+func (*Detector) ElementType() reflect.Type {
+	return reflect.TypeOf((*Detector)(nil))
 }
 
-func (i Detector) ToDetectorOutput() DetectorOutput {
+func (i *Detector) ToDetectorOutput() DetectorOutput {
 	return i.ToDetectorOutputWithContext(context.Background())
 }
 
-func (i Detector) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
+func (i *Detector) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutput)
 }
 
@@ -164,7 +164,7 @@ type DetectorOutput struct {
 }
 
 func (DetectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorOutput)(nil)).Elem()
+	return reflect.TypeOf((*Detector)(nil))
 }
 
 func (o DetectorOutput) ToDetectorOutput() DetectorOutput {

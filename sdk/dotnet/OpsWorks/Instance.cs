@@ -99,6 +99,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/instance:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

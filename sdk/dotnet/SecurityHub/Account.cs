@@ -40,6 +40,7 @@ namespace Pulumi.Aws.SecurityHub
     ///  $ pulumi import aws:securityhub/account:Account example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:securityhub/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

@@ -151,15 +151,15 @@ type ManagedScalingPolicyInput interface {
 	ToManagedScalingPolicyOutputWithContext(ctx context.Context) ManagedScalingPolicyOutput
 }
 
-func (ManagedScalingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedScalingPolicy)(nil)).Elem()
+func (*ManagedScalingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedScalingPolicy)(nil))
 }
 
-func (i ManagedScalingPolicy) ToManagedScalingPolicyOutput() ManagedScalingPolicyOutput {
+func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutput() ManagedScalingPolicyOutput {
 	return i.ToManagedScalingPolicyOutputWithContext(context.Background())
 }
 
-func (i ManagedScalingPolicy) ToManagedScalingPolicyOutputWithContext(ctx context.Context) ManagedScalingPolicyOutput {
+func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutputWithContext(ctx context.Context) ManagedScalingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyOutput)
 }
 
@@ -168,7 +168,7 @@ type ManagedScalingPolicyOutput struct {
 }
 
 func (ManagedScalingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedScalingPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedScalingPolicy)(nil))
 }
 
 func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutput() ManagedScalingPolicyOutput {

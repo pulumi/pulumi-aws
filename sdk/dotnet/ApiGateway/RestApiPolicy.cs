@@ -18,6 +18,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
     public partial class RestApiPolicy : Pulumi.CustomResource
     {
         [Output("policy")]

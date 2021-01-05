@@ -140,15 +140,15 @@ type VpcIpv4CidrBlockAssociationInput interface {
 	ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput
 }
 
-func (VpcIpv4CidrBlockAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil)).Elem()
+func (*VpcIpv4CidrBlockAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil))
 }
 
-func (i VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
+func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
 	return i.ToVpcIpv4CidrBlockAssociationOutputWithContext(context.Background())
 }
 
-func (i VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
+func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationOutput)
 }
 
@@ -157,7 +157,7 @@ type VpcIpv4CidrBlockAssociationOutput struct {
 }
 
 func (VpcIpv4CidrBlockAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpv4CidrBlockAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil))
 }
 
 func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {

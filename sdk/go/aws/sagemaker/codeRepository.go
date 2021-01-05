@@ -91,15 +91,15 @@ type CodeRepositoryInput interface {
 	ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput
 }
 
-func (CodeRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeRepository)(nil)).Elem()
+func (*CodeRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepository)(nil))
 }
 
-func (i CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
+func (i *CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
 	return i.ToCodeRepositoryOutputWithContext(context.Background())
 }
 
-func (i CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
+func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
 }
 
@@ -108,7 +108,7 @@ type CodeRepositoryOutput struct {
 }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeRepositoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*CodeRepository)(nil))
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {

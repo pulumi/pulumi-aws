@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
     public partial class TrafficMirrorTarget : Pulumi.CustomResource
     {
         /// <summary>

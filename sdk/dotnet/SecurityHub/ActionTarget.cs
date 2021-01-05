@@ -49,6 +49,7 @@ namespace Pulumi.Aws.SecurityHub
     ///  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
     /// ```
     /// </summary>
+    [AwsResourceType("aws:securityhub/actionTarget:ActionTarget")]
     public partial class ActionTarget : Pulumi.CustomResource
     {
         /// <summary>

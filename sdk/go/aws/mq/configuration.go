@@ -202,15 +202,15 @@ type ConfigurationInput interface {
 	ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput
 }
 
-func (Configuration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Configuration)(nil)).Elem()
+func (*Configuration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Configuration)(nil))
 }
 
-func (i Configuration) ToConfigurationOutput() ConfigurationOutput {
+func (i *Configuration) ToConfigurationOutput() ConfigurationOutput {
 	return i.ToConfigurationOutputWithContext(context.Background())
 }
 
-func (i Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
 }
 
@@ -219,7 +219,7 @@ type ConfigurationOutput struct {
 }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Configuration)(nil))
 }
 
 func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {

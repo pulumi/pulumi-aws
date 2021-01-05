@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
     public partial class RemediationConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]

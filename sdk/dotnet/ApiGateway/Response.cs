@@ -52,6 +52,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/response:Response")]
     public partial class Response : Pulumi.CustomResource
     {
         /// <summary>

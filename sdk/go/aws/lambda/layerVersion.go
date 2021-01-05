@@ -234,15 +234,15 @@ type LayerVersionInput interface {
 	ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput
 }
 
-func (LayerVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersion)(nil)).Elem()
+func (*LayerVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersion)(nil))
 }
 
-func (i LayerVersion) ToLayerVersionOutput() LayerVersionOutput {
+func (i *LayerVersion) ToLayerVersionOutput() LayerVersionOutput {
 	return i.ToLayerVersionOutputWithContext(context.Background())
 }
 
-func (i LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
+func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
 }
 
@@ -251,7 +251,7 @@ type LayerVersionOutput struct {
 }
 
 func (LayerVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*LayerVersion)(nil))
 }
 
 func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {

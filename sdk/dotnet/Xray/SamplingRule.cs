@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Xray
     ///  $ pulumi import aws:xray/samplingRule:SamplingRule example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:xray/samplingRule:SamplingRule")]
     public partial class SamplingRule : Pulumi.CustomResource
     {
         /// <summary>

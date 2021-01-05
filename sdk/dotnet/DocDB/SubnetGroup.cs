@@ -47,6 +47,7 @@ namespace Pulumi.Aws.DocDB
     ///  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:docdb/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

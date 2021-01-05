@@ -159,15 +159,15 @@ type ProxyProtocolPolicyInput interface {
 	ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput
 }
 
-func (ProxyProtocolPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyProtocolPolicy)(nil)).Elem()
+func (*ProxyProtocolPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyProtocolPolicy)(nil))
 }
 
-func (i ProxyProtocolPolicy) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
+func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
 	return i.ToProxyProtocolPolicyOutputWithContext(context.Background())
 }
 
-func (i ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
+func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyOutput)
 }
 
@@ -176,7 +176,7 @@ type ProxyProtocolPolicyOutput struct {
 }
 
 func (ProxyProtocolPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyProtocolPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProxyProtocolPolicy)(nil))
 }
 
 func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {

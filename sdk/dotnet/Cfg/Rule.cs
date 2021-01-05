@@ -137,6 +137,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/rule:Rule foo example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/rule:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

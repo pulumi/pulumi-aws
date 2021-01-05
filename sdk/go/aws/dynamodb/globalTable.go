@@ -192,15 +192,15 @@ type GlobalTableInput interface {
 	ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput
 }
 
-func (GlobalTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTable)(nil)).Elem()
+func (*GlobalTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTable)(nil))
 }
 
-func (i GlobalTable) ToGlobalTableOutput() GlobalTableOutput {
+func (i *GlobalTable) ToGlobalTableOutput() GlobalTableOutput {
 	return i.ToGlobalTableOutputWithContext(context.Background())
 }
 
-func (i GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput {
+func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableOutput)
 }
 
@@ -209,7 +209,7 @@ type GlobalTableOutput struct {
 }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*GlobalTable)(nil))
 }
 
 func (o GlobalTableOutput) ToGlobalTableOutput() GlobalTableOutput {

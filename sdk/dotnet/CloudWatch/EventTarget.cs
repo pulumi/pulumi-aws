@@ -321,6 +321,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/eventTarget:EventTarget")]
     public partial class EventTarget : Pulumi.CustomResource
     {
         /// <summary>

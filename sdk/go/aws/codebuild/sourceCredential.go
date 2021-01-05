@@ -186,15 +186,15 @@ type SourceCredentialInput interface {
 	ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput
 }
 
-func (SourceCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCredential)(nil)).Elem()
+func (*SourceCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCredential)(nil))
 }
 
-func (i SourceCredential) ToSourceCredentialOutput() SourceCredentialOutput {
+func (i *SourceCredential) ToSourceCredentialOutput() SourceCredentialOutput {
 	return i.ToSourceCredentialOutputWithContext(context.Background())
 }
 
-func (i SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
+func (i *SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialOutput)
 }
 
@@ -203,7 +203,7 @@ type SourceCredentialOutput struct {
 }
 
 func (SourceCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCredentialOutput)(nil)).Elem()
+	return reflect.TypeOf((*SourceCredential)(nil))
 }
 
 func (o SourceCredentialOutput) ToSourceCredentialOutput() SourceCredentialOutput {

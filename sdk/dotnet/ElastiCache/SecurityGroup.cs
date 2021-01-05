@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ElastiCache
     ///  $ pulumi import aws:elasticache/securityGroup:SecurityGroup my_ec_security_group ec-security-group-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticache/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

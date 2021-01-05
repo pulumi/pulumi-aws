@@ -482,15 +482,15 @@ type TrailInput interface {
 	ToTrailOutputWithContext(ctx context.Context) TrailOutput
 }
 
-func (Trail) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trail)(nil)).Elem()
+func (*Trail) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trail)(nil))
 }
 
-func (i Trail) ToTrailOutput() TrailOutput {
+func (i *Trail) ToTrailOutput() TrailOutput {
 	return i.ToTrailOutputWithContext(context.Background())
 }
 
-func (i Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
+func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
 }
 
@@ -499,7 +499,7 @@ type TrailOutput struct {
 }
 
 func (TrailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrailOutput)(nil)).Elem()
+	return reflect.TypeOf((*Trail)(nil))
 }
 
 func (o TrailOutput) ToTrailOutput() TrailOutput {

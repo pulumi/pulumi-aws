@@ -50,6 +50,7 @@ namespace Pulumi.Aws.SecurityHub
     ///  $ pulumi import aws:securityhub/member:Member example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:securityhub/member:Member")]
     public partial class Member : Pulumi.CustomResource
     {
         /// <summary>

@@ -136,6 +136,7 @@ namespace Pulumi.Aws.CodePipeline
     ///  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codepipeline/webhook:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>

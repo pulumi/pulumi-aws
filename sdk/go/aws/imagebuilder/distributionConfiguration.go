@@ -180,15 +180,15 @@ type DistributionConfigurationInput interface {
 	ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput
 }
 
-func (DistributionConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfiguration)(nil)).Elem()
+func (*DistributionConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfiguration)(nil))
 }
 
-func (i DistributionConfiguration) ToDistributionConfigurationOutput() DistributionConfigurationOutput {
+func (i *DistributionConfiguration) ToDistributionConfigurationOutput() DistributionConfigurationOutput {
 	return i.ToDistributionConfigurationOutputWithContext(context.Background())
 }
 
-func (i DistributionConfiguration) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
+func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationOutput)
 }
 
@@ -197,7 +197,7 @@ type DistributionConfigurationOutput struct {
 }
 
 func (DistributionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*DistributionConfiguration)(nil))
 }
 
 func (o DistributionConfigurationOutput) ToDistributionConfigurationOutput() DistributionConfigurationOutput {

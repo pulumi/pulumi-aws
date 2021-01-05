@@ -185,15 +185,15 @@ type DefaultSubnetInput interface {
 	ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput
 }
 
-func (DefaultSubnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultSubnet)(nil)).Elem()
+func (*DefaultSubnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSubnet)(nil))
 }
 
-func (i DefaultSubnet) ToDefaultSubnetOutput() DefaultSubnetOutput {
+func (i *DefaultSubnet) ToDefaultSubnetOutput() DefaultSubnetOutput {
 	return i.ToDefaultSubnetOutputWithContext(context.Background())
 }
 
-func (i DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput {
+func (i *DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetOutput)
 }
 
@@ -202,7 +202,7 @@ type DefaultSubnetOutput struct {
 }
 
 func (DefaultSubnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultSubnetOutput)(nil)).Elem()
+	return reflect.TypeOf((*DefaultSubnet)(nil))
 }
 
 func (o DefaultSubnetOutput) ToDefaultSubnetOutput() DefaultSubnetOutput {

@@ -30,6 +30,7 @@ namespace Pulumi.Aws.Sns
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
     public partial class SmsPreferences : Pulumi.CustomResource
     {
         /// <summary>

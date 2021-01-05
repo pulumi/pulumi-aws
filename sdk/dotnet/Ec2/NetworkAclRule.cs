@@ -64,6 +64,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
     public partial class NetworkAclRule : Pulumi.CustomResource
     {
         /// <summary>

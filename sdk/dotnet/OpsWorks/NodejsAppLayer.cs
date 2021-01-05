@@ -31,6 +31,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/nodejsAppLayer:NodejsAppLayer")]
     public partial class NodejsAppLayer : Pulumi.CustomResource
     {
         /// <summary>

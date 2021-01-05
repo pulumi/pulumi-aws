@@ -10,6 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses
 {
     [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")]
+    [AwsResourceType("aws:ses/confgurationSet:ConfgurationSet")]
     public partial class ConfgurationSet : Pulumi.CustomResource
     {
         [Output("name")]

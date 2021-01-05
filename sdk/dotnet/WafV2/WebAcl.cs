@@ -324,6 +324,7 @@ namespace Pulumi.Aws.WafV2
     ///  $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafv2/webAcl:WebAcl")]
     public partial class WebAcl : Pulumi.CustomResource
     {
         /// <summary>

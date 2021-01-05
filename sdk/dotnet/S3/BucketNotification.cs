@@ -350,6 +350,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/bucketNotification:BucketNotification")]
     public partial class BucketNotification : Pulumi.CustomResource
     {
         /// <summary>

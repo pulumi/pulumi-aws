@@ -36,6 +36,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
     public partial class RdsDbInstance : Pulumi.CustomResource
     {
         /// <summary>

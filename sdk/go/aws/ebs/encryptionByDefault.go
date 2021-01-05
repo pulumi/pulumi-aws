@@ -107,15 +107,15 @@ type EncryptionByDefaultInput interface {
 	ToEncryptionByDefaultOutputWithContext(ctx context.Context) EncryptionByDefaultOutput
 }
 
-func (EncryptionByDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionByDefault)(nil)).Elem()
+func (*EncryptionByDefault) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionByDefault)(nil))
 }
 
-func (i EncryptionByDefault) ToEncryptionByDefaultOutput() EncryptionByDefaultOutput {
+func (i *EncryptionByDefault) ToEncryptionByDefaultOutput() EncryptionByDefaultOutput {
 	return i.ToEncryptionByDefaultOutputWithContext(context.Background())
 }
 
-func (i EncryptionByDefault) ToEncryptionByDefaultOutputWithContext(ctx context.Context) EncryptionByDefaultOutput {
+func (i *EncryptionByDefault) ToEncryptionByDefaultOutputWithContext(ctx context.Context) EncryptionByDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultOutput)
 }
 
@@ -124,7 +124,7 @@ type EncryptionByDefaultOutput struct {
 }
 
 func (EncryptionByDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionByDefaultOutput)(nil)).Elem()
+	return reflect.TypeOf((*EncryptionByDefault)(nil))
 }
 
 func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutput() EncryptionByDefaultOutput {

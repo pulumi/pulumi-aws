@@ -42,6 +42,7 @@ namespace Pulumi.Aws.DirectConnect
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
     public partial class ConnectionAssociation : Pulumi.CustomResource
     {
         /// <summary>

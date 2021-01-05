@@ -41,6 +41,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/requestValidator:RequestValidator")]
     public partial class RequestValidator : Pulumi.CustomResource
     {
         /// <summary>

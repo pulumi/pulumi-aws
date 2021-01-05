@@ -59,6 +59,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/regexMatchSet:RegexMatchSet")]
     public partial class RegexMatchSet : Pulumi.CustomResource
     {
         /// <summary>

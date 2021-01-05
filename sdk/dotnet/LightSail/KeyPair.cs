@@ -78,6 +78,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// Lightsail Key Pairs cannot be imported, because the private and public key are only available on initial creation.
     /// </summary>
+    [AwsResourceType("aws:lightsail/keyPair:KeyPair")]
     public partial class KeyPair : Pulumi.CustomResource
     {
         /// <summary>

@@ -44,6 +44,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:imagebuilder/imagePipeline:ImagePipeline")]
     public partial class ImagePipeline : Pulumi.CustomResource
     {
         /// <summary>

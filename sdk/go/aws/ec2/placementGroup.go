@@ -150,15 +150,15 @@ type PlacementGroupInput interface {
 	ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput
 }
 
-func (PlacementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroup)(nil)).Elem()
+func (*PlacementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroup)(nil))
 }
 
-func (i PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
+func (i *PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
 	return i.ToPlacementGroupOutputWithContext(context.Background())
 }
 
-func (i PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
+func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
 }
 
@@ -167,7 +167,7 @@ type PlacementGroupOutput struct {
 }
 
 func (PlacementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*PlacementGroup)(nil))
 }
 
 func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Xray
     ///  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:xray/encryptionConfig:EncryptionConfig")]
     public partial class EncryptionConfig : Pulumi.CustomResource
     {
         /// <summary>

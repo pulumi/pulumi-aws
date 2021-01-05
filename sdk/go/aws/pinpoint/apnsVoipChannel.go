@@ -191,15 +191,15 @@ type ApnsVoipChannelInput interface {
 	ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput
 }
 
-func (ApnsVoipChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsVoipChannel)(nil)).Elem()
+func (*ApnsVoipChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsVoipChannel)(nil))
 }
 
-func (i ApnsVoipChannel) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {
+func (i *ApnsVoipChannel) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {
 	return i.ToApnsVoipChannelOutputWithContext(context.Background())
 }
 
-func (i ApnsVoipChannel) ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput {
+func (i *ApnsVoipChannel) ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelOutput)
 }
 
@@ -208,7 +208,7 @@ type ApnsVoipChannelOutput struct {
 }
 
 func (ApnsVoipChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsVoipChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApnsVoipChannel)(nil))
 }
 
 func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {

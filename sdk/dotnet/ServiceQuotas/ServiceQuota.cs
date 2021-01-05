@@ -41,6 +41,7 @@ namespace Pulumi.Aws.ServiceQuotas
     ///  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
     public partial class ServiceQuota : Pulumi.CustomResource
     {
         /// <summary>

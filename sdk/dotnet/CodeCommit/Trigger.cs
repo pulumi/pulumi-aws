@@ -47,6 +47,7 @@ namespace Pulumi.Aws.CodeCommit
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codecommit/trigger:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         [Output("configurationId")]

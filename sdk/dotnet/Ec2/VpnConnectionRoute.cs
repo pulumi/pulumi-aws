@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
     public partial class VpnConnectionRoute : Pulumi.CustomResource
     {
         /// <summary>

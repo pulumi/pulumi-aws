@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/accountAlias:AccountAlias")]
     public partial class AccountAlias : Pulumi.CustomResource
     {
         /// <summary>

@@ -111,15 +111,15 @@ type AdminAccountInput interface {
 	ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput
 }
 
-func (AdminAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminAccount)(nil)).Elem()
+func (*AdminAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccount)(nil))
 }
 
-func (i AdminAccount) ToAdminAccountOutput() AdminAccountOutput {
+func (i *AdminAccount) ToAdminAccountOutput() AdminAccountOutput {
 	return i.ToAdminAccountOutputWithContext(context.Background())
 }
 
-func (i AdminAccount) ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput {
+func (i *AdminAccount) ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountOutput)
 }
 
@@ -128,7 +128,7 @@ type AdminAccountOutput struct {
 }
 
 func (AdminAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*AdminAccount)(nil))
 }
 
 func (o AdminAccountOutput) ToAdminAccountOutput() AdminAccountOutput {

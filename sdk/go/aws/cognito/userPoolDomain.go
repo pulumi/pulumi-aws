@@ -221,15 +221,15 @@ type UserPoolDomainInput interface {
 	ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput
 }
 
-func (UserPoolDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomain)(nil)).Elem()
+func (*UserPoolDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomain)(nil))
 }
 
-func (i UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
+func (i *UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
 	return i.ToUserPoolDomainOutputWithContext(context.Background())
 }
 
-func (i UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
+func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
 }
 
@@ -238,7 +238,7 @@ type UserPoolDomainOutput struct {
 }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomainOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserPoolDomain)(nil))
 }
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {

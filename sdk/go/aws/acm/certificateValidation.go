@@ -136,15 +136,15 @@ type CertificateValidationInput interface {
 	ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput
 }
 
-func (CertificateValidation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateValidation)(nil)).Elem()
+func (*CertificateValidation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidation)(nil))
 }
 
-func (i CertificateValidation) ToCertificateValidationOutput() CertificateValidationOutput {
+func (i *CertificateValidation) ToCertificateValidationOutput() CertificateValidationOutput {
 	return i.ToCertificateValidationOutputWithContext(context.Background())
 }
 
-func (i CertificateValidation) ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput {
+func (i *CertificateValidation) ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOutput)
 }
 
@@ -153,7 +153,7 @@ type CertificateValidationOutput struct {
 }
 
 func (CertificateValidationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateValidationOutput)(nil)).Elem()
+	return reflect.TypeOf((*CertificateValidation)(nil))
 }
 
 func (o CertificateValidationOutput) ToCertificateValidationOutput() CertificateValidationOutput {

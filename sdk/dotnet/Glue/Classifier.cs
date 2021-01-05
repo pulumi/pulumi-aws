@@ -119,6 +119,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/classifier:Classifier")]
     public partial class Classifier : Pulumi.CustomResource
     {
         /// <summary>

@@ -204,15 +204,15 @@ type PeeringAttachmentInput interface {
 	ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput
 }
 
-func (PeeringAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringAttachment)(nil)).Elem()
+func (*PeeringAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringAttachment)(nil))
 }
 
-func (i PeeringAttachment) ToPeeringAttachmentOutput() PeeringAttachmentOutput {
+func (i *PeeringAttachment) ToPeeringAttachmentOutput() PeeringAttachmentOutput {
 	return i.ToPeeringAttachmentOutputWithContext(context.Background())
 }
 
-func (i PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
+func (i *PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOutput)
 }
 
@@ -221,7 +221,7 @@ type PeeringAttachmentOutput struct {
 }
 
 func (PeeringAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*PeeringAttachment)(nil))
 }
 
 func (o PeeringAttachmentOutput) ToPeeringAttachmentOutput() PeeringAttachmentOutput {

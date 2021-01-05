@@ -88,6 +88,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// Target Group Attachments cannot be imported.
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment")]
+    [AwsResourceType("aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

@@ -62,6 +62,7 @@ namespace Pulumi.Aws.CodeBuild
     ///  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]
     public partial class SourceCredential : Pulumi.CustomResource
     {
         /// <summary>

@@ -111,6 +111,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:networkfirewall/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : Pulumi.CustomResource
     {
         [Output("policy")]

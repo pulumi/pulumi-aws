@@ -316,6 +316,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
     /// ```
     /// </summary>
+    [AwsResourceType("aws:kinesisanalyticsv2/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

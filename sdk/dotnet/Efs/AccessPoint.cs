@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Efs
     ///  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
     /// ```
     /// </summary>
+    [AwsResourceType("aws:efs/accessPoint:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>

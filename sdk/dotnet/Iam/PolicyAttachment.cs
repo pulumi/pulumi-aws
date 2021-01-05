@@ -87,6 +87,7 @@ namespace Pulumi.Aws.Iam
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
         /// <summary>

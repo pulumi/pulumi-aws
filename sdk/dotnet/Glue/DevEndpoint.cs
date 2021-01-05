@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/devEndpoint:DevEndpoint")]
     public partial class DevEndpoint : Pulumi.CustomResource
     {
         /// <summary>

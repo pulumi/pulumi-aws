@@ -64,6 +64,7 @@ namespace Pulumi.Aws.CloudFormation
     ///  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudformation/stack:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>

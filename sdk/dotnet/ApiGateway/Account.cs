@@ -81,6 +81,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

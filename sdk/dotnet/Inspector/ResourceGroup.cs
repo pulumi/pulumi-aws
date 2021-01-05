@@ -35,6 +35,7 @@ namespace Pulumi.Aws.Inspector
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:inspector/resourceGroup:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>

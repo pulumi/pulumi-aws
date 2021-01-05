@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// Importing is currently not supported on this resource.
     /// </summary>
+    [AwsResourceType("aws:quicksight/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

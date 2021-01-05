@@ -47,6 +47,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// Gamelift Builds cannot be imported at this time.
     /// </summary>
+    [AwsResourceType("aws:gamelift/build:Build")]
     public partial class Build : Pulumi.CustomResource
     {
         /// <summary>

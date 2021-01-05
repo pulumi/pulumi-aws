@@ -32,6 +32,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/gangliaLayer:GangliaLayer")]
     public partial class GangliaLayer : Pulumi.CustomResource
     {
         /// <summary>

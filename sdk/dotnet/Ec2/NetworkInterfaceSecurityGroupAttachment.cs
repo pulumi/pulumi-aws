@@ -121,6 +121,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// There are no outputs for this resource.
     /// </summary>
+    [AwsResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
     public partial class NetworkInterfaceSecurityGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

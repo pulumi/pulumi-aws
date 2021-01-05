@@ -174,6 +174,7 @@ namespace Pulumi.Aws.DirectoryService
     ///  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directoryservice/directory:Directory")]
     public partial class Directory : Pulumi.CustomResource
     {
         /// <summary>

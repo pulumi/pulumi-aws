@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Kms
     ///  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
+    [AwsResourceType("aws:kms/key:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>

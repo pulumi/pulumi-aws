@@ -39,6 +39,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/gateway:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>

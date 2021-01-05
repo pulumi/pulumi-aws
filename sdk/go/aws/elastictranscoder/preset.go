@@ -260,15 +260,15 @@ type PresetInput interface {
 	ToPresetOutputWithContext(ctx context.Context) PresetOutput
 }
 
-func (Preset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil)).Elem()
+func (*Preset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Preset)(nil))
 }
 
-func (i Preset) ToPresetOutput() PresetOutput {
+func (i *Preset) ToPresetOutput() PresetOutput {
 	return i.ToPresetOutputWithContext(context.Background())
 }
 
-func (i Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
+func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
 }
 
@@ -277,7 +277,7 @@ type PresetOutput struct {
 }
 
 func (PresetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PresetOutput)(nil)).Elem()
+	return reflect.TypeOf((*Preset)(nil))
 }
 
 func (o PresetOutput) ToPresetOutput() PresetOutput {

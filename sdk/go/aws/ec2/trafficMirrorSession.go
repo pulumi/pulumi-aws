@@ -223,15 +223,15 @@ type TrafficMirrorSessionInput interface {
 	ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput
 }
 
-func (TrafficMirrorSession) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSession)(nil)).Elem()
+func (*TrafficMirrorSession) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSession)(nil))
 }
 
-func (i TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
+func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
 	return i.ToTrafficMirrorSessionOutputWithContext(context.Background())
 }
 
-func (i TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
+func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionOutput)
 }
 
@@ -240,7 +240,7 @@ type TrafficMirrorSessionOutput struct {
 }
 
 func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSessionOutput)(nil)).Elem()
+	return reflect.TypeOf((*TrafficMirrorSession)(nil))
 }
 
 func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {

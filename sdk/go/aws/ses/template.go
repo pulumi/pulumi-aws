@@ -147,15 +147,15 @@ type TemplateInput interface {
 	ToTemplateOutputWithContext(ctx context.Context) TemplateOutput
 }
 
-func (Template) ElementType() reflect.Type {
-	return reflect.TypeOf((*Template)(nil)).Elem()
+func (*Template) ElementType() reflect.Type {
+	return reflect.TypeOf((*Template)(nil))
 }
 
-func (i Template) ToTemplateOutput() TemplateOutput {
+func (i *Template) ToTemplateOutput() TemplateOutput {
 	return i.ToTemplateOutputWithContext(context.Background())
 }
 
-func (i Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
+func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
 }
 
@@ -164,7 +164,7 @@ type TemplateOutput struct {
 }
 
 func (TemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*Template)(nil))
 }
 
 func (o TemplateOutput) ToTemplateOutput() TemplateOutput {

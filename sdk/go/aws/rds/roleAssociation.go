@@ -150,15 +150,15 @@ type RoleAssociationInput interface {
 	ToRoleAssociationOutputWithContext(ctx context.Context) RoleAssociationOutput
 }
 
-func (RoleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssociation)(nil)).Elem()
+func (*RoleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssociation)(nil))
 }
 
-func (i RoleAssociation) ToRoleAssociationOutput() RoleAssociationOutput {
+func (i *RoleAssociation) ToRoleAssociationOutput() RoleAssociationOutput {
 	return i.ToRoleAssociationOutputWithContext(context.Background())
 }
 
-func (i RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context) RoleAssociationOutput {
+func (i *RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context) RoleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationOutput)
 }
 
@@ -167,7 +167,7 @@ type RoleAssociationOutput struct {
 }
 
 func (RoleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*RoleAssociation)(nil))
 }
 
 func (o RoleAssociationOutput) ToRoleAssociationOutput() RoleAssociationOutput {

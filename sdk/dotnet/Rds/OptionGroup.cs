@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/optionGroup:OptionGroup bar mysql-option-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/optionGroup:OptionGroup")]
     public partial class OptionGroup : Pulumi.CustomResource
     {
         /// <summary>

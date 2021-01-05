@@ -172,15 +172,15 @@ type DomainNameInput interface {
 	ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput
 }
 
-func (DomainName) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainName)(nil)).Elem()
+func (*DomainName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainName)(nil))
 }
 
-func (i DomainName) ToDomainNameOutput() DomainNameOutput {
+func (i *DomainName) ToDomainNameOutput() DomainNameOutput {
 	return i.ToDomainNameOutputWithContext(context.Background())
 }
 
-func (i DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
+func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
 }
 
@@ -189,7 +189,7 @@ type DomainNameOutput struct {
 }
 
 func (DomainNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainNameOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainName)(nil))
 }
 
 func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {

@@ -59,6 +59,7 @@ namespace Pulumi.Aws.AutoScaling
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscaling/notification:Notification")]
     public partial class Notification : Pulumi.CustomResource
     {
         /// <summary>

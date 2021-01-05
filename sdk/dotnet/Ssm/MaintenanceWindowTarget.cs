@@ -96,6 +96,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")]
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {
         /// <summary>

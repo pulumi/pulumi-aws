@@ -99,6 +99,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/method:Method")]
     public partial class Method : Pulumi.CustomResource
     {
         /// <summary>

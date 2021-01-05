@@ -243,15 +243,15 @@ type VirtualGatewayInput interface {
 	ToVirtualGatewayOutputWithContext(ctx context.Context) VirtualGatewayOutput
 }
 
-func (VirtualGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGateway)(nil)).Elem()
+func (*VirtualGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGateway)(nil))
 }
 
-func (i VirtualGateway) ToVirtualGatewayOutput() VirtualGatewayOutput {
+func (i *VirtualGateway) ToVirtualGatewayOutput() VirtualGatewayOutput {
 	return i.ToVirtualGatewayOutputWithContext(context.Background())
 }
 
-func (i VirtualGateway) ToVirtualGatewayOutputWithContext(ctx context.Context) VirtualGatewayOutput {
+func (i *VirtualGateway) ToVirtualGatewayOutputWithContext(ctx context.Context) VirtualGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayOutput)
 }
 
@@ -260,7 +260,7 @@ type VirtualGatewayOutput struct {
 }
 
 func (VirtualGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualGateway)(nil))
 }
 
 func (o VirtualGatewayOutput) ToVirtualGatewayOutput() VirtualGatewayOutput {

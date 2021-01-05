@@ -39,6 +39,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/staticWebLayer:StaticWebLayer")]
     public partial class StaticWebLayer : Pulumi.CustomResource
     {
         /// <summary>

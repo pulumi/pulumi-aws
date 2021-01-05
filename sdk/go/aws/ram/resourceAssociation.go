@@ -133,15 +133,15 @@ type ResourceAssociationInput interface {
 	ToResourceAssociationOutputWithContext(ctx context.Context) ResourceAssociationOutput
 }
 
-func (ResourceAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociation)(nil)).Elem()
+func (*ResourceAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAssociation)(nil))
 }
 
-func (i ResourceAssociation) ToResourceAssociationOutput() ResourceAssociationOutput {
+func (i *ResourceAssociation) ToResourceAssociationOutput() ResourceAssociationOutput {
 	return i.ToResourceAssociationOutputWithContext(context.Background())
 }
 
-func (i ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context.Context) ResourceAssociationOutput {
+func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context.Context) ResourceAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationOutput)
 }
 
@@ -150,7 +150,7 @@ type ResourceAssociationOutput struct {
 }
 
 func (ResourceAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceAssociation)(nil))
 }
 
 func (o ResourceAssociationOutput) ToResourceAssociationOutput() ResourceAssociationOutput {

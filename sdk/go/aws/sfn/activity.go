@@ -127,15 +127,15 @@ type ActivityInput interface {
 	ToActivityOutputWithContext(ctx context.Context) ActivityOutput
 }
 
-func (Activity) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activity)(nil)).Elem()
+func (*Activity) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activity)(nil))
 }
 
-func (i Activity) ToActivityOutput() ActivityOutput {
+func (i *Activity) ToActivityOutput() ActivityOutput {
 	return i.ToActivityOutputWithContext(context.Background())
 }
 
-func (i Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
+func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
 }
 
@@ -144,7 +144,7 @@ type ActivityOutput struct {
 }
 
 func (ActivityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityOutput)(nil)).Elem()
+	return reflect.TypeOf((*Activity)(nil))
 }
 
 func (o ActivityOutput) ToActivityOutput() ActivityOutput {

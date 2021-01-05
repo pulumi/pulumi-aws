@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/apnsChannel:ApnsChannel")]
     public partial class ApnsChannel : Pulumi.CustomResource
     {
         /// <summary>

@@ -303,15 +303,15 @@ type AmiInput interface {
 	ToAmiOutputWithContext(ctx context.Context) AmiOutput
 }
 
-func (Ami) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ami)(nil)).Elem()
+func (*Ami) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ami)(nil))
 }
 
-func (i Ami) ToAmiOutput() AmiOutput {
+func (i *Ami) ToAmiOutput() AmiOutput {
 	return i.ToAmiOutputWithContext(context.Background())
 }
 
-func (i Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
+func (i *Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiOutput)
 }
 
@@ -320,7 +320,7 @@ type AmiOutput struct {
 }
 
 func (AmiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiOutput)(nil)).Elem()
+	return reflect.TypeOf((*Ami)(nil))
 }
 
 func (o AmiOutput) ToAmiOutput() AmiOutput {

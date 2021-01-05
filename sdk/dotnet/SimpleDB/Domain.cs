@@ -38,6 +38,7 @@ namespace Pulumi.Aws.SimpleDB
     ///  $ pulumi import aws:simpledb/domain:Domain users users
     /// ```
     /// </summary>
+    [AwsResourceType("aws:simpledb/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

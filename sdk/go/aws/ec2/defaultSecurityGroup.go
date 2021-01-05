@@ -271,15 +271,15 @@ type DefaultSecurityGroupInput interface {
 	ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput
 }
 
-func (DefaultSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultSecurityGroup)(nil)).Elem()
+func (*DefaultSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSecurityGroup)(nil))
 }
 
-func (i DefaultSecurityGroup) ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput {
+func (i *DefaultSecurityGroup) ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput {
 	return i.ToDefaultSecurityGroupOutputWithContext(context.Background())
 }
 
-func (i DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput {
+func (i *DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupOutput)
 }
 
@@ -288,7 +288,7 @@ type DefaultSecurityGroupOutput struct {
 }
 
 func (DefaultSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultSecurityGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*DefaultSecurityGroup)(nil))
 }
 
 func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput {

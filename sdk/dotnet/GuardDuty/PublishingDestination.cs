@@ -188,6 +188,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/publishingDestination:PublishingDestination")]
     public partial class PublishingDestination : Pulumi.CustomResource
     {
         /// <summary>

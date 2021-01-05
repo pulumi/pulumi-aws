@@ -105,15 +105,15 @@ type BucketLifecycleConfigurationInput interface {
 	ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput
 }
 
-func (BucketLifecycleConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil)).Elem()
+func (*BucketLifecycleConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil))
 }
 
-func (i BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput {
+func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput {
 	return i.ToBucketLifecycleConfigurationOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
+func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
 }
 
@@ -122,7 +122,7 @@ type BucketLifecycleConfigurationOutput struct {
 }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil))
 }
 
 func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput {

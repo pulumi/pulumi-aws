@@ -324,15 +324,15 @@ type GangliaLayerInput interface {
 	ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput
 }
 
-func (GangliaLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*GangliaLayer)(nil)).Elem()
+func (*GangliaLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayer)(nil))
 }
 
-func (i GangliaLayer) ToGangliaLayerOutput() GangliaLayerOutput {
+func (i *GangliaLayer) ToGangliaLayerOutput() GangliaLayerOutput {
 	return i.ToGangliaLayerOutputWithContext(context.Background())
 }
 
-func (i GangliaLayer) ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput {
+func (i *GangliaLayer) ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerOutput)
 }
 
@@ -341,7 +341,7 @@ type GangliaLayerOutput struct {
 }
 
 func (GangliaLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GangliaLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*GangliaLayer)(nil))
 }
 
 func (o GangliaLayerOutput) ToGangliaLayerOutput() GangliaLayerOutput {

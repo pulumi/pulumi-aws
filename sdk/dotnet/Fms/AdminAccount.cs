@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Fms
     ///  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:fms/adminAccount:AdminAccount")]
     public partial class AdminAccount : Pulumi.CustomResource
     {
         /// <summary>

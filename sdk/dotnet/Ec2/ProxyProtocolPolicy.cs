@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
     public partial class ProxyProtocolPolicy : Pulumi.CustomResource
     {
         /// <summary>

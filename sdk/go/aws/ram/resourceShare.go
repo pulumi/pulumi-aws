@@ -142,15 +142,15 @@ type ResourceShareInput interface {
 	ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput
 }
 
-func (ResourceShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceShare)(nil)).Elem()
+func (*ResourceShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShare)(nil))
 }
 
-func (i ResourceShare) ToResourceShareOutput() ResourceShareOutput {
+func (i *ResourceShare) ToResourceShareOutput() ResourceShareOutput {
 	return i.ToResourceShareOutputWithContext(context.Background())
 }
 
-func (i ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput {
+func (i *ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareOutput)
 }
 
@@ -159,7 +159,7 @@ type ResourceShareOutput struct {
 }
 
 func (ResourceShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceShareOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceShare)(nil))
 }
 
 func (o ResourceShareOutput) ToResourceShareOutput() ResourceShareOutput {

@@ -66,6 +66,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/user:User lb loadbalancer
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

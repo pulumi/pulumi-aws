@@ -77,6 +77,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")]
     public partial class TrafficMirrorFilterRule : Pulumi.CustomResource
     {
         /// <summary>

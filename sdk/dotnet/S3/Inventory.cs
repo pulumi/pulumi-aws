@@ -101,6 +101,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/inventory:Inventory")]
     public partial class Inventory : Pulumi.CustomResource
     {
         /// <summary>

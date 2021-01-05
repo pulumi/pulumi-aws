@@ -117,15 +117,15 @@ type ReceiptRuleSetInput interface {
 	ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput
 }
 
-func (ReceiptRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSet)(nil)).Elem()
+func (*ReceiptRuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSet)(nil))
 }
 
-func (i ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
+func (i *ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
 	return i.ToReceiptRuleSetOutputWithContext(context.Background())
 }
 
-func (i ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
+func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
 }
 
@@ -134,7 +134,7 @@ type ReceiptRuleSetOutput struct {
 }
 
 func (ReceiptRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReceiptRuleSet)(nil))
 }
 
 func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {

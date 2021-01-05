@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/trafficMirrorSession:TrafficMirrorSession")]
     public partial class TrafficMirrorSession : Pulumi.CustomResource
     {
         /// <summary>

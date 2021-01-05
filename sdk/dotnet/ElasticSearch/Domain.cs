@@ -257,6 +257,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticsearch/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

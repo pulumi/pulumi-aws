@@ -51,6 +51,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/sizeConstraintSet:SizeConstraintSet")]
     public partial class SizeConstraintSet : Pulumi.CustomResource
     {
         [Output("arn")]

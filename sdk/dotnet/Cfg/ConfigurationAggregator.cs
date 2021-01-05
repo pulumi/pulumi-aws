@@ -100,6 +100,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
         /// <summary>

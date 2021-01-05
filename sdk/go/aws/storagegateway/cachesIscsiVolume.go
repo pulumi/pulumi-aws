@@ -310,15 +310,15 @@ type CachesIscsiVolumeInput interface {
 	ToCachesIscsiVolumeOutputWithContext(ctx context.Context) CachesIscsiVolumeOutput
 }
 
-func (CachesIscsiVolume) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachesIscsiVolume)(nil)).Elem()
+func (*CachesIscsiVolume) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachesIscsiVolume)(nil))
 }
 
-func (i CachesIscsiVolume) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput {
+func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput {
 	return i.ToCachesIscsiVolumeOutputWithContext(context.Background())
 }
 
-func (i CachesIscsiVolume) ToCachesIscsiVolumeOutputWithContext(ctx context.Context) CachesIscsiVolumeOutput {
+func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutputWithContext(ctx context.Context) CachesIscsiVolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumeOutput)
 }
 
@@ -327,7 +327,7 @@ type CachesIscsiVolumeOutput struct {
 }
 
 func (CachesIscsiVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachesIscsiVolumeOutput)(nil)).Elem()
+	return reflect.TypeOf((*CachesIscsiVolume)(nil))
 }
 
 func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput {

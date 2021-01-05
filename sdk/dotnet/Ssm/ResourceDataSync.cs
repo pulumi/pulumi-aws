@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]
     public partial class ResourceDataSync : Pulumi.CustomResource
     {
         /// <summary>

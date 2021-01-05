@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Ebs
     ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ebs/volume:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>

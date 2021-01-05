@@ -61,6 +61,7 @@ namespace Pulumi.Aws.AutoScaling
     ///  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscaling/schedule:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>

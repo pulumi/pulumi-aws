@@ -183,6 +183,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task &lt;window_id&gt;/&lt;window_task_id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")]
     public partial class MaintenanceWindowTask : Pulumi.CustomResource
     {
         /// <summary>

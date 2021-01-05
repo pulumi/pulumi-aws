@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Ebs
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
     public partial class SnapshotCopy : Pulumi.CustomResource
     {
         /// <summary>

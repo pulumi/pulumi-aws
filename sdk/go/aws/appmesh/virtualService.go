@@ -223,15 +223,15 @@ type VirtualServiceInput interface {
 	ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput
 }
 
-func (VirtualService) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualService)(nil)).Elem()
+func (*VirtualService) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualService)(nil))
 }
 
-func (i VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
+func (i *VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
 	return i.ToVirtualServiceOutputWithContext(context.Background())
 }
 
-func (i VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
+func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceOutput)
 }
 
@@ -240,7 +240,7 @@ type VirtualServiceOutput struct {
 }
 
 func (VirtualServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualService)(nil))
 }
 
 func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {

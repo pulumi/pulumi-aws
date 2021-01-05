@@ -207,15 +207,15 @@ type TransitGatewayInput interface {
 	ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput
 }
 
-func (TransitGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGateway)(nil)).Elem()
+func (*TransitGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGateway)(nil))
 }
 
-func (i TransitGateway) ToTransitGatewayOutput() TransitGatewayOutput {
+func (i *TransitGateway) ToTransitGatewayOutput() TransitGatewayOutput {
 	return i.ToTransitGatewayOutputWithContext(context.Background())
 }
 
-func (i TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
+func (i *TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayOutput)
 }
 
@@ -224,7 +224,7 @@ type TransitGatewayOutput struct {
 }
 
 func (TransitGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*TransitGateway)(nil))
 }
 
 func (o TransitGatewayOutput) ToTransitGatewayOutput() TransitGatewayOutput {

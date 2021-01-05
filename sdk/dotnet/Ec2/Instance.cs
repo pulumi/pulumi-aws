@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/instance:Instance web i-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/instance:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

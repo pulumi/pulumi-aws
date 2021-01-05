@@ -382,15 +382,15 @@ type EipInput interface {
 	ToEipOutputWithContext(ctx context.Context) EipOutput
 }
 
-func (Eip) ElementType() reflect.Type {
-	return reflect.TypeOf((*Eip)(nil)).Elem()
+func (*Eip) ElementType() reflect.Type {
+	return reflect.TypeOf((*Eip)(nil))
 }
 
-func (i Eip) ToEipOutput() EipOutput {
+func (i *Eip) ToEipOutput() EipOutput {
 	return i.ToEipOutputWithContext(context.Background())
 }
 
-func (i Eip) ToEipOutputWithContext(ctx context.Context) EipOutput {
+func (i *Eip) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipOutput)
 }
 
@@ -399,7 +399,7 @@ type EipOutput struct {
 }
 
 func (EipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EipOutput)(nil)).Elem()
+	return reflect.TypeOf((*Eip)(nil))
 }
 
 func (o EipOutput) ToEipOutput() EipOutput {

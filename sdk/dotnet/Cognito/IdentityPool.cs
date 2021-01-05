@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool &lt;identity-pool-id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/identityPool:IdentityPool")]
     public partial class IdentityPool : Pulumi.CustomResource
     {
         /// <summary>

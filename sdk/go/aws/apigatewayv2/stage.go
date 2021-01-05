@@ -256,15 +256,15 @@ type StageInput interface {
 	ToStageOutputWithContext(ctx context.Context) StageOutput
 }
 
-func (Stage) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stage)(nil)).Elem()
+func (*Stage) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stage)(nil))
 }
 
-func (i Stage) ToStageOutput() StageOutput {
+func (i *Stage) ToStageOutput() StageOutput {
 	return i.ToStageOutputWithContext(context.Background())
 }
 
-func (i Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
+func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
 }
 
@@ -273,7 +273,7 @@ type StageOutput struct {
 }
 
 func (StageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageOutput)(nil)).Elem()
+	return reflect.TypeOf((*Stage)(nil))
 }
 
 func (o StageOutput) ToStageOutput() StageOutput {

@@ -140,15 +140,15 @@ type QueuePolicyInput interface {
 	ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput
 }
 
-func (QueuePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueuePolicy)(nil)).Elem()
+func (*QueuePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePolicy)(nil))
 }
 
-func (i QueuePolicy) ToQueuePolicyOutput() QueuePolicyOutput {
+func (i *QueuePolicy) ToQueuePolicyOutput() QueuePolicyOutput {
 	return i.ToQueuePolicyOutputWithContext(context.Background())
 }
 
-func (i QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
+func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
 }
 
@@ -157,7 +157,7 @@ type QueuePolicyOutput struct {
 }
 
 func (QueuePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueuePolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*QueuePolicy)(nil))
 }
 
 func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {

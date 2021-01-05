@@ -78,6 +78,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/usagePlan:UsagePlan")]
     public partial class UsagePlan : Pulumi.CustomResource
     {
         /// <summary>

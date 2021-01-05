@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/emailIdentity:EmailIdentity")]
     public partial class EmailIdentity : Pulumi.CustomResource
     {
         /// <summary>

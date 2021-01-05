@@ -40,6 +40,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/apiKey:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         /// <summary>

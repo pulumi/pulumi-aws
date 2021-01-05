@@ -57,6 +57,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

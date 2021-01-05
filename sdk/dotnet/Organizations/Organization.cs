@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Organizations
     ///  $ pulumi import aws:organizations/organization:Organization my_org o-1234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:organizations/organization:Organization")]
     public partial class Organization : Pulumi.CustomResource
     {
         /// <summary>

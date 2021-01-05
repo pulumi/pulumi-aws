@@ -211,6 +211,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

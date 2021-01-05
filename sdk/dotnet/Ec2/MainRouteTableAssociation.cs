@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// additional Route Table in the AWS console; it must remain intact in order for
     /// the `main_route_table_association` delete to work properly.
     /// </summary>
+    [AwsResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
     public partial class MainRouteTableAssociation : Pulumi.CustomResource
     {
         /// <summary>

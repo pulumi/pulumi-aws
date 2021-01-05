@@ -299,15 +299,15 @@ type GatewayAssociationInput interface {
 	ToGatewayAssociationOutputWithContext(ctx context.Context) GatewayAssociationOutput
 }
 
-func (GatewayAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociation)(nil)).Elem()
+func (*GatewayAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAssociation)(nil))
 }
 
-func (i GatewayAssociation) ToGatewayAssociationOutput() GatewayAssociationOutput {
+func (i *GatewayAssociation) ToGatewayAssociationOutput() GatewayAssociationOutput {
 	return i.ToGatewayAssociationOutputWithContext(context.Background())
 }
 
-func (i GatewayAssociation) ToGatewayAssociationOutputWithContext(ctx context.Context) GatewayAssociationOutput {
+func (i *GatewayAssociation) ToGatewayAssociationOutputWithContext(ctx context.Context) GatewayAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationOutput)
 }
 
@@ -316,7 +316,7 @@ type GatewayAssociationOutput struct {
 }
 
 func (GatewayAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*GatewayAssociation)(nil))
 }
 
 func (o GatewayAssociationOutput) ToGatewayAssociationOutput() GatewayAssociationOutput {

@@ -77,15 +77,15 @@ type ConfgurationSetInput interface {
 	ToConfgurationSetOutputWithContext(ctx context.Context) ConfgurationSetOutput
 }
 
-func (ConfgurationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSet)(nil)).Elem()
+func (*ConfgurationSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfgurationSet)(nil))
 }
 
-func (i ConfgurationSet) ToConfgurationSetOutput() ConfgurationSetOutput {
+func (i *ConfgurationSet) ToConfgurationSetOutput() ConfgurationSetOutput {
 	return i.ToConfgurationSetOutputWithContext(context.Background())
 }
 
-func (i ConfgurationSet) ToConfgurationSetOutputWithContext(ctx context.Context) ConfgurationSetOutput {
+func (i *ConfgurationSet) ToConfgurationSetOutputWithContext(ctx context.Context) ConfgurationSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetOutput)
 }
 
@@ -94,7 +94,7 @@ type ConfgurationSetOutput struct {
 }
 
 func (ConfgurationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfgurationSet)(nil))
 }
 
 func (o ConfgurationSetOutput) ToConfgurationSetOutput() ConfgurationSetOutput {

@@ -152,15 +152,15 @@ type VpnConnectionRouteInput interface {
 	ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput
 }
 
-func (VpnConnectionRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnectionRoute)(nil)).Elem()
+func (*VpnConnectionRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionRoute)(nil))
 }
 
-func (i VpnConnectionRoute) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
+func (i *VpnConnectionRoute) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
 	return i.ToVpnConnectionRouteOutputWithContext(context.Background())
 }
 
-func (i VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
+func (i *VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteOutput)
 }
 
@@ -169,7 +169,7 @@ type VpnConnectionRouteOutput struct {
 }
 
 func (VpnConnectionRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnectionRouteOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnConnectionRoute)(nil))
 }
 
 func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {

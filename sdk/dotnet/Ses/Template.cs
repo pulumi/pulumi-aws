@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/template:Template")]
     public partial class Template : Pulumi.CustomResource
     {
         /// <summary>

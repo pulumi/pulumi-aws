@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

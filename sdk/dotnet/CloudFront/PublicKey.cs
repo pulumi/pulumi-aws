@@ -33,6 +33,7 @@ namespace Pulumi.Aws.CloudFront
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudfront/publicKey:PublicKey")]
     public partial class PublicKey : Pulumi.CustomResource
     {
         /// <summary>

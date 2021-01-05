@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

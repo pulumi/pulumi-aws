@@ -99,6 +99,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elastictranscoder/preset:Preset")]
     public partial class Preset : Pulumi.CustomResource
     {
         [Output("arn")]

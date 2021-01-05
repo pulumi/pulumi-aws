@@ -303,15 +303,15 @@ type VpcInput interface {
 	ToVpcOutputWithContext(ctx context.Context) VpcOutput
 }
 
-func (Vpc) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vpc)(nil)).Elem()
+func (*Vpc) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vpc)(nil))
 }
 
-func (i Vpc) ToVpcOutput() VpcOutput {
+func (i *Vpc) ToVpcOutput() VpcOutput {
 	return i.ToVpcOutputWithContext(context.Background())
 }
 
-func (i Vpc) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
+func (i *Vpc) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcOutput)
 }
 
@@ -320,7 +320,7 @@ type VpcOutput struct {
 }
 
 func (VpcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcOutput)(nil)).Elem()
+	return reflect.TypeOf((*Vpc)(nil))
 }
 
 func (o VpcOutput) ToVpcOutput() VpcOutput {

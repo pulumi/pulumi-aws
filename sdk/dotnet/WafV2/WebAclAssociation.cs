@@ -98,6 +98,7 @@ namespace Pulumi.Aws.WafV2
     ///  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : Pulumi.CustomResource
     {
         /// <summary>

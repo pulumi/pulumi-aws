@@ -167,15 +167,15 @@ type ServiceLinkedRoleInput interface {
 	ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput
 }
 
-func (ServiceLinkedRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinkedRole)(nil)).Elem()
+func (*ServiceLinkedRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinkedRole)(nil))
 }
 
-func (i ServiceLinkedRole) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
+func (i *ServiceLinkedRole) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
 	return i.ToServiceLinkedRoleOutputWithContext(context.Background())
 }
 
-func (i ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
+func (i *ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Context) ServiceLinkedRoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleOutput)
 }
 
@@ -184,7 +184,7 @@ type ServiceLinkedRoleOutput struct {
 }
 
 func (ServiceLinkedRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinkedRoleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceLinkedRole)(nil))
 }
 
 func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {

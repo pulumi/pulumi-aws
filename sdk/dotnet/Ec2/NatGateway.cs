@@ -64,6 +64,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/natGateway:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>

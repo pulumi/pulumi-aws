@@ -40,6 +40,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/customLayer:CustomLayer")]
     public partial class CustomLayer : Pulumi.CustomResource
     {
         /// <summary>

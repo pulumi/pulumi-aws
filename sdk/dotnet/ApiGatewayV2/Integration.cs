@@ -101,6 +101,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>

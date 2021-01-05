@@ -130,15 +130,15 @@ type SqlInjectionMatchSetInput interface {
 	ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput
 }
 
-func (SqlInjectionMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlInjectionMatchSet)(nil)).Elem()
+func (*SqlInjectionMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
 }
 
-func (i SqlInjectionMatchSet) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {
 	return i.ToSqlInjectionMatchSetOutputWithContext(context.Background())
 }
 
-func (i SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetOutput)
 }
 
@@ -147,7 +147,7 @@ type SqlInjectionMatchSetOutput struct {
 }
 
 func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlInjectionMatchSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
 }
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {

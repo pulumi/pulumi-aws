@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Athena
     ///  $ pulumi import aws:athena/workgroup:Workgroup example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:athena/workgroup:Workgroup")]
     public partial class Workgroup : Pulumi.CustomResource
     {
         /// <summary>

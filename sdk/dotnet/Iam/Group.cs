@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/group:Group developers developers
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

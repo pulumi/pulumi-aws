@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : Pulumi.CustomResource
     {
         /// <summary>

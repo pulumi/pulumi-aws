@@ -350,15 +350,15 @@ type RailsAppLayerInput interface {
 	ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput
 }
 
-func (RailsAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RailsAppLayer)(nil)).Elem()
+func (*RailsAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayer)(nil))
 }
 
-func (i RailsAppLayer) ToRailsAppLayerOutput() RailsAppLayerOutput {
+func (i *RailsAppLayer) ToRailsAppLayerOutput() RailsAppLayerOutput {
 	return i.ToRailsAppLayerOutputWithContext(context.Background())
 }
 
-func (i RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
+func (i *RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerOutput)
 }
 
@@ -367,7 +367,7 @@ type RailsAppLayerOutput struct {
 }
 
 func (RailsAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RailsAppLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*RailsAppLayer)(nil))
 }
 
 func (o RailsAppLayerOutput) ToRailsAppLayerOutput() RailsAppLayerOutput {

@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpc:Vpc")]
     public partial class Vpc : Pulumi.CustomResource
     {
         /// <summary>

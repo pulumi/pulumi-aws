@@ -185,15 +185,15 @@ type PolicyAttachmentInput interface {
 	ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput
 }
 
-func (PolicyAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAttachment)(nil)).Elem()
+func (*PolicyAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAttachment)(nil))
 }
 
-func (i PolicyAttachment) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
+func (i *PolicyAttachment) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
 	return i.ToPolicyAttachmentOutputWithContext(context.Background())
 }
 
-func (i PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
+func (i *PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentOutput)
 }
 
@@ -202,7 +202,7 @@ type PolicyAttachmentOutput struct {
 }
 
 func (PolicyAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyAttachment)(nil))
 }
 
 func (o PolicyAttachmentOutput) ToPolicyAttachmentOutput() PolicyAttachmentOutput {

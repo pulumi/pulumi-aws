@@ -67,6 +67,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/vaultPolicy:VaultPolicy")]
     public partial class VaultPolicy : Pulumi.CustomResource
     {
         /// <summary>

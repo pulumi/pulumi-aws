@@ -115,15 +115,15 @@ type LoadBalancerBackendServerPolicyInput interface {
 	ToLoadBalancerBackendServerPolicyOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyOutput
 }
 
-func (LoadBalancerBackendServerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendServerPolicy)(nil)).Elem()
+func (*LoadBalancerBackendServerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBackendServerPolicy)(nil))
 }
 
-func (i LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutput() LoadBalancerBackendServerPolicyOutput {
+func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutput() LoadBalancerBackendServerPolicyOutput {
 	return i.ToLoadBalancerBackendServerPolicyOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyOutput {
+func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyOutput)
 }
 
@@ -132,7 +132,7 @@ type LoadBalancerBackendServerPolicyOutput struct {
 }
 
 func (LoadBalancerBackendServerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendServerPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerBackendServerPolicy)(nil))
 }
 
 func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicyOutput() LoadBalancerBackendServerPolicyOutput {

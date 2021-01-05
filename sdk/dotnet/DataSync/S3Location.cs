@@ -44,6 +44,7 @@ namespace Pulumi.Aws.DataSync
     ///  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datasync/s3Location:S3Location")]
     public partial class S3Location : Pulumi.CustomResource
     {
         /// <summary>

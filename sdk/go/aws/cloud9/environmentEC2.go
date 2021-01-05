@@ -181,15 +181,15 @@ type EnvironmentEC2Input interface {
 	ToEnvironmentEC2OutputWithContext(ctx context.Context) EnvironmentEC2Output
 }
 
-func (EnvironmentEC2) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2)(nil)).Elem()
+func (*EnvironmentEC2) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEC2)(nil))
 }
 
-func (i EnvironmentEC2) ToEnvironmentEC2Output() EnvironmentEC2Output {
+func (i *EnvironmentEC2) ToEnvironmentEC2Output() EnvironmentEC2Output {
 	return i.ToEnvironmentEC2OutputWithContext(context.Background())
 }
 
-func (i EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) EnvironmentEC2Output {
+func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) EnvironmentEC2Output {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2Output)
 }
 
@@ -198,7 +198,7 @@ type EnvironmentEC2Output struct {
 }
 
 func (EnvironmentEC2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2Output)(nil)).Elem()
+	return reflect.TypeOf((*EnvironmentEC2)(nil))
 }
 
 func (o EnvironmentEC2Output) ToEnvironmentEC2Output() EnvironmentEC2Output {

@@ -160,15 +160,15 @@ type AliasInput interface {
 	ToAliasOutputWithContext(ctx context.Context) AliasOutput
 }
 
-func (Alias) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alias)(nil)).Elem()
+func (*Alias) ElementType() reflect.Type {
+	return reflect.TypeOf((*Alias)(nil))
 }
 
-func (i Alias) ToAliasOutput() AliasOutput {
+func (i *Alias) ToAliasOutput() AliasOutput {
 	return i.ToAliasOutputWithContext(context.Background())
 }
 
-func (i Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
+func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
@@ -177,7 +177,7 @@ type AliasOutput struct {
 }
 
 func (AliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AliasOutput)(nil)).Elem()
+	return reflect.TypeOf((*Alias)(nil))
 }
 
 func (o AliasOutput) ToAliasOutput() AliasOutput {

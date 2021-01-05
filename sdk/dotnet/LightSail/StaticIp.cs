@@ -32,6 +32,7 @@ namespace Pulumi.Aws.LightSail
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lightsail/staticIp:StaticIp")]
     public partial class StaticIp : Pulumi.CustomResource
     {
         /// <summary>

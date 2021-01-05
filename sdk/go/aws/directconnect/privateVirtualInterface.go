@@ -265,15 +265,15 @@ type PrivateVirtualInterfaceInput interface {
 	ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput
 }
 
-func (PrivateVirtualInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateVirtualInterface)(nil)).Elem()
+func (*PrivateVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateVirtualInterface)(nil))
 }
 
-func (i PrivateVirtualInterface) ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput {
+func (i *PrivateVirtualInterface) ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput {
 	return i.ToPrivateVirtualInterfaceOutputWithContext(context.Background())
 }
 
-func (i PrivateVirtualInterface) ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput {
+func (i *PrivateVirtualInterface) ToPrivateVirtualInterfaceOutputWithContext(ctx context.Context) PrivateVirtualInterfaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceOutput)
 }
 
@@ -282,7 +282,7 @@ type PrivateVirtualInterfaceOutput struct {
 }
 
 func (PrivateVirtualInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateVirtualInterfaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateVirtualInterface)(nil))
 }
 
 func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfaceOutput() PrivateVirtualInterfaceOutput {

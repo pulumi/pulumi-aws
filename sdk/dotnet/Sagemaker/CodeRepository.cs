@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
+    [AwsResourceType("aws:sagemaker/codeRepository:CodeRepository")]
     public partial class CodeRepository : Pulumi.CustomResource
     {
         [Output("arn")]

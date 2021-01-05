@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Lex
     ///  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lex/botAlias:BotAlias")]
     public partial class BotAlias : Pulumi.CustomResource
     {
         /// <summary>

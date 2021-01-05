@@ -83,6 +83,7 @@ namespace Pulumi.Aws.AutoScaling
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscaling/attachment:Attachment")]
     public partial class Attachment : Pulumi.CustomResource
     {
         /// <summary>

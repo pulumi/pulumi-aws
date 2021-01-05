@@ -165,6 +165,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
     /// </summary>
+    [AwsResourceType("aws:ec2/eip:Eip")]
     public partial class Eip : Pulumi.CustomResource
     {
         [Output("allocationId")]

@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/alias:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

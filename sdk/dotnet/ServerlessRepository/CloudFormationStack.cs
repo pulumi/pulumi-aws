@@ -56,6 +56,7 @@ namespace Pulumi.Aws.ServerlessRepository
     ///  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
     /// ```
     /// </summary>
+    [AwsResourceType("aws:serverlessrepository/cloudFormationStack:CloudFormationStack")]
     public partial class CloudFormationStack : Pulumi.CustomResource
     {
         /// <summary>

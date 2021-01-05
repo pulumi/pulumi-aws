@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Macie
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:macie/s3BucketAssociation:S3BucketAssociation")]
     public partial class S3BucketAssociation : Pulumi.CustomResource
     {
         /// <summary>

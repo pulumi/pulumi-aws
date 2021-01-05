@@ -104,6 +104,7 @@ namespace Pulumi.Aws.CodeBuild
     ///  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codebuild/webhook:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>

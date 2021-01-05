@@ -89,6 +89,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/eventRule:EventRule")]
     public partial class EventRule : Pulumi.CustomResource
     {
         /// <summary>

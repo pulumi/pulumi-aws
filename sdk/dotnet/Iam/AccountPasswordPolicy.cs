@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
     public partial class AccountPasswordPolicy : Pulumi.CustomResource
     {
         /// <summary>

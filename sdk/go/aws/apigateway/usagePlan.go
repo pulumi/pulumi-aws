@@ -217,15 +217,15 @@ type UsagePlanInput interface {
 	ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput
 }
 
-func (UsagePlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlan)(nil)).Elem()
+func (*UsagePlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlan)(nil))
 }
 
-func (i UsagePlan) ToUsagePlanOutput() UsagePlanOutput {
+func (i *UsagePlan) ToUsagePlanOutput() UsagePlanOutput {
 	return i.ToUsagePlanOutputWithContext(context.Background())
 }
 
-func (i UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
+func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanOutput)
 }
 
@@ -234,7 +234,7 @@ type UsagePlanOutput struct {
 }
 
 func (UsagePlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*UsagePlan)(nil))
 }
 
 func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {

@@ -55,6 +55,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
         /// <summary>

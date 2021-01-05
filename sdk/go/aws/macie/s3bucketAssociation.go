@@ -147,15 +147,15 @@ type S3BucketAssociationInput interface {
 	ToS3BucketAssociationOutputWithContext(ctx context.Context) S3BucketAssociationOutput
 }
 
-func (S3BucketAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3BucketAssociation)(nil)).Elem()
+func (*S3BucketAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3BucketAssociation)(nil))
 }
 
-func (i S3BucketAssociation) ToS3BucketAssociationOutput() S3BucketAssociationOutput {
+func (i *S3BucketAssociation) ToS3BucketAssociationOutput() S3BucketAssociationOutput {
 	return i.ToS3BucketAssociationOutputWithContext(context.Background())
 }
 
-func (i S3BucketAssociation) ToS3BucketAssociationOutputWithContext(ctx context.Context) S3BucketAssociationOutput {
+func (i *S3BucketAssociation) ToS3BucketAssociationOutputWithContext(ctx context.Context) S3BucketAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationOutput)
 }
 
@@ -164,7 +164,7 @@ type S3BucketAssociationOutput struct {
 }
 
 func (S3BucketAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3BucketAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*S3BucketAssociation)(nil))
 }
 
 func (o S3BucketAssociationOutput) ToS3BucketAssociationOutput() S3BucketAssociationOutput {

@@ -59,6 +59,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy")]
+    [AwsResourceType("aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
     public partial class AppCookieStickinessPolicy : Pulumi.CustomResource
     {
         /// <summary>

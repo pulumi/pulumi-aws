@@ -174,15 +174,15 @@ type ResponseInput interface {
 	ToResponseOutputWithContext(ctx context.Context) ResponseOutput
 }
 
-func (Response) ElementType() reflect.Type {
-	return reflect.TypeOf((*Response)(nil)).Elem()
+func (*Response) ElementType() reflect.Type {
+	return reflect.TypeOf((*Response)(nil))
 }
 
-func (i Response) ToResponseOutput() ResponseOutput {
+func (i *Response) ToResponseOutput() ResponseOutput {
 	return i.ToResponseOutputWithContext(context.Background())
 }
 
-func (i Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
+func (i *Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseOutput)
 }
 
@@ -191,7 +191,7 @@ type ResponseOutput struct {
 }
 
 func (ResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseOutput)(nil)).Elem()
+	return reflect.TypeOf((*Response)(nil))
 }
 
 func (o ResponseOutput) ToResponseOutput() ResponseOutput {

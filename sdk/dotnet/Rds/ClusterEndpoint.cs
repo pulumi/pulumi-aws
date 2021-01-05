@@ -101,6 +101,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
     /// </summary>
+    [AwsResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
     public partial class ClusterEndpoint : Pulumi.CustomResource
     {
         /// <summary>

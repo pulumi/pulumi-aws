@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Cur
     ///  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cur/reportDefinition:ReportDefinition")]
     public partial class ReportDefinition : Pulumi.CustomResource
     {
         /// <summary>

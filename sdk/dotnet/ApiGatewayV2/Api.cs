@@ -61,6 +61,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/api:Api")]
     public partial class Api : Pulumi.CustomResource
     {
         /// <summary>

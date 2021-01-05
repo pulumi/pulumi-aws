@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/capacityReservation:CapacityReservation")]
     public partial class CapacityReservation : Pulumi.CustomResource
     {
         /// <summary>

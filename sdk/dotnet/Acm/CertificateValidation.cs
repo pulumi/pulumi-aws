@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Acm
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : Pulumi.CustomResource
     {
         /// <summary>

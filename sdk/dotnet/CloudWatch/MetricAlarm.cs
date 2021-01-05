@@ -243,6 +243,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/metricAlarm:MetricAlarm")]
     public partial class MetricAlarm : Pulumi.CustomResource
     {
         /// <summary>

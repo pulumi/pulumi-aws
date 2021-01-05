@@ -42,6 +42,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

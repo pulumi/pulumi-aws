@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/tag:Tag")]
     public partial class Tag : Pulumi.CustomResource
     {
         /// <summary>

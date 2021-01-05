@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Iot
     ///  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/roleAlias:RoleAlias")]
     public partial class RoleAlias : Pulumi.CustomResource
     {
         /// <summary>

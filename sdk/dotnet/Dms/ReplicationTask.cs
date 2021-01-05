@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/replicationTask:ReplicationTask")]
     public partial class ReplicationTask : Pulumi.CustomResource
     {
         /// <summary>

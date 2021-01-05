@@ -377,15 +377,15 @@ type GraphQLApiInput interface {
 	ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput
 }
 
-func (GraphQLApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApi)(nil)).Elem()
+func (*GraphQLApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApi)(nil))
 }
 
-func (i GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
+func (i *GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
 	return i.ToGraphQLApiOutputWithContext(context.Background())
 }
 
-func (i GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
+func (i *GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOutput)
 }
 
@@ -394,7 +394,7 @@ type GraphQLApiOutput struct {
 }
 
 func (GraphQLApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*GraphQLApi)(nil))
 }
 
 func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {

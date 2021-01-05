@@ -167,15 +167,15 @@ type CapacityProviderInput interface {
 	ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput
 }
 
-func (CapacityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProvider)(nil)).Elem()
+func (*CapacityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProvider)(nil))
 }
 
-func (i CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
+func (i *CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
 	return i.ToCapacityProviderOutputWithContext(context.Background())
 }
 
-func (i CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
+func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderOutput)
 }
 
@@ -184,7 +184,7 @@ type CapacityProviderOutput struct {
 }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*CapacityProvider)(nil))
 }
 
 func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutput {

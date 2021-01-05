@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
     public partial class GcmChannel : Pulumi.CustomResource
     {
         /// <summary>

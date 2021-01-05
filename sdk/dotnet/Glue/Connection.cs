@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/connection:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/resolverRule:ResolverRule")]
     public partial class ResolverRule : Pulumi.CustomResource
     {
         /// <summary>

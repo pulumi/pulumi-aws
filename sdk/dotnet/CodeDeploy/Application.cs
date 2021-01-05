@@ -76,6 +76,7 @@ namespace Pulumi.Aws.CodeDeploy
     ///  $ pulumi import aws:codedeploy/application:Application example my-application
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codedeploy/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Ecs
     ///  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]
     public partial class CapacityProvider : Pulumi.CustomResource
     {
         /// <summary>

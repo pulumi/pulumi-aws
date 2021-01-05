@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
     public partial class ManagedPrefixList : Pulumi.CustomResource
     {
         /// <summary>

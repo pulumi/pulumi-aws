@@ -113,6 +113,7 @@ namespace Pulumi.Aws.CloudFormation
     ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
     public partial class StackSetInstance : Pulumi.CustomResource
     {
         /// <summary>

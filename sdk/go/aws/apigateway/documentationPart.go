@@ -153,15 +153,15 @@ type DocumentationPartInput interface {
 	ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput
 }
 
-func (DocumentationPart) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationPart)(nil)).Elem()
+func (*DocumentationPart) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPart)(nil))
 }
 
-func (i DocumentationPart) ToDocumentationPartOutput() DocumentationPartOutput {
+func (i *DocumentationPart) ToDocumentationPartOutput() DocumentationPartOutput {
 	return i.ToDocumentationPartOutputWithContext(context.Background())
 }
 
-func (i DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
+func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
 }
 
@@ -170,7 +170,7 @@ type DocumentationPartOutput struct {
 }
 
 func (DocumentationPartOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationPartOutput)(nil)).Elem()
+	return reflect.TypeOf((*DocumentationPart)(nil))
 }
 
 func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOutput {

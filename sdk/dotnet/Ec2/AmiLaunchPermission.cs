@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]
     public partial class AmiLaunchPermission : Pulumi.CustomResource
     {
         /// <summary>

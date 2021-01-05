@@ -92,6 +92,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// ```
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")]
+    [AwsResourceType("aws:applicationloadbalancing/targetGroup:TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource
     {
         /// <summary>

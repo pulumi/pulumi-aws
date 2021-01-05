@@ -169,15 +169,15 @@ type CustomerGatewayInput interface {
 	ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput
 }
 
-func (CustomerGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGateway)(nil)).Elem()
+func (*CustomerGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGateway)(nil))
 }
 
-func (i CustomerGateway) ToCustomerGatewayOutput() CustomerGatewayOutput {
+func (i *CustomerGateway) ToCustomerGatewayOutput() CustomerGatewayOutput {
 	return i.ToCustomerGatewayOutputWithContext(context.Background())
 }
 
-func (i CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
+func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
 }
 
@@ -186,7 +186,7 @@ type CustomerGatewayOutput struct {
 }
 
 func (CustomerGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomerGateway)(nil))
 }
 
 func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {

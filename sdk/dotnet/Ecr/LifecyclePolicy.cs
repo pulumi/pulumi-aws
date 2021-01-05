@@ -104,6 +104,7 @@ namespace Pulumi.Aws.Ecr
     ///  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
         /// <summary>

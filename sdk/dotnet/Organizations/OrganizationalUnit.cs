@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Organizations
     ///  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:organizations/organizationalUnit:OrganizationalUnit")]
     public partial class OrganizationalUnit : Pulumi.CustomResource
     {
         /// <summary>

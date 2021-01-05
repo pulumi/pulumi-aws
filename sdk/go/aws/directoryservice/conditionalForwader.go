@@ -148,15 +148,15 @@ type ConditionalForwaderInput interface {
 	ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput
 }
 
-func (ConditionalForwader) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionalForwader)(nil)).Elem()
+func (*ConditionalForwader) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionalForwader)(nil))
 }
 
-func (i ConditionalForwader) ToConditionalForwaderOutput() ConditionalForwaderOutput {
+func (i *ConditionalForwader) ToConditionalForwaderOutput() ConditionalForwaderOutput {
 	return i.ToConditionalForwaderOutputWithContext(context.Background())
 }
 
-func (i ConditionalForwader) ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput {
+func (i *ConditionalForwader) ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderOutput)
 }
 
@@ -165,7 +165,7 @@ type ConditionalForwaderOutput struct {
 }
 
 func (ConditionalForwaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionalForwaderOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConditionalForwader)(nil))
 }
 
 func (o ConditionalForwaderOutput) ToConditionalForwaderOutput() ConditionalForwaderOutput {

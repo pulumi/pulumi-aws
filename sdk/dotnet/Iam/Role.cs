@@ -102,6 +102,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/role:Role developer developer_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/role:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>

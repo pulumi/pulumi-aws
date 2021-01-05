@@ -44,6 +44,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
     /// </summary>
+    [AwsResourceType("aws:imagebuilder/component:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>

@@ -138,15 +138,15 @@ type IpGroupInput interface {
 	ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput
 }
 
-func (IpGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroup)(nil)).Elem()
+func (*IpGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpGroup)(nil))
 }
 
-func (i IpGroup) ToIpGroupOutput() IpGroupOutput {
+func (i *IpGroup) ToIpGroupOutput() IpGroupOutput {
 	return i.ToIpGroupOutputWithContext(context.Background())
 }
 
-func (i IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
+func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
 }
 
@@ -155,7 +155,7 @@ type IpGroupOutput struct {
 }
 
 func (IpGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*IpGroup)(nil))
 }
 
 func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {

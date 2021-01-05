@@ -90,6 +90,7 @@ namespace Pulumi.Aws.Sqs
     ///  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sqs/queue:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

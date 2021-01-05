@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
     public partial class ResolverRuleAssociation : Pulumi.CustomResource
     {
         /// <summary>

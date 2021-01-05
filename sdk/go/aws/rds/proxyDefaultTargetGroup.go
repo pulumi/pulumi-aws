@@ -114,15 +114,15 @@ type ProxyDefaultTargetGroupInput interface {
 	ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput
 }
 
-func (ProxyDefaultTargetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyDefaultTargetGroup)(nil)).Elem()
+func (*ProxyDefaultTargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroup)(nil))
 }
 
-func (i ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput {
+func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput {
 	return i.ToProxyDefaultTargetGroupOutputWithContext(context.Background())
 }
 
-func (i ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput {
+func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupOutput)
 }
 
@@ -131,7 +131,7 @@ type ProxyDefaultTargetGroupOutput struct {
 }
 
 func (ProxyDefaultTargetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyDefaultTargetGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProxyDefaultTargetGroup)(nil))
 }
 
 func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutput() ProxyDefaultTargetGroupOutput {

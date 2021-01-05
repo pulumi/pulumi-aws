@@ -355,15 +355,15 @@ type PatchBaselineInput interface {
 	ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput
 }
 
-func (PatchBaseline) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaseline)(nil)).Elem()
+func (*PatchBaseline) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaseline)(nil))
 }
 
-func (i PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
+func (i *PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
 	return i.ToPatchBaselineOutputWithContext(context.Background())
 }
 
-func (i PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
+func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
 }
 
@@ -372,7 +372,7 @@ type PatchBaselineOutput struct {
 }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaselineOutput)(nil)).Elem()
+	return reflect.TypeOf((*PatchBaseline)(nil))
 }
 
 func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {

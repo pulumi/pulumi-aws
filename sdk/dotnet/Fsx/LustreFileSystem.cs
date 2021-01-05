@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:fsx/lustreFileSystem:LustreFileSystem")]
     public partial class LustreFileSystem : Pulumi.CustomResource
     {
         /// <summary>

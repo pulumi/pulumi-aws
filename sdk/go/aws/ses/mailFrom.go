@@ -178,15 +178,15 @@ type MailFromInput interface {
 	ToMailFromOutputWithContext(ctx context.Context) MailFromOutput
 }
 
-func (MailFrom) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailFrom)(nil)).Elem()
+func (*MailFrom) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailFrom)(nil))
 }
 
-func (i MailFrom) ToMailFromOutput() MailFromOutput {
+func (i *MailFrom) ToMailFromOutput() MailFromOutput {
 	return i.ToMailFromOutputWithContext(context.Background())
 }
 
-func (i MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
+func (i *MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromOutput)
 }
 
@@ -195,7 +195,7 @@ type MailFromOutput struct {
 }
 
 func (MailFromOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailFromOutput)(nil)).Elem()
+	return reflect.TypeOf((*MailFrom)(nil))
 }
 
 func (o MailFromOutput) ToMailFromOutput() MailFromOutput {

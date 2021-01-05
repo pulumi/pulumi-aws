@@ -41,6 +41,7 @@ namespace Pulumi.Aws.DataSync
     ///  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datasync/agent:Agent")]
     public partial class Agent : Pulumi.CustomResource
     {
         /// <summary>

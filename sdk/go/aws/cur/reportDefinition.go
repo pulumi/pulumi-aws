@@ -251,15 +251,15 @@ type ReportDefinitionInput interface {
 	ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput
 }
 
-func (ReportDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinition)(nil)).Elem()
+func (*ReportDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinition)(nil))
 }
 
-func (i ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
+func (i *ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
 	return i.ToReportDefinitionOutputWithContext(context.Background())
 }
 
-func (i ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
+func (i *ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
 }
 
@@ -268,7 +268,7 @@ type ReportDefinitionOutput struct {
 }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReportDefinition)(nil))
 }
 
 func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutput {

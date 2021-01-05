@@ -90,6 +90,7 @@ namespace Pulumi.Aws.Eks
     ///  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
     /// ```
     /// </summary>
+    [AwsResourceType("aws:eks/fargateProfile:FargateProfile")]
     public partial class FargateProfile : Pulumi.CustomResource
     {
         /// <summary>

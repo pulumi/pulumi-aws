@@ -199,15 +199,15 @@ type ExternalKeyInput interface {
 	ToExternalKeyOutputWithContext(ctx context.Context) ExternalKeyOutput
 }
 
-func (ExternalKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalKey)(nil)).Elem()
+func (*ExternalKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalKey)(nil))
 }
 
-func (i ExternalKey) ToExternalKeyOutput() ExternalKeyOutput {
+func (i *ExternalKey) ToExternalKeyOutput() ExternalKeyOutput {
 	return i.ToExternalKeyOutputWithContext(context.Background())
 }
 
-func (i ExternalKey) ToExternalKeyOutputWithContext(ctx context.Context) ExternalKeyOutput {
+func (i *ExternalKey) ToExternalKeyOutputWithContext(ctx context.Context) ExternalKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyOutput)
 }
 
@@ -216,7 +216,7 @@ type ExternalKeyOutput struct {
 }
 
 func (ExternalKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ExternalKey)(nil))
 }
 
 func (o ExternalKeyOutput) ToExternalKeyOutput() ExternalKeyOutput {

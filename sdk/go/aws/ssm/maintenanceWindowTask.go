@@ -315,15 +315,15 @@ type MaintenanceWindowTaskInput interface {
 	ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput
 }
 
-func (MaintenanceWindowTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTask)(nil)).Elem()
+func (*MaintenanceWindowTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTask)(nil))
 }
 
-func (i MaintenanceWindowTask) ToMaintenanceWindowTaskOutput() MaintenanceWindowTaskOutput {
+func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutput() MaintenanceWindowTaskOutput {
 	return i.ToMaintenanceWindowTaskOutputWithContext(context.Background())
 }
 
-func (i MaintenanceWindowTask) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
+func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskOutput)
 }
 
@@ -332,7 +332,7 @@ type MaintenanceWindowTaskOutput struct {
 }
 
 func (MaintenanceWindowTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTaskOutput)(nil)).Elem()
+	return reflect.TypeOf((*MaintenanceWindowTask)(nil))
 }
 
 func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutput() MaintenanceWindowTaskOutput {

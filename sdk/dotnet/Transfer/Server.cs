@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     ///  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
     /// </summary>
+    [AwsResourceType("aws:transfer/server:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

@@ -215,15 +215,15 @@ type ModelInput interface {
 	ToModelOutputWithContext(ctx context.Context) ModelOutput
 }
 
-func (Model) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil)).Elem()
+func (*Model) ElementType() reflect.Type {
+	return reflect.TypeOf((*Model)(nil))
 }
 
-func (i Model) ToModelOutput() ModelOutput {
+func (i *Model) ToModelOutput() ModelOutput {
 	return i.ToModelOutputWithContext(context.Background())
 }
 
-func (i Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
+func (i *Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelOutput)
 }
 
@@ -232,7 +232,7 @@ type ModelOutput struct {
 }
 
 func (ModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelOutput)(nil)).Elem()
+	return reflect.TypeOf((*Model)(nil))
 }
 
 func (o ModelOutput) ToModelOutput() ModelOutput {

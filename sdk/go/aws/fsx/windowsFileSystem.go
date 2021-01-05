@@ -378,15 +378,15 @@ type WindowsFileSystemInput interface {
 	ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput
 }
 
-func (WindowsFileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsFileSystem)(nil)).Elem()
+func (*WindowsFileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystem)(nil))
 }
 
-func (i WindowsFileSystem) ToWindowsFileSystemOutput() WindowsFileSystemOutput {
+func (i *WindowsFileSystem) ToWindowsFileSystemOutput() WindowsFileSystemOutput {
 	return i.ToWindowsFileSystemOutputWithContext(context.Background())
 }
 
-func (i WindowsFileSystem) ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput {
+func (i *WindowsFileSystem) ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemOutput)
 }
 
@@ -395,7 +395,7 @@ type WindowsFileSystemOutput struct {
 }
 
 func (WindowsFileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsFileSystemOutput)(nil)).Elem()
+	return reflect.TypeOf((*WindowsFileSystem)(nil))
 }
 
 func (o WindowsFileSystemOutput) ToWindowsFileSystemOutput() WindowsFileSystemOutput {

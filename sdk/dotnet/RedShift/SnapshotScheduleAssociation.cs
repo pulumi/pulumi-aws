@@ -55,6 +55,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")]
     public partial class SnapshotScheduleAssociation : Pulumi.CustomResource
     {
         /// <summary>

@@ -79,6 +79,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/accessPoint:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>

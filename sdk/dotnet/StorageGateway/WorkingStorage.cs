@@ -42,6 +42,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
     /// ```
     /// </summary>
+    [AwsResourceType("aws:storagegateway/workingStorage:WorkingStorage")]
     public partial class WorkingStorage : Pulumi.CustomResource
     {
         /// <summary>

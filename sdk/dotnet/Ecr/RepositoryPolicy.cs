@@ -71,6 +71,7 @@ namespace Pulumi.Aws.Ecr
     ///  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]
     public partial class RepositoryPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -147,15 +147,15 @@ type RegexMatchSetInput interface {
 	ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput
 }
 
-func (RegexMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexMatchSet)(nil)).Elem()
+func (*RegexMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexMatchSet)(nil))
 }
 
-func (i RegexMatchSet) ToRegexMatchSetOutput() RegexMatchSetOutput {
+func (i *RegexMatchSet) ToRegexMatchSetOutput() RegexMatchSetOutput {
 	return i.ToRegexMatchSetOutputWithContext(context.Background())
 }
 
-func (i RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput {
+func (i *RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetOutput)
 }
 
@@ -164,7 +164,7 @@ type RegexMatchSetOutput struct {
 }
 
 func (RegexMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexMatchSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegexMatchSet)(nil))
 }
 
 func (o RegexMatchSetOutput) ToRegexMatchSetOutput() RegexMatchSetOutput {

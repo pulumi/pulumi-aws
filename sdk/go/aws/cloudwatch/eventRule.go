@@ -226,15 +226,15 @@ type EventRuleInput interface {
 	ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput
 }
 
-func (EventRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRule)(nil)).Elem()
+func (*EventRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRule)(nil))
 }
 
-func (i EventRule) ToEventRuleOutput() EventRuleOutput {
+func (i *EventRule) ToEventRuleOutput() EventRuleOutput {
 	return i.ToEventRuleOutputWithContext(context.Background())
 }
 
-func (i EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
+func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
 }
 
@@ -243,7 +243,7 @@ type EventRuleOutput struct {
 }
 
 func (EventRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventRule)(nil))
 }
 
 func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {

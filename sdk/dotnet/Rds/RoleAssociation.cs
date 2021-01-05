@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/roleAssociation:RoleAssociation")]
     public partial class RoleAssociation : Pulumi.CustomResource
     {
         /// <summary>

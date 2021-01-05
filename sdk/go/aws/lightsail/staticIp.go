@@ -123,15 +123,15 @@ type StaticIpInput interface {
 	ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput
 }
 
-func (StaticIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIp)(nil)).Elem()
+func (*StaticIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIp)(nil))
 }
 
-func (i StaticIp) ToStaticIpOutput() StaticIpOutput {
+func (i *StaticIp) ToStaticIpOutput() StaticIpOutput {
 	return i.ToStaticIpOutputWithContext(context.Background())
 }
 
-func (i StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
+func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpOutput)
 }
 
@@ -140,7 +140,7 @@ type StaticIpOutput struct {
 }
 
 func (StaticIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIpOutput)(nil)).Elem()
+	return reflect.TypeOf((*StaticIp)(nil))
 }
 
 func (o StaticIpOutput) ToStaticIpOutput() StaticIpOutput {

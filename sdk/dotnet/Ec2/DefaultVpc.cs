@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultVpc:DefaultVpc")]
     public partial class DefaultVpc : Pulumi.CustomResource
     {
         /// <summary>

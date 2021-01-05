@@ -55,6 +55,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
     public partial class UserDefinedFunction : Pulumi.CustomResource
     {
         [Output("arn")]

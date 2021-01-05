@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/app:App name application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/app:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>

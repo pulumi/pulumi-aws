@@ -35,6 +35,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/permission:Permission")]
     public partial class Permission : Pulumi.CustomResource
     {
         /// <summary>

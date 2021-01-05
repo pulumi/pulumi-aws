@@ -150,15 +150,15 @@ type OrganizationInput interface {
 	ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput
 }
 
-func (Organization) ElementType() reflect.Type {
-	return reflect.TypeOf((*Organization)(nil)).Elem()
+func (*Organization) ElementType() reflect.Type {
+	return reflect.TypeOf((*Organization)(nil))
 }
 
-func (i Organization) ToOrganizationOutput() OrganizationOutput {
+func (i *Organization) ToOrganizationOutput() OrganizationOutput {
 	return i.ToOrganizationOutputWithContext(context.Background())
 }
 
-func (i Organization) ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput {
+func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
 }
 
@@ -167,7 +167,7 @@ type OrganizationOutput struct {
 }
 
 func (OrganizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Organization)(nil))
 }
 
 func (o OrganizationOutput) ToOrganizationOutput() OrganizationOutput {

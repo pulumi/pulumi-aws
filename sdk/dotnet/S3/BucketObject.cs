@@ -130,6 +130,7 @@ namespace Pulumi.Aws.S3
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/bucketObject:BucketObject")]
     public partial class BucketObject : Pulumi.CustomResource
     {
         /// <summary>

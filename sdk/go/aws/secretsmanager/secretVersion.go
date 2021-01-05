@@ -204,15 +204,15 @@ type SecretVersionInput interface {
 	ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput
 }
 
-func (SecretVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVersion)(nil)).Elem()
+func (*SecretVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretVersion)(nil))
 }
 
-func (i SecretVersion) ToSecretVersionOutput() SecretVersionOutput {
+func (i *SecretVersion) ToSecretVersionOutput() SecretVersionOutput {
 	return i.ToSecretVersionOutputWithContext(context.Background())
 }
 
-func (i SecretVersion) ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput {
+func (i *SecretVersion) ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionOutput)
 }
 
@@ -221,7 +221,7 @@ type SecretVersionOutput struct {
 }
 
 func (SecretVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecretVersion)(nil))
 }
 
 func (o SecretVersionOutput) ToSecretVersionOutput() SecretVersionOutput {

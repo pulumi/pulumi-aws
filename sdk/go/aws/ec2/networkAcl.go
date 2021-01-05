@@ -199,15 +199,15 @@ type NetworkAclInput interface {
 	ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput
 }
 
-func (NetworkAcl) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAcl)(nil)).Elem()
+func (*NetworkAcl) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAcl)(nil))
 }
 
-func (i NetworkAcl) ToNetworkAclOutput() NetworkAclOutput {
+func (i *NetworkAcl) ToNetworkAclOutput() NetworkAclOutput {
 	return i.ToNetworkAclOutputWithContext(context.Background())
 }
 
-func (i NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
+func (i *NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclOutput)
 }
 
@@ -216,7 +216,7 @@ type NetworkAclOutput struct {
 }
 
 func (NetworkAclOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAclOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkAcl)(nil))
 }
 
 func (o NetworkAclOutput) ToNetworkAclOutput() NetworkAclOutput {

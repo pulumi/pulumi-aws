@@ -163,15 +163,15 @@ type PartitionInput interface {
 	ToPartitionOutputWithContext(ctx context.Context) PartitionOutput
 }
 
-func (Partition) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partition)(nil)).Elem()
+func (*Partition) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partition)(nil))
 }
 
-func (i Partition) ToPartitionOutput() PartitionOutput {
+func (i *Partition) ToPartitionOutput() PartitionOutput {
 	return i.ToPartitionOutputWithContext(context.Background())
 }
 
-func (i Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
+func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
 }
 
@@ -180,7 +180,7 @@ type PartitionOutput struct {
 }
 
 func (PartitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Partition)(nil))
 }
 
 func (o PartitionOutput) ToPartitionOutput() PartitionOutput {

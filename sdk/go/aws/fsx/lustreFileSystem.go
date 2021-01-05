@@ -336,15 +336,15 @@ type LustreFileSystemInput interface {
 	ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput
 }
 
-func (LustreFileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*LustreFileSystem)(nil)).Elem()
+func (*LustreFileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystem)(nil))
 }
 
-func (i LustreFileSystem) ToLustreFileSystemOutput() LustreFileSystemOutput {
+func (i *LustreFileSystem) ToLustreFileSystemOutput() LustreFileSystemOutput {
 	return i.ToLustreFileSystemOutputWithContext(context.Background())
 }
 
-func (i LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput {
+func (i *LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemOutput)
 }
 
@@ -353,7 +353,7 @@ type LustreFileSystemOutput struct {
 }
 
 func (LustreFileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LustreFileSystemOutput)(nil)).Elem()
+	return reflect.TypeOf((*LustreFileSystem)(nil))
 }
 
 func (o LustreFileSystemOutput) ToLustreFileSystemOutput() LustreFileSystemOutput {

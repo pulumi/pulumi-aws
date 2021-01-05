@@ -161,6 +161,7 @@ namespace Pulumi.Aws.AppAutoScaling
     ///  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appautoscaling/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

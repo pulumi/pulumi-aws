@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Inspector
     ///  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
     /// ```
     /// </summary>
+    [AwsResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
     public partial class AssessmentTemplate : Pulumi.CustomResource
     {
         /// <summary>

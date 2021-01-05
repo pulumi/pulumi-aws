@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/smsChannel:SmsChannel")]
     public partial class SmsChannel : Pulumi.CustomResource
     {
         /// <summary>

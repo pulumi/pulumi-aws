@@ -112,6 +112,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/catalogTable:CatalogTable")]
     public partial class CatalogTable : Pulumi.CustomResource
     {
         /// <summary>

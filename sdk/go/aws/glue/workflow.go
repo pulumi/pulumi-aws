@@ -191,15 +191,15 @@ type WorkflowInput interface {
 	ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput
 }
 
-func (Workflow) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workflow)(nil)).Elem()
+func (*Workflow) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workflow)(nil))
 }
 
-func (i Workflow) ToWorkflowOutput() WorkflowOutput {
+func (i *Workflow) ToWorkflowOutput() WorkflowOutput {
 	return i.ToWorkflowOutputWithContext(context.Background())
 }
 
-func (i Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
+func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
@@ -208,7 +208,7 @@ type WorkflowOutput struct {
 }
 
 func (WorkflowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowOutput)(nil)).Elem()
+	return reflect.TypeOf((*Workflow)(nil))
 }
 
 func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {

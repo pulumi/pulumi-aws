@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/clusterInstance:ClusterInstance")]
     public partial class ClusterInstance : Pulumi.CustomResource
     {
         /// <summary>

@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway")]
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
         /// <summary>

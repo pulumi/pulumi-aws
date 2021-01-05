@@ -131,15 +131,15 @@ type PatchGroupInput interface {
 	ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput
 }
 
-func (PatchGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchGroup)(nil)).Elem()
+func (*PatchGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchGroup)(nil))
 }
 
-func (i PatchGroup) ToPatchGroupOutput() PatchGroupOutput {
+func (i *PatchGroup) ToPatchGroupOutput() PatchGroupOutput {
 	return i.ToPatchGroupOutputWithContext(context.Background())
 }
 
-func (i PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
+func (i *PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupOutput)
 }
 
@@ -148,7 +148,7 @@ type PatchGroupOutput struct {
 }
 
 func (PatchGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*PatchGroup)(nil))
 }
 
 func (o PatchGroupOutput) ToPatchGroupOutput() PatchGroupOutput {

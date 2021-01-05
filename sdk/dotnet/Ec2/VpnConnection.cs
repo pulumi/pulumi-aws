@@ -91,6 +91,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpnConnection:VpnConnection")]
     public partial class VpnConnection : Pulumi.CustomResource
     {
         /// <summary>

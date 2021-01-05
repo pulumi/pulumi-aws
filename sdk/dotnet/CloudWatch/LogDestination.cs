@@ -40,6 +40,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logDestination:LogDestination")]
     public partial class LogDestination : Pulumi.CustomResource
     {
         /// <summary>

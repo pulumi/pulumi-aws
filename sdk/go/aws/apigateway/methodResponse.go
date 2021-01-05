@@ -221,15 +221,15 @@ type MethodResponseInput interface {
 	ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput
 }
 
-func (MethodResponse) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodResponse)(nil)).Elem()
+func (*MethodResponse) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodResponse)(nil))
 }
 
-func (i MethodResponse) ToMethodResponseOutput() MethodResponseOutput {
+func (i *MethodResponse) ToMethodResponseOutput() MethodResponseOutput {
 	return i.ToMethodResponseOutputWithContext(context.Background())
 }
 
-func (i MethodResponse) ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput {
+func (i *MethodResponse) ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseOutput)
 }
 
@@ -238,7 +238,7 @@ type MethodResponseOutput struct {
 }
 
 func (MethodResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodResponseOutput)(nil)).Elem()
+	return reflect.TypeOf((*MethodResponse)(nil))
 }
 
 func (o MethodResponseOutput) ToMethodResponseOutput() MethodResponseOutput {

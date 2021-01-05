@@ -348,15 +348,15 @@ type TargetGroupInput interface {
 	ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput
 }
 
-func (TargetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroup)(nil)).Elem()
+func (*TargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroup)(nil))
 }
 
-func (i TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
+func (i *TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
 	return i.ToTargetGroupOutputWithContext(context.Background())
 }
 
-func (i TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
+func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
 }
 
@@ -365,7 +365,7 @@ type TargetGroupOutput struct {
 }
 
 func (TargetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*TargetGroup)(nil))
 }
 
 func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {

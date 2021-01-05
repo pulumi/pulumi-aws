@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Sagemaker
     ///  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
     public partial class EndpointConfiguration : Pulumi.CustomResource
     {
         /// <summary>

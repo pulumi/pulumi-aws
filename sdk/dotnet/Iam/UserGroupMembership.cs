@@ -69,6 +69,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/userGroupMembership:UserGroupMembership")]
     public partial class UserGroupMembership : Pulumi.CustomResource
     {
         /// <summary>

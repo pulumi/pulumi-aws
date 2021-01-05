@@ -240,15 +240,15 @@ type ClassifierInput interface {
 	ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput
 }
 
-func (Classifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*Classifier)(nil)).Elem()
+func (*Classifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*Classifier)(nil))
 }
 
-func (i Classifier) ToClassifierOutput() ClassifierOutput {
+func (i *Classifier) ToClassifierOutput() ClassifierOutput {
 	return i.ToClassifierOutputWithContext(context.Background())
 }
 
-func (i Classifier) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
+func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
 }
 
@@ -257,7 +257,7 @@ type ClassifierOutput struct {
 }
 
 func (ClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassifierOutput)(nil)).Elem()
+	return reflect.TypeOf((*Classifier)(nil))
 }
 
 func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {

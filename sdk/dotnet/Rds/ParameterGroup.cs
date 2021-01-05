@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

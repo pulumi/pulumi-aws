@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Signer
     ///  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
     /// ```
     /// </summary>
+    [AwsResourceType("aws:signer/signingJob:SigningJob")]
     public partial class SigningJob : Pulumi.CustomResource
     {
         /// <summary>

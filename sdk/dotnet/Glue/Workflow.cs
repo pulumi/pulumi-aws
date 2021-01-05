@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/workflow:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>

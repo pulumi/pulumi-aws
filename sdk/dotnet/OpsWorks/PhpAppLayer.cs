@@ -39,6 +39,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/phpAppLayer:PhpAppLayer")]
     public partial class PhpAppLayer : Pulumi.CustomResource
     {
         /// <summary>

@@ -252,15 +252,15 @@ type PlatformApplicationInput interface {
 	ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput
 }
 
-func (PlatformApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlatformApplication)(nil)).Elem()
+func (*PlatformApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformApplication)(nil))
 }
 
-func (i PlatformApplication) ToPlatformApplicationOutput() PlatformApplicationOutput {
+func (i *PlatformApplication) ToPlatformApplicationOutput() PlatformApplicationOutput {
 	return i.ToPlatformApplicationOutputWithContext(context.Background())
 }
 
-func (i PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
+func (i *PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationOutput)
 }
 
@@ -269,7 +269,7 @@ type PlatformApplicationOutput struct {
 }
 
 func (PlatformApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlatformApplicationOutput)(nil)).Elem()
+	return reflect.TypeOf((*PlatformApplication)(nil))
 }
 
 func (o PlatformApplicationOutput) ToPlatformApplicationOutput() PlatformApplicationOutput {

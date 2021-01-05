@@ -55,6 +55,7 @@ namespace Pulumi.Aws.DocDB
     ///  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:docdb/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

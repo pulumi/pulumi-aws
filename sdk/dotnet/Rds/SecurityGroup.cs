@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/securityGroup:SecurityGroup default aws_rds_sg-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

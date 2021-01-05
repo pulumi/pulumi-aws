@@ -73,6 +73,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/bucketMetric:BucketMetric")]
     public partial class BucketMetric : Pulumi.CustomResource
     {
         /// <summary>

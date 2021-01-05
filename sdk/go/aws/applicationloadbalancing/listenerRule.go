@@ -364,15 +364,15 @@ type ListenerRuleInput interface {
 	ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput
 }
 
-func (ListenerRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerRule)(nil)).Elem()
+func (*ListenerRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRule)(nil))
 }
 
-func (i ListenerRule) ToListenerRuleOutput() ListenerRuleOutput {
+func (i *ListenerRule) ToListenerRuleOutput() ListenerRuleOutput {
 	return i.ToListenerRuleOutputWithContext(context.Background())
 }
 
-func (i ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
+func (i *ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleOutput)
 }
 
@@ -381,7 +381,7 @@ type ListenerRuleOutput struct {
 }
 
 func (ListenerRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ListenerRule)(nil))
 }
 
 func (o ListenerRuleOutput) ToListenerRuleOutput() ListenerRuleOutput {

@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Elb
     ///  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
     public partial class AppCookieStickinessPolicy : Pulumi.CustomResource
     {
         /// <summary>

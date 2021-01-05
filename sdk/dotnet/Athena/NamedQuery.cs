@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Athena
     ///  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
     /// ```
     /// </summary>
+    [AwsResourceType("aws:athena/namedQuery:NamedQuery")]
     public partial class NamedQuery : Pulumi.CustomResource
     {
         /// <summary>

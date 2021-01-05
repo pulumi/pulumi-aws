@@ -230,15 +230,15 @@ type ReplicationTaskInput interface {
 	ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput
 }
 
-func (ReplicationTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationTask)(nil)).Elem()
+func (*ReplicationTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationTask)(nil))
 }
 
-func (i ReplicationTask) ToReplicationTaskOutput() ReplicationTaskOutput {
+func (i *ReplicationTask) ToReplicationTaskOutput() ReplicationTaskOutput {
 	return i.ToReplicationTaskOutputWithContext(context.Background())
 }
 
-func (i ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
+func (i *ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskOutput)
 }
 
@@ -247,7 +247,7 @@ type ReplicationTaskOutput struct {
 }
 
 func (ReplicationTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationTaskOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationTask)(nil))
 }
 
 func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {

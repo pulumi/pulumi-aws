@@ -172,15 +172,15 @@ type EventStreamInput interface {
 	ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput
 }
 
-func (EventStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventStream)(nil)).Elem()
+func (*EventStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStream)(nil))
 }
 
-func (i EventStream) ToEventStreamOutput() EventStreamOutput {
+func (i *EventStream) ToEventStreamOutput() EventStreamOutput {
 	return i.ToEventStreamOutputWithContext(context.Background())
 }
 
-func (i EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
+func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamOutput)
 }
 
@@ -189,7 +189,7 @@ type EventStreamOutput struct {
 }
 
 func (EventStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventStreamOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventStream)(nil))
 }
 
 func (o EventStreamOutput) ToEventStreamOutput() EventStreamOutput {

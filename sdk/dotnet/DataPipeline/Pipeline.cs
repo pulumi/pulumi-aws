@@ -38,6 +38,7 @@ namespace Pulumi.Aws.DataPipeline
     ///  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datapipeline/pipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

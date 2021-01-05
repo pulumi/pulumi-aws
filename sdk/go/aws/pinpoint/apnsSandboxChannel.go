@@ -191,15 +191,15 @@ type ApnsSandboxChannelInput interface {
 	ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput
 }
 
-func (ApnsSandboxChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsSandboxChannel)(nil)).Elem()
+func (*ApnsSandboxChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsSandboxChannel)(nil))
 }
 
-func (i ApnsSandboxChannel) ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput {
+func (i *ApnsSandboxChannel) ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput {
 	return i.ToApnsSandboxChannelOutputWithContext(context.Background())
 }
 
-func (i ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
+func (i *ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelOutput)
 }
 
@@ -208,7 +208,7 @@ type ApnsSandboxChannelOutput struct {
 }
 
 func (ApnsSandboxChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsSandboxChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApnsSandboxChannel)(nil))
 }
 
 func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutput() ApnsSandboxChannelOutput {

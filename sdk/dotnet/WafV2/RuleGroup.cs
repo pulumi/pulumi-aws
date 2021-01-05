@@ -76,6 +76,7 @@ namespace Pulumi.Aws.WafV2
     ///  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafv2/ruleGroup:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
     {
         /// <summary>

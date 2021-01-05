@@ -356,15 +356,15 @@ type ClusterInstanceInput interface {
 	ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput
 }
 
-func (ClusterInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstance)(nil)).Elem()
+func (*ClusterInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstance)(nil))
 }
 
-func (i ClusterInstance) ToClusterInstanceOutput() ClusterInstanceOutput {
+func (i *ClusterInstance) ToClusterInstanceOutput() ClusterInstanceOutput {
 	return i.ToClusterInstanceOutputWithContext(context.Background())
 }
 
-func (i ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
+func (i *ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceOutput)
 }
 
@@ -373,7 +373,7 @@ type ClusterInstanceOutput struct {
 }
 
 func (ClusterInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ClusterInstance)(nil))
 }
 
 func (o ClusterInstanceOutput) ToClusterInstanceOutput() ClusterInstanceOutput {

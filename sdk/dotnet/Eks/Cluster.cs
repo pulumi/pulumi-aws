@@ -104,6 +104,7 @@ namespace Pulumi.Aws.Eks
     ///  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:eks/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

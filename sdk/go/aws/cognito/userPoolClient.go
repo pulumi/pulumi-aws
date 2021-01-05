@@ -368,15 +368,15 @@ type UserPoolClientInput interface {
 	ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput
 }
 
-func (UserPoolClient) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClient)(nil)).Elem()
+func (*UserPoolClient) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClient)(nil))
 }
 
-func (i UserPoolClient) ToUserPoolClientOutput() UserPoolClientOutput {
+func (i *UserPoolClient) ToUserPoolClientOutput() UserPoolClientOutput {
 	return i.ToUserPoolClientOutputWithContext(context.Background())
 }
 
-func (i UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput {
+func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientOutput)
 }
 
@@ -385,7 +385,7 @@ type UserPoolClientOutput struct {
 }
 
 func (UserPoolClientOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClientOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserPoolClient)(nil))
 }
 
 func (o UserPoolClientOutput) ToUserPoolClientOutput() UserPoolClientOutput {

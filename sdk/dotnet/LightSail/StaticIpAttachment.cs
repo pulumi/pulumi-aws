@@ -44,6 +44,7 @@ namespace Pulumi.Aws.LightSail
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
     public partial class StaticIpAttachment : Pulumi.CustomResource
     {
         /// <summary>

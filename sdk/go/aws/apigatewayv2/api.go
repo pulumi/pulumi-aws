@@ -324,15 +324,15 @@ type ApiInput interface {
 	ToApiOutputWithContext(ctx context.Context) ApiOutput
 }
 
-func (Api) ElementType() reflect.Type {
-	return reflect.TypeOf((*Api)(nil)).Elem()
+func (*Api) ElementType() reflect.Type {
+	return reflect.TypeOf((*Api)(nil))
 }
 
-func (i Api) ToApiOutput() ApiOutput {
+func (i *Api) ToApiOutput() ApiOutput {
 	return i.ToApiOutputWithContext(context.Background())
 }
 
-func (i Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
+func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
 }
 
@@ -341,7 +341,7 @@ type ApiOutput struct {
 }
 
 func (ApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*Api)(nil))
 }
 
 func (o ApiOutput) ToApiOutput() ApiOutput {

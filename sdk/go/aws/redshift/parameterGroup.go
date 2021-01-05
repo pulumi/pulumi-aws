@@ -180,15 +180,15 @@ type ParameterGroupInput interface {
 	ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput
 }
 
-func (ParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroup)(nil)).Elem()
+func (*ParameterGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterGroup)(nil))
 }
 
-func (i ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
+func (i *ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
 	return i.ToParameterGroupOutputWithContext(context.Background())
 }
 
-func (i ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
+func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
 }
 
@@ -197,7 +197,7 @@ type ParameterGroupOutput struct {
 }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ParameterGroup)(nil))
 }
 
 func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {

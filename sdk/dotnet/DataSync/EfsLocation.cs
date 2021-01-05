@@ -49,6 +49,7 @@ namespace Pulumi.Aws.DataSync
     ///  $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datasync/efsLocation:EfsLocation")]
     public partial class EfsLocation : Pulumi.CustomResource
     {
         /// <summary>

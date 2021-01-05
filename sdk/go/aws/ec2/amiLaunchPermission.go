@@ -131,15 +131,15 @@ type AmiLaunchPermissionInput interface {
 	ToAmiLaunchPermissionOutputWithContext(ctx context.Context) AmiLaunchPermissionOutput
 }
 
-func (AmiLaunchPermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiLaunchPermission)(nil)).Elem()
+func (*AmiLaunchPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiLaunchPermission)(nil))
 }
 
-func (i AmiLaunchPermission) ToAmiLaunchPermissionOutput() AmiLaunchPermissionOutput {
+func (i *AmiLaunchPermission) ToAmiLaunchPermissionOutput() AmiLaunchPermissionOutput {
 	return i.ToAmiLaunchPermissionOutputWithContext(context.Background())
 }
 
-func (i AmiLaunchPermission) ToAmiLaunchPermissionOutputWithContext(ctx context.Context) AmiLaunchPermissionOutput {
+func (i *AmiLaunchPermission) ToAmiLaunchPermissionOutputWithContext(ctx context.Context) AmiLaunchPermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionOutput)
 }
 
@@ -148,7 +148,7 @@ type AmiLaunchPermissionOutput struct {
 }
 
 func (AmiLaunchPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiLaunchPermissionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AmiLaunchPermission)(nil))
 }
 
 func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionOutput() AmiLaunchPermissionOutput {

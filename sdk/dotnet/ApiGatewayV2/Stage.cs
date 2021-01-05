@@ -41,6 +41,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/stage:Stage")]
     public partial class Stage : Pulumi.CustomResource
     {
         /// <summary>

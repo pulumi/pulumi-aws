@@ -191,6 +191,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/record:Record")]
     public partial class Record : Pulumi.CustomResource
     {
         /// <summary>

@@ -175,15 +175,15 @@ type IdentityPoolInput interface {
 	ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput
 }
 
-func (IdentityPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPool)(nil)).Elem()
+func (*IdentityPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPool)(nil))
 }
 
-func (i IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
+func (i *IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
 	return i.ToIdentityPoolOutputWithContext(context.Background())
 }
 
-func (i IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
+func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
 }
 
@@ -192,7 +192,7 @@ type IdentityPoolOutput struct {
 }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityPool)(nil))
 }
 
 func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {

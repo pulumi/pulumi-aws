@@ -224,15 +224,15 @@ type VpcDhcpOptionsInput interface {
 	ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput
 }
 
-func (VpcDhcpOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptions)(nil)).Elem()
+func (*VpcDhcpOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptions)(nil))
 }
 
-func (i VpcDhcpOptions) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
+func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
 	return i.ToVpcDhcpOptionsOutputWithContext(context.Background())
 }
 
-func (i VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
+func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsOutput)
 }
 
@@ -241,7 +241,7 @@ type VpcDhcpOptionsOutput struct {
 }
 
 func (VpcDhcpOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcDhcpOptions)(nil))
 }
 
 func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {

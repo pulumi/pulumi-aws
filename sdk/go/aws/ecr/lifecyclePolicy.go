@@ -177,15 +177,15 @@ type LifecyclePolicyInput interface {
 	ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput
 }
 
-func (LifecyclePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicy)(nil)).Elem()
+func (*LifecyclePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicy)(nil))
 }
 
-func (i LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
+func (i *LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 	return i.ToLifecyclePolicyOutputWithContext(context.Background())
 }
 
-func (i LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
+func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
 }
 
@@ -194,7 +194,7 @@ type LifecyclePolicyOutput struct {
 }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*LifecyclePolicy)(nil))
 }
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {

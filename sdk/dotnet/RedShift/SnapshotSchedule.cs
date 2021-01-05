@@ -41,6 +41,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/snapshotSchedule:SnapshotSchedule")]
     public partial class SnapshotSchedule : Pulumi.CustomResource
     {
         [Output("arn")]

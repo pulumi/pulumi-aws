@@ -84,6 +84,7 @@ namespace Pulumi.Aws.Backup
     ///  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
     /// ```
     /// </summary>
+    [AwsResourceType("aws:backup/vaultNotifications:VaultNotifications")]
     public partial class VaultNotifications : Pulumi.CustomResource
     {
         /// <summary>

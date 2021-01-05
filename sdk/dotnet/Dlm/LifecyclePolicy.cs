@@ -121,6 +121,7 @@ namespace Pulumi.Aws.Dlm
     ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -118,6 +118,7 @@ namespace Pulumi.Aws.AppSync
     ///  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appsync/resolver:Resolver")]
     public partial class Resolver : Pulumi.CustomResource
     {
         /// <summary>

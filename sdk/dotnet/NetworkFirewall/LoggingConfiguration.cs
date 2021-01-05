@@ -122,6 +122,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
     public partial class LoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>

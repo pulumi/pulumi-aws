@@ -44,6 +44,7 @@ namespace Pulumi.Aws.GameLift
     ///  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:gamelift/alias:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

@@ -264,15 +264,15 @@ type InventoryInput interface {
 	ToInventoryOutputWithContext(ctx context.Context) InventoryOutput
 }
 
-func (Inventory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Inventory)(nil)).Elem()
+func (*Inventory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Inventory)(nil))
 }
 
-func (i Inventory) ToInventoryOutput() InventoryOutput {
+func (i *Inventory) ToInventoryOutput() InventoryOutput {
 	return i.ToInventoryOutputWithContext(context.Background())
 }
 
-func (i Inventory) ToInventoryOutputWithContext(ctx context.Context) InventoryOutput {
+func (i *Inventory) ToInventoryOutputWithContext(ctx context.Context) InventoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryOutput)
 }
 
@@ -281,7 +281,7 @@ type InventoryOutput struct {
 }
 
 func (InventoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InventoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Inventory)(nil))
 }
 
 func (o InventoryOutput) ToInventoryOutput() InventoryOutput {

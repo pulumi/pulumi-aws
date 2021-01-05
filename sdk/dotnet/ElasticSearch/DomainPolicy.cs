@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticsearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : Pulumi.CustomResource
     {
         /// <summary>

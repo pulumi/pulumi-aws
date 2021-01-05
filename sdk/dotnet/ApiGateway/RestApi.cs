@@ -63,6 +63,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/restApi:RestApi")]
     public partial class RestApi : Pulumi.CustomResource
     {
         /// <summary>

@@ -113,15 +113,15 @@ type MemberAccountAssociationInput interface {
 	ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput
 }
 
-func (MemberAccountAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberAccountAssociation)(nil)).Elem()
+func (*MemberAccountAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberAccountAssociation)(nil))
 }
 
-func (i MemberAccountAssociation) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
+func (i *MemberAccountAssociation) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
 	return i.ToMemberAccountAssociationOutputWithContext(context.Background())
 }
 
-func (i MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
+func (i *MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationOutput)
 }
 
@@ -130,7 +130,7 @@ type MemberAccountAssociationOutput struct {
 }
 
 func (MemberAccountAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberAccountAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*MemberAccountAssociation)(nil))
 }
 
 func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {

@@ -40,6 +40,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/connection:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>

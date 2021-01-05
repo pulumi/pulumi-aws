@@ -184,15 +184,15 @@ type ZoneAssociationInput interface {
 	ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput
 }
 
-func (ZoneAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneAssociation)(nil)).Elem()
+func (*ZoneAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneAssociation)(nil))
 }
 
-func (i ZoneAssociation) ToZoneAssociationOutput() ZoneAssociationOutput {
+func (i *ZoneAssociation) ToZoneAssociationOutput() ZoneAssociationOutput {
 	return i.ToZoneAssociationOutputWithContext(context.Background())
 }
 
-func (i ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
+func (i *ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationOutput)
 }
 
@@ -201,7 +201,7 @@ type ZoneAssociationOutput struct {
 }
 
 func (ZoneAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ZoneAssociation)(nil))
 }
 
 func (o ZoneAssociationOutput) ToZoneAssociationOutput() ZoneAssociationOutput {
