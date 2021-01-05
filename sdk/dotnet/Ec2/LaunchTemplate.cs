@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/launchTemplate:LaunchTemplate")]
     public partial class LaunchTemplate : Pulumi.CustomResource
     {
         /// <summary>

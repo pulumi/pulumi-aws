@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Cloud9
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {
         /// <summary>

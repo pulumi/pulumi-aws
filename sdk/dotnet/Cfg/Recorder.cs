@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/recorder:Recorder foo example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/recorder:Recorder")]
     public partial class Recorder : Pulumi.CustomResource
     {
         /// <summary>

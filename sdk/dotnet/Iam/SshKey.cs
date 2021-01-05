@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/sshKey:SshKey")]
     public partial class SshKey : Pulumi.CustomResource
     {
         /// <summary>

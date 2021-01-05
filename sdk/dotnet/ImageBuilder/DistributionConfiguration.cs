@@ -60,6 +60,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]
     public partial class DistributionConfiguration : Pulumi.CustomResource
     {
         /// <summary>

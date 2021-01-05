@@ -347,15 +347,15 @@ type DevEndpointInput interface {
 	ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput
 }
 
-func (DevEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpoint)(nil)).Elem()
+func (*DevEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*DevEndpoint)(nil))
 }
 
-func (i DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
+func (i *DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
 	return i.ToDevEndpointOutputWithContext(context.Background())
 }
 
-func (i DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
+func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
 }
 
@@ -364,7 +364,7 @@ type DevEndpointOutput struct {
 }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*DevEndpoint)(nil))
 }
 
 func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {

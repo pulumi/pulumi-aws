@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
     public partial class IdentityNotificationTopic : Pulumi.CustomResource
     {
         /// <summary>

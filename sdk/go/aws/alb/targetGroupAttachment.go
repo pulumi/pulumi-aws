@@ -210,15 +210,15 @@ type TargetGroupAttachmentInput interface {
 	ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput
 }
 
-func (TargetGroupAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupAttachment)(nil)).Elem()
+func (*TargetGroupAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttachment)(nil))
 }
 
-func (i TargetGroupAttachment) ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput {
+func (i *TargetGroupAttachment) ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput {
 	return i.ToTargetGroupAttachmentOutputWithContext(context.Background())
 }
 
-func (i TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
+func (i *TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentOutput)
 }
 
@@ -227,7 +227,7 @@ type TargetGroupAttachmentOutput struct {
 }
 
 func (TargetGroupAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*TargetGroupAttachment)(nil))
 }
 
 func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutput() TargetGroupAttachmentOutput {

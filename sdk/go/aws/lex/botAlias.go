@@ -188,15 +188,15 @@ type BotAliasInput interface {
 	ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput
 }
 
-func (BotAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAlias)(nil)).Elem()
+func (*BotAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAlias)(nil))
 }
 
-func (i BotAlias) ToBotAliasOutput() BotAliasOutput {
+func (i *BotAlias) ToBotAliasOutput() BotAliasOutput {
 	return i.ToBotAliasOutputWithContext(context.Background())
 }
 
-func (i BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
+func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
 }
 
@@ -205,7 +205,7 @@ type BotAliasOutput struct {
 }
 
 func (BotAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAliasOutput)(nil)).Elem()
+	return reflect.TypeOf((*BotAlias)(nil))
 }
 
 func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {

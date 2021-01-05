@@ -72,6 +72,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         [Output("arn")]

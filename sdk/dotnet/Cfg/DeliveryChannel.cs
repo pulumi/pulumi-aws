@@ -97,6 +97,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]
     public partial class DeliveryChannel : Pulumi.CustomResource
     {
         /// <summary>

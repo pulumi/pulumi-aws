@@ -254,15 +254,15 @@ type ClusterEndpointInput interface {
 	ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput
 }
 
-func (ClusterEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
+func (*ClusterEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil))
 }
 
-func (i ClusterEndpoint) ToClusterEndpointOutput() ClusterEndpointOutput {
+func (i *ClusterEndpoint) ToClusterEndpointOutput() ClusterEndpointOutput {
 	return i.ToClusterEndpointOutputWithContext(context.Background())
 }
 
-func (i ClusterEndpoint) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
+func (i *ClusterEndpoint) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
 }
 
@@ -271,7 +271,7 @@ type ClusterEndpointOutput struct {
 }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*ClusterEndpoint)(nil))
 }
 
 func (o ClusterEndpointOutput) ToClusterEndpointOutput() ClusterEndpointOutput {

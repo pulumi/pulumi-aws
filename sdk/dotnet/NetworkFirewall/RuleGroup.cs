@@ -264,6 +264,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:networkfirewall/ruleGroup:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
     {
         /// <summary>

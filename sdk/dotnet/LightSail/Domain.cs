@@ -38,6 +38,7 @@ namespace Pulumi.Aws.LightSail
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lightsail/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

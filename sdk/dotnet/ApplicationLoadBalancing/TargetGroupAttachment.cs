@@ -88,6 +88,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// Target Group Attachments cannot be imported.
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment")]
+    [AwsResourceType("aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

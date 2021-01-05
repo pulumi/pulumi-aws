@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

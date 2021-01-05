@@ -573,15 +573,15 @@ type LaunchConfigurationInput interface {
 	ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput
 }
 
-func (LaunchConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchConfiguration)(nil)).Elem()
+func (*LaunchConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfiguration)(nil))
 }
 
-func (i LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
+func (i *LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
 	return i.ToLaunchConfigurationOutputWithContext(context.Background())
 }
 
-func (i LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
+func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
 }
 
@@ -590,7 +590,7 @@ type LaunchConfigurationOutput struct {
 }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*LaunchConfiguration)(nil))
 }
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigurationOutput {

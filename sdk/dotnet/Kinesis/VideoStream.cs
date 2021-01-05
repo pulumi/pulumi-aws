@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///  [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
     /// </summary>
+    [AwsResourceType("aws:kinesis/videoStream:VideoStream")]
     public partial class VideoStream : Pulumi.CustomResource
     {
         /// <summary>

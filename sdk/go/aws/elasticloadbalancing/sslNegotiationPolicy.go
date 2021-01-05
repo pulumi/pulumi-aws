@@ -207,15 +207,15 @@ type SslNegotiationPolicyInput interface {
 	ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput
 }
 
-func (SslNegotiationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslNegotiationPolicy)(nil)).Elem()
+func (*SslNegotiationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SslNegotiationPolicy)(nil))
 }
 
-func (i SslNegotiationPolicy) ToSslNegotiationPolicyOutput() SslNegotiationPolicyOutput {
+func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutput() SslNegotiationPolicyOutput {
 	return i.ToSslNegotiationPolicyOutputWithContext(context.Background())
 }
 
-func (i SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
+func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyOutput)
 }
 
@@ -224,7 +224,7 @@ type SslNegotiationPolicyOutput struct {
 }
 
 func (SslNegotiationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslNegotiationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SslNegotiationPolicy)(nil))
 }
 
 func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutput() SslNegotiationPolicyOutput {

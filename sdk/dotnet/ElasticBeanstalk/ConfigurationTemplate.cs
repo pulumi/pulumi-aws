@@ -46,6 +46,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// * `value` - value for the configuration option
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// </summary>
+    [AwsResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
     public partial class ConfigurationTemplate : Pulumi.CustomResource
     {
         /// <summary>

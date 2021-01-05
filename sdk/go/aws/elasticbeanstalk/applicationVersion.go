@@ -218,15 +218,15 @@ type ApplicationVersionInput interface {
 	ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput
 }
 
-func (ApplicationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationVersion)(nil)).Elem()
+func (*ApplicationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersion)(nil))
 }
 
-func (i ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutput {
+func (i *ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutput {
 	return i.ToApplicationVersionOutputWithContext(context.Background())
 }
 
-func (i ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
+func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
 }
 
@@ -235,7 +235,7 @@ type ApplicationVersionOutput struct {
 }
 
 func (ApplicationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationVersion)(nil))
 }
 
 func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersionOutput {

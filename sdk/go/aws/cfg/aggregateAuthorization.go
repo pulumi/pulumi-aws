@@ -147,15 +147,15 @@ type AggregateAuthorizationInput interface {
 	ToAggregateAuthorizationOutputWithContext(ctx context.Context) AggregateAuthorizationOutput
 }
 
-func (AggregateAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregateAuthorization)(nil)).Elem()
+func (*AggregateAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregateAuthorization)(nil))
 }
 
-func (i AggregateAuthorization) ToAggregateAuthorizationOutput() AggregateAuthorizationOutput {
+func (i *AggregateAuthorization) ToAggregateAuthorizationOutput() AggregateAuthorizationOutput {
 	return i.ToAggregateAuthorizationOutputWithContext(context.Background())
 }
 
-func (i AggregateAuthorization) ToAggregateAuthorizationOutputWithContext(ctx context.Context) AggregateAuthorizationOutput {
+func (i *AggregateAuthorization) ToAggregateAuthorizationOutputWithContext(ctx context.Context) AggregateAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationOutput)
 }
 
@@ -164,7 +164,7 @@ type AggregateAuthorizationOutput struct {
 }
 
 func (AggregateAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregateAuthorizationOutput)(nil)).Elem()
+	return reflect.TypeOf((*AggregateAuthorization)(nil))
 }
 
 func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutput() AggregateAuthorizationOutput {

@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/proxyTarget:ProxyTarget")]
     public partial class ProxyTarget : Pulumi.CustomResource
     {
         /// <summary>

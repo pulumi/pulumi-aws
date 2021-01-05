@@ -70,6 +70,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/userGroup:UserGroup")]
     public partial class UserGroup : Pulumi.CustomResource
     {
         /// <summary>

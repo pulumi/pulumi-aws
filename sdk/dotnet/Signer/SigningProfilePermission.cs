@@ -71,6 +71,7 @@ namespace Pulumi.Aws.Signer
     ///  $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
     /// ```
     /// </summary>
+    [AwsResourceType("aws:signer/signingProfilePermission:SigningProfilePermission")]
     public partial class SigningProfilePermission : Pulumi.CustomResource
     {
         /// <summary>

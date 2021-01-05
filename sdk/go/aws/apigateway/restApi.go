@@ -250,15 +250,15 @@ type RestApiInput interface {
 	ToRestApiOutputWithContext(ctx context.Context) RestApiOutput
 }
 
-func (RestApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApi)(nil)).Elem()
+func (*RestApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApi)(nil))
 }
 
-func (i RestApi) ToRestApiOutput() RestApiOutput {
+func (i *RestApi) ToRestApiOutput() RestApiOutput {
 	return i.ToRestApiOutputWithContext(context.Background())
 }
 
-func (i RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
+func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
 }
 
@@ -267,7 +267,7 @@ type RestApiOutput struct {
 }
 
 func (RestApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApiOutput)(nil)).Elem()
+	return reflect.TypeOf((*RestApi)(nil))
 }
 
 func (o RestApiOutput) ToRestApiOutput() RestApiOutput {

@@ -102,15 +102,15 @@ type EncryptionConfigInput interface {
 	ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput
 }
 
-func (EncryptionConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionConfig)(nil)).Elem()
+func (*EncryptionConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfig)(nil))
 }
 
-func (i EncryptionConfig) ToEncryptionConfigOutput() EncryptionConfigOutput {
+func (i *EncryptionConfig) ToEncryptionConfigOutput() EncryptionConfigOutput {
 	return i.ToEncryptionConfigOutputWithContext(context.Background())
 }
 
-func (i EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput {
+func (i *EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigOutput)
 }
 
@@ -119,7 +119,7 @@ type EncryptionConfigOutput struct {
 }
 
 func (EncryptionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*EncryptionConfig)(nil))
 }
 
 func (o EncryptionConfigOutput) ToEncryptionConfigOutput() EncryptionConfigOutput {

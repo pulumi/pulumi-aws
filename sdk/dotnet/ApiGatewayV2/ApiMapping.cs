@@ -43,6 +43,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
     public partial class ApiMapping : Pulumi.CustomResource
     {
         /// <summary>

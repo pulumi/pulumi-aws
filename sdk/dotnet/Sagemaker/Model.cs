@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Sagemaker
     ///  $ pulumi import aws:sagemaker/model:Model test_model model-foo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sagemaker/model:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>

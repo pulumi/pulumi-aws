@@ -231,6 +231,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : Pulumi.CustomResource
     {
         /// <summary>

@@ -59,6 +59,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/identityProvider:IdentityProvider example xxx_yyyyy:example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/identityProvider:IdentityProvider")]
     public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>

@@ -474,15 +474,15 @@ type EventTargetInput interface {
 	ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput
 }
 
-func (EventTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventTarget)(nil)).Elem()
+func (*EventTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTarget)(nil))
 }
 
-func (i EventTarget) ToEventTargetOutput() EventTargetOutput {
+func (i *EventTarget) ToEventTargetOutput() EventTargetOutput {
 	return i.ToEventTargetOutputWithContext(context.Background())
 }
 
-func (i EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
+func (i *EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
 }
 
@@ -491,7 +491,7 @@ type EventTargetOutput struct {
 }
 
 func (EventTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventTarget)(nil))
 }
 
 func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {

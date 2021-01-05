@@ -116,6 +116,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example &lt;identity-pool-id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : Pulumi.CustomResource
     {
         /// <summary>

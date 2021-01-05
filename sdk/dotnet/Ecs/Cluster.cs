@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Ecs
     ///  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecs/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

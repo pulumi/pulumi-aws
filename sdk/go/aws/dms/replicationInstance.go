@@ -355,15 +355,15 @@ type ReplicationInstanceInput interface {
 	ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput
 }
 
-func (ReplicationInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstance)(nil)).Elem()
+func (*ReplicationInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstance)(nil))
 }
 
-func (i ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
+func (i *ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
 	return i.ToReplicationInstanceOutputWithContext(context.Background())
 }
 
-func (i ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
+func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
 }
 
@@ -372,7 +372,7 @@ type ReplicationInstanceOutput struct {
 }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicationInstance)(nil))
 }
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInstanceOutput {

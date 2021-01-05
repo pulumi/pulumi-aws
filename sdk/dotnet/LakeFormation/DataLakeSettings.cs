@@ -84,6 +84,7 @@ namespace Pulumi.Aws.LakeFormation
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
     public partial class DataLakeSettings : Pulumi.CustomResource
     {
         /// <summary>

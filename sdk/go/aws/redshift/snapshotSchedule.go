@@ -176,15 +176,15 @@ type SnapshotScheduleInput interface {
 	ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput
 }
 
-func (SnapshotSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotSchedule)(nil)).Elem()
+func (*SnapshotSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSchedule)(nil))
 }
 
-func (i SnapshotSchedule) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
+func (i *SnapshotSchedule) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
 	return i.ToSnapshotScheduleOutputWithContext(context.Background())
 }
 
-func (i SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
+func (i *SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleOutput)
 }
 
@@ -193,7 +193,7 @@ type SnapshotScheduleOutput struct {
 }
 
 func (SnapshotScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotSchedule)(nil))
 }
 
 func (o SnapshotScheduleOutput) ToSnapshotScheduleOutput() SnapshotScheduleOutput {

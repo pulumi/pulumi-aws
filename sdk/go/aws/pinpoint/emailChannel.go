@@ -202,15 +202,15 @@ type EmailChannelInput interface {
 	ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput
 }
 
-func (EmailChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailChannel)(nil)).Elem()
+func (*EmailChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannel)(nil))
 }
 
-func (i EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
+func (i *EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
 	return i.ToEmailChannelOutputWithContext(context.Background())
 }
 
-func (i EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
+func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
 }
 
@@ -219,7 +219,7 @@ type EmailChannelOutput struct {
 }
 
 func (EmailChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*EmailChannel)(nil))
 }
 
 func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {

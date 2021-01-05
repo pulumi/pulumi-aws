@@ -153,15 +153,15 @@ type ThingInput interface {
 	ToThingOutputWithContext(ctx context.Context) ThingOutput
 }
 
-func (Thing) ElementType() reflect.Type {
-	return reflect.TypeOf((*Thing)(nil)).Elem()
+func (*Thing) ElementType() reflect.Type {
+	return reflect.TypeOf((*Thing)(nil))
 }
 
-func (i Thing) ToThingOutput() ThingOutput {
+func (i *Thing) ToThingOutput() ThingOutput {
 	return i.ToThingOutputWithContext(context.Background())
 }
 
-func (i Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
+func (i *Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingOutput)
 }
 
@@ -170,7 +170,7 @@ type ThingOutput struct {
 }
 
 func (ThingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingOutput)(nil)).Elem()
+	return reflect.TypeOf((*Thing)(nil))
 }
 
 func (o ThingOutput) ToThingOutput() ThingOutput {

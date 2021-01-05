@@ -153,15 +153,15 @@ type CiphertextInput interface {
 	ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput
 }
 
-func (Ciphertext) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ciphertext)(nil)).Elem()
+func (*Ciphertext) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ciphertext)(nil))
 }
 
-func (i Ciphertext) ToCiphertextOutput() CiphertextOutput {
+func (i *Ciphertext) ToCiphertextOutput() CiphertextOutput {
 	return i.ToCiphertextOutputWithContext(context.Background())
 }
 
-func (i Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
+func (i *Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextOutput)
 }
 
@@ -170,7 +170,7 @@ type CiphertextOutput struct {
 }
 
 func (CiphertextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CiphertextOutput)(nil)).Elem()
+	return reflect.TypeOf((*Ciphertext)(nil))
 }
 
 func (o CiphertextOutput) ToCiphertextOutput() CiphertextOutput {

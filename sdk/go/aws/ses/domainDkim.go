@@ -117,15 +117,15 @@ type DomainDkimInput interface {
 	ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput
 }
 
-func (DomainDkim) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDkim)(nil)).Elem()
+func (*DomainDkim) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDkim)(nil))
 }
 
-func (i DomainDkim) ToDomainDkimOutput() DomainDkimOutput {
+func (i *DomainDkim) ToDomainDkimOutput() DomainDkimOutput {
 	return i.ToDomainDkimOutputWithContext(context.Background())
 }
 
-func (i DomainDkim) ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput {
+func (i *DomainDkim) ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDkimOutput)
 }
 
@@ -134,7 +134,7 @@ type DomainDkimOutput struct {
 }
 
 func (DomainDkimOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDkimOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainDkim)(nil))
 }
 
 func (o DomainDkimOutput) ToDomainDkimOutput() DomainDkimOutput {

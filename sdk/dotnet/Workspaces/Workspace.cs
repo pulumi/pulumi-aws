@@ -62,6 +62,7 @@ namespace Pulumi.Aws.Workspaces
     ///  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
     /// ```
     /// </summary>
+    [AwsResourceType("aws:workspaces/workspace:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

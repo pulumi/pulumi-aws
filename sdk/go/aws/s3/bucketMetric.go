@@ -175,15 +175,15 @@ type BucketMetricInput interface {
 	ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput
 }
 
-func (BucketMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketMetric)(nil)).Elem()
+func (*BucketMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetric)(nil))
 }
 
-func (i BucketMetric) ToBucketMetricOutput() BucketMetricOutput {
+func (i *BucketMetric) ToBucketMetricOutput() BucketMetricOutput {
 	return i.ToBucketMetricOutputWithContext(context.Background())
 }
 
-func (i BucketMetric) ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput {
+func (i *BucketMetric) ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricOutput)
 }
 
@@ -192,7 +192,7 @@ type BucketMetricOutput struct {
 }
 
 func (BucketMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketMetricOutput)(nil)).Elem()
+	return reflect.TypeOf((*BucketMetric)(nil))
 }
 
 func (o BucketMetricOutput) ToBucketMetricOutput() BucketMetricOutput {

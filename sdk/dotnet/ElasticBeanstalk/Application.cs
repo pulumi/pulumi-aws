@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticbeanstalk/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         [Output("appversionLifecycle")]

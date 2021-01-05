@@ -40,6 +40,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]
     public partial class EventBus : Pulumi.CustomResource
     {
         /// <summary>

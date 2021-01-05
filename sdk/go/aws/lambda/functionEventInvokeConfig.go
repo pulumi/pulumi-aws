@@ -281,15 +281,15 @@ type FunctionEventInvokeConfigInput interface {
 	ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput
 }
 
-func (FunctionEventInvokeConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil)).Elem()
+func (*FunctionEventInvokeConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil))
 }
 
-func (i FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
+func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
 	return i.ToFunctionEventInvokeConfigOutputWithContext(context.Background())
 }
 
-func (i FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
+func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigOutput)
 }
 
@@ -298,7 +298,7 @@ type FunctionEventInvokeConfigOutput struct {
 }
 
 func (FunctionEventInvokeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEventInvokeConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil))
 }
 
 func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {

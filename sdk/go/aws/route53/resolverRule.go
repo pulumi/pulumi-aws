@@ -235,15 +235,15 @@ type ResolverRuleInput interface {
 	ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput
 }
 
-func (ResolverRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRule)(nil)).Elem()
+func (*ResolverRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRule)(nil))
 }
 
-func (i ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
+func (i *ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
 	return i.ToResolverRuleOutputWithContext(context.Background())
 }
 
-func (i ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
+func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleOutput)
 }
 
@@ -252,7 +252,7 @@ type ResolverRuleOutput struct {
 }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResolverRule)(nil))
 }
 
 func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {

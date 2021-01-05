@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Organizations
     ///  $ pulumi import aws:organizations/policy:Policy example p-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:organizations/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

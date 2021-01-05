@@ -499,15 +499,15 @@ type FirehoseDeliveryStreamInput interface {
 	ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput
 }
 
-func (FirehoseDeliveryStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirehoseDeliveryStream)(nil)).Elem()
+func (*FirehoseDeliveryStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStream)(nil))
 }
 
-func (i FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput {
+func (i *FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput {
 	return i.ToFirehoseDeliveryStreamOutputWithContext(context.Background())
 }
 
-func (i FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput {
+func (i *FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOutput)
 }
 
@@ -516,7 +516,7 @@ type FirehoseDeliveryStreamOutput struct {
 }
 
 func (FirehoseDeliveryStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirehoseDeliveryStreamOutput)(nil)).Elem()
+	return reflect.TypeOf((*FirehoseDeliveryStream)(nil))
 }
 
 func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutput() FirehoseDeliveryStreamOutput {

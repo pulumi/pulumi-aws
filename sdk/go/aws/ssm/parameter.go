@@ -280,15 +280,15 @@ type ParameterInput interface {
 	ToParameterOutputWithContext(ctx context.Context) ParameterOutput
 }
 
-func (Parameter) ElementType() reflect.Type {
-	return reflect.TypeOf((*Parameter)(nil)).Elem()
+func (*Parameter) ElementType() reflect.Type {
+	return reflect.TypeOf((*Parameter)(nil))
 }
 
-func (i Parameter) ToParameterOutput() ParameterOutput {
+func (i *Parameter) ToParameterOutput() ParameterOutput {
 	return i.ToParameterOutputWithContext(context.Background())
 }
 
-func (i Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
+func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
 }
 
@@ -297,7 +297,7 @@ type ParameterOutput struct {
 }
 
 func (ParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterOutput)(nil)).Elem()
+	return reflect.TypeOf((*Parameter)(nil))
 }
 
 func (o ParameterOutput) ToParameterOutput() ParameterOutput {

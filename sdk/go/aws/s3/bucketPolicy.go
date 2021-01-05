@@ -138,15 +138,15 @@ type BucketPolicyInput interface {
 	ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput
 }
 
-func (BucketPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicy)(nil)).Elem()
+func (*BucketPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPolicy)(nil))
 }
 
-func (i BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
+func (i *BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
 	return i.ToBucketPolicyOutputWithContext(context.Background())
 }
 
-func (i BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
+func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyOutput)
 }
 
@@ -155,7 +155,7 @@ type BucketPolicyOutput struct {
 }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*BucketPolicy)(nil))
 }
 
 func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {

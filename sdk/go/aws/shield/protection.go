@@ -153,15 +153,15 @@ type ProtectionInput interface {
 	ToProtectionOutputWithContext(ctx context.Context) ProtectionOutput
 }
 
-func (Protection) ElementType() reflect.Type {
-	return reflect.TypeOf((*Protection)(nil)).Elem()
+func (*Protection) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protection)(nil))
 }
 
-func (i Protection) ToProtectionOutput() ProtectionOutput {
+func (i *Protection) ToProtectionOutput() ProtectionOutput {
 	return i.ToProtectionOutputWithContext(context.Background())
 }
 
-func (i Protection) ToProtectionOutputWithContext(ctx context.Context) ProtectionOutput {
+func (i *Protection) ToProtectionOutputWithContext(ctx context.Context) ProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionOutput)
 }
 
@@ -170,7 +170,7 @@ type ProtectionOutput struct {
 }
 
 func (ProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Protection)(nil))
 }
 
 func (o ProtectionOutput) ToProtectionOutput() ProtectionOutput {

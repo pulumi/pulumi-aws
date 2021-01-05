@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/receiptFilter:ReceiptFilter")]
     public partial class ReceiptFilter : Pulumi.CustomResource
     {
         /// <summary>

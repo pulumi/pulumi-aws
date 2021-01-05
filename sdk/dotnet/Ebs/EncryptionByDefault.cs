@@ -33,6 +33,7 @@ namespace Pulumi.Aws.Ebs
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
     public partial class EncryptionByDefault : Pulumi.CustomResource
     {
         /// <summary>

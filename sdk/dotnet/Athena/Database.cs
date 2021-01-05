@@ -35,6 +35,7 @@ namespace Pulumi.Aws.Athena
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:athena/database:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

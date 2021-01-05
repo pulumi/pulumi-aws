@@ -159,6 +159,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcPeeringConnection:VpcPeeringConnection")]
     public partial class VpcPeeringConnection : Pulumi.CustomResource
     {
         /// <summary>

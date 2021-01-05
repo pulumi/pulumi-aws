@@ -66,6 +66,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/methodResponse:MethodResponse")]
     public partial class MethodResponse : Pulumi.CustomResource
     {
         /// <summary>

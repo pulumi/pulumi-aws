@@ -133,15 +133,15 @@ type WorkingStorageInput interface {
 	ToWorkingStorageOutputWithContext(ctx context.Context) WorkingStorageOutput
 }
 
-func (WorkingStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkingStorage)(nil)).Elem()
+func (*WorkingStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkingStorage)(nil))
 }
 
-func (i WorkingStorage) ToWorkingStorageOutput() WorkingStorageOutput {
+func (i *WorkingStorage) ToWorkingStorageOutput() WorkingStorageOutput {
 	return i.ToWorkingStorageOutputWithContext(context.Background())
 }
 
-func (i WorkingStorage) ToWorkingStorageOutputWithContext(ctx context.Context) WorkingStorageOutput {
+func (i *WorkingStorage) ToWorkingStorageOutputWithContext(ctx context.Context) WorkingStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageOutput)
 }
 
@@ -150,7 +150,7 @@ type WorkingStorageOutput struct {
 }
 
 func (WorkingStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkingStorageOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkingStorage)(nil))
 }
 
 func (o WorkingStorageOutput) ToWorkingStorageOutput() WorkingStorageOutput {

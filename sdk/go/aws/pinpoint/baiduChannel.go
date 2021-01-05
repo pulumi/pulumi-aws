@@ -161,15 +161,15 @@ type BaiduChannelInput interface {
 	ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput
 }
 
-func (BaiduChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduChannel)(nil)).Elem()
+func (*BaiduChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduChannel)(nil))
 }
 
-func (i BaiduChannel) ToBaiduChannelOutput() BaiduChannelOutput {
+func (i *BaiduChannel) ToBaiduChannelOutput() BaiduChannelOutput {
 	return i.ToBaiduChannelOutputWithContext(context.Background())
 }
 
-func (i BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
+func (i *BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelOutput)
 }
 
@@ -178,7 +178,7 @@ type BaiduChannelOutput struct {
 }
 
 func (BaiduChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*BaiduChannel)(nil))
 }
 
 func (o BaiduChannelOutput) ToBaiduChannelOutput() BaiduChannelOutput {

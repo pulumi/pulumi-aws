@@ -134,6 +134,7 @@ namespace Pulumi.Aws.DynamoDB
     ///  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dynamodb/table:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

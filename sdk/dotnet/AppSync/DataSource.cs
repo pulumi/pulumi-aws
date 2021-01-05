@@ -99,6 +99,7 @@ namespace Pulumi.Aws.AppSync
     ///  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appsync/dataSource:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>

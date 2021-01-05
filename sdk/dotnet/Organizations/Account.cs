@@ -63,6 +63,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:organizations/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

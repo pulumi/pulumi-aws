@@ -143,15 +143,15 @@ type UserProfileInput interface {
 	ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput
 }
 
-func (UserProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfile)(nil)).Elem()
+func (*UserProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfile)(nil))
 }
 
-func (i UserProfile) ToUserProfileOutput() UserProfileOutput {
+func (i *UserProfile) ToUserProfileOutput() UserProfileOutput {
 	return i.ToUserProfileOutputWithContext(context.Background())
 }
 
-func (i UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
+func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
 }
 
@@ -160,7 +160,7 @@ type UserProfileOutput struct {
 }
 
 func (UserProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserProfile)(nil))
 }
 
 func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {

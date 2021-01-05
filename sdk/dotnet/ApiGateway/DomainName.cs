@@ -215,6 +215,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/domainName:DomainName")]
     public partial class DomainName : Pulumi.CustomResource
     {
         /// <summary>

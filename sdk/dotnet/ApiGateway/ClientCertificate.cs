@@ -39,6 +39,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/clientCertificate:ClientCertificate")]
     public partial class ClientCertificate : Pulumi.CustomResource
     {
         /// <summary>

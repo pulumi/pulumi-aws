@@ -167,15 +167,15 @@ type TapePoolInput interface {
 	ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutput
 }
 
-func (TapePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*TapePool)(nil)).Elem()
+func (*TapePool) ElementType() reflect.Type {
+	return reflect.TypeOf((*TapePool)(nil))
 }
 
-func (i TapePool) ToTapePoolOutput() TapePoolOutput {
+func (i *TapePool) ToTapePoolOutput() TapePoolOutput {
 	return i.ToTapePoolOutputWithContext(context.Background())
 }
 
-func (i TapePool) ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutput {
+func (i *TapePool) ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolOutput)
 }
 
@@ -184,7 +184,7 @@ type TapePoolOutput struct {
 }
 
 func (TapePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TapePoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*TapePool)(nil))
 }
 
 func (o TapePoolOutput) ToTapePoolOutput() TapePoolOutput {

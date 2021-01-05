@@ -200,15 +200,15 @@ type ConfigurationAggregatorInput interface {
 	ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput
 }
 
-func (ConfigurationAggregator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregator)(nil)).Elem()
+func (*ConfigurationAggregator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAggregator)(nil))
 }
 
-func (i ConfigurationAggregator) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
+func (i *ConfigurationAggregator) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
 	return i.ToConfigurationAggregatorOutputWithContext(context.Background())
 }
 
-func (i ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
+func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
 }
 
@@ -217,7 +217,7 @@ type ConfigurationAggregatorOutput struct {
 }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregatorOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationAggregator)(nil))
 }
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {

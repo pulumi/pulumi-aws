@@ -43,6 +43,7 @@ namespace Pulumi.Aws.DeviceFarm
     ///  $ pulumi import aws:devicefarm/project:Project example arn:aws:devicefarm:us-west-2:123456789012:project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:devicefarm/project:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Workspaces
     ///  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
     /// ```
     /// </summary>
+    [AwsResourceType("aws:workspaces/ipGroup:IpGroup")]
     public partial class IpGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -107,6 +107,7 @@ namespace Pulumi.Aws.DynamoDB
     ///  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dynamodb/globalTable:GlobalTable")]
     public partial class GlobalTable : Pulumi.CustomResource
     {
         /// <summary>

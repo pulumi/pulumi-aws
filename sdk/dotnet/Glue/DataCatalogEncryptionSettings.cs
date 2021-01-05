@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
     public partial class DataCatalogEncryptionSettings : Pulumi.CustomResource
     {
         /// <summary>

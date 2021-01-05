@@ -138,6 +138,7 @@ namespace Pulumi.Aws.Acmpca
     ///  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
     public partial class CertificateAuthority : Pulumi.CustomResource
     {
         /// <summary>

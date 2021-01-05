@@ -175,15 +175,15 @@ type EndpointConfigurationInput interface {
 	ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput
 }
 
-func (EndpointConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointConfiguration)(nil)).Elem()
+func (*EndpointConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfiguration)(nil))
 }
 
-func (i EndpointConfiguration) ToEndpointConfigurationOutput() EndpointConfigurationOutput {
+func (i *EndpointConfiguration) ToEndpointConfigurationOutput() EndpointConfigurationOutput {
 	return i.ToEndpointConfigurationOutputWithContext(context.Background())
 }
 
-func (i EndpointConfiguration) ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput {
+func (i *EndpointConfiguration) ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOutput)
 }
 
@@ -192,7 +192,7 @@ type EndpointConfigurationOutput struct {
 }
 
 func (EndpointConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointConfiguration)(nil))
 }
 
 func (o EndpointConfigurationOutput) ToEndpointConfigurationOutput() EndpointConfigurationOutput {

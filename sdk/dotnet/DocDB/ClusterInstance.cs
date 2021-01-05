@@ -66,6 +66,7 @@ namespace Pulumi.Aws.DocDB
     ///  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:docdb/clusterInstance:ClusterInstance")]
     public partial class ClusterInstance : Pulumi.CustomResource
     {
         /// <summary>

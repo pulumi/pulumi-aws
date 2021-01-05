@@ -131,6 +131,7 @@ namespace Pulumi.Aws.Eks
     ///  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]
     public partial class NodeGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -165,15 +165,15 @@ type VpcLinkInput interface {
 	ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput
 }
 
-func (VpcLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcLink)(nil)).Elem()
+func (*VpcLink) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcLink)(nil))
 }
 
-func (i VpcLink) ToVpcLinkOutput() VpcLinkOutput {
+func (i *VpcLink) ToVpcLinkOutput() VpcLinkOutput {
 	return i.ToVpcLinkOutputWithContext(context.Background())
 }
 
-func (i VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput {
+func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkOutput)
 }
 
@@ -182,7 +182,7 @@ type VpcLinkOutput struct {
 }
 
 func (VpcLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcLinkOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcLink)(nil))
 }
 
 func (o VpcLinkOutput) ToVpcLinkOutput() VpcLinkOutput {

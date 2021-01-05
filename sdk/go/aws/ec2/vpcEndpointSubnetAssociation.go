@@ -131,15 +131,15 @@ type VpcEndpointSubnetAssociationInput interface {
 	ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput
 }
 
-func (VpcEndpointSubnetAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointSubnetAssociation)(nil)).Elem()
+func (*VpcEndpointSubnetAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointSubnetAssociation)(nil))
 }
 
-func (i VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput {
+func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput {
 	return i.ToVpcEndpointSubnetAssociationOutputWithContext(context.Background())
 }
 
-func (i VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput {
+func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationOutput)
 }
 
@@ -148,7 +148,7 @@ type VpcEndpointSubnetAssociationOutput struct {
 }
 
 func (VpcEndpointSubnetAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointSubnetAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcEndpointSubnetAssociation)(nil))
 }
 
 func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput {

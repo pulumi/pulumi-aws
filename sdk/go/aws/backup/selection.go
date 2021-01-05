@@ -211,15 +211,15 @@ type SelectionInput interface {
 	ToSelectionOutputWithContext(ctx context.Context) SelectionOutput
 }
 
-func (Selection) ElementType() reflect.Type {
-	return reflect.TypeOf((*Selection)(nil)).Elem()
+func (*Selection) ElementType() reflect.Type {
+	return reflect.TypeOf((*Selection)(nil))
 }
 
-func (i Selection) ToSelectionOutput() SelectionOutput {
+func (i *Selection) ToSelectionOutput() SelectionOutput {
 	return i.ToSelectionOutputWithContext(context.Background())
 }
 
-func (i Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
+func (i *Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionOutput)
 }
 
@@ -228,7 +228,7 @@ type SelectionOutput struct {
 }
 
 func (SelectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Selection)(nil))
 }
 
 func (o SelectionOutput) ToSelectionOutput() SelectionOutput {

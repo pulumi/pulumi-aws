@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to Pulumi v2.16.2
+    * This introduces package/module registration for DotNet SDK.
 
 ---
 

@@ -186,15 +186,15 @@ type LoadBalancerCookieStickinessPolicyInput interface {
 	ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput
 }
 
-func (LoadBalancerCookieStickinessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicy)(nil)).Elem()
+func (*LoadBalancerCookieStickinessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicy)(nil))
 }
 
-func (i LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput {
+func (i *LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput {
 	return i.ToLoadBalancerCookieStickinessPolicyOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput {
+func (i *LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyOutput)
 }
 
@@ -203,7 +203,7 @@ type LoadBalancerCookieStickinessPolicyOutput struct {
 }
 
 func (LoadBalancerCookieStickinessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicy)(nil))
 }
 
 func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput {

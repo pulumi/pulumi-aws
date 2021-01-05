@@ -293,15 +293,15 @@ type StaticWebLayerInput interface {
 	ToStaticWebLayerOutputWithContext(ctx context.Context) StaticWebLayerOutput
 }
 
-func (StaticWebLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticWebLayer)(nil)).Elem()
+func (*StaticWebLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayer)(nil))
 }
 
-func (i StaticWebLayer) ToStaticWebLayerOutput() StaticWebLayerOutput {
+func (i *StaticWebLayer) ToStaticWebLayerOutput() StaticWebLayerOutput {
 	return i.ToStaticWebLayerOutputWithContext(context.Background())
 }
 
-func (i StaticWebLayer) ToStaticWebLayerOutputWithContext(ctx context.Context) StaticWebLayerOutput {
+func (i *StaticWebLayer) ToStaticWebLayerOutputWithContext(ctx context.Context) StaticWebLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerOutput)
 }
 
@@ -310,7 +310,7 @@ type StaticWebLayerOutput struct {
 }
 
 func (StaticWebLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticWebLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*StaticWebLayer)(nil))
 }
 
 func (o StaticWebLayerOutput) ToStaticWebLayerOutput() StaticWebLayerOutput {

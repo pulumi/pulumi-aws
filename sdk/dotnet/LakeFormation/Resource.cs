@@ -37,6 +37,7 @@ namespace Pulumi.Aws.LakeFormation
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lakeformation/resource:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>

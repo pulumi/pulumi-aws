@@ -49,6 +49,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant")]
     public partial class SnapshotCopyGrant : Pulumi.CustomResource
     {
         /// <summary>

@@ -44,6 +44,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace")]
     public partial class PrivateDnsNamespace : Pulumi.CustomResource
     {
         /// <summary>

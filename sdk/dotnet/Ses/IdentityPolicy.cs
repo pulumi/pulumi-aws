@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/identityPolicy:IdentityPolicy")]
     public partial class IdentityPolicy : Pulumi.CustomResource
     {
         /// <summary>

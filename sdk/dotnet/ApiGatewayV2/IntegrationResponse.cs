@@ -43,6 +43,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
     public partial class IntegrationResponse : Pulumi.CustomResource
     {
         /// <summary>

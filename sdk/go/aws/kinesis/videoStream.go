@@ -195,15 +195,15 @@ type VideoStreamInput interface {
 	ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput
 }
 
-func (VideoStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoStream)(nil)).Elem()
+func (*VideoStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoStream)(nil))
 }
 
-func (i VideoStream) ToVideoStreamOutput() VideoStreamOutput {
+func (i *VideoStream) ToVideoStreamOutput() VideoStreamOutput {
 	return i.ToVideoStreamOutputWithContext(context.Background())
 }
 
-func (i VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput {
+func (i *VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamOutput)
 }
 
@@ -212,7 +212,7 @@ type VideoStreamOutput struct {
 }
 
 func (VideoStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoStreamOutput)(nil)).Elem()
+	return reflect.TypeOf((*VideoStream)(nil))
 }
 
 func (o VideoStreamOutput) ToVideoStreamOutput() VideoStreamOutput {

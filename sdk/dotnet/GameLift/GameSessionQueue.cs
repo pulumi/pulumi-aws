@@ -56,6 +56,7 @@ namespace Pulumi.Aws.GameLift
     ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
     public partial class GameSessionQueue : Pulumi.CustomResource
     {
         /// <summary>

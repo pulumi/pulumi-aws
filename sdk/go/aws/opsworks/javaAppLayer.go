@@ -340,15 +340,15 @@ type JavaAppLayerInput interface {
 	ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput
 }
 
-func (JavaAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*JavaAppLayer)(nil)).Elem()
+func (*JavaAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayer)(nil))
 }
 
-func (i JavaAppLayer) ToJavaAppLayerOutput() JavaAppLayerOutput {
+func (i *JavaAppLayer) ToJavaAppLayerOutput() JavaAppLayerOutput {
 	return i.ToJavaAppLayerOutputWithContext(context.Background())
 }
 
-func (i JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
+func (i *JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerOutput)
 }
 
@@ -357,7 +357,7 @@ type JavaAppLayerOutput struct {
 }
 
 func (JavaAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JavaAppLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*JavaAppLayer)(nil))
 }
 
 func (o JavaAppLayerOutput) ToJavaAppLayerOutput() JavaAppLayerOutput {

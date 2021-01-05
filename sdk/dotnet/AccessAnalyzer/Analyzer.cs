@@ -72,6 +72,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:accessanalyzer/analyzer:Analyzer")]
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>

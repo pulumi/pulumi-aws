@@ -141,6 +141,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
     /// </summary>
+    [AwsResourceType("aws:elb/listenerPolicy:ListenerPolicy")]
     public partial class ListenerPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -588,15 +588,15 @@ type SpotFleetRequestInput interface {
 	ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput
 }
 
-func (SpotFleetRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetRequest)(nil)).Elem()
+func (*SpotFleetRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequest)(nil))
 }
 
-func (i SpotFleetRequest) ToSpotFleetRequestOutput() SpotFleetRequestOutput {
+func (i *SpotFleetRequest) ToSpotFleetRequestOutput() SpotFleetRequestOutput {
 	return i.ToSpotFleetRequestOutputWithContext(context.Background())
 }
 
-func (i SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput {
+func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestOutput)
 }
 
@@ -605,7 +605,7 @@ type SpotFleetRequestOutput struct {
 }
 
 func (SpotFleetRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetRequestOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpotFleetRequest)(nil))
 }
 
 func (o SpotFleetRequestOutput) ToSpotFleetRequestOutput() SpotFleetRequestOutput {

@@ -46,6 +46,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : Pulumi.CustomResource
     {
         /// <summary>

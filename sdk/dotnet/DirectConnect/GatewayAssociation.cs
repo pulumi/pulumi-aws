@@ -124,6 +124,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example dxgw-12345678/vgw-98765432
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/gatewayAssociation:GatewayAssociation")]
     public partial class GatewayAssociation : Pulumi.CustomResource
     {
         /// <summary>

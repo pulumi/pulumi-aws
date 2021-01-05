@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/partition:Partition")]
     public partial class Partition : Pulumi.CustomResource
     {
         /// <summary>

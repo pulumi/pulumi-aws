@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Ses
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")]
     public partial class ActiveReceiptRuleSet : Pulumi.CustomResource
     {
         /// <summary>

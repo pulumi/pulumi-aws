@@ -314,15 +314,15 @@ type MethodInput interface {
 	ToMethodOutputWithContext(ctx context.Context) MethodOutput
 }
 
-func (Method) ElementType() reflect.Type {
-	return reflect.TypeOf((*Method)(nil)).Elem()
+func (*Method) ElementType() reflect.Type {
+	return reflect.TypeOf((*Method)(nil))
 }
 
-func (i Method) ToMethodOutput() MethodOutput {
+func (i *Method) ToMethodOutput() MethodOutput {
 	return i.ToMethodOutputWithContext(context.Background())
 }
 
-func (i Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
+func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
 }
 
@@ -331,7 +331,7 @@ type MethodOutput struct {
 }
 
 func (MethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodOutput)(nil)).Elem()
+	return reflect.TypeOf((*Method)(nil))
 }
 
 func (o MethodOutput) ToMethodOutput() MethodOutput {

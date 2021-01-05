@@ -188,15 +188,15 @@ type MeshInput interface {
 	ToMeshOutputWithContext(ctx context.Context) MeshOutput
 }
 
-func (Mesh) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mesh)(nil)).Elem()
+func (*Mesh) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mesh)(nil))
 }
 
-func (i Mesh) ToMeshOutput() MeshOutput {
+func (i *Mesh) ToMeshOutput() MeshOutput {
 	return i.ToMeshOutputWithContext(context.Background())
 }
 
-func (i Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
+func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
 }
 
@@ -205,7 +205,7 @@ type MeshOutput struct {
 }
 
 func (MeshOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshOutput)(nil)).Elem()
+	return reflect.TypeOf((*Mesh)(nil))
 }
 
 func (o MeshOutput) ToMeshOutput() MeshOutput {

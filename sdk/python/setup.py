@@ -48,7 +48,7 @@ setup(name='pulumi_aws',
       packages=find_packages(),
       package_data={
           'pulumi_aws': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

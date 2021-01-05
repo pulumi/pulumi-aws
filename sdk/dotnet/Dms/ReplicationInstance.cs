@@ -110,6 +110,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/replicationInstance:ReplicationInstance")]
     public partial class ReplicationInstance : Pulumi.CustomResource
     {
         /// <summary>

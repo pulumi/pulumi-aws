@@ -72,6 +72,7 @@ namespace Pulumi.Aws.SecretsManager
     ///  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
     /// ```
     /// </summary>
+    [AwsResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
     public partial class SecretVersion : Pulumi.CustomResource
     {
         /// <summary>

@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Waf
     ///  $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource
     {
         /// <summary>

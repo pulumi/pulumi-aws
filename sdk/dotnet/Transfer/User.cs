@@ -81,6 +81,7 @@ namespace Pulumi.Aws.Transfer
     ///  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
     /// ```
     /// </summary>
+    [AwsResourceType("aws:transfer/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

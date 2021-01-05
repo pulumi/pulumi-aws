@@ -82,6 +82,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/parameter:Parameter")]
     public partial class Parameter : Pulumi.CustomResource
     {
         /// <summary>

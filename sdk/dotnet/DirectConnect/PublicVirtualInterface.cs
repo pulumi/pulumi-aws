@@ -49,6 +49,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/publicVirtualInterface:PublicVirtualInterface")]
     public partial class PublicVirtualInterface : Pulumi.CustomResource
     {
         /// <summary>

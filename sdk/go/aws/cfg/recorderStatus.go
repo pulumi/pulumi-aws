@@ -175,15 +175,15 @@ type RecorderStatusInput interface {
 	ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput
 }
 
-func (RecorderStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecorderStatus)(nil)).Elem()
+func (*RecorderStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderStatus)(nil))
 }
 
-func (i RecorderStatus) ToRecorderStatusOutput() RecorderStatusOutput {
+func (i *RecorderStatus) ToRecorderStatusOutput() RecorderStatusOutput {
 	return i.ToRecorderStatusOutputWithContext(context.Background())
 }
 
-func (i RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
+func (i *RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusOutput)
 }
 
@@ -192,7 +192,7 @@ type RecorderStatusOutput struct {
 }
 
 func (RecorderStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecorderStatusOutput)(nil)).Elem()
+	return reflect.TypeOf((*RecorderStatus)(nil))
 }
 
 func (o RecorderStatusOutput) ToRecorderStatusOutput() RecorderStatusOutput {

@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Sns
     ///  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sns/platformApplication:PlatformApplication")]
     public partial class PlatformApplication : Pulumi.CustomResource
     {
         /// <summary>

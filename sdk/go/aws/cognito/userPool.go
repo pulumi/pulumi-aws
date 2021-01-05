@@ -409,15 +409,15 @@ type UserPoolInput interface {
 	ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput
 }
 
-func (UserPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPool)(nil)).Elem()
+func (*UserPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPool)(nil))
 }
 
-func (i UserPool) ToUserPoolOutput() UserPoolOutput {
+func (i *UserPool) ToUserPoolOutput() UserPoolOutput {
 	return i.ToUserPoolOutputWithContext(context.Background())
 }
 
-func (i UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
+func (i *UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolOutput)
 }
 
@@ -426,7 +426,7 @@ type UserPoolOutput struct {
 }
 
 func (UserPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserPool)(nil))
 }
 
 func (o UserPoolOutput) ToUserPoolOutput() UserPoolOutput {

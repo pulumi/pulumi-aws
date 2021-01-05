@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
     public partial class RolePolicyAttachment : Pulumi.CustomResource
     {
         /// <summary>

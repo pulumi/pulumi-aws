@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/internetGateway:InternetGateway")]
     public partial class InternetGateway : Pulumi.CustomResource
     {
         /// <summary>

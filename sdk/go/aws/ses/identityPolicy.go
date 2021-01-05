@@ -150,15 +150,15 @@ type IdentityPolicyInput interface {
 	ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput
 }
 
-func (IdentityPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPolicy)(nil)).Elem()
+func (*IdentityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPolicy)(nil))
 }
 
-func (i IdentityPolicy) ToIdentityPolicyOutput() IdentityPolicyOutput {
+func (i *IdentityPolicy) ToIdentityPolicyOutput() IdentityPolicyOutput {
 	return i.ToIdentityPolicyOutputWithContext(context.Background())
 }
 
-func (i IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
+func (i *IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyOutput)
 }
 
@@ -167,7 +167,7 @@ type IdentityPolicyOutput struct {
 }
 
 func (IdentityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityPolicy)(nil))
 }
 
 func (o IdentityPolicyOutput) ToIdentityPolicyOutput() IdentityPolicyOutput {

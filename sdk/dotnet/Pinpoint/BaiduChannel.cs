@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
     public partial class BaiduChannel : Pulumi.CustomResource
     {
         /// <summary>

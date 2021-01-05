@@ -105,6 +105,7 @@ namespace Pulumi.Aws.Elb
     ///  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

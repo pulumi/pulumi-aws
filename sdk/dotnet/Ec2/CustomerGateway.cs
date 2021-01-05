@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/customerGateway:CustomerGateway")]
     public partial class CustomerGateway : Pulumi.CustomResource
     {
         /// <summary>

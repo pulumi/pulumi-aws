@@ -220,6 +220,7 @@ namespace Pulumi.Aws.CloudTrail
     ///  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudtrail/trail:Trail")]
     public partial class Trail : Pulumi.CustomResource
     {
         /// <summary>

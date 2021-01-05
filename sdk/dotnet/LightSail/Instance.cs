@@ -102,6 +102,7 @@ namespace Pulumi.Aws.LightSail
     ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lightsail/instance:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

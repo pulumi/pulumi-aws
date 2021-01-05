@@ -112,6 +112,7 @@ namespace Pulumi.Aws.AppAutoScaling
     ///  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appautoscaling/target:Target")]
     public partial class Target : Pulumi.CustomResource
     {
         /// <summary>

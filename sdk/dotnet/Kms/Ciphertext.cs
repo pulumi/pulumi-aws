@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Kms
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:kms/ciphertext:Ciphertext")]
     public partial class Ciphertext : Pulumi.CustomResource
     {
         /// <summary>

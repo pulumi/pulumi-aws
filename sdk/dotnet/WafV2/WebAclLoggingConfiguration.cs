@@ -57,6 +57,7 @@ namespace Pulumi.Aws.WafV2
     ///  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")]
     public partial class WebAclLoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>

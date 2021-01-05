@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ecr
     ///  $ pulumi import aws:ecr/repository:Repository service test-service
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecr/repository:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

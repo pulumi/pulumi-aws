@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/placementGroup:PlacementGroup")]
     public partial class PlacementGroup : Pulumi.CustomResource
     {
         /// <summary>

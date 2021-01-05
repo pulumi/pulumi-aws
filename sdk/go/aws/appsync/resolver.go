@@ -192,15 +192,15 @@ type ResolverInput interface {
 	ToResolverOutputWithContext(ctx context.Context) ResolverOutput
 }
 
-func (Resolver) ElementType() reflect.Type {
-	return reflect.TypeOf((*Resolver)(nil)).Elem()
+func (*Resolver) ElementType() reflect.Type {
+	return reflect.TypeOf((*Resolver)(nil))
 }
 
-func (i Resolver) ToResolverOutput() ResolverOutput {
+func (i *Resolver) ToResolverOutput() ResolverOutput {
 	return i.ToResolverOutputWithContext(context.Background())
 }
 
-func (i Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
+func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
 }
 
@@ -209,7 +209,7 @@ type ResolverOutput struct {
 }
 
 func (ResolverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverOutput)(nil)).Elem()
+	return reflect.TypeOf((*Resolver)(nil))
 }
 
 func (o ResolverOutput) ToResolverOutput() ResolverOutput {

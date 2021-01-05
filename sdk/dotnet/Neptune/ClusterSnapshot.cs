@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {
         /// <summary>

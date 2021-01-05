@@ -132,6 +132,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/healthCheck:HealthCheck")]
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>

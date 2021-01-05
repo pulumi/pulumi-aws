@@ -717,6 +717,7 @@ namespace Pulumi.Aws.Emr
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

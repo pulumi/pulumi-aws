@@ -215,15 +215,15 @@ type StreamInput interface {
 	ToStreamOutputWithContext(ctx context.Context) StreamOutput
 }
 
-func (Stream) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stream)(nil)).Elem()
+func (*Stream) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stream)(nil))
 }
 
-func (i Stream) ToStreamOutput() StreamOutput {
+func (i *Stream) ToStreamOutput() StreamOutput {
 	return i.ToStreamOutputWithContext(context.Background())
 }
 
-func (i Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
+func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamOutput)
 }
 
@@ -232,7 +232,7 @@ type StreamOutput struct {
 }
 
 func (StreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamOutput)(nil)).Elem()
+	return reflect.TypeOf((*Stream)(nil))
 }
 
 func (o StreamOutput) ToStreamOutput() StreamOutput {

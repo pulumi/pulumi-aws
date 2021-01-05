@@ -512,15 +512,15 @@ type DistributionInput interface {
 	ToDistributionOutputWithContext(ctx context.Context) DistributionOutput
 }
 
-func (Distribution) ElementType() reflect.Type {
-	return reflect.TypeOf((*Distribution)(nil)).Elem()
+func (*Distribution) ElementType() reflect.Type {
+	return reflect.TypeOf((*Distribution)(nil))
 }
 
-func (i Distribution) ToDistributionOutput() DistributionOutput {
+func (i *Distribution) ToDistributionOutput() DistributionOutput {
 	return i.ToDistributionOutputWithContext(context.Background())
 }
 
-func (i Distribution) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
+func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
 }
 
@@ -529,7 +529,7 @@ type DistributionOutput struct {
 }
 
 func (DistributionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Distribution)(nil))
 }
 
 func (o DistributionOutput) ToDistributionOutput() DistributionOutput {

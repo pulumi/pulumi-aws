@@ -310,15 +310,15 @@ type CatalogTableInput interface {
 	ToCatalogTableOutputWithContext(ctx context.Context) CatalogTableOutput
 }
 
-func (CatalogTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogTable)(nil)).Elem()
+func (*CatalogTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTable)(nil))
 }
 
-func (i CatalogTable) ToCatalogTableOutput() CatalogTableOutput {
+func (i *CatalogTable) ToCatalogTableOutput() CatalogTableOutput {
 	return i.ToCatalogTableOutputWithContext(context.Background())
 }
 
-func (i CatalogTable) ToCatalogTableOutputWithContext(ctx context.Context) CatalogTableOutput {
+func (i *CatalogTable) ToCatalogTableOutputWithContext(ctx context.Context) CatalogTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOutput)
 }
 
@@ -327,7 +327,7 @@ type CatalogTableOutput struct {
 }
 
 func (CatalogTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*CatalogTable)(nil))
 }
 
 func (o CatalogTableOutput) ToCatalogTableOutput() CatalogTableOutput {

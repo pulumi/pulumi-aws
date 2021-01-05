@@ -41,6 +41,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")]
     public partial class GatewayAssociationProposal : Pulumi.CustomResource
     {
         /// <summary>

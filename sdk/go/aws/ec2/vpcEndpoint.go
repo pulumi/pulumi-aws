@@ -298,15 +298,15 @@ type VpcEndpointInput interface {
 	ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput
 }
 
-func (VpcEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpoint)(nil)).Elem()
+func (*VpcEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpoint)(nil))
 }
 
-func (i VpcEndpoint) ToVpcEndpointOutput() VpcEndpointOutput {
+func (i *VpcEndpoint) ToVpcEndpointOutput() VpcEndpointOutput {
 	return i.ToVpcEndpointOutputWithContext(context.Background())
 }
 
-func (i VpcEndpoint) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
+func (i *VpcEndpoint) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointOutput)
 }
 
@@ -315,7 +315,7 @@ type VpcEndpointOutput struct {
 }
 
 func (VpcEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcEndpoint)(nil))
 }
 
 func (o VpcEndpointOutput) ToVpcEndpointOutput() VpcEndpointOutput {

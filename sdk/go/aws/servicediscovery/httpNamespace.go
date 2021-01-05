@@ -137,15 +137,15 @@ type HttpNamespaceInput interface {
 	ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput
 }
 
-func (HttpNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespace)(nil)).Elem()
+func (*HttpNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpNamespace)(nil))
 }
 
-func (i HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
+func (i *HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
 	return i.ToHttpNamespaceOutputWithContext(context.Background())
 }
 
-func (i HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
+func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceOutput)
 }
 
@@ -154,7 +154,7 @@ type HttpNamespaceOutput struct {
 }
 
 func (HttpNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*HttpNamespace)(nil))
 }
 
 func (o HttpNamespaceOutput) ToHttpNamespaceOutput() HttpNamespaceOutput {

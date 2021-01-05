@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
     public partial class UserPolicyAttachment : Pulumi.CustomResource
     {
         /// <summary>

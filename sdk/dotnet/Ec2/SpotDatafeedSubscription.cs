@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
     public partial class SpotDatafeedSubscription : Pulumi.CustomResource
     {
         /// <summary>

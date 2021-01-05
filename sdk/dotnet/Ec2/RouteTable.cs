@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/routeTable:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>

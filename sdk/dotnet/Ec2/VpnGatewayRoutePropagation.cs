@@ -36,6 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
     public partial class VpnGatewayRoutePropagation : Pulumi.CustomResource
     {
         /// <summary>

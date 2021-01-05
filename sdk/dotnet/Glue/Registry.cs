@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/registry:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>

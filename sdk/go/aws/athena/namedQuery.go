@@ -199,15 +199,15 @@ type NamedQueryInput interface {
 	ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput
 }
 
-func (NamedQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedQuery)(nil)).Elem()
+func (*NamedQuery) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedQuery)(nil))
 }
 
-func (i NamedQuery) ToNamedQueryOutput() NamedQueryOutput {
+func (i *NamedQuery) ToNamedQueryOutput() NamedQueryOutput {
 	return i.ToNamedQueryOutputWithContext(context.Background())
 }
 
-func (i NamedQuery) ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput {
+func (i *NamedQuery) ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryOutput)
 }
 
@@ -216,7 +216,7 @@ type NamedQueryOutput struct {
 }
 
 func (NamedQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedQueryOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamedQuery)(nil))
 }
 
 func (o NamedQueryOutput) ToNamedQueryOutput() NamedQueryOutput {

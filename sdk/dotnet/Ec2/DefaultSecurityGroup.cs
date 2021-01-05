@@ -137,6 +137,7 @@ namespace Pulumi.Aws.Ec2
     /// will not destroy the Security Group. All ingress or egress rules will be left as
     /// they are at the time of removal. You can resume managing them via the AWS Console.
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
     public partial class DefaultSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -77,6 +77,7 @@ namespace Pulumi.Aws.Sagemaker
     ///  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sagemaker/notebookInstance:NotebookInstance")]
     public partial class NotebookInstance : Pulumi.CustomResource
     {
         /// <summary>

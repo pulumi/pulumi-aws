@@ -225,15 +225,15 @@ type NotificationRuleInput interface {
 	ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput
 }
 
-func (NotificationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRule)(nil)).Elem()
+func (*NotificationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRule)(nil))
 }
 
-func (i NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
+func (i *NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
 	return i.ToNotificationRuleOutputWithContext(context.Background())
 }
 
-func (i NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
+func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
 }
 
@@ -242,7 +242,7 @@ type NotificationRuleOutput struct {
 }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotificationRule)(nil))
 }
 
 func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutput {

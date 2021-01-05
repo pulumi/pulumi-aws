@@ -107,6 +107,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
     public partial class VirtualGateway : Pulumi.CustomResource
     {
         /// <summary>

@@ -192,6 +192,7 @@ namespace Pulumi.Aws.CodePipeline
     ///  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codepipeline/pipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>

@@ -83,6 +83,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/eventStream:EventStream")]
     public partial class EventStream : Pulumi.CustomResource
     {
         /// <summary>

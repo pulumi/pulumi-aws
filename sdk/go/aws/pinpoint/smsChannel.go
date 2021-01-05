@@ -163,15 +163,15 @@ type SmsChannelInput interface {
 	ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput
 }
 
-func (SmsChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsChannel)(nil)).Elem()
+func (*SmsChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannel)(nil))
 }
 
-func (i SmsChannel) ToSmsChannelOutput() SmsChannelOutput {
+func (i *SmsChannel) ToSmsChannelOutput() SmsChannelOutput {
 	return i.ToSmsChannelOutputWithContext(context.Background())
 }
 
-func (i SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
+func (i *SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelOutput)
 }
 
@@ -180,7 +180,7 @@ type SmsChannelOutput struct {
 }
 
 func (SmsChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*SmsChannel)(nil))
 }
 
 func (o SmsChannelOutput) ToSmsChannelOutput() SmsChannelOutput {

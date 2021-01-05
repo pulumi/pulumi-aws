@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {
         /// <summary>

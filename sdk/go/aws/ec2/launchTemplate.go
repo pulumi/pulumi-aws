@@ -467,15 +467,15 @@ type LaunchTemplateInput interface {
 	ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput
 }
 
-func (LaunchTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplate)(nil)).Elem()
+func (*LaunchTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplate)(nil))
 }
 
-func (i LaunchTemplate) ToLaunchTemplateOutput() LaunchTemplateOutput {
+func (i *LaunchTemplate) ToLaunchTemplateOutput() LaunchTemplateOutput {
 	return i.ToLaunchTemplateOutputWithContext(context.Background())
 }
 
-func (i LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput {
+func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) LaunchTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateOutput)
 }
 
@@ -484,7 +484,7 @@ type LaunchTemplateOutput struct {
 }
 
 func (LaunchTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*LaunchTemplate)(nil))
 }
 
 func (o LaunchTemplateOutput) ToLaunchTemplateOutput() LaunchTemplateOutput {

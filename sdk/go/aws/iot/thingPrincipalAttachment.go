@@ -99,15 +99,15 @@ type ThingPrincipalAttachmentInput interface {
 	ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput
 }
 
-func (ThingPrincipalAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachment)(nil)).Elem()
+func (*ThingPrincipalAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
 }
 
-func (i ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
+func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
 	return i.ToThingPrincipalAttachmentOutputWithContext(context.Background())
 }
 
-func (i ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
+func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentOutput)
 }
 
@@ -116,7 +116,7 @@ type ThingPrincipalAttachmentOutput struct {
 }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
 }
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {

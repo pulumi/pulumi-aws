@@ -59,6 +59,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/spotInstanceRequest:SpotInstanceRequest")]
     public partial class SpotInstanceRequest : Pulumi.CustomResource
     {
         /// <summary>

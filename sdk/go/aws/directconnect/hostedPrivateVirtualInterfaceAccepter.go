@@ -185,15 +185,15 @@ type HostedPrivateVirtualInterfaceAccepterInput interface {
 	ToHostedPrivateVirtualInterfaceAccepterOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterOutput
 }
 
-func (HostedPrivateVirtualInterfaceAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedPrivateVirtualInterfaceAccepter)(nil)).Elem()
+func (*HostedPrivateVirtualInterfaceAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPrivateVirtualInterfaceAccepter)(nil))
 }
 
-func (i HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterOutput() HostedPrivateVirtualInterfaceAccepterOutput {
+func (i *HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterOutput() HostedPrivateVirtualInterfaceAccepterOutput {
 	return i.ToHostedPrivateVirtualInterfaceAccepterOutputWithContext(context.Background())
 }
 
-func (i HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterOutput {
+func (i *HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterOutput)
 }
 
@@ -202,7 +202,7 @@ type HostedPrivateVirtualInterfaceAccepterOutput struct {
 }
 
 func (HostedPrivateVirtualInterfaceAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedPrivateVirtualInterfaceAccepterOutput)(nil)).Elem()
+	return reflect.TypeOf((*HostedPrivateVirtualInterfaceAccepter)(nil))
 }
 
 func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInterfaceAccepterOutput() HostedPrivateVirtualInterfaceAccepterOutput {

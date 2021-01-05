@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Batch
     ///  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
     /// ```
     /// </summary>
+    [AwsResourceType("aws:batch/jobQueue:JobQueue")]
     public partial class JobQueue : Pulumi.CustomResource
     {
         /// <summary>

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.S3Control
     ///  $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
     public partial class BucketLifecycleConfiguration : Pulumi.CustomResource
     {
         /// <summary>

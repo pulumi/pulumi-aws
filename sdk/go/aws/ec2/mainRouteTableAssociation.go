@@ -142,15 +142,15 @@ type MainRouteTableAssociationInput interface {
 	ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput
 }
 
-func (MainRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*MainRouteTableAssociation)(nil)).Elem()
+func (*MainRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*MainRouteTableAssociation)(nil))
 }
 
-func (i MainRouteTableAssociation) ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput {
+func (i *MainRouteTableAssociation) ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput {
 	return i.ToMainRouteTableAssociationOutputWithContext(context.Background())
 }
 
-func (i MainRouteTableAssociation) ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput {
+func (i *MainRouteTableAssociation) ToMainRouteTableAssociationOutputWithContext(ctx context.Context) MainRouteTableAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MainRouteTableAssociationOutput)
 }
 
@@ -159,7 +159,7 @@ type MainRouteTableAssociationOutput struct {
 }
 
 func (MainRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MainRouteTableAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*MainRouteTableAssociation)(nil))
 }
 
 func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutput() MainRouteTableAssociationOutput {

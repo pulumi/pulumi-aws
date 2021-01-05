@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Efs
     ///  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
     /// ```
     /// </summary>
+    [AwsResourceType("aws:efs/mountTarget:MountTarget")]
     public partial class MountTarget : Pulumi.CustomResource
     {
         /// <summary>

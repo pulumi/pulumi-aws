@@ -51,6 +51,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/ipSet:IpSet")]
     public partial class IpSet : Pulumi.CustomResource
     {
         /// <summary>

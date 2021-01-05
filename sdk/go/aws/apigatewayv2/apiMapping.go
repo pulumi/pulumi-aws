@@ -157,15 +157,15 @@ type ApiMappingInput interface {
 	ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput
 }
 
-func (ApiMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMapping)(nil)).Elem()
+func (*ApiMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiMapping)(nil))
 }
 
-func (i ApiMapping) ToApiMappingOutput() ApiMappingOutput {
+func (i *ApiMapping) ToApiMappingOutput() ApiMappingOutput {
 	return i.ToApiMappingOutputWithContext(context.Background())
 }
 
-func (i ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
+func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingOutput)
 }
 
@@ -174,7 +174,7 @@ type ApiMappingOutput struct {
 }
 
 func (ApiMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiMapping)(nil))
 }
 
 func (o ApiMappingOutput) ToApiMappingOutput() ApiMappingOutput {

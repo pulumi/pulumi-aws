@@ -40,6 +40,7 @@ namespace Pulumi.Aws.ServiceCatalog
     ///  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicecatalog/portfolio:Portfolio")]
     public partial class Portfolio : Pulumi.CustomResource
     {
         [Output("arn")]

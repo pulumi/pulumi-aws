@@ -64,6 +64,7 @@ namespace Pulumi.Aws.Lex
     ///  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lex/slotType:SlotType")]
     public partial class SlotType : Pulumi.CustomResource
     {
         /// <summary>

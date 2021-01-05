@@ -119,15 +119,15 @@ type AccountAliasInput interface {
 	ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput
 }
 
-func (AccountAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAlias)(nil)).Elem()
+func (*AccountAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAlias)(nil))
 }
 
-func (i AccountAlias) ToAccountAliasOutput() AccountAliasOutput {
+func (i *AccountAlias) ToAccountAliasOutput() AccountAliasOutput {
 	return i.ToAccountAliasOutputWithContext(context.Background())
 }
 
-func (i AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput {
+func (i *AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasOutput)
 }
 
@@ -136,7 +136,7 @@ type AccountAliasOutput struct {
 }
 
 func (AccountAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAliasOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccountAlias)(nil))
 }
 
 func (o AccountAliasOutput) ToAccountAliasOutput() AccountAliasOutput {

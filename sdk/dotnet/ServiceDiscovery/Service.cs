@@ -104,6 +104,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///  $ pulumi import aws:servicediscovery/service:Service example 0123456789
     /// ```
     /// </summary>
+    [AwsResourceType("aws:servicediscovery/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

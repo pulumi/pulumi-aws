@@ -45,6 +45,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/securityGroup:SecurityGroup testgroup1 redshift_test_group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

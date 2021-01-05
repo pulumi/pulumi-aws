@@ -205,15 +205,15 @@ type OriginAccessIdentityInput interface {
 	ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput
 }
 
-func (OriginAccessIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginAccessIdentity)(nil)).Elem()
+func (*OriginAccessIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginAccessIdentity)(nil))
 }
 
-func (i OriginAccessIdentity) ToOriginAccessIdentityOutput() OriginAccessIdentityOutput {
+func (i *OriginAccessIdentity) ToOriginAccessIdentityOutput() OriginAccessIdentityOutput {
 	return i.ToOriginAccessIdentityOutputWithContext(context.Background())
 }
 
-func (i OriginAccessIdentity) ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput {
+func (i *OriginAccessIdentity) ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityOutput)
 }
 
@@ -222,7 +222,7 @@ type OriginAccessIdentityOutput struct {
 }
 
 func (OriginAccessIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginAccessIdentityOutput)(nil)).Elem()
+	return reflect.TypeOf((*OriginAccessIdentity)(nil))
 }
 
 func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutput() OriginAccessIdentityOutput {

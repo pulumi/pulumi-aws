@@ -63,6 +63,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
     public partial class BasePathMapping : Pulumi.CustomResource
     {
         /// <summary>

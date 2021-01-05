@@ -63,6 +63,7 @@ namespace Pulumi.Aws.AppMesh
     ///  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appmesh/mesh:Mesh")]
     public partial class Mesh : Pulumi.CustomResource
     {
         /// <summary>

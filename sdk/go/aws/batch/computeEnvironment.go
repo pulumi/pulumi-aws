@@ -296,15 +296,15 @@ type ComputeEnvironmentInput interface {
 	ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput
 }
 
-func (ComputeEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironment)(nil)).Elem()
+func (*ComputeEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironment)(nil))
 }
 
-func (i ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
+func (i *ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
 	return i.ToComputeEnvironmentOutputWithContext(context.Background())
 }
 
-func (i ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
+func (i *ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentOutput)
 }
 
@@ -313,7 +313,7 @@ type ComputeEnvironmentOutput struct {
 }
 
 func (ComputeEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ComputeEnvironment)(nil))
 }
 
 func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {

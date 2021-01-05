@@ -99,6 +99,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticbeanstalk/environment:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>

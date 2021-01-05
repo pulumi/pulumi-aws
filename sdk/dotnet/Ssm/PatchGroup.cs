@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Ssm
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
     public partial class PatchGroup : Pulumi.CustomResource
     {
         /// <summary>

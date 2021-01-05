@@ -46,6 +46,7 @@ namespace Pulumi.Aws.CloudHsmV2
     ///  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudhsmv2/hsm:Hsm")]
     public partial class Hsm : Pulumi.CustomResource
     {
         /// <summary>

@@ -80,6 +80,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/virtualService:VirtualService")]
     public partial class VirtualService : Pulumi.CustomResource
     {
         /// <summary>

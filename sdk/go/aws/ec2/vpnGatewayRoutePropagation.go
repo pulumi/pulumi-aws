@@ -127,15 +127,15 @@ type VpnGatewayRoutePropagationInput interface {
 	ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput
 }
 
-func (VpnGatewayRoutePropagation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayRoutePropagation)(nil)).Elem()
+func (*VpnGatewayRoutePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayRoutePropagation)(nil))
 }
 
-func (i VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput {
+func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput {
 	return i.ToVpnGatewayRoutePropagationOutputWithContext(context.Background())
 }
 
-func (i VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
+func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationOutput)
 }
 
@@ -144,7 +144,7 @@ type VpnGatewayRoutePropagationOutput struct {
 }
 
 func (VpnGatewayRoutePropagationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayRoutePropagationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnGatewayRoutePropagation)(nil))
 }
 
 func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutput() VpnGatewayRoutePropagationOutput {

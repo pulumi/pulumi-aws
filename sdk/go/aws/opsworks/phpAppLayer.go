@@ -298,15 +298,15 @@ type PhpAppLayerInput interface {
 	ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput
 }
 
-func (PhpAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhpAppLayer)(nil)).Elem()
+func (*PhpAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayer)(nil))
 }
 
-func (i PhpAppLayer) ToPhpAppLayerOutput() PhpAppLayerOutput {
+func (i *PhpAppLayer) ToPhpAppLayerOutput() PhpAppLayerOutput {
 	return i.ToPhpAppLayerOutputWithContext(context.Background())
 }
 
-func (i PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
+func (i *PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
 }
 
@@ -315,7 +315,7 @@ type PhpAppLayerOutput struct {
 }
 
 func (PhpAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhpAppLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*PhpAppLayer)(nil))
 }
 
 func (o PhpAppLayerOutput) ToPhpAppLayerOutput() PhpAppLayerOutput {

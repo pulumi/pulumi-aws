@@ -55,6 +55,7 @@ namespace Pulumi.Aws.Ecs
     ///  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ecs/taskDefinition:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
         /// <summary>

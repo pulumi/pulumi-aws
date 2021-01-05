@@ -154,15 +154,15 @@ type WebAclLoggingConfigurationInput interface {
 	ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput
 }
 
-func (WebAclLoggingConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclLoggingConfiguration)(nil)).Elem()
+func (*WebAclLoggingConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclLoggingConfiguration)(nil))
 }
 
-func (i WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput {
+func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput {
 	return i.ToWebAclLoggingConfigurationOutputWithContext(context.Background())
 }
 
-func (i WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput {
+func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput)
 }
 
@@ -171,7 +171,7 @@ type WebAclLoggingConfigurationOutput struct {
 }
 
 func (WebAclLoggingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclLoggingConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*WebAclLoggingConfiguration)(nil))
 }
 
 func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutput() WebAclLoggingConfigurationOutput {

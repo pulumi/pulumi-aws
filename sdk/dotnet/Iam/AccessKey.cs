@@ -80,6 +80,7 @@ namespace Pulumi.Aws.Iam
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/accessKey:AccessKey")]
     public partial class AccessKey : Pulumi.CustomResource
     {
         [Output("encryptedSecret")]

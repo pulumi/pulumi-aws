@@ -140,15 +140,15 @@ type TopicPolicyInput interface {
 	ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput
 }
 
-func (TopicPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicPolicy)(nil)).Elem()
+func (*TopicPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPolicy)(nil))
 }
 
-func (i TopicPolicy) ToTopicPolicyOutput() TopicPolicyOutput {
+func (i *TopicPolicy) ToTopicPolicyOutput() TopicPolicyOutput {
 	return i.ToTopicPolicyOutputWithContext(context.Background())
 }
 
-func (i TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
+func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
 }
 
@@ -157,7 +157,7 @@ type TopicPolicyOutput struct {
 }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*TopicPolicy)(nil))
 }
 
 func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {

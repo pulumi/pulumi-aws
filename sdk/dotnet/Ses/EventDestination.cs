@@ -112,6 +112,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/eventDestination:EventDestination")]
     public partial class EventDestination : Pulumi.CustomResource
     {
         /// <summary>

@@ -86,6 +86,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main &lt;domain&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
     public partial class UserPoolDomain : Pulumi.CustomResource
     {
         /// <summary>

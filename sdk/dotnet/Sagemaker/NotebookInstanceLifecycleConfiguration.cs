@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Sagemaker
     ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
     public partial class NotebookInstanceLifecycleConfiguration : Pulumi.CustomResource
     {
         /// <summary>

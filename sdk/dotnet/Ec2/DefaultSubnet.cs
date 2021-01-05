@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
     public partial class DefaultSubnet : Pulumi.CustomResource
     {
         [Output("arn")]

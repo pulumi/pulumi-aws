@@ -68,6 +68,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:storagegateway/smbFileShare:SmbFileShare")]
     public partial class SmbFileShare : Pulumi.CustomResource
     {
         /// <summary>

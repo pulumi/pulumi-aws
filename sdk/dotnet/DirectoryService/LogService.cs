@@ -79,6 +79,7 @@ namespace Pulumi.Aws.DirectoryService
     ///  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directoryservice/logService:LogService")]
     public partial class LogService : Pulumi.CustomResource
     {
         /// <summary>

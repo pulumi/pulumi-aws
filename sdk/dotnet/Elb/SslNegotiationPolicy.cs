@@ -88,6 +88,7 @@ namespace Pulumi.Aws.Elb
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : Pulumi.CustomResource
     {
         /// <summary>

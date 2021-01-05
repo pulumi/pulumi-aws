@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Kms
     ///  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
     /// ```
     /// </summary>
+    [AwsResourceType("aws:kms/alias:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>

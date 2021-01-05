@@ -43,6 +43,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
     public partial class LinkAggregationGroup : Pulumi.CustomResource
     {
         /// <summary>

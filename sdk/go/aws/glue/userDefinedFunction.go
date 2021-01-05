@@ -208,15 +208,15 @@ type UserDefinedFunctionInput interface {
 	ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput
 }
 
-func (UserDefinedFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserDefinedFunction)(nil)).Elem()
+func (*UserDefinedFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunction)(nil))
 }
 
-func (i UserDefinedFunction) ToUserDefinedFunctionOutput() UserDefinedFunctionOutput {
+func (i *UserDefinedFunction) ToUserDefinedFunctionOutput() UserDefinedFunctionOutput {
 	return i.ToUserDefinedFunctionOutputWithContext(context.Background())
 }
 
-func (i UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput {
+func (i *UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionOutput)
 }
 
@@ -225,7 +225,7 @@ type UserDefinedFunctionOutput struct {
 }
 
 func (UserDefinedFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserDefinedFunctionOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserDefinedFunction)(nil))
 }
 
 func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutput() UserDefinedFunctionOutput {

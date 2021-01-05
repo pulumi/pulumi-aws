@@ -57,6 +57,7 @@ namespace Pulumi.Aws.WafRegional
     ///  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
     /// ```
     /// </summary>
+    [AwsResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]
     public partial class XssMatchSet : Pulumi.CustomResource
     {
         /// <summary>

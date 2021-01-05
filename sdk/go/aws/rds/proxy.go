@@ -205,15 +205,15 @@ type ProxyInput interface {
 	ToProxyOutputWithContext(ctx context.Context) ProxyOutput
 }
 
-func (Proxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*Proxy)(nil)).Elem()
+func (*Proxy) ElementType() reflect.Type {
+	return reflect.TypeOf((*Proxy)(nil))
 }
 
-func (i Proxy) ToProxyOutput() ProxyOutput {
+func (i *Proxy) ToProxyOutput() ProxyOutput {
 	return i.ToProxyOutputWithContext(context.Background())
 }
 
-func (i Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
+func (i *Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyOutput)
 }
 
@@ -222,7 +222,7 @@ type ProxyOutput struct {
 }
 
 func (ProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyOutput)(nil)).Elem()
+	return reflect.TypeOf((*Proxy)(nil))
 }
 
 func (o ProxyOutput) ToProxyOutput() ProxyOutput {

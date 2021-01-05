@@ -52,6 +52,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:networkfirewall/firewall:Firewall")]
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>

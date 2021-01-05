@@ -91,6 +91,7 @@ namespace Pulumi.Aws.Transfer
     ///  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:transfer/sshKey:SshKey")]
     public partial class SshKey : Pulumi.CustomResource
     {
         /// <summary>

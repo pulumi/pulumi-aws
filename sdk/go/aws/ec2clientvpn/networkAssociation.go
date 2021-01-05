@@ -161,15 +161,15 @@ type NetworkAssociationInput interface {
 	ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput
 }
 
-func (NetworkAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAssociation)(nil)).Elem()
+func (*NetworkAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAssociation)(nil))
 }
 
-func (i NetworkAssociation) ToNetworkAssociationOutput() NetworkAssociationOutput {
+func (i *NetworkAssociation) ToNetworkAssociationOutput() NetworkAssociationOutput {
 	return i.ToNetworkAssociationOutputWithContext(context.Background())
 }
 
-func (i NetworkAssociation) ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput {
+func (i *NetworkAssociation) ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationOutput)
 }
 
@@ -178,7 +178,7 @@ type NetworkAssociationOutput struct {
 }
 
 func (NetworkAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkAssociation)(nil))
 }
 
 func (o NetworkAssociationOutput) ToNetworkAssociationOutput() NetworkAssociationOutput {

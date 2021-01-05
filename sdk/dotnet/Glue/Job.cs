@@ -101,6 +101,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/job:Job MyJob MyJob
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/job:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

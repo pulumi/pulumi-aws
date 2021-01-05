@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

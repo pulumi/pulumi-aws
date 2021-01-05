@@ -79,6 +79,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///  [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
     public partial class DefaultRouteTable : Pulumi.CustomResource
     {
         /// <summary>

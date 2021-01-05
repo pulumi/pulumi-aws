@@ -41,6 +41,7 @@ namespace Pulumi.Aws.S3Outposts
     ///  $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3outposts/endpoint:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

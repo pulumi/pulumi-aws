@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/domainIdentity:DomainIdentity")]
     public partial class DomainIdentity : Pulumi.CustomResource
     {
         /// <summary>

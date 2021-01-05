@@ -59,6 +59,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
     public partial class UsagePlanKey : Pulumi.CustomResource
     {
         /// <summary>

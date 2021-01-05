@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/association:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>

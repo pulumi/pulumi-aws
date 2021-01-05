@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Iot
     ///  $ pulumi import aws:iot/thing:Thing example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/thing:Thing")]
     public partial class Thing : Pulumi.CustomResource
     {
         /// <summary>

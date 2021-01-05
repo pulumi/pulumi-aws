@@ -145,15 +145,15 @@ type PublicDnsNamespaceInput interface {
 	ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput
 }
 
-func (PublicDnsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespace)(nil)).Elem()
+func (*PublicDnsNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicDnsNamespace)(nil))
 }
 
-func (i PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
+func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
 	return i.ToPublicDnsNamespaceOutputWithContext(context.Background())
 }
 
-func (i PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
+func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
 }
 
@@ -162,7 +162,7 @@ type PublicDnsNamespaceOutput struct {
 }
 
 func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicDnsNamespace)(nil))
 }
 
 func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {

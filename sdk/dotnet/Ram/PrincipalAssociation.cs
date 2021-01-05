@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Ram
     ///  $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ram/principalAssociation:PrincipalAssociation")]
     public partial class PrincipalAssociation : Pulumi.CustomResource
     {
         /// <summary>

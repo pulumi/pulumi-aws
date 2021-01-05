@@ -88,6 +88,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

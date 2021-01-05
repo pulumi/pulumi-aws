@@ -166,15 +166,15 @@ type SecretRotationInput interface {
 	ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput
 }
 
-func (SecretRotation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretRotation)(nil)).Elem()
+func (*SecretRotation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretRotation)(nil))
 }
 
-func (i SecretRotation) ToSecretRotationOutput() SecretRotationOutput {
+func (i *SecretRotation) ToSecretRotationOutput() SecretRotationOutput {
 	return i.ToSecretRotationOutputWithContext(context.Background())
 }
 
-func (i SecretRotation) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
+func (i *SecretRotation) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationOutput)
 }
 
@@ -183,7 +183,7 @@ type SecretRotationOutput struct {
 }
 
 func (SecretRotationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretRotationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecretRotation)(nil))
 }
 
 func (o SecretRotationOutput) ToSecretRotationOutput() SecretRotationOutput {

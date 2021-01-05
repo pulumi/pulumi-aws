@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/keyPair:KeyPair")]
     public partial class KeyPair : Pulumi.CustomResource
     {
         /// <summary>

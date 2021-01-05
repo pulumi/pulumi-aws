@@ -179,6 +179,7 @@ namespace Pulumi.Aws.Workspaces
     ///  $ pulumi import aws:workspaces/directory:Directory main d-4444444444
     /// ```
     /// </summary>
+    [AwsResourceType("aws:workspaces/directory:Directory")]
     public partial class Directory : Pulumi.CustomResource
     {
         /// <summary>

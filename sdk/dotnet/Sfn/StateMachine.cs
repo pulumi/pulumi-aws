@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Sfn
     ///  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sfn/stateMachine:StateMachine")]
     public partial class StateMachine : Pulumi.CustomResource
     {
         /// <summary>

@@ -54,6 +54,7 @@ namespace Pulumi.Aws.ResourceGroups
     ///  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:resourcegroups/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

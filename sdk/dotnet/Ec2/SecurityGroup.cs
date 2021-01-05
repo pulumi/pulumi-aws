@@ -126,6 +126,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -33,6 +33,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/mysqlLayer:MysqlLayer")]
     public partial class MysqlLayer : Pulumi.CustomResource
     {
         /// <summary>

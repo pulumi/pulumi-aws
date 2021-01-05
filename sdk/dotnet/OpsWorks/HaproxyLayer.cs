@@ -32,6 +32,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/haproxyLayer:HaproxyLayer")]
     public partial class HaproxyLayer : Pulumi.CustomResource
     {
         /// <summary>

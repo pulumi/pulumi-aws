@@ -84,6 +84,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/emailChannel:EmailChannel")]
     public partial class EmailChannel : Pulumi.CustomResource
     {
         /// <summary>

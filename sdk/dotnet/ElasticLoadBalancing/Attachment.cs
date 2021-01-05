@@ -41,6 +41,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")]
+    [AwsResourceType("aws:elasticloadbalancing/attachment:Attachment")]
     public partial class Attachment : Pulumi.CustomResource
     {
         /// <summary>

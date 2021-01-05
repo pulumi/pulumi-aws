@@ -40,6 +40,7 @@ namespace Pulumi.Aws.DocDB
     ///  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
     /// ```
     /// </summary>
+    [AwsResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {
         /// <summary>

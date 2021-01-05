@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
     public partial class ResolverEndpoint : Pulumi.CustomResource
     {
         /// <summary>

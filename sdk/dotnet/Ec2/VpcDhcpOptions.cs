@@ -89,6 +89,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcDhcpOptions:VpcDhcpOptions")]
     public partial class VpcDhcpOptions : Pulumi.CustomResource
     {
         /// <summary>

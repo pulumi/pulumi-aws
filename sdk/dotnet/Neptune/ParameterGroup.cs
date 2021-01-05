@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Neptune
     ///  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
     /// ```
     /// </summary>
+    [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

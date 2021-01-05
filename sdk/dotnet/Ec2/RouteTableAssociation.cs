@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
     public partial class RouteTableAssociation : Pulumi.CustomResource
     {
         /// <summary>

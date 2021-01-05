@@ -133,15 +133,15 @@ type OrganizationAdminAccountInput interface {
 	ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput
 }
 
-func (OrganizationAdminAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationAdminAccount)(nil)).Elem()
+func (*OrganizationAdminAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationAdminAccount)(nil))
 }
 
-func (i OrganizationAdminAccount) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
+func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
 	return i.ToOrganizationAdminAccountOutputWithContext(context.Background())
 }
 
-func (i OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
+func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountOutput)
 }
 
@@ -150,7 +150,7 @@ type OrganizationAdminAccountOutput struct {
 }
 
 func (OrganizationAdminAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationAdminAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*OrganizationAdminAccount)(nil))
 }
 
 func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {

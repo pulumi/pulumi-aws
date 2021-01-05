@@ -205,15 +205,15 @@ type ActivationInput interface {
 	ToActivationOutputWithContext(ctx context.Context) ActivationOutput
 }
 
-func (Activation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activation)(nil)).Elem()
+func (*Activation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activation)(nil))
 }
 
-func (i Activation) ToActivationOutput() ActivationOutput {
+func (i *Activation) ToActivationOutput() ActivationOutput {
 	return i.ToActivationOutputWithContext(context.Background())
 }
 
-func (i Activation) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
+func (i *Activation) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationOutput)
 }
 
@@ -222,7 +222,7 @@ type ActivationOutput struct {
 }
 
 func (ActivationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Activation)(nil))
 }
 
 func (o ActivationOutput) ToActivationOutput() ActivationOutput {

@@ -229,6 +229,7 @@ namespace Pulumi.Aws.Ssm
     ///  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ssm/patchBaseline:PatchBaseline")]
     public partial class PatchBaseline : Pulumi.CustomResource
     {
         /// <summary>

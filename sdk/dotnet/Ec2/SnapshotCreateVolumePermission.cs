@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
     public partial class SnapshotCreateVolumePermission : Pulumi.CustomResource
     {
         /// <summary>

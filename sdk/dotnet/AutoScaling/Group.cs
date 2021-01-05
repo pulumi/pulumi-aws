@@ -18,6 +18,7 @@ namespace Pulumi.Aws.AutoScaling
     ///  $ pulumi import aws:autoscaling/group:Group web web-asg
     /// ```
     /// </summary>
+    [AwsResourceType("aws:autoscaling/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

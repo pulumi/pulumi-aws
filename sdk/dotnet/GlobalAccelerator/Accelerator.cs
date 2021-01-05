@@ -46,6 +46,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:globalaccelerator/accelerator:Accelerator")]
     public partial class Accelerator : Pulumi.CustomResource
     {
         /// <summary>

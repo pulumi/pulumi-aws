@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2clientvpn/endpoint:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

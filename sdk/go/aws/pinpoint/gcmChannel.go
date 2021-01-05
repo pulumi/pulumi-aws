@@ -147,15 +147,15 @@ type GcmChannelInput interface {
 	ToGcmChannelOutputWithContext(ctx context.Context) GcmChannelOutput
 }
 
-func (GcmChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmChannel)(nil)).Elem()
+func (*GcmChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmChannel)(nil))
 }
 
-func (i GcmChannel) ToGcmChannelOutput() GcmChannelOutput {
+func (i *GcmChannel) ToGcmChannelOutput() GcmChannelOutput {
 	return i.ToGcmChannelOutputWithContext(context.Background())
 }
 
-func (i GcmChannel) ToGcmChannelOutputWithContext(ctx context.Context) GcmChannelOutput {
+func (i *GcmChannel) ToGcmChannelOutputWithContext(ctx context.Context) GcmChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelOutput)
 }
 
@@ -164,7 +164,7 @@ type GcmChannelOutput struct {
 }
 
 func (GcmChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*GcmChannel)(nil))
 }
 
 func (o GcmChannelOutput) ToGcmChannelOutput() GcmChannelOutput {

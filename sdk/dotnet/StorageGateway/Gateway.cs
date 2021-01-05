@@ -112,6 +112,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
     /// </summary>
+    [AwsResourceType("aws:storagegateway/gateway:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>

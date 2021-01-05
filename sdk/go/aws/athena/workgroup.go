@@ -181,15 +181,15 @@ type WorkgroupInput interface {
 	ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput
 }
 
-func (Workgroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workgroup)(nil)).Elem()
+func (*Workgroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workgroup)(nil))
 }
 
-func (i Workgroup) ToWorkgroupOutput() WorkgroupOutput {
+func (i *Workgroup) ToWorkgroupOutput() WorkgroupOutput {
 	return i.ToWorkgroupOutputWithContext(context.Background())
 }
 
-func (i Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
+func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
 }
 
@@ -198,7 +198,7 @@ type WorkgroupOutput struct {
 }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*Workgroup)(nil))
 }
 
 func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {

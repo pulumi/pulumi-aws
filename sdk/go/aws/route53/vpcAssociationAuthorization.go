@@ -180,15 +180,15 @@ type VpcAssociationAuthorizationInput interface {
 	ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput
 }
 
-func (VpcAssociationAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAssociationAuthorization)(nil)).Elem()
+func (*VpcAssociationAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAssociationAuthorization)(nil))
 }
 
-func (i VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput {
+func (i *VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput {
 	return i.ToVpcAssociationAuthorizationOutputWithContext(context.Background())
 }
 
-func (i VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput {
+func (i *VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAssociationAuthorizationOutput)
 }
 
@@ -197,7 +197,7 @@ type VpcAssociationAuthorizationOutput struct {
 }
 
 func (VpcAssociationAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAssociationAuthorizationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcAssociationAuthorization)(nil))
 }
 
 func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutput() VpcAssociationAuthorizationOutput {

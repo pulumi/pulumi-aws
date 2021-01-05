@@ -138,6 +138,7 @@ namespace Pulumi.Aws.CloudFront
     ///  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]
     public partial class OriginAccessIdentity : Pulumi.CustomResource
     {
         /// <summary>

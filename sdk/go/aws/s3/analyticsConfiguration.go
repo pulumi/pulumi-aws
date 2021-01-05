@@ -198,15 +198,15 @@ type AnalyticsConfigurationInput interface {
 	ToAnalyticsConfigurationOutputWithContext(ctx context.Context) AnalyticsConfigurationOutput
 }
 
-func (AnalyticsConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsConfiguration)(nil)).Elem()
+func (*AnalyticsConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfiguration)(nil))
 }
 
-func (i AnalyticsConfiguration) ToAnalyticsConfigurationOutput() AnalyticsConfigurationOutput {
+func (i *AnalyticsConfiguration) ToAnalyticsConfigurationOutput() AnalyticsConfigurationOutput {
 	return i.ToAnalyticsConfigurationOutputWithContext(context.Background())
 }
 
-func (i AnalyticsConfiguration) ToAnalyticsConfigurationOutputWithContext(ctx context.Context) AnalyticsConfigurationOutput {
+func (i *AnalyticsConfiguration) ToAnalyticsConfigurationOutputWithContext(ctx context.Context) AnalyticsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationOutput)
 }
 
@@ -215,7 +215,7 @@ type AnalyticsConfigurationOutput struct {
 }
 
 func (AnalyticsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsConfiguration)(nil))
 }
 
 func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutput() AnalyticsConfigurationOutput {

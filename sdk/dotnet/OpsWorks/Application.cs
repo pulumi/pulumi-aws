@@ -78,6 +78,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

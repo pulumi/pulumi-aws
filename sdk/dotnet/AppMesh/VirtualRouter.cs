@@ -64,6 +64,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/virtualRouter:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
     {
         /// <summary>

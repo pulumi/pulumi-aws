@@ -20,6 +20,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")]
     public partial class RepositoryPermissionsPolicy : Pulumi.CustomResource
     {
         /// <summary>

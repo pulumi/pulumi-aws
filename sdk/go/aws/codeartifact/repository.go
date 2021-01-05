@@ -275,15 +275,15 @@ type RepositoryInput interface {
 	ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput
 }
 
-func (Repository) ElementType() reflect.Type {
-	return reflect.TypeOf((*Repository)(nil)).Elem()
+func (*Repository) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil))
 }
 
-func (i Repository) ToRepositoryOutput() RepositoryOutput {
+func (i *Repository) ToRepositoryOutput() RepositoryOutput {
 	return i.ToRepositoryOutputWithContext(context.Background())
 }
 
-func (i Repository) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
 }
 
@@ -292,7 +292,7 @@ type RepositoryOutput struct {
 }
 
 func (RepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Repository)(nil))
 }
 
 func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {

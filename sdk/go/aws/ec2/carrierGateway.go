@@ -142,15 +142,15 @@ type CarrierGatewayInput interface {
 	ToCarrierGatewayOutputWithContext(ctx context.Context) CarrierGatewayOutput
 }
 
-func (CarrierGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGateway)(nil)).Elem()
+func (*CarrierGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*CarrierGateway)(nil))
 }
 
-func (i CarrierGateway) ToCarrierGatewayOutput() CarrierGatewayOutput {
+func (i *CarrierGateway) ToCarrierGatewayOutput() CarrierGatewayOutput {
 	return i.ToCarrierGatewayOutputWithContext(context.Background())
 }
 
-func (i CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) CarrierGatewayOutput {
+func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) CarrierGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayOutput)
 }
 
@@ -159,7 +159,7 @@ type CarrierGatewayOutput struct {
 }
 
 func (CarrierGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*CarrierGateway)(nil))
 }
 
 func (o CarrierGatewayOutput) ToCarrierGatewayOutput() CarrierGatewayOutput {

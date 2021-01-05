@@ -148,15 +148,15 @@ type InstanceFleetInput interface {
 	ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput
 }
 
-func (InstanceFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleet)(nil)).Elem()
+func (*InstanceFleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleet)(nil))
 }
 
-func (i InstanceFleet) ToInstanceFleetOutput() InstanceFleetOutput {
+func (i *InstanceFleet) ToInstanceFleetOutput() InstanceFleetOutput {
 	return i.ToInstanceFleetOutputWithContext(context.Background())
 }
 
-func (i InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
+func (i *InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetOutput)
 }
 
@@ -165,7 +165,7 @@ type InstanceFleetOutput struct {
 }
 
 func (InstanceFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleetOutput)(nil)).Elem()
+	return reflect.TypeOf((*InstanceFleet)(nil))
 }
 
 func (o InstanceFleetOutput) ToInstanceFleetOutput() InstanceFleetOutput {

@@ -64,6 +64,7 @@ namespace Pulumi.Aws.ElastiCache
     ///  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

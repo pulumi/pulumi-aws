@@ -150,15 +150,15 @@ type VpnGatewayAttachmentInput interface {
 	ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput
 }
 
-func (VpnGatewayAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayAttachment)(nil)).Elem()
+func (*VpnGatewayAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayAttachment)(nil))
 }
 
-func (i VpnGatewayAttachment) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
+func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
 	return i.ToVpnGatewayAttachmentOutputWithContext(context.Background())
 }
 
-func (i VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
+func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentOutput)
 }
 
@@ -167,7 +167,7 @@ type VpnGatewayAttachmentOutput struct {
 }
 
 func (VpnGatewayAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnGatewayAttachment)(nil))
 }
 
 func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {

@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpnGateway:VpnGateway")]
     public partial class VpnGateway : Pulumi.CustomResource
     {
         /// <summary>

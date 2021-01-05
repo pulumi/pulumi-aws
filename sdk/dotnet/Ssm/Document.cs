@@ -98,6 +98,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:ssm/document:Document")]
     public partial class Document : Pulumi.CustomResource
     {
         [Output("arn")]

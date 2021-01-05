@@ -153,15 +153,15 @@ type ActionTargetInput interface {
 	ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput
 }
 
-func (ActionTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionTarget)(nil)).Elem()
+func (*ActionTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionTarget)(nil))
 }
 
-func (i ActionTarget) ToActionTargetOutput() ActionTargetOutput {
+func (i *ActionTarget) ToActionTargetOutput() ActionTargetOutput {
 	return i.ToActionTargetOutputWithContext(context.Background())
 }
 
-func (i ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput {
+func (i *ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetOutput)
 }
 
@@ -170,7 +170,7 @@ type ActionTargetOutput struct {
 }
 
 func (ActionTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionTarget)(nil))
 }
 
 func (o ActionTargetOutput) ToActionTargetOutput() ActionTargetOutput {

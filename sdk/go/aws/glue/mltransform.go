@@ -348,15 +348,15 @@ type MLTransformInput interface {
 	ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput
 }
 
-func (MLTransform) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransform)(nil)).Elem()
+func (*MLTransform) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransform)(nil))
 }
 
-func (i MLTransform) ToMLTransformOutput() MLTransformOutput {
+func (i *MLTransform) ToMLTransformOutput() MLTransformOutput {
 	return i.ToMLTransformOutputWithContext(context.Background())
 }
 
-func (i MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
+func (i *MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformOutput)
 }
 
@@ -365,7 +365,7 @@ type MLTransformOutput struct {
 }
 
 func (MLTransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformOutput)(nil)).Elem()
+	return reflect.TypeOf((*MLTransform)(nil))
 }
 
 func (o MLTransformOutput) ToMLTransformOutput() MLTransformOutput {

@@ -254,15 +254,15 @@ type EventDestinationInput interface {
 	ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput
 }
 
-func (EventDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDestination)(nil)).Elem()
+func (*EventDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDestination)(nil))
 }
 
-func (i EventDestination) ToEventDestinationOutput() EventDestinationOutput {
+func (i *EventDestination) ToEventDestinationOutput() EventDestinationOutput {
 	return i.ToEventDestinationOutputWithContext(context.Background())
 }
 
-func (i EventDestination) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
+func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
 }
 
@@ -271,7 +271,7 @@ type EventDestinationOutput struct {
 }
 
 func (EventDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDestinationOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventDestination)(nil))
 }
 
 func (o EventDestinationOutput) ToEventDestinationOutput() EventDestinationOutput {

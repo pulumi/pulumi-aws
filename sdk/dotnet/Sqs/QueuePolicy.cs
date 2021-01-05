@@ -62,6 +62,7 @@ namespace Pulumi.Aws.Sqs
     ///  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sqs/queuePolicy:QueuePolicy")]
     public partial class QueuePolicy : Pulumi.CustomResource
     {
         /// <summary>

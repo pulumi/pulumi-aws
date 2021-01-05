@@ -149,6 +149,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer")]
+    [AwsResourceType("aws:elasticloadbalancingv2/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Mq
     ///  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:mq/broker:Broker")]
     public partial class Broker : Pulumi.CustomResource
     {
         /// <summary>

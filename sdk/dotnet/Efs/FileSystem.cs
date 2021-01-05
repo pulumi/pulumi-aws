@@ -64,6 +64,7 @@ namespace Pulumi.Aws.Efs
     ///  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
     /// ```
     /// </summary>
+    [AwsResourceType("aws:efs/fileSystem:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
         /// <summary>

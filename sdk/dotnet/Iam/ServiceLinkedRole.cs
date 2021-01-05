@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/serviceLinkedRole:ServiceLinkedRole")]
     public partial class ServiceLinkedRole : Pulumi.CustomResource
     {
         /// <summary>

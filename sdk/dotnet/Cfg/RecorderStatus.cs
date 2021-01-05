@@ -105,6 +105,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
     public partial class RecorderStatus : Pulumi.CustomResource
     {
         /// <summary>

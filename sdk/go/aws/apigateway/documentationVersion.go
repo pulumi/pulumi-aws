@@ -158,15 +158,15 @@ type DocumentationVersionInput interface {
 	ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput
 }
 
-func (DocumentationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersion)(nil)).Elem()
+func (*DocumentationVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationVersion)(nil))
 }
 
-func (i DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersionOutput {
+func (i *DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersionOutput {
 	return i.ToDocumentationVersionOutputWithContext(context.Background())
 }
 
-func (i DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
+func (i *DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionOutput)
 }
 
@@ -175,7 +175,7 @@ type DocumentationVersionOutput struct {
 }
 
 func (DocumentationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*DocumentationVersion)(nil))
 }
 
 func (o DocumentationVersionOutput) ToDocumentationVersionOutput() DocumentationVersionOutput {

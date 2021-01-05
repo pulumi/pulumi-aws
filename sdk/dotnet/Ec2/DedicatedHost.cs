@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost host_id h-0385a99d0e4b20cbb
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
     public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>

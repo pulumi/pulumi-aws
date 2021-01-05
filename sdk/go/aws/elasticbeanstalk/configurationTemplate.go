@@ -191,15 +191,15 @@ type ConfigurationTemplateInput interface {
 	ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput
 }
 
-func (ConfigurationTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTemplate)(nil)).Elem()
+func (*ConfigurationTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationTemplate)(nil))
 }
 
-func (i ConfigurationTemplate) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {
+func (i *ConfigurationTemplate) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {
 	return i.ToConfigurationTemplateOutputWithContext(context.Background())
 }
 
-func (i ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
+func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateOutput)
 }
 
@@ -208,7 +208,7 @@ type ConfigurationTemplateOutput struct {
 }
 
 func (ConfigurationTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationTemplate)(nil))
 }
 
 func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {

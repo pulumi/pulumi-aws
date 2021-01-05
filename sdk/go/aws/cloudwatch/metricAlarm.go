@@ -493,15 +493,15 @@ type MetricAlarmInput interface {
 	ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput
 }
 
-func (MetricAlarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlarm)(nil)).Elem()
+func (*MetricAlarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarm)(nil))
 }
 
-func (i MetricAlarm) ToMetricAlarmOutput() MetricAlarmOutput {
+func (i *MetricAlarm) ToMetricAlarmOutput() MetricAlarmOutput {
 	return i.ToMetricAlarmOutputWithContext(context.Background())
 }
 
-func (i MetricAlarm) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
+func (i *MetricAlarm) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmOutput)
 }
 
@@ -510,7 +510,7 @@ type MetricAlarmOutput struct {
 }
 
 func (MetricAlarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlarmOutput)(nil)).Elem()
+	return reflect.TypeOf((*MetricAlarm)(nil))
 }
 
 func (o MetricAlarmOutput) ToMetricAlarmOutput() MetricAlarmOutput {

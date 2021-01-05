@@ -49,6 +49,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/documentationPart:DocumentationPart")]
     public partial class DocumentationPart : Pulumi.CustomResource
     {
         /// <summary>

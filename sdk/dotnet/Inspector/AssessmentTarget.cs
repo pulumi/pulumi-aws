@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Inspector
     ///  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
     /// ```
     /// </summary>
+    [AwsResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]
     public partial class AssessmentTarget : Pulumi.CustomResource
     {
         /// <summary>

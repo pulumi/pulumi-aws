@@ -32,6 +32,7 @@ namespace Pulumi.Aws.OpsWorks
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/userProfile:UserProfile")]
     public partial class UserProfile : Pulumi.CustomResource
     {
         /// <summary>

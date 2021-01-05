@@ -46,6 +46,7 @@ namespace Pulumi.Aws.RedShift
     ///  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:redshift/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

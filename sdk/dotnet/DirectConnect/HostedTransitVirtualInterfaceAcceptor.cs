@@ -78,6 +78,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")]
     public partial class HostedTransitVirtualInterfaceAcceptor : Pulumi.CustomResource
     {
         /// <summary>

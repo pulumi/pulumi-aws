@@ -697,15 +697,15 @@ type BucketInput interface {
 	ToBucketOutputWithContext(ctx context.Context) BucketOutput
 }
 
-func (Bucket) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bucket)(nil)).Elem()
+func (*Bucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*Bucket)(nil))
 }
 
-func (i Bucket) ToBucketOutput() BucketOutput {
+func (i *Bucket) ToBucketOutput() BucketOutput {
 	return i.ToBucketOutputWithContext(context.Background())
 }
 
-func (i Bucket) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
+func (i *Bucket) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOutput)
 }
 
@@ -714,7 +714,7 @@ type BucketOutput struct {
 }
 
 func (BucketOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketOutput)(nil)).Elem()
+	return reflect.TypeOf((*Bucket)(nil))
 }
 
 func (o BucketOutput) ToBucketOutput() BucketOutput {

@@ -355,15 +355,15 @@ type IntegrationInput interface {
 	ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput
 }
 
-func (Integration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil)).Elem()
+func (*Integration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Integration)(nil))
 }
 
-func (i Integration) ToIntegrationOutput() IntegrationOutput {
+func (i *Integration) ToIntegrationOutput() IntegrationOutput {
 	return i.ToIntegrationOutputWithContext(context.Background())
 }
 
-func (i Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
+func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
 }
 
@@ -372,7 +372,7 @@ type IntegrationOutput struct {
 }
 
 func (IntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Integration)(nil))
 }
 
 func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {

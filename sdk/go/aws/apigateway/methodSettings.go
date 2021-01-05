@@ -220,15 +220,15 @@ type MethodSettingsInput interface {
 	ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput
 }
 
-func (MethodSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodSettings)(nil)).Elem()
+func (*MethodSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodSettings)(nil))
 }
 
-func (i MethodSettings) ToMethodSettingsOutput() MethodSettingsOutput {
+func (i *MethodSettings) ToMethodSettingsOutput() MethodSettingsOutput {
 	return i.ToMethodSettingsOutputWithContext(context.Background())
 }
 
-func (i MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
+func (i *MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsOutput)
 }
 
@@ -237,7 +237,7 @@ type MethodSettingsOutput struct {
 }
 
 func (MethodSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodSettingsOutput)(nil)).Elem()
+	return reflect.TypeOf((*MethodSettings)(nil))
 }
 
 func (o MethodSettingsOutput) ToMethodSettingsOutput() MethodSettingsOutput {

@@ -136,15 +136,15 @@ type XssMatchSetInput interface {
 	ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput
 }
 
-func (XssMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*XssMatchSet)(nil)).Elem()
+func (*XssMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*XssMatchSet)(nil))
 }
 
-func (i XssMatchSet) ToXssMatchSetOutput() XssMatchSetOutput {
+func (i *XssMatchSet) ToXssMatchSetOutput() XssMatchSetOutput {
 	return i.ToXssMatchSetOutputWithContext(context.Background())
 }
 
-func (i XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
+func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetOutput)
 }
 
@@ -153,7 +153,7 @@ type XssMatchSetOutput struct {
 }
 
 func (XssMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XssMatchSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*XssMatchSet)(nil))
 }
 
 func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {

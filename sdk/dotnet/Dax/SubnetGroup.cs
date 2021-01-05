@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Dax
     ///  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dax/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

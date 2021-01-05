@@ -146,6 +146,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy")]
+    [AwsResourceType("aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")]
     public partial class LoadBalancerPolicy : Pulumi.CustomResource
     {
         /// <summary>

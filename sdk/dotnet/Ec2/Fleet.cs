@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/fleet:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>

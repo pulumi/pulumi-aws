@@ -143,15 +143,15 @@ type RouteTablePropagationInput interface {
 	ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput
 }
 
-func (RouteTablePropagation) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTablePropagation)(nil)).Elem()
+func (*RouteTablePropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTablePropagation)(nil))
 }
 
-func (i RouteTablePropagation) ToRouteTablePropagationOutput() RouteTablePropagationOutput {
+func (i *RouteTablePropagation) ToRouteTablePropagationOutput() RouteTablePropagationOutput {
 	return i.ToRouteTablePropagationOutputWithContext(context.Background())
 }
 
-func (i RouteTablePropagation) ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput {
+func (i *RouteTablePropagation) ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTablePropagationOutput)
 }
 
@@ -160,7 +160,7 @@ type RouteTablePropagationOutput struct {
 }
 
 func (RouteTablePropagationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTablePropagationOutput)(nil)).Elem()
+	return reflect.TypeOf((*RouteTablePropagation)(nil))
 }
 
 func (o RouteTablePropagationOutput) ToRouteTablePropagationOutput() RouteTablePropagationOutput {

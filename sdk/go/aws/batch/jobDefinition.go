@@ -202,15 +202,15 @@ type JobDefinitionInput interface {
 	ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput
 }
 
-func (JobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinition)(nil)).Elem()
+func (*JobDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinition)(nil))
 }
 
-func (i JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
+func (i *JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
 	return i.ToJobDefinitionOutputWithContext(context.Background())
 }
 
-func (i JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
+func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
 }
 
@@ -219,7 +219,7 @@ type JobDefinitionOutput struct {
 }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobDefinition)(nil))
 }
 
 func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {

@@ -451,15 +451,15 @@ type TopicSubscriptionInput interface {
 	ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput
 }
 
-func (TopicSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicSubscription)(nil)).Elem()
+func (*TopicSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicSubscription)(nil))
 }
 
-func (i TopicSubscription) ToTopicSubscriptionOutput() TopicSubscriptionOutput {
+func (i *TopicSubscription) ToTopicSubscriptionOutput() TopicSubscriptionOutput {
 	return i.ToTopicSubscriptionOutputWithContext(context.Background())
 }
 
-func (i TopicSubscription) ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput {
+func (i *TopicSubscription) ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionOutput)
 }
 
@@ -468,7 +468,7 @@ type TopicSubscriptionOutput struct {
 }
 
 func (TopicSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*TopicSubscription)(nil))
 }
 
 func (o TopicSubscriptionOutput) ToTopicSubscriptionOutput() TopicSubscriptionOutput {

@@ -58,6 +58,7 @@ namespace Pulumi.Aws.Ses
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
     public partial class DomainIdentityVerification : Pulumi.CustomResource
     {
         /// <summary>

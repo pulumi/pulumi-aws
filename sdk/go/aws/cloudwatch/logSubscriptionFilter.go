@@ -177,15 +177,15 @@ type LogSubscriptionFilterInput interface {
 	ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput
 }
 
-func (LogSubscriptionFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogSubscriptionFilter)(nil)).Elem()
+func (*LogSubscriptionFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSubscriptionFilter)(nil))
 }
 
-func (i LogSubscriptionFilter) ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput {
+func (i *LogSubscriptionFilter) ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput {
 	return i.ToLogSubscriptionFilterOutputWithContext(context.Background())
 }
 
-func (i LogSubscriptionFilter) ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput {
+func (i *LogSubscriptionFilter) ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterOutput)
 }
 
@@ -194,7 +194,7 @@ type LogSubscriptionFilterOutput struct {
 }
 
 func (LogSubscriptionFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogSubscriptionFilterOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogSubscriptionFilter)(nil))
 }
 
 func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput {

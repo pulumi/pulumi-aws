@@ -51,6 +51,7 @@ namespace Pulumi.Aws.OpsWorks
     ///  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AwsResourceType("aws:opsworks/stack:Stack")]
     public partial class Stack : Pulumi.CustomResource
     {
         /// <summary>

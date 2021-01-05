@@ -245,6 +245,7 @@ namespace Pulumi.Aws.CodeBuild
     ///  $ pulumi import aws:codebuild/project:Project name project-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codebuild/project:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

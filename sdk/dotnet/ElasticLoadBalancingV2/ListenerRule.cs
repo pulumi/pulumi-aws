@@ -285,6 +285,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")]
+    [AwsResourceType("aws:elasticloadbalancingv2/listenerRule:ListenerRule")]
     public partial class ListenerRule : Pulumi.CustomResource
     {
         /// <summary>

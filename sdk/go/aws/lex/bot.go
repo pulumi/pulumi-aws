@@ -335,15 +335,15 @@ type BotInput interface {
 	ToBotOutputWithContext(ctx context.Context) BotOutput
 }
 
-func (Bot) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bot)(nil)).Elem()
+func (*Bot) ElementType() reflect.Type {
+	return reflect.TypeOf((*Bot)(nil))
 }
 
-func (i Bot) ToBotOutput() BotOutput {
+func (i *Bot) ToBotOutput() BotOutput {
 	return i.ToBotOutputWithContext(context.Background())
 }
 
-func (i Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
+func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
@@ -352,7 +352,7 @@ type BotOutput struct {
 }
 
 func (BotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotOutput)(nil)).Elem()
+	return reflect.TypeOf((*Bot)(nil))
 }
 
 func (o BotOutput) ToBotOutput() BotOutput {

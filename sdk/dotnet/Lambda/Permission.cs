@@ -157,6 +157,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/permission:Permission")]
     public partial class Permission : Pulumi.CustomResource
     {
         /// <summary>

@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/amiFromInstance:AmiFromInstance")]
     public partial class AmiFromInstance : Pulumi.CustomResource
     {
         /// <summary>

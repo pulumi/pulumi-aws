@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Alb
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:alb/listenerCertificate:ListenerCertificate")]
     public partial class ListenerCertificate : Pulumi.CustomResource
     {
         /// <summary>

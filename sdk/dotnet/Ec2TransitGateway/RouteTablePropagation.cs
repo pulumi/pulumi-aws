@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]
     public partial class RouteTablePropagation : Pulumi.CustomResource
     {
         /// <summary>

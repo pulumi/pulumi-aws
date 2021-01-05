@@ -135,15 +135,15 @@ type VpcDhcpOptionsAssociationInput interface {
 	ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput
 }
 
-func (VpcDhcpOptionsAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptionsAssociation)(nil)).Elem()
+func (*VpcDhcpOptionsAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptionsAssociation)(nil))
 }
 
-func (i VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput {
+func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput {
 	return i.ToVpcDhcpOptionsAssociationOutputWithContext(context.Background())
 }
 
-func (i VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput {
+func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationOutput)
 }
 
@@ -152,7 +152,7 @@ type VpcDhcpOptionsAssociationOutput struct {
 }
 
 func (VpcDhcpOptionsAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptionsAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcDhcpOptionsAssociation)(nil))
 }
 
 func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput {

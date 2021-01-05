@@ -167,15 +167,15 @@ type PrivateDnsNamespaceInput interface {
 	ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput
 }
 
-func (PrivateDnsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsNamespace)(nil)).Elem()
+func (*PrivateDnsNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsNamespace)(nil))
 }
 
-func (i PrivateDnsNamespace) ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput {
+func (i *PrivateDnsNamespace) ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput {
 	return i.ToPrivateDnsNamespaceOutputWithContext(context.Background())
 }
 
-func (i PrivateDnsNamespace) ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput {
+func (i *PrivateDnsNamespace) ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceOutput)
 }
 
@@ -184,7 +184,7 @@ type PrivateDnsNamespaceOutput struct {
 }
 
 func (PrivateDnsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsNamespaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrivateDnsNamespace)(nil))
 }
 
 func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutput() PrivateDnsNamespaceOutput {

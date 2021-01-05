@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/endpoint:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

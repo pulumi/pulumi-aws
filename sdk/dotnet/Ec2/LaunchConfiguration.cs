@@ -248,6 +248,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
     public partial class LaunchConfiguration : Pulumi.CustomResource
     {
         /// <summary>

@@ -148,6 +148,7 @@ namespace Pulumi.Aws.Alb
     ///  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
     /// ```
     /// </summary>
+    [AwsResourceType("aws:alb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

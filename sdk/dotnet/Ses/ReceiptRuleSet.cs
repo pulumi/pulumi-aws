@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/receiptRuleSet:ReceiptRuleSet")]
     public partial class ReceiptRuleSet : Pulumi.CustomResource
     {
         /// <summary>

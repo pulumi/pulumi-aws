@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]
     public partial class AuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -246,6 +246,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/virtualNode:VirtualNode")]
     public partial class VirtualNode : Pulumi.CustomResource
     {
         /// <summary>

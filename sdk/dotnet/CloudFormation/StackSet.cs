@@ -120,6 +120,7 @@ namespace Pulumi.Aws.CloudFormation
     ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudformation/stackSet:StackSet")]
     public partial class StackSet : Pulumi.CustomResource
     {
         /// <summary>

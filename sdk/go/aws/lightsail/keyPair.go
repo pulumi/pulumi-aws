@@ -216,15 +216,15 @@ type KeyPairInput interface {
 	ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput
 }
 
-func (KeyPair) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPair)(nil)).Elem()
+func (*KeyPair) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPair)(nil))
 }
 
-func (i KeyPair) ToKeyPairOutput() KeyPairOutput {
+func (i *KeyPair) ToKeyPairOutput() KeyPairOutput {
 	return i.ToKeyPairOutputWithContext(context.Background())
 }
 
-func (i KeyPair) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput {
+func (i *KeyPair) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPairOutput)
 }
 
@@ -233,7 +233,7 @@ type KeyPairOutput struct {
 }
 
 func (KeyPairOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPairOutput)(nil)).Elem()
+	return reflect.TypeOf((*KeyPair)(nil))
 }
 
 func (o KeyPairOutput) ToKeyPairOutput() KeyPairOutput {

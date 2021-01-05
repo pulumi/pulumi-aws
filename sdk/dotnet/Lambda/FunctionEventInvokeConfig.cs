@@ -151,6 +151,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
     public partial class FunctionEventInvokeConfig : Pulumi.CustomResource
     {
         /// <summary>

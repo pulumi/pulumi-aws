@@ -97,6 +97,7 @@ namespace Pulumi.Aws.Sns
     ///  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
     /// ```
     /// </summary>
+    [AwsResourceType("aws:sns/topic:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

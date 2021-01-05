@@ -67,6 +67,7 @@ namespace Pulumi.Aws.Waf
     ///  $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:waf/rateBasedRule:RateBasedRule")]
     public partial class RateBasedRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {
         /// <summary>

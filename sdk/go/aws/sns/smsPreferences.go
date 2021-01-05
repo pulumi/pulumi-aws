@@ -153,15 +153,15 @@ type SmsPreferencesInput interface {
 	ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput
 }
 
-func (SmsPreferences) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsPreferences)(nil)).Elem()
+func (*SmsPreferences) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsPreferences)(nil))
 }
 
-func (i SmsPreferences) ToSmsPreferencesOutput() SmsPreferencesOutput {
+func (i *SmsPreferences) ToSmsPreferencesOutput() SmsPreferencesOutput {
 	return i.ToSmsPreferencesOutputWithContext(context.Background())
 }
 
-func (i SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput {
+func (i *SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesOutput)
 }
 
@@ -170,7 +170,7 @@ type SmsPreferencesOutput struct {
 }
 
 func (SmsPreferencesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsPreferencesOutput)(nil)).Elem()
+	return reflect.TypeOf((*SmsPreferences)(nil))
 }
 
 func (o SmsPreferencesOutput) ToSmsPreferencesOutput() SmsPreferencesOutput {

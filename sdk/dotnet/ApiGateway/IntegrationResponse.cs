@@ -85,6 +85,7 @@ namespace Pulumi.Aws.ApiGateway
     ///  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
     public partial class IntegrationResponse : Pulumi.CustomResource
     {
         /// <summary>

@@ -278,6 +278,7 @@ namespace Pulumi.Aws.CloudFront
     ///  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudfront/distribution:Distribution")]
     public partial class Distribution : Pulumi.CustomResource
     {
         /// <summary>

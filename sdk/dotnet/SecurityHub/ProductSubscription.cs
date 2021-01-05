@@ -49,6 +49,7 @@ namespace Pulumi.Aws.SecurityHub
     ///  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
     /// ```
     /// </summary>
+    [AwsResourceType("aws:securityhub/productSubscription:ProductSubscription")]
     public partial class ProductSubscription : Pulumi.CustomResource
     {
         /// <summary>

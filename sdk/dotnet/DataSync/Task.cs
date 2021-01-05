@@ -20,6 +20,7 @@ namespace Pulumi.Aws.DataSync
     ///  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datasync/task:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>

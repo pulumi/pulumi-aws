@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
     public partial class LocalGatewayRouteTableVpcAssociation : Pulumi.CustomResource
     {
         [Output("localGatewayId")]

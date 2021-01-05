@@ -137,15 +137,15 @@ type SnapshotCreateVolumePermissionInput interface {
 	ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput
 }
 
-func (SnapshotCreateVolumePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil)).Elem()
+func (*SnapshotCreateVolumePermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil))
 }
 
-func (i SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
+func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
 	return i.ToSnapshotCreateVolumePermissionOutputWithContext(context.Background())
 }
 
-func (i SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
+func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionOutput)
 }
 
@@ -154,7 +154,7 @@ type SnapshotCreateVolumePermissionOutput struct {
 }
 
 func (SnapshotCreateVolumePermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCreateVolumePermissionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil))
 }
 
 func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {

@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iam/groupPolicy:GroupPolicy")]
     public partial class GroupPolicy : Pulumi.CustomResource
     {
         /// <summary>

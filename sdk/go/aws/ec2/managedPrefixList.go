@@ -220,15 +220,15 @@ type ManagedPrefixListInput interface {
 	ToManagedPrefixListOutputWithContext(ctx context.Context) ManagedPrefixListOutput
 }
 
-func (ManagedPrefixList) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixList)(nil)).Elem()
+func (*ManagedPrefixList) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrefixList)(nil))
 }
 
-func (i ManagedPrefixList) ToManagedPrefixListOutput() ManagedPrefixListOutput {
+func (i *ManagedPrefixList) ToManagedPrefixListOutput() ManagedPrefixListOutput {
 	return i.ToManagedPrefixListOutputWithContext(context.Background())
 }
 
-func (i ManagedPrefixList) ToManagedPrefixListOutputWithContext(ctx context.Context) ManagedPrefixListOutput {
+func (i *ManagedPrefixList) ToManagedPrefixListOutputWithContext(ctx context.Context) ManagedPrefixListOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListOutput)
 }
 
@@ -237,7 +237,7 @@ type ManagedPrefixListOutput struct {
 }
 
 func (ManagedPrefixListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixListOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedPrefixList)(nil))
 }
 
 func (o ManagedPrefixListOutput) ToManagedPrefixListOutput() ManagedPrefixListOutput {

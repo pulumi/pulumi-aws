@@ -159,15 +159,15 @@ type InviteAccepterInput interface {
 	ToInviteAccepterOutputWithContext(ctx context.Context) InviteAccepterOutput
 }
 
-func (InviteAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*InviteAccepter)(nil)).Elem()
+func (*InviteAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*InviteAccepter)(nil))
 }
 
-func (i InviteAccepter) ToInviteAccepterOutput() InviteAccepterOutput {
+func (i *InviteAccepter) ToInviteAccepterOutput() InviteAccepterOutput {
 	return i.ToInviteAccepterOutputWithContext(context.Background())
 }
 
-func (i InviteAccepter) ToInviteAccepterOutputWithContext(ctx context.Context) InviteAccepterOutput {
+func (i *InviteAccepter) ToInviteAccepterOutputWithContext(ctx context.Context) InviteAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterOutput)
 }
 
@@ -176,7 +176,7 @@ type InviteAccepterOutput struct {
 }
 
 func (InviteAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InviteAccepterOutput)(nil)).Elem()
+	return reflect.TypeOf((*InviteAccepter)(nil))
 }
 
 func (o InviteAccepterOutput) ToInviteAccepterOutput() InviteAccepterOutput {

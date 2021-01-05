@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]
     public partial class VpcDhcpOptionsAssociation : Pulumi.CustomResource
     {
         /// <summary>

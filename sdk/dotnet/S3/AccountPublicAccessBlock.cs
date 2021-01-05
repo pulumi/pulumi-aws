@@ -44,6 +44,7 @@ namespace Pulumi.Aws.S3
     ///  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock")]
     public partial class AccountPublicAccessBlock : Pulumi.CustomResource
     {
         /// <summary>

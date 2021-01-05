@@ -280,15 +280,15 @@ type PeeringConnectionOptionsInput interface {
 	ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput
 }
 
-func (PeeringConnectionOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringConnectionOptions)(nil)).Elem()
+func (*PeeringConnectionOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringConnectionOptions)(nil))
 }
 
-func (i PeeringConnectionOptions) ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput {
+func (i *PeeringConnectionOptions) ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput {
 	return i.ToPeeringConnectionOptionsOutputWithContext(context.Background())
 }
 
-func (i PeeringConnectionOptions) ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput {
+func (i *PeeringConnectionOptions) ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsOutput)
 }
 
@@ -297,7 +297,7 @@ type PeeringConnectionOptionsOutput struct {
 }
 
 func (PeeringConnectionOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringConnectionOptionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*PeeringConnectionOptions)(nil))
 }
 
 func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutput() PeeringConnectionOptionsOutput {

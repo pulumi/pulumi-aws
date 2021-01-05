@@ -139,6 +139,7 @@ namespace Pulumi.Aws.ElastiCache
     ///  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elasticache/replicationGroup:ReplicationGroup")]
     public partial class ReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>

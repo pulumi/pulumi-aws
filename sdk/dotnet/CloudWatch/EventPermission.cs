@@ -68,6 +68,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/eventPermission:EventPermission")]
     public partial class EventPermission : Pulumi.CustomResource
     {
         /// <summary>

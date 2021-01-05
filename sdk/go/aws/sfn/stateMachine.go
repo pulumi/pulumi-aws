@@ -171,15 +171,15 @@ type StateMachineInput interface {
 	ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput
 }
 
-func (StateMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachine)(nil)).Elem()
+func (*StateMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachine)(nil))
 }
 
-func (i StateMachine) ToStateMachineOutput() StateMachineOutput {
+func (i *StateMachine) ToStateMachineOutput() StateMachineOutput {
 	return i.ToStateMachineOutputWithContext(context.Background())
 }
 
-func (i StateMachine) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
+func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
 }
 
@@ -188,7 +188,7 @@ type StateMachineOutput struct {
 }
 
 func (StateMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*StateMachine)(nil))
 }
 
 func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {

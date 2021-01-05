@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : Pulumi.CustomResource
     {
         [Output("replicationSubnetGroupArn")]

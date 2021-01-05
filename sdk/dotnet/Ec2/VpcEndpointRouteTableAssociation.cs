@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rt-bbbbbbbb
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")]
     public partial class VpcEndpointRouteTableAssociation : Pulumi.CustomResource
     {
         /// <summary>

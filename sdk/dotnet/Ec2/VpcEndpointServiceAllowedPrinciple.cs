@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
     public partial class VpcEndpointServiceAllowedPrinciple : Pulumi.CustomResource
     {
         /// <summary>

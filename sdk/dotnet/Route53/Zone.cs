@@ -103,6 +103,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/zone:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

@@ -266,15 +266,15 @@ type TransitVirtualInterfaceInput interface {
 	ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput
 }
 
-func (TransitVirtualInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitVirtualInterface)(nil)).Elem()
+func (*TransitVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitVirtualInterface)(nil))
 }
 
-func (i TransitVirtualInterface) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
+func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
 	return i.ToTransitVirtualInterfaceOutputWithContext(context.Background())
 }
 
-func (i TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
+func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceOutput)
 }
 
@@ -283,7 +283,7 @@ type TransitVirtualInterfaceOutput struct {
 }
 
 func (TransitVirtualInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitVirtualInterfaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*TransitVirtualInterface)(nil))
 }
 
 func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {

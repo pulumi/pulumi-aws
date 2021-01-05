@@ -209,15 +209,15 @@ type LoggingConfigurationInput interface {
 	ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput
 }
 
-func (LoggingConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfiguration)(nil)).Elem()
+func (*LoggingConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfiguration)(nil))
 }
 
-func (i LoggingConfiguration) ToLoggingConfigurationOutput() LoggingConfigurationOutput {
+func (i *LoggingConfiguration) ToLoggingConfigurationOutput() LoggingConfigurationOutput {
 	return i.ToLoggingConfigurationOutputWithContext(context.Background())
 }
 
-func (i LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput {
+func (i *LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationOutput)
 }
 
@@ -226,7 +226,7 @@ type LoggingConfigurationOutput struct {
 }
 
 func (LoggingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*LoggingConfiguration)(nil))
 }
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationOutput() LoggingConfigurationOutput {

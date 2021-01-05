@@ -63,6 +63,7 @@ namespace Pulumi.Aws.Emr
     ///  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
     /// ```
     /// </summary>
+    [AwsResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]
     public partial class ManagedScalingPolicy : Pulumi.CustomResource
     {
         /// <summary>

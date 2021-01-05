@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Waf
     ///  $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// ```
     /// </summary>
+    [AwsResourceType("aws:waf/geoMatchSet:GeoMatchSet")]
     public partial class GeoMatchSet : Pulumi.CustomResource
     {
         /// <summary>

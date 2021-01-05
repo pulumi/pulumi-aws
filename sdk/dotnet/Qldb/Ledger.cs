@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Qldb
     ///  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
     /// ```
     /// </summary>
+    [AwsResourceType("aws:qldb/ledger:Ledger")]
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>

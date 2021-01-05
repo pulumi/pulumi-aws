@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Shield
     ///  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
     /// ```
     /// </summary>
+    [AwsResourceType("aws:shield/protection:Protection")]
     public partial class Protection : Pulumi.CustomResource
     {
         /// <summary>

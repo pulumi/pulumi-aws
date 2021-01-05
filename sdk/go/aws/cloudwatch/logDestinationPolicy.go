@@ -141,15 +141,15 @@ type LogDestinationPolicyInput interface {
 	ToLogDestinationPolicyOutputWithContext(ctx context.Context) LogDestinationPolicyOutput
 }
 
-func (LogDestinationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogDestinationPolicy)(nil)).Elem()
+func (*LogDestinationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDestinationPolicy)(nil))
 }
 
-func (i LogDestinationPolicy) ToLogDestinationPolicyOutput() LogDestinationPolicyOutput {
+func (i *LogDestinationPolicy) ToLogDestinationPolicyOutput() LogDestinationPolicyOutput {
 	return i.ToLogDestinationPolicyOutputWithContext(context.Background())
 }
 
-func (i LogDestinationPolicy) ToLogDestinationPolicyOutputWithContext(ctx context.Context) LogDestinationPolicyOutput {
+func (i *LogDestinationPolicy) ToLogDestinationPolicyOutputWithContext(ctx context.Context) LogDestinationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPolicyOutput)
 }
 
@@ -158,7 +158,7 @@ type LogDestinationPolicyOutput struct {
 }
 
 func (LogDestinationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogDestinationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogDestinationPolicy)(nil))
 }
 
 func (o LogDestinationPolicyOutput) ToLogDestinationPolicyOutput() LogDestinationPolicyOutput {

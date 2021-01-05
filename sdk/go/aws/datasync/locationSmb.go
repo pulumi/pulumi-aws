@@ -216,15 +216,15 @@ type LocationSmbInput interface {
 	ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput
 }
 
-func (LocationSmb) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSmb)(nil)).Elem()
+func (*LocationSmb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmb)(nil))
 }
 
-func (i LocationSmb) ToLocationSmbOutput() LocationSmbOutput {
+func (i *LocationSmb) ToLocationSmbOutput() LocationSmbOutput {
 	return i.ToLocationSmbOutputWithContext(context.Background())
 }
 
-func (i LocationSmb) ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput {
+func (i *LocationSmb) ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbOutput)
 }
 
@@ -233,7 +233,7 @@ type LocationSmbOutput struct {
 }
 
 func (LocationSmbOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSmbOutput)(nil)).Elem()
+	return reflect.TypeOf((*LocationSmb)(nil))
 }
 
 func (o LocationSmbOutput) ToLocationSmbOutput() LocationSmbOutput {

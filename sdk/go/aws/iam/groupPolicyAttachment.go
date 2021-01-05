@@ -144,15 +144,15 @@ type GroupPolicyAttachmentInput interface {
 	ToGroupPolicyAttachmentOutputWithContext(ctx context.Context) GroupPolicyAttachmentOutput
 }
 
-func (GroupPolicyAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupPolicyAttachment)(nil)).Elem()
+func (*GroupPolicyAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAttachment)(nil))
 }
 
-func (i GroupPolicyAttachment) ToGroupPolicyAttachmentOutput() GroupPolicyAttachmentOutput {
+func (i *GroupPolicyAttachment) ToGroupPolicyAttachmentOutput() GroupPolicyAttachmentOutput {
 	return i.ToGroupPolicyAttachmentOutputWithContext(context.Background())
 }
 
-func (i GroupPolicyAttachment) ToGroupPolicyAttachmentOutputWithContext(ctx context.Context) GroupPolicyAttachmentOutput {
+func (i *GroupPolicyAttachment) ToGroupPolicyAttachmentOutputWithContext(ctx context.Context) GroupPolicyAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAttachmentOutput)
 }
 
@@ -161,7 +161,7 @@ type GroupPolicyAttachmentOutput struct {
 }
 
 func (GroupPolicyAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupPolicyAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*GroupPolicyAttachment)(nil))
 }
 
 func (o GroupPolicyAttachmentOutput) ToGroupPolicyAttachmentOutput() GroupPolicyAttachmentOutput {

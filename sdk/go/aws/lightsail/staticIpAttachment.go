@@ -144,15 +144,15 @@ type StaticIpAttachmentInput interface {
 	ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput
 }
 
-func (StaticIpAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIpAttachment)(nil)).Elem()
+func (*StaticIpAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIpAttachment)(nil))
 }
 
-func (i StaticIpAttachment) ToStaticIpAttachmentOutput() StaticIpAttachmentOutput {
+func (i *StaticIpAttachment) ToStaticIpAttachmentOutput() StaticIpAttachmentOutput {
 	return i.ToStaticIpAttachmentOutputWithContext(context.Background())
 }
 
-func (i StaticIpAttachment) ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput {
+func (i *StaticIpAttachment) ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentOutput)
 }
 
@@ -161,7 +161,7 @@ type StaticIpAttachmentOutput struct {
 }
 
 func (StaticIpAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIpAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*StaticIpAttachment)(nil))
 }
 
 func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutput() StaticIpAttachmentOutput {

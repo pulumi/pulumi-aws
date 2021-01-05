@@ -170,15 +170,15 @@ type ProvisionedConcurrencyConfigInput interface {
 	ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput
 }
 
-func (ProvisionedConcurrencyConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil)).Elem()
+func (*ProvisionedConcurrencyConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil))
 }
 
-func (i ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutput() ProvisionedConcurrencyConfigOutput {
+func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutput() ProvisionedConcurrencyConfigOutput {
 	return i.ToProvisionedConcurrencyConfigOutputWithContext(context.Background())
 }
 
-func (i ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput {
+func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigOutput)
 }
 
@@ -187,7 +187,7 @@ type ProvisionedConcurrencyConfigOutput struct {
 }
 
 func (ProvisionedConcurrencyConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedConcurrencyConfigOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil))
 }
 
 func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput() ProvisionedConcurrencyConfigOutput {

@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/admChannel:AdmChannel")]
     public partial class AdmChannel : Pulumi.CustomResource
     {
         /// <summary>

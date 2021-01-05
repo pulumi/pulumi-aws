@@ -153,15 +153,15 @@ type ChannelInput interface {
 	ToChannelOutputWithContext(ctx context.Context) ChannelOutput
 }
 
-func (Channel) ElementType() reflect.Type {
-	return reflect.TypeOf((*Channel)(nil)).Elem()
+func (*Channel) ElementType() reflect.Type {
+	return reflect.TypeOf((*Channel)(nil))
 }
 
-func (i Channel) ToChannelOutput() ChannelOutput {
+func (i *Channel) ToChannelOutput() ChannelOutput {
 	return i.ToChannelOutputWithContext(context.Background())
 }
 
-func (i Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
+func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
 }
 
@@ -170,7 +170,7 @@ type ChannelOutput struct {
 }
 
 func (ChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*Channel)(nil))
 }
 
 func (o ChannelOutput) ToChannelOutput() ChannelOutput {

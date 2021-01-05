@@ -243,15 +243,15 @@ type PublicVirtualInterfaceInput interface {
 	ToPublicVirtualInterfaceOutputWithContext(ctx context.Context) PublicVirtualInterfaceOutput
 }
 
-func (PublicVirtualInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicVirtualInterface)(nil)).Elem()
+func (*PublicVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicVirtualInterface)(nil))
 }
 
-func (i PublicVirtualInterface) ToPublicVirtualInterfaceOutput() PublicVirtualInterfaceOutput {
+func (i *PublicVirtualInterface) ToPublicVirtualInterfaceOutput() PublicVirtualInterfaceOutput {
 	return i.ToPublicVirtualInterfaceOutputWithContext(context.Background())
 }
 
-func (i PublicVirtualInterface) ToPublicVirtualInterfaceOutputWithContext(ctx context.Context) PublicVirtualInterfaceOutput {
+func (i *PublicVirtualInterface) ToPublicVirtualInterfaceOutputWithContext(ctx context.Context) PublicVirtualInterfaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicVirtualInterfaceOutput)
 }
 
@@ -260,7 +260,7 @@ type PublicVirtualInterfaceOutput struct {
 }
 
 func (PublicVirtualInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicVirtualInterfaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicVirtualInterface)(nil))
 }
 
 func (o PublicVirtualInterfaceOutput) ToPublicVirtualInterfaceOutput() PublicVirtualInterfaceOutput {

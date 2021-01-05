@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {
         /// <summary>

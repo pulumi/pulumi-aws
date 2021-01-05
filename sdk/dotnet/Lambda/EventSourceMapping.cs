@@ -110,6 +110,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///  [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
     /// </summary>
+    [AwsResourceType("aws:lambda/eventSourceMapping:EventSourceMapping")]
     public partial class EventSourceMapping : Pulumi.CustomResource
     {
         /// <summary>

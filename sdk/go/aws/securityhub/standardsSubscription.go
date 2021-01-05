@@ -135,15 +135,15 @@ type StandardsSubscriptionInput interface {
 	ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput
 }
 
-func (StandardsSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardsSubscription)(nil)).Elem()
+func (*StandardsSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardsSubscription)(nil))
 }
 
-func (i StandardsSubscription) ToStandardsSubscriptionOutput() StandardsSubscriptionOutput {
+func (i *StandardsSubscription) ToStandardsSubscriptionOutput() StandardsSubscriptionOutput {
 	return i.ToStandardsSubscriptionOutputWithContext(context.Background())
 }
 
-func (i StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
+func (i *StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionOutput)
 }
 
@@ -152,7 +152,7 @@ type StandardsSubscriptionOutput struct {
 }
 
 func (StandardsSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardsSubscriptionOutput)(nil)).Elem()
+	return reflect.TypeOf((*StandardsSubscription)(nil))
 }
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutput() StandardsSubscriptionOutput {

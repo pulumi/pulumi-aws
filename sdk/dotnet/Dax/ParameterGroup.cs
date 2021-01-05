@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Dax
     ///  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dax/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

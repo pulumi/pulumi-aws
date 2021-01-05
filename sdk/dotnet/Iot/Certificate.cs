@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Iot
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

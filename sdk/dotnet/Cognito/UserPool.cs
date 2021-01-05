@@ -101,6 +101,7 @@ namespace Pulumi.Aws.Cognito
     ///  $ pulumi import aws:cognito/userPool:UserPool pool &lt;id&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cognito/userPool:UserPool")]
     public partial class UserPool : Pulumi.CustomResource
     {
         /// <summary>

@@ -245,15 +245,15 @@ type ScheduledActionInput interface {
 	ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput
 }
 
-func (ScheduledAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAction)(nil)).Elem()
+func (*ScheduledAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAction)(nil))
 }
 
-func (i ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
+func (i *ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
 	return i.ToScheduledActionOutputWithContext(context.Background())
 }
 
-func (i ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
+func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
 }
 
@@ -262,7 +262,7 @@ type ScheduledActionOutput struct {
 }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledActionOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduledAction)(nil))
 }
 
 func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {

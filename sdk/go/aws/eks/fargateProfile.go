@@ -211,15 +211,15 @@ type FargateProfileInput interface {
 	ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput
 }
 
-func (FargateProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*FargateProfile)(nil)).Elem()
+func (*FargateProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfile)(nil))
 }
 
-func (i FargateProfile) ToFargateProfileOutput() FargateProfileOutput {
+func (i *FargateProfile) ToFargateProfileOutput() FargateProfileOutput {
 	return i.ToFargateProfileOutputWithContext(context.Background())
 }
 
-func (i FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
+func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
 }
 
@@ -228,7 +228,7 @@ type FargateProfileOutput struct {
 }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FargateProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*FargateProfile)(nil))
 }
 
 func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {

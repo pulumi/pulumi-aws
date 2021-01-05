@@ -146,15 +146,15 @@ type SubnetGroupInput interface {
 	ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput
 }
 
-func (SubnetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroup)(nil)).Elem()
+func (*SubnetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetGroup)(nil))
 }
 
-func (i SubnetGroup) ToSubnetGroupOutput() SubnetGroupOutput {
+func (i *SubnetGroup) ToSubnetGroupOutput() SubnetGroupOutput {
 	return i.ToSubnetGroupOutputWithContext(context.Background())
 }
 
-func (i SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
+func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
 }
 
@@ -163,7 +163,7 @@ type SubnetGroupOutput struct {
 }
 
 func (SubnetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetGroup)(nil))
 }
 
 func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {

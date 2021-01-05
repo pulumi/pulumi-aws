@@ -55,6 +55,7 @@ namespace Pulumi.Aws.Emr
     ///  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:emr/securityConfiguration:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {
         /// <summary>

@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/eipAssociation:EipAssociation")]
     public partial class EipAssociation : Pulumi.CustomResource
     {
         /// <summary>

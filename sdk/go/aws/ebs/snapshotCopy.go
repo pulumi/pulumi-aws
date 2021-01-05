@@ -224,15 +224,15 @@ type SnapshotCopyInput interface {
 	ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput
 }
 
-func (SnapshotCopy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCopy)(nil)).Elem()
+func (*SnapshotCopy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopy)(nil))
 }
 
-func (i SnapshotCopy) ToSnapshotCopyOutput() SnapshotCopyOutput {
+func (i *SnapshotCopy) ToSnapshotCopyOutput() SnapshotCopyOutput {
 	return i.ToSnapshotCopyOutputWithContext(context.Background())
 }
 
-func (i SnapshotCopy) ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput {
+func (i *SnapshotCopy) ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyOutput)
 }
 
@@ -241,7 +241,7 @@ type SnapshotCopyOutput struct {
 }
 
 func (SnapshotCopyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCopyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotCopy)(nil))
 }
 
 func (o SnapshotCopyOutput) ToSnapshotCopyOutput() SnapshotCopyOutput {

@@ -75,6 +75,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/filter:Filter")]
     public partial class Filter : Pulumi.CustomResource
     {
         /// <summary>

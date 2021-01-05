@@ -38,6 +38,7 @@ namespace Pulumi.Aws.MediaStore
     ///  $ pulumi import aws:mediastore/container:Container example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:mediastore/container:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>

@@ -155,15 +155,15 @@ type GroupMembershipInput interface {
 	ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput
 }
 
-func (GroupMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupMembership)(nil)).Elem()
+func (*GroupMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMembership)(nil))
 }
 
-func (i GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
+func (i *GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
 	return i.ToGroupMembershipOutputWithContext(context.Background())
 }
 
-func (i GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
+func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipOutput)
 }
 
@@ -172,7 +172,7 @@ type GroupMembershipOutput struct {
 }
 
 func (GroupMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupMembershipOutput)(nil)).Elem()
+	return reflect.TypeOf((*GroupMembership)(nil))
 }
 
 func (o GroupMembershipOutput) ToGroupMembershipOutput() GroupMembershipOutput {

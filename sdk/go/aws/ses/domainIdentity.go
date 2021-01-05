@@ -160,15 +160,15 @@ type DomainIdentityInput interface {
 	ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput
 }
 
-func (DomainIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainIdentity)(nil)).Elem()
+func (*DomainIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentity)(nil))
 }
 
-func (i DomainIdentity) ToDomainIdentityOutput() DomainIdentityOutput {
+func (i *DomainIdentity) ToDomainIdentityOutput() DomainIdentityOutput {
 	return i.ToDomainIdentityOutputWithContext(context.Background())
 }
 
-func (i DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
+func (i *DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
 }
 
@@ -177,7 +177,7 @@ type DomainIdentityOutput struct {
 }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainIdentityOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainIdentity)(nil))
 }
 
 func (o DomainIdentityOutput) ToDomainIdentityOutput() DomainIdentityOutput {

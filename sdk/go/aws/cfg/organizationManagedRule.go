@@ -229,15 +229,15 @@ type OrganizationManagedRuleInput interface {
 	ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput
 }
 
-func (OrganizationManagedRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationManagedRule)(nil)).Elem()
+func (*OrganizationManagedRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationManagedRule)(nil))
 }
 
-func (i OrganizationManagedRule) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
+func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
 	return i.ToOrganizationManagedRuleOutputWithContext(context.Background())
 }
 
-func (i OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput {
+func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleOutput)
 }
 
@@ -246,7 +246,7 @@ type OrganizationManagedRuleOutput struct {
 }
 
 func (OrganizationManagedRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationManagedRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*OrganizationManagedRule)(nil))
 }
 
 func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {

@@ -126,15 +126,15 @@ type DataLakeSettingsInput interface {
 	ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput
 }
 
-func (DataLakeSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeSettings)(nil)).Elem()
+func (*DataLakeSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettings)(nil))
 }
 
-func (i DataLakeSettings) ToDataLakeSettingsOutput() DataLakeSettingsOutput {
+func (i *DataLakeSettings) ToDataLakeSettingsOutput() DataLakeSettingsOutput {
 	return i.ToDataLakeSettingsOutputWithContext(context.Background())
 }
 
-func (i DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
+func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
 }
 
@@ -143,7 +143,7 @@ type DataLakeSettingsOutput struct {
 }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeSettingsOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataLakeSettings)(nil))
 }
 
 func (o DataLakeSettingsOutput) ToDataLakeSettingsOutput() DataLakeSettingsOutput {

@@ -66,6 +66,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/proxy:Proxy example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/proxy:Proxy")]
     public partial class Proxy : Pulumi.CustomResource
     {
         /// <summary>

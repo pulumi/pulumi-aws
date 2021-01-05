@@ -194,15 +194,15 @@ type JobQueueInput interface {
 	ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput
 }
 
-func (JobQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueue)(nil)).Elem()
+func (*JobQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueue)(nil))
 }
 
-func (i JobQueue) ToJobQueueOutput() JobQueueOutput {
+func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
 	return i.ToJobQueueOutputWithContext(context.Background())
 }
 
-func (i JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
+func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
 }
 
@@ -211,7 +211,7 @@ type JobQueueOutput struct {
 }
 
 func (JobQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueueOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobQueue)(nil))
 }
 
 func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {

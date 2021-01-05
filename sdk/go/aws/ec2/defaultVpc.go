@@ -249,15 +249,15 @@ type DefaultVpcInput interface {
 	ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput
 }
 
-func (DefaultVpc) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpc)(nil)).Elem()
+func (*DefaultVpc) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultVpc)(nil))
 }
 
-func (i DefaultVpc) ToDefaultVpcOutput() DefaultVpcOutput {
+func (i *DefaultVpc) ToDefaultVpcOutput() DefaultVpcOutput {
 	return i.ToDefaultVpcOutputWithContext(context.Background())
 }
 
-func (i DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput {
+func (i *DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcOutput)
 }
 
@@ -266,7 +266,7 @@ type DefaultVpcOutput struct {
 }
 
 func (DefaultVpcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpcOutput)(nil)).Elem()
+	return reflect.TypeOf((*DefaultVpc)(nil))
 }
 
 func (o DefaultVpcOutput) ToDefaultVpcOutput() DefaultVpcOutput {

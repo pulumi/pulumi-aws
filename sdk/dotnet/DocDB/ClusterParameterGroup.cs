@@ -48,6 +48,7 @@ namespace Pulumi.Aws.DocDB
     ///  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:docdb/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {
         /// <summary>

@@ -360,15 +360,15 @@ type NodeGroupInput interface {
 	ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput
 }
 
-func (NodeGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeGroup)(nil)).Elem()
+func (*NodeGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroup)(nil))
 }
 
-func (i NodeGroup) ToNodeGroupOutput() NodeGroupOutput {
+func (i *NodeGroup) ToNodeGroupOutput() NodeGroupOutput {
 	return i.ToNodeGroupOutputWithContext(context.Background())
 }
 
-func (i NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
+func (i *NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupOutput)
 }
 
@@ -377,7 +377,7 @@ type NodeGroupOutput struct {
 }
 
 func (NodeGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*NodeGroup)(nil))
 }
 
 func (o NodeGroupOutput) ToNodeGroupOutput() NodeGroupOutput {

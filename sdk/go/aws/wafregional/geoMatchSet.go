@@ -132,15 +132,15 @@ type GeoMatchSetInput interface {
 	ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput
 }
 
-func (GeoMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoMatchSet)(nil)).Elem()
+func (*GeoMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoMatchSet)(nil))
 }
 
-func (i GeoMatchSet) ToGeoMatchSetOutput() GeoMatchSetOutput {
+func (i *GeoMatchSet) ToGeoMatchSetOutput() GeoMatchSetOutput {
 	return i.ToGeoMatchSetOutputWithContext(context.Background())
 }
 
-func (i GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
+func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetOutput)
 }
 
@@ -149,7 +149,7 @@ type GeoMatchSetOutput struct {
 }
 
 func (GeoMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoMatchSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*GeoMatchSet)(nil))
 }
 
 func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {

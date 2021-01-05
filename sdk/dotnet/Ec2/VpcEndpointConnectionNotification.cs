@@ -69,6 +69,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]
     public partial class VpcEndpointConnectionNotification : Pulumi.CustomResource
     {
         /// <summary>

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// If you need to delete a cluster, you have to remove its HSM modules first.
     /// To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
     /// </summary>
+    [AwsResourceType("aws:cloudhsmv2/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -66,6 +66,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
+    [AwsResourceType("aws:appmesh/gatewayRoute:GatewayRoute")]
     public partial class GatewayRoute : Pulumi.CustomResource
     {
         /// <summary>

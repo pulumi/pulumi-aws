@@ -169,15 +169,15 @@ type BuildInput interface {
 	ToBuildOutputWithContext(ctx context.Context) BuildOutput
 }
 
-func (Build) ElementType() reflect.Type {
-	return reflect.TypeOf((*Build)(nil)).Elem()
+func (*Build) ElementType() reflect.Type {
+	return reflect.TypeOf((*Build)(nil))
 }
 
-func (i Build) ToBuildOutput() BuildOutput {
+func (i *Build) ToBuildOutput() BuildOutput {
 	return i.ToBuildOutputWithContext(context.Background())
 }
 
-func (i Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
+func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildOutput)
 }
 
@@ -186,7 +186,7 @@ type BuildOutput struct {
 }
 
 func (BuildOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildOutput)(nil)).Elem()
+	return reflect.TypeOf((*Build)(nil))
 }
 
 func (o BuildOutput) ToBuildOutput() BuildOutput {

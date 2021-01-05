@@ -203,15 +203,15 @@ type ClusterSnapshotInput interface {
 	ToClusterSnapshotOutputWithContext(ctx context.Context) ClusterSnapshotOutput
 }
 
-func (ClusterSnapshot) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSnapshot)(nil)).Elem()
+func (*ClusterSnapshot) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSnapshot)(nil))
 }
 
-func (i ClusterSnapshot) ToClusterSnapshotOutput() ClusterSnapshotOutput {
+func (i *ClusterSnapshot) ToClusterSnapshotOutput() ClusterSnapshotOutput {
 	return i.ToClusterSnapshotOutputWithContext(context.Background())
 }
 
-func (i ClusterSnapshot) ToClusterSnapshotOutputWithContext(ctx context.Context) ClusterSnapshotOutput {
+func (i *ClusterSnapshot) ToClusterSnapshotOutputWithContext(ctx context.Context) ClusterSnapshotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotOutput)
 }
 
@@ -220,7 +220,7 @@ type ClusterSnapshotOutput struct {
 }
 
 func (ClusterSnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSnapshotOutput)(nil)).Elem()
+	return reflect.TypeOf((*ClusterSnapshot)(nil))
 }
 
 func (o ClusterSnapshotOutput) ToClusterSnapshotOutput() ClusterSnapshotOutput {

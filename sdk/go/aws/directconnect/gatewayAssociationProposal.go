@@ -167,15 +167,15 @@ type GatewayAssociationProposalInput interface {
 	ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput
 }
 
-func (GatewayAssociationProposal) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociationProposal)(nil)).Elem()
+func (*GatewayAssociationProposal) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAssociationProposal)(nil))
 }
 
-func (i GatewayAssociationProposal) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
+func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
 	return i.ToGatewayAssociationProposalOutputWithContext(context.Background())
 }
 
-func (i GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
+func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalOutput)
 }
 
@@ -184,7 +184,7 @@ type GatewayAssociationProposalOutput struct {
 }
 
 func (GatewayAssociationProposalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociationProposalOutput)(nil)).Elem()
+	return reflect.TypeOf((*GatewayAssociationProposal)(nil))
 }
 
 func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {

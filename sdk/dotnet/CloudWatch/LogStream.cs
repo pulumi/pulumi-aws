@@ -42,6 +42,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logStream:LogStream")]
     public partial class LogStream : Pulumi.CustomResource
     {
         /// <summary>

@@ -199,6 +199,7 @@ namespace Pulumi.Aws.AppSync
     ///  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appsync/graphQLApi:GraphQLApi")]
     public partial class GraphQLApi : Pulumi.CustomResource
     {
         /// <summary>

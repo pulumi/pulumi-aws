@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
     public partial class VpcEndpointSubnetAssociation : Pulumi.CustomResource
     {
         /// <summary>

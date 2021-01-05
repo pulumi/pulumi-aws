@@ -257,15 +257,15 @@ type VpcPeeringConnectionAccepterInput interface {
 	ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput
 }
 
-func (VpcPeeringConnectionAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil)).Elem()
+func (*VpcPeeringConnectionAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
 }
 
-func (i VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
+func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
 	return i.ToVpcPeeringConnectionAccepterOutputWithContext(context.Background())
 }
 
-func (i VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
+func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterOutput)
 }
 
@@ -274,7 +274,7 @@ type VpcPeeringConnectionAccepterOutput struct {
 }
 
 func (VpcPeeringConnectionAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepterOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
 }
 
 func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {

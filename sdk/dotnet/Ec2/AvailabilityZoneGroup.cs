@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
     public partial class AvailabilityZoneGroup : Pulumi.CustomResource
     {
         /// <summary>

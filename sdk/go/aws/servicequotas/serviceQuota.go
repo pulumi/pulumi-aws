@@ -181,15 +181,15 @@ type ServiceQuotaInput interface {
 	ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput
 }
 
-func (ServiceQuota) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceQuota)(nil)).Elem()
+func (*ServiceQuota) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceQuota)(nil))
 }
 
-func (i ServiceQuota) ToServiceQuotaOutput() ServiceQuotaOutput {
+func (i *ServiceQuota) ToServiceQuotaOutput() ServiceQuotaOutput {
 	return i.ToServiceQuotaOutputWithContext(context.Background())
 }
 
-func (i ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput {
+func (i *ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaOutput)
 }
 
@@ -198,7 +198,7 @@ type ServiceQuotaOutput struct {
 }
 
 func (ServiceQuotaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceQuotaOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceQuota)(nil))
 }
 
 func (o ServiceQuotaOutput) ToServiceQuotaOutput() ServiceQuotaOutput {

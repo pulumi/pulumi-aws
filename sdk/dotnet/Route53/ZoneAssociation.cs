@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/zoneAssociation:ZoneAssociation")]
     public partial class ZoneAssociation : Pulumi.CustomResource
     {
         /// <summary>

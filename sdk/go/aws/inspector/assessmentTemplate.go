@@ -176,15 +176,15 @@ type AssessmentTemplateInput interface {
 	ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput
 }
 
-func (AssessmentTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplate)(nil)).Elem()
+func (*AssessmentTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTemplate)(nil))
 }
 
-func (i AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
+func (i *AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
 	return i.ToAssessmentTemplateOutputWithContext(context.Background())
 }
 
-func (i AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
+func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateOutput)
 }
 
@@ -193,7 +193,7 @@ type AssessmentTemplateOutput struct {
 }
 
 func (AssessmentTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssessmentTemplate)(nil))
 }
 
 func (o AssessmentTemplateOutput) ToAssessmentTemplateOutput() AssessmentTemplateOutput {

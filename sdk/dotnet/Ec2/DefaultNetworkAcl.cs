@@ -160,6 +160,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")]
     public partial class DefaultNetworkAcl : Pulumi.CustomResource
     {
         /// <summary>

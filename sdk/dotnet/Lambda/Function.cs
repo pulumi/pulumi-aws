@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Lambda
     ///  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>

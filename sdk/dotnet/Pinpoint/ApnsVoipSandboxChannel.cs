@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Pinpoint
     ///  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
     /// ```
     /// </summary>
+    [AwsResourceType("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")]
     public partial class ApnsVoipSandboxChannel : Pulumi.CustomResource
     {
         /// <summary>

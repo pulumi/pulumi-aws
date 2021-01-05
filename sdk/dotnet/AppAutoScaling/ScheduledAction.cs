@@ -82,6 +82,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:appautoscaling/scheduledAction:ScheduledAction")]
     public partial class ScheduledAction : Pulumi.CustomResource
     {
         /// <summary>

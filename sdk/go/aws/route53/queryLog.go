@@ -189,15 +189,15 @@ type QueryLogInput interface {
 	ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput
 }
 
-func (QueryLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryLog)(nil)).Elem()
+func (*QueryLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLog)(nil))
 }
 
-func (i QueryLog) ToQueryLogOutput() QueryLogOutput {
+func (i *QueryLog) ToQueryLogOutput() QueryLogOutput {
 	return i.ToQueryLogOutputWithContext(context.Background())
 }
 
-func (i QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
+func (i *QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogOutput)
 }
 
@@ -206,7 +206,7 @@ type QueryLogOutput struct {
 }
 
 func (QueryLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryLogOutput)(nil)).Elem()
+	return reflect.TypeOf((*QueryLog)(nil))
 }
 
 func (o QueryLogOutput) ToQueryLogOutput() QueryLogOutput {

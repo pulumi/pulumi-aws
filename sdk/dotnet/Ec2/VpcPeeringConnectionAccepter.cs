@@ -97,6 +97,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
     public partial class VpcPeeringConnectionAccepter : Pulumi.CustomResource
     {
         /// <summary>

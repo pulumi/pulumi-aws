@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/subnet:Subnet")]
     public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>

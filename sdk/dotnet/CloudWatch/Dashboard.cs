@@ -76,6 +76,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample &lt;dashboard_name&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/dashboard:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>

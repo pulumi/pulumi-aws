@@ -48,6 +48,7 @@ namespace Pulumi.Aws.DataSync
     ///  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
+    [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]
     public partial class LocationSmb : Pulumi.CustomResource
     {
         /// <summary>

@@ -149,15 +149,15 @@ type SnapshotScheduleAssociationInput interface {
 	ToSnapshotScheduleAssociationOutputWithContext(ctx context.Context) SnapshotScheduleAssociationOutput
 }
 
-func (SnapshotScheduleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil)).Elem()
+func (*SnapshotScheduleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil))
 }
 
-func (i SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutput() SnapshotScheduleAssociationOutput {
+func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutput() SnapshotScheduleAssociationOutput {
 	return i.ToSnapshotScheduleAssociationOutputWithContext(context.Background())
 }
 
-func (i SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutputWithContext(ctx context.Context) SnapshotScheduleAssociationOutput {
+func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutputWithContext(ctx context.Context) SnapshotScheduleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationOutput)
 }
 
@@ -166,7 +166,7 @@ type SnapshotScheduleAssociationOutput struct {
 }
 
 func (SnapshotScheduleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScheduleAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil))
 }
 
 func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutput() SnapshotScheduleAssociationOutput {

@@ -65,6 +65,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-component/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")]
     public partial class InfrastructureConfiguration : Pulumi.CustomResource
     {
         /// <summary>

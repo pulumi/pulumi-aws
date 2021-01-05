@@ -78,6 +78,7 @@ namespace Pulumi.Aws.Lex
     ///  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lex/bot:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {
         /// <summary>

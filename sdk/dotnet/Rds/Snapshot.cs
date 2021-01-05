@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/snapshot:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>

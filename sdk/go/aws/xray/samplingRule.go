@@ -283,15 +283,15 @@ type SamplingRuleInput interface {
 	ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput
 }
 
-func (SamplingRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRule)(nil)).Elem()
+func (*SamplingRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRule)(nil))
 }
 
-func (i SamplingRule) ToSamplingRuleOutput() SamplingRuleOutput {
+func (i *SamplingRule) ToSamplingRuleOutput() SamplingRuleOutput {
 	return i.ToSamplingRuleOutputWithContext(context.Background())
 }
 
-func (i SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
+func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleOutput)
 }
 
@@ -300,7 +300,7 @@ type SamplingRuleOutput struct {
 }
 
 func (SamplingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamplingRule)(nil))
 }
 
 func (o SamplingRuleOutput) ToSamplingRuleOutput() SamplingRuleOutput {

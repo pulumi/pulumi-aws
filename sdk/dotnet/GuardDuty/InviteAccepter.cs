@@ -75,6 +75,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]
     public partial class InviteAccepter : Pulumi.CustomResource
     {
         /// <summary>

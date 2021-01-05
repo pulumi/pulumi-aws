@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Route53
     ///  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]
     public partial class VpcAssociationAuthorization : Pulumi.CustomResource
     {
         /// <summary>

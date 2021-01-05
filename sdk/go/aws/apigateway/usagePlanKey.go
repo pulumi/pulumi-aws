@@ -176,15 +176,15 @@ type UsagePlanKeyInput interface {
 	ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput
 }
 
-func (UsagePlanKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKey)(nil)).Elem()
+func (*UsagePlanKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanKey)(nil))
 }
 
-func (i UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
+func (i *UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
 	return i.ToUsagePlanKeyOutputWithContext(context.Background())
 }
 
-func (i UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
+func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
 }
 
@@ -193,7 +193,7 @@ type UsagePlanKeyOutput struct {
 }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*UsagePlanKey)(nil))
 }
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {

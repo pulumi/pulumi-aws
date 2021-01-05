@@ -40,6 +40,7 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:storagegateway/tapePool:TapePool")]
     public partial class TapePool : Pulumi.CustomResource
     {
         /// <summary>

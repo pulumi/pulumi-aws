@@ -171,15 +171,15 @@ type PrincipalAssociationInput interface {
 	ToPrincipalAssociationOutputWithContext(ctx context.Context) PrincipalAssociationOutput
 }
 
-func (PrincipalAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalAssociation)(nil)).Elem()
+func (*PrincipalAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalAssociation)(nil))
 }
 
-func (i PrincipalAssociation) ToPrincipalAssociationOutput() PrincipalAssociationOutput {
+func (i *PrincipalAssociation) ToPrincipalAssociationOutput() PrincipalAssociationOutput {
 	return i.ToPrincipalAssociationOutputWithContext(context.Background())
 }
 
-func (i PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx context.Context) PrincipalAssociationOutput {
+func (i *PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx context.Context) PrincipalAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationOutput)
 }
 
@@ -188,7 +188,7 @@ type PrincipalAssociationOutput struct {
 }
 
 func (PrincipalAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*PrincipalAssociation)(nil))
 }
 
 func (o PrincipalAssociationOutput) ToPrincipalAssociationOutput() PrincipalAssociationOutput {

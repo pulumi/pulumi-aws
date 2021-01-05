@@ -89,6 +89,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy")]
+    [AwsResourceType("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : Pulumi.CustomResource
     {
         /// <summary>

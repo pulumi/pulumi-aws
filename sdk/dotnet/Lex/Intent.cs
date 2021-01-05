@@ -151,6 +151,7 @@ namespace Pulumi.Aws.Lex
     ///  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
     /// ```
     /// </summary>
+    [AwsResourceType("aws:lex/intent:Intent")]
     public partial class Intent : Pulumi.CustomResource
     {
         /// <summary>

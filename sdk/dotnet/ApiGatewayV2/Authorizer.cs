@@ -78,6 +78,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
     /// ```
     /// </summary>
+    [AwsResourceType("aws:apigatewayv2/authorizer:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>

@@ -106,6 +106,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer")]
+    [AwsResourceType("aws:elasticloadbalancing/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

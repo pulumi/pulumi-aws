@@ -74,6 +74,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/networkAcl:NetworkAcl")]
     public partial class NetworkAcl : Pulumi.CustomResource
     {
         /// <summary>

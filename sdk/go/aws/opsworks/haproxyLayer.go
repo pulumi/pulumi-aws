@@ -354,15 +354,15 @@ type HaproxyLayerInput interface {
 	ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput
 }
 
-func (HaproxyLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*HaproxyLayer)(nil)).Elem()
+func (*HaproxyLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayer)(nil))
 }
 
-func (i HaproxyLayer) ToHaproxyLayerOutput() HaproxyLayerOutput {
+func (i *HaproxyLayer) ToHaproxyLayerOutput() HaproxyLayerOutput {
 	return i.ToHaproxyLayerOutputWithContext(context.Background())
 }
 
-func (i HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
+func (i *HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerOutput)
 }
 
@@ -371,7 +371,7 @@ type HaproxyLayerOutput struct {
 }
 
 func (HaproxyLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HaproxyLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*HaproxyLayer)(nil))
 }
 
 func (o HaproxyLayerOutput) ToHaproxyLayerOutput() HaproxyLayerOutput {

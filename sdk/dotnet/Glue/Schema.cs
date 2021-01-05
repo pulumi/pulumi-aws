@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Glue
     ///  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:glue/schema:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>

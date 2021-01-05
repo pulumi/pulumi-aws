@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Iot
     ///  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

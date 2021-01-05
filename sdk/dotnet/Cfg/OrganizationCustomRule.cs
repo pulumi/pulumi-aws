@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/organizationCustomRule:OrganizationCustomRule")]
     public partial class OrganizationCustomRule : Pulumi.CustomResource
     {
         /// <summary>

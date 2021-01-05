@@ -35,6 +35,7 @@ namespace Pulumi.Aws.Macie
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:macie/memberAccountAssociation:MemberAccountAssociation")]
     public partial class MemberAccountAssociation : Pulumi.CustomResource
     {
         /// <summary>

@@ -49,6 +49,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
     public partial class LogMetricFilter : Pulumi.CustomResource
     {
         /// <summary>

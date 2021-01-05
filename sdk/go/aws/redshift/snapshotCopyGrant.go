@@ -154,15 +154,15 @@ type SnapshotCopyGrantInput interface {
 	ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput
 }
 
-func (SnapshotCopyGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCopyGrant)(nil)).Elem()
+func (*SnapshotCopyGrant) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopyGrant)(nil))
 }
 
-func (i SnapshotCopyGrant) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput {
+func (i *SnapshotCopyGrant) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput {
 	return i.ToSnapshotCopyGrantOutputWithContext(context.Background())
 }
 
-func (i SnapshotCopyGrant) ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput {
+func (i *SnapshotCopyGrant) ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyGrantOutput)
 }
 
@@ -171,7 +171,7 @@ type SnapshotCopyGrantOutput struct {
 }
 
 func (SnapshotCopyGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCopyGrantOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnapshotCopyGrant)(nil))
 }
 
 func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOutput {

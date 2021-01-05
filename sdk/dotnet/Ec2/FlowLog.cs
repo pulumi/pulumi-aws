@@ -109,6 +109,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/flowLog:FlowLog")]
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>

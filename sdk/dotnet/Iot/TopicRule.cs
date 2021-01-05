@@ -94,6 +94,7 @@ namespace Pulumi.Aws.Iot
     ///  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
     /// ```
     /// </summary>
+    [AwsResourceType("aws:iot/topicRule:TopicRule")]
     public partial class TopicRule : Pulumi.CustomResource
     {
         /// <summary>

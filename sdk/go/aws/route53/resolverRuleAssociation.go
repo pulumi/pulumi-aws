@@ -141,15 +141,15 @@ type ResolverRuleAssociationInput interface {
 	ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput
 }
 
-func (ResolverRuleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociation)(nil)).Elem()
+func (*ResolverRuleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
 }
 
-func (i ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
+func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
 	return i.ToResolverRuleAssociationOutputWithContext(context.Background())
 }
 
-func (i ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
+func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
 }
 
@@ -158,7 +158,7 @@ type ResolverRuleAssociationOutput struct {
 }
 
 func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
 }
 
 func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {

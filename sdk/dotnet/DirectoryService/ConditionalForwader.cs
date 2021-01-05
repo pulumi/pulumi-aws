@@ -45,6 +45,7 @@ namespace Pulumi.Aws.DirectoryService
     ///  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directoryservice/conditionalForwader:ConditionalForwader")]
     public partial class ConditionalForwader : Pulumi.CustomResource
     {
         /// <summary>

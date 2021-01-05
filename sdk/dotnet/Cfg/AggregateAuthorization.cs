@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Cfg
     ///  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cfg/aggregateAuthorization:AggregateAuthorization")]
     public partial class AggregateAuthorization : Pulumi.CustomResource
     {
         /// <summary>

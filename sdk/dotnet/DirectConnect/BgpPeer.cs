@@ -33,6 +33,7 @@ namespace Pulumi.Aws.DirectConnect
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:directconnect/bgpPeer:BgpPeer")]
     public partial class BgpPeer : Pulumi.CustomResource
     {
         /// <summary>

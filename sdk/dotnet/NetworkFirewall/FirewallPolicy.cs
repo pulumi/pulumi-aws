@@ -111,6 +111,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
     /// ```
     /// </summary>
+    [AwsResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>

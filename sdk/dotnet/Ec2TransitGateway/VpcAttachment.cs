@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2transitgateway/vpcAttachment:VpcAttachment")]
     public partial class VpcAttachment : Pulumi.CustomResource
     {
         /// <summary>

@@ -40,6 +40,7 @@ namespace Pulumi.Aws.CodeCommit
     ///  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codecommit/repository:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         /// <summary>

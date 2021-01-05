@@ -403,15 +403,15 @@ type HealthCheckInput interface {
 	ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput
 }
 
-func (HealthCheck) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheck)(nil)).Elem()
+func (*HealthCheck) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheck)(nil))
 }
 
-func (i HealthCheck) ToHealthCheckOutput() HealthCheckOutput {
+func (i *HealthCheck) ToHealthCheckOutput() HealthCheckOutput {
 	return i.ToHealthCheckOutputWithContext(context.Background())
 }
 
-func (i HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
+func (i *HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput)
 }
 
@@ -420,7 +420,7 @@ type HealthCheckOutput struct {
 }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckOutput)(nil)).Elem()
+	return reflect.TypeOf((*HealthCheck)(nil))
 }
 
 func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {

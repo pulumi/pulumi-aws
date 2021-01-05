@@ -195,15 +195,15 @@ type IdentityProviderInput interface {
 	ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput
 }
 
-func (IdentityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProvider)(nil)).Elem()
+func (*IdentityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProvider)(nil))
 }
 
-func (i IdentityProvider) ToIdentityProviderOutput() IdentityProviderOutput {
+func (i *IdentityProvider) ToIdentityProviderOutput() IdentityProviderOutput {
 	return i.ToIdentityProviderOutputWithContext(context.Background())
 }
 
-func (i IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
+func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
 }
 
@@ -212,7 +212,7 @@ type IdentityProviderOutput struct {
 }
 
 func (IdentityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProvider)(nil))
 }
 
 func (o IdentityProviderOutput) ToIdentityProviderOutput() IdentityProviderOutput {

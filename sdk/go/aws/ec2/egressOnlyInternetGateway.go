@@ -140,15 +140,15 @@ type EgressOnlyInternetGatewayInput interface {
 	ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput
 }
 
-func (EgressOnlyInternetGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil)).Elem()
+func (*EgressOnlyInternetGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
 }
 
-func (i EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
 	return i.ToEgressOnlyInternetGatewayOutputWithContext(context.Background())
 }
 
-func (i EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
 }
 
@@ -157,7 +157,7 @@ type EgressOnlyInternetGatewayOutput struct {
 }
 
 func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EgressOnlyInternetGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
 }
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {

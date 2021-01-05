@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/configurationSet:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>

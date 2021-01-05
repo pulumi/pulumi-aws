@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Emr
     ///  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
     /// ```
     /// </summary>
+    [AwsResourceType("aws:emr/instanceFleet:InstanceFleet")]
     public partial class InstanceFleet : Pulumi.CustomResource
     {
         /// <summary>

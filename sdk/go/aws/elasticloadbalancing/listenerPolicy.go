@@ -241,15 +241,15 @@ type ListenerPolicyInput interface {
 	ToListenerPolicyOutputWithContext(ctx context.Context) ListenerPolicyOutput
 }
 
-func (ListenerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerPolicy)(nil)).Elem()
+func (*ListenerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerPolicy)(nil))
 }
 
-func (i ListenerPolicy) ToListenerPolicyOutput() ListenerPolicyOutput {
+func (i *ListenerPolicy) ToListenerPolicyOutput() ListenerPolicyOutput {
 	return i.ToListenerPolicyOutputWithContext(context.Background())
 }
 
-func (i ListenerPolicy) ToListenerPolicyOutputWithContext(ctx context.Context) ListenerPolicyOutput {
+func (i *ListenerPolicy) ToListenerPolicyOutputWithContext(ctx context.Context) ListenerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyOutput)
 }
 
@@ -258,7 +258,7 @@ type ListenerPolicyOutput struct {
 }
 
 func (ListenerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ListenerPolicy)(nil))
 }
 
 func (o ListenerPolicyOutput) ToListenerPolicyOutput() ListenerPolicyOutput {

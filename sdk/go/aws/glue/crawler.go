@@ -419,15 +419,15 @@ type CrawlerInput interface {
 	ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput
 }
 
-func (Crawler) ElementType() reflect.Type {
-	return reflect.TypeOf((*Crawler)(nil)).Elem()
+func (*Crawler) ElementType() reflect.Type {
+	return reflect.TypeOf((*Crawler)(nil))
 }
 
-func (i Crawler) ToCrawlerOutput() CrawlerOutput {
+func (i *Crawler) ToCrawlerOutput() CrawlerOutput {
 	return i.ToCrawlerOutputWithContext(context.Background())
 }
 
-func (i Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
+func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
 }
 
@@ -436,7 +436,7 @@ type CrawlerOutput struct {
 }
 
 func (CrawlerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrawlerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Crawler)(nil))
 }
 
 func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {

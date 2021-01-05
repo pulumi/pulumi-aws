@@ -213,15 +213,15 @@ type InstanceGroupInput interface {
 	ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput
 }
 
-func (InstanceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceGroup)(nil)).Elem()
+func (*InstanceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroup)(nil))
 }
 
-func (i InstanceGroup) ToInstanceGroupOutput() InstanceGroupOutput {
+func (i *InstanceGroup) ToInstanceGroupOutput() InstanceGroupOutput {
 	return i.ToInstanceGroupOutputWithContext(context.Background())
 }
 
-func (i InstanceGroup) ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput {
+func (i *InstanceGroup) ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupOutput)
 }
 
@@ -230,7 +230,7 @@ type InstanceGroupOutput struct {
 }
 
 func (InstanceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*InstanceGroup)(nil))
 }
 
 func (o InstanceGroupOutput) ToInstanceGroupOutput() InstanceGroupOutput {

@@ -62,6 +62,7 @@ namespace Pulumi.Aws.Ses
     ///  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ses/domainDkim:DomainDkim")]
     public partial class DomainDkim : Pulumi.CustomResource
     {
         /// <summary>

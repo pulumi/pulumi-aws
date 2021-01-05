@@ -62,6 +62,7 @@ namespace Pulumi.Aws.SecurityHub
     ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
     /// ```
     /// </summary>
+    [AwsResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
     public partial class StandardsSubscription : Pulumi.CustomResource
     {
         /// <summary>

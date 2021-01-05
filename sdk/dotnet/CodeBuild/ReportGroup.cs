@@ -75,6 +75,7 @@ namespace Pulumi.Aws.CodeBuild
     ///  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codebuild/reportGroup:ReportGroup")]
     public partial class ReportGroup : Pulumi.CustomResource
     {
         /// <summary>

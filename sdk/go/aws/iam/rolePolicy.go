@@ -169,15 +169,15 @@ type RolePolicyInput interface {
 	ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput
 }
 
-func (RolePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolePolicy)(nil)).Elem()
+func (*RolePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePolicy)(nil))
 }
 
-func (i RolePolicy) ToRolePolicyOutput() RolePolicyOutput {
+func (i *RolePolicy) ToRolePolicyOutput() RolePolicyOutput {
 	return i.ToRolePolicyOutputWithContext(context.Background())
 }
 
-func (i RolePolicy) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
+func (i *RolePolicy) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyOutput)
 }
 
@@ -186,7 +186,7 @@ type RolePolicyOutput struct {
 }
 
 func (RolePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolePolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*RolePolicy)(nil))
 }
 
 func (o RolePolicyOutput) ToRolePolicyOutput() RolePolicyOutput {

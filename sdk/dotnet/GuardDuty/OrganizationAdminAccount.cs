@@ -56,6 +56,7 @@ namespace Pulumi.Aws.GuardDuty
     ///  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
     /// ```
     /// </summary>
+    [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
     public partial class OrganizationAdminAccount : Pulumi.CustomResource
     {
         /// <summary>

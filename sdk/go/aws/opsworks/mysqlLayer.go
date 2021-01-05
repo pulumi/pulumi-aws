@@ -312,15 +312,15 @@ type MysqlLayerInput interface {
 	ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput
 }
 
-func (MysqlLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*MysqlLayer)(nil)).Elem()
+func (*MysqlLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayer)(nil))
 }
 
-func (i MysqlLayer) ToMysqlLayerOutput() MysqlLayerOutput {
+func (i *MysqlLayer) ToMysqlLayerOutput() MysqlLayerOutput {
 	return i.ToMysqlLayerOutputWithContext(context.Background())
 }
 
-func (i MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
+func (i *MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerOutput)
 }
 
@@ -329,7 +329,7 @@ type MysqlLayerOutput struct {
 }
 
 func (MysqlLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MysqlLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*MysqlLayer)(nil))
 }
 
 func (o MysqlLayerOutput) ToMysqlLayerOutput() MysqlLayerOutput {

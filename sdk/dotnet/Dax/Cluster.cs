@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Dax
     /// 
     ///  [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
     /// </summary>
+    [AwsResourceType("aws:dax/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

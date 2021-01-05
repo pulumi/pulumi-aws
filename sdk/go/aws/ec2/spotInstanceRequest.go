@@ -753,15 +753,15 @@ type SpotInstanceRequestInput interface {
 	ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput
 }
 
-func (SpotInstanceRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotInstanceRequest)(nil)).Elem()
+func (*SpotInstanceRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequest)(nil))
 }
 
-func (i SpotInstanceRequest) ToSpotInstanceRequestOutput() SpotInstanceRequestOutput {
+func (i *SpotInstanceRequest) ToSpotInstanceRequestOutput() SpotInstanceRequestOutput {
 	return i.ToSpotInstanceRequestOutputWithContext(context.Background())
 }
 
-func (i SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
+func (i *SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestOutput)
 }
 
@@ -770,7 +770,7 @@ type SpotInstanceRequestOutput struct {
 }
 
 func (SpotInstanceRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotInstanceRequestOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpotInstanceRequest)(nil))
 }
 
 func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutput() SpotInstanceRequestOutput {

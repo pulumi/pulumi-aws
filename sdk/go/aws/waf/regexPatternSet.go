@@ -132,15 +132,15 @@ type RegexPatternSetInput interface {
 	ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput
 }
 
-func (RegexPatternSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSet)(nil)).Elem()
+func (*RegexPatternSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexPatternSet)(nil))
 }
 
-func (i RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
+func (i *RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
 	return i.ToRegexPatternSetOutputWithContext(context.Background())
 }
 
-func (i RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
+func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
@@ -149,7 +149,7 @@ type RegexPatternSetOutput struct {
 }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegexPatternSet)(nil))
 }
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {

@@ -175,15 +175,15 @@ type TableItemInput interface {
 	ToTableItemOutputWithContext(ctx context.Context) TableItemOutput
 }
 
-func (TableItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableItem)(nil)).Elem()
+func (*TableItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableItem)(nil))
 }
 
-func (i TableItem) ToTableItemOutput() TableItemOutput {
+func (i *TableItem) ToTableItemOutput() TableItemOutput {
 	return i.ToTableItemOutputWithContext(context.Background())
 }
 
-func (i TableItem) ToTableItemOutputWithContext(ctx context.Context) TableItemOutput {
+func (i *TableItem) ToTableItemOutputWithContext(ctx context.Context) TableItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableItemOutput)
 }
 
@@ -192,7 +192,7 @@ type TableItemOutput struct {
 }
 
 func (TableItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*TableItem)(nil))
 }
 
 func (o TableItemOutput) ToTableItemOutput() TableItemOutput {

@@ -44,6 +44,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
     /// ```
     /// </summary>
+    [AwsResourceType("aws:codeartifact/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

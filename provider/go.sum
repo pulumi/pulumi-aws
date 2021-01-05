@@ -554,10 +554,14 @@ github.com/pulumi/pulumi-terraform-bridge/v2 v2.17.1-0.20201219002337-a0c25bd3e1
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.17.1-0.20201219002337-a0c25bd3e147/go.mod h1:WNWmFEvaMWA1uiwdlmRN+eSKrgT6sL3kNS6z5ltbdbo=
 github.com/pulumi/pulumi/pkg/v2 v2.15.1-0.20201202214525-260620430c4c h1:M4BMhdOt1le+7JtOhR7uOVrpvu9HnN9388AI/Je9/3Y=
 github.com/pulumi/pulumi/pkg/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:xLEDqsipr92IXfe8EJrl8bANoEUtwmBJGBE8X8PKmP0=
+github.com/pulumi/pulumi/pkg/v2 v2.16.2 h1:7/BYWaO9HQD4dWNtIOK+Bg91Nz5A2o1BqvkczR270u4=
+github.com/pulumi/pulumi/pkg/v2 v2.16.2/go.mod h1:bAbzFeU3gHu1diqcckqUqaFf5dP02BfJlP8dnHwm00k=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c h1:nYFMU38MKDY+CuU8LpIw6AaX/wwXMNzINqXvjw5MUtQ=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
+github.com/pulumi/pulumi/sdk/v2 v2.16.2 h1:ciz+J66OkwNwFYb5BuXndpHAT9GgffBDGRcrytnU8sM=
+github.com/pulumi/pulumi/sdk/v2 v2.16.2/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20201218231525-9cca98608a5e h1:jl43csgF3BSlNRmjo+TGgjW/uXk9h7+NoR3doKQ0BT4=
@@ -579,6 +583,7 @@ github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749 h1:bUGsEnyNbVPw06B
 github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749/go.mod h1:ZY1cvUeJuFPAdZ/B6v7RHavJWZn2YPVFQ1OSXhCGOkg=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd/go.mod h1:TrYk7fJVaAttu97ZZKrO9UbRa8izdowaMIZcxYMbVaw=
+github.com/shurcooL/vfsgen v0.0.0-20200824052919-0d455de96546/go.mod h1:TrYk7fJVaAttu97ZZKrO9UbRa8izdowaMIZcxYMbVaw=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.4.1/go.mod h1:ni0Sbl8bgC9z8RoU9G6nDWqqs/fq4eDPysMBDgk/93Q=
 github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966/go.mod h1:sUM3LWHvSMaG192sy56D9F7CNvL7jUJVXoqM1QKLnog=

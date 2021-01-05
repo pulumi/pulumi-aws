@@ -169,15 +169,15 @@ type StackSetInstanceInput interface {
 	ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput
 }
 
-func (StackSetInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetInstance)(nil)).Elem()
+func (*StackSetInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstance)(nil))
 }
 
-func (i StackSetInstance) ToStackSetInstanceOutput() StackSetInstanceOutput {
+func (i *StackSetInstance) ToStackSetInstanceOutput() StackSetInstanceOutput {
 	return i.ToStackSetInstanceOutputWithContext(context.Background())
 }
 
-func (i StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
+func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
 }
 
@@ -186,7 +186,7 @@ type StackSetInstanceOutput struct {
 }
 
 func (StackSetInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*StackSetInstance)(nil))
 }
 
 func (o StackSetInstanceOutput) ToStackSetInstanceOutput() StackSetInstanceOutput {

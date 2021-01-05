@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Mq
     ///  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
     /// ```
     /// </summary>
+    [AwsResourceType("aws:mq/configuration:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

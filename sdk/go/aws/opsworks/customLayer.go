@@ -312,15 +312,15 @@ type CustomLayerInput interface {
 	ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput
 }
 
-func (CustomLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLayer)(nil)).Elem()
+func (*CustomLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayer)(nil))
 }
 
-func (i CustomLayer) ToCustomLayerOutput() CustomLayerOutput {
+func (i *CustomLayer) ToCustomLayerOutput() CustomLayerOutput {
 	return i.ToCustomLayerOutputWithContext(context.Background())
 }
 
-func (i CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput {
+func (i *CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerOutput)
 }
 
@@ -329,7 +329,7 @@ type CustomLayerOutput struct {
 }
 
 func (CustomLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLayerOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomLayer)(nil))
 }
 
 func (o CustomLayerOutput) ToCustomLayerOutput() CustomLayerOutput {

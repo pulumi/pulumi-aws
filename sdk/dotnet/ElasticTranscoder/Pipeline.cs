@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elastictranscoder/pipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         [Output("arn")]

@@ -132,6 +132,7 @@ namespace Pulumi.Aws.Iam
     /// 
     ///  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
     /// </summary>
+    [AwsResourceType("aws:iam/serverCertificate:ServerCertificate")]
     public partial class ServerCertificate : Pulumi.CustomResource
     {
         /// <summary>

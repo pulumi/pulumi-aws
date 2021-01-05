@@ -161,6 +161,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
     /// ```
     /// </summary>
+    [AwsResourceType("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")]
     public partial class PeeringConnectionOptions : Pulumi.CustomResource
     {
         /// <summary>

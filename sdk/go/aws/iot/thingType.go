@@ -137,15 +137,15 @@ type ThingTypeInput interface {
 	ToThingTypeOutputWithContext(ctx context.Context) ThingTypeOutput
 }
 
-func (ThingType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingType)(nil)).Elem()
+func (*ThingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingType)(nil))
 }
 
-func (i ThingType) ToThingTypeOutput() ThingTypeOutput {
+func (i *ThingType) ToThingTypeOutput() ThingTypeOutput {
 	return i.ToThingTypeOutputWithContext(context.Background())
 }
 
-func (i ThingType) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeOutput {
+func (i *ThingType) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeOutput)
 }
 
@@ -154,7 +154,7 @@ type ThingTypeOutput struct {
 }
 
 func (ThingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingTypeOutput)(nil)).Elem()
+	return reflect.TypeOf((*ThingType)(nil))
 }
 
 func (o ThingTypeOutput) ToThingTypeOutput() ThingTypeOutput {

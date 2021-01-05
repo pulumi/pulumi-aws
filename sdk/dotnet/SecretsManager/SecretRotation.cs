@@ -52,6 +52,7 @@ namespace Pulumi.Aws.SecretsManager
     ///  $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
     /// ```
     /// </summary>
+    [AwsResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
     public partial class SecretRotation : Pulumi.CustomResource
     {
         /// <summary>

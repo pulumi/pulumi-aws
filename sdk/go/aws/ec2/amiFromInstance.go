@@ -288,15 +288,15 @@ type AmiFromInstanceInput interface {
 	ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput
 }
 
-func (AmiFromInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiFromInstance)(nil)).Elem()
+func (*AmiFromInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiFromInstance)(nil))
 }
 
-func (i AmiFromInstance) ToAmiFromInstanceOutput() AmiFromInstanceOutput {
+func (i *AmiFromInstance) ToAmiFromInstanceOutput() AmiFromInstanceOutput {
 	return i.ToAmiFromInstanceOutputWithContext(context.Background())
 }
 
-func (i AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput {
+func (i *AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceOutput)
 }
 
@@ -305,7 +305,7 @@ type AmiFromInstanceOutput struct {
 }
 
 func (AmiFromInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiFromInstanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*AmiFromInstance)(nil))
 }
 
 func (o AmiFromInstanceOutput) ToAmiFromInstanceOutput() AmiFromInstanceOutput {

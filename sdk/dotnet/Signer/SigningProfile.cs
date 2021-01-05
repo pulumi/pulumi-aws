@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Signer
     ///  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
     /// ```
     /// </summary>
+    [AwsResourceType("aws:signer/signingProfile:SigningProfile")]
     public partial class SigningProfile : Pulumi.CustomResource
     {
         /// <summary>

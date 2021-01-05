@@ -353,15 +353,15 @@ type BrokerInput interface {
 	ToBrokerOutputWithContext(ctx context.Context) BrokerOutput
 }
 
-func (Broker) ElementType() reflect.Type {
-	return reflect.TypeOf((*Broker)(nil)).Elem()
+func (*Broker) ElementType() reflect.Type {
+	return reflect.TypeOf((*Broker)(nil))
 }
 
-func (i Broker) ToBrokerOutput() BrokerOutput {
+func (i *Broker) ToBrokerOutput() BrokerOutput {
 	return i.ToBrokerOutputWithContext(context.Background())
 }
 
-func (i Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
+func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerOutput)
 }
 
@@ -370,7 +370,7 @@ type BrokerOutput struct {
 }
 
 func (BrokerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Broker)(nil))
 }
 
 func (o BrokerOutput) ToBrokerOutput() BrokerOutput {

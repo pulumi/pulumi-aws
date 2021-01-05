@@ -93,6 +93,7 @@ namespace Pulumi.Aws.Rds
     ///  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
     /// ```
     /// </summary>
+    [AwsResourceType("aws:rds/instance:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

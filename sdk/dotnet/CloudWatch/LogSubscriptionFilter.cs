@@ -43,6 +43,7 @@ namespace Pulumi.Aws.CloudWatch
     ///  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
     /// ```
     /// </summary>
+    [AwsResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
     public partial class LogSubscriptionFilter : Pulumi.CustomResource
     {
         /// <summary>

@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Dms
     ///  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
     /// ```
     /// </summary>
+    [AwsResourceType("aws:dms/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         [Output("arn")]

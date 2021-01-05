@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Elb
     /// }
     /// ```
     /// </summary>
+    [AwsResourceType("aws:elb/attachment:Attachment")]
     public partial class Attachment : Pulumi.CustomResource
     {
         /// <summary>

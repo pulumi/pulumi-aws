@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Iam
     /// 
     ///  } }
     /// </summary>
+    [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
     public partial class UserLoginProfile : Pulumi.CustomResource
     {
         /// <summary>
