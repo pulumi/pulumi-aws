@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to Pulumi v2.16.2
-    * This introduces package/module registration for DotNet SDK.
+_(none)_
 
 ---
+
+## 3.22.1 (2021-01-05)
+* Upgrade to Pulumi v2.16.2
+    * This introduces package/module registration for DotNet SDK.
 
 ## 3.22.0 (2020-12-22)
 * Update to v3.22.0 of the AWS Terraform Provider
