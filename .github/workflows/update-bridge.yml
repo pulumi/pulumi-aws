@@ -1,7 +1,3 @@
-on:
-  repository_dispatch:
-    types:
-      - update-bridge
 env:
   AWS_REGION: us-west-2
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -16,87 +12,89 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
-  BRIDGE_VERSION: ${{ github.event.client_payload.ref }}
 jobs:
-  update-bridge:
+  update_bridge:
     name: update-bridge
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v2
-        with:
-          path: ci-scripts
-          repository: pulumi/scripts
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.goversion }}
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.nodeversion}}
-          registry-url: https://registry.npmjs.org
-      - name: Setup DotNet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{matrix.dotnetverson}}
-      - name: Setup Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{matrix.pythonversion}}
-      - name: Install Chg for changelog
-        run: sudo npm install -g chg
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@d62853bc9e466834c74cefb34fad78535582e21a
-        with:
-          repo: pulumi/pulumictl
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
-      - name: Update Bridge version
-        run: |
-          cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v2@${{ env.BRIDGE_VERSION }} && cd ../
-          cd provider && go mod tidy && cd ../
-      - name: Build tfgen & provider binaries
-        run: make build_sdks
-      - name: Create changelog entry
-        run: |
-          chg add "Upgrade to ${{ env.BRIDGE_VERSION }} of pulumi-terraform-bridge"
-      - name: git status
-        run: git status
-      - name: commit changes
-        uses: EndBug/add-and-commit@v4
-        with:
-          ref: "update-bridge/${{ env.BRIDGE_VERSION }}-${{ github.run_id }}"
-          author_name: pulumi-bot
-          author_email: "bot@pulumi.com"
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Checkout Scripts Repo
+      uses: actions/checkout@v2
+      with:
+        path: ci-scripts
+        repository: pulumi/scripts
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15.x
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.1.0
+      with:
+        repo: pulumi/pulumictl
+    - name: Install Pulumi CLI
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{matrix.nodeversion}}
+        registry-url: https://registry.npmjs.org
+    - name: Setup DotNet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{matrix.dotnetverson}}
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{matrix.pythonversion}}
+    - name: Install Chg for changelog
+      run: sudo npm install -g chg
+    - name: Update Dependency
+      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v2@${{
+        github.event.client_payload.ref }} && go mod tidy && cd ../
+      working-directory: ${{ github.workspace }}
+    - name: Build tfgen & provider binaries
+      run: make build_sdks
+    - name: Create changelog entry
+      run: chg add "Upgrading pulumi-terraform-bridge to ${{ github.event.client_payload.ref
+        }}"
+    - run: git status
+    - name: commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_email: bot@pulumi.com
+        author_name: pulumi-bot
+        ref: update-bridge/${{ github.event.client_payload.ref }}-${{ github.run_id
+          }}
+    - env:
+        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+      name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: master
+        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+        pr_allow_empty: true
+        pr_assignee: stack72
+        pr_body: '*Automated PR*'
+        pr_label: automation/merge
+        pr_reviewer: stack72
+        pr_title: Upgrade to ${{ github.event.client_payload.ref }} of pulumi-terraform-bridge
+        source_branch: update-bridge/${{ github.event.client_payload.ref }}-${{ github.run_id
+          }}
     strategy:
       fail-fast: true
       matrix:
         dotnetversion:
-          - 3.1.301
+        - 3.1.301
         goversion:
-          - 1.15.x
+        - 1.15.x
         nodeversion:
-          - 13.x
+        - 13.x
         pythonversion:
-          - "3.7"
-  pull-request:
-    runs-on: ubuntu-latest
-    needs: update-bridge
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: "update-bridge/${{ env.BRIDGE_VERSION }}-${{ github.run_id }}"
-          destination_branch: "master"
-          pr_title: "Upgrade to ${{ env.BRIDGE_VERSION }} of pulumi-terraform-bridge"
-          pr_body: "*Automated PR*"
-          pr_label: "automation/merge"
-          pr_allow_empty: true
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+        - "3.7"
+"on":
+  repository_dispatch:
+    types:
+    - update-bridge
