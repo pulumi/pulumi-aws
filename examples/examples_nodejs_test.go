@@ -4,6 +4,7 @@
 package examples
 
 import (
+	"encoding/json"
 	"os"
 	"path/filepath"
 	"testing"
@@ -112,6 +113,21 @@ func TestAccTopic(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "topic"),
 			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccSecretCapture(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "secretcapture"),
+			RunUpdateTest: true,
+			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+				byts, err := json.Marshal(info.Deployment)
+				assert.NoError(t, err)
+				assert.NotContains(t, "s3cr3t", string(byts))
+			},
 		})
 
 	integration.ProgramTest(t, &test)

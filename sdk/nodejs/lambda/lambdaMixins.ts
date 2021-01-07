@@ -305,17 +305,21 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             serialize: _ => true,
             exportName: handlerName,
             isFactoryFunction: !!args.callbackFactory,
+            allowSecrets: true,
         });
 
         const codePaths = computeCodePaths(
             closure, serializedFileNameNoExtension, args.codePathOptions);
+
+        const code = pulumi.output(new pulumi.asset.AssetArchive(codePaths));
+        (<any>code).isSecret = closure.then(c => c.containsSecrets);
 
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
         // lambda options without us having to know about it.
         const functionArgs = {
             ...args,
-            code: new pulumi.asset.AssetArchive(codePaths),
+            code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: args.runtime || Runtime.NodeJS12dX,
             role: role.arn,
