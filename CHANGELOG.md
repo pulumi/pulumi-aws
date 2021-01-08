@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.23.0 (2021-01-08)
 * Update to v3.23.0 of the AWS Terraform Provider
 * Allow capturing secrets in CallbackFunctions
 * Increase the retry time in `aws.ec2.LaunchConfiguration` delete func from 1m to 5m
-
----
 
 ## 3.22.1 (2021-01-05)
 * Upgrade to Pulumi v2.16.2
