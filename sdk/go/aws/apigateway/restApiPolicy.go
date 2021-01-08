@@ -11,6 +11,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides an API Gateway REST API Policy.
+//
+// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+//
+// ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
+// 			RestApiId: testRestApi.ID(),
+// 			Policy: testRestApi.Arn.ApplyT(func(arn string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"execute-api:Invoke\",\n", "      \"Resource\": \"", arn, "\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\n", "          \"aws:SourceIp\": \"123.123.123.123/32\"\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerJdbcTargetGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
+        /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         /// </summary>
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The path of the JDBC target.
+        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

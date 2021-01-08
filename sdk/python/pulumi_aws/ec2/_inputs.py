@@ -87,6 +87,7 @@ __all__ = [
     'TrafficMirrorFilterRuleDestinationPortRangeArgs',
     'TrafficMirrorFilterRuleSourcePortRangeArgs',
     'VpcEndpointDnsEntryArgs',
+    'VpcEndpointServicePrivateDnsNameConfigurationArgs',
     'VpcPeeringConnectionAccepterArgs',
     'VpcPeeringConnectionAccepterAccepterArgs',
     'VpcPeeringConnectionAccepterRequesterArgs',
@@ -2106,7 +2107,7 @@ class InstanceMetadataOptionsArgs:
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -2143,7 +2144,7 @@ class InstanceMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         return pulumi.get(self, "http_tokens")
 
@@ -3234,7 +3235,7 @@ class LaunchTemplateMetadataOptionsArgs:
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -3271,7 +3272,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         return pulumi.get(self, "http_tokens")
 
@@ -4390,8 +4391,6 @@ class SecurityGroupEgressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param pulumi.Input[str] protocol: The protocol. If you select a protocol of
-               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[int] to_port: The end range port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this egress rule.
@@ -4433,10 +4432,6 @@ class SecurityGroupEgressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -4544,8 +4539,6 @@ class SecurityGroupIngressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param pulumi.Input[str] protocol: The protocol. If you select a protocol of
-               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[int] to_port: The end range port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this egress rule.
@@ -4587,10 +4580,6 @@ class SecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -5708,7 +5697,7 @@ class SpotInstanceRequestMetadataOptionsArgs:
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -5745,7 +5734,7 @@ class SpotInstanceRequestMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         return pulumi.get(self, "http_tokens")
 
@@ -6073,6 +6062,77 @@ class VpcEndpointDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+@pulumi.input_type
+class VpcEndpointServicePrivateDnsNameConfigurationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the record subdomain the service provider needs to create.
+        :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        :param pulumi.Input[str] type: Endpoint service verification type, for example `TXT`.
+        :param pulumi.Input[str] value: Value the service provider adds to the private DNS name domain record before verification.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the record subdomain the service provider needs to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Endpoint service verification type, for example `TXT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value the service provider adds to the private DNS name domain record before verification.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -144,7 +144,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
-        :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         """
         if __name__ is not None:
@@ -226,7 +226,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
-        :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -322,7 +322,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Output[str]:
         """
-        The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         """
         return pulumi.get(self, "task_type")
 

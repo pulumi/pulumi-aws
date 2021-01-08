@@ -54,7 +54,7 @@ namespace Pulumi.Aws.ImageBuilder
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags for the image recipe.
+        /// Key-value map of resource tags for the image recipe.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -109,13 +109,17 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Platform;
         /// <summary>
-        /// (Optional) Key-value map of resource tags for the image recipe.
+        /// Key-value map of resource tags for the image recipe.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Version of the image recipe.
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// The working directory used during build and test workflows.
+        /// </summary>
+        public readonly string WorkingDirectory;
 
         [OutputConstructor]
         private GetImageRecipeResult(
@@ -141,7 +145,9 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableDictionary<string, string>? tags,
 
-            string version)
+            string version,
+
+            string workingDirectory)
         {
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.ImageBuilder
             Platform = platform;
             Tags = tags;
             Version = version;
+            WorkingDirectory = workingDirectory;
         }
     }
 }

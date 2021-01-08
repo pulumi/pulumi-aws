@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
  *
  * ## Example Usage
- * ### DynamoDB Target
+ * ### DynamoDB Target Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### JDBC Target
+ * ### JDBC Target Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### S3 Target
+ * ### S3 Target Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Catalog Target
+ * ### Catalog Target Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * ### MongoDB Target
+ * ### MongoDB Target Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Configuration Settings
+ * ### Configuration Settings Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -170,7 +170,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -178,15 +178,19 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * List of nested DynamoDB target arguments. See below.
+     * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
     /**
-     * List of nested JBDC target arguments. See below.
+     * List of nested JBDC target arguments. See JDBC Target below.
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
-     * List nested MongoDB target arguments. See below.
+     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     */
+    public readonly lineageConfiguration!: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
+    /**
+     * List nested MongoDB target arguments. See MongoDB Target below.
      */
     public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
     /**
@@ -194,11 +198,15 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     */
+    public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     public readonly role!: pulumi.Output<string>;
     /**
-     * List nested Amazon S3 target arguments. See below.
+     * List nested Amazon S3 target arguments. See S3 Target below.
      */
     public readonly s3Targets!: pulumi.Output<outputs.glue.CrawlerS3Target[] | undefined>;
     /**
@@ -206,7 +214,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
-     * Policy for the crawler's update and deletion behavior.
+     * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
     public readonly schemaChangePolicy!: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
     /**
@@ -242,8 +250,10 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
+            inputs["lineageConfiguration"] = state ? state.lineageConfiguration : undefined;
             inputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["recrawlPolicy"] = state ? state.recrawlPolicy : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["s3Targets"] = state ? state.s3Targets : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
@@ -266,8 +276,10 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
+            inputs["lineageConfiguration"] = args ? args.lineageConfiguration : undefined;
             inputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["s3Targets"] = args ? args.s3Targets : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
@@ -306,7 +318,7 @@ export interface CrawlerState {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
@@ -314,15 +326,19 @@ export interface CrawlerState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * List of nested DynamoDB target arguments. See below.
+     * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See below.
+     * List of nested JBDC target arguments. See JDBC Target below.
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
-     * List nested MongoDB target arguments. See below.
+     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     */
+    readonly lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    /**
+     * List nested MongoDB target arguments. See MongoDB Target below.
      */
     readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
@@ -330,11 +346,15 @@ export interface CrawlerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     */
+    readonly recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     readonly role?: pulumi.Input<string>;
     /**
-     * List nested Amazon S3 target arguments. See below.
+     * List nested Amazon S3 target arguments. See S3 Target below.
      */
     readonly s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**
@@ -342,7 +362,7 @@ export interface CrawlerState {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
-     * Policy for the crawler's update and deletion behavior.
+     * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
     readonly schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
     /**
@@ -373,7 +393,7 @@ export interface CrawlerArgs {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     readonly databaseName: pulumi.Input<string>;
     /**
@@ -381,15 +401,19 @@ export interface CrawlerArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * List of nested DynamoDB target arguments. See below.
+     * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See below.
+     * List of nested JBDC target arguments. See JDBC Target below.
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
-     * List nested MongoDB target arguments. See below.
+     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     */
+    readonly lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    /**
+     * List nested MongoDB target arguments. See MongoDB Target below.
      */
     readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
@@ -397,11 +421,15 @@ export interface CrawlerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     */
+    readonly recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     readonly role: pulumi.Input<string>;
     /**
-     * List nested Amazon S3 target arguments. See below.
+     * List nested Amazon S3 target arguments. See S3 Target below.
      */
     readonly s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**
@@ -409,7 +437,7 @@ export interface CrawlerArgs {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
-     * Policy for the crawler's update and deletion behavior.
+     * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
     readonly schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
     /**

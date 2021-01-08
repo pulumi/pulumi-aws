@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Update to v3.23.0 of the AWS Terraform Provider
 * Allow capturing secrets in CallbackFunctions
+* Increase the retry time in `aws.ec2.LaunchConfiguration` delete func from 1m to 5m
 
 ---
 

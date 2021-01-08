@@ -21,6 +21,41 @@ class RestApiPolicy(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides an API Gateway REST API Policy.
+
+        > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_rest_api = aws.apigateway.RestApi("testRestApi")
+        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
+            rest_api_id=test_rest_api.id,
+            policy=test_rest_api.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Principal": {{
+                "AWS": "*"
+              }},
+              "Action": "execute-api:Invoke",
+              "Resource": "{arn}",
+              "Condition": {{
+                "IpAddress": {{
+                  "aws:SourceIp": "123.123.123.123/32"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
         ## Import
 
         `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.

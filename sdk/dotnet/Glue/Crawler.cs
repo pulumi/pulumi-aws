@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     /// 
     /// ## Example Usage
-    /// ### DynamoDB Target
+    /// ### DynamoDB Target Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// ### JDBC Target
+    /// ### JDBC Target Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// ### S3 Target
+    /// ### S3 Target Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// ### Catalog Target
+    /// ### Catalog Target Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// ### MongoDB Target
+    /// ### MongoDB Target Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// ### Configuration Settings
+    /// ### Configuration Settings Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Glue database where results are written.
+        /// The name of the Glue database to be synchronized.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -251,19 +251,25 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested DynamoDB target arguments. See below.
+        /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
         [Output("dynamodbTargets")]
         public Output<ImmutableArray<Outputs.CrawlerDynamodbTarget>> DynamodbTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See below.
+        /// List of nested JBDC target arguments. See JDBC Target below.
         /// </summary>
         [Output("jdbcTargets")]
         public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List nested MongoDB target arguments. See below.
+        /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        /// </summary>
+        [Output("lineageConfiguration")]
+        public Output<Outputs.CrawlerLineageConfiguration?> LineageConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         [Output("mongodbTargets")]
         public Output<ImmutableArray<Outputs.CrawlerMongodbTarget>> MongodbTargets { get; private set; } = null!;
@@ -275,13 +281,19 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        /// </summary>
+        [Output("recrawlPolicy")]
+        public Output<Outputs.CrawlerRecrawlPolicy?> RecrawlPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// List nested Amazon S3 target arguments. See below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         [Output("s3Targets")]
         public Output<ImmutableArray<Outputs.CrawlerS3Target>> S3Targets { get; private set; } = null!;
@@ -293,7 +305,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Policy for the crawler's update and deletion behavior.
+        /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
         [Output("schemaChangePolicy")]
         public Output<Outputs.CrawlerSchemaChangePolicy?> SchemaChangePolicy { get; private set; } = null!;
@@ -389,7 +401,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// Glue database where results are written.
+        /// The name of the Glue database to be synchronized.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -404,7 +416,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerDynamodbTargetArgs>? _dynamodbTargets;
 
         /// <summary>
-        /// List of nested DynamoDB target arguments. See below.
+        /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
         public InputList<Inputs.CrawlerDynamodbTargetArgs> DynamodbTargets
         {
@@ -416,7 +428,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See below.
+        /// List of nested JBDC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetArgs> JdbcTargets
         {
@@ -424,11 +436,17 @@ namespace Pulumi.Aws.Glue
             set => _jdbcTargets = value;
         }
 
+        /// <summary>
+        /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        /// </summary>
+        [Input("lineageConfiguration")]
+        public Input<Inputs.CrawlerLineageConfigurationArgs>? LineageConfiguration { get; set; }
+
         [Input("mongodbTargets")]
         private InputList<Inputs.CrawlerMongodbTargetArgs>? _mongodbTargets;
 
         /// <summary>
-        /// List nested MongoDB target arguments. See below.
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         public InputList<Inputs.CrawlerMongodbTargetArgs> MongodbTargets
         {
@@ -443,6 +461,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        /// </summary>
+        [Input("recrawlPolicy")]
+        public Input<Inputs.CrawlerRecrawlPolicyArgs>? RecrawlPolicy { get; set; }
+
+        /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Input("role", required: true)]
@@ -452,7 +476,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerS3TargetArgs>? _s3Targets;
 
         /// <summary>
-        /// List nested Amazon S3 target arguments. See below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         public InputList<Inputs.CrawlerS3TargetArgs> S3Targets
         {
@@ -467,7 +491,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// Policy for the crawler's update and deletion behavior.
+        /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
         [Input("schemaChangePolicy")]
         public Input<Inputs.CrawlerSchemaChangePolicyArgs>? SchemaChangePolicy { get; set; }
@@ -536,7 +560,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// Glue database where results are written.
+        /// The name of the Glue database to be synchronized.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -551,7 +575,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerDynamodbTargetGetArgs>? _dynamodbTargets;
 
         /// <summary>
-        /// List of nested DynamoDB target arguments. See below.
+        /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
         public InputList<Inputs.CrawlerDynamodbTargetGetArgs> DynamodbTargets
         {
@@ -563,7 +587,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetGetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See below.
+        /// List of nested JBDC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetGetArgs> JdbcTargets
         {
@@ -571,11 +595,17 @@ namespace Pulumi.Aws.Glue
             set => _jdbcTargets = value;
         }
 
+        /// <summary>
+        /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        /// </summary>
+        [Input("lineageConfiguration")]
+        public Input<Inputs.CrawlerLineageConfigurationGetArgs>? LineageConfiguration { get; set; }
+
         [Input("mongodbTargets")]
         private InputList<Inputs.CrawlerMongodbTargetGetArgs>? _mongodbTargets;
 
         /// <summary>
-        /// List nested MongoDB target arguments. See below.
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         public InputList<Inputs.CrawlerMongodbTargetGetArgs> MongodbTargets
         {
@@ -590,6 +620,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        /// </summary>
+        [Input("recrawlPolicy")]
+        public Input<Inputs.CrawlerRecrawlPolicyGetArgs>? RecrawlPolicy { get; set; }
+
+        /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Input("role")]
@@ -599,7 +635,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerS3TargetGetArgs>? _s3Targets;
 
         /// <summary>
-        /// List nested Amazon S3 target arguments. See below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         public InputList<Inputs.CrawlerS3TargetGetArgs> S3Targets
         {
@@ -614,7 +650,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// Policy for the crawler's update and deletion behavior.
+        /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
         [Input("schemaChangePolicy")]
         public Input<Inputs.CrawlerSchemaChangePolicyGetArgs>? SchemaChangePolicy { get; set; }

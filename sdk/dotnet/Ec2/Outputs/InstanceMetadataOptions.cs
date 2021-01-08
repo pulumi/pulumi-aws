@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         /// </summary>
         public readonly string? HttpTokens;
 

@@ -20,7 +20,7 @@ class GetImageRecipeResult:
     """
     A collection of values returned by getImageRecipe.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, tags=None, version=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, tags=None, version=None, working_directory=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,6 +57,9 @@ class GetImageRecipeResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if working_directory and not isinstance(working_directory, str):
+            raise TypeError("Expected argument 'working_directory' to be a str")
+        pulumi.set(__self__, "working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -139,7 +142,7 @@ class GetImageRecipeResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        (Optional) Key-value map of resource tags for the image recipe.
+        Key-value map of resource tags for the image recipe.
         """
         return pulumi.get(self, "tags")
 
@@ -150,6 +153,14 @@ class GetImageRecipeResult:
         Version of the image recipe.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> str:
+        """
+        The working directory used during build and test workflows.
+        """
+        return pulumi.get(self, "working_directory")
 
 
 class AwaitableGetImageRecipeResult(GetImageRecipeResult):
@@ -169,7 +180,8 @@ class AwaitableGetImageRecipeResult(GetImageRecipeResult):
             parent_image=self.parent_image,
             platform=self.platform,
             tags=self.tags,
-            version=self.version)
+            version=self.version,
+            working_directory=self.working_directory)
 
 
 def get_image_recipe(arn: Optional[str] = None,
@@ -189,7 +201,7 @@ def get_image_recipe(arn: Optional[str] = None,
 
 
     :param str arn: Amazon Resource Name (ARN) of the image recipe.
-    :param Mapping[str, str] tags: (Optional) Key-value map of resource tags for the image recipe.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -212,4 +224,5 @@ def get_image_recipe(arn: Optional[str] = None,
         parent_image=__ret__.parent_image,
         platform=__ret__.platform,
         tags=__ret__.tags,
-        version=__ret__.version)
+        version=__ret__.version,
+        working_directory=__ret__.working_directory)

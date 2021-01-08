@@ -14,6 +14,75 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// &gt; **NOTE:** The `aws.codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new Aws.CodeStarConnections.ConnectionArgs
+    ///         {
+    ///             ProviderType = "Bitbucket",
+    ///         });
+    ///         var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new Aws.CodePipeline.PipelineArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Codepipeline_role.Arn,
+    ///             ArtifactStore = ,
+    ///             Stages = 
+    ///             {
+    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///                 {
+    ///                     Name = "Source",
+    ///                     Actions = 
+    ///                     {
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
+    ///                         {
+    ///                             Name = "Source",
+    ///                             Category = "Source",
+    ///                             Owner = "AWS",
+    ///                             Provider = "CodeStarSourceConnection",
+    ///                             Version = "1",
+    ///                             OutputArtifacts = 
+    ///                             {
+    ///                                 "source_output",
+    ///                             },
+    ///                             Configuration = 
+    ///                             {
+    ///                                 { "Owner", "my-organization" },
+    ///                                 { "ConnectionArn", exampleConnection.Arn },
+    ///                                 { "Repo", "foo/test" },
+    ///                                 { "Branch", "master" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///                 {
+    ///                     Name = "Build",
+    ///                     Actions = 
+    ///                     {
+    ///                         ,
+    ///                     },
+    ///                 },
+    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///                 {
+    ///                     Name = "Deploy",
+    ///                     Actions = 
+    ///                     {
+    ///                         ,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CodeStar connections can be imported using the ARN, e.g.

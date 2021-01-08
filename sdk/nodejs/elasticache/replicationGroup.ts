@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
  *
+ * > **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
+ *
  * ## Example Usage
  * ### Redis Cluster Mode Disabled
  *
@@ -155,7 +157,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+     * Indicates if cluster mode is enabled.
+     */
+    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
+    /**
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -195,11 +201,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
      */
     public readonly numberCacheClusters!: pulumi.Output<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -210,6 +216,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
     public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string>;
+    /**
+     * (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+     */
+    public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
     /**
      * A user-created description for the replication group.
      */
@@ -280,6 +290,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            inputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
             inputs["clusterMode"] = state ? state.clusterMode : undefined;
             inputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -293,6 +304,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
+            inputs["readerEndpointAddress"] = state ? state.readerEndpointAddress : undefined;
             inputs["replicationGroupDescription"] = state ? state.replicationGroupDescription : undefined;
             inputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
@@ -336,9 +348,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
+            inputs["clusterEnabled"] = undefined /*out*/;
             inputs["configurationEndpointAddress"] = undefined /*out*/;
             inputs["memberClusters"] = undefined /*out*/;
             inputs["primaryEndpointAddress"] = undefined /*out*/;
+            inputs["readerEndpointAddress"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -380,7 +394,11 @@ export interface ReplicationGroupState {
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+     * Indicates if cluster mode is enabled.
+     */
+    readonly clusterEnabled?: pulumi.Input<boolean>;
+    /**
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -420,11 +438,11 @@ export interface ReplicationGroupState {
      */
     readonly notificationTopicArn?: pulumi.Input<string>;
     /**
-     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
      */
     readonly numberCacheClusters?: pulumi.Input<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly parameterGroupName?: pulumi.Input<string>;
     /**
@@ -435,6 +453,10 @@ export interface ReplicationGroupState {
      * (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
     readonly primaryEndpointAddress?: pulumi.Input<string>;
+    /**
+     * (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+     */
+    readonly readerEndpointAddress?: pulumi.Input<string>;
     /**
      * A user-created description for the replication group.
      */
@@ -517,7 +539,7 @@ export interface ReplicationGroupArgs {
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -549,11 +571,11 @@ export interface ReplicationGroupArgs {
      */
     readonly notificationTopicArn?: pulumi.Input<string>;
     /**
-     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
      */
     readonly numberCacheClusters?: pulumi.Input<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly parameterGroupName?: pulumi.Input<string>;
     /**

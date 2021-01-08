@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ec2
     /// Web Service API. In order to update a Launch Configuration, this provider will
     /// destroy the existing resource and create a replacement. In order to effectively
     /// use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
-    /// it's recommended to specify `create_before_destroy` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block.
+    /// it's recommended to specify `create_before_destroy` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block.
     /// Either omit the Launch Configuration `name` attribute, or specify a partial name
     /// with `name_prefix`.  Example:
     /// 

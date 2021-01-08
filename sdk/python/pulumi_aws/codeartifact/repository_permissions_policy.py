@@ -26,6 +26,36 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         """
         Provides a CodeArtifact Repostory Permissions Policy Resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey", description="domain key")
+        example_domain = aws.codeartifact.Domain("exampleDomain",
+            domain="example.com",
+            encryption_key=example_key.arn)
+        example_repository = aws.codeartifact.Repository("exampleRepository",
+            repository="example",
+            domain=example_domain.domain)
+        example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
+            repository=example_repository.repository,
+            domain=example_domain.domain,
+            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Action": "codeartifact:CreateRepository",
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Resource": "{arn}"
+                }}
+            ]
+        }}
+        \"\"\"))
+        ```
+
         ## Import
 
         CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.

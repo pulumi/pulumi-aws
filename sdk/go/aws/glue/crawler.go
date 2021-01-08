@@ -14,7 +14,7 @@ import (
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 //
 // ## Example Usage
-// ### DynamoDB Target
+// ### DynamoDB Target Example
 //
 // ```go
 // package main
@@ -42,7 +42,7 @@ import (
 // 	})
 // }
 // ```
-// ### JDBC Target
+// ### JDBC Target Example
 //
 // ```go
 // package main
@@ -73,7 +73,7 @@ import (
 // 	})
 // }
 // ```
-// ### S3 Target
+// ### S3 Target Example
 //
 // ```go
 // package main
@@ -103,7 +103,7 @@ import (
 // 	})
 // }
 // ```
-// ### MongoDB Target
+// ### MongoDB Target Example
 //
 // ```go
 // package main
@@ -134,7 +134,7 @@ import (
 // 	})
 // }
 // ```
-// ### Configuration Settings
+// ### Configuration Settings Example
 //
 // ```go
 // package main
@@ -201,25 +201,29 @@ type Crawler struct {
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of nested DynamoDB target arguments. See below.
+	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
-	// List of nested JBDC target arguments. See below.
+	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
-	// List nested MongoDB target arguments. See below.
+	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+	LineageConfiguration CrawlerLineageConfigurationPtrOutput `pulumi:"lineageConfiguration"`
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayOutput `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+	RecrawlPolicy CrawlerRecrawlPolicyPtrOutput `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringOutput `pulumi:"role"`
-	// List nested Amazon S3 target arguments. See below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayOutput `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
-	// Policy for the crawler's update and deletion behavior.
+	// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
 	SchemaChangePolicy CrawlerSchemaChangePolicyPtrOutput `pulumi:"schemaChangePolicy"`
 	// The name of Security Configuration to be used by the crawler
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
@@ -271,25 +275,29 @@ type crawlerState struct {
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
-	// List of nested DynamoDB target arguments. See below.
+	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
-	// List of nested JBDC target arguments. See below.
+	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
-	// List nested MongoDB target arguments. See below.
+	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
+	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role *string `pulumi:"role"`
-	// List nested Amazon S3 target arguments. See below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule *string `pulumi:"schedule"`
-	// Policy for the crawler's update and deletion behavior.
+	// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
 	SchemaChangePolicy *CrawlerSchemaChangePolicy `pulumi:"schemaChangePolicy"`
 	// The name of Security Configuration to be used by the crawler
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
@@ -307,25 +315,29 @@ type CrawlerState struct {
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrInput
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringPtrInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
-	// List of nested DynamoDB target arguments. See below.
+	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
-	// List of nested JBDC target arguments. See below.
+	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
-	// List nested MongoDB target arguments. See below.
+	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+	LineageConfiguration CrawlerLineageConfigurationPtrInput
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
+	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringPtrInput
-	// List nested Amazon S3 target arguments. See below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayInput
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrInput
-	// Policy for the crawler's update and deletion behavior.
+	// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
 	SchemaChangePolicy CrawlerSchemaChangePolicyPtrInput
 	// The name of Security Configuration to be used by the crawler
 	SecurityConfiguration pulumi.StringPtrInput
@@ -345,25 +357,29 @@ type crawlerArgs struct {
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
-	// List of nested DynamoDB target arguments. See below.
+	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
-	// List of nested JBDC target arguments. See below.
+	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
-	// List nested MongoDB target arguments. See below.
+	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
+	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role string `pulumi:"role"`
-	// List nested Amazon S3 target arguments. See below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule *string `pulumi:"schedule"`
-	// Policy for the crawler's update and deletion behavior.
+	// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
 	SchemaChangePolicy *CrawlerSchemaChangePolicy `pulumi:"schemaChangePolicy"`
 	// The name of Security Configuration to be used by the crawler
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
@@ -380,25 +396,29 @@ type CrawlerArgs struct {
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrInput
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
-	// List of nested DynamoDB target arguments. See below.
+	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
-	// List of nested JBDC target arguments. See below.
+	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
-	// List nested MongoDB target arguments. See below.
+	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+	LineageConfiguration CrawlerLineageConfigurationPtrInput
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
+	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringInput
-	// List nested Amazon S3 target arguments. See below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayInput
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrInput
-	// Policy for the crawler's update and deletion behavior.
+	// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
 	SchemaChangePolicy CrawlerSchemaChangePolicyPtrInput
 	// The name of Security Configuration to be used by the crawler
 	SecurityConfiguration pulumi.StringPtrInput

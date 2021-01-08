@@ -142,6 +142,7 @@ from . import (
     sns,
     sqs,
     ssm,
+    ssoadmin,
     storagegateway,
     swf,
     transfer,

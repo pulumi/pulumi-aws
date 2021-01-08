@@ -14,7 +14,7 @@ import {EngineType} from "./index";
  *
  * Unlike other RDS resources that support replication, with Amazon Aurora you do
  * not designate a primary and subsequent replicas. Instead, you simply add RDS
- * Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
+ * Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
  * meta-parameter to make multiple instances and join them all to the same RDS
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.

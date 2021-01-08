@@ -153,6 +153,7 @@ const (
 	simpledbMod              = "SimpleDB"              // Simple DB
 	snsMod                   = "Sns"                   // Simple Notification Service (SNS)
 	sqsMod                   = "Sqs"                   // Simple Queueing Service (SQS)
+	ssoAdminMod              = "SsoAdmin"              // SSO Admin
 	storagegatewayMod        = "StorageGateway"        // Storage Gateway
 	swfMod                   = "Swf"                   // Simple Workflow Service (SWF)
 	transferMod              = "Transfer"              // Transfer Service
@@ -1950,6 +1951,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_model":                  {Tok: awsResource(sagemakerMod, "Model")},
 			"aws_sagemaker_notebook_instance":      {Tok: awsResource(sagemakerMod, "NotebookInstance")},
 			"aws_sagemaker_code_repository":        {Tok: awsResource(sagemakerMod, "CodeRepository")},
+			"aws_sagemaker_image":                  {Tok: awsResource(sagemakerMod, "Image")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2410,6 +2412,11 @@ func Provider() tfbridge.ProviderInfo {
 
 			// codestar connections
 			"aws_codestarconnections_connection": {Tok: awsResource(codestarConnectionsMod, "Connection")},
+
+			// SSO Admin
+			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
+			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
+			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -3785,6 +3792,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},
 			"aws_lakeformation_permissions":        {Tok: awsDataSource(lakeFormationMod, "getPermissions")},
 			"aws_lakeformation_resource":           {Tok: awsDataSource(lakeFormationMod, "getResource")},
+
+			// SSO Admin
+			"aws_ssoadmin_instances":      {Tok: awsDataSource(ssoAdminMod, "getInstances")},
+			"aws_ssoadmin_permission_set": {Tok: awsDataSource(ssoAdminMod, "getPermissionSet")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

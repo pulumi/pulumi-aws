@@ -25,6 +25,45 @@ class Connection(pulumi.CustomResource):
 
         > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
+        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
+            role_arn=aws_iam_role["codepipeline_role"]["arn"],
+            artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(),
+            stages=[
+                aws.codepipeline.PipelineStageArgs(
+                    name="Source",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Source",
+                        category="Source",
+                        owner="AWS",
+                        provider="CodeStarSourceConnection",
+                        version="1",
+                        output_artifacts=["source_output"],
+                        configuration={
+                            "Owner": "my-organization",
+                            "ConnectionArn": example_connection.arn,
+                            "Repo": "foo/test",
+                            "Branch": "master",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Build",
+                    actions=[aws.codepipeline.PipelineStageActionArgs()],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Deploy",
+                    actions=[aws.codepipeline.PipelineStageActionArgs()],
+                ),
+            ])
+        ```
+
         ## Import
 
         CodeStar connections can be imported using the ARN, e.g.

@@ -42,7 +42,7 @@ export interface GetImageRecipeArgs {
      */
     readonly arn: string;
     /**
-     * (Optional) Key-value map of resource tags for the image recipe.
+     * Key-value map of resource tags for the image recipe.
      */
     readonly tags?: {[key: string]: string};
 }
@@ -89,11 +89,15 @@ export interface GetImageRecipeResult {
      */
     readonly platform: string;
     /**
-     * (Optional) Key-value map of resource tags for the image recipe.
+     * Key-value map of resource tags for the image recipe.
      */
     readonly tags?: {[key: string]: string};
     /**
      * Version of the image recipe.
      */
     readonly version: string;
+    /**
+     * The working directory used during build and test workflows.
+     */
+    readonly workingDirectory: string;
 }

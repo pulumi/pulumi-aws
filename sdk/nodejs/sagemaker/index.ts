@@ -9,6 +9,7 @@ export * from "./codeRepository";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
 export * from "./getPrebuiltEcrImage";
+export * from "./image";
 export * from "./model";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
@@ -17,6 +18,7 @@ export * from "./notebookInstanceLifecycleConfiguration";
 import { CodeRepository } from "./codeRepository";
 import { Endpoint } from "./endpoint";
 import { EndpointConfiguration } from "./endpointConfiguration";
+import { Image } from "./image";
 import { Model } from "./model";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
@@ -31,6 +33,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
                 return new EndpointConfiguration(name, <any>undefined, { urn })
+            case "aws:sagemaker/image:Image":
+                return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
                 return new Model(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstance:NotebookInstance":
@@ -45,6 +49,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)

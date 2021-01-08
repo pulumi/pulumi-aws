@@ -23,6 +23,22 @@ class BucketOwnershipControls(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
+            bucket=example_bucket.id,
+            rule=aws.s3.BucketOwnershipControlsRuleArgs(
+                object_ownership="BucketOwnerPreferred",
+            ))
+        ```
+
         ## Import
 
         S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.

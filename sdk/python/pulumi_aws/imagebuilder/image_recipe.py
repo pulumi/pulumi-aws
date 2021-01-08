@@ -24,6 +24,7 @@ class ImageRecipe(pulumi.CustomResource):
                  parent_image: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
+                 working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -69,6 +70,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe.
         :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,6 +102,7 @@ class ImageRecipe(pulumi.CustomResource):
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
+            __props__['working_directory'] = working_directory
             __props__['arn'] = None
             __props__['date_created'] = None
             __props__['owner'] = None
@@ -124,7 +127,8 @@ class ImageRecipe(pulumi.CustomResource):
             parent_image: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            version: Optional[pulumi.Input[str]] = None) -> 'ImageRecipe':
+            version: Optional[pulumi.Input[str]] = None,
+            working_directory: Optional[pulumi.Input[str]] = None) -> 'ImageRecipe':
         """
         Get an existing ImageRecipe resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -143,6 +147,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] platform: Platform of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe.
         :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -159,6 +164,7 @@ class ImageRecipe(pulumi.CustomResource):
         __props__["platform"] = platform
         __props__["tags"] = tags
         __props__["version"] = version
+        __props__["working_directory"] = working_directory
         return ImageRecipe(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,6 +254,14 @@ class ImageRecipe(pulumi.CustomResource):
         Version of the image recipe.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> pulumi.Output[Optional[str]]:
+        """
+        The working directory to be used during build and test workflows.
+        """
+        return pulumi.get(self, "working_directory")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -60,6 +60,8 @@ class ReplicationGroup(pulumi.CustomResource):
         immediately. Using `apply_immediately` can result in a brief downtime as
         servers reboots.
 
+        > **Note:** Be aware of the terminology collision around "cluster" for `elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
+
         ## Example Usage
         ### Redis Cluster Mode Disabled
 
@@ -148,7 +150,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-        :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
@@ -159,8 +161,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-        :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[str] replication_group_description: A user-created description for the replication group.
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
@@ -227,9 +229,11 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__['subnet_group_name'] = subnet_group_name
             __props__['tags'] = tags
             __props__['transit_encryption_enabled'] = transit_encryption_enabled
+            __props__['cluster_enabled'] = None
             __props__['configuration_endpoint_address'] = None
             __props__['member_clusters'] = None
             __props__['primary_endpoint_address'] = None
+            __props__['reader_endpoint_address'] = None
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
             resource_name,
@@ -246,6 +250,7 @@ class ReplicationGroup(pulumi.CustomResource):
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            cluster_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_mode: Optional[pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']]] = None,
             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
@@ -259,6 +264,7 @@ class ReplicationGroup(pulumi.CustomResource):
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             primary_endpoint_address: Optional[pulumi.Input[str]] = None,
+            reader_endpoint_address: Optional[pulumi.Input[str]] = None,
             replication_group_description: Optional[pulumi.Input[str]] = None,
             replication_group_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -283,7 +289,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-        :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        :param pulumi.Input[bool] cluster_enabled: Indicates if cluster mode is enabled.
+        :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
@@ -296,10 +303,11 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-        :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[str] primary_endpoint_address: (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
+        :param pulumi.Input[str] reader_endpoint_address: (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[str] replication_group_description: A user-created description for the replication group.
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
@@ -329,6 +337,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__["availability_zones"] = availability_zones
+        __props__["cluster_enabled"] = cluster_enabled
         __props__["cluster_mode"] = cluster_mode
         __props__["configuration_endpoint_address"] = configuration_endpoint_address
         __props__["engine"] = engine
@@ -342,6 +351,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__["parameter_group_name"] = parameter_group_name
         __props__["port"] = port
         __props__["primary_endpoint_address"] = primary_endpoint_address
+        __props__["reader_endpoint_address"] = reader_endpoint_address
         __props__["replication_group_description"] = replication_group_description
         __props__["replication_group_id"] = replication_group_id
         __props__["security_group_ids"] = security_group_ids
@@ -404,10 +414,18 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "availability_zones")
 
     @property
+    @pulumi.getter(name="clusterEnabled")
+    def cluster_enabled(self) -> pulumi.Output[bool]:
+        """
+        Indicates if cluster mode is enabled.
+        """
+        return pulumi.get(self, "cluster_enabled")
+
+    @property
     @pulumi.getter(name="clusterMode")
     def cluster_mode(self) -> pulumi.Output['outputs.ReplicationGroupClusterMode']:
         """
-        Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         """
         return pulumi.get(self, "cluster_mode")
 
@@ -483,7 +501,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="numberCacheClusters")
     def number_cache_clusters(self) -> pulumi.Output[int]:
         """
-        The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+        The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         """
         return pulumi.get(self, "number_cache_clusters")
 
@@ -491,7 +509,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -510,6 +528,14 @@ class ReplicationGroup(pulumi.CustomResource):
         (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         """
         return pulumi.get(self, "primary_endpoint_address")
+
+    @property
+    @pulumi.getter(name="readerEndpointAddress")
+    def reader_endpoint_address(self) -> pulumi.Output[str]:
+        """
+        (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        """
+        return pulumi.get(self, "reader_endpoint_address")
 
     @property
     @pulumi.getter(name="replicationGroupDescription")

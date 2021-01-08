@@ -175,7 +175,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly taskInvocationParameters!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
-     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
     public readonly taskType!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface MaintenanceWindowTaskState {
      */
     readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
-     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
     readonly taskType?: pulumi.Input<string>;
     /**
@@ -343,7 +343,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
-     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
     readonly taskType: pulumi.Input<string>;
     /**

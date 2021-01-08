@@ -7875,7 +7875,7 @@ export namespace ec2 {
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
         httpTokens?: pulumi.Input<string>;
     }
@@ -8160,7 +8160,7 @@ export namespace ec2 {
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
         httpTokens?: pulumi.Input<string>;
     }
@@ -8482,10 +8482,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The protocol. If you select a protocol of
-         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-         */
         protocol: pulumi.Input<string>;
         /**
          * List of security group Group Names if using
@@ -8524,10 +8520,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The protocol. If you select a protocol of
-         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-         */
         protocol: pulumi.Input<string>;
         /**
          * List of security group Group Names if using
@@ -8766,7 +8758,7 @@ export namespace ec2 {
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
         httpTokens?: pulumi.Input<string>;
     }
@@ -8855,6 +8847,25 @@ export namespace ec2 {
          * The ID of the private hosted zone.
          */
         hostedZoneId?: pulumi.Input<string>;
+    }
+
+    export interface VpcEndpointServicePrivateDnsNameConfiguration {
+        /**
+         * Name of the record subdomain the service provider needs to create.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * Endpoint service verification type, for example `TXT`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value the service provider adds to the private DNS name domain record before verification.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface VpcPeeringConnectionAccepter {
@@ -11821,11 +11832,11 @@ export namespace glue {
 
     export interface CrawlerDynamodbTarget {
         /**
-         * The name of the DynamoDB table to crawl.
+         * The path of the Amazon DocumentDB or MongoDB target (database/collection).
          */
         path: pulumi.Input<string>;
         /**
-         * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+         * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
          */
         scanAll?: pulumi.Input<boolean>;
         /**
@@ -11836,7 +11847,7 @@ export namespace glue {
 
     export interface CrawlerJdbcTarget {
         /**
-         * The name of the connection to use to connect to the JDBC target.
+         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          */
         connectionName: pulumi.Input<string>;
         /**
@@ -11844,9 +11855,16 @@ export namespace glue {
          */
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The path of the JDBC target.
+         * The path of the Amazon DocumentDB or MongoDB target (database/collection).
          */
         path: pulumi.Input<string>;
+    }
+
+    export interface CrawlerLineageConfiguration {
+        /**
+         * Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+         */
+        crawlerLineageSettings?: pulumi.Input<string>;
     }
 
     export interface CrawlerMongodbTarget {
@@ -11864,9 +11882,16 @@ export namespace glue {
         scanAll?: pulumi.Input<boolean>;
     }
 
+    export interface CrawlerRecrawlPolicy {
+        /**
+         * Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+         */
+        recrawlBehavior?: pulumi.Input<string>;
+    }
+
     export interface CrawlerS3Target {
         /**
-         * The name of the connection to use to connect to the JDBC target.
+         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          */
         connectionName?: pulumi.Input<string>;
         /**
@@ -11874,7 +11899,7 @@ export namespace glue {
          */
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the DynamoDB table to crawl.
+         * The path of the Amazon DocumentDB or MongoDB target (database/collection).
          */
         path: pulumi.Input<string>;
     }

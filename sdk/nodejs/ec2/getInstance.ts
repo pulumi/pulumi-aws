@@ -77,7 +77,7 @@ export interface GetInstanceArgs {
      */
     readonly instanceTags?: {[key: string]: string};
     /**
-     * A mapping of tags assigned to the Instance.
+     * A map of tags assigned to the Instance.
      */
     readonly tags?: {[key: string]: string};
 }
@@ -219,7 +219,7 @@ export interface GetInstanceResult {
      */
     readonly subnetId: string;
     /**
-     * A mapping of tags assigned to the Instance.
+     * A map of tags assigned to the Instance.
      */
     readonly tags: {[key: string]: string};
     /**

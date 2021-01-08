@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -109,7 +110,11 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * The private DNS name for the service.
      */
-    public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
+    public readonly privateDnsName!: pulumi.Output<string>;
+    /**
+     * List of objects containing information about the endpoint service private DNS name configuration.
+     */
+    public /*out*/ readonly privateDnsNameConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration[]>;
     /**
      * The service name.
      */
@@ -119,7 +124,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceType!: pulumi.Output<string>;
     /**
-     * The state of the VPC endpoint service.
+     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
@@ -148,6 +153,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["managesVpcEndpoints"] = state ? state.managesVpcEndpoints : undefined;
             inputs["networkLoadBalancerArns"] = state ? state.networkLoadBalancerArns : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
+            inputs["privateDnsNameConfigurations"] = state ? state.privateDnsNameConfigurations : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["serviceType"] = state ? state.serviceType : undefined;
             inputs["state"] = state ? state.state : undefined;
@@ -161,12 +167,13 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
             inputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
+            inputs["privateDnsName"] = args ? args.privateDnsName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["baseEndpointDnsNames"] = undefined /*out*/;
             inputs["managesVpcEndpoints"] = undefined /*out*/;
-            inputs["privateDnsName"] = undefined /*out*/;
+            inputs["privateDnsNameConfigurations"] = undefined /*out*/;
             inputs["serviceName"] = undefined /*out*/;
             inputs["serviceType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
@@ -223,6 +230,10 @@ export interface VpcEndpointServiceState {
      */
     readonly privateDnsName?: pulumi.Input<string>;
     /**
+     * List of objects containing information about the endpoint service private DNS name configuration.
+     */
+    readonly privateDnsNameConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration>[]>;
+    /**
      * The service name.
      */
     readonly serviceName?: pulumi.Input<string>;
@@ -231,7 +242,7 @@ export interface VpcEndpointServiceState {
      */
     readonly serviceType?: pulumi.Input<string>;
     /**
-     * The state of the VPC endpoint service.
+     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
     readonly state?: pulumi.Input<string>;
     /**
@@ -260,6 +271,10 @@ export interface VpcEndpointServiceArgs {
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
     readonly networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The private DNS name for the service.
+     */
+    readonly privateDnsName?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

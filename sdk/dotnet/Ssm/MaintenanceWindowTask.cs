@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Ssm
         public Output<Outputs.MaintenanceWindowTaskTaskInvocationParameters?> TaskInvocationParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
         [Output("taskType")]
         public Output<string> TaskType { get; private set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs>? TaskInvocationParameters { get; set; }
 
         /// <summary>
-        /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;
@@ -438,7 +438,7 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersGetArgs>? TaskInvocationParameters { get; set; }
 
         /// <summary>
-        /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
         [Input("taskType")]
         public Input<string>? TaskType { get; set; }
