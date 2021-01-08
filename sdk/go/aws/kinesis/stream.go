@@ -69,7 +69,7 @@ type Stream struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -122,7 +122,7 @@ type streamState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -144,7 +144,7 @@ type StreamState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -170,7 +170,7 @@ type streamArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -193,7 +193,7 @@ type StreamArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.

@@ -60,10 +60,6 @@ namespace Pulumi.Aws.Ec2.Inputs
             set => _prefixListIds = value;
         }
 
-        /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 

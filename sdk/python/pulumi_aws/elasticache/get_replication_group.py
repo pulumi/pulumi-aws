@@ -19,7 +19,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if auth_token_enabled and not isinstance(auth_token_enabled, bool):
             raise TypeError("Expected argument 'auth_token_enabled' to be a bool")
         pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
@@ -47,6 +47,9 @@ class GetReplicationGroupResult:
         if primary_endpoint_address and not isinstance(primary_endpoint_address, str):
             raise TypeError("Expected argument 'primary_endpoint_address' to be a str")
         pulumi.set(__self__, "primary_endpoint_address", primary_endpoint_address)
+        if reader_endpoint_address and not isinstance(reader_endpoint_address, str):
+            raise TypeError("Expected argument 'reader_endpoint_address' to be a str")
+        pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
         if replication_group_description and not isinstance(replication_group_description, str):
             raise TypeError("Expected argument 'replication_group_description' to be a str")
         pulumi.set(__self__, "replication_group_description", replication_group_description)
@@ -133,6 +136,14 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "primary_endpoint_address")
 
     @property
+    @pulumi.getter(name="readerEndpointAddress")
+    def reader_endpoint_address(self) -> str:
+        """
+        The endpoint of the reader node in this node group (shard).
+        """
+        return pulumi.get(self, "reader_endpoint_address")
+
+    @property
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> str:
         """
@@ -180,6 +191,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             number_cache_clusters=self.number_cache_clusters,
             port=self.port,
             primary_endpoint_address=self.primary_endpoint_address,
+            reader_endpoint_address=self.reader_endpoint_address,
             replication_group_description=self.replication_group_description,
             replication_group_id=self.replication_group_id,
             snapshot_retention_limit=self.snapshot_retention_limit,
@@ -221,6 +233,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         number_cache_clusters=__ret__.number_cache_clusters,
         port=__ret__.port,
         primary_endpoint_address=__ret__.primary_endpoint_address,
+        reader_endpoint_address=__ret__.reader_endpoint_address,
         replication_group_description=__ret__.replication_group_description,
         replication_group_id=__ret__.replication_group_id,
         snapshot_retention_limit=__ret__.snapshot_retention_limit,

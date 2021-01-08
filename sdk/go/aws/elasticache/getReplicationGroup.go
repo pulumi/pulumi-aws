@@ -66,6 +66,8 @@ type LookupReplicationGroupResult struct {
 	Port int `pulumi:"port"`
 	// The endpoint of the primary node in this node group (shard).
 	PrimaryEndpointAddress string `pulumi:"primaryEndpointAddress"`
+	// The endpoint of the reader node in this node group (shard).
+	ReaderEndpointAddress string `pulumi:"readerEndpointAddress"`
 	// The description of the replication group.
 	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
 	// The identifier for the replication group.

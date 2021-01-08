@@ -88,7 +88,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface StreamState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
     readonly retentionPeriod?: pulumi.Input<number>;
     /**
@@ -220,7 +220,7 @@ export interface StreamArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
     readonly retentionPeriod?: pulumi.Input<number>;
     /**

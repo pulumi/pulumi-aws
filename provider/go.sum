@@ -121,8 +121,8 @@ github.com/aws/aws-sdk-go v1.19.39/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpi
 github.com/aws/aws-sdk-go v1.25.3/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
 github.com/aws/aws-sdk-go v1.31.13/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
-github.com/aws/aws-sdk-go v1.36.7 h1:XoJPAjKoqvdL531XGWxKYn5eGX/xMoXzMN5fBtoyfSY=
-github.com/aws/aws-sdk-go v1.36.7/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
+github.com/aws/aws-sdk-go v1.36.19 h1:zbJZKkxeDiYxUYFjymjWxPye+qa1G2gRVyhIzZrB9zA=
+github.com/aws/aws-sdk-go v1.36.19/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -315,8 +315,6 @@ github.com/hashicorp/go-getter v1.5.0/go.mod h1:a7z7NPPfNQpJWcn4rSWFtdrSldqLdLPE
 github.com/hashicorp/go-hclog v0.0.0-20180709165350-ff2cf002a8dd/go.mod h1:9bjs9uLqI8l75knNv3lV1kA55veR+WUPSiKIWcQHudI=
 github.com/hashicorp/go-hclog v0.8.0/go.mod h1:5CU+agLiy3J7N7QjHK5d05KxGsuXiQLrjA0H7acj2lQ=
 github.com/hashicorp/go-hclog v0.9.2/go.mod h1:5CU+agLiy3J7N7QjHK5d05KxGsuXiQLrjA0H7acj2lQ=
-github.com/hashicorp/go-hclog v0.10.0 h1:b86HUuA126IcSHyC55WjPo7KtCOVeTCKIjr+3lBhPxI=
-github.com/hashicorp/go-hclog v0.10.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v0.14.1/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v0.15.0 h1:qMuK0wxsoW4D0ddCCYwPSTm4KQv1X1ke3WmPWZ0Mvsk=
 github.com/hashicorp/go-hclog v0.15.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
@@ -566,8 +564,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20201218231525-9cca98608a5e h1:jl43csgF3BSlNRmjo+TGgjW/uXk9h7+NoR3doKQ0BT4=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20201218231525-9cca98608a5e/go.mod h1:JBItawj+j8Ssla5Ib6BC/W9VQkOucBfnX7VRtyx1vw8=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20201218225235-080f4b55a4e7 h1:L1OMrtRzLv6NFkLJ4XHa3V3iuAJSMkeS9mKSzpP52mM=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20201218225235-080f4b55a4e7/go.mod h1:2B6zmpR+B4j3Ah6DV3rngOxmPhQXIuVf2b5PDYvc1zo=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210108124814-c24243f79db6 h1:yb0jDi321jJGmuyhrKFpdWARv+aLGz11Vkdnjhx4Th4=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210108124814-c24243f79db6/go.mod h1:XL/qfDduMq4tUMYvmDnmq6pMLCfTTAAITnzLuSqhOeg=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

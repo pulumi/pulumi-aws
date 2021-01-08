@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateDnsName { get; private set; } = null!;
 
         /// <summary>
+        /// List of objects containing information about the endpoint service private DNS name configuration.
+        /// </summary>
+        [Output("privateDnsNameConfigurations")]
+        public Output<ImmutableArray<Outputs.VpcEndpointServicePrivateDnsNameConfiguration>> PrivateDnsNameConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// The service name.
         /// </summary>
         [Output("serviceName")]
@@ -143,7 +149,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the VPC endpoint service.
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -241,6 +247,12 @@ namespace Pulumi.Aws.Ec2
             get => _networkLoadBalancerArns ?? (_networkLoadBalancerArns = new InputList<string>());
             set => _networkLoadBalancerArns = value;
         }
+
+        /// <summary>
+        /// The private DNS name for the service.
+        /// </summary>
+        [Input("privateDnsName")]
+        public Input<string>? PrivateDnsName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -345,6 +357,18 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsName")]
         public Input<string>? PrivateDnsName { get; set; }
 
+        [Input("privateDnsNameConfigurations")]
+        private InputList<Inputs.VpcEndpointServicePrivateDnsNameConfigurationGetArgs>? _privateDnsNameConfigurations;
+
+        /// <summary>
+        /// List of objects containing information about the endpoint service private DNS name configuration.
+        /// </summary>
+        public InputList<Inputs.VpcEndpointServicePrivateDnsNameConfigurationGetArgs> PrivateDnsNameConfigurations
+        {
+            get => _privateDnsNameConfigurations ?? (_privateDnsNameConfigurations = new InputList<Inputs.VpcEndpointServicePrivateDnsNameConfigurationGetArgs>());
+            set => _privateDnsNameConfigurations = value;
+        }
+
         /// <summary>
         /// The service name.
         /// </summary>
@@ -358,7 +382,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ServiceType { get; set; }
 
         /// <summary>
-        /// The state of the VPC endpoint service.
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

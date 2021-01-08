@@ -71,7 +71,7 @@ type LookupInstanceArgs struct {
 	// A map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
-	// A mapping of tags assigned to the Instance.
+	// A map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -149,7 +149,7 @@ type LookupInstanceResult struct {
 	SourceDestCheck bool `pulumi:"sourceDestCheck"`
 	// The VPC subnet ID.
 	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags assigned to the Instance.
+	// A map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
 	// The tenancy of the instance: `dedicated`, `default`, `host`.
 	Tenancy string `pulumi:"tenancy"`

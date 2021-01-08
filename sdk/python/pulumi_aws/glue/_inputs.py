@@ -24,7 +24,9 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDynamodbTargetArgs',
     'CrawlerJdbcTargetArgs',
+    'CrawlerLineageConfigurationArgs',
     'CrawlerMongodbTargetArgs',
+    'CrawlerRecrawlPolicyArgs',
     'CrawlerS3TargetArgs',
     'CrawlerSchemaChangePolicyArgs',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
@@ -889,8 +891,8 @@ class CrawlerDynamodbTargetArgs:
                  scan_all: Optional[pulumi.Input[bool]] = None,
                  scan_rate: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
-        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         :param pulumi.Input[float] scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
         pulumi.set(__self__, "path", path)
@@ -903,7 +905,7 @@ class CrawlerDynamodbTargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table to crawl.
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
         return pulumi.get(self, "path")
 
@@ -915,7 +917,7 @@ class CrawlerDynamodbTargetArgs:
     @pulumi.getter(name="scanAll")
     def scan_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         """
         return pulumi.get(self, "scan_all")
 
@@ -943,8 +945,8 @@ class CrawlerJdbcTargetArgs:
                  path: pulumi.Input[str],
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
-        :param pulumi.Input[str] path: The path of the JDBC target.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
         pulumi.set(__self__, "connection_name", connection_name)
@@ -956,7 +958,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
         """
-        The name of the connection to use to connect to the JDBC target.
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -968,7 +970,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the JDBC target.
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
         return pulumi.get(self, "path")
 
@@ -987,6 +989,29 @@ class CrawlerJdbcTargetArgs:
     @exclusions.setter
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclusions", value)
+
+
+@pulumi.input_type
+class CrawlerLineageConfigurationArgs:
+    def __init__(__self__, *,
+                 crawler_lineage_settings: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        """
+        if crawler_lineage_settings is not None:
+            pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
+
+    @property
+    @pulumi.getter(name="crawlerLineageSettings")
+    def crawler_lineage_settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        """
+        return pulumi.get(self, "crawler_lineage_settings")
+
+    @crawler_lineage_settings.setter
+    def crawler_lineage_settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "crawler_lineage_settings", value)
 
 
 @pulumi.input_type
@@ -1043,14 +1068,37 @@ class CrawlerMongodbTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerRecrawlPolicyArgs:
+    def __init__(__self__, *,
+                 recrawl_behavior: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+        """
+        if recrawl_behavior is not None:
+            pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
+
+    @property
+    @pulumi.getter(name="recrawlBehavior")
+    def recrawl_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+        """
+        return pulumi.get(self, "recrawl_behavior")
+
+    @recrawl_behavior.setter
+    def recrawl_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recrawl_behavior", value)
+
+
+@pulumi.input_type
 class CrawlerS3TargetArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
+        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
         pulumi.set(__self__, "path", path)
@@ -1063,7 +1111,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table to crawl.
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
         return pulumi.get(self, "path")
 
@@ -1075,7 +1123,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection to use to connect to the JDBC target.
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         """
         return pulumi.get(self, "connection_name")
 

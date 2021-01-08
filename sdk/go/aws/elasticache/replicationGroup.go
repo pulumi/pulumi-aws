@@ -23,6 +23,8 @@ import (
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
 //
+// > **Note:** Be aware of the terminology collision around "cluster" for `elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
+//
 // ## Example Usage
 // ### Redis Cluster Mode Disabled
 //
@@ -163,7 +165,9 @@ type ReplicationGroup struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	// Indicates if cluster mode is enabled.
+	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModeOutput `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
@@ -185,14 +189,16 @@ type ReplicationGroup struct {
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
-	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntOutput `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
 	PrimaryEndpointAddress pulumi.StringOutput `pulumi:"primaryEndpointAddress"`
+	// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+	ReaderEndpointAddress pulumi.StringOutput `pulumi:"readerEndpointAddress"`
 	// A user-created description for the replication group.
 	ReplicationGroupDescription pulumi.StringOutput `pulumi:"replicationGroupDescription"`
 	// The replication group identifier. This parameter is stored as a lowercase string.
@@ -268,7 +274,9 @@ type replicationGroupState struct {
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	// Indicates if cluster mode is enabled.
+	ClusterEnabled *bool `pulumi:"clusterEnabled"`
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
@@ -290,14 +298,16 @@ type replicationGroupState struct {
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port *int `pulumi:"port"`
 	// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
 	PrimaryEndpointAddress *string `pulumi:"primaryEndpointAddress"`
+	// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+	ReaderEndpointAddress *string `pulumi:"readerEndpointAddress"`
 	// A user-created description for the replication group.
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
 	// The replication group identifier. This parameter is stored as a lowercase string.
@@ -342,7 +352,9 @@ type ReplicationGroupState struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
-	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	// Indicates if cluster mode is enabled.
+	ClusterEnabled pulumi.BoolPtrInput
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringPtrInput
@@ -364,14 +376,16 @@ type ReplicationGroupState struct {
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
-	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrInput
 	// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
 	PrimaryEndpointAddress pulumi.StringPtrInput
+	// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+	ReaderEndpointAddress pulumi.StringPtrInput
 	// A user-created description for the replication group.
 	ReplicationGroupDescription pulumi.StringPtrInput
 	// The replication group identifier. This parameter is stored as a lowercase string.
@@ -420,7 +434,7 @@ type replicationGroupArgs struct {
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
 	Engine *string `pulumi:"engine"`
@@ -438,9 +452,9 @@ type replicationGroupArgs struct {
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port *int `pulumi:"port"`
@@ -489,7 +503,7 @@ type ReplicationGroupArgs struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
-	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
 	Engine pulumi.StringPtrInput
@@ -507,9 +521,9 @@ type ReplicationGroupArgs struct {
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
-	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrInput

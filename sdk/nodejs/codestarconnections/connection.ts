@@ -15,10 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {
- *     connectionName: "example-connection",
- *     providerType: "Bitbucket",
- * });
+ * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {providerType: "Bitbucket"});
  * const examplePipeline = new aws.codepipeline.Pipeline("examplePipeline", {
  *     roleArn: aws_iam_role.codepipeline_role.arn,
  *     artifactStore: {},

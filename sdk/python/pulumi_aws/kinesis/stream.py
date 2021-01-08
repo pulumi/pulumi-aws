@@ -68,7 +68,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-        :param pulumi.Input[int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        :param pulumi.Input[int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
@@ -133,7 +133,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-        :param pulumi.Input[int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        :param pulumi.Input[int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
@@ -198,7 +198,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         """
         return pulumi.get(self, "retention_period")
 

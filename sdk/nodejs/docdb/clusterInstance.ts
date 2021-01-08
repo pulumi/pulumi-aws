@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
  *
  * You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
- * Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
+ * Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.

@@ -129,6 +129,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
+        [Output("workingDirectory")]
+        public Output<string?> WorkingDirectory { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ImageRecipe resource with the given unique name, arguments, and options.
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
+        [Input("workingDirectory")]
+        public Input<string>? WorkingDirectory { get; set; }
+
         public ImageRecipeArgs()
         {
         }
@@ -325,6 +337,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
+        [Input("workingDirectory")]
+        public Input<string>? WorkingDirectory { get; set; }
 
         public ImageRecipeState()
         {

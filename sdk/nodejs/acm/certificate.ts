@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
  * of this provider.
  *
- * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
+ * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block to replace a certificate
  * which is currently in use (eg, by `aws.lb.Listener`).
  *
  * ## Example Usage

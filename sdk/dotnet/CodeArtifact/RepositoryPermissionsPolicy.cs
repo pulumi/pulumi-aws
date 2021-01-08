@@ -12,6 +12,52 @@ namespace Pulumi.Aws.CodeArtifact
     /// <summary>
     /// Provides a CodeArtifact Repostory Permissions Policy Resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "domain key",
+    ///         });
+    ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///             EncryptionKey = exampleKey.Arn,
+    ///         });
+    ///         var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new Aws.CodeArtifact.RepositoryArgs
+    ///         {
+    ///             Repository = "example",
+    ///             Domain = exampleDomain.DomainName,
+    ///         });
+    ///         var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new Aws.CodeArtifact.RepositoryPermissionsPolicyArgs
+    ///         {
+    ///             Repository = exampleRepository.RepositoryName,
+    ///             Domain = exampleDomain.DomainName,
+    ///             PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {{
+    ///             ""Action"": ""codeartifact:CreateRepository"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Principal"": ""*"",
+    ///             ""Resource"": ""{arn}""
+    ///         }}
+    ///     ]
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.

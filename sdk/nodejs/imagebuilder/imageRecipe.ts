@@ -111,6 +111,10 @@ export class ImageRecipe extends pulumi.CustomResource {
      * Version of the image recipe.
      */
     public readonly version!: pulumi.Output<string>;
+    /**
+     * The working directory to be used during build and test workflows.
+     */
+    public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ImageRecipe resource with the given unique name, arguments, and options.
@@ -135,6 +139,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["platform"] = state ? state.platform : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["workingDirectory"] = state ? state.workingDirectory : undefined;
         } else {
             const args = argsOrState as ImageRecipeArgs | undefined;
             if ((!args || args.components === undefined) && !(opts && opts.urn)) {
@@ -153,6 +158,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["parentImage"] = args ? args.parentImage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
@@ -217,6 +223,10 @@ export interface ImageRecipeState {
      * Version of the image recipe.
      */
     readonly version?: pulumi.Input<string>;
+    /**
+     * The working directory to be used during build and test workflows.
+     */
+    readonly workingDirectory?: pulumi.Input<string>;
 }
 
 /**
@@ -251,4 +261,8 @@ export interface ImageRecipeArgs {
      * Version of the image recipe.
      */
     readonly version: pulumi.Input<string>;
+    /**
+     * The working directory to be used during build and test workflows.
+     */
+    readonly workingDirectory?: pulumi.Input<string>;
 }

@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the Instance.
+        /// A map of tags assigned to the Instance.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
-        /// A mapping of tags assigned to the Instance.
+        /// A map of tags assigned to the Instance.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

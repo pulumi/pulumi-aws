@@ -3535,7 +3535,7 @@ type InstanceMetadataOptions struct {
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
@@ -3555,7 +3555,7 @@ type InstanceMetadataOptionsArgs struct {
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
@@ -3646,7 +3646,7 @@ func (o InstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOu
 	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o InstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -3689,7 +3689,7 @@ func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
 		if v == nil {
@@ -6785,7 +6785,7 @@ type LaunchTemplateMetadataOptions struct {
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
@@ -6805,7 +6805,7 @@ type LaunchTemplateMetadataOptionsArgs struct {
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
@@ -6896,7 +6896,7 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.In
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -6939,7 +6939,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -8780,9 +8780,7 @@ type SecurityGroupEgress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-	Protocol string `pulumi:"protocol"`
+	Protocol      string   `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -8815,9 +8813,7 @@ type SecurityGroupEgressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol      pulumi.StringInput      `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -8904,8 +8900,6 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of
-// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -8958,9 +8952,7 @@ type SecurityGroupIngress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-	Protocol string `pulumi:"protocol"`
+	Protocol      string   `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -8993,9 +8985,7 @@ type SecurityGroupIngressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol      pulumi.StringInput      `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -9082,8 +9072,6 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of
-// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -10899,7 +10887,7 @@ type SpotInstanceRequestMetadataOptions struct {
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
@@ -10919,7 +10907,7 @@ type SpotInstanceRequestMetadataOptionsArgs struct {
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
@@ -11010,7 +10998,7 @@ func (o SpotInstanceRequestMetadataOptionsOutput) HttpPutResponseHopLimit() pulu
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o SpotInstanceRequestMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -11053,7 +11041,7 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpPutResponseHopLimit() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
 		if v == nil {
@@ -11871,6 +11859,130 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointDnsEntry {
 		return vs[0].([]VpcEndpointDnsEntry)[vs[1].(int)]
 	}).(VpcEndpointDnsEntryOutput)
+}
+
+type VpcEndpointServicePrivateDnsNameConfiguration struct {
+	// Name of the record subdomain the service provider needs to create.
+	Name *string `pulumi:"name"`
+	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+	State *string `pulumi:"state"`
+	// Endpoint service verification type, for example `TXT`.
+	Type *string `pulumi:"type"`
+	// Value the service provider adds to the private DNS name domain record before verification.
+	Value *string `pulumi:"value"`
+}
+
+// VpcEndpointServicePrivateDnsNameConfigurationInput is an input type that accepts VpcEndpointServicePrivateDnsNameConfigurationArgs and VpcEndpointServicePrivateDnsNameConfigurationOutput values.
+// You can construct a concrete instance of `VpcEndpointServicePrivateDnsNameConfigurationInput` via:
+//
+//          VpcEndpointServicePrivateDnsNameConfigurationArgs{...}
+type VpcEndpointServicePrivateDnsNameConfigurationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput
+	ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationArgs struct {
+	// Name of the record subdomain the service provider needs to create.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Endpoint service verification type, for example `TXT`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Value the service provider adds to the private DNS name domain record before verification.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (VpcEndpointServicePrivateDnsNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return i.ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
+}
+
+// VpcEndpointServicePrivateDnsNameConfigurationArrayInput is an input type that accepts VpcEndpointServicePrivateDnsNameConfigurationArray and VpcEndpointServicePrivateDnsNameConfigurationArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointServicePrivateDnsNameConfigurationArrayInput` via:
+//
+//          VpcEndpointServicePrivateDnsNameConfigurationArray{ VpcEndpointServicePrivateDnsNameConfigurationArgs{...} }
+type VpcEndpointServicePrivateDnsNameConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutput() VpcEndpointServicePrivateDnsNameConfigurationArrayOutput
+	ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutputWithContext(context.Context) VpcEndpointServicePrivateDnsNameConfigurationArrayOutput
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationArray []VpcEndpointServicePrivateDnsNameConfigurationInput
+
+func (VpcEndpointServicePrivateDnsNameConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArray) ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutput() VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
+	return i.ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArray) ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput)
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServicePrivateDnsNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return o
+}
+
+// Name of the record subdomain the service provider needs to create.
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint service verification type, for example `TXT`.
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Value the service provider adds to the private DNS name domain record before verification.
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutput() VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) ToVpcEndpointServicePrivateDnsNameConfigurationArrayOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) Index(i pulumi.IntInput) VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointServicePrivateDnsNameConfiguration {
+		return vs[0].([]VpcEndpointServicePrivateDnsNameConfiguration)[vs[1].(int)]
+	}).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
 }
 
 type VpcPeeringConnectionAccepterType struct {
@@ -21214,6 +21326,8 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterAccepterOutput{})

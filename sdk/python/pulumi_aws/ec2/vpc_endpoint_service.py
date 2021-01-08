@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VpcEndpointService']
 
@@ -19,6 +21,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_dns_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -69,6 +72,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -94,12 +98,13 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__['allowed_principals'] = allowed_principals
             __props__['gateway_load_balancer_arns'] = gateway_load_balancer_arns
             __props__['network_load_balancer_arns'] = network_load_balancer_arns
+            __props__['private_dns_name'] = private_dns_name
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['availability_zones'] = None
             __props__['base_endpoint_dns_names'] = None
             __props__['manages_vpc_endpoints'] = None
-            __props__['private_dns_name'] = None
+            __props__['private_dns_name_configurations'] = None
             __props__['service_name'] = None
             __props__['service_type'] = None
             __props__['state'] = None
@@ -122,6 +127,7 @@ class VpcEndpointService(pulumi.CustomResource):
             manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             private_dns_name: Optional[pulumi.Input[str]] = None,
+            private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -142,9 +148,10 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
-        :param pulumi.Input[str] state: The state of the VPC endpoint service.
+        :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -160,6 +167,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__["manages_vpc_endpoints"] = manages_vpc_endpoints
         __props__["network_load_balancer_arns"] = network_load_balancer_arns
         __props__["private_dns_name"] = private_dns_name
+        __props__["private_dns_name_configurations"] = private_dns_name_configurations
         __props__["service_name"] = service_name
         __props__["service_type"] = service_type
         __props__["state"] = state
@@ -239,6 +247,14 @@ class VpcEndpointService(pulumi.CustomResource):
         return pulumi.get(self, "private_dns_name")
 
     @property
+    @pulumi.getter(name="privateDnsNameConfigurations")
+    def private_dns_name_configurations(self) -> pulumi.Output[Sequence['outputs.VpcEndpointServicePrivateDnsNameConfiguration']]:
+        """
+        List of objects containing information about the endpoint service private DNS name configuration.
+        """
+        return pulumi.get(self, "private_dns_name_configurations")
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[str]:
         """
@@ -258,7 +274,7 @@ class VpcEndpointService(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
-        The state of the VPC endpoint service.
+        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         """
         return pulumi.get(self, "state")
 

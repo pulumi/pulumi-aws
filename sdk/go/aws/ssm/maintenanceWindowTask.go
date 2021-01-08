@@ -144,7 +144,7 @@ type MaintenanceWindowTask struct {
 	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
 	// Configuration block with parameters for task execution.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrOutput `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
 	WindowId pulumi.StringOutput `pulumi:"windowId"`
@@ -218,7 +218,7 @@ type maintenanceWindowTaskState struct {
 	TaskArn *string `pulumi:"taskArn"`
 	// Configuration block with parameters for task execution.
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType *string `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
 	WindowId *string `pulumi:"windowId"`
@@ -243,7 +243,7 @@ type MaintenanceWindowTaskState struct {
 	TaskArn pulumi.StringPtrInput
 	// Configuration block with parameters for task execution.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
-	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringPtrInput
 	// The Id of the maintenance window to register the task with.
 	WindowId pulumi.StringPtrInput
@@ -272,7 +272,7 @@ type maintenanceWindowTaskArgs struct {
 	TaskArn string `pulumi:"taskArn"`
 	// Configuration block with parameters for task execution.
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType string `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
 	WindowId string `pulumi:"windowId"`
@@ -298,7 +298,7 @@ type MaintenanceWindowTaskArgs struct {
 	TaskArn pulumi.StringInput
 	// Configuration block with parameters for task execution.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
-	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringInput
 	// The Id of the maintenance window to register the task with.
 	WindowId pulumi.StringInput

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
+        /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The name of the DynamoDB table to crawl.
+        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
         /// </summary>
         public readonly string Path;
 

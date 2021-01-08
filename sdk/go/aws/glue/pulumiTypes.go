@@ -2099,9 +2099,9 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 }
 
 type CrawlerDynamodbTarget struct {
-	// The name of the DynamoDB table to crawl.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 	ScanAll *bool `pulumi:"scanAll"`
 	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate *float64 `pulumi:"scanRate"`
@@ -2119,9 +2119,9 @@ type CrawlerDynamodbTargetInput interface {
 }
 
 type CrawlerDynamodbTargetArgs struct {
-	// The name of the DynamoDB table to crawl.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
 	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate pulumi.Float64PtrInput `pulumi:"scanRate"`
@@ -2178,12 +2178,12 @@ func (o CrawlerDynamodbTargetOutput) ToCrawlerDynamodbTargetOutputWithContext(ct
 	return o
 }
 
-// The name of the DynamoDB table to crawl.
+// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 func (o CrawlerDynamodbTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 func (o CrawlerDynamodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
 }
@@ -2214,11 +2214,11 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 }
 
 type CrawlerJdbcTarget struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName string `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The path of the JDBC target.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
 }
 
@@ -2234,11 +2234,11 @@ type CrawlerJdbcTargetInput interface {
 }
 
 type CrawlerJdbcTargetArgs struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The path of the JDBC target.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2293,7 +2293,7 @@ func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the connection to use to connect to the JDBC target.
+// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -2303,7 +2303,7 @@ func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The path of the JDBC target.
+// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 func (o CrawlerJdbcTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2326,6 +2326,137 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerJdbcTarget {
 		return vs[0].([]CrawlerJdbcTarget)[vs[1].(int)]
 	}).(CrawlerJdbcTargetOutput)
+}
+
+type CrawlerLineageConfiguration struct {
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	CrawlerLineageSettings *string `pulumi:"crawlerLineageSettings"`
+}
+
+// CrawlerLineageConfigurationInput is an input type that accepts CrawlerLineageConfigurationArgs and CrawlerLineageConfigurationOutput values.
+// You can construct a concrete instance of `CrawlerLineageConfigurationInput` via:
+//
+//          CrawlerLineageConfigurationArgs{...}
+type CrawlerLineageConfigurationInput interface {
+	pulumi.Input
+
+	ToCrawlerLineageConfigurationOutput() CrawlerLineageConfigurationOutput
+	ToCrawlerLineageConfigurationOutputWithContext(context.Context) CrawlerLineageConfigurationOutput
+}
+
+type CrawlerLineageConfigurationArgs struct {
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	CrawlerLineageSettings pulumi.StringPtrInput `pulumi:"crawlerLineageSettings"`
+}
+
+func (CrawlerLineageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLineageConfiguration)(nil)).Elem()
+}
+
+func (i CrawlerLineageConfigurationArgs) ToCrawlerLineageConfigurationOutput() CrawlerLineageConfigurationOutput {
+	return i.ToCrawlerLineageConfigurationOutputWithContext(context.Background())
+}
+
+func (i CrawlerLineageConfigurationArgs) ToCrawlerLineageConfigurationOutputWithContext(ctx context.Context) CrawlerLineageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLineageConfigurationOutput)
+}
+
+func (i CrawlerLineageConfigurationArgs) ToCrawlerLineageConfigurationPtrOutput() CrawlerLineageConfigurationPtrOutput {
+	return i.ToCrawlerLineageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerLineageConfigurationArgs) ToCrawlerLineageConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLineageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLineageConfigurationOutput).ToCrawlerLineageConfigurationPtrOutputWithContext(ctx)
+}
+
+// CrawlerLineageConfigurationPtrInput is an input type that accepts CrawlerLineageConfigurationArgs, CrawlerLineageConfigurationPtr and CrawlerLineageConfigurationPtrOutput values.
+// You can construct a concrete instance of `CrawlerLineageConfigurationPtrInput` via:
+//
+//          CrawlerLineageConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerLineageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerLineageConfigurationPtrOutput() CrawlerLineageConfigurationPtrOutput
+	ToCrawlerLineageConfigurationPtrOutputWithContext(context.Context) CrawlerLineageConfigurationPtrOutput
+}
+
+type crawlerLineageConfigurationPtrType CrawlerLineageConfigurationArgs
+
+func CrawlerLineageConfigurationPtr(v *CrawlerLineageConfigurationArgs) CrawlerLineageConfigurationPtrInput {
+	return (*crawlerLineageConfigurationPtrType)(v)
+}
+
+func (*crawlerLineageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLineageConfiguration)(nil)).Elem()
+}
+
+func (i *crawlerLineageConfigurationPtrType) ToCrawlerLineageConfigurationPtrOutput() CrawlerLineageConfigurationPtrOutput {
+	return i.ToCrawlerLineageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerLineageConfigurationPtrType) ToCrawlerLineageConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLineageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLineageConfigurationPtrOutput)
+}
+
+type CrawlerLineageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLineageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLineageConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationOutput() CrawlerLineageConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationOutputWithContext(ctx context.Context) CrawlerLineageConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutput() CrawlerLineageConfigurationPtrOutput {
+	return o.ToCrawlerLineageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLineageConfigurationPtrOutput {
+	return o.ApplyT(func(v CrawlerLineageConfiguration) *CrawlerLineageConfiguration {
+		return &v
+	}).(CrawlerLineageConfigurationPtrOutput)
+}
+
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+func (o CrawlerLineageConfigurationOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerLineageConfiguration) *string { return v.CrawlerLineageSettings }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerLineageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLineageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLineageConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLineageConfigurationPtrOutput) ToCrawlerLineageConfigurationPtrOutput() CrawlerLineageConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLineageConfigurationPtrOutput) ToCrawlerLineageConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLineageConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfigurationOutput {
+	return o.ApplyT(func(v *CrawlerLineageConfiguration) CrawlerLineageConfiguration { return *v }).(CrawlerLineageConfigurationOutput)
+}
+
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerLineageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerLineageSettings
+	}).(pulumi.StringPtrOutput)
 }
 
 type CrawlerMongodbTarget struct {
@@ -2443,12 +2574,143 @@ func (o CrawlerMongodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongodb
 	}).(CrawlerMongodbTargetOutput)
 }
 
+type CrawlerRecrawlPolicy struct {
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
+}
+
+// CrawlerRecrawlPolicyInput is an input type that accepts CrawlerRecrawlPolicyArgs and CrawlerRecrawlPolicyOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyInput` via:
+//
+//          CrawlerRecrawlPolicyArgs{...}
+type CrawlerRecrawlPolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput
+	ToCrawlerRecrawlPolicyOutputWithContext(context.Context) CrawlerRecrawlPolicyOutput
+}
+
+type CrawlerRecrawlPolicyArgs struct {
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
+}
+
+func (CrawlerRecrawlPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return i.ToCrawlerRecrawlPolicyOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput)
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput).ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx)
+}
+
+// CrawlerRecrawlPolicyPtrInput is an input type that accepts CrawlerRecrawlPolicyArgs, CrawlerRecrawlPolicyPtr and CrawlerRecrawlPolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyPtrInput` via:
+//
+//          CrawlerRecrawlPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerRecrawlPolicyPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput
+	ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Context) CrawlerRecrawlPolicyPtrOutput
+}
+
+type crawlerRecrawlPolicyPtrType CrawlerRecrawlPolicyArgs
+
+func CrawlerRecrawlPolicyPtr(v *CrawlerRecrawlPolicyArgs) CrawlerRecrawlPolicyPtrInput {
+	return (*crawlerRecrawlPolicyPtrType)(v)
+}
+
+func (*crawlerRecrawlPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+type CrawlerRecrawlPolicyOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o.ApplyT(func(v CrawlerRecrawlPolicy) *CrawlerRecrawlPolicy {
+		return &v
+	}).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerRecrawlPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) CrawlerRecrawlPolicy { return *v }).(CrawlerRecrawlPolicyOutput)
+}
+
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecrawlBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
 type CrawlerS3Target struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName *string `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
 }
 
@@ -2464,11 +2726,11 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2523,7 +2785,7 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the connection to use to connect to the JDBC target.
+// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
@@ -2533,7 +2795,7 @@ func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The name of the DynamoDB table to crawl.
+// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -6753,8 +7015,12 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerLineageConfigurationOutput{})
+	pulumi.RegisterOutputType(CrawlerLineageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerMongodbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerMongodbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})

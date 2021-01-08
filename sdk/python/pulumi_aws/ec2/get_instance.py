@@ -426,7 +426,7 @@ class GetInstanceResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the Instance.
+        A map of tags assigned to the Instance.
         """
         return pulumi.get(self, "tags")
 
@@ -551,7 +551,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     :param str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
            exactly match a pair on the desired Instance.
-    :param Mapping[str, str] tags: A mapping of tags assigned to the Instance.
+    :param Mapping[str, str] tags: A map of tags assigned to the Instance.
     """
     __args__ = dict()
     __args__['filters'] = filters

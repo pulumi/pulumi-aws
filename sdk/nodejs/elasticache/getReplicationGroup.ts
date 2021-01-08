@@ -83,6 +83,10 @@ export interface GetReplicationGroupResult {
      */
     readonly primaryEndpointAddress: string;
     /**
+     * The endpoint of the reader node in this node group (shard).
+     */
+    readonly readerEndpointAddress: string;
+    /**
      * The description of the replication group.
      */
     readonly replicationGroupDescription: string;

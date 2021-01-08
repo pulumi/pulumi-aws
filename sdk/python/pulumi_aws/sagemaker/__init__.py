@@ -7,6 +7,7 @@ from .code_repository import *
 from .endpoint import *
 from .endpoint_configuration import *
 from .get_prebuilt_ecr_image import *
+from .image import *
 from .model import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *
@@ -31,6 +32,8 @@ def _register_module():
                 return Endpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
                 return EndpointConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sagemaker/image:Image":
+                return Image(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:sagemaker/model:Model":
                 return Model(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:sagemaker/notebookInstance:NotebookInstance":
@@ -45,6 +48,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "sagemaker/codeRepository", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/endpoint", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/endpointConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sagemaker/image", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/model", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/notebookInstance", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module_instance)

@@ -10,6 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
+    /// Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new Aws.S3.BucketOwnershipControlsArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///             Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///             {
+    ///                 ObjectOwnership = "BucketOwnerPreferred",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.

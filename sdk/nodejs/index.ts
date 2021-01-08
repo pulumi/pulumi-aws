@@ -149,6 +149,7 @@ import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
+import * as ssoadmin from "./ssoadmin";
 import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
 import * as transfer from "./transfer";
@@ -279,6 +280,7 @@ export {
     sns,
     sqs,
     ssm,
+    ssoadmin,
     storagegateway,
     swf,
     transfer,

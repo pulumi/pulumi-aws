@@ -22,6 +22,8 @@ namespace Pulumi.Aws.ElastiCache
     /// immediately. Using `apply_immediately` can result in a brief downtime as
     /// servers reboots.
     /// 
+    /// &gt; **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
+    /// 
     /// ## Example Usage
     /// ### Redis Cluster Mode Disabled
     /// 
@@ -179,7 +181,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        /// Indicates if cluster mode is enabled.
+        /// </summary>
+        [Output("clusterEnabled")]
+        public Output<bool> ClusterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Output("clusterMode")]
         public Output<Outputs.ReplicationGroupClusterMode> ClusterMode { get; private set; } = null!;
@@ -237,13 +245,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Output("numberCacheClusters")]
         public Output<int> NumberCacheClusters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
@@ -259,6 +267,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("primaryEndpointAddress")]
         public Output<string> PrimaryEndpointAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        /// </summary>
+        [Output("readerEndpointAddress")]
+        public Output<string> ReaderEndpointAddress { get; private set; } = null!;
 
         /// <summary>
         /// A user-created description for the replication group.
@@ -422,7 +436,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeArgs>? ClusterMode { get; set; }
@@ -468,13 +482,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -632,7 +646,13 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+        /// Indicates if cluster mode is enabled.
+        /// </summary>
+        [Input("clusterEnabled")]
+        public Input<bool>? ClusterEnabled { get; set; }
+
+        /// <summary>
+        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeGetArgs>? ClusterMode { get; set; }
@@ -696,13 +716,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -718,6 +738,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("primaryEndpointAddress")]
         public Input<string>? PrimaryEndpointAddress { get; set; }
+
+        /// <summary>
+        /// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        /// </summary>
+        [Input("readerEndpointAddress")]
+        public Input<string>? ReaderEndpointAddress { get; set; }
 
         /// <summary>
         /// A user-created description for the replication group.

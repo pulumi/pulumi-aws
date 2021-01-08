@@ -50,11 +50,13 @@ type VpcEndpointService struct {
 	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
+	// List of objects containing information about the endpoint service private DNS name configuration.
+	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayOutput `pulumi:"privateDnsNameConfigurations"`
 	// The service name.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
-	// The state of the VPC endpoint service.
+	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -110,11 +112,13 @@ type vpcEndpointServiceState struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName *string `pulumi:"privateDnsName"`
+	// List of objects containing information about the endpoint service private DNS name configuration.
+	PrivateDnsNameConfigurations []VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfigurations"`
 	// The service name.
 	ServiceName *string `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
 	ServiceType *string `pulumi:"serviceType"`
-	// The state of the VPC endpoint service.
+	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,11 +143,13 @@ type VpcEndpointServiceState struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringPtrInput
+	// List of objects containing information about the endpoint service private DNS name configuration.
+	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayInput
 	// The service name.
 	ServiceName pulumi.StringPtrInput
 	// The service type, `Gateway` or `Interface`.
 	ServiceType pulumi.StringPtrInput
-	// The state of the VPC endpoint service.
+	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -162,6 +168,8 @@ type vpcEndpointServiceArgs struct {
 	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
 	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
+	// The private DNS name for the service.
+	PrivateDnsName *string `pulumi:"privateDnsName"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -176,6 +184,8 @@ type VpcEndpointServiceArgs struct {
 	GatewayLoadBalancerArns pulumi.StringArrayInput
 	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
+	// The private DNS name for the service.
+	PrivateDnsName pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

@@ -86,6 +86,8 @@ type ImageRecipe struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Version of the image recipe.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// The working directory to be used during build and test workflows.
+	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
 }
 
 // NewImageRecipe registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +150,8 @@ type imageRecipeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Version of the image recipe.
 	Version *string `pulumi:"version"`
+	// The working directory to be used during build and test workflows.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 type ImageRecipeState struct {
@@ -173,6 +177,8 @@ type ImageRecipeState struct {
 	Tags pulumi.StringMapInput
 	// Version of the image recipe.
 	Version pulumi.StringPtrInput
+	// The working directory to be used during build and test workflows.
+	WorkingDirectory pulumi.StringPtrInput
 }
 
 func (ImageRecipeState) ElementType() reflect.Type {
@@ -194,6 +200,8 @@ type imageRecipeArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
+	// The working directory to be used during build and test workflows.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 // The set of arguments for constructing a ImageRecipe resource.
@@ -212,6 +220,8 @@ type ImageRecipeArgs struct {
 	Tags pulumi.StringMapInput
 	// Version of the image recipe.
 	Version pulumi.StringInput
+	// The working directory to be used during build and test workflows.
+	WorkingDirectory pulumi.StringPtrInput
 }
 
 func (ImageRecipeArgs) ElementType() reflect.Type {

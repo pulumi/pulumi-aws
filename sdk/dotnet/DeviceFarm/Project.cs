@@ -11,11 +11,11 @@ namespace Pulumi.Aws.DeviceFarm
 {
     /// <summary>
     /// Provides a resource to manage AWS Device Farm Projects.
-    /// Please keep in mind that this feature is only supported on the "us-west-2" region.
-    /// This resource will error if you try to create a project in another region.
     /// 
     /// For more information about Device Farm Projects, see the AWS Documentation on
     /// [Device Farm Projects][aws-get-project].
+    /// 
+    /// &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g. `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
     /// 
     /// ## Basic Example Usage
     /// 

@@ -10,6 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
+    /// Provides an API Gateway REST API Policy.
+    /// 
+    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+    /// 
+    /// ## Example Usage
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testRestApi = new Aws.ApiGateway.RestApi("testRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new Aws.ApiGateway.RestApiPolicyArgs
+    ///         {
+    ///             RestApiId = testRestApi.Id,
+    ///             Policy = testRestApi.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""*""
+    ///       }},
+    ///       ""Action"": ""execute-api:Invoke"",
+    ///       ""Resource"": ""{arn}"",
+    ///       ""Condition"": {{
+    ///         ""IpAddress"": {{
+    ///           ""aws:SourceIp"": ""123.123.123.123/32""
+    ///         }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.

@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
         [Output("retentionPeriod")]
         public Output<int?> RetentionPeriod { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }

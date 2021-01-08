@@ -44,7 +44,7 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 type LookupImageRecipeArgs struct {
 	// Amazon Resource Name (ARN) of the image recipe.
 	Arn string `pulumi:"arn"`
-	// (Optional) Key-value map of resource tags for the image recipe.
+	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -69,8 +69,10 @@ type LookupImageRecipeResult struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform string `pulumi:"platform"`
-	// (Optional) Key-value map of resource tags for the image recipe.
+	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
+	// The working directory used during build and test workflows.
+	WorkingDirectory string `pulumi:"workingDirectory"`
 }

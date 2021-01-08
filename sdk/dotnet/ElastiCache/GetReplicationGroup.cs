@@ -96,6 +96,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string PrimaryEndpointAddress;
         /// <summary>
+        /// The endpoint of the reader node in this node group (shard).
+        /// </summary>
+        public readonly string ReaderEndpointAddress;
+        /// <summary>
         /// The description of the replication group.
         /// </summary>
         public readonly string ReplicationGroupDescription;
@@ -132,6 +136,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string primaryEndpointAddress,
 
+            string readerEndpointAddress,
+
             string replicationGroupDescription,
 
             string replicationGroupId,
@@ -149,6 +155,7 @@ namespace Pulumi.Aws.ElastiCache
             NumberCacheClusters = numberCacheClusters;
             Port = port;
             PrimaryEndpointAddress = primaryEndpointAddress;
+            ReaderEndpointAddress = readerEndpointAddress;
             ReplicationGroupDescription = replicationGroupDescription;
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;
