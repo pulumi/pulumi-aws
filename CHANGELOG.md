@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+
+* Update auto-naming rules for RDS Cluster `clusterIdentifier` to follow specifications.
 
 ---
 
