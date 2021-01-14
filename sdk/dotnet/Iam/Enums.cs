@@ -85,10 +85,14 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSLambdaDynamoDBExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole");
         public static ManagedPolicy AWSLambdaENIManagementAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess");
         public static ManagedPolicy AWSLambdaExecute { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaExecute");
+        [Obsolete(@"This has been deprecated in favour of `AWSLambda_FullAccess`")]
         public static ManagedPolicy AWSLambdaFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaFullAccess");
+        public static ManagedPolicy AWSLambda_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_FullAccess");
         public static ManagedPolicy AWSLambdaInvocationDynamoDB { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB");
         public static ManagedPolicy AWSLambdaKinesisExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole");
+        [Obsolete(@"This has been deprecated in favour of `AWSLambda_ReadOnlyAccess`")]
         public static ManagedPolicy AWSLambdaReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess");
+        public static ManagedPolicy AWSLambda_ReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess");
         public static ManagedPolicy AWSLambdaRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaRole");
         public static ManagedPolicy AWSLambdaVPCAccessExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole");
         public static ManagedPolicy AWSMarketplaceFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceFullAccess");

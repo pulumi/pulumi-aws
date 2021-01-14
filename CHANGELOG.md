@@ -2,7 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add external reference support for Go SDK
+* Upgrade to Pulumi v2.18.0
+  * This introduces package/module registration for Go SDK.
+* Update auto-naming rules for RDS Cluster `clusterIdentifier` to follow specifications.
+* Add support for `AWSLambda_FullAccess` as a replacement for `AWSLambdaFullAccess` IAM policy.
+* Add support for `AWSLambda_ReadOnlyAccess` as a replacement for `AWSLambdaReadOnlyAccess` IAM policy.
 
 ---
 

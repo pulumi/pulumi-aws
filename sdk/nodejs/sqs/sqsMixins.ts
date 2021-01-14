@@ -104,7 +104,7 @@ function createFunctionFromEventHandler(
     if (handler instanceof Function) {
         return new lambda.CallbackFunction(name, {
             callback: handler,
-            policies: [iam.ManagedPolicy.AWSLambdaFullAccess, iam.ManagedPolicy.AmazonSQSFullAccess]
+            policies: [iam.ManagedPolicy.AWSLambda_FullAccess, iam.ManagedPolicy.AmazonSQSFullAccess]
         } , opts);
     }
     else {
