@@ -30,7 +30,6 @@ import {EngineType} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.Cluster("default", {
- *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",

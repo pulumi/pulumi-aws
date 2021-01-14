@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
  * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
- *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });

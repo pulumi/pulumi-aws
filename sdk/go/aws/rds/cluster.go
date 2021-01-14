@@ -49,7 +49,6 @@ import (
 // 				pulumi.String("us-west-2c"),
 // 			},
 // 			BackupRetentionPeriod: pulumi.Int(5),
-// 			ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 // 			DatabaseName:          pulumi.String("mydb"),
 // 			Engine:                pulumi.String("aurora-mysql"),
 // 			EngineVersion:         pulumi.String("5.7.mysql_aurora.2.03.2"),
@@ -83,7 +82,6 @@ import (
 // 				pulumi.String("us-west-2c"),
 // 			},
 // 			BackupRetentionPeriod: pulumi.Int(5),
-// 			ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 // 			DatabaseName:          pulumi.String("mydb"),
 // 			MasterPassword:        pulumi.String("bar"),
 // 			MasterUsername:        pulumi.String("foo"),
@@ -115,7 +113,6 @@ import (
 // 				pulumi.String("us-west-2c"),
 // 			},
 // 			BackupRetentionPeriod: pulumi.Int(5),
-// 			ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 // 			DatabaseName:          pulumi.String("mydb"),
 // 			Engine:                pulumi.String("aurora-postgresql"),
 // 			MasterPassword:        pulumi.String("bar"),
@@ -144,7 +141,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("example"),
 // 			DbSubnetGroupName: pulumi.Any(aws_db_subnet_group.Example.Name),
 // 			EngineMode:        pulumi.String("multimaster"),
 // 			MasterPassword:    pulumi.String("barbarbarbar"),

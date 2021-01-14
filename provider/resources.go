@@ -1778,6 +1778,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_identifier": tfbridge.AutoNameTransform("clusterIdentifier", 63, func(name string) string {
+						return strings.ToLower(name)
+					}),
 					"engine": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
