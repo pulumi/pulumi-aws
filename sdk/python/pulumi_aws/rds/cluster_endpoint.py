@@ -35,6 +35,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",

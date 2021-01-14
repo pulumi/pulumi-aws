@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     engine: "aurora-mysql",
  *     engineVersion: "5.7.mysql_aurora.2.03.2",
@@ -60,6 +61,7 @@ import * as utilities from "../utilities";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     masterPassword: "bar",
  *     masterUsername: "foo",
@@ -79,6 +81,7 @@ import * as utilities from "../utilities";
  *         "us-west-2c",
  *     ],
  *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     engine: "aurora-postgresql",
  *     masterPassword: "bar",
@@ -95,6 +98,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
+ *     clusterIdentifier: "example",
  *     dbSubnetGroupName: aws_db_subnet_group.example.name,
  *     engineMode: "multimaster",
  *     masterPassword: "barbarbarbar",
