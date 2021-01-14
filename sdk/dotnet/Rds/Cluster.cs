@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Rds
     ///                 "us-west-2c",
     ///             },
     ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
     ///             DatabaseName = "mydb",
     ///             Engine = "aurora-mysql",
     ///             EngineVersion = "5.7.mysql_aurora.2.03.2",
@@ -79,6 +80,7 @@ namespace Pulumi.Aws.Rds
     ///                 "us-west-2c",
     ///             },
     ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
     ///             DatabaseName = "mydb",
     ///             MasterPassword = "bar",
     ///             MasterUsername = "foo",
@@ -107,6 +109,7 @@ namespace Pulumi.Aws.Rds
     ///                 "us-west-2c",
     ///             },
     ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
     ///             DatabaseName = "mydb",
     ///             Engine = "aurora-postgresql",
     ///             MasterPassword = "bar",
@@ -131,6 +134,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         var example = new Aws.Rds.Cluster("example", new Aws.Rds.ClusterArgs
     ///         {
+    ///             ClusterIdentifier = "example",
     ///             DbSubnetGroupName = aws_db_subnet_group.Example.Name,
     ///             EngineMode = "multimaster",
     ///             MasterPassword = "barbarbarbar",

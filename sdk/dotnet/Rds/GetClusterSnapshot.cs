@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Rds
         ///         // a new dev database.
         ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
         ///         {
+        ///             ClusterIdentifier = "development_cluster",
         ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
         ///             DbSubnetGroupName = "my_db_subnet_group",
         ///         });
