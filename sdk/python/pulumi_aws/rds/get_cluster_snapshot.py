@@ -289,6 +289,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
     # Use the last snapshot of the dev database before it was destroyed to create
     # a new dev database.
     aurora_cluster = aws.rds.Cluster("auroraCluster",
+        cluster_identifier="development_cluster",
         snapshot_identifier=development_final_snapshot.id,
         db_subnet_group_name="my_db_subnet_group")
     aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",

@@ -93,6 +93,7 @@ class Cluster(pulumi.CustomResource):
                 "us-west-2c",
             ],
             backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
             engine="aurora-mysql",
             engine_version="5.7.mysql_aurora.2.03.2",
@@ -113,6 +114,7 @@ class Cluster(pulumi.CustomResource):
                 "us-west-2c",
             ],
             backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
             master_password="bar",
             master_username="foo",
@@ -131,6 +133,7 @@ class Cluster(pulumi.CustomResource):
                 "us-west-2c",
             ],
             backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
             engine="aurora-postgresql",
             master_password="bar",
@@ -146,6 +149,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Cluster("example",
+            cluster_identifier="example",
             db_subnet_group_name=aws_db_subnet_group["example"]["name"],
             engine_mode="multimaster",
             master_password="barbarbarbar",
