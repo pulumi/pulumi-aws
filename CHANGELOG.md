@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-* Update auto-naming rules for RDS Cluster `clusterIdentifier` to follow specifications.
+* Revert auto-naming of RDS Cluster `clusterIdentifier`.
 
 ---
 
