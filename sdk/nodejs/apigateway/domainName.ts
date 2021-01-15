@@ -234,6 +234,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
     /**
+     * The mutual TLS authentication configuration for the domain name. Defined below.
+     */
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
+    /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
@@ -282,6 +286,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
+            inputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
             inputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
             inputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
             inputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
@@ -300,6 +305,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["certificatePrivateKey"] = args ? args.certificatePrivateKey : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
             inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
             inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
@@ -381,6 +387,10 @@ export interface DomainNameState {
      */
     readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
     /**
+     * The mutual TLS authentication configuration for the domain name. Defined below.
+     */
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
+    /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
     readonly regionalCertificateArn?: pulumi.Input<string>;
@@ -447,6 +457,10 @@ export interface DomainNameArgs {
      * Configuration block defining API endpoint information including type. Defined below.
      */
     readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    /**
+     * The mutual TLS authentication configuration for the domain name. Defined below.
+     */
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */

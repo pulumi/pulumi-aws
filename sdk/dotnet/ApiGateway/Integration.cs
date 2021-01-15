@@ -247,6 +247,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<int?> TimeoutMilliseconds { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block specifying the TLS configuration for an integration. Defined below.
+        /// </summary>
+        [Output("tlsConfig")]
+        public Output<Outputs.IntegrationTlsConfig?> TlsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Output("type")]
@@ -415,6 +421,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<int>? TimeoutMilliseconds { get; set; }
 
         /// <summary>
+        /// Configuration block specifying the TLS configuration for an integration. Defined below.
+        /// </summary>
+        [Input("tlsConfig")]
+        public Input<Inputs.IntegrationTlsConfigArgs>? TlsConfig { get; set; }
+
+        /// <summary>
         /// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Input("type", required: true)]
@@ -542,6 +554,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
+
+        /// <summary>
+        /// Configuration block specifying the TLS configuration for an integration. Defined below.
+        /// </summary>
+        [Input("tlsConfig")]
+        public Input<Inputs.IntegrationTlsConfigGetArgs>? TlsConfig { get; set; }
 
         /// <summary>
         /// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.

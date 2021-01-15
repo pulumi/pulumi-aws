@@ -133,6 +133,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
+        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// </summary>
+        [Output("operationName")]
+        public Output<string?> OperationName { get; private set; } = null!;
+
+        /// <summary>
         /// A map of the API models used for the request's content type
         /// where key is the content type (e.g. `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
@@ -247,6 +253,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
+        /// <summary>
+        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// </summary>
+        [Input("operationName")]
+        public Input<string>? OperationName { get; set; }
+
         [Input("requestModels")]
         private InputMap<string>? _requestModels;
 
@@ -334,6 +346,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
+
+        /// <summary>
+        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// </summary>
+        [Input("operationName")]
+        public Input<string>? OperationName { get; set; }
 
         [Input("requestModels")]
         private InputMap<string>? _requestModels;

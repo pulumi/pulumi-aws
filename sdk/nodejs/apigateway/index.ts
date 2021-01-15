@@ -14,6 +14,7 @@ export * from "./deployment";
 export * from "./documentationPart";
 export * from "./documentationVersion";
 export * from "./domainName";
+export * from "./getDomainName";
 export * from "./getKey";
 export * from "./getResource";
 export * from "./getRestApi";

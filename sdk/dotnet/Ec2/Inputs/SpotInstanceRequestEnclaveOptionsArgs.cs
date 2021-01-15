@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class SpotInstanceRequestEnclaveOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+        /// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -22,6 +22,7 @@ class Directory(pulumi.CustomResource):
                  self_service_permissions: Optional[pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_access_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']]] = None,
                  workspace_creation_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -75,6 +76,15 @@ class Directory(pulumi.CustomResource):
                 rebuild_workspace=True,
                 restart_workspace=True,
                 switch_running_mode=True,
+            ),
+            workspace_access_properties=aws.workspaces.DirectoryWorkspaceAccessPropertiesArgs(
+                device_type_android="ALLOW",
+                device_type_chromeos="ALLOW",
+                device_type_ios="ALLOW",
+                device_type_osx="ALLOW",
+                device_type_web="DENY",
+                device_type_windows="DENY",
+                device_type_zeroclient="DENY",
             ),
             workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
                 custom_security_group_id=aws_security_group["example"]["id"],
@@ -134,6 +144,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
         if __name__ is not None:
@@ -160,6 +171,7 @@ class Directory(pulumi.CustomResource):
             __props__['self_service_permissions'] = self_service_permissions
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
+            __props__['workspace_access_properties'] = workspace_access_properties
             __props__['workspace_creation_properties'] = workspace_creation_properties
             __props__['alias'] = None
             __props__['customer_user_name'] = None
@@ -191,6 +203,7 @@ class Directory(pulumi.CustomResource):
             self_service_permissions: Optional[pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            workspace_access_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']]] = None,
             workspace_creation_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']]] = None,
             workspace_security_group_id: Optional[pulumi.Input[str]] = None) -> 'Directory':
         """
@@ -212,6 +225,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         :param pulumi.Input[str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
         """
@@ -231,6 +245,7 @@ class Directory(pulumi.CustomResource):
         __props__["self_service_permissions"] = self_service_permissions
         __props__["subnet_ids"] = subnet_ids
         __props__["tags"] = tags
+        __props__["workspace_access_properties"] = workspace_access_properties
         __props__["workspace_creation_properties"] = workspace_creation_properties
         __props__["workspace_security_group_id"] = workspace_security_group_id
         return Directory(resource_name, opts=opts, __props__=__props__)
@@ -330,6 +345,14 @@ class Directory(pulumi.CustomResource):
         A map of tags assigned to the WorkSpaces directory.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workspaceAccessProperties")
+    def workspace_access_properties(self) -> pulumi.Output['outputs.DirectoryWorkspaceAccessProperties']:
+        """
+        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "workspace_access_properties")
 
     @property
     @pulumi.getter(name="workspaceCreationProperties")

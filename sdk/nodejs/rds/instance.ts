@@ -216,7 +216,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-     * set to `false`.
+     * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -687,7 +687,7 @@ export interface InstanceState {
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-     * set to `false`.
+     * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -998,7 +998,7 @@ export interface InstanceArgs {
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-     * set to `false`.
+     * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**

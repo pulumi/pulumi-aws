@@ -187,7 +187,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> ClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Output("clusterMode")]
         public Output<Outputs.ReplicationGroupClusterMode> ClusterMode { get; private set; } = null!;
@@ -209,6 +209,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Output("finalSnapshotIdentifier")]
+        public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
@@ -436,7 +442,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeArgs>? ClusterMode { get; set; }
@@ -452,6 +458,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
@@ -652,7 +664,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? ClusterEnabled { get; set; }
 
         /// <summary>
-        /// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeGetArgs>? ClusterMode { get; set; }
@@ -674,6 +686,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.

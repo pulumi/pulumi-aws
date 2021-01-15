@@ -166,6 +166,1418 @@ func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainDefaultUserSettings struct {
+	// The execution role ARN for the user.
+	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// The security groups.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings *DomainDefaultUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings *DomainDefaultUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
+}
+
+// DomainDefaultUserSettingsInput is an input type that accepts DomainDefaultUserSettingsArgs and DomainDefaultUserSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsInput` via:
+//
+//          DomainDefaultUserSettingsArgs{...}
+type DomainDefaultUserSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsOutput() DomainDefaultUserSettingsOutput
+	ToDomainDefaultUserSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsOutput
+}
+
+type DomainDefaultUserSettingsArgs struct {
+	// The execution role ARN for the user.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// The security groups.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings DomainDefaultUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
+}
+
+func (DomainDefaultUserSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsOutput() DomainDefaultUserSettingsOutput {
+	return i.ToDomainDefaultUserSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsOutput).ToDomainDefaultUserSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsArgs, DomainDefaultUserSettingsPtr and DomainDefaultUserSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsPtrInput` via:
+//
+//          DomainDefaultUserSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput
+	ToDomainDefaultUserSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsPtrType DomainDefaultUserSettingsArgs
+
+func DomainDefaultUserSettingsPtr(v *DomainDefaultUserSettingsArgs) DomainDefaultUserSettingsPtrInput {
+	return (*domainDefaultUserSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsPtrType) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsPtrType) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsOutput() DomainDefaultUserSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettings {
+		return &v
+	}).(DomainDefaultUserSettingsPtrOutput)
+}
+
+// The execution role ARN for the user.
+func (o DomainDefaultUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
+func (o DomainDefaultUserSettingsOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
+		return v.JupyterServerAppSettings
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
+func (o DomainDefaultUserSettingsOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
+		return v.KernelGatewayAppSettings
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups.
+func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The sharing settings. See Sharing Settings below.
+func (o DomainDefaultUserSettingsOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings { return v.SharingSettings }).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+// The TensorBoard app settings. See TensorBoard App Settings below.
+func (o DomainDefaultUserSettingsOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
+		return v.TensorBoardAppSettings
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsPtrOutput) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsPtrOutput) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) DomainDefaultUserSettings { return *v }).(DomainDefaultUserSettingsOutput)
+}
+
+// The execution role ARN for the user.
+func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups.
+func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The sharing settings. See Sharing Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SharingSettings
+	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+// The TensorBoard app settings. See TensorBoard App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TensorBoardAppSettings
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainDefaultUserSettingsJupyterServerAppSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsArgs and DomainDefaultUserSettingsJupyterServerAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterServerAppSettingsInput` via:
+//
+//          DomainDefaultUserSettingsJupyterServerAppSettingsArgs{...}
+type DomainDefaultUserSettingsJupyterServerAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsOutput() DomainDefaultUserSettingsJupyterServerAppSettingsOutput
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsOutput() DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput).ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsArgs, DomainDefaultUserSettingsJupyterServerAppSettingsPtr and DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput` via:
+//
+//          DomainDefaultUserSettingsJupyterServerAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterServerAppSettingsPtrType DomainDefaultUserSettingsJupyterServerAppSettingsArgs
+
+func DomainDefaultUserSettingsJupyterServerAppSettingsPtr(v *DomainDefaultUserSettingsJupyterServerAppSettingsArgs) DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsJupyterServerAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterServerAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterServerAppSettingsPtrType) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterServerAppSettingsPtrType) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsOutput() DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) DomainDefaultUserSettingsJupyterServerAppSettings {
+		return *v
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput` via:
+//
+//          DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return *v
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{...}
+type DomainDefaultUserSettingsKernelGatewayAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput).ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsArgs, DomainDefaultUserSettingsKernelGatewayAppSettingsPtr and DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsKernelGatewayAppSettingsPtrType DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
+
+func DomainDefaultUserSettingsKernelGatewayAppSettingsPtr(v *DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsKernelGatewayAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsKernelGatewayAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsKernelGatewayAppSettingsPtrType) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsKernelGatewayAppSettingsPtrType) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) DomainDefaultUserSettingsKernelGatewayAppSettings {
+		return *v
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{...}
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput)
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray and DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{ DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{...} }
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) string {
+		return v.AppImageConfigName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
+		return vs[0].([]DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return *v
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsSharingSettings struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// DomainDefaultUserSettingsSharingSettingsInput is an input type that accepts DomainDefaultUserSettingsSharingSettingsArgs and DomainDefaultUserSettingsSharingSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSharingSettingsInput` via:
+//
+//          DomainDefaultUserSettingsSharingSettingsArgs{...}
+type DomainDefaultUserSettingsSharingSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSharingSettingsOutput() DomainDefaultUserSettingsSharingSettingsOutput
+	ToDomainDefaultUserSettingsSharingSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsSharingSettingsOutput
+}
+
+type DomainDefaultUserSettingsSharingSettingsArgs struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (DomainDefaultUserSettingsSharingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsSharingSettingsArgs) ToDomainDefaultUserSettingsSharingSettingsOutput() DomainDefaultUserSettingsSharingSettingsOutput {
+	return i.ToDomainDefaultUserSettingsSharingSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSharingSettingsArgs) ToDomainDefaultUserSettingsSharingSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSharingSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsSharingSettingsArgs) ToDomainDefaultUserSettingsSharingSettingsPtrOutput() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSharingSettingsArgs) ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSharingSettingsOutput).ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsSharingSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsSharingSettingsArgs, DomainDefaultUserSettingsSharingSettingsPtr and DomainDefaultUserSettingsSharingSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSharingSettingsPtrInput` via:
+//
+//          DomainDefaultUserSettingsSharingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsSharingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSharingSettingsPtrOutput() DomainDefaultUserSettingsSharingSettingsPtrOutput
+	ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsSharingSettingsPtrType DomainDefaultUserSettingsSharingSettingsArgs
+
+func DomainDefaultUserSettingsSharingSettingsPtr(v *DomainDefaultUserSettingsSharingSettingsArgs) DomainDefaultUserSettingsSharingSettingsPtrInput {
+	return (*domainDefaultUserSettingsSharingSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsSharingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsSharingSettingsPtrType) ToDomainDefaultUserSettingsSharingSettingsPtrOutput() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsSharingSettingsPtrType) ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsSharingSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSharingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSettingsSharingSettingsOutput() DomainDefaultUserSettingsSharingSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSettingsSharingSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSettingsSharingSettingsPtrOutput() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *DomainDefaultUserSettingsSharingSettings {
+		return &v
+	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+func (o DomainDefaultUserSettingsSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+func (o DomainDefaultUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+func (o DomainDefaultUserSettingsSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsSharingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSharingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) ToDomainDefaultUserSettingsSharingSettingsPtrOutput() DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) Elem() DomainDefaultUserSettingsSharingSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) DomainDefaultUserSettingsSharingSettings { return *v }).(DomainDefaultUserSettingsSharingSettingsOutput)
+}
+
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotebookOutputOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainDefaultUserSettingsTensorBoardAppSettingsInput is an input type that accepts DomainDefaultUserSettingsTensorBoardAppSettingsArgs and DomainDefaultUserSettingsTensorBoardAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsTensorBoardAppSettingsInput` via:
+//
+//          DomainDefaultUserSettingsTensorBoardAppSettingsArgs{...}
+type DomainDefaultUserSettingsTensorBoardAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsOutput() DomainDefaultUserSettingsTensorBoardAppSettingsOutput
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsOutput() DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput).ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsTensorBoardAppSettingsArgs, DomainDefaultUserSettingsTensorBoardAppSettingsPtr and DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput` via:
+//
+//          DomainDefaultUserSettingsTensorBoardAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsTensorBoardAppSettingsPtrType DomainDefaultUserSettingsTensorBoardAppSettingsArgs
+
+func DomainDefaultUserSettingsTensorBoardAppSettingsPtr(v *DomainDefaultUserSettingsTensorBoardAppSettingsArgs) DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsTensorBoardAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsTensorBoardAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsTensorBoardAppSettingsPtrType) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsTensorBoardAppSettingsPtrType) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsOutput() DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) DomainDefaultUserSettingsTensorBoardAppSettings {
+		return *v
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput` via:
+//
+//          DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return *v
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigurationDataCaptureConfig struct {
 	// The content type headers to capture. Fields are documented below.
 	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
@@ -1572,6 +2984,24 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 func init() {
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput{})

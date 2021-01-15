@@ -289,6 +289,7 @@ class EndpointS3SettingsArgs:
                  compression_type: Optional[pulumi.Input[str]] = None,
                  csv_delimiter: Optional[pulumi.Input[str]] = None,
                  csv_row_delimiter: Optional[pulumi.Input[str]] = None,
+                 date_partition_enabled: Optional[pulumi.Input[bool]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -297,6 +298,7 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[str] compression_type: Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Defaults to `,`.
         :param pulumi.Input[str] csv_row_delimiter: Delimiter used to separate rows in the source files. Defaults to `\n`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
         :param pulumi.Input[str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
@@ -310,6 +312,8 @@ class EndpointS3SettingsArgs:
             pulumi.set(__self__, "csv_delimiter", csv_delimiter)
         if csv_row_delimiter is not None:
             pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+        if date_partition_enabled is not None:
+            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
         if service_access_role_arn is not None:
@@ -374,6 +378,18 @@ class EndpointS3SettingsArgs:
     @csv_row_delimiter.setter
     def csv_row_delimiter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "csv_row_delimiter", value)
+
+    @property
+    @pulumi.getter(name="datePartitionEnabled")
+    def date_partition_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        """
+        return pulumi.get(self, "date_partition_enabled")
+
+    @date_partition_enabled.setter
+    def date_partition_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "date_partition_enabled", value)
 
     @property
     @pulumi.getter(name="externalTableDefinition")

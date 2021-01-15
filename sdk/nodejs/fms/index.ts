@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./adminAccount";
+export * from "./policy";
 
 // Import resources to register:
 import { AdminAccount } from "./adminAccount";
+import { Policy } from "./policy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:fms/adminAccount:AdminAccount":
                 return new AdminAccount(name, <any>undefined, { urn })
+            case "aws:fms/policy:Policy":
+                return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "fms/adminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "fms/policy", _module)

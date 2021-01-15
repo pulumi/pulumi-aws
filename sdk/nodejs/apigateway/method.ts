@@ -119,6 +119,10 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
+     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     */
+    public readonly operationName!: pulumi.Output<string | undefined>;
+    /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
@@ -159,6 +163,7 @@ export class Method extends pulumi.CustomResource {
             inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
             inputs["authorizerId"] = state ? state.authorizerId : undefined;
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
+            inputs["operationName"] = state ? state.operationName : undefined;
             inputs["requestModels"] = state ? state.requestModels : undefined;
             inputs["requestParameters"] = state ? state.requestParameters : undefined;
             inputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
@@ -183,6 +188,7 @@ export class Method extends pulumi.CustomResource {
             inputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
             inputs["authorizerId"] = args ? args.authorizerId : undefined;
             inputs["httpMethod"] = args ? args.httpMethod : undefined;
+            inputs["operationName"] = args ? args.operationName : undefined;
             inputs["requestModels"] = args ? args.requestModels : undefined;
             inputs["requestParameters"] = args ? args.requestParameters : undefined;
             inputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
@@ -224,6 +230,10 @@ export interface MethodState {
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     readonly httpMethod?: pulumi.Input<string>;
+    /**
+     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     */
+    readonly operationName?: pulumi.Input<string>;
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
@@ -273,6 +283,10 @@ export interface MethodArgs {
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     readonly httpMethod: pulumi.Input<string>;
+    /**
+     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     */
+    readonly operationName?: pulumi.Input<string>;
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)

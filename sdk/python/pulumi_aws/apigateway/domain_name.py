@@ -24,6 +24,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_private_key: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
@@ -184,6 +185,7 @@ class DomainName(pulumi.CustomResource):
                domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[str] domain_name: The fully-qualified domain name to register
         :param pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint information including type. Defined below.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name. Defined below.
         :param pulumi.Input[str] regional_certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[str] regional_certificate_name: The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
                `certificate_private_key`.
@@ -216,6 +218,7 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['endpoint_configuration'] = endpoint_configuration
+            __props__['mutual_tls_authentication'] = mutual_tls_authentication
             __props__['regional_certificate_arn'] = regional_certificate_arn
             __props__['regional_certificate_name'] = regional_certificate_name
             __props__['security_policy'] = security_policy
@@ -247,6 +250,7 @@ class DomainName(pulumi.CustomResource):
             cloudfront_zone_id: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
+            mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
             regional_certificate_arn: Optional[pulumi.Input[str]] = None,
             regional_certificate_name: Optional[pulumi.Input[str]] = None,
             regional_domain_name: Optional[pulumi.Input[str]] = None,
@@ -281,6 +285,7 @@ class DomainName(pulumi.CustomResource):
                that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[str] domain_name: The fully-qualified domain name to register
         :param pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint information including type. Defined below.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name. Defined below.
         :param pulumi.Input[str] regional_certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[str] regional_certificate_name: The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
                `certificate_private_key`.
@@ -304,6 +309,7 @@ class DomainName(pulumi.CustomResource):
         __props__["cloudfront_zone_id"] = cloudfront_zone_id
         __props__["domain_name"] = domain_name
         __props__["endpoint_configuration"] = endpoint_configuration
+        __props__["mutual_tls_authentication"] = mutual_tls_authentication
         __props__["regional_certificate_arn"] = regional_certificate_arn
         __props__["regional_certificate_name"] = regional_certificate_name
         __props__["regional_domain_name"] = regional_domain_name
@@ -409,6 +415,14 @@ class DomainName(pulumi.CustomResource):
         Configuration block defining API endpoint information including type. Defined below.
         """
         return pulumi.get(self, "endpoint_configuration")
+
+    @property
+    @pulumi.getter(name="mutualTlsAuthentication")
+    def mutual_tls_authentication(self) -> pulumi.Output[Optional['outputs.DomainNameMutualTlsAuthentication']]:
+        """
+        The mutual TLS authentication configuration for the domain name. Defined below.
+        """
+        return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter(name="regionalCertificateArn")

@@ -165,6 +165,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Output("finalSnapshotIdentifier")]
+        public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -368,6 +374,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance
@@ -592,6 +604,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance

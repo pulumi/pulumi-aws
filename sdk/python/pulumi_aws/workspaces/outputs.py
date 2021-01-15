@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'DirectorySelfServicePermissions',
+    'DirectoryWorkspaceAccessProperties',
     'DirectoryWorkspaceCreationProperties',
     'IpGroupRule',
     'WorkspaceWorkspaceProperties',
@@ -17,7 +18,8 @@ __all__ = [
     'GetBundleRootStorageResult',
     'GetBundleUserStorageResult',
     'GetDirectorySelfServicePermissionResult',
-    'GetDirectoryWorkspaceCreationPropertiesResult',
+    'GetDirectoryWorkspaceAccessPropertyResult',
+    'GetDirectoryWorkspaceCreationPropertyResult',
     'GetWorkspaceWorkspacePropertyResult',
 ]
 
@@ -86,6 +88,100 @@ class DirectorySelfServicePermissions(dict):
         Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
         """
         return pulumi.get(self, "switch_running_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DirectoryWorkspaceAccessProperties(dict):
+    def __init__(__self__, *,
+                 device_type_android: Optional[str] = None,
+                 device_type_chromeos: Optional[str] = None,
+                 device_type_ios: Optional[str] = None,
+                 device_type_osx: Optional[str] = None,
+                 device_type_web: Optional[str] = None,
+                 device_type_windows: Optional[str] = None,
+                 device_type_zeroclient: Optional[str] = None):
+        """
+        :param str device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
+        :param str device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param str device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param str device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param str device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
+        :param str device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param str device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        if device_type_android is not None:
+            pulumi.set(__self__, "device_type_android", device_type_android)
+        if device_type_chromeos is not None:
+            pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
+        if device_type_ios is not None:
+            pulumi.set(__self__, "device_type_ios", device_type_ios)
+        if device_type_osx is not None:
+            pulumi.set(__self__, "device_type_osx", device_type_osx)
+        if device_type_web is not None:
+            pulumi.set(__self__, "device_type_web", device_type_web)
+        if device_type_windows is not None:
+            pulumi.set(__self__, "device_type_windows", device_type_windows)
+        if device_type_zeroclient is not None:
+            pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+
+    @property
+    @pulumi.getter(name="deviceTypeAndroid")
+    def device_type_android(self) -> Optional[str]:
+        """
+        Indicates whether users can use Android devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_android")
+
+    @property
+    @pulumi.getter(name="deviceTypeChromeos")
+    def device_type_chromeos(self) -> Optional[str]:
+        """
+        Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_chromeos")
+
+    @property
+    @pulumi.getter(name="deviceTypeIos")
+    def device_type_ios(self) -> Optional[str]:
+        """
+        Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_ios")
+
+    @property
+    @pulumi.getter(name="deviceTypeOsx")
+    def device_type_osx(self) -> Optional[str]:
+        """
+        Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_osx")
+
+    @property
+    @pulumi.getter(name="deviceTypeWeb")
+    def device_type_web(self) -> Optional[str]:
+        """
+        Indicates whether users can access their WorkSpaces through a web browser.
+        """
+        return pulumi.get(self, "device_type_web")
+
+    @property
+    @pulumi.getter(name="deviceTypeWindows")
+    def device_type_windows(self) -> Optional[str]:
+        """
+        Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_windows")
+
+    @property
+    @pulumi.getter(name="deviceTypeZeroclient")
+    def device_type_zeroclient(self) -> Optional[str]:
+        """
+        Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_zeroclient")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -381,13 +477,97 @@ class GetDirectorySelfServicePermissionResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryWorkspaceCreationPropertiesResult(dict):
+class GetDirectoryWorkspaceAccessPropertyResult(dict):
+    def __init__(__self__, *,
+                 device_type_android: str,
+                 device_type_chromeos: str,
+                 device_type_ios: str,
+                 device_type_osx: str,
+                 device_type_web: str,
+                 device_type_windows: str,
+                 device_type_zeroclient: str):
+        """
+        :param str device_type_android: (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+        :param str device_type_chromeos: (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param str device_type_ios: (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param str device_type_osx: (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param str device_type_web: (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+        :param str device_type_windows: (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param str device_type_zeroclient: (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        pulumi.set(__self__, "device_type_android", device_type_android)
+        pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
+        pulumi.set(__self__, "device_type_ios", device_type_ios)
+        pulumi.set(__self__, "device_type_osx", device_type_osx)
+        pulumi.set(__self__, "device_type_web", device_type_web)
+        pulumi.set(__self__, "device_type_windows", device_type_windows)
+        pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+
+    @property
+    @pulumi.getter(name="deviceTypeAndroid")
+    def device_type_android(self) -> str:
+        """
+        (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_android")
+
+    @property
+    @pulumi.getter(name="deviceTypeChromeos")
+    def device_type_chromeos(self) -> str:
+        """
+        (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_chromeos")
+
+    @property
+    @pulumi.getter(name="deviceTypeIos")
+    def device_type_ios(self) -> str:
+        """
+        (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_ios")
+
+    @property
+    @pulumi.getter(name="deviceTypeOsx")
+    def device_type_osx(self) -> str:
+        """
+        (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_osx")
+
+    @property
+    @pulumi.getter(name="deviceTypeWeb")
+    def device_type_web(self) -> str:
+        """
+        (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+        """
+        return pulumi.get(self, "device_type_web")
+
+    @property
+    @pulumi.getter(name="deviceTypeWindows")
+    def device_type_windows(self) -> str:
+        """
+        (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_windows")
+
+    @property
+    @pulumi.getter(name="deviceTypeZeroclient")
+    def device_type_zeroclient(self) -> str:
+        """
+        (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_zeroclient")
+
+
+@pulumi.output_type
+class GetDirectoryWorkspaceCreationPropertyResult(dict):
     def __init__(__self__, *,
                  custom_security_group_id: str,
-                 default_ou: Optional[str] = None,
-                 enable_internet_access: Optional[bool] = None,
-                 enable_maintenance_mode: Optional[bool] = None,
-                 user_enabled_as_local_administrator: Optional[bool] = None):
+                 default_ou: str,
+                 enable_internet_access: bool,
+                 enable_maintenance_mode: bool,
+                 user_enabled_as_local_administrator: bool):
         """
         :param str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
         :param str default_ou: The default organizational unit (OU) for your WorkSpace directories.
@@ -396,14 +576,10 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
         :param bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
         """
         pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
-        if default_ou is not None:
-            pulumi.set(__self__, "default_ou", default_ou)
-        if enable_internet_access is not None:
-            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
-        if enable_maintenance_mode is not None:
-            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
-        if user_enabled_as_local_administrator is not None:
-            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+        pulumi.set(__self__, "default_ou", default_ou)
+        pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+        pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+        pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
 
     @property
     @pulumi.getter(name="customSecurityGroupId")
@@ -415,7 +591,7 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
 
     @property
     @pulumi.getter(name="defaultOu")
-    def default_ou(self) -> Optional[str]:
+    def default_ou(self) -> str:
         """
         The default organizational unit (OU) for your WorkSpace directories.
         """
@@ -423,7 +599,7 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
 
     @property
     @pulumi.getter(name="enableInternetAccess")
-    def enable_internet_access(self) -> Optional[bool]:
+    def enable_internet_access(self) -> bool:
         """
         Indicates whether internet access is enabled for your WorkSpaces.
         """
@@ -431,7 +607,7 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
 
     @property
     @pulumi.getter(name="enableMaintenanceMode")
-    def enable_maintenance_mode(self) -> Optional[bool]:
+    def enable_maintenance_mode(self) -> bool:
         """
         Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
         """
@@ -439,7 +615,7 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
 
     @property
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
-    def user_enabled_as_local_administrator(self) -> Optional[bool]:
+    def user_enabled_as_local_administrator(self) -> bool:
         """
         Indicates whether users are local administrators of their WorkSpaces.
         """

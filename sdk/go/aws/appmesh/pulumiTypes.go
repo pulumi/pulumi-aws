@@ -2694,7 +2694,7 @@ type RouteSpecGrpcRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecGrpcRouteAction `pulumi:"action"`
 	// The criteria for determining an gRPC request match.
-	Match RouteSpecGrpcRouteMatch `pulumi:"match"`
+	Match *RouteSpecGrpcRouteMatch `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy *RouteSpecGrpcRouteRetryPolicy `pulumi:"retryPolicy"`
 	// The types of timeouts.
@@ -2716,7 +2716,7 @@ type RouteSpecGrpcRouteArgs struct {
 	// The action to take if a match is determined.
 	Action RouteSpecGrpcRouteActionInput `pulumi:"action"`
 	// The criteria for determining an gRPC request match.
-	Match RouteSpecGrpcRouteMatchInput `pulumi:"match"`
+	Match RouteSpecGrpcRouteMatchPtrInput `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy RouteSpecGrpcRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
 	// The types of timeouts.
@@ -2806,8 +2806,8 @@ func (o RouteSpecGrpcRouteOutput) Action() RouteSpecGrpcRouteActionOutput {
 }
 
 // The criteria for determining an gRPC request match.
-func (o RouteSpecGrpcRouteOutput) Match() RouteSpecGrpcRouteMatchOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRoute) RouteSpecGrpcRouteMatch { return v.Match }).(RouteSpecGrpcRouteMatchOutput)
+func (o RouteSpecGrpcRouteOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteMatch { return v.Match }).(RouteSpecGrpcRouteMatchPtrOutput)
 }
 
 // The retry policy.
@@ -2854,7 +2854,7 @@ func (o RouteSpecGrpcRoutePtrOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Match
+		return v.Match
 	}).(RouteSpecGrpcRouteMatchPtrOutput)
 }
 

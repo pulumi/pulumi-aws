@@ -84,6 +84,8 @@ type RestApi struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The description of the REST API
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
@@ -94,6 +96,8 @@ type RestApi struct {
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The resource ID of the REST API's root
@@ -143,6 +147,8 @@ type restApiState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The description of the REST API
 	Description *string `pulumi:"description"`
+	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
@@ -153,6 +159,8 @@ type restApiState struct {
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name *string `pulumi:"name"`
+	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+	Parameters map[string]string `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy *string `pulumi:"policy"`
 	// The resource ID of the REST API's root
@@ -174,6 +182,8 @@ type RestApiState struct {
 	CreatedDate pulumi.StringPtrInput
 	// The description of the REST API
 	Description pulumi.StringPtrInput
+	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
@@ -184,6 +194,8 @@ type RestApiState struct {
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
 	Name pulumi.StringPtrInput
+	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+	Parameters pulumi.StringMapInput
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy pulumi.StringPtrInput
 	// The resource ID of the REST API's root
@@ -205,12 +217,16 @@ type restApiArgs struct {
 	Body *string `pulumi:"body"`
 	// The description of the REST API
 	Description *string `pulumi:"description"`
+	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
 	Name *string `pulumi:"name"`
+	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+	Parameters map[string]string `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy *string `pulumi:"policy"`
 	// Key-value map of resource tags
@@ -227,12 +243,16 @@ type RestApiArgs struct {
 	Body pulumi.StringPtrInput
 	// The description of the REST API
 	Description pulumi.StringPtrInput
+	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
 	Name pulumi.StringPtrInput
+	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+	Parameters pulumi.StringMapInput
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
 	Policy pulumi.StringPtrInput
 	// Key-value map of resource tags

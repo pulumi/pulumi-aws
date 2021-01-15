@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// The criteria for determining an gRPC request match.
         /// </summary>
-        public readonly Outputs.RouteSpecGrpcRouteMatch Match;
+        public readonly Outputs.RouteSpecGrpcRouteMatch? Match;
         /// <summary>
         /// The retry policy.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private RouteSpecGrpcRoute(
             Outputs.RouteSpecGrpcRouteAction action,
 
-            Outputs.RouteSpecGrpcRouteMatch match,
+            Outputs.RouteSpecGrpcRouteMatch? match,
 
             Outputs.RouteSpecGrpcRouteRetryPolicy? retryPolicy,
 

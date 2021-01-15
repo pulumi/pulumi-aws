@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? CsvRowDelimiter;
         /// <summary>
+        /// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        /// </summary>
+        public readonly bool? DatePartitionEnabled;
+        /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
         public readonly string? ExternalTableDefinition;
@@ -54,6 +58,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? csvRowDelimiter,
 
+            bool? datePartitionEnabled,
+
             string? externalTableDefinition,
 
             string? serviceAccessRoleArn)
@@ -63,6 +69,7 @@ namespace Pulumi.Aws.Dms.Outputs
             CompressionType = compressionType;
             CsvDelimiter = csvDelimiter;
             CsvRowDelimiter = csvRowDelimiter;
+            DatePartitionEnabled = datePartitionEnabled;
             ExternalTableDefinition = externalTableDefinition;
             ServiceAccessRoleArn = serviceAccessRoleArn;
         }

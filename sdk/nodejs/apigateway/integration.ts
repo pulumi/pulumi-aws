@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
@@ -198,6 +199,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
     /**
+     * Configuration block specifying the TLS configuration for an integration. Defined below.
+     */
+    public readonly tlsConfig!: pulumi.Output<outputs.apigateway.IntegrationTlsConfig | undefined>;
+    /**
      * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
     public readonly type!: pulumi.Output<string>;
@@ -234,6 +239,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
+            inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["uri"] = state ? state.uri : undefined;
         } else {
@@ -264,6 +270,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
+            inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
@@ -345,6 +352,10 @@ export interface IntegrationState {
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
     /**
+     * Configuration block specifying the TLS configuration for an integration. Defined below.
+     */
+    readonly tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
+    /**
      * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
     readonly type?: pulumi.Input<string>;
@@ -422,6 +433,10 @@ export interface IntegrationArgs {
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
+    /**
+     * Configuration block specifying the TLS configuration for an integration. Defined below.
+     */
+    readonly tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
     /**
      * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */

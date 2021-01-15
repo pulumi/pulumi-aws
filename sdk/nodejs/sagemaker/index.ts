@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./codeRepository";
+export * from "./domain";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
 export * from "./getPrebuiltEcrImage";
@@ -16,6 +17,7 @@ export * from "./notebookInstanceLifecycleConfiguration";
 
 // Import resources to register:
 import { CodeRepository } from "./codeRepository";
+import { Domain } from "./domain";
 import { Endpoint } from "./endpoint";
 import { EndpointConfiguration } from "./endpointConfiguration";
 import { Image } from "./image";
@@ -29,6 +31,8 @@ const _module = {
         switch (type) {
             case "aws:sagemaker/codeRepository:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
+            case "aws:sagemaker/domain:Domain":
+                return new Domain(name, <any>undefined, { urn })
             case "aws:sagemaker/endpoint:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
@@ -47,6 +51,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)

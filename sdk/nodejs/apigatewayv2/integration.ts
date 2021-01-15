@@ -155,14 +155,20 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly payloadFormatVersion!: pulumi.Output<string | undefined>;
     /**
-     * A key-value map specifying request parameters that are passed from the method request to the backend.
-     * Supported only for WebSocket APIs.
+     * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+     * A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     public readonly requestTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+     */
+    public readonly responseParameters!: pulumi.Output<outputs.apigatewayv2.IntegrationResponseParameter[] | undefined>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
@@ -200,6 +206,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["payloadFormatVersion"] = state ? state.payloadFormatVersion : undefined;
             inputs["requestParameters"] = state ? state.requestParameters : undefined;
             inputs["requestTemplates"] = state ? state.requestTemplates : undefined;
+            inputs["responseParameters"] = state ? state.responseParameters : undefined;
             inputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
             inputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
             inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
@@ -225,6 +232,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
             inputs["requestParameters"] = args ? args.requestParameters : undefined;
             inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
+            inputs["responseParameters"] = args ? args.responseParameters : undefined;
             inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
             inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
             inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
@@ -301,14 +309,20 @@ export interface IntegrationState {
      */
     readonly payloadFormatVersion?: pulumi.Input<string>;
     /**
-     * A key-value map specifying request parameters that are passed from the method request to the backend.
-     * Supported only for WebSocket APIs.
+     * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+     * A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     readonly requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+     */
+    readonly responseParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameter>[]>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
@@ -376,14 +390,20 @@ export interface IntegrationArgs {
      */
     readonly payloadFormatVersion?: pulumi.Input<string>;
     /**
-     * A key-value map specifying request parameters that are passed from the method request to the backend.
-     * Supported only for WebSocket APIs.
+     * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+     * A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     readonly requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+     */
+    readonly responseParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameter>[]>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */

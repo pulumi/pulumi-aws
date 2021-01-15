@@ -98,6 +98,7 @@ import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as guardduty from "./guardduty";
 import * as iam from "./iam";
+import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as iot from "./iot";
@@ -229,6 +230,7 @@ export {
     glue,
     guardduty,
     iam,
+    identitystore,
     imagebuilder,
     inspector,
     iot,

@@ -12,6 +12,7 @@ from .deployment import *
 from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
+from .get_domain_name import *
 from .get_key import *
 from .get_resource import *
 from .get_rest_api import *

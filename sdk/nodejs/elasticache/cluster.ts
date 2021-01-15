@@ -140,6 +140,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
+     * The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+     */
+    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -246,6 +250,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["configurationEndpoint"] = state ? state.configurationEndpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["nodeType"] = state ? state.nodeType : undefined;
             inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
@@ -270,6 +275,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterId"] = args ? args.clusterId : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
+            inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["nodeType"] = args ? args.nodeType : undefined;
             inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
@@ -351,6 +357,10 @@ export interface ClusterState {
      * in the AWS Documentation center for supported versions
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -472,6 +482,10 @@ export interface ClusterArgs {
      * in the AWS Documentation center for supported versions
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).

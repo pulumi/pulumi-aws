@@ -19,7 +19,7 @@ class GetPartitionResult:
     """
     A collection of values returned by getPartition.
     """
-    def __init__(__self__, dns_suffix=None, id=None, partition=None):
+    def __init__(__self__, dns_suffix=None, id=None, partition=None, reverse_dns_prefix=None):
         if dns_suffix and not isinstance(dns_suffix, str):
             raise TypeError("Expected argument 'dns_suffix' to be a str")
         pulumi.set(__self__, "dns_suffix", dns_suffix)
@@ -29,6 +29,9 @@ class GetPartitionResult:
         if partition and not isinstance(partition, str):
             raise TypeError("Expected argument 'partition' to be a str")
         pulumi.set(__self__, "partition", partition)
+        if reverse_dns_prefix and not isinstance(reverse_dns_prefix, str):
+            raise TypeError("Expected argument 'reverse_dns_prefix' to be a str")
+        pulumi.set(__self__, "reverse_dns_prefix", reverse_dns_prefix)
 
     @property
     @pulumi.getter(name="dnsSuffix")
@@ -54,6 +57,14 @@ class GetPartitionResult:
         """
         return pulumi.get(self, "partition")
 
+    @property
+    @pulumi.getter(name="reverseDnsPrefix")
+    def reverse_dns_prefix(self) -> str:
+        """
+        Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        """
+        return pulumi.get(self, "reverse_dns_prefix")
+
 
 class AwaitableGetPartitionResult(GetPartitionResult):
     # pylint: disable=using-constant-test
@@ -63,7 +74,8 @@ class AwaitableGetPartitionResult(GetPartitionResult):
         return GetPartitionResult(
             dns_suffix=self.dns_suffix,
             id=self.id,
-            partition=self.partition)
+            partition=self.partition,
+            reverse_dns_prefix=self.reverse_dns_prefix)
 
 
 def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
@@ -94,4 +106,5 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     return AwaitableGetPartitionResult(
         dns_suffix=__ret__.dns_suffix,
         id=__ret__.id,
-        partition=__ret__.partition)
+        partition=__ret__.partition,
+        reverse_dns_prefix=__ret__.reverse_dns_prefix)

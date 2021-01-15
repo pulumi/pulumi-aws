@@ -30,10 +30,9 @@ import * as utilities from "../utilities";
  *                 version: "1",
  *                 outputArtifacts: ["source_output"],
  *                 configuration: {
- *                     Owner: "my-organization",
  *                     ConnectionArn: exampleConnection.arn,
- *                     Repo: "foo/test",
- *                     Branch: "master",
+ *                     FullRepositoryId: "my-organization/test",
+ *                     BranchName: "main",
  *                 },
  *             }],
  *         },

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupInstanceRefreshPreferencesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        /// </summary>
         [Input("instanceWarmup")]
         public Input<string>? InstanceWarmup { get; set; }
 

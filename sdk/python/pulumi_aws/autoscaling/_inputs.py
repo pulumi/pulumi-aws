@@ -180,6 +180,7 @@ class GroupInstanceRefreshPreferencesArgs:
                  instance_warmup: Optional[pulumi.Input[str]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input[str] instance_warmup: The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         :param pulumi.Input[int] min_healthy_percentage: The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         """
         if instance_warmup is not None:
@@ -190,6 +191,9 @@ class GroupInstanceRefreshPreferencesArgs:
     @property
     @pulumi.getter(name="instanceWarmup")
     def instance_warmup(self) -> Optional[pulumi.Input[str]]:
+        """
+        The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        """
         return pulumi.get(self, "instance_warmup")
 
     @instance_warmup.setter

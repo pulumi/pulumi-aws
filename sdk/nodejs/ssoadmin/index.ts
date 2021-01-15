@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./accountAssignment";
 export * from "./getInstances";
 export * from "./getPermissionSet";
 export * from "./managedPolicyAttachment";
@@ -12,6 +13,7 @@ export * from "./permissionSet";
 export * from "./permissionSetInlinePolicy";
 
 // Import resources to register:
+import { AccountAssignment } from "./accountAssignment";
 import { ManagedPolicyAttachment } from "./managedPolicyAttachment";
 import { PermissionSet } from "./permissionSet";
 import { PermissionSetInlinePolicy } from "./permissionSetInlinePolicy";
@@ -20,6 +22,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ssoadmin/accountAssignment:AccountAssignment":
+                return new AccountAssignment(name, <any>undefined, { urn })
             case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
                 return new ManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionSet:PermissionSet":
@@ -31,6 +35,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)

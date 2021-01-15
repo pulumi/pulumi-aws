@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .code_repository import *
+from .domain import *
 from .endpoint import *
 from .endpoint_configuration import *
 from .get_prebuilt_ecr_image import *
@@ -28,6 +29,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:sagemaker/codeRepository:CodeRepository":
                 return CodeRepository(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:sagemaker/domain:Domain":
+                return Domain(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:sagemaker/endpoint:Endpoint":
                 return Endpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
@@ -46,6 +49,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "sagemaker/codeRepository", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "sagemaker/domain", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/endpoint", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/endpointConfiguration", _module_instance)
     pulumi.runtime.register_resource_module("aws", "sagemaker/image", _module_instance)

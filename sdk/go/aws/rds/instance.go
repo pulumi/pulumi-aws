@@ -176,7 +176,7 @@ type Instance struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-	// set to `false`.
+	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
@@ -409,7 +409,7 @@ type instanceState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-	// set to `false`.
+	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
@@ -611,7 +611,7 @@ type InstanceState struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-	// set to `false`.
+	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
@@ -811,7 +811,7 @@ type instanceArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-	// set to `false`.
+	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// Specifies whether or
 	// mappings of AWS Identity and Access Management (IAM) accounts to database
@@ -998,7 +998,7 @@ type InstanceArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
-	// set to `false`.
+	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether or
 	// mappings of AWS Identity and Access Management (IAM) accounts to database

@@ -30,7 +30,6 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
         "tags": args.tags,
-        "workspaceCreationProperties": args.workspaceCreationProperties,
     }, opts);
 }
 
@@ -46,10 +45,6 @@ export interface GetDirectoryArgs {
      * A map of tags assigned to the WorkSpaces directory.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The default properties that are used for creating WorkSpaces. Defined below.
-     */
-    readonly workspaceCreationProperties?: inputs.workspaces.GetDirectoryWorkspaceCreationProperties;
 }
 
 /**
@@ -106,9 +101,13 @@ export interface GetDirectoryResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
+    readonly workspaceAccessProperties: outputs.workspaces.GetDirectoryWorkspaceAccessProperty[];
+    /**
      * The default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperties;
+    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
     /**
      * The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      */

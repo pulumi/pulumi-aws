@@ -51,10 +51,9 @@ import (
 // 								pulumi.String("source_output"),
 // 							},
 // 							Configuration: pulumi.StringMap{
-// 								"Owner":         pulumi.String("my-organization"),
-// 								"ConnectionArn": exampleConnection.Arn,
-// 								"Repo":          pulumi.String("foo/test"),
-// 								"Branch":        pulumi.String("master"),
+// 								"ConnectionArn":    exampleConnection.Arn,
+// 								"FullRepositoryId": pulumi.String("my-organization/test"),
+// 								"BranchName":       pulumi.String("main"),
 // 							},
 // 						},
 // 					},

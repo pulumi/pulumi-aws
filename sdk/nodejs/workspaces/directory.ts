@@ -61,6 +61,15 @@ import * as utilities from "../utilities";
  *         restartWorkspace: true,
  *         switchRunningMode: true,
  *     },
+ *     workspaceAccessProperties: {
+ *         deviceTypeAndroid: "ALLOW",
+ *         deviceTypeChromeos: "ALLOW",
+ *         deviceTypeIos: "ALLOW",
+ *         deviceTypeOsx: "ALLOW",
+ *         deviceTypeWeb: "DENY",
+ *         deviceTypeWindows: "DENY",
+ *         deviceTypeZeroclient: "DENY",
+ *     },
  *     workspaceCreationProperties: {
  *         customSecurityGroupId: aws_security_group.example.id,
  *         defaultOu: "OU=AWS,DC=Workgroup,DC=Example,DC=com",
@@ -195,6 +204,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
+    public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
     public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
@@ -227,6 +240,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["workspaceAccessProperties"] = state ? state.workspaceAccessProperties : undefined;
             inputs["workspaceCreationProperties"] = state ? state.workspaceCreationProperties : undefined;
             inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
@@ -239,6 +253,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
             inputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
             inputs["alias"] = undefined /*out*/;
             inputs["customerUserName"] = undefined /*out*/;
@@ -313,6 +328,10 @@ export interface DirectoryState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
+    readonly workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
     readonly workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
@@ -346,6 +365,10 @@ export interface DirectoryArgs {
      * A map of tags assigned to the WorkSpaces directory.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
+    readonly workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */

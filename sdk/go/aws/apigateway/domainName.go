@@ -167,6 +167,8 @@ type DomainName struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration DomainNameEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
+	// The mutual TLS authentication configuration for the domain name. Defined below.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
@@ -246,6 +248,8 @@ type domainNameState struct {
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
+	// The mutual TLS authentication configuration for the domain name. Defined below.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
@@ -294,6 +298,8 @@ type DomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
+	// The mutual TLS authentication configuration for the domain name. Defined below.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn pulumi.StringPtrInput
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
@@ -336,6 +342,8 @@ type domainNameArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
+	// The mutual TLS authentication configuration for the domain name. Defined below.
+	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
@@ -371,6 +379,8 @@ type DomainNameArgs struct {
 	DomainName pulumi.StringInput
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
+	// The mutual TLS authentication configuration for the domain name. Defined below.
+	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn pulumi.StringPtrInput
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and

@@ -52,4 +52,8 @@ export interface GetPartitionResult {
      * Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
     readonly partition: string;
+    /**
+     * Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+     */
+    readonly reverseDnsPrefix: string;
 }

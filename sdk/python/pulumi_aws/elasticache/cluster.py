@@ -23,6 +23,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -116,6 +117,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation center for supported versions
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -176,6 +178,7 @@ class Cluster(pulumi.CustomResource):
             __props__['cluster_id'] = cluster_id
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
+            __props__['final_snapshot_identifier'] = final_snapshot_identifier
             __props__['maintenance_window'] = maintenance_window
             __props__['node_type'] = node_type
             __props__['notification_topic_arn'] = notification_topic_arn
@@ -216,6 +219,7 @@ class Cluster(pulumi.CustomResource):
             configuration_endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
+            final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -256,6 +260,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation center for supported versions
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -307,6 +312,7 @@ class Cluster(pulumi.CustomResource):
         __props__["configuration_endpoint"] = configuration_endpoint
         __props__["engine"] = engine
         __props__["engine_version"] = engine_version
+        __props__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__["maintenance_window"] = maintenance_window
         __props__["node_type"] = node_type
         __props__["notification_topic_arn"] = notification_topic_arn
@@ -409,6 +415,14 @@ class Cluster(pulumi.CustomResource):
         in the AWS Documentation center for supported versions
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="finalSnapshotIdentifier")
+    def final_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        """
+        return pulumi.get(self, "final_snapshot_identifier")
 
     @property
     @pulumi.getter(name="maintenanceWindow")

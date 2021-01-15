@@ -103,6 +103,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// </summary>
+        [Output("disableExecuteApiEndpoint")]
+        public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Output("endpointConfiguration")]
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
@@ -223,6 +235,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// </summary>
+        [Input("disableExecuteApiEndpoint")]
+        public Input<bool>? DisableExecuteApiEndpoint { get; set; }
+
+        /// <summary>
         /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -239,6 +257,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
@@ -308,6 +338,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// </summary>
+        [Input("disableExecuteApiEndpoint")]
+        public Input<bool>? DisableExecuteApiEndpoint { get; set; }
+
+        /// <summary>
         /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -332,6 +368,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.

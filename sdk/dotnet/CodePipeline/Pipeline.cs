@@ -22,6 +22,10 @@ namespace Pulumi.Aws.CodePipeline
     /// {
     ///     public MyStack()
     ///     {
+    ///         var example = new Aws.CodeStarConnections.Connection("example", new Aws.CodeStarConnections.ConnectionArgs
+    ///         {
+    ///             ProviderType = "GitHub",
+    ///         });
     ///         var codepipelineBucket = new Aws.S3.Bucket("codepipelineBucket", new Aws.S3.BucketArgs
     ///         {
     ///             Acl = "private",
@@ -70,8 +74,8 @@ namespace Pulumi.Aws.CodePipeline
     ///                         {
     ///                             Name = "Source",
     ///                             Category = "Source",
-    ///                             Owner = "ThirdParty",
-    ///                             Provider = "GitHub",
+    ///                             Owner = "AWS",
+    ///                             Provider = "CodeStarSourceConnection",
     ///                             Version = "1",
     ///                             OutputArtifacts = 
     ///                             {
@@ -79,10 +83,9 @@ namespace Pulumi.Aws.CodePipeline
     ///                             },
     ///                             Configuration = 
     ///                             {
-    ///                                 { "Owner", "my-organization" },
-    ///                                 { "Repo", "test" },
-    ///                                 { "Branch", "master" },
-    ///                                 { "OAuthToken", @var.Github_token },
+    ///                                 { "ConnectionArn", example.Arn },
+    ///                                 { "FullRepositoryId", "my-organization/example" },
+    ///                                 { "BranchName", "main" },
     ///                             },
     ///                         },
     ///                     },

@@ -11,10 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an EC2 instance resource. This allows instances to be created, updated,
-// and deleted.
+// Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 //
 // ## Example Usage
+// ### Basic Example Using AMI Lookup
 //
 // ```go
 // package main
@@ -65,6 +65,70 @@ import (
 // 	})
 // }
 // ```
+// ### Network and Credit Specification Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myVpc, err := ec2.NewVpc(ctx, "myVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("172.16.0.0/16"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("tf-example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		mySubnet, err := ec2.NewSubnet(ctx, "mySubnet", &ec2.SubnetArgs{
+// 			VpcId:            myVpc.ID(),
+// 			CidrBlock:        pulumi.String("172.16.10.0/24"),
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("tf-example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooNetworkInterface, err := ec2.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2.NetworkInterfaceArgs{
+// 			SubnetId: mySubnet.ID(),
+// 			PrivateIps: pulumi.StringArray{
+// 				pulumi.String("172.16.10.100"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("primary_network_interface"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewInstance(ctx, "fooInstance", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String("ami-005e54dee72cc1d00"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
+// 				&ec2.InstanceNetworkInterfaceArgs{
+// 					NetworkInterfaceId: fooNetworkInterface.ID(),
+// 					DeviceIndex:        pulumi.Int(0),
+// 				},
+// 			},
+// 			CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
+// 				CpuCredits: pulumi.String("unlimited"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -76,62 +140,49 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The AMI to use for the instance.
+	// AMI to use for the instance.
 	Ami pulumi.StringOutput `pulumi:"ami"`
 	// The ARN of the instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Associate a public ip address with an instance in a VPC.  Boolean value.
+	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolOutput `pulumi:"associatePublicIpAddress"`
-	// The AZ to start the instance in.
+	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Sets the number of CPU cores for an instance. This option is
-	// only supported on creation of instance type that support CPU Options
-	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
-	// If true, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the
-	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
-	// Note that if this is not set on an instance type that is optimized by default then
-	// this will show as disabled but if the instance type is optimized by default then
-	// there is no need to set this and there is no effect to disabling it.
-	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions InstanceEnclaveOptionsOutput `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation pulumi.BoolPtrOutput `pulumi:"hibernation"`
-	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
-	// The IAM Instance Profile to
-	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
-	// Shutdown behavior for the
-	// instance. Amazon defaults this to `stop` for EBS-backed instances and
-	// `terminate` for instance-store instances. Cannot be set on instance-store
-	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
-	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
-	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsOutput `pulumi:"metadataOptions"`
@@ -141,30 +192,21 @@ type Instance struct {
 	NetworkInterfaces InstanceNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The ARN of the Outpost the instance is assigned to.
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
-	// Base-64 encoded encrypted password data for the instance.
-	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if `getPasswordData` is true.
-	// Note that this encrypted value will be stored in the state file, as with all exported attributes.
-	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
-	// The Placement Group to start the instance in.
+	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
-	// Private IP address to associate with the
-	// instance in a VPC.
+	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
@@ -172,20 +214,19 @@ type Instance struct {
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// Controls if traffic is routed to the instance when
-	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
-	// The VPC Subnet ID to launch in.
+	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
-	// A map of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -226,62 +267,49 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The AMI to use for the instance.
+	// AMI to use for the instance.
 	Ami *string `pulumi:"ami"`
 	// The ARN of the instance.
 	Arn *string `pulumi:"arn"`
-	// Associate a public ip address with an instance in a VPC.  Boolean value.
+	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
-	// The AZ to start the instance in.
+	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Sets the number of CPU cores for an instance. This option is
-	// only supported on creation of instance type that support CPU Options
-	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
-	// If true, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the
-	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices []InstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
-	// Note that if this is not set on an instance type that is optimized by default then
-	// this will show as disabled but if the instance type is optimized by default then
-	// there is no need to set this and there is no effect to disabling it.
-	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation *bool `pulumi:"hibernation"`
-	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
-	// The IAM Instance Profile to
-	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
-	// Shutdown behavior for the
-	// instance. Amazon defaults this to `stop` for EBS-backed instances and
-	// `terminate` for instance-store instances. Cannot be set on instance-store
-	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState *string `pulumi:"instanceState"`
-	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
-	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
@@ -291,30 +319,21 @@ type instanceState struct {
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// The ARN of the Outpost the instance is assigned to.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// Base-64 encoded encrypted password data for the instance.
-	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if `getPasswordData` is true.
-	// Note that this encrypted value will be stored in the state file, as with all exported attributes.
-	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData *string `pulumi:"passwordData"`
-	// The Placement Group to start the instance in.
+	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns *string `pulumi:"privateDns"`
-	// Private IP address to associate with the
-	// instance in a VPC.
+	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns *string `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
 	PublicIp *string `pulumi:"publicIp"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
@@ -322,82 +341,68 @@ type instanceState struct {
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Controls if traffic is routed to the instance when
-	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
-	// The VPC Subnet ID to launch in.
+	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
 	Tags map[string]string `pulumi:"tags"`
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// A map of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 type InstanceState struct {
-	// The AMI to use for the instance.
+	// AMI to use for the instance.
 	Ami pulumi.StringPtrInput
 	// The ARN of the instance.
 	Arn pulumi.StringPtrInput
-	// Associate a public ip address with an instance in a VPC.  Boolean value.
+	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
-	// The AZ to start the instance in.
+	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
-	// Sets the number of CPU cores for an instance. This option is
-	// only supported on creation of instance type that support CPU Options
-	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification InstanceCreditSpecificationPtrInput
-	// If true, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the
-	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayInput
-	// If true, the launched EC2 instance will be EBS-optimized.
-	// Note that if this is not set on an instance type that is optimized by default then
-	// this will show as disabled but if the instance type is optimized by default then
-	// there is no need to set this and there is no effect to disabling it.
-	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions InstanceEnclaveOptionsPtrInput
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation pulumi.BoolPtrInput
-	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
-	// The IAM Instance Profile to
-	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile pulumi.StringPtrInput
-	// Shutdown behavior for the
-	// instance. Amazon defaults this to `stop` for EBS-backed instances and
-	// `terminate` for instance-store instances. Cannot be set on instance-store
-	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringPtrInput
-	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
-	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
@@ -407,30 +412,21 @@ type InstanceState struct {
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
 	// The ARN of the Outpost the instance is assigned to.
 	OutpostArn pulumi.StringPtrInput
-	// Base-64 encoded encrypted password data for the instance.
-	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if `getPasswordData` is true.
-	// Note that this encrypted value will be stored in the state file, as with all exported attributes.
-	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringPtrInput
-	// The Placement Group to start the instance in.
+	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringPtrInput
-	// Private IP address to associate with the
-	// instance in a VPC.
+	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns pulumi.StringPtrInput
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
 	PublicIp pulumi.StringPtrInput
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
@@ -438,20 +434,19 @@ type InstanceState struct {
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
-	// Controls if traffic is routed to the instance when
-	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
-	// The VPC Subnet ID to launch in.
+	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
 	Tags pulumi.StringMapInput
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// A map of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -462,58 +457,45 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// The AMI to use for the instance.
+	// AMI to use for the instance.
 	Ami string `pulumi:"ami"`
-	// Associate a public ip address with an instance in a VPC.  Boolean value.
+	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
-	// The AZ to start the instance in.
+	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Sets the number of CPU cores for an instance. This option is
-	// only supported on creation of instance type that support CPU Options
-	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
-	// If true, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the
-	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices []InstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
-	// Note that if this is not set on an instance type that is optimized by default then
-	// this will show as disabled but if the instance type is optimized by default then
-	// there is no need to set this and there is no effect to disabling it.
-	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *InstanceEnclaveOptions `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation *bool `pulumi:"hibernation"`
-	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
-	// The IAM Instance Profile to
-	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
-	// Shutdown behavior for the
-	// instance. Amazon defaults this to `stop` for EBS-backed instances and
-	// `terminate` for instance-store instances. Cannot be set on instance-store
-	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
-	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
@@ -521,13 +503,11 @@ type instanceArgs struct {
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
-	// The Placement Group to start the instance in.
+	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
-	// Private IP address to associate with the
-	// instance in a VPC.
+	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
@@ -535,20 +515,19 @@ type instanceArgs struct {
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Controls if traffic is routed to the instance when
-	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
-	// The VPC Subnet ID to launch in.
+	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
 	Tags map[string]string `pulumi:"tags"`
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// A map of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -556,58 +535,45 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// The AMI to use for the instance.
+	// AMI to use for the instance.
 	Ami pulumi.StringInput
-	// Associate a public ip address with an instance in a VPC.  Boolean value.
+	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
-	// The AZ to start the instance in.
+	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
-	// Sets the number of CPU cores for an instance. This option is
-	// only supported on creation of instance type that support CPU Options
-	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification InstanceCreditSpecificationPtrInput
-	// If true, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the
-	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayInput
-	// If true, the launched EC2 instance will be EBS-optimized.
-	// Note that if this is not set on an instance type that is optimized by default then
-	// this will show as disabled but if the instance type is optimized by default then
-	// there is no need to set this and there is no effect to disabling it.
-	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions InstanceEnclaveOptionsPtrInput
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
 	// If true, the launched EC2 instance will support hibernation.
 	Hibernation pulumi.BoolPtrInput
-	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
-	// The IAM Instance Profile to
-	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile pulumi.Input
-	// Shutdown behavior for the
-	// instance. Amazon defaults this to `stop` for EBS-backed instances and
-	// `terminate` for instance-store instances. Cannot be set on instance-store
-	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
-	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
@@ -615,13 +581,11 @@ type InstanceArgs struct {
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
-	// The Placement Group to start the instance in.
+	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
-	// Private IP address to associate with the
-	// instance in a VPC.
+	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
@@ -629,20 +593,19 @@ type InstanceArgs struct {
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
-	// Controls if traffic is routed to the instance when
-	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
-	// The VPC Subnet ID to launch in.
+	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
 	Tags pulumi.StringMapInput
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// A map of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput

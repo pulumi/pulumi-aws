@@ -313,6 +313,7 @@ func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 }
 
 type GroupInstanceRefreshPreferences struct {
+	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
 	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
@@ -330,6 +331,7 @@ type GroupInstanceRefreshPreferencesInput interface {
 }
 
 type GroupInstanceRefreshPreferencesArgs struct {
+	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
 	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
@@ -411,6 +413,8 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 		return &v
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
+
+// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
 }
@@ -438,6 +442,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPre
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) GroupInstanceRefreshPreferences { return *v }).(GroupInstanceRefreshPreferencesOutput)
 }
 
+// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
 		if v == nil {

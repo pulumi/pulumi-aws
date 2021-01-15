@@ -179,7 +179,7 @@ class PipelineStageActionArgs:
         :param pulumi.Input[str] category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param pulumi.Input[str] name: The action declaration's name.
         :param pulumi.Input[str] owner: The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-        :param pulumi.Input[str] provider: The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        :param pulumi.Input[str] provider: The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param pulumi.Input[str] version: A string that identifies the action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: A list of artifact names to be worked on.
@@ -249,7 +249,7 @@ class PipelineStageActionArgs:
     @pulumi.getter
     def provider(self) -> pulumi.Input[str]:
         """
-        The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         """
         return pulumi.get(self, "provider")
 

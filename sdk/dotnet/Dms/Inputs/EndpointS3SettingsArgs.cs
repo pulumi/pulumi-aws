@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? CsvRowDelimiter { get; set; }
 
         /// <summary>
+        /// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        /// </summary>
+        [Input("datePartitionEnabled")]
+        public Input<bool>? DatePartitionEnabled { get; set; }
+
+        /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
         [Input("externalTableDefinition")]

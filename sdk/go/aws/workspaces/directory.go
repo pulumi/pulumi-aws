@@ -108,6 +108,15 @@ import (
 // 				RestartWorkspace:   pulumi.Bool(true),
 // 				SwitchRunningMode:  pulumi.Bool(true),
 // 			},
+// 			WorkspaceAccessProperties: &workspaces.DirectoryWorkspaceAccessPropertiesArgs{
+// 				DeviceTypeAndroid:    pulumi.String("ALLOW"),
+// 				DeviceTypeChromeos:   pulumi.String("ALLOW"),
+// 				DeviceTypeIos:        pulumi.String("ALLOW"),
+// 				DeviceTypeOsx:        pulumi.String("ALLOW"),
+// 				DeviceTypeWeb:        pulumi.String("DENY"),
+// 				DeviceTypeWindows:    pulumi.String("DENY"),
+// 				DeviceTypeZeroclient: pulumi.String("DENY"),
+// 			},
 // 			WorkspaceCreationProperties: &workspaces.DirectoryWorkspaceCreationPropertiesArgs{
 // 				CustomSecurityGroupId:           pulumi.Any(aws_security_group.Example.Id),
 // 				DefaultOu:                       pulumi.String("OU=AWS,DC=Workgroup,DC=Example,DC=com"),
@@ -221,6 +230,8 @@ type Directory struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+	WorkspaceAccessProperties DirectoryWorkspaceAccessPropertiesOutput `pulumi:"workspaceAccessProperties"`
 	// Default properties that are used for creating WorkSpaces. Defined below.
 	WorkspaceCreationProperties DirectoryWorkspaceCreationPropertiesOutput `pulumi:"workspaceCreationProperties"`
 	// The identifier of the security group that is assigned to new WorkSpaces.
@@ -283,6 +294,8 @@ type directoryState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+	WorkspaceAccessProperties *DirectoryWorkspaceAccessProperties `pulumi:"workspaceAccessProperties"`
 	// Default properties that are used for creating WorkSpaces. Defined below.
 	WorkspaceCreationProperties *DirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
 	// The identifier of the security group that is assigned to new WorkSpaces.
@@ -314,6 +327,8 @@ type DirectoryState struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput
+	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+	WorkspaceAccessProperties DirectoryWorkspaceAccessPropertiesPtrInput
 	// Default properties that are used for creating WorkSpaces. Defined below.
 	WorkspaceCreationProperties DirectoryWorkspaceCreationPropertiesPtrInput
 	// The identifier of the security group that is assigned to new WorkSpaces.
@@ -335,6 +350,8 @@ type directoryArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+	WorkspaceAccessProperties *DirectoryWorkspaceAccessProperties `pulumi:"workspaceAccessProperties"`
 	// Default properties that are used for creating WorkSpaces. Defined below.
 	WorkspaceCreationProperties *DirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
 }
@@ -351,6 +368,8 @@ type DirectoryArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput
+	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+	WorkspaceAccessProperties DirectoryWorkspaceAccessPropertiesPtrInput
 	// Default properties that are used for creating WorkSpaces. Defined below.
 	WorkspaceCreationProperties DirectoryWorkspaceCreationPropertiesPtrInput
 }

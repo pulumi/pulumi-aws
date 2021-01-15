@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// The integer index of the network interface attachment. Limited by instance type.
+        /// Integer index of the network interface attachment. Limited by instance type.
         /// </summary>
         public readonly int DeviceIndex;
         /// <summary>
-        /// The ID of the network interface to attach.
+        /// ID of the network interface to attach.
         /// </summary>
         public readonly string NetworkInterfaceId;
 

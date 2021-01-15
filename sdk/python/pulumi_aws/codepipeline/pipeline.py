@@ -34,6 +34,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
         codepipeline_bucket = aws.s3.Bucket("codepipelineBucket", acl="private")
         codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
@@ -65,15 +66,14 @@ class Pipeline(pulumi.CustomResource):
                     actions=[aws.codepipeline.PipelineStageActionArgs(
                         name="Source",
                         category="Source",
-                        owner="ThirdParty",
-                        provider="GitHub",
+                        owner="AWS",
+                        provider="CodeStarSourceConnection",
                         version="1",
                         output_artifacts=["source_output"],
                         configuration={
-                            "Owner": "my-organization",
-                            "Repo": "test",
-                            "Branch": "master",
-                            "OAuthToken": var["github_token"],
+                            "ConnectionArn": example.arn,
+                            "FullRepositoryId": "my-organization/example",
+                            "BranchName": "main",
                         },
                     )],
                 ),

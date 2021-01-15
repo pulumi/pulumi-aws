@@ -13,6 +13,7 @@ __all__ = [
     'AuthorizerJwtConfiguration',
     'DomainNameDomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
+    'IntegrationResponseParameter',
     'IntegrationTlsConfig',
     'StageAccessLogSettings',
     'StageDefaultRouteSettings',
@@ -234,6 +235,40 @@ class DomainNameMutualTlsAuthentication(dict):
         The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationResponseParameter(dict):
+    def __init__(__self__, *,
+                 mappings: Mapping[str, str],
+                 status_code: str):
+        """
+        :param Mapping[str, str] mappings: A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+               See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        :param str status_code: The HTTP status code in the range 200-599.
+        """
+        pulumi.set(__self__, "mappings", mappings)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Mapping[str, str]:
+        """
+        A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        """
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        """
+        The HTTP status code in the range 200-599.
+        """
+        return pulumi.get(self, "status_code")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

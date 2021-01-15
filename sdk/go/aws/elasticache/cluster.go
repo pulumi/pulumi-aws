@@ -137,6 +137,8 @@ type Cluster struct {
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -247,6 +249,8 @@ type clusterState struct {
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -329,6 +333,8 @@ type ClusterState struct {
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion pulumi.StringPtrInput
+	// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -407,6 +413,8 @@ type clusterArgs struct {
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -482,6 +490,8 @@ type ClusterArgs struct {
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion pulumi.StringPtrInput
+	// The name of your final cluster snapshot. If omitted, no final snapshot will be made.
+	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`

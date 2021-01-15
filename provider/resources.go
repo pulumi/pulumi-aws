@@ -104,6 +104,7 @@ const (
 	glueMod                  = "Glue"                  // Glue
 	guarddutyMod             = "GuardDuty"             // Guard Duty
 	iamMod                   = "Iam"                   // Identity and Access Management (IAM)
+	identityStoreMod         = "IdentityStore"         // Identity Store
 	imageBuilderMod          = "ImageBuilder"          // ImageBuilder
 	inspectorMod             = "Inspector"             // Inspector
 	iotMod                   = "Iot"                   // Internet of Things (IoT)
@@ -663,6 +664,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
 			"aws_cloudwatch_log_stream":          {Tok: awsResource(cloudwatchMod, "LogStream")},
 			"aws_cloudwatch_event_bus":           {Tok: awsResource(cloudwatchMod, "EventBus")},
+			"aws_cloudwatch_composite_alarm":     {Tok: awsResource(cloudwatchMod, "CompositeAlarm")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1940,6 +1942,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_route53_health_check":              {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_resolver_dnssec_config":    {Tok: awsResource(route53Mod, "ResolverDnsSecConfig")},
 			"aws_route53_resolver_query_log_config": {Tok: awsResource(route53Mod, "ResolverQueryLogConfig")},
 			"aws_route53_resolver_query_log_config_association": {
 				Tok: awsResource(route53Mod, "ResolverQueryLogConfigAssociation"),
@@ -1951,6 +1954,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance":      {Tok: awsResource(sagemakerMod, "NotebookInstance")},
 			"aws_sagemaker_code_repository":        {Tok: awsResource(sagemakerMod, "CodeRepository")},
 			"aws_sagemaker_image":                  {Tok: awsResource(sagemakerMod, "Image")},
+			"aws_sagemaker_domain":                 {Tok: awsResource(sagemakerMod, "Domain")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2249,6 +2253,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// FMS
 			"aws_fms_admin_account": {Tok: awsResource(fmsMod, "AdminAccount")},
+			"aws_fms_policy":        {Tok: awsResource(fmsMod, "Policy")},
 			// QLDB
 			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
 			// Workspaces
@@ -2416,6 +2421,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
 			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
 			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
+			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -3427,10 +3433,11 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			// API Gateway
-			"aws_api_gateway_api_key":  {Tok: awsDataSource(apigatewayMod, "getKey")},
-			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
-			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
-			"aws_api_gateway_vpc_link": {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
+			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
+			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},
+			"aws_api_gateway_rest_api":    {Tok: awsDataSource(apigatewayMod, "getRestApi")},
+			"aws_api_gateway_vpc_link":    {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
+			"aws_api_gateway_domain_name": {Tok: awsDataSource(apigatewayMod, "getDomainName")},
 			// Autoscaling
 			"aws_autoscaling_group": {Tok: awsDataSource(autoscalingMod, "getGroup")},
 			// Batch
@@ -3651,6 +3658,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role":               {Tok: awsDataSource(iamMod, "getRole")},
 			"aws_iam_server_certificate": {Tok: awsDataSource(iamMod, "getServerCertificate")},
 			"aws_iam_user":               {Tok: awsDataSource(iamMod, "getUser")},
+			// IdentityStore
+			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
+			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},
 			// Inspector
 			"aws_inspector_rules_packages": {Tok: awsDataSource(inspectorMod, "getRulesPackages")},
 			// Kinesis

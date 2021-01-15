@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SpotInstanceRequest : Pulumi.CustomResource
     {
         /// <summary>
-        /// The AMI to use for the instance.
+        /// AMI to use for the instance.
         /// </summary>
         [Output("ami")]
         public Output<string> Ami { get; private set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.  Boolean value.
+        /// Whether to associate a public IP address with an instance in a VPC.
         /// </summary>
         [Output("associatePublicIpAddress")]
         public Output<bool> AssociatePublicIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ to start the instance in.
+        /// AZ to start the instance in.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -92,9 +92,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> BlockDurationMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is
-        /// only supported on creation of instance type that support CPU Options
-        /// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
         [Output("cpuCoreCount")]
         public Output<int> CpuCoreCount { get; private set; } = null!;
@@ -112,25 +110,19 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.SpotInstanceRequestCreditSpecification?> CreditSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// If true, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         /// </summary>
         [Output("disableApiTermination")]
         public Output<bool?> DisableApiTermination { get; private set; } = null!;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
         [Output("ebsBlockDevices")]
         public Output<ImmutableArray<Outputs.SpotInstanceRequestEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// Note that if this is not set on an instance type that is optimized by default then
-        /// this will show as disabled but if the instance type is optimized by default then
-        /// there is no need to set this and there is no effect to disabling it.
-        /// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         /// </summary>
         [Output("ebsOptimized")]
         public Output<bool?> EbsOptimized { get; private set; } = null!;
@@ -142,8 +134,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.SpotInstanceRequestEnclaveOptions> EnclaveOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
         public Output<ImmutableArray<Outputs.SpotInstanceRequestEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
@@ -161,23 +152,19 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> Hibernation { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        /// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Output("hostId")]
         public Output<string> HostId { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM Instance Profile to
-        /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Output("iamInstanceProfile")]
         public Output<string?> IamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Shutdown behavior for the
-        /// instance. Amazon defaults this to `stop` for EBS-backed instances and
-        /// `terminate` for instance-store instances. Cannot be set on instance-store
-        /// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Output("instanceInitiatedShutdownBehavior")]
         public Output<string?> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
@@ -192,7 +179,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceState { get; private set; } = null!;
 
         /// <summary>
-        /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -210,7 +197,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
 
         /// <summary>
-        /// The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
+        /// Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
@@ -247,7 +234,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PasswordData { get; private set; } = null!;
 
         /// <summary>
-        /// The Placement Group to start the instance in.
+        /// Placement Group to start the instance in.
         /// </summary>
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
@@ -264,8 +251,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateDns { get; private set; } = null!;
 
         /// <summary>
-        /// Private IP address to associate with the
-        /// instance in a VPC.
+        /// Private IP address to associate with the instance in a VPC.
         /// </summary>
         [Output("privateIp")]
         public Output<string> PrivateIp { get; private set; } = null!;
@@ -284,8 +270,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.SpotInstanceRequestRootBlockDevice> RootBlockDevice { get; private set; } = null!;
@@ -303,8 +288,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if traffic is routed to the instance when
-        /// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        /// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         /// </summary>
         [Output("sourceDestCheck")]
         public Output<bool?> SourceDestCheck { get; private set; } = null!;
@@ -344,25 +328,25 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SpotType { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC Subnet ID to launch in.
+        /// VPC Subnet ID to launch in.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Output("tenancy")]
         public Output<string> Tenancy { get; private set; } = null!;
 
         /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
@@ -386,7 +370,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ValidUntil { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// </summary>
         [Output("volumeTags")]
         public Output<ImmutableDictionary<string, string>?> VolumeTags { get; private set; } = null!;
@@ -452,19 +436,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AMI to use for the instance.
+        /// AMI to use for the instance.
         /// </summary>
         [Input("ami", required: true)]
         public Input<string> Ami { get; set; } = null!;
 
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.  Boolean value.
+        /// Whether to associate a public IP address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         /// <summary>
-        /// The AZ to start the instance in.
+        /// AZ to start the instance in.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -478,9 +462,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? BlockDurationMinutes { get; set; }
 
         /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is
-        /// only supported on creation of instance type that support CPU Options
-        /// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
         [Input("cpuCoreCount")]
         public Input<int>? CpuCoreCount { get; set; }
@@ -498,8 +480,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.SpotInstanceRequestCreditSpecificationArgs>? CreditSpecification { get; set; }
 
         /// <summary>
-        /// If true, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
@@ -508,8 +489,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotInstanceRequestEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
         public InputList<Inputs.SpotInstanceRequestEbsBlockDeviceArgs> EbsBlockDevices
         {
@@ -518,11 +498,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// Note that if this is not set on an instance type that is optimized by default then
-        /// this will show as disabled but if the instance type is optimized by default then
-        /// there is no need to set this and there is no effect to disabling it.
-        /// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
@@ -537,8 +513,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotInstanceRequestEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.SpotInstanceRequestEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
@@ -559,23 +534,19 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Hibernation { get; set; }
 
         /// <summary>
-        /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        /// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// The IAM Instance Profile to
-        /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the
-        /// instance. Amazon defaults this to `stop` for EBS-backed instances and
-        /// `terminate` for instance-store instances. Cannot be set on instance-store
-        /// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
@@ -587,7 +558,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         /// <summary>
-        /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -611,7 +582,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
+        /// Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -648,21 +619,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The Placement Group to start the instance in.
+        /// Placement Group to start the instance in.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Private IP address to associate with the
-        /// instance in a VPC.
+        /// Private IP address to associate with the instance in a VPC.
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.SpotInstanceRequestRootBlockDeviceArgs>? RootBlockDevice { get; set; }
@@ -692,8 +661,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Controls if traffic is routed to the instance when
-        /// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        /// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         /// </summary>
         [Input("sourceDestCheck")]
         public Input<bool>? SourceDestCheck { get; set; }
@@ -712,7 +680,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SpotType { get; set; }
 
         /// <summary>
-        /// The VPC Subnet ID to launch in.
+        /// VPC Subnet ID to launch in.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -721,7 +689,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -730,13 +698,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
@@ -763,7 +731,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _volumeTags;
 
         /// <summary>
-        /// A map of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// </summary>
         public InputMap<string> VolumeTags
         {
@@ -799,7 +767,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AMI to use for the instance.
+        /// AMI to use for the instance.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }
@@ -808,13 +776,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.  Boolean value.
+        /// Whether to associate a public IP address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         /// <summary>
-        /// The AZ to start the instance in.
+        /// AZ to start the instance in.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -828,9 +796,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? BlockDurationMinutes { get; set; }
 
         /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is
-        /// only supported on creation of instance type that support CPU Options
-        /// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
         [Input("cpuCoreCount")]
         public Input<int>? CpuCoreCount { get; set; }
@@ -848,8 +814,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.SpotInstanceRequestCreditSpecificationGetArgs>? CreditSpecification { get; set; }
 
         /// <summary>
-        /// If true, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
@@ -858,8 +823,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotInstanceRequestEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
         public InputList<Inputs.SpotInstanceRequestEbsBlockDeviceGetArgs> EbsBlockDevices
         {
@@ -868,11 +832,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// Note that if this is not set on an instance type that is optimized by default then
-        /// this will show as disabled but if the instance type is optimized by default then
-        /// there is no need to set this and there is no effect to disabling it.
-        /// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
@@ -887,8 +847,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SpotInstanceRequestEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.SpotInstanceRequestEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
@@ -909,23 +868,19 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Hibernation { get; set; }
 
         /// <summary>
-        /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        /// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// The IAM Instance Profile to
-        /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the
-        /// instance. Amazon defaults this to `stop` for EBS-backed instances and
-        /// `terminate` for instance-store instances. Cannot be set on instance-store
-        /// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
@@ -940,7 +895,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceState { get; set; }
 
         /// <summary>
-        /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -964,7 +919,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
+        /// Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -1007,7 +962,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PasswordData { get; set; }
 
         /// <summary>
-        /// The Placement Group to start the instance in.
+        /// Placement Group to start the instance in.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
@@ -1024,8 +979,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateDns { get; set; }
 
         /// <summary>
-        /// Private IP address to associate with the
-        /// instance in a VPC.
+        /// Private IP address to associate with the instance in a VPC.
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
@@ -1044,8 +998,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIp { get; set; }
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.SpotInstanceRequestRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }
@@ -1075,8 +1028,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Controls if traffic is routed to the instance when
-        /// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        /// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         /// </summary>
         [Input("sourceDestCheck")]
         public Input<bool>? SourceDestCheck { get; set; }
@@ -1116,7 +1068,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SpotType { get; set; }
 
         /// <summary>
-        /// The VPC Subnet ID to launch in.
+        /// VPC Subnet ID to launch in.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -1125,7 +1077,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1134,13 +1086,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
@@ -1167,7 +1119,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _volumeTags;
 
         /// <summary>
-        /// A map of tags to assign to the devices created by the instance at launch time.
+        /// A map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// </summary>
         public InputMap<string> VolumeTags
         {

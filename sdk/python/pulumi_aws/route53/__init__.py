@@ -13,6 +13,7 @@ from .get_zone import *
 from .health_check import *
 from .query_log import *
 from .record import *
+from .resolver_dns_sec_config import *
 from .resolver_endpoint import *
 from .resolver_query_log_config import *
 from .resolver_query_log_config_association import *
@@ -44,6 +45,8 @@ def _register_module():
                 return QueryLog(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/record:Record":
                 return Record(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
+                return ResolverDnsSecConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/resolverEndpoint:ResolverEndpoint":
                 return ResolverEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
@@ -69,6 +72,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "route53/healthCheck", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/queryLog", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/record", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "route53/resolverDnsSecConfig", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/resolverEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/resolverQueryLogConfig", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/resolverQueryLogConfigAssociation", _module_instance)
