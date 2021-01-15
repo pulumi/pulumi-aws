@@ -13400,6 +13400,8 @@ type GetInstanceEbsBlockDevice struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
+	// A map of tags assigned to the Instance.
+	Tags map[string]string `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
@@ -13432,6 +13434,8 @@ type GetInstanceEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// A map of tags assigned to the Instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
@@ -13519,6 +13523,11 @@ func (o GetInstanceEbsBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 // The ID of the snapshot.
 func (o GetInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Instance.
+func (o GetInstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetInstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The throughput of the volume, in MiB/s.
@@ -13997,6 +14006,8 @@ type GetInstanceRootBlockDevice struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     int    `pulumi:"iops"`
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	// A map of tags assigned to the Instance.
+	Tags map[string]string `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
@@ -14027,6 +14038,8 @@ type GetInstanceRootBlockDeviceArgs struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// A map of tags assigned to the Instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
@@ -14109,6 +14122,11 @@ func (o GetInstanceRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 
 func (o GetInstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Instance.
+func (o GetInstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetInstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The throughput of the volume, in MiB/s.

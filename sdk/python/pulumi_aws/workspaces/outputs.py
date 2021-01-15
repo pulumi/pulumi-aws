@@ -19,7 +19,7 @@ __all__ = [
     'GetBundleUserStorageResult',
     'GetDirectorySelfServicePermissionResult',
     'GetDirectoryWorkspaceAccessPropertyResult',
-    'GetDirectoryWorkspaceCreationPropertyResult',
+    'GetDirectoryWorkspaceCreationPropertiesResult',
     'GetWorkspaceWorkspacePropertyResult',
 ]
 
@@ -561,7 +561,7 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryWorkspaceCreationPropertyResult(dict):
+class GetDirectoryWorkspaceCreationPropertiesResult(dict):
     def __init__(__self__, *,
                  custom_security_group_id: str,
                  default_ou: str,

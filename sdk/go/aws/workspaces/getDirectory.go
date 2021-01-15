@@ -78,7 +78,7 @@ type LookupDirectoryResult struct {
 	// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
 	WorkspaceAccessProperties []GetDirectoryWorkspaceAccessProperty `pulumi:"workspaceAccessProperties"`
 	// The default properties that are used for creating WorkSpaces. Defined below.
-	WorkspaceCreationProperties []GetDirectoryWorkspaceCreationProperty `pulumi:"workspaceCreationProperties"`
+	WorkspaceCreationProperties GetDirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
 	// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
 	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
 }

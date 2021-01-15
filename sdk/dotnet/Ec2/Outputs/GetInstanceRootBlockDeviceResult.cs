@@ -31,6 +31,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int Iops;
         public readonly string KmsKeyId;
         /// <summary>
+        /// A map of tags assigned to the Instance.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The throughput of the volume, in MiB/s.
         /// </summary>
         public readonly int Throughput;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string kmsKeyId,
 
+            ImmutableDictionary<string, string> tags,
+
             int throughput,
 
             string volumeId,
@@ -69,6 +75,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;
+            Tags = tags;
             Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;

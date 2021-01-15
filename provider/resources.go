@@ -3716,8 +3716,15 @@ func Provider() tfbridge.ProviderInfo {
 			// Transfer
 			"aws_transfer_server": {Tok: awsDataSource(transferMod, "getServer")},
 			// Workspaces
-			"aws_workspaces_bundle":    {Tok: awsDataSource(workspacesMod, "getBundle")},
-			"aws_workspaces_directory": {Tok: awsDataSource(workspacesMod, "getDirectory")},
+			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
+			"aws_workspaces_directory": {
+				Tok: awsDataSource(workspacesMod, "getDirectory"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"workspace_creation_properties": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_workspaces_image":     {Tok: awsDataSource(workspacesMod, "getImage")},
 			"aws_workspaces_workspace": {Tok: awsDataSource(workspacesMod, "getWorkspace")},
 			// MSK

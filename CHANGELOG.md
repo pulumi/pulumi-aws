@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.24.0 of the AWS Terraform Provider
+* Update to v3.24.1 of the AWS Terraform Provider
 * Revert auto-naming of RDS Cluster `clusterIdentifier`.
 
 ---

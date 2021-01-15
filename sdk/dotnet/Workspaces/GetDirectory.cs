@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> WorkspaceCreationProperties;
+        public readonly Outputs.GetDirectoryWorkspaceCreationPropertiesResult WorkspaceCreationProperties;
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> workspaceAccessProperties,
 
-            ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> workspaceCreationProperties,
+            Outputs.GetDirectoryWorkspaceCreationPropertiesResult workspaceCreationProperties,
 
             string workspaceSecurityGroupId)
         {

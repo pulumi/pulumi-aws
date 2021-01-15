@@ -5432,6 +5432,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
                  iops: int,
                  kms_key_id: str,
                  snapshot_id: str,
+                 tags: Mapping[str, str],
                  throughput: int,
                  volume_id: str,
                  volume_size: int,
@@ -5442,6 +5443,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
         :param bool encrypted: If the EBS volume is encrypted.
         :param int iops: `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
         :param str snapshot_id: The ID of the snapshot.
+        :param Mapping[str, str] tags: A map of tags assigned to the Instance.
         :param int throughput: The throughput of the volume, in MiB/s.
         :param int volume_size: The size of the volume, in GiB.
         :param str volume_type: The type of the volume.
@@ -5452,6 +5454,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_id", volume_id)
         pulumi.set(__self__, "volume_size", volume_size)
@@ -5501,6 +5504,14 @@ class GetInstanceEbsBlockDeviceResult(dict):
         The ID of the snapshot.
         """
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the Instance.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -5659,6 +5670,7 @@ class GetInstanceRootBlockDeviceResult(dict):
                  encrypted: bool,
                  iops: int,
                  kms_key_id: str,
+                 tags: Mapping[str, str],
                  throughput: int,
                  volume_id: str,
                  volume_size: int,
@@ -5668,6 +5680,7 @@ class GetInstanceRootBlockDeviceResult(dict):
         :param str device_name: The physical name of the device.
         :param bool encrypted: If the EBS volume is encrypted.
         :param int iops: `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
+        :param Mapping[str, str] tags: A map of tags assigned to the Instance.
         :param int throughput: The throughput of the volume, in MiB/s.
         :param int volume_size: The size of the volume, in GiB.
         :param str volume_type: The type of the volume.
@@ -5677,6 +5690,7 @@ class GetInstanceRootBlockDeviceResult(dict):
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_id", volume_id)
         pulumi.set(__self__, "volume_size", volume_size)
@@ -5718,6 +5732,14 @@ class GetInstanceRootBlockDeviceResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the Instance.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

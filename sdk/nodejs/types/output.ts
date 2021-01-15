@@ -7907,6 +7907,10 @@ export namespace ec2 {
          */
         snapshotId: string;
         /**
+         * A map of tags assigned to the Instance.
+         */
+        tags: {[key: string]: string};
+        /**
          * The throughput of the volume, in MiB/s.
          */
         throughput: number;
@@ -7981,6 +7985,10 @@ export namespace ec2 {
          */
         iops: number;
         kmsKeyId: string;
+        /**
+         * A map of tags assigned to the Instance.
+         */
+        tags: {[key: string]: string};
         /**
          * The throughput of the volume, in MiB/s.
          */
@@ -56889,7 +56897,7 @@ export namespace workspaces {
         deviceTypeZeroclient: string;
     }
 
-    export interface GetDirectoryWorkspaceCreationProperty {
+    export interface GetDirectoryWorkspaceCreationProperties {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
          */
