@@ -754,6 +754,8 @@ type EndpointS3Settings struct {
 	CsvDelimiter *string `pulumi:"csvDelimiter"`
 	// Delimiter used to separate rows in the source files. Defaults to `\n`.
 	CsvRowDelimiter *string `pulumi:"csvRowDelimiter"`
+	// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+	DatePartitionEnabled *bool `pulumi:"datePartitionEnabled"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
@@ -782,6 +784,8 @@ type EndpointS3SettingsArgs struct {
 	CsvDelimiter pulumi.StringPtrInput `pulumi:"csvDelimiter"`
 	// Delimiter used to separate rows in the source files. Defaults to `\n`.
 	CsvRowDelimiter pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+	DatePartitionEnabled pulumi.BoolPtrInput `pulumi:"datePartitionEnabled"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
@@ -890,6 +894,11 @@ func (o EndpointS3SettingsOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+func (o EndpointS3SettingsOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.DatePartitionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
@@ -966,6 +975,16 @@ func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 		}
 		return v.CsvRowDelimiter
 	}).(pulumi.StringPtrOutput)
+}
+
+// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+func (o EndpointS3SettingsPtrOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DatePartitionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // JSON document that describes how AWS DMS should interpret the data.

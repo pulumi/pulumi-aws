@@ -32,7 +32,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             ResponseType = "UNAUTHORIZED",
     ///             ResponseTemplates = 
     ///             {
-    ///                 { "application/json", "{'message':$context.error.messageString}" },
+    ///                 { "application/json", "{\"message\":$context.error.messageString}" },
     ///             },
     ///             ResponseParameters = 
     ///             {

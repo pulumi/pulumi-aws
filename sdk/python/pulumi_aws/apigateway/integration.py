@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Integration']
 
@@ -29,6 +31,7 @@ class Integration(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -150,6 +153,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The API resource ID.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: Configuration block specifying the TLS configuration for an integration. Defined below.
         :param pulumi.Input[str] type: The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
@@ -192,6 +196,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api'")
             __props__['rest_api'] = rest_api
             __props__['timeout_milliseconds'] = timeout_milliseconds
+            __props__['tls_config'] = tls_config
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
@@ -220,6 +225,7 @@ class Integration(pulumi.CustomResource):
             resource_id: Optional[pulumi.Input[str]] = None,
             rest_api: Optional[pulumi.Input[str]] = None,
             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+            tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None,
             uri: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
@@ -249,6 +255,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The API resource ID.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: Configuration block specifying the TLS configuration for an integration. Defined below.
         :param pulumi.Input[str] type: The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
@@ -272,6 +279,7 @@ class Integration(pulumi.CustomResource):
         __props__["resource_id"] = resource_id
         __props__["rest_api"] = rest_api
         __props__["timeout_milliseconds"] = timeout_milliseconds
+        __props__["tls_config"] = tls_config
         __props__["type"] = type
         __props__["uri"] = uri
         return Integration(resource_name, opts=opts, __props__=__props__)
@@ -393,6 +401,14 @@ class Integration(pulumi.CustomResource):
         Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
         """
         return pulumi.get(self, "timeout_milliseconds")
+
+    @property
+    @pulumi.getter(name="tlsConfig")
+    def tls_config(self) -> pulumi.Output[Optional['outputs.IntegrationTlsConfig']]:
+        """
+        Configuration block specifying the TLS configuration for an integration. Defined below.
+        """
+        return pulumi.get(self, "tls_config")
 
     @property
     @pulumi.getter

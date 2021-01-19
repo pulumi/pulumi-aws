@@ -62,12 +62,6 @@ namespace Pulumi.Aws.Workspaces
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The default properties that are used for creating WorkSpaces. Defined below.
-        /// </summary>
-        [Input("workspaceCreationProperties")]
-        public Inputs.GetDirectoryWorkspaceCreationPropertiesArgs? WorkspaceCreationProperties { get; set; }
-
         public GetDirectoryArgs()
         {
         }
@@ -127,6 +121,10 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> WorkspaceAccessProperties;
+        /// <summary>
         /// The default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
         public readonly Outputs.GetDirectoryWorkspaceCreationPropertiesResult WorkspaceCreationProperties;
@@ -163,6 +161,8 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> workspaceAccessProperties,
+
             Outputs.GetDirectoryWorkspaceCreationPropertiesResult workspaceCreationProperties,
 
             string workspaceSecurityGroupId)
@@ -180,6 +180,7 @@ namespace Pulumi.Aws.Workspaces
             SelfServicePermissions = selfServicePermissions;
             SubnetIds = subnetIds;
             Tags = tags;
+            WorkspaceAccessProperties = workspaceAccessProperties;
             WorkspaceCreationProperties = workspaceCreationProperties;
             WorkspaceSecurityGroupId = workspaceSecurityGroupId;
         }

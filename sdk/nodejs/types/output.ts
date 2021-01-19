@@ -1058,9 +1058,35 @@ export namespace apigateway {
         types: string;
     }
 
+    export interface DomainNameMutualTlsAuthentication {
+        /**
+         * An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+         * The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+         */
+        truststoreUri: string;
+        /**
+         * The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+         */
+        truststoreVersion?: string;
+    }
+
+    export interface GetDomainNameEndpointConfiguration {
+        /**
+         * List of endpoint types.
+         */
+        types: string[];
+    }
+
     export interface GetRestApiEndpointConfiguration {
         types: string[];
         vpcEndpointIds: string[];
+    }
+
+    export interface IntegrationTlsConfig {
+        /**
+         * Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+         */
+        insecureSkipVerification?: boolean;
     }
 
     export interface MethodSettingsSettings {
@@ -1240,6 +1266,18 @@ export namespace apigatewayv2 {
          * The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
          */
         truststoreVersion?: string;
+    }
+
+    export interface IntegrationResponseParameter {
+        /**
+         * A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+         * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+         */
+        mappings: {[key: string]: string};
+        /**
+         * The HTTP status code in the range 200-599.
+         */
+        statusCode: string;
     }
 
     export interface IntegrationTlsConfig {
@@ -2238,7 +2276,7 @@ export namespace appmesh {
         /**
          * The criteria for determining an gRPC request match.
          */
-        match: outputs.appmesh.RouteSpecGrpcRouteMatch;
+        match?: outputs.appmesh.RouteSpecGrpcRouteMatch;
         /**
          * The retry policy.
          */
@@ -3897,6 +3935,9 @@ export namespace autoscaling {
     }
 
     export interface GroupInstanceRefreshPreferences {
+        /**
+         * The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+         */
         instanceWarmup?: string;
         /**
          * The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
@@ -6204,7 +6245,7 @@ export namespace codepipeline {
          */
         owner: string;
         /**
-         * The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+         * The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
          */
         provider: string;
         /**
@@ -7111,6 +7152,10 @@ export namespace dms {
          */
         csvRowDelimiter?: string;
         /**
+         * Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+         */
+        datePartitionEnabled?: boolean;
+        /**
          * JSON document that describes how AWS DMS should interpret the data.
          */
         externalTableDefinition?: string;
@@ -7862,6 +7907,10 @@ export namespace ec2 {
          */
         snapshotId: string;
         /**
+         * A map of tags assigned to the Instance.
+         */
+        tags: {[key: string]: string};
+        /**
          * The throughput of the volume, in MiB/s.
          */
         throughput: number;
@@ -7936,6 +7985,10 @@ export namespace ec2 {
          */
         iops: number;
         kmsKeyId: string;
+        /**
+         * A map of tags assigned to the Instance.
+         */
+        tags: {[key: string]: string};
         /**
          * The throughput of the volume, in MiB/s.
          */
@@ -8713,31 +8766,26 @@ export namespace ec2 {
 
     export interface InstanceCreditSpecification {
         /**
-         * The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
          */
         cpuCredits?: string;
     }
 
     export interface InstanceEbsBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: boolean;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: string;
         /**
-         * Enables [EBS
-         * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+         * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
         encrypted: boolean;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops: number;
         /**
@@ -8745,27 +8793,34 @@ export namespace ec2 {
          */
         kmsKeyId: string;
         /**
-         * The Snapshot ID to mount.
+         * Snapshot ID to mount.
          */
         snapshotId: string;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput: number;
+        /**
+         * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+         */
         volumeId: string;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType: string;
     }
 
     export interface InstanceEnclaveOptions {
         /**
-         * Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+         * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
          */
         enabled: boolean;
     }
@@ -8780,24 +8835,22 @@ export namespace ec2 {
          */
         noDevice?: boolean;
         /**
-         * The [Instance Store Device
-         * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
          */
         virtualName?: string;
     }
 
     export interface InstanceMetadataOptions {
         /**
-         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
          */
         httpEndpoint: string;
         /**
-         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit: number;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens: string;
     }
@@ -8808,32 +8861,30 @@ export namespace ec2 {
          */
         deleteOnTermination?: boolean;
         /**
-         * The integer index of the network interface attachment. Limited by instance type.
+         * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: number;
         /**
-         * The ID of the network interface to attach.
+         * ID of the network interface to attach.
          */
         networkInterfaceId: string;
     }
 
     export interface InstanceRootBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: boolean;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: string;
         /**
-         * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+         * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
         encrypted: boolean;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops: number;
         /**
@@ -8841,16 +8892,23 @@ export namespace ec2 {
          */
         kmsKeyId: string;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput: number;
+        /**
+         * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+         */
         volumeId: string;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType: string;
     }
@@ -9596,31 +9654,26 @@ export namespace ec2 {
 
     export interface SpotInstanceRequestCreditSpecification {
         /**
-         * The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
          */
         cpuCredits?: string;
     }
 
     export interface SpotInstanceRequestEbsBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: boolean;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: string;
         /**
-         * Enables [EBS
-         * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+         * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
         encrypted: boolean;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops: number;
         /**
@@ -9628,27 +9681,31 @@ export namespace ec2 {
          */
         kmsKeyId: string;
         /**
-         * The Snapshot ID to mount.
+         * Snapshot ID to mount.
          */
         snapshotId: string;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput: number;
         volumeId: string;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType: string;
     }
 
     export interface SpotInstanceRequestEnclaveOptions {
         /**
-         * Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+         * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
          */
         enabled: boolean;
     }
@@ -9663,24 +9720,22 @@ export namespace ec2 {
          */
         noDevice?: boolean;
         /**
-         * The [Instance Store Device
-         * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
          */
         virtualName?: string;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
         /**
-         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
          */
         httpEndpoint: string;
         /**
-         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit: number;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens: string;
     }
@@ -9691,32 +9746,30 @@ export namespace ec2 {
          */
         deleteOnTermination?: boolean;
         /**
-         * The integer index of the network interface attachment. Limited by instance type.
+         * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: number;
         /**
-         * The ID of the network interface to attach.
+         * ID of the network interface to attach.
          */
         networkInterfaceId: string;
     }
 
     export interface SpotInstanceRequestRootBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: boolean;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: string;
         /**
-         * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+         * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
         encrypted: boolean;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops: number;
         /**
@@ -9724,16 +9777,20 @@ export namespace ec2 {
          */
         kmsKeyId: string;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput: number;
         volumeId: string;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType: string;
     }
@@ -12766,6 +12823,35 @@ export namespace emr {
     }
 }
 
+export namespace fms {
+    export interface PolicyExcludeMap {
+        /**
+         * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+         */
+        accounts?: string[];
+        orgunits?: string[];
+    }
+
+    export interface PolicyIncludeMap {
+        /**
+         * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+         */
+        accounts?: string[];
+        orgunits?: string[];
+    }
+
+    export interface PolicySecurityServicePolicyData {
+        /**
+         * Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+         */
+        managedServiceData?: string;
+        /**
+         * valid values are `BLOCK` or `COUNT`.
+         */
+        type: string;
+    }
+}
+
 export namespace fsx {
     export interface WindowsFileSystemSelfManagedActiveDirectory {
         /**
@@ -13835,6 +13921,30 @@ export namespace iam {
          * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
          */
         type: string;
+    }
+}
+
+export namespace identitystore {
+    export interface GetGroupFilter {
+        /**
+         * The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * The value for an attribute.
+         */
+        attributeValue: string;
+    }
+
+    export interface GetUserFilter {
+        /**
+         * The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * The value for an attribute.
+         */
+        attributeValue: string;
     }
 }
 
@@ -20352,6 +20462,121 @@ export namespace sagemaker {
         branch?: string;
         repositoryUrl: string;
         secretArn?: string;
+    }
+
+    export interface DomainDefaultUserSettings {
+        /**
+         * The execution role ARN for the user.
+         */
+        executionRole: string;
+        /**
+         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         */
+        jupyterServerAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettings;
+        /**
+         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         */
+        kernelGatewayAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettings;
+        /**
+         * The security groups.
+         */
+        securityGroups?: string[];
+        /**
+         * The sharing settings. See Sharing Settings below.
+         */
+        sharingSettings?: outputs.sagemaker.DomainDefaultUserSettingsSharingSettings;
+        /**
+         * The TensorBoard app settings. See TensorBoard App Settings below.
+         */
+        tensorBoardAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettings;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterServerAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
+    }
+
+    export interface DomainDefaultUserSettingsSharingSettings {
+        /**
+         * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+         */
+        notebookOutputOption?: string;
+        /**
+         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: string;
+        /**
+         * When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+         */
+        s3OutputPath?: string;
+    }
+
+    export interface DomainDefaultUserSettingsTensorBoardAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
+    }
+
+    export interface DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
     }
 
     export interface EndpointConfigurationDataCaptureConfig {
@@ -56543,6 +56768,37 @@ export namespace workspaces {
         switchRunningMode?: boolean;
     }
 
+    export interface DirectoryWorkspaceAccessProperties {
+        /**
+         * Indicates whether users can use Android devices to access their WorkSpaces.
+         */
+        deviceTypeAndroid?: string;
+        /**
+         * Indicates whether users can use Chromebooks to access their WorkSpaces.
+         */
+        deviceTypeChromeos?: string;
+        /**
+         * Indicates whether users can use iOS devices to access their WorkSpaces.
+         */
+        deviceTypeIos?: string;
+        /**
+         * Indicates whether users can use macOS clients to access their WorkSpaces.
+         */
+        deviceTypeOsx?: string;
+        /**
+         * Indicates whether users can access their WorkSpaces through a web browser.
+         */
+        deviceTypeWeb?: string;
+        /**
+         * Indicates whether users can use Windows clients to access their WorkSpaces.
+         */
+        deviceTypeWindows?: string;
+        /**
+         * Indicates whether users can use zero client devices to access their WorkSpaces.
+         */
+        deviceTypeZeroclient?: string;
+    }
+
     export interface DirectoryWorkspaceCreationProperties {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -56610,6 +56866,37 @@ export namespace workspaces {
         switchRunningMode: boolean;
     }
 
+    export interface GetDirectoryWorkspaceAccessProperty {
+        /**
+         * (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+         */
+        deviceTypeAndroid: string;
+        /**
+         * (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+         */
+        deviceTypeChromeos: string;
+        /**
+         * (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+         */
+        deviceTypeIos: string;
+        /**
+         * (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+         */
+        deviceTypeOsx: string;
+        /**
+         * (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+         */
+        deviceTypeWeb: string;
+        /**
+         * (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+         */
+        deviceTypeWindows: string;
+        /**
+         * (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+         */
+        deviceTypeZeroclient: string;
+    }
+
     export interface GetDirectoryWorkspaceCreationProperties {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -56618,19 +56905,19 @@ export namespace workspaces {
         /**
          * The default organizational unit (OU) for your WorkSpace directories.
          */
-        defaultOu?: string;
+        defaultOu: string;
         /**
          * Indicates whether internet access is enabled for your WorkSpaces.
          */
-        enableInternetAccess?: boolean;
+        enableInternetAccess: boolean;
         /**
          * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
          */
-        enableMaintenanceMode?: boolean;
+        enableMaintenanceMode: boolean;
         /**
          * Indicates whether users are local administrators of their WorkSpaces.
          */
-        userEnabledAsLocalAdministrator?: boolean;
+        userEnabledAsLocalAdministrator: boolean;
     }
 
     export interface GetWorkspaceWorkspaceProperty {

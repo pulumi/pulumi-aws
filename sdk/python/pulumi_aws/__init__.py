@@ -92,6 +92,7 @@ from . import (
     glue,
     guardduty,
     iam,
+    identitystore,
     imagebuilder,
     inspector,
     iot,

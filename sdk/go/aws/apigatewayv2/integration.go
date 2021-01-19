@@ -110,11 +110,15 @@ type Integration struct {
 	PassthroughBehavior pulumi.StringPtrOutput `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrOutput `pulumi:"payloadFormatVersion"`
-	// A key-value map specifying request parameters that are passed from the method request to the backend.
-	// Supported only for WebSocket APIs.
+	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+	// For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapOutput `pulumi:"requestParameters"`
-	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapOutput `pulumi:"requestTemplates"`
+	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+	ResponseParameters IntegrationResponseParameterArrayOutput `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrOutput `pulumi:"templateSelectionExpression"`
 	TimeoutMilliseconds         pulumi.IntOutput       `pulumi:"timeoutMilliseconds"`
@@ -186,11 +190,15 @@ type integrationState struct {
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion *string `pulumi:"payloadFormatVersion"`
-	// A key-value map specifying request parameters that are passed from the method request to the backend.
-	// Supported only for WebSocket APIs.
+	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+	// For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
-	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
+	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 	TimeoutMilliseconds         *int    `pulumi:"timeoutMilliseconds"`
@@ -228,11 +236,15 @@ type IntegrationState struct {
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrInput
-	// A key-value map specifying request parameters that are passed from the method request to the backend.
-	// Supported only for WebSocket APIs.
+	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+	// For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapInput
-	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
+	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+	ResponseParameters IntegrationResponseParameterArrayInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
 	TimeoutMilliseconds         pulumi.IntPtrInput
@@ -272,11 +284,15 @@ type integrationArgs struct {
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion *string `pulumi:"payloadFormatVersion"`
-	// A key-value map specifying request parameters that are passed from the method request to the backend.
-	// Supported only for WebSocket APIs.
+	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+	// For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
-	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
+	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 	TimeoutMilliseconds         *int    `pulumi:"timeoutMilliseconds"`
@@ -313,11 +329,15 @@ type IntegrationArgs struct {
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrInput
-	// A key-value map specifying request parameters that are passed from the method request to the backend.
-	// Supported only for WebSocket APIs.
+	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+	// For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapInput
-	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
+	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+	ResponseParameters IntegrationResponseParameterArrayInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
 	TimeoutMilliseconds         pulumi.IntPtrInput

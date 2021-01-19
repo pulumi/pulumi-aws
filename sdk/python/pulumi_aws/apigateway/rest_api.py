@@ -21,9 +21,11 @@ class RestApi(pulumi.CustomResource):
                  binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -68,9 +70,11 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
         :param pulumi.Input[str] description: The description of the REST API
+        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
@@ -95,9 +99,11 @@ class RestApi(pulumi.CustomResource):
             __props__['binary_media_types'] = binary_media_types
             __props__['body'] = body
             __props__['description'] = description
+            __props__['disable_execute_api_endpoint'] = disable_execute_api_endpoint
             __props__['endpoint_configuration'] = endpoint_configuration
             __props__['minimum_compression_size'] = minimum_compression_size
             __props__['name'] = name
+            __props__['parameters'] = parameters
             __props__['policy'] = policy
             __props__['tags'] = tags
             __props__['arn'] = None
@@ -120,10 +126,12 @@ class RestApi(pulumi.CustomResource):
             body: Optional[pulumi.Input[str]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
             endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
             minimum_compression_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             root_resource_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RestApi':
@@ -140,12 +148,14 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
         :param pulumi.Input[str] created_date: The creation date of the REST API
         :param pulumi.Input[str] description: The description of the REST API
+        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[str] execution_arn: The execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `apigateway.RestApiPolicy` resource instead.
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
@@ -160,10 +170,12 @@ class RestApi(pulumi.CustomResource):
         __props__["body"] = body
         __props__["created_date"] = created_date
         __props__["description"] = description
+        __props__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
         __props__["endpoint_configuration"] = endpoint_configuration
         __props__["execution_arn"] = execution_arn
         __props__["minimum_compression_size"] = minimum_compression_size
         __props__["name"] = name
+        __props__["parameters"] = parameters
         __props__["policy"] = policy
         __props__["root_resource_id"] = root_resource_id
         __props__["tags"] = tags
@@ -218,6 +230,14 @@ class RestApi(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="disableExecuteApiEndpoint")
+    def disable_execute_api_endpoint(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        """
+        return pulumi.get(self, "disable_execute_api_endpoint")
+
+    @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> pulumi.Output['outputs.RestApiEndpointConfiguration']:
         """
@@ -250,6 +270,14 @@ class RestApi(pulumi.CustomResource):
         The name of the REST API
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        """
+        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter

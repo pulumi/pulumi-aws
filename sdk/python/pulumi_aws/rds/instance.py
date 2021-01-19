@@ -189,7 +189,7 @@ class Instance(pulumi.CustomResource):
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-               set to `false`.
+               set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or
                mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
@@ -480,7 +480,7 @@ class Instance(pulumi.CustomResource):
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-               set to `false`.
+               set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         :param pulumi.Input[str] hosted_zone_id: The canonical hosted zone ID of the DB instance (to be used
                in a Route 53 Alias record).
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or
@@ -837,7 +837,7 @@ class Instance(pulumi.CustomResource):
         """
         The name of your final DB snapshot
         when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-        set to `false`.
+        set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 

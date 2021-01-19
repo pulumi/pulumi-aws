@@ -52,10 +52,9 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                             },
     ///                             Configuration = 
     ///                             {
-    ///                                 { "Owner", "my-organization" },
     ///                                 { "ConnectionArn", exampleConnection.Arn },
-    ///                                 { "Repo", "foo/test" },
-    ///                                 { "Branch", "master" },
+    ///                                 { "FullRepositoryId", "my-organization/test" },
+    ///                                 { "BranchName", "main" },
     ///                             },
     ///                         },
     ///                     },

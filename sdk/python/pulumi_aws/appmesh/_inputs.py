@@ -720,7 +720,7 @@ class RouteSpecArgs:
 class RouteSpecGrpcRouteArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RouteSpecGrpcRouteActionArgs'],
-                 match: pulumi.Input['RouteSpecGrpcRouteMatchArgs'],
+                 match: Optional[pulumi.Input['RouteSpecGrpcRouteMatchArgs']] = None,
                  retry_policy: Optional[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgs']] = None,
                  timeout: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutArgs']] = None):
         """
@@ -730,7 +730,8 @@ class RouteSpecGrpcRouteArgs:
         :param pulumi.Input['RouteSpecGrpcRouteTimeoutArgs'] timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
         if timeout is not None:
@@ -750,14 +751,14 @@ class RouteSpecGrpcRouteArgs:
 
     @property
     @pulumi.getter
-    def match(self) -> pulumi.Input['RouteSpecGrpcRouteMatchArgs']:
+    def match(self) -> Optional[pulumi.Input['RouteSpecGrpcRouteMatchArgs']]:
         """
         The criteria for determining an gRPC request match.
         """
         return pulumi.get(self, "match")
 
     @match.setter
-    def match(self, value: pulumi.Input['RouteSpecGrpcRouteMatchArgs']):
+    def match(self, value: Optional[pulumi.Input['RouteSpecGrpcRouteMatchArgs']]):
         pulumi.set(self, "match", value)
 
     @property

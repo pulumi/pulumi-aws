@@ -139,6 +139,8 @@ type Method struct {
 	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
 	// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
+	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -205,6 +207,8 @@ type methodState struct {
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod *string `pulumi:"httpMethod"`
+	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+	OperationName *string `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -231,6 +235,8 @@ type MethodState struct {
 	AuthorizerId pulumi.StringPtrInput
 	// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringPtrInput
+	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+	OperationName pulumi.StringPtrInput
 	// A map of the API models used for the request's content type
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -261,6 +267,8 @@ type methodArgs struct {
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod string `pulumi:"httpMethod"`
+	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+	OperationName *string `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -288,6 +296,8 @@ type MethodArgs struct {
 	AuthorizerId pulumi.StringPtrInput
 	// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringInput
+	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+	OperationName pulumi.StringPtrInput
 	// A map of the API models used for the request's content type
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.

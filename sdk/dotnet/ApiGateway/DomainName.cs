@@ -295,6 +295,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.DomainNameEndpointConfiguration> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The mutual TLS authentication configuration for the domain name. Defined below.
+        /// </summary>
+        [Output("mutualTlsAuthentication")]
+        public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// </summary>
         [Output("regionalCertificateArn")]
@@ -428,6 +434,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.DomainNameEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 
         /// <summary>
+        /// The mutual TLS authentication configuration for the domain name. Defined below.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
+
+        /// <summary>
         /// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// </summary>
         [Input("regionalCertificateArn")]
@@ -540,6 +552,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameEndpointConfigurationGetArgs>? EndpointConfiguration { get; set; }
+
+        /// <summary>
+        /// The mutual TLS authentication configuration for the domain name. Defined below.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        public Input<Inputs.DomainNameMutualTlsAuthenticationGetArgs>? MutualTlsAuthentication { get; set; }
 
         /// <summary>
         /// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.

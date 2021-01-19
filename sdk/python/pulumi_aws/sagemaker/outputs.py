@@ -11,6 +11,15 @@ from . import outputs
 
 __all__ = [
     'CodeRepositoryGitConfig',
+    'DomainDefaultUserSettings',
+    'DomainDefaultUserSettingsJupyterServerAppSettings',
+    'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec',
+    'DomainDefaultUserSettingsKernelGatewayAppSettings',
+    'DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage',
+    'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec',
+    'DomainDefaultUserSettingsSharingSettings',
+    'DomainDefaultUserSettingsTensorBoardAppSettings',
+    'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
     'EndpointConfigurationDataCaptureConfig',
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader',
     'EndpointConfigurationDataCaptureConfigCaptureOption',
@@ -48,6 +57,354 @@ class CodeRepositoryGitConfig(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         return pulumi.get(self, "secret_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettings(dict):
+    def __init__(__self__, *,
+                 execution_role: str,
+                 jupyter_server_app_settings: Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettings'] = None,
+                 kernel_gateway_app_settings: Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettings'] = None,
+                 security_groups: Optional[Sequence[str]] = None,
+                 sharing_settings: Optional['outputs.DomainDefaultUserSettingsSharingSettings'] = None,
+                 tensor_board_app_settings: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettings'] = None):
+        """
+        :param str execution_role: The execution role ARN for the user.
+        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
+        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param Sequence[str] security_groups: The security groups.
+        :param 'DomainDefaultUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
+        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if sharing_settings is not None:
+            pulumi.set(__self__, "sharing_settings", sharing_settings)
+        if tensor_board_app_settings is not None:
+            pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> str:
+        """
+        The execution role ARN for the user.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettings']:
+        """
+        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettings']:
+        """
+        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="sharingSettings")
+    def sharing_settings(self) -> Optional['outputs.DomainDefaultUserSettingsSharingSettings']:
+        """
+        The sharing settings. See Sharing Settings below.
+        """
+        return pulumi.get(self, "sharing_settings")
+
+    @property
+    @pulumi.getter(name="tensorBoardAppSettings")
+    def tensor_board_app_settings(self) -> Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettings']:
+        """
+        The TensorBoard app settings. See TensorBoard App Settings below.
+        """
+        return pulumi.get(self, "tensor_board_app_settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsJupyterServerAppSettings(dict):
+    def __init__(__self__, *,
+                 default_resource_spec: 'outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec'):
+        """
+        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec':
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type.
+        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
+    def __init__(__self__, *,
+                 default_resource_spec: 'outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec',
+                 custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage']] = None):
+        """
+        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec':
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage']]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage(dict):
+    def __init__(__self__, *,
+                 app_image_config_name: str,
+                 image_name: str,
+                 image_version_number: Optional[int] = None):
+        """
+        :param str app_image_config_name: The name of the App Image Config.
+        :param str image_name: The name of the Custom Image.
+        :param int image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> str:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[int]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type.
+        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsSharingSettings(dict):
+    def __init__(__self__, *,
+                 notebook_output_option: Optional[str] = None,
+                 s3_kms_key_id: Optional[str] = None,
+                 s3_output_path: Optional[str] = None):
+        """
+        :param str notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+        :param str s3_kms_key_id: When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+        :param str s3_output_path: When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+        """
+        if notebook_output_option is not None:
+            pulumi.set(__self__, "notebook_output_option", notebook_output_option)
+        if s3_kms_key_id is not None:
+            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @property
+    @pulumi.getter(name="notebookOutputOption")
+    def notebook_output_option(self) -> Optional[str]:
+        """
+        Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+        """
+        return pulumi.get(self, "notebook_output_option")
+
+    @property
+    @pulumi.getter(name="s3KmsKeyId")
+    def s3_kms_key_id(self) -> Optional[str]:
+        """
+        When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_id")
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[str]:
+        """
+        When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsTensorBoardAppSettings(dict):
+    def __init__(__self__, *,
+                 default_resource_spec: 'outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec'):
+        """
+        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec':
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type.
+        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

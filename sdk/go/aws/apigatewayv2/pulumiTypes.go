@@ -751,6 +751,115 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationResponseParameter struct {
+	// A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+	Mappings map[string]string `pulumi:"mappings"`
+	// The HTTP status code in the range 200-599.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// IntegrationResponseParameterInput is an input type that accepts IntegrationResponseParameterArgs and IntegrationResponseParameterOutput values.
+// You can construct a concrete instance of `IntegrationResponseParameterInput` via:
+//
+//          IntegrationResponseParameterArgs{...}
+type IntegrationResponseParameterInput interface {
+	pulumi.Input
+
+	ToIntegrationResponseParameterOutput() IntegrationResponseParameterOutput
+	ToIntegrationResponseParameterOutputWithContext(context.Context) IntegrationResponseParameterOutput
+}
+
+type IntegrationResponseParameterArgs struct {
+	// A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+	Mappings pulumi.StringMapInput `pulumi:"mappings"`
+	// The HTTP status code in the range 200-599.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (IntegrationResponseParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponseParameter)(nil)).Elem()
+}
+
+func (i IntegrationResponseParameterArgs) ToIntegrationResponseParameterOutput() IntegrationResponseParameterOutput {
+	return i.ToIntegrationResponseParameterOutputWithContext(context.Background())
+}
+
+func (i IntegrationResponseParameterArgs) ToIntegrationResponseParameterOutputWithContext(ctx context.Context) IntegrationResponseParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterOutput)
+}
+
+// IntegrationResponseParameterArrayInput is an input type that accepts IntegrationResponseParameterArray and IntegrationResponseParameterArrayOutput values.
+// You can construct a concrete instance of `IntegrationResponseParameterArrayInput` via:
+//
+//          IntegrationResponseParameterArray{ IntegrationResponseParameterArgs{...} }
+type IntegrationResponseParameterArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationResponseParameterArrayOutput() IntegrationResponseParameterArrayOutput
+	ToIntegrationResponseParameterArrayOutputWithContext(context.Context) IntegrationResponseParameterArrayOutput
+}
+
+type IntegrationResponseParameterArray []IntegrationResponseParameterInput
+
+func (IntegrationResponseParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationResponseParameter)(nil)).Elem()
+}
+
+func (i IntegrationResponseParameterArray) ToIntegrationResponseParameterArrayOutput() IntegrationResponseParameterArrayOutput {
+	return i.ToIntegrationResponseParameterArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationResponseParameterArray) ToIntegrationResponseParameterArrayOutputWithContext(ctx context.Context) IntegrationResponseParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterArrayOutput)
+}
+
+type IntegrationResponseParameterOutput struct{ *pulumi.OutputState }
+
+func (IntegrationResponseParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponseParameter)(nil)).Elem()
+}
+
+func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutput() IntegrationResponseParameterOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutputWithContext(ctx context.Context) IntegrationResponseParameterOutput {
+	return o
+}
+
+// A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+func (o IntegrationResponseParameterOutput) Mappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationResponseParameter) map[string]string { return v.Mappings }).(pulumi.StringMapOutput)
+}
+
+// The HTTP status code in the range 200-599.
+func (o IntegrationResponseParameterOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationResponseParameter) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type IntegrationResponseParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationResponseParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationResponseParameter)(nil)).Elem()
+}
+
+func (o IntegrationResponseParameterArrayOutput) ToIntegrationResponseParameterArrayOutput() IntegrationResponseParameterArrayOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterArrayOutput) ToIntegrationResponseParameterArrayOutputWithContext(ctx context.Context) IntegrationResponseParameterArrayOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterArrayOutput) Index(i pulumi.IntInput) IntegrationResponseParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationResponseParameter {
+		return vs[0].([]IntegrationResponseParameter)[vs[1].(int)]
+	}).(IntegrationResponseParameterOutput)
+}
+
 type IntegrationTlsConfig struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
 	ServerNameToVerify *string `pulumi:"serverNameToVerify"`
@@ -1404,6 +1513,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationResponseParameterOutput{})
+	pulumi.RegisterOutputType(IntegrationResponseParameterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})

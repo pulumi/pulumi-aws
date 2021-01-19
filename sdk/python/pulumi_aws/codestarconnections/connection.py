@@ -46,10 +46,9 @@ class Connection(pulumi.CustomResource):
                         version="1",
                         output_artifacts=["source_output"],
                         configuration={
-                            "Owner": "my-organization",
                             "ConnectionArn": example_connection.arn,
-                            "Repo": "foo/test",
-                            "Branch": "master",
+                            "FullRepositoryId": "my-organization/test",
+                            "BranchName": "main",
                         },
                     )],
                 ),

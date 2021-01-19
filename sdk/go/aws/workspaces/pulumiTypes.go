@@ -217,6 +217,251 @@ func (o DirectorySelfServicePermissionsPtrOutput) SwitchRunningMode() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DirectoryWorkspaceAccessProperties struct {
+	// Indicates whether users can use Android devices to access their WorkSpaces.
+	DeviceTypeAndroid *string `pulumi:"deviceTypeAndroid"`
+	// Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeos *string `pulumi:"deviceTypeChromeos"`
+	// Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos *string `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx *string `pulumi:"deviceTypeOsx"`
+	// Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb *string `pulumi:"deviceTypeWeb"`
+	// Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows *string `pulumi:"deviceTypeWindows"`
+	// Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroclient *string `pulumi:"deviceTypeZeroclient"`
+}
+
+// DirectoryWorkspaceAccessPropertiesInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs and DirectoryWorkspaceAccessPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesInput` via:
+//
+//          DirectoryWorkspaceAccessPropertiesArgs{...}
+type DirectoryWorkspaceAccessPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput
+	ToDirectoryWorkspaceAccessPropertiesOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesOutput
+}
+
+type DirectoryWorkspaceAccessPropertiesArgs struct {
+	// Indicates whether users can use Android devices to access their WorkSpaces.
+	DeviceTypeAndroid pulumi.StringPtrInput `pulumi:"deviceTypeAndroid"`
+	// Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeos pulumi.StringPtrInput `pulumi:"deviceTypeChromeos"`
+	// Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos pulumi.StringPtrInput `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx pulumi.StringPtrInput `pulumi:"deviceTypeOsx"`
+	// Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb pulumi.StringPtrInput `pulumi:"deviceTypeWeb"`
+	// Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows pulumi.StringPtrInput `pulumi:"deviceTypeWindows"`
+	// Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroclient pulumi.StringPtrInput `pulumi:"deviceTypeZeroclient"`
+}
+
+func (DirectoryWorkspaceAccessPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesOutput)
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesOutput).ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryWorkspaceAccessPropertiesPtrInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs, DirectoryWorkspaceAccessPropertiesPtr and DirectoryWorkspaceAccessPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesPtrInput` via:
+//
+//          DirectoryWorkspaceAccessPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DirectoryWorkspaceAccessPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesPtrType DirectoryWorkspaceAccessPropertiesArgs
+
+func DirectoryWorkspaceAccessPropertiesPtr(v *DirectoryWorkspaceAccessPropertiesArgs) DirectoryWorkspaceAccessPropertiesPtrInput {
+	return (*directoryWorkspaceAccessPropertiesPtrType)(v)
+}
+
+func (*directoryWorkspaceAccessPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (i *directoryWorkspaceAccessPropertiesPtrType) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryWorkspaceAccessPropertiesPtrType) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessProperties {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesPtrOutput)
+}
+
+// Indicates whether users can use Android devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeAndroid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeAndroid }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use Chromebooks to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeChromeos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeChromeos }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use iOS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeIos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeIos }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use macOS clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeOsx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeOsx }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a web browser.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeWeb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeWeb }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use Windows clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeWindows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeWindows }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use zero client devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeZeroclient() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeZeroclient }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) DirectoryWorkspaceAccessProperties { return *v }).(DirectoryWorkspaceAccessPropertiesOutput)
+}
+
+// Indicates whether users can use Android devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeAndroid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeAndroid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use Chromebooks to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeChromeos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeChromeos
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use iOS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeIos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeIos
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use macOS clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeOsx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeOsx
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a web browser.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeWeb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeWeb
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use Windows clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeWindows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeWindows
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use zero client devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeZeroclient() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeZeroclient
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectoryWorkspaceCreationProperties struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
 	CustomSecurityGroupId *string `pulumi:"customSecurityGroupId"`
@@ -1161,17 +1406,168 @@ func (o GetDirectorySelfServicePermissionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetDirectorySelfServicePermissionOutput)
 }
 
+type GetDirectoryWorkspaceAccessProperty struct {
+	// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+	DeviceTypeAndroid string `pulumi:"deviceTypeAndroid"`
+	// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeos string `pulumi:"deviceTypeChromeos"`
+	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos string `pulumi:"deviceTypeIos"`
+	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx string `pulumi:"deviceTypeOsx"`
+	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb string `pulumi:"deviceTypeWeb"`
+	// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows string `pulumi:"deviceTypeWindows"`
+	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroclient string `pulumi:"deviceTypeZeroclient"`
+}
+
+// GetDirectoryWorkspaceAccessPropertyInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArgs and GetDirectoryWorkspaceAccessPropertyOutput values.
+// You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyInput` via:
+//
+//          GetDirectoryWorkspaceAccessPropertyArgs{...}
+type GetDirectoryWorkspaceAccessPropertyInput interface {
+	pulumi.Input
+
+	ToGetDirectoryWorkspaceAccessPropertyOutput() GetDirectoryWorkspaceAccessPropertyOutput
+	ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(context.Context) GetDirectoryWorkspaceAccessPropertyOutput
+}
+
+type GetDirectoryWorkspaceAccessPropertyArgs struct {
+	// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+	DeviceTypeAndroid pulumi.StringInput `pulumi:"deviceTypeAndroid"`
+	// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeos pulumi.StringInput `pulumi:"deviceTypeChromeos"`
+	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos pulumi.StringInput `pulumi:"deviceTypeIos"`
+	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx pulumi.StringInput `pulumi:"deviceTypeOsx"`
+	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb pulumi.StringInput `pulumi:"deviceTypeWeb"`
+	// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows pulumi.StringInput `pulumi:"deviceTypeWindows"`
+	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroclient pulumi.StringInput `pulumi:"deviceTypeZeroclient"`
+}
+
+func (GetDirectoryWorkspaceAccessPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
+}
+
+func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPropertyOutput() GetDirectoryWorkspaceAccessPropertyOutput {
+	return i.ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyOutput)
+}
+
+// GetDirectoryWorkspaceAccessPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArray and GetDirectoryWorkspaceAccessPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyArrayInput` via:
+//
+//          GetDirectoryWorkspaceAccessPropertyArray{ GetDirectoryWorkspaceAccessPropertyArgs{...} }
+type GetDirectoryWorkspaceAccessPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectoryWorkspaceAccessPropertyArrayOutput() GetDirectoryWorkspaceAccessPropertyArrayOutput
+	ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput
+}
+
+type GetDirectoryWorkspaceAccessPropertyArray []GetDirectoryWorkspaceAccessPropertyInput
+
+func (GetDirectoryWorkspaceAccessPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
+}
+
+func (i GetDirectoryWorkspaceAccessPropertyArray) ToGetDirectoryWorkspaceAccessPropertyArrayOutput() GetDirectoryWorkspaceAccessPropertyArrayOutput {
+	return i.ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryWorkspaceAccessPropertyArray) ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyArrayOutput)
+}
+
+type GetDirectoryWorkspaceAccessPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryWorkspaceAccessPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyOutput) ToGetDirectoryWorkspaceAccessPropertyOutput() GetDirectoryWorkspaceAccessPropertyOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyOutput) ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyOutput {
+	return o
+}
+
+// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeAndroid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeAndroid }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeChromeos() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeChromeos }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeIos() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeIos }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeOsx() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeOsx }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWeb() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeWeb }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWindows() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeWindows }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeZeroclient() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeZeroclient }).(pulumi.StringOutput)
+}
+
+type GetDirectoryWorkspaceAccessPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryWorkspaceAccessPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) ToGetDirectoryWorkspaceAccessPropertyArrayOutput() GetDirectoryWorkspaceAccessPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectoryWorkspaceAccessPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryWorkspaceAccessProperty {
+		return vs[0].([]GetDirectoryWorkspaceAccessProperty)[vs[1].(int)]
+	}).(GetDirectoryWorkspaceAccessPropertyOutput)
+}
+
 type GetDirectoryWorkspaceCreationProperties struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
 	CustomSecurityGroupId string `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
-	DefaultOu *string `pulumi:"defaultOu"`
+	DefaultOu string `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
-	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
+	EnableInternetAccess bool `pulumi:"enableInternetAccess"`
 	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
+	EnableMaintenanceMode bool `pulumi:"enableMaintenanceMode"`
 	// Indicates whether users are local administrators of their WorkSpaces.
-	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
+	UserEnabledAsLocalAdministrator bool `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
 // GetDirectoryWorkspaceCreationPropertiesInput is an input type that accepts GetDirectoryWorkspaceCreationPropertiesArgs and GetDirectoryWorkspaceCreationPropertiesOutput values.
@@ -1189,13 +1585,13 @@ type GetDirectoryWorkspaceCreationPropertiesArgs struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
 	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
-	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
+	DefaultOu pulumi.StringInput `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
-	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
+	EnableInternetAccess pulumi.BoolInput `pulumi:"enableInternetAccess"`
 	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
+	EnableMaintenanceMode pulumi.BoolInput `pulumi:"enableMaintenanceMode"`
 	// Indicates whether users are local administrators of their WorkSpaces.
-	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
+	UserEnabledAsLocalAdministrator pulumi.BoolInput `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
 func (GetDirectoryWorkspaceCreationPropertiesArgs) ElementType() reflect.Type {
@@ -1230,23 +1626,23 @@ func (o GetDirectoryWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() p
 }
 
 // The default organizational unit (OU) for your WorkSpace directories.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *string { return v.DefaultOu }).(pulumi.StringPtrOutput)
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) string { return v.DefaultOu }).(pulumi.StringOutput)
 }
 
 // Indicates whether internet access is enabled for your WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.EnableInternetAccess }).(pulumi.BoolOutput)
 }
 
 // Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.EnableMaintenanceMode }).(pulumi.BoolOutput)
 }
 
 // Indicates whether users are local administrators of their WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolOutput)
 }
 
 type GetWorkspaceWorkspaceProperty struct {
@@ -1385,6 +1781,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 func init() {
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleOutput{})
@@ -1399,6 +1797,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectoryWorkspaceAccessPropertyOutput{})
+	pulumi.RegisterOutputType(GetDirectoryWorkspaceAccessPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyArrayOutput{})

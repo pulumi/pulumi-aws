@@ -21,8 +21,8 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// <summary>
         /// The criteria for determining an gRPC request match.
         /// </summary>
-        [Input("match", required: true)]
-        public Input<Inputs.RouteSpecGrpcRouteMatchArgs> Match { get; set; } = null!;
+        [Input("match")]
+        public Input<Inputs.RouteSpecGrpcRouteMatchArgs>? Match { get; set; }
 
         /// <summary>
         /// The retry policy.

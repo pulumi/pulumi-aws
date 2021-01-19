@@ -10,58 +10,6 @@ import {RestApi} from "./index";
 /**
  * Provides an API Gateway Method Settings, e.g. logging or monitoring.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {description: "This is my API for demonstration purposes"});
- * const testResource = new aws.apigateway.Resource("testResource", {
- *     restApi: testRestApi.id,
- *     parentId: testRestApi.rootResourceId,
- *     pathPart: "mytestresource",
- * });
- * const testMethod = new aws.apigateway.Method("testMethod", {
- *     restApi: testRestApi.id,
- *     resourceId: testResource.id,
- *     httpMethod: "GET",
- *     authorization: "NONE",
- * });
- * const testIntegration = new aws.apigateway.Integration("testIntegration", {
- *     restApi: testRestApi.id,
- *     resourceId: testResource.id,
- *     httpMethod: testMethod.httpMethod,
- *     type: "MOCK",
- *     requestTemplates: {
- *         "application/xml": `{
- *    "body" : $input.json('$')
- * }
- * `,
- *     },
- * });
- * const testDeployment = new aws.apigateway.Deployment("testDeployment", {
- *     restApi: testRestApi.id,
- *     stageName: "dev",
- * }, {
- *     dependsOn: [testIntegration],
- * });
- * const testStage = new aws.apigateway.Stage("testStage", {
- *     stageName: "prod",
- *     restApi: testRestApi.id,
- *     deployment: testDeployment.id,
- * });
- * const methodSettings = new aws.apigateway.MethodSettings("methodSettings", {
- *     restApi: testRestApi.id,
- *     stageName: testStage.stageName,
- *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
- *     settings: {
- *         metricsEnabled: true,
- *         loggingLevel: "INFO",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.

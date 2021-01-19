@@ -469,7 +469,7 @@ type PipelineStageAction struct {
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner string `pulumi:"owner"`
-	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Provider string `pulumi:"provider"`
 	// The region in which to run the action.
 	Region *string `pulumi:"region"`
@@ -507,7 +507,7 @@ type PipelineStageActionArgs struct {
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner pulumi.StringInput `pulumi:"owner"`
-	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Provider pulumi.StringInput `pulumi:"provider"`
 	// The region in which to run the action.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -605,7 +605,7 @@ func (o PipelineStageActionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 func (o PipelineStageActionOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
 }

@@ -13,6 +13,7 @@ __all__ = [
     'AuthorizerJwtConfigurationArgs',
     'DomainNameDomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'IntegrationResponseParameterArgs',
     'IntegrationTlsConfigArgs',
     'StageAccessLogSettingsArgs',
     'StageDefaultRouteSettingsArgs',
@@ -285,6 +286,45 @@ class DomainNameMutualTlsAuthenticationArgs:
     @truststore_version.setter
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
+
+
+@pulumi.input_type
+class IntegrationResponseParameterArgs:
+    def __init__(__self__, *,
+                 mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 status_code: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] mappings: A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+               See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        :param pulumi.Input[str] status_code: The HTTP status code in the range 200-599.
+        """
+        pulumi.set(__self__, "mappings", mappings)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        """
+        return pulumi.get(self, "mappings")
+
+    @mappings.setter
+    def mappings(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "mappings", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[str]:
+        """
+        The HTTP status code in the range 200-599.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type

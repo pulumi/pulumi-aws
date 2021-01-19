@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// The integer index of the network interface attachment. Limited by instance type.
+        /// Integer index of the network interface attachment. Limited by instance type.
         /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the network interface to attach.
+        /// ID of the network interface to attach.
         /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;

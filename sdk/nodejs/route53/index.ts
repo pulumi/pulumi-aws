@@ -15,6 +15,7 @@ export * from "./healthCheck";
 export * from "./queryLog";
 export * from "./record";
 export * from "./recordType";
+export * from "./resolverDnsSecConfig";
 export * from "./resolverEndpoint";
 export * from "./resolverQueryLogConfig";
 export * from "./resolverQueryLogConfigAssociation";
@@ -32,6 +33,7 @@ import { DelegationSet } from "./delegationSet";
 import { HealthCheck } from "./healthCheck";
 import { QueryLog } from "./queryLog";
 import { Record } from "./record";
+import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
 import { ResolverEndpoint } from "./resolverEndpoint";
 import { ResolverQueryLogConfig } from "./resolverQueryLogConfig";
 import { ResolverQueryLogConfigAssociation } from "./resolverQueryLogConfigAssociation";
@@ -53,6 +55,8 @@ const _module = {
                 return new QueryLog(name, <any>undefined, { urn })
             case "aws:route53/record:Record":
                 return new Record(name, <any>undefined, { urn })
+            case "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
+                return new ResolverDnsSecConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverEndpoint:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
@@ -78,6 +82,7 @@ pulumi.runtime.registerResourceModule("aws", "route53/delegationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/healthCheck", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfigAssociation", _module)

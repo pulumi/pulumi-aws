@@ -498,6 +498,291 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainNameMutualTlsAuthentication struct {
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	TruststoreUri string `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	TruststoreVersion *string `pulumi:"truststoreVersion"`
+}
+
+// DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+type DomainNameMutualTlsAuthenticationInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput
+	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
+}
+
+type DomainNameMutualTlsAuthenticationArgs struct {
+	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	TruststoreUri pulumi.StringInput `pulumi:"truststoreUri"`
+	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
+}
+
+func (DomainNameMutualTlsAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return i.ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput).ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx)
+}
+
+// DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
+// You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
+//
+//          DomainNameMutualTlsAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainNameMutualTlsAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput
+	ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationPtrOutput
+}
+
+type domainNameMutualTlsAuthenticationPtrType DomainNameMutualTlsAuthenticationArgs
+
+func DomainNameMutualTlsAuthenticationPtr(v *DomainNameMutualTlsAuthenticationArgs) DomainNameMutualTlsAuthenticationPtrInput {
+	return (*domainNameMutualTlsAuthenticationPtrType)(v)
+}
+
+func (*domainNameMutualTlsAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutput() DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+		return &v
+	}).(DomainNameMutualTlsAuthenticationPtrOutput)
+}
+
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) string { return v.TruststoreUri }).(pulumi.StringOutput)
+}
+
+// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameMutualTlsAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMutualTlsAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameMutualTlsAuthentication)(nil)).Elem()
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+}
+
+// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TruststoreUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TruststoreVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTlsConfig struct {
+	// Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+	InsecureSkipVerification *bool `pulumi:"insecureSkipVerification"`
+}
+
+// IntegrationTlsConfigInput is an input type that accepts IntegrationTlsConfigArgs and IntegrationTlsConfigOutput values.
+// You can construct a concrete instance of `IntegrationTlsConfigInput` via:
+//
+//          IntegrationTlsConfigArgs{...}
+type IntegrationTlsConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput
+	ToIntegrationTlsConfigOutputWithContext(context.Context) IntegrationTlsConfigOutput
+}
+
+type IntegrationTlsConfigArgs struct {
+	// Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+	InsecureSkipVerification pulumi.BoolPtrInput `pulumi:"insecureSkipVerification"`
+}
+
+func (IntegrationTlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput {
+	return i.ToIntegrationTlsConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutputWithContext(ctx context.Context) IntegrationTlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput)
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return i.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput).ToIntegrationTlsConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationTlsConfigPtrInput is an input type that accepts IntegrationTlsConfigArgs, IntegrationTlsConfigPtr and IntegrationTlsConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationTlsConfigPtrInput` via:
+//
+//          IntegrationTlsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationTlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput
+	ToIntegrationTlsConfigPtrOutputWithContext(context.Context) IntegrationTlsConfigPtrOutput
+}
+
+type integrationTlsConfigPtrType IntegrationTlsConfigArgs
+
+func IntegrationTlsConfigPtr(v *IntegrationTlsConfigArgs) IntegrationTlsConfigPtrInput {
+	return (*integrationTlsConfigPtrType)(v)
+}
+
+func (*integrationTlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return i.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigPtrOutput)
+}
+
+type IntegrationTlsConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigOutput() IntegrationTlsConfigOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigOutputWithContext(ctx context.Context) IntegrationTlsConfigOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return o.ToIntegrationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return o.ApplyT(func(v IntegrationTlsConfig) *IntegrationTlsConfig {
+		return &v
+	}).(IntegrationTlsConfigPtrOutput)
+}
+
+// Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+func (o IntegrationTlsConfigOutput) InsecureSkipVerification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationTlsConfig) *bool { return v.InsecureSkipVerification }).(pulumi.BoolPtrOutput)
+}
+
+type IntegrationTlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTlsConfig)(nil)).Elem()
+}
+
+func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
+	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig { return *v }).(IntegrationTlsConfigOutput)
+}
+
+// Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+func (o IntegrationTlsConfigPtrOutput) InsecureSkipVerification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationTlsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InsecureSkipVerification
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MethodSettingsSettings struct {
 	// Specifies whether the cached responses are encrypted.
 	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
@@ -1529,6 +1814,103 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+type GetDomainNameEndpointConfiguration struct {
+	// List of endpoint types.
+	Types []string `pulumi:"types"`
+}
+
+// GetDomainNameEndpointConfigurationInput is an input type that accepts GetDomainNameEndpointConfigurationArgs and GetDomainNameEndpointConfigurationOutput values.
+// You can construct a concrete instance of `GetDomainNameEndpointConfigurationInput` via:
+//
+//          GetDomainNameEndpointConfigurationArgs{...}
+type GetDomainNameEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDomainNameEndpointConfigurationOutput() GetDomainNameEndpointConfigurationOutput
+	ToGetDomainNameEndpointConfigurationOutputWithContext(context.Context) GetDomainNameEndpointConfigurationOutput
+}
+
+type GetDomainNameEndpointConfigurationArgs struct {
+	// List of endpoint types.
+	Types pulumi.StringArrayInput `pulumi:"types"`
+}
+
+func (GetDomainNameEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainNameEndpointConfiguration)(nil)).Elem()
+}
+
+func (i GetDomainNameEndpointConfigurationArgs) ToGetDomainNameEndpointConfigurationOutput() GetDomainNameEndpointConfigurationOutput {
+	return i.ToGetDomainNameEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDomainNameEndpointConfigurationArgs) ToGetDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNameEndpointConfigurationOutput)
+}
+
+// GetDomainNameEndpointConfigurationArrayInput is an input type that accepts GetDomainNameEndpointConfigurationArray and GetDomainNameEndpointConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDomainNameEndpointConfigurationArrayInput` via:
+//
+//          GetDomainNameEndpointConfigurationArray{ GetDomainNameEndpointConfigurationArgs{...} }
+type GetDomainNameEndpointConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainNameEndpointConfigurationArrayOutput() GetDomainNameEndpointConfigurationArrayOutput
+	ToGetDomainNameEndpointConfigurationArrayOutputWithContext(context.Context) GetDomainNameEndpointConfigurationArrayOutput
+}
+
+type GetDomainNameEndpointConfigurationArray []GetDomainNameEndpointConfigurationInput
+
+func (GetDomainNameEndpointConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainNameEndpointConfiguration)(nil)).Elem()
+}
+
+func (i GetDomainNameEndpointConfigurationArray) ToGetDomainNameEndpointConfigurationArrayOutput() GetDomainNameEndpointConfigurationArrayOutput {
+	return i.ToGetDomainNameEndpointConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainNameEndpointConfigurationArray) ToGetDomainNameEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNameEndpointConfigurationArrayOutput)
+}
+
+type GetDomainNameEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDomainNameEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainNameEndpointConfiguration)(nil)).Elem()
+}
+
+func (o GetDomainNameEndpointConfigurationOutput) ToGetDomainNameEndpointConfigurationOutput() GetDomainNameEndpointConfigurationOutput {
+	return o
+}
+
+func (o GetDomainNameEndpointConfigurationOutput) ToGetDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationOutput {
+	return o
+}
+
+// List of endpoint types.
+func (o GetDomainNameEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+type GetDomainNameEndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainNameEndpointConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainNameEndpointConfiguration)(nil)).Elem()
+}
+
+func (o GetDomainNameEndpointConfigurationArrayOutput) ToGetDomainNameEndpointConfigurationArrayOutput() GetDomainNameEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDomainNameEndpointConfigurationArrayOutput) ToGetDomainNameEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDomainNameEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) GetDomainNameEndpointConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainNameEndpointConfiguration {
+		return vs[0].([]GetDomainNameEndpointConfiguration)[vs[1].(int)]
+	}).(GetDomainNameEndpointConfigurationOutput)
+}
+
 type GetRestApiEndpointConfiguration struct {
 	Types          []string `pulumi:"types"`
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
@@ -1636,6 +2018,10 @@ func init() {
 	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
+	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MethodSettingsSettingsOutput{})
 	pulumi.RegisterOutputType(MethodSettingsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
@@ -1648,6 +2034,8 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainNameEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDomainNameEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRestApiEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(GetRestApiEndpointConfigurationArrayOutput{})
 }

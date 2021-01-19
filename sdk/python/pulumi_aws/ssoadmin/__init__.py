@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .account_assignment import *
 from .get_instances import *
 from .get_permission_set import *
 from .managed_policy_attachment import *
@@ -21,7 +22,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
+            if typ == "aws:ssoadmin/accountAssignment:AccountAssignment":
+                return AccountAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
                 return ManagedPolicyAttachment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ssoadmin/permissionSet:PermissionSet":
                 return PermissionSet(name, pulumi.ResourceOptions(urn=urn))
@@ -32,6 +35,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "ssoadmin/accountAssignment", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ssoadmin/managedPolicyAttachment", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ssoadmin/permissionSet", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ssoadmin/permissionSetInlinePolicy", _module_instance)

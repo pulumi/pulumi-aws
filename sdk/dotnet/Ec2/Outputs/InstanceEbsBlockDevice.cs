@@ -14,24 +14,19 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class InstanceEbsBlockDevice
     {
         /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
+        /// Whether the volume should be destroyed on instance termination. Defaults to `true`.
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// The name of the device to mount.
+        /// Name of the device to mount.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// Only valid for volume_type of `"io1"`, `"io2"` or `"gp3"`.
+        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
@@ -39,20 +34,27 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// The Snapshot ID to mount.
+        /// Snapshot ID to mount.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `"gp3"`.
+        /// A map of tags to assign to the device.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+        /// </summary>
         public readonly string? VolumeId;
         /// <summary>
-        /// The size of the volume in gibibytes (GiB).
+        /// Size of the volume in gibibytes (GiB).
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        /// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
         /// </summary>
         public readonly string? VolumeType;
 
@@ -70,6 +72,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? snapshotId,
 
+            ImmutableDictionary<string, string>? tags,
+
             int? throughput,
 
             string? volumeId,
@@ -84,6 +88,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Tags = tags;
             Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;

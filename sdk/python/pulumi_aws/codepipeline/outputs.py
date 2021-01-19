@@ -157,7 +157,7 @@ class PipelineStageAction(dict):
         :param str category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param str name: The action declaration's name.
         :param str owner: The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-        :param str provider: The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        :param str provider: The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param str version: A string that identifies the action type.
         :param Mapping[str, str] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param Sequence[str] input_artifacts: A list of artifact names to be worked on.
@@ -215,7 +215,7 @@ class PipelineStageAction(dict):
     @pulumi.getter
     def provider(self) -> str:
         """
-        The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         """
         return pulumi.get(self, "provider")
 

@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-        /// set to `false`.
+        /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
@@ -724,7 +724,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-        /// set to `false`.
+        /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -1164,7 +1164,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-        /// set to `false`.
+        /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }

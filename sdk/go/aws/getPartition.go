@@ -65,4 +65,6 @@ type GetPartitionResult struct {
 	Id string `pulumi:"id"`
 	// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Partition string `pulumi:"partition"`
+	// Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
 }

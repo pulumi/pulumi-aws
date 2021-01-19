@@ -20,6 +20,7 @@ class Method(pulumi.CustomResource):
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
+                 operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[str]] = None,
@@ -92,6 +93,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
                where key is the content type (e.g. `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -127,6 +129,7 @@ class Method(pulumi.CustomResource):
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__['http_method'] = http_method
+            __props__['operation_name'] = operation_name
             __props__['request_models'] = request_models
             __props__['request_parameters'] = request_parameters
             __props__['request_validator_id'] = request_validator_id
@@ -151,6 +154,7 @@ class Method(pulumi.CustomResource):
             authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authorizer_id: Optional[pulumi.Input[str]] = None,
             http_method: Optional[pulumi.Input[str]] = None,
+            operation_name: Optional[pulumi.Input[str]] = None,
             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
             request_validator_id: Optional[pulumi.Input[str]] = None,
@@ -168,6 +172,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
                where key is the content type (e.g. `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -186,6 +191,7 @@ class Method(pulumi.CustomResource):
         __props__["authorization_scopes"] = authorization_scopes
         __props__["authorizer_id"] = authorizer_id
         __props__["http_method"] = http_method
+        __props__["operation_name"] = operation_name
         __props__["request_models"] = request_models
         __props__["request_parameters"] = request_parameters
         __props__["request_validator_id"] = request_validator_id
@@ -232,6 +238,14 @@ class Method(pulumi.CustomResource):
         The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
         return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        """
+        return pulumi.get(self, "operation_name")
 
     @property
     @pulumi.getter(name="requestModels")

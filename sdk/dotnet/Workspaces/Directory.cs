@@ -98,6 +98,16 @@ namespace Pulumi.Aws.Workspaces
     ///                 RestartWorkspace = true,
     ///                 SwitchRunningMode = true,
     ///             },
+    ///             WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
+    ///             {
+    ///                 DeviceTypeAndroid = "ALLOW",
+    ///                 DeviceTypeChromeos = "ALLOW",
+    ///                 DeviceTypeIos = "ALLOW",
+    ///                 DeviceTypeOsx = "ALLOW",
+    ///                 DeviceTypeWeb = "DENY",
+    ///                 DeviceTypeWindows = "DENY",
+    ///                 DeviceTypeZeroclient = "DENY",
+    ///             },
     ///             WorkspaceCreationProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceCreationPropertiesArgs
     ///             {
     ///                 CustomSecurityGroupId = aws_security_group.Example.Id,
@@ -255,6 +265,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
+        [Output("workspaceAccessProperties")]
+        public Output<Outputs.DirectoryWorkspaceAccessProperties> WorkspaceAccessProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
         [Output("workspaceCreationProperties")]
@@ -359,6 +375,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceAccessProperties")]
+        public Input<Inputs.DirectoryWorkspaceAccessPropertiesArgs>? WorkspaceAccessProperties { get; set; }
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
@@ -468,6 +490,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceAccessProperties")]
+        public Input<Inputs.DirectoryWorkspaceAccessPropertiesGetArgs>? WorkspaceAccessProperties { get; set; }
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.

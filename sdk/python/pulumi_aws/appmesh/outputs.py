@@ -666,7 +666,7 @@ class RouteSpec(dict):
 class RouteSpecGrpcRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecGrpcRouteAction',
-                 match: 'outputs.RouteSpecGrpcRouteMatch',
+                 match: Optional['outputs.RouteSpecGrpcRouteMatch'] = None,
                  retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None,
                  timeout: Optional['outputs.RouteSpecGrpcRouteTimeout'] = None):
         """
@@ -676,7 +676,8 @@ class RouteSpecGrpcRoute(dict):
         :param 'RouteSpecGrpcRouteTimeoutArgs' timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
         if timeout is not None:
@@ -692,7 +693,7 @@ class RouteSpecGrpcRoute(dict):
 
     @property
     @pulumi.getter
-    def match(self) -> 'outputs.RouteSpecGrpcRouteMatch':
+    def match(self) -> Optional['outputs.RouteSpecGrpcRouteMatch']:
         """
         The criteria for determining an gRPC request match.
         """

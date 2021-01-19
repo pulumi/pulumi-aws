@@ -962,6 +962,25 @@ export namespace apigateway {
         types: pulumi.Input<string>;
     }
 
+    export interface DomainNameMutualTlsAuthentication {
+        /**
+         * An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+         * The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+         */
+        truststoreUri: pulumi.Input<string>;
+        /**
+         * The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+         */
+        truststoreVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationTlsConfig {
+        /**
+         * Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+         */
+        insecureSkipVerification?: pulumi.Input<boolean>;
+    }
+
     export interface MethodSettingsSettings {
         /**
          * Specifies whether the cached responses are encrypted.
@@ -1139,6 +1158,18 @@ export namespace apigatewayv2 {
          * The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
          */
         truststoreVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationResponseParameter {
+        /**
+         * A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+         * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+         */
+        mappings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The HTTP status code in the range 200-599.
+         */
+        statusCode: pulumi.Input<string>;
     }
 
     export interface IntegrationTlsConfig {
@@ -2053,7 +2084,7 @@ export namespace appmesh {
         /**
          * The criteria for determining an gRPC request match.
          */
-        match: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatch>;
+        match?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatch>;
         /**
          * The retry policy.
          */
@@ -3700,6 +3731,9 @@ export namespace autoscaling {
     }
 
     export interface GroupInstanceRefreshPreferences {
+        /**
+         * The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+         */
         instanceWarmup?: pulumi.Input<string>;
         /**
          * The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
@@ -5995,7 +6029,7 @@ export namespace codepipeline {
          */
         owner: pulumi.Input<string>;
         /**
-         * The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+         * The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
          */
         provider: pulumi.Input<string>;
         /**
@@ -6698,6 +6732,10 @@ export namespace dms {
          * Delimiter used to separate rows in the source files. Defaults to `\n`.
          */
         csvRowDelimiter?: pulumi.Input<string>;
+        /**
+         * Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+         */
+        datePartitionEnabled?: pulumi.Input<boolean>;
         /**
          * JSON document that describes how AWS DMS should interpret the data.
          */
@@ -7791,31 +7829,26 @@ export namespace ec2 {
 
     export interface InstanceCreditSpecification {
         /**
-         * The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
          */
         cpuCredits?: pulumi.Input<string>;
     }
 
     export interface InstanceEbsBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: pulumi.Input<string>;
         /**
-         * Enables [EBS
-         * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+         * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops?: pulumi.Input<number>;
         /**
@@ -7823,27 +7856,34 @@ export namespace ec2 {
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The Snapshot ID to mount.
+         * Snapshot ID to mount.
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
+        /**
+         * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+         */
         volumeId?: pulumi.Input<string>;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType?: pulumi.Input<string>;
     }
 
     export interface InstanceEnclaveOptions {
         /**
-         * Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+         * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
@@ -7858,24 +7898,22 @@ export namespace ec2 {
          */
         noDevice?: pulumi.Input<boolean>;
         /**
-         * The [Instance Store Device
-         * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
          */
         virtualName?: pulumi.Input<string>;
     }
 
     export interface InstanceMetadataOptions {
         /**
-         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
          */
         httpEndpoint?: pulumi.Input<string>;
         /**
-         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens?: pulumi.Input<string>;
     }
@@ -7886,32 +7924,30 @@ export namespace ec2 {
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The integer index of the network interface attachment. Limited by instance type.
+         * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: pulumi.Input<number>;
         /**
-         * The ID of the network interface to attach.
+         * ID of the network interface to attach.
          */
         networkInterfaceId: pulumi.Input<string>;
     }
 
     export interface InstanceRootBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName?: pulumi.Input<string>;
         /**
-         * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+         * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops?: pulumi.Input<number>;
         /**
@@ -7919,16 +7955,23 @@ export namespace ec2 {
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
+        /**
+         * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+         */
         volumeId?: pulumi.Input<string>;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -8674,31 +8717,26 @@ export namespace ec2 {
 
     export interface SpotInstanceRequestCreditSpecification {
         /**
-         * The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
          */
         cpuCredits?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestEbsBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName: pulumi.Input<string>;
         /**
-         * Enables [EBS
-         * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+         * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops?: pulumi.Input<number>;
         /**
@@ -8706,27 +8744,31 @@ export namespace ec2 {
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The Snapshot ID to mount.
+         * Snapshot ID to mount.
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
         volumeId?: pulumi.Input<string>;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestEnclaveOptions {
         /**
-         * Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+         * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
@@ -8741,24 +8783,22 @@ export namespace ec2 {
          */
         noDevice?: pulumi.Input<boolean>;
         /**
-         * The [Instance Store Device
-         * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
          */
         virtualName?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
         /**
-         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
          */
         httpEndpoint?: pulumi.Input<string>;
         /**
-         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens?: pulumi.Input<string>;
     }
@@ -8769,32 +8809,30 @@ export namespace ec2 {
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The integer index of the network interface attachment. Limited by instance type.
+         * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: pulumi.Input<number>;
         /**
-         * The ID of the network interface to attach.
+         * ID of the network interface to attach.
          */
         networkInterfaceId: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestRootBlockDevice {
         /**
-         * Whether the volume should be destroyed
-         * on instance termination (Default: `true`).
+         * Whether the volume should be destroyed on instance termination. Defaults to `true`.
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
-         * The name of the device to mount.
+         * Name of the device to mount.
          */
         deviceName?: pulumi.Input<string>;
         /**
-         * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+         * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
         /**
-         * The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+         * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
          */
         iops?: pulumi.Input<number>;
         /**
@@ -8802,16 +8840,20 @@ export namespace ec2 {
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+         * A map of tags to assign to the device.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
          */
         throughput?: pulumi.Input<number>;
         volumeId?: pulumi.Input<string>;
         /**
-         * The size of the volume in gibibytes (GiB).
+         * Size of the volume in gibibytes (GiB).
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -11398,6 +11440,35 @@ export namespace emr {
     }
 }
 
+export namespace fms {
+    export interface PolicyExcludeMap {
+        /**
+         * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        orgunits?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyIncludeMap {
+        /**
+         * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        orgunits?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicySecurityServicePolicyData {
+        /**
+         * Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+         */
+        managedServiceData?: pulumi.Input<string>;
+        /**
+         * valid values are `BLOCK` or `COUNT`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace fsx {
     export interface WindowsFileSystemSelfManagedActiveDirectory {
         /**
@@ -12448,6 +12519,30 @@ export namespace iam {
          * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
          */
         type: string;
+    }
+}
+
+export namespace identitystore {
+    export interface GetGroupFilter {
+        /**
+         * The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * The value for an attribute.
+         */
+        attributeValue: string;
+    }
+
+    export interface GetUserFilter {
+        /**
+         * The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * The value for an attribute.
+         */
+        attributeValue: string;
     }
 }
 
@@ -18550,6 +18645,121 @@ export namespace sagemaker {
         branch?: pulumi.Input<string>;
         repositoryUrl: pulumi.Input<string>;
         secretArn?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettings {
+        /**
+         * The execution role ARN for the user.
+         */
+        executionRole: pulumi.Input<string>;
+        /**
+         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         */
+        jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettings>;
+        /**
+         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         */
+        kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettings>;
+        /**
+         * The security groups.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The sharing settings. See Sharing Settings below.
+         */
+        sharingSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsSharingSettings>;
+        /**
+         * The TensorBoard app settings. See TensorBoard App Settings below.
+         */
+        tensorBoardAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettings>;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterServerAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: pulumi.Input<string>;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    export interface DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsSharingSettings {
+        /**
+         * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+         */
+        notebookOutputOption?: pulumi.Input<string>;
+        /**
+         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: pulumi.Input<string>;
+        /**
+         * When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+         */
+        s3OutputPath?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsTensorBoardAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigurationDataCaptureConfig {
@@ -54690,6 +54900,37 @@ export namespace workspaces {
         switchRunningMode?: pulumi.Input<boolean>;
     }
 
+    export interface DirectoryWorkspaceAccessProperties {
+        /**
+         * Indicates whether users can use Android devices to access their WorkSpaces.
+         */
+        deviceTypeAndroid?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can use Chromebooks to access their WorkSpaces.
+         */
+        deviceTypeChromeos?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can use iOS devices to access their WorkSpaces.
+         */
+        deviceTypeIos?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can use macOS clients to access their WorkSpaces.
+         */
+        deviceTypeOsx?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can access their WorkSpaces through a web browser.
+         */
+        deviceTypeWeb?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can use Windows clients to access their WorkSpaces.
+         */
+        deviceTypeWindows?: pulumi.Input<string>;
+        /**
+         * Indicates whether users can use zero client devices to access their WorkSpaces.
+         */
+        deviceTypeZeroclient?: pulumi.Input<string>;
+    }
+
     export interface DirectoryWorkspaceCreationProperties {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -54711,29 +54952,6 @@ export namespace workspaces {
          * Indicates whether users are local administrators of their WorkSpaces.
          */
         userEnabledAsLocalAdministrator?: pulumi.Input<boolean>;
-    }
-
-    export interface GetDirectoryWorkspaceCreationProperties {
-        /**
-         * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-         */
-        customSecurityGroupId?: string;
-        /**
-         * The default organizational unit (OU) for your WorkSpace directories.
-         */
-        defaultOu?: string;
-        /**
-         * Indicates whether internet access is enabled for your WorkSpaces.
-         */
-        enableInternetAccess?: boolean;
-        /**
-         * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-         */
-        enableMaintenanceMode?: boolean;
-        /**
-         * Indicates whether users are local administrators of their WorkSpaces.
-         */
-        userEnabledAsLocalAdministrator?: boolean;
     }
 
     export interface IpGroupRule {

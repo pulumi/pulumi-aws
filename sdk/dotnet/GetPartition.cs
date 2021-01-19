@@ -72,6 +72,10 @@ namespace Pulumi.Aws
         /// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         public readonly string Partition;
+        /// <summary>
+        /// Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        /// </summary>
+        public readonly string ReverseDnsPrefix;
 
         [OutputConstructor]
         private GetPartitionResult(
@@ -79,11 +83,14 @@ namespace Pulumi.Aws
 
             string id,
 
-            string partition)
+            string partition,
+
+            string reverseDnsPrefix)
         {
             DnsSuffix = dnsSuffix;
             Id = id;
             Partition = partition;
+            ReverseDnsPrefix = reverseDnsPrefix;
         }
     }
 }

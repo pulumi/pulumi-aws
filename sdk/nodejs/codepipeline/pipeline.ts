@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
  * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {acl: "private"});
  * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -47,15 +48,14 @@ import * as utilities from "../utilities";
  *             actions: [{
  *                 name: "Source",
  *                 category: "Source",
- *                 owner: "ThirdParty",
- *                 provider: "GitHub",
+ *                 owner: "AWS",
+ *                 provider: "CodeStarSourceConnection",
  *                 version: "1",
  *                 outputArtifacts: ["source_output"],
  *                 configuration: {
- *                     Owner: "my-organization",
- *                     Repo: "test",
- *                     Branch: "master",
- *                     OAuthToken: _var.github_token,
+ *                     ConnectionArn: example.arn,
+ *                     FullRepositoryId: "my-organization/example",
+ *                     BranchName: "main",
  *                 },
  *             }],
  *         },

@@ -95,6 +95,10 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+     */
+    public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
@@ -112,6 +116,10 @@ export class RestApi extends pulumi.CustomResource {
      * The name of the REST API
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
      */
@@ -143,10 +151,12 @@ export class RestApi extends pulumi.CustomResource {
             inputs["body"] = state ? state.body : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
             inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
             inputs["executionArn"] = state ? state.executionArn : undefined;
             inputs["minimumCompressionSize"] = state ? state.minimumCompressionSize : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["parameters"] = state ? state.parameters : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["rootResourceId"] = state ? state.rootResourceId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -156,9 +166,11 @@ export class RestApi extends pulumi.CustomResource {
             inputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
             inputs["body"] = args ? args.body : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
             inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             inputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -206,6 +218,10 @@ export interface RestApiState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+     */
+    readonly disableExecuteApiEndpoint?: pulumi.Input<boolean>;
+    /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
     readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
@@ -223,6 +239,10 @@ export interface RestApiState {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+     */
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
      */
@@ -258,6 +278,10 @@ export interface RestApiArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+     */
+    readonly disableExecuteApiEndpoint?: pulumi.Input<boolean>;
+    /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
     readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
@@ -269,6 +293,10 @@ export interface RestApiArgs {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+     */
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
      */

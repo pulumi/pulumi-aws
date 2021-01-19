@@ -38,7 +38,7 @@ class Response(pulumi.CustomResource):
             status_code="401",
             response_type="UNAUTHORIZED",
             response_templates={
-                "application/json": "{'message':$context.error.messageString}",
+                "application/json": "{\"message\":$context.error.messageString}",
             },
             response_parameters={
                 "gatewayresponse.header.Authorization": "'Basic'",

@@ -119,6 +119,8 @@ type Integration struct {
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrOutput `pulumi:"timeoutMilliseconds"`
+	// Configuration block specifying the TLS configuration for an integration. Defined below.
+	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -202,6 +204,8 @@ type integrationState struct {
 	RestApi *string `pulumi:"restApi"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
+	// Configuration block specifying the TLS configuration for an integration. Defined below.
+	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type *string `pulumi:"type"`
 	// The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -245,6 +249,8 @@ type IntegrationState struct {
 	RestApi pulumi.StringPtrInput
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
+	// Configuration block specifying the TLS configuration for an integration. Defined below.
+	TlsConfig IntegrationTlsConfigPtrInput
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type pulumi.StringPtrInput
 	// The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -292,6 +298,8 @@ type integrationArgs struct {
 	RestApi interface{} `pulumi:"restApi"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
+	// Configuration block specifying the TLS configuration for an integration. Defined below.
+	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type string `pulumi:"type"`
 	// The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -336,6 +344,8 @@ type IntegrationArgs struct {
 	RestApi pulumi.Input
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
+	// Configuration block specifying the TLS configuration for an integration. Defined below.
+	TlsConfig IntegrationTlsConfigPtrInput
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type pulumi.StringInput
 	// The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.

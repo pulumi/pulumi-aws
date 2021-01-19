@@ -186,17 +186,25 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> PayloadFormatVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map specifying request parameters that are passed from the method request to the backend.
-        /// Supported only for WebSocket APIs.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         [Output("requestParameters")]
         public Output<ImmutableDictionary<string, string>?> RequestParameters { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+        /// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         /// </summary>
         [Output("requestTemplates")]
         public Output<ImmutableDictionary<string, string>?> RequestTemplates { get; private set; } = null!;
+
+        /// <summary>
+        /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        /// </summary>
+        [Output("responseParameters")]
+        public Output<ImmutableArray<Outputs.IntegrationResponseParameter>> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
@@ -338,8 +346,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestParameters;
 
         /// <summary>
-        /// A key-value map specifying request parameters that are passed from the method request to the backend.
-        /// Supported only for WebSocket APIs.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -351,12 +361,24 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestTemplates;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+        /// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         /// </summary>
         public InputMap<string> RequestTemplates
         {
             get => _requestTemplates ?? (_requestTemplates = new InputMap<string>());
             set => _requestTemplates = value;
+        }
+
+        [Input("responseParameters")]
+        private InputList<Inputs.IntegrationResponseParameterArgs>? _responseParameters;
+
+        /// <summary>
+        /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        /// </summary>
+        public InputList<Inputs.IntegrationResponseParameterArgs> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputList<Inputs.IntegrationResponseParameterArgs>());
+            set => _responseParameters = value;
         }
 
         /// <summary>
@@ -466,8 +488,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestParameters;
 
         /// <summary>
-        /// A key-value map specifying request parameters that are passed from the method request to the backend.
-        /// Supported only for WebSocket APIs.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -479,12 +503,24 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestTemplates;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+        /// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         /// </summary>
         public InputMap<string> RequestTemplates
         {
             get => _requestTemplates ?? (_requestTemplates = new InputMap<string>());
             set => _requestTemplates = value;
+        }
+
+        [Input("responseParameters")]
+        private InputList<Inputs.IntegrationResponseParameterGetArgs>? _responseParameters;
+
+        /// <summary>
+        /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        /// </summary>
+        public InputList<Inputs.IntegrationResponseParameterGetArgs> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputList<Inputs.IntegrationResponseParameterGetArgs>());
+            set => _responseParameters = value;
         }
 
         /// <summary>

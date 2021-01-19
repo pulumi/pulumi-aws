@@ -161,7 +161,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -176,6 +176,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+     */
+    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -295,6 +299,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["memberClusters"] = state ? state.memberClusters : undefined;
@@ -330,6 +335,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["clusterMode"] = args ? args.clusterMode : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
+            inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["nodeType"] = args ? args.nodeType : undefined;
@@ -398,7 +404,7 @@ export interface ReplicationGroupState {
      */
     readonly clusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -413,6 +419,10 @@ export interface ReplicationGroupState {
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -539,7 +549,7 @@ export interface ReplicationGroupArgs {
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -550,6 +560,10 @@ export interface ReplicationGroupArgs {
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */

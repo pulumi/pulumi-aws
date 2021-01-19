@@ -35,6 +35,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
+        /// A map of tags assigned to the Instance.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The throughput of the volume, in MiB/s.
         /// </summary>
         public readonly int Throughput;
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string snapshotId,
 
+            ImmutableDictionary<string, string> tags,
+
             int throughput,
 
             string volumeId,
@@ -76,6 +82,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Tags = tags;
             Throughput = throughput;
             VolumeId = volumeId;
             VolumeSize = volumeSize;

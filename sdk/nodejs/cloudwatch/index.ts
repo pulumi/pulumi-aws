@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cloudwatchMixins";
+export * from "./compositeAlarm";
 export * from "./dashboard";
 export * from "./eventBus";
 export * from "./eventPermission";
@@ -24,6 +25,7 @@ export * from "./logSubscriptionFilter";
 export * from "./metricAlarm";
 
 // Import resources to register:
+import { CompositeAlarm } from "./compositeAlarm";
 import { Dashboard } from "./dashboard";
 import { EventBus } from "./eventBus";
 import { EventPermission } from "./eventPermission";
@@ -42,6 +44,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:cloudwatch/compositeAlarm:CompositeAlarm":
+                return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws:cloudwatch/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventBus:EventBus":
@@ -73,6 +77,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/compositeAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventBus", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _module)

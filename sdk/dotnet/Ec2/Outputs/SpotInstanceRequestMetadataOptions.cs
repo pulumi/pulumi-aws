@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class SpotInstanceRequestMetadataOptions
     {
         /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         /// </summary>
         public readonly string? HttpEndpoint;
         /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         /// </summary>
         public readonly string? HttpTokens;
 

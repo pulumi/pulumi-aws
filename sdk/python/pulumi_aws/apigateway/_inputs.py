@@ -12,6 +12,8 @@ __all__ = [
     'AccountThrottleSettingsArgs',
     'DocumentationPartLocationArgs',
     'DomainNameEndpointConfigurationArgs',
+    'DomainNameMutualTlsAuthenticationArgs',
+    'IntegrationTlsConfigArgs',
     'MethodSettingsSettingsArgs',
     'RestApiEndpointConfigurationArgs',
     'StageAccessLogSettingsArgs',
@@ -165,6 +167,69 @@ class DomainNameEndpointConfigurationArgs:
     @types.setter
     def types(self, value: pulumi.Input[str]):
         pulumi.set(self, "types", value)
+
+
+@pulumi.input_type
+class DomainNameMutualTlsAuthenticationArgs:
+    def __init__(__self__, *,
+                 truststore_uri: pulumi.Input[str],
+                 truststore_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+               The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param pulumi.Input[str] truststore_version: The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        pulumi.set(__self__, "truststore_uri", truststore_uri)
+        if truststore_version is not None:
+            pulumi.set(__self__, "truststore_version", truststore_version)
+
+    @property
+    @pulumi.getter(name="truststoreUri")
+    def truststore_uri(self) -> pulumi.Input[str]:
+        """
+        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
+        The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
+        return pulumi.get(self, "truststore_uri")
+
+    @truststore_uri.setter
+    def truststore_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "truststore_uri", value)
+
+    @property
+    @pulumi.getter(name="truststoreVersion")
+    def truststore_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+        return pulumi.get(self, "truststore_version")
+
+    @truststore_version.setter
+    def truststore_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "truststore_version", value)
+
+
+@pulumi.input_type
+class IntegrationTlsConfigArgs:
+    def __init__(__self__, *,
+                 insecure_skip_verification: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] insecure_skip_verification: Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+        """
+        if insecure_skip_verification is not None:
+            pulumi.set(__self__, "insecure_skip_verification", insecure_skip_verification)
+
+    @property
+    @pulumi.getter(name="insecureSkipVerification")
+    def insecure_skip_verification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+        """
+        return pulumi.get(self, "insecure_skip_verification")
+
+    @insecure_skip_verification.setter
+    def insecure_skip_verification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insecure_skip_verification", value)
 
 
 @pulumi.input_type

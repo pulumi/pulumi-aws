@@ -36,7 +36,7 @@ import (
 // 			StatusCode:   pulumi.String("401"),
 // 			ResponseType: pulumi.String("UNAUTHORIZED"),
 // 			ResponseTemplates: pulumi.StringMap{
-// 				"application/json": pulumi.String(fmt.Sprintf("%v%v%v", "{'message':", "$", "context.error.messageString}")),
+// 				"application/json": pulumi.String(fmt.Sprintf("%v%v%v", "{\"message\":", "$", "context.error.messageString}")),
 // 			},
 // 			ResponseParameters: pulumi.StringMap{
 // 				"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),

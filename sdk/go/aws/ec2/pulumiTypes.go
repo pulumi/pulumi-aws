@@ -2958,7 +2958,7 @@ func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.
 }
 
 type InstanceCreditSpecification struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -2974,7 +2974,7 @@ type InstanceCreditSpecificationInput interface {
 }
 
 type InstanceCreditSpecificationArgs struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -3055,7 +3055,7 @@ func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutpu
 	}).(InstanceCreditSpecificationPtrOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o InstanceCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -3078,7 +3078,7 @@ func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecification
 	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification { return *v }).(InstanceCreditSpecificationOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
 		if v == nil {
@@ -3089,29 +3089,27 @@ func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutpu
 }
 
 type InstanceEbsBlockDevice struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName string `pulumi:"deviceName"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Snapshot ID to mount.
+	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
-	Throughput *int    `pulumi:"throughput"`
-	VolumeId   *string `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// A map of tags to assign to the device.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
+	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+	VolumeId *string `pulumi:"volumeId"`
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -3127,29 +3125,27 @@ type InstanceEbsBlockDeviceInput interface {
 }
 
 type InstanceEbsBlockDeviceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Snapshot ID to mount.
+	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
-	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// A map of tags to assign to the device.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3204,27 +3200,22 @@ func (o InstanceEbsBlockDeviceOutput) ToInstanceEbsBlockDeviceOutputWithContext(
 	return o
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o InstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o InstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 func (o InstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -3234,26 +3225,32 @@ func (o InstanceEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Snapshot ID to mount.
+// Snapshot ID to mount.
 func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o InstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o InstanceEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
 func (o InstanceEbsBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3279,7 +3276,7 @@ func (o InstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEbsB
 }
 
 type InstanceEnclaveOptions struct {
-	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3295,7 +3292,7 @@ type InstanceEnclaveOptionsInput interface {
 }
 
 type InstanceEnclaveOptionsArgs struct {
-	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3376,7 +3373,7 @@ func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithConte
 	}).(InstanceEnclaveOptionsPtrOutput)
 }
 
-// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3399,7 +3396,7 @@ func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
 	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions { return *v }).(InstanceEnclaveOptionsOutput)
 }
 
-// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
 		if v == nil {
@@ -3414,9 +3411,7 @@ type InstanceEphemeralBlockDevice struct {
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
-	// The [Instance Store Device
-	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -3436,9 +3431,7 @@ type InstanceEphemeralBlockDeviceArgs struct {
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
-	// The [Instance Store Device
-	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -3503,9 +3496,7 @@ func (o InstanceEphemeralBlockDeviceOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEphemeralBlockDevice) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
-// The [Instance Store Device
-// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-// (e.g. `"ephemeral0"`).
+// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 func (o InstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -3531,11 +3522,11 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceMetadataOptions struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
@@ -3551,11 +3542,11 @@ type InstanceMetadataOptionsInput interface {
 }
 
 type InstanceMetadataOptionsArgs struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
@@ -3636,17 +3627,17 @@ func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutputWithCon
 	}).(InstanceMetadataOptionsPtrOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 func (o InstanceMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o InstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 func (o InstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -3669,7 +3660,7 @@ func (o InstanceMetadataOptionsPtrOutput) Elem() InstanceMetadataOptionsOutput {
 	return o.ApplyT(func(v *InstanceMetadataOptions) InstanceMetadataOptions { return *v }).(InstanceMetadataOptionsOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
 		if v == nil {
@@ -3679,7 +3670,7 @@ func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceMetadataOptions) *int {
 		if v == nil {
@@ -3689,7 +3680,7 @@ func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
 		if v == nil {
@@ -3702,9 +3693,9 @@ func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 type InstanceNetworkInterface struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The integer index of the network interface attachment. Limited by instance type.
+	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex int `pulumi:"deviceIndex"`
-	// The ID of the network interface to attach.
+	// ID of the network interface to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -3722,9 +3713,9 @@ type InstanceNetworkInterfaceInput interface {
 type InstanceNetworkInterfaceArgs struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The integer index of the network interface attachment. Limited by instance type.
+	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
-	// The ID of the network interface to attach.
+	// ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
@@ -3784,12 +3775,12 @@ func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The integer index of the network interface attachment. Limited by instance type.
+// Integer index of the network interface attachment. Limited by instance type.
 func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
-// The ID of the network interface to attach.
+// ID of the network interface to attach.
 func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -3815,24 +3806,25 @@ func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNe
 }
 
 type InstanceRootBlockDevice struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName *string `pulumi:"deviceName"`
-	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+	// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
-	Throughput *int    `pulumi:"throughput"`
-	VolumeId   *string `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// A map of tags to assign to the device.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
+	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+	VolumeId *string `pulumi:"volumeId"`
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -3848,24 +3840,25 @@ type InstanceRootBlockDeviceInput interface {
 }
 
 type InstanceRootBlockDeviceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+	// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
-	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// A map of tags to assign to the device.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3946,24 +3939,22 @@ func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDevicePtrOutputWithCon
 	}).(InstanceRootBlockDevicePtrOutput)
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o InstanceRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -3973,21 +3964,27 @@ func (o InstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o InstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o InstanceRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
 func (o InstanceRootBlockDeviceOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -4010,8 +4007,7 @@ func (o InstanceRootBlockDevicePtrOutput) Elem() InstanceRootBlockDeviceOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) InstanceRootBlockDevice { return *v }).(InstanceRootBlockDeviceOutput)
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o InstanceRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *bool {
 		if v == nil {
@@ -4021,7 +4017,7 @@ func (o InstanceRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o InstanceRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -4031,7 +4027,7 @@ func (o InstanceRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *bool {
 		if v == nil {
@@ -4041,8 +4037,7 @@ func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
 		if v == nil {
@@ -4062,7 +4057,17 @@ func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o InstanceRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o InstanceRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
 		if v == nil {
@@ -4072,6 +4077,7 @@ func (o InstanceRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
 func (o InstanceRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -4081,7 +4087,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
 		if v == nil {
@@ -4091,7 +4097,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -10310,7 +10316,7 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput) Rep
 }
 
 type SpotInstanceRequestCreditSpecification struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -10326,7 +10332,7 @@ type SpotInstanceRequestCreditSpecificationInput interface {
 }
 
 type SpotInstanceRequestCreditSpecificationArgs struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -10407,7 +10413,7 @@ func (o SpotInstanceRequestCreditSpecificationOutput) ToSpotInstanceRequestCredi
 	}).(SpotInstanceRequestCreditSpecificationPtrOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o SpotInstanceRequestCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -10430,7 +10436,7 @@ func (o SpotInstanceRequestCreditSpecificationPtrOutput) Elem() SpotInstanceRequ
 	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) SpotInstanceRequestCreditSpecification { return *v }).(SpotInstanceRequestCreditSpecificationOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o SpotInstanceRequestCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) *string {
 		if v == nil {
@@ -10441,29 +10447,26 @@ func (o SpotInstanceRequestCreditSpecificationPtrOutput) CpuCredits() pulumi.Str
 }
 
 type SpotInstanceRequestEbsBlockDevice struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName string `pulumi:"deviceName"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Snapshot ID to mount.
+	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	// A map of tags to assign to the device.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -10479,29 +10482,26 @@ type SpotInstanceRequestEbsBlockDeviceInput interface {
 }
 
 type SpotInstanceRequestEbsBlockDeviceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Snapshot ID to mount.
+	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	// A map of tags to assign to the device.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -10556,27 +10556,22 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) ToSpotInstanceRequestEbsBlockDe
 	return o
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -10586,12 +10581,17 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Snapshot ID to mount.
+// Snapshot ID to mount.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o SpotInstanceRequestEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -10600,12 +10600,12 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -10631,7 +10631,7 @@ func (o SpotInstanceRequestEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type SpotInstanceRequestEnclaveOptions struct {
-	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -10647,7 +10647,7 @@ type SpotInstanceRequestEnclaveOptionsInput interface {
 }
 
 type SpotInstanceRequestEnclaveOptionsArgs struct {
-	// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+	// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -10728,7 +10728,7 @@ func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOpt
 	}).(SpotInstanceRequestEnclaveOptionsPtrOutput)
 }
 
-// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 func (o SpotInstanceRequestEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -10751,7 +10751,7 @@ func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Elem() SpotInstanceRequestEn
 	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) SpotInstanceRequestEnclaveOptions { return *v }).(SpotInstanceRequestEnclaveOptionsOutput)
 }
 
-// Whether Nitro Enclaves will be enabled on the instance. (Default: `"false"`).
+// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
 func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) *bool {
 		if v == nil {
@@ -10766,9 +10766,7 @@ type SpotInstanceRequestEphemeralBlockDevice struct {
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
-	// The [Instance Store Device
-	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -10788,9 +10786,7 @@ type SpotInstanceRequestEphemeralBlockDeviceArgs struct {
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
-	// The [Instance Store Device
-	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -10855,9 +10851,7 @@ func (o SpotInstanceRequestEphemeralBlockDeviceOutput) NoDevice() pulumi.BoolPtr
 	return o.ApplyT(func(v SpotInstanceRequestEphemeralBlockDevice) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
-// The [Instance Store Device
-// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-// (e.g. `"ephemeral0"`).
+// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
 func (o SpotInstanceRequestEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -10883,11 +10877,11 @@ func (o SpotInstanceRequestEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 }
 
 type SpotInstanceRequestMetadataOptions struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens *string `pulumi:"httpTokens"`
 }
 
@@ -10903,11 +10897,11 @@ type SpotInstanceRequestMetadataOptionsInput interface {
 }
 
 type SpotInstanceRequestMetadataOptionsArgs struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
@@ -10988,17 +10982,17 @@ func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataO
 	}).(SpotInstanceRequestMetadataOptionsPtrOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 func (o SpotInstanceRequestMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o SpotInstanceRequestMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 func (o SpotInstanceRequestMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -11021,7 +11015,7 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) Elem() SpotInstanceRequestM
 	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) SpotInstanceRequestMetadataOptions { return *v }).(SpotInstanceRequestMetadataOptionsOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
 		if v == nil {
@@ -11031,7 +11025,7 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *int {
 		if v == nil {
@@ -11041,7 +11035,7 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpPutResponseHopLimit() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
 		if v == nil {
@@ -11054,9 +11048,9 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringP
 type SpotInstanceRequestNetworkInterface struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The integer index of the network interface attachment. Limited by instance type.
+	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex int `pulumi:"deviceIndex"`
-	// The ID of the network interface to attach.
+	// ID of the network interface to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -11074,9 +11068,9 @@ type SpotInstanceRequestNetworkInterfaceInput interface {
 type SpotInstanceRequestNetworkInterfaceArgs struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The integer index of the network interface attachment. Limited by instance type.
+	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
-	// The ID of the network interface to attach.
+	// ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
@@ -11136,12 +11130,12 @@ func (o SpotInstanceRequestNetworkInterfaceOutput) DeleteOnTermination() pulumi.
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The integer index of the network interface attachment. Limited by instance type.
+// Integer index of the network interface attachment. Limited by instance type.
 func (o SpotInstanceRequestNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
-// The ID of the network interface to attach.
+// ID of the network interface to attach.
 func (o SpotInstanceRequestNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -11167,24 +11161,24 @@ func (o SpotInstanceRequestNetworkInterfaceArrayOutput) Index(i pulumi.IntInput)
 }
 
 type SpotInstanceRequestRootBlockDevice struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName *string `pulumi:"deviceName"`
-	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+	// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	// A map of tags to assign to the device.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -11200,24 +11194,24 @@ type SpotInstanceRequestRootBlockDeviceInput interface {
 }
 
 type SpotInstanceRequestRootBlockDeviceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the device to mount.
+	// Name of the device to mount.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+	// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+	// A map of tags to assign to the device.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
-	// The size of the volume in gibibytes (GiB).
+	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -11298,24 +11292,22 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) ToSpotInstanceRequestRootBlock
 	}).(SpotInstanceRequestRootBlockDevicePtrOutput)
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o SpotInstanceRequestRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -11325,7 +11317,12 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOut
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o SpotInstanceRequestRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -11334,12 +11331,12 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeId() pulumi.StringPtrOut
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -11362,8 +11359,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Elem() SpotInstanceRequestR
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) SpotInstanceRequestRootBlockDevice { return *v }).(SpotInstanceRequestRootBlockDeviceOutput)
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *bool {
 		if v == nil {
@@ -11373,7 +11369,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeleteOnTermination() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the device to mount.
+// Name of the device to mount.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
 		if v == nil {
@@ -11383,7 +11379,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeviceName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
+// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *bool {
 		if v == nil {
@@ -11393,8 +11389,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `"io1"`, `"io2"` or `"gp3"`.
+// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
 		if v == nil {
@@ -11414,7 +11409,17 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `"gp3"`.
+// A map of tags to assign to the device.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
 		if v == nil {
@@ -11433,7 +11438,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gibibytes (GiB).
+// Size of the volume in gibibytes (GiB).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
 		if v == nil {
@@ -11443,7 +11448,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
 		if v == nil {
@@ -13395,6 +13400,8 @@ type GetInstanceEbsBlockDevice struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
+	// A map of tags assigned to the Instance.
+	Tags map[string]string `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
@@ -13427,6 +13434,8 @@ type GetInstanceEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// A map of tags assigned to the Instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
@@ -13514,6 +13523,11 @@ func (o GetInstanceEbsBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 // The ID of the snapshot.
 func (o GetInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Instance.
+func (o GetInstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetInstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The throughput of the volume, in MiB/s.
@@ -13992,6 +14006,8 @@ type GetInstanceRootBlockDevice struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     int    `pulumi:"iops"`
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	// A map of tags assigned to the Instance.
+	Tags map[string]string `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
@@ -14022,6 +14038,8 @@ type GetInstanceRootBlockDeviceArgs struct {
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// A map of tags assigned to the Instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
@@ -14104,6 +14122,11 @@ func (o GetInstanceRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 
 func (o GetInstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Instance.
+func (o GetInstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetInstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The throughput of the volume, in MiB/s.

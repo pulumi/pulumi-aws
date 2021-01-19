@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     statusCode: "401",
  *     responseType: "UNAUTHORIZED",
  *     responseTemplates: {
- *         "application/json": `{'message':$context.error.messageString}`,
+ *         "application/json": `{"message":$context.error.messageString}`,
  *     },
  *     responseParameters: {
  *         "gatewayresponse.header.Authorization": "'Basic'",
