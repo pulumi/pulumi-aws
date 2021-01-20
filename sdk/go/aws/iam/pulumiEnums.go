@@ -81,14 +81,14 @@ const (
 	ManagedPolicyAWSLambdaDynamoDBExecutionRole              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole")
 	ManagedPolicyAWSLambdaENIManagementAccess                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess")
 	ManagedPolicyAWSLambdaExecute                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaExecute")
-	// Deprecated: This has been deprecated in favour of `AWSLambda_FullAccess`
+	// Deprecated: This has been deprecated in favour of `LambdaFullAccess`
 	ManagedPolicyAWSLambdaFullAccess           = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaFullAccess")
-	ManagedPolicy_AWSLambda_FullAccess         = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_FullAccess")
+	ManagedPolicyLambdaFullAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_FullAccess")
 	ManagedPolicyAWSLambdaInvocationDynamoDB   = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB")
 	ManagedPolicyAWSLambdaKinesisExecutionRole = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole")
-	// Deprecated: This has been deprecated in favour of `AWSLambda_ReadOnlyAccess`
+	// Deprecated: This has been deprecated in favour of `LambdaReadOnlyAccess`
 	ManagedPolicyAWSLambdaReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess")
-	ManagedPolicy_AWSLambda_ReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess")
+	ManagedPolicyLambdaReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess")
 	ManagedPolicyAWSLambdaRole                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaRole")
 	ManagedPolicyAWSLambdaVPCAccessExecutionRole                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole")
 	ManagedPolicyAWSMarketplaceFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceFullAccess")

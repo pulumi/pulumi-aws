@@ -153,13 +153,13 @@ export module ManagedPolicies {
     export const AWSLambdaENIManagementAccess: ARN = "arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess";
     /** Use ManagedPolicy.AWSLambdaExecute instead. */
     export const AWSLambdaExecute: ARN = "arn:aws:iam::aws:policy/AWSLambdaExecute";
-    /** @deprecated No longer supported. New IAM Roles created using this policy will fail. Use ManagedPolicy.AWSLambda_FullAccess instead. */
+    /** @deprecated No longer supported. New IAM Roles created using this policy will fail. Use ManagedPolicy.LambdaFullAccess instead. */
     export const AWSLambdaFullAccess: ARN = "arn:aws:iam::aws:policy/AWSLambdaFullAccess";
     /** Use ManagedPolicy.AWSLambdaInvocationDynamoDB instead. */
     export const AWSLambdaInvocationDynamoDB: ARN = "arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB";
     /** Use ManagedPolicy.AWSLambdaKinesisExecutionRole instead. */
     export const AWSLambdaKinesisExecutionRole: ARN = "arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole";
-    /** Use ManagedPolicy.AWSLambdaReadOnlyAccess instead. */
+    /** @deprecated No longer supported. New IAM Roles created using this policy will fail. Use ManagedPolicy.LambdaReadOnlyAccess instead. */
     export const AWSLambdaReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess";
     /** Use ManagedPolicy.AWSLambdaRole instead. */
     export const AWSLambdaRole: ARN = "arn:aws:iam::aws:policy/service-role/AWSLambdaRole";

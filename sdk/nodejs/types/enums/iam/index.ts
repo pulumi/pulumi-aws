@@ -72,17 +72,17 @@ export const ManagedPolicy = {
     AWSLambdaENIManagementAccess: "arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess",
     AWSLambdaExecute: "arn:aws:iam::aws:policy/AWSLambdaExecute",
     /**
-     * @deprecated This has been deprecated in favour of `AWSLambda_FullAccess`
+     * @deprecated This has been deprecated in favour of `LambdaFullAccess`
      */
     AWSLambdaFullAccess: "arn:aws:iam::aws:policy/AWSLambdaFullAccess",
-    AWSLambda_FullAccess: "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
+    LambdaFullAccess: "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
     AWSLambdaInvocationDynamoDB: "arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB",
     AWSLambdaKinesisExecutionRole: "arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole",
     /**
-     * @deprecated This has been deprecated in favour of `AWSLambda_ReadOnlyAccess`
+     * @deprecated This has been deprecated in favour of `LambdaReadOnlyAccess`
      */
     AWSLambdaReadOnlyAccess: "arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess",
-    AWSLambda_ReadOnlyAccess: "arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess",
+    LambdaReadOnlyAccess: "arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess",
     AWSLambdaRole: "arn:aws:iam::aws:policy/service-role/AWSLambdaRole",
     AWSLambdaVPCAccessExecutionRole: "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
     AWSMarketplaceFullAccess: "arn:aws:iam::aws:policy/AWSMarketplaceFullAccess",
