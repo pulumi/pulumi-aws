@@ -155,6 +155,85 @@ func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) Byte
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetOutput)
 }
 
+func (i *ByteMatchSet) ToByteMatchSetPtrOutput() ByteMatchSetPtrOutput {
+	return i.ToByteMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ByteMatchSet) ToByteMatchSetPtrOutputWithContext(ctx context.Context) ByteMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetPtrOutput)
+}
+
+type ByteMatchSetPtrInput interface {
+	pulumi.Input
+
+	ToByteMatchSetPtrOutput() ByteMatchSetPtrOutput
+	ToByteMatchSetPtrOutputWithContext(ctx context.Context) ByteMatchSetPtrOutput
+}
+
+type byteMatchSetPtrType ByteMatchSetArgs
+
+func (*byteMatchSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByteMatchSet)(nil))
+}
+
+func (i *byteMatchSetPtrType) ToByteMatchSetPtrOutput() ByteMatchSetPtrOutput {
+	return i.ToByteMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *byteMatchSetPtrType) ToByteMatchSetPtrOutputWithContext(ctx context.Context) ByteMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetPtrOutput)
+}
+
+// ByteMatchSetArrayInput is an input type that accepts ByteMatchSetArray and ByteMatchSetArrayOutput values.
+// You can construct a concrete instance of `ByteMatchSetArrayInput` via:
+//
+//          ByteMatchSetArray{ ByteMatchSetArgs{...} }
+type ByteMatchSetArrayInput interface {
+	pulumi.Input
+
+	ToByteMatchSetArrayOutput() ByteMatchSetArrayOutput
+	ToByteMatchSetArrayOutputWithContext(context.Context) ByteMatchSetArrayOutput
+}
+
+type ByteMatchSetArray []ByteMatchSetInput
+
+func (ByteMatchSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ByteMatchSet)(nil))
+}
+
+func (i ByteMatchSetArray) ToByteMatchSetArrayOutput() ByteMatchSetArrayOutput {
+	return i.ToByteMatchSetArrayOutputWithContext(context.Background())
+}
+
+func (i ByteMatchSetArray) ToByteMatchSetArrayOutputWithContext(ctx context.Context) ByteMatchSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetArrayOutput)
+}
+
+// ByteMatchSetMapInput is an input type that accepts ByteMatchSetMap and ByteMatchSetMapOutput values.
+// You can construct a concrete instance of `ByteMatchSetMapInput` via:
+//
+//          ByteMatchSetMap{ "key": ByteMatchSetArgs{...} }
+type ByteMatchSetMapInput interface {
+	pulumi.Input
+
+	ToByteMatchSetMapOutput() ByteMatchSetMapOutput
+	ToByteMatchSetMapOutputWithContext(context.Context) ByteMatchSetMapOutput
+}
+
+type ByteMatchSetMap map[string]ByteMatchSetInput
+
+func (ByteMatchSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ByteMatchSet)(nil))
+}
+
+func (i ByteMatchSetMap) ToByteMatchSetMapOutput() ByteMatchSetMapOutput {
+	return i.ToByteMatchSetMapOutputWithContext(context.Background())
+}
+
+func (i ByteMatchSetMap) ToByteMatchSetMapOutputWithContext(ctx context.Context) ByteMatchSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetMapOutput)
+}
+
 type ByteMatchSetOutput struct {
 	*pulumi.OutputState
 }
@@ -171,6 +250,75 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ByteMatchSetOutput) ToByteMatchSetPtrOutput() ByteMatchSetPtrOutput {
+	return o.ToByteMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (o ByteMatchSetOutput) ToByteMatchSetPtrOutputWithContext(ctx context.Context) ByteMatchSetPtrOutput {
+	return o.ApplyT(func(v ByteMatchSet) *ByteMatchSet {
+		return &v
+	}).(ByteMatchSetPtrOutput)
+}
+
+type ByteMatchSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ByteMatchSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByteMatchSet)(nil))
+}
+
+func (o ByteMatchSetPtrOutput) ToByteMatchSetPtrOutput() ByteMatchSetPtrOutput {
+	return o
+}
+
+func (o ByteMatchSetPtrOutput) ToByteMatchSetPtrOutputWithContext(ctx context.Context) ByteMatchSetPtrOutput {
+	return o
+}
+
+type ByteMatchSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ByteMatchSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ByteMatchSet)(nil))
+}
+
+func (o ByteMatchSetArrayOutput) ToByteMatchSetArrayOutput() ByteMatchSetArrayOutput {
+	return o
+}
+
+func (o ByteMatchSetArrayOutput) ToByteMatchSetArrayOutputWithContext(ctx context.Context) ByteMatchSetArrayOutput {
+	return o
+}
+
+func (o ByteMatchSetArrayOutput) Index(i pulumi.IntInput) ByteMatchSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ByteMatchSet {
+		return vs[0].([]ByteMatchSet)[vs[1].(int)]
+	}).(ByteMatchSetOutput)
+}
+
+type ByteMatchSetMapOutput struct{ *pulumi.OutputState }
+
+func (ByteMatchSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ByteMatchSet)(nil))
+}
+
+func (o ByteMatchSetMapOutput) ToByteMatchSetMapOutput() ByteMatchSetMapOutput {
+	return o
+}
+
+func (o ByteMatchSetMapOutput) ToByteMatchSetMapOutputWithContext(ctx context.Context) ByteMatchSetMapOutput {
+	return o
+}
+
+func (o ByteMatchSetMapOutput) MapIndex(k pulumi.StringInput) ByteMatchSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ByteMatchSet {
+		return vs[0].(map[string]ByteMatchSet)[vs[1].(string)]
+	}).(ByteMatchSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ByteMatchSetOutput{})
+	pulumi.RegisterOutputType(ByteMatchSetPtrOutput{})
+	pulumi.RegisterOutputType(ByteMatchSetArrayOutput{})
+	pulumi.RegisterOutputType(ByteMatchSetMapOutput{})
 }

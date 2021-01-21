@@ -181,6 +181,85 @@ func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
 }
 
+func (i *CustomerGateway) ToCustomerGatewayPtrOutput() CustomerGatewayPtrOutput {
+	return i.ToCustomerGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *CustomerGateway) ToCustomerGatewayPtrOutputWithContext(ctx context.Context) CustomerGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayPtrOutput)
+}
+
+type CustomerGatewayPtrInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayPtrOutput() CustomerGatewayPtrOutput
+	ToCustomerGatewayPtrOutputWithContext(ctx context.Context) CustomerGatewayPtrOutput
+}
+
+type customerGatewayPtrType CustomerGatewayArgs
+
+func (*customerGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerGateway)(nil))
+}
+
+func (i *customerGatewayPtrType) ToCustomerGatewayPtrOutput() CustomerGatewayPtrOutput {
+	return i.ToCustomerGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *customerGatewayPtrType) ToCustomerGatewayPtrOutputWithContext(ctx context.Context) CustomerGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayPtrOutput)
+}
+
+// CustomerGatewayArrayInput is an input type that accepts CustomerGatewayArray and CustomerGatewayArrayOutput values.
+// You can construct a concrete instance of `CustomerGatewayArrayInput` via:
+//
+//          CustomerGatewayArray{ CustomerGatewayArgs{...} }
+type CustomerGatewayArrayInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayArrayOutput() CustomerGatewayArrayOutput
+	ToCustomerGatewayArrayOutputWithContext(context.Context) CustomerGatewayArrayOutput
+}
+
+type CustomerGatewayArray []CustomerGatewayInput
+
+func (CustomerGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CustomerGateway)(nil))
+}
+
+func (i CustomerGatewayArray) ToCustomerGatewayArrayOutput() CustomerGatewayArrayOutput {
+	return i.ToCustomerGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i CustomerGatewayArray) ToCustomerGatewayArrayOutputWithContext(ctx context.Context) CustomerGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayArrayOutput)
+}
+
+// CustomerGatewayMapInput is an input type that accepts CustomerGatewayMap and CustomerGatewayMapOutput values.
+// You can construct a concrete instance of `CustomerGatewayMapInput` via:
+//
+//          CustomerGatewayMap{ "key": CustomerGatewayArgs{...} }
+type CustomerGatewayMapInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayMapOutput() CustomerGatewayMapOutput
+	ToCustomerGatewayMapOutputWithContext(context.Context) CustomerGatewayMapOutput
+}
+
+type CustomerGatewayMap map[string]CustomerGatewayInput
+
+func (CustomerGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CustomerGateway)(nil))
+}
+
+func (i CustomerGatewayMap) ToCustomerGatewayMapOutput() CustomerGatewayMapOutput {
+	return i.ToCustomerGatewayMapOutputWithContext(context.Background())
+}
+
+func (i CustomerGatewayMap) ToCustomerGatewayMapOutputWithContext(ctx context.Context) CustomerGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayMapOutput)
+}
+
 type CustomerGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CustomerGatewayOutput) ToCustomerGatewayPtrOutput() CustomerGatewayPtrOutput {
+	return o.ToCustomerGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerGatewayOutput) ToCustomerGatewayPtrOutputWithContext(ctx context.Context) CustomerGatewayPtrOutput {
+	return o.ApplyT(func(v CustomerGateway) *CustomerGateway {
+		return &v
+	}).(CustomerGatewayPtrOutput)
+}
+
+type CustomerGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerGateway)(nil))
+}
+
+func (o CustomerGatewayPtrOutput) ToCustomerGatewayPtrOutput() CustomerGatewayPtrOutput {
+	return o
+}
+
+func (o CustomerGatewayPtrOutput) ToCustomerGatewayPtrOutputWithContext(ctx context.Context) CustomerGatewayPtrOutput {
+	return o
+}
+
+type CustomerGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomerGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerGateway)(nil))
+}
+
+func (o CustomerGatewayArrayOutput) ToCustomerGatewayArrayOutput() CustomerGatewayArrayOutput {
+	return o
+}
+
+func (o CustomerGatewayArrayOutput) ToCustomerGatewayArrayOutputWithContext(ctx context.Context) CustomerGatewayArrayOutput {
+	return o
+}
+
+func (o CustomerGatewayArrayOutput) Index(i pulumi.IntInput) CustomerGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomerGateway {
+		return vs[0].([]CustomerGateway)[vs[1].(int)]
+	}).(CustomerGatewayOutput)
+}
+
+type CustomerGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (CustomerGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomerGateway)(nil))
+}
+
+func (o CustomerGatewayMapOutput) ToCustomerGatewayMapOutput() CustomerGatewayMapOutput {
+	return o
+}
+
+func (o CustomerGatewayMapOutput) ToCustomerGatewayMapOutputWithContext(ctx context.Context) CustomerGatewayMapOutput {
+	return o
+}
+
+func (o CustomerGatewayMapOutput) MapIndex(k pulumi.StringInput) CustomerGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomerGateway {
+		return vs[0].(map[string]CustomerGateway)[vs[1].(string)]
+	}).(CustomerGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomerGatewayOutput{})
+	pulumi.RegisterOutputType(CustomerGatewayPtrOutput{})
+	pulumi.RegisterOutputType(CustomerGatewayArrayOutput{})
+	pulumi.RegisterOutputType(CustomerGatewayMapOutput{})
 }

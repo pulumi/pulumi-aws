@@ -135,6 +135,85 @@ func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyOutput)
 }
 
+func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
+	return i.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyPtrOutput)
+}
+
+type PermissionSetInlinePolicyPtrInput interface {
+	pulumi.Input
+
+	ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput
+	ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput
+}
+
+type permissionSetInlinePolicyPtrType PermissionSetInlinePolicyArgs
+
+func (*permissionSetInlinePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil))
+}
+
+func (i *permissionSetInlinePolicyPtrType) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
+	return i.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionSetInlinePolicyPtrType) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyPtrOutput)
+}
+
+// PermissionSetInlinePolicyArrayInput is an input type that accepts PermissionSetInlinePolicyArray and PermissionSetInlinePolicyArrayOutput values.
+// You can construct a concrete instance of `PermissionSetInlinePolicyArrayInput` via:
+//
+//          PermissionSetInlinePolicyArray{ PermissionSetInlinePolicyArgs{...} }
+type PermissionSetInlinePolicyArrayInput interface {
+	pulumi.Input
+
+	ToPermissionSetInlinePolicyArrayOutput() PermissionSetInlinePolicyArrayOutput
+	ToPermissionSetInlinePolicyArrayOutputWithContext(context.Context) PermissionSetInlinePolicyArrayOutput
+}
+
+type PermissionSetInlinePolicyArray []PermissionSetInlinePolicyInput
+
+func (PermissionSetInlinePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PermissionSetInlinePolicy)(nil))
+}
+
+func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutput() PermissionSetInlinePolicyArrayOutput {
+	return i.ToPermissionSetInlinePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutputWithContext(ctx context.Context) PermissionSetInlinePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyArrayOutput)
+}
+
+// PermissionSetInlinePolicyMapInput is an input type that accepts PermissionSetInlinePolicyMap and PermissionSetInlinePolicyMapOutput values.
+// You can construct a concrete instance of `PermissionSetInlinePolicyMapInput` via:
+//
+//          PermissionSetInlinePolicyMap{ "key": PermissionSetInlinePolicyArgs{...} }
+type PermissionSetInlinePolicyMapInput interface {
+	pulumi.Input
+
+	ToPermissionSetInlinePolicyMapOutput() PermissionSetInlinePolicyMapOutput
+	ToPermissionSetInlinePolicyMapOutputWithContext(context.Context) PermissionSetInlinePolicyMapOutput
+}
+
+type PermissionSetInlinePolicyMap map[string]PermissionSetInlinePolicyInput
+
+func (PermissionSetInlinePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PermissionSetInlinePolicy)(nil))
+}
+
+func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutput() PermissionSetInlinePolicyMapOutput {
+	return i.ToPermissionSetInlinePolicyMapOutputWithContext(context.Background())
+}
+
+func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutputWithContext(ctx context.Context) PermissionSetInlinePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyMapOutput)
+}
+
 type PermissionSetInlinePolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -151,6 +230,75 @@ func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyOutputWithCo
 	return o
 }
 
+func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
+	return o.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
+	return o.ApplyT(func(v PermissionSetInlinePolicy) *PermissionSetInlinePolicy {
+		return &v
+	}).(PermissionSetInlinePolicyPtrOutput)
+}
+
+type PermissionSetInlinePolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PermissionSetInlinePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil))
+}
+
+func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
+	return o
+}
+
+func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
+	return o
+}
+
+type PermissionSetInlinePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetInlinePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSetInlinePolicy)(nil))
+}
+
+func (o PermissionSetInlinePolicyArrayOutput) ToPermissionSetInlinePolicyArrayOutput() PermissionSetInlinePolicyArrayOutput {
+	return o
+}
+
+func (o PermissionSetInlinePolicyArrayOutput) ToPermissionSetInlinePolicyArrayOutputWithContext(ctx context.Context) PermissionSetInlinePolicyArrayOutput {
+	return o
+}
+
+func (o PermissionSetInlinePolicyArrayOutput) Index(i pulumi.IntInput) PermissionSetInlinePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetInlinePolicy {
+		return vs[0].([]PermissionSetInlinePolicy)[vs[1].(int)]
+	}).(PermissionSetInlinePolicyOutput)
+}
+
+type PermissionSetInlinePolicyMapOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetInlinePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PermissionSetInlinePolicy)(nil))
+}
+
+func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutput() PermissionSetInlinePolicyMapOutput {
+	return o
+}
+
+func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutputWithContext(ctx context.Context) PermissionSetInlinePolicyMapOutput {
+	return o
+}
+
+func (o PermissionSetInlinePolicyMapOutput) MapIndex(k pulumi.StringInput) PermissionSetInlinePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PermissionSetInlinePolicy {
+		return vs[0].(map[string]PermissionSetInlinePolicy)[vs[1].(string)]
+	}).(PermissionSetInlinePolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyOutput{})
+	pulumi.RegisterOutputType(PermissionSetInlinePolicyPtrOutput{})
+	pulumi.RegisterOutputType(PermissionSetInlinePolicyArrayOutput{})
+	pulumi.RegisterOutputType(PermissionSetInlinePolicyMapOutput{})
 }

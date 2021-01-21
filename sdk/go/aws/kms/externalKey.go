@@ -211,6 +211,85 @@ func (i *ExternalKey) ToExternalKeyOutputWithContext(ctx context.Context) Extern
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyOutput)
 }
 
+func (i *ExternalKey) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
+	return i.ToExternalKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *ExternalKey) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyPtrOutput)
+}
+
+type ExternalKeyPtrInput interface {
+	pulumi.Input
+
+	ToExternalKeyPtrOutput() ExternalKeyPtrOutput
+	ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput
+}
+
+type externalKeyPtrType ExternalKeyArgs
+
+func (*externalKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalKey)(nil))
+}
+
+func (i *externalKeyPtrType) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
+	return i.ToExternalKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *externalKeyPtrType) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyPtrOutput)
+}
+
+// ExternalKeyArrayInput is an input type that accepts ExternalKeyArray and ExternalKeyArrayOutput values.
+// You can construct a concrete instance of `ExternalKeyArrayInput` via:
+//
+//          ExternalKeyArray{ ExternalKeyArgs{...} }
+type ExternalKeyArrayInput interface {
+	pulumi.Input
+
+	ToExternalKeyArrayOutput() ExternalKeyArrayOutput
+	ToExternalKeyArrayOutputWithContext(context.Context) ExternalKeyArrayOutput
+}
+
+type ExternalKeyArray []ExternalKeyInput
+
+func (ExternalKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ExternalKey)(nil))
+}
+
+func (i ExternalKeyArray) ToExternalKeyArrayOutput() ExternalKeyArrayOutput {
+	return i.ToExternalKeyArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalKeyArray) ToExternalKeyArrayOutputWithContext(ctx context.Context) ExternalKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyArrayOutput)
+}
+
+// ExternalKeyMapInput is an input type that accepts ExternalKeyMap and ExternalKeyMapOutput values.
+// You can construct a concrete instance of `ExternalKeyMapInput` via:
+//
+//          ExternalKeyMap{ "key": ExternalKeyArgs{...} }
+type ExternalKeyMapInput interface {
+	pulumi.Input
+
+	ToExternalKeyMapOutput() ExternalKeyMapOutput
+	ToExternalKeyMapOutputWithContext(context.Context) ExternalKeyMapOutput
+}
+
+type ExternalKeyMap map[string]ExternalKeyInput
+
+func (ExternalKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ExternalKey)(nil))
+}
+
+func (i ExternalKeyMap) ToExternalKeyMapOutput() ExternalKeyMapOutput {
+	return i.ToExternalKeyMapOutputWithContext(context.Background())
+}
+
+func (i ExternalKeyMap) ToExternalKeyMapOutputWithContext(ctx context.Context) ExternalKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyMapOutput)
+}
+
 type ExternalKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -227,6 +306,75 @@ func (o ExternalKeyOutput) ToExternalKeyOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o ExternalKeyOutput) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
+	return o.ToExternalKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ExternalKeyOutput) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
+	return o.ApplyT(func(v ExternalKey) *ExternalKey {
+		return &v
+	}).(ExternalKeyPtrOutput)
+}
+
+type ExternalKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExternalKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalKey)(nil))
+}
+
+func (o ExternalKeyPtrOutput) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
+	return o
+}
+
+func (o ExternalKeyPtrOutput) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
+	return o
+}
+
+type ExternalKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalKey)(nil))
+}
+
+func (o ExternalKeyArrayOutput) ToExternalKeyArrayOutput() ExternalKeyArrayOutput {
+	return o
+}
+
+func (o ExternalKeyArrayOutput) ToExternalKeyArrayOutputWithContext(ctx context.Context) ExternalKeyArrayOutput {
+	return o
+}
+
+func (o ExternalKeyArrayOutput) Index(i pulumi.IntInput) ExternalKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalKey {
+		return vs[0].([]ExternalKey)[vs[1].(int)]
+	}).(ExternalKeyOutput)
+}
+
+type ExternalKeyMapOutput struct{ *pulumi.OutputState }
+
+func (ExternalKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExternalKey)(nil))
+}
+
+func (o ExternalKeyMapOutput) ToExternalKeyMapOutput() ExternalKeyMapOutput {
+	return o
+}
+
+func (o ExternalKeyMapOutput) ToExternalKeyMapOutputWithContext(ctx context.Context) ExternalKeyMapOutput {
+	return o
+}
+
+func (o ExternalKeyMapOutput) MapIndex(k pulumi.StringInput) ExternalKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExternalKey {
+		return vs[0].(map[string]ExternalKey)[vs[1].(string)]
+	}).(ExternalKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExternalKeyOutput{})
+	pulumi.RegisterOutputType(ExternalKeyPtrOutput{})
+	pulumi.RegisterOutputType(ExternalKeyArrayOutput{})
+	pulumi.RegisterOutputType(ExternalKeyMapOutput{})
 }

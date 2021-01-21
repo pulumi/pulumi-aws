@@ -160,6 +160,85 @@ func (i *Recorder) ToRecorderOutputWithContext(ctx context.Context) RecorderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderOutput)
 }
 
+func (i *Recorder) ToRecorderPtrOutput() RecorderPtrOutput {
+	return i.ToRecorderPtrOutputWithContext(context.Background())
+}
+
+func (i *Recorder) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderPtrOutput)
+}
+
+type RecorderPtrInput interface {
+	pulumi.Input
+
+	ToRecorderPtrOutput() RecorderPtrOutput
+	ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput
+}
+
+type recorderPtrType RecorderArgs
+
+func (*recorderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Recorder)(nil))
+}
+
+func (i *recorderPtrType) ToRecorderPtrOutput() RecorderPtrOutput {
+	return i.ToRecorderPtrOutputWithContext(context.Background())
+}
+
+func (i *recorderPtrType) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderPtrOutput)
+}
+
+// RecorderArrayInput is an input type that accepts RecorderArray and RecorderArrayOutput values.
+// You can construct a concrete instance of `RecorderArrayInput` via:
+//
+//          RecorderArray{ RecorderArgs{...} }
+type RecorderArrayInput interface {
+	pulumi.Input
+
+	ToRecorderArrayOutput() RecorderArrayOutput
+	ToRecorderArrayOutputWithContext(context.Context) RecorderArrayOutput
+}
+
+type RecorderArray []RecorderInput
+
+func (RecorderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Recorder)(nil))
+}
+
+func (i RecorderArray) ToRecorderArrayOutput() RecorderArrayOutput {
+	return i.ToRecorderArrayOutputWithContext(context.Background())
+}
+
+func (i RecorderArray) ToRecorderArrayOutputWithContext(ctx context.Context) RecorderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderArrayOutput)
+}
+
+// RecorderMapInput is an input type that accepts RecorderMap and RecorderMapOutput values.
+// You can construct a concrete instance of `RecorderMapInput` via:
+//
+//          RecorderMap{ "key": RecorderArgs{...} }
+type RecorderMapInput interface {
+	pulumi.Input
+
+	ToRecorderMapOutput() RecorderMapOutput
+	ToRecorderMapOutputWithContext(context.Context) RecorderMapOutput
+}
+
+type RecorderMap map[string]RecorderInput
+
+func (RecorderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Recorder)(nil))
+}
+
+func (i RecorderMap) ToRecorderMapOutput() RecorderMapOutput {
+	return i.ToRecorderMapOutputWithContext(context.Background())
+}
+
+func (i RecorderMap) ToRecorderMapOutputWithContext(ctx context.Context) RecorderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderMapOutput)
+}
+
 type RecorderOutput struct {
 	*pulumi.OutputState
 }
@@ -176,6 +255,75 @@ func (o RecorderOutput) ToRecorderOutputWithContext(ctx context.Context) Recorde
 	return o
 }
 
+func (o RecorderOutput) ToRecorderPtrOutput() RecorderPtrOutput {
+	return o.ToRecorderPtrOutputWithContext(context.Background())
+}
+
+func (o RecorderOutput) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
+	return o.ApplyT(func(v Recorder) *Recorder {
+		return &v
+	}).(RecorderPtrOutput)
+}
+
+type RecorderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecorderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Recorder)(nil))
+}
+
+func (o RecorderPtrOutput) ToRecorderPtrOutput() RecorderPtrOutput {
+	return o
+}
+
+func (o RecorderPtrOutput) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
+	return o
+}
+
+type RecorderArrayOutput struct{ *pulumi.OutputState }
+
+func (RecorderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Recorder)(nil))
+}
+
+func (o RecorderArrayOutput) ToRecorderArrayOutput() RecorderArrayOutput {
+	return o
+}
+
+func (o RecorderArrayOutput) ToRecorderArrayOutputWithContext(ctx context.Context) RecorderArrayOutput {
+	return o
+}
+
+func (o RecorderArrayOutput) Index(i pulumi.IntInput) RecorderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Recorder {
+		return vs[0].([]Recorder)[vs[1].(int)]
+	}).(RecorderOutput)
+}
+
+type RecorderMapOutput struct{ *pulumi.OutputState }
+
+func (RecorderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Recorder)(nil))
+}
+
+func (o RecorderMapOutput) ToRecorderMapOutput() RecorderMapOutput {
+	return o
+}
+
+func (o RecorderMapOutput) ToRecorderMapOutputWithContext(ctx context.Context) RecorderMapOutput {
+	return o
+}
+
+func (o RecorderMapOutput) MapIndex(k pulumi.StringInput) RecorderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Recorder {
+		return vs[0].(map[string]Recorder)[vs[1].(string)]
+	}).(RecorderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecorderOutput{})
+	pulumi.RegisterOutputType(RecorderPtrOutput{})
+	pulumi.RegisterOutputType(RecorderArrayOutput{})
+	pulumi.RegisterOutputType(RecorderMapOutput{})
 }

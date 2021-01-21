@@ -348,6 +348,85 @@ func (i *LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemOutput)
 }
 
+func (i *LustreFileSystem) ToLustreFileSystemPtrOutput() LustreFileSystemPtrOutput {
+	return i.ToLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *LustreFileSystem) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemPtrOutput)
+}
+
+type LustreFileSystemPtrInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemPtrOutput() LustreFileSystemPtrOutput
+	ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput
+}
+
+type lustreFileSystemPtrType LustreFileSystemArgs
+
+func (*lustreFileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystem)(nil))
+}
+
+func (i *lustreFileSystemPtrType) ToLustreFileSystemPtrOutput() LustreFileSystemPtrOutput {
+	return i.ToLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *lustreFileSystemPtrType) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemPtrOutput)
+}
+
+// LustreFileSystemArrayInput is an input type that accepts LustreFileSystemArray and LustreFileSystemArrayOutput values.
+// You can construct a concrete instance of `LustreFileSystemArrayInput` via:
+//
+//          LustreFileSystemArray{ LustreFileSystemArgs{...} }
+type LustreFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemArrayOutput() LustreFileSystemArrayOutput
+	ToLustreFileSystemArrayOutputWithContext(context.Context) LustreFileSystemArrayOutput
+}
+
+type LustreFileSystemArray []LustreFileSystemInput
+
+func (LustreFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LustreFileSystem)(nil))
+}
+
+func (i LustreFileSystemArray) ToLustreFileSystemArrayOutput() LustreFileSystemArrayOutput {
+	return i.ToLustreFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemArray) ToLustreFileSystemArrayOutputWithContext(ctx context.Context) LustreFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemArrayOutput)
+}
+
+// LustreFileSystemMapInput is an input type that accepts LustreFileSystemMap and LustreFileSystemMapOutput values.
+// You can construct a concrete instance of `LustreFileSystemMapInput` via:
+//
+//          LustreFileSystemMap{ "key": LustreFileSystemArgs{...} }
+type LustreFileSystemMapInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemMapOutput() LustreFileSystemMapOutput
+	ToLustreFileSystemMapOutputWithContext(context.Context) LustreFileSystemMapOutput
+}
+
+type LustreFileSystemMap map[string]LustreFileSystemInput
+
+func (LustreFileSystemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LustreFileSystem)(nil))
+}
+
+func (i LustreFileSystemMap) ToLustreFileSystemMapOutput() LustreFileSystemMapOutput {
+	return i.ToLustreFileSystemMapOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemMap) ToLustreFileSystemMapOutputWithContext(ctx context.Context) LustreFileSystemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMapOutput)
+}
+
 type LustreFileSystemOutput struct {
 	*pulumi.OutputState
 }
@@ -364,6 +443,75 @@ func (o LustreFileSystemOutput) ToLustreFileSystemOutputWithContext(ctx context.
 	return o
 }
 
+func (o LustreFileSystemOutput) ToLustreFileSystemPtrOutput() LustreFileSystemPtrOutput {
+	return o.ToLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o LustreFileSystemOutput) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
+	return o.ApplyT(func(v LustreFileSystem) *LustreFileSystem {
+		return &v
+	}).(LustreFileSystemPtrOutput)
+}
+
+type LustreFileSystemPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LustreFileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystem)(nil))
+}
+
+func (o LustreFileSystemPtrOutput) ToLustreFileSystemPtrOutput() LustreFileSystemPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemPtrOutput) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
+	return o
+}
+
+type LustreFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LustreFileSystem)(nil))
+}
+
+func (o LustreFileSystemArrayOutput) ToLustreFileSystemArrayOutput() LustreFileSystemArrayOutput {
+	return o
+}
+
+func (o LustreFileSystemArrayOutput) ToLustreFileSystemArrayOutputWithContext(ctx context.Context) LustreFileSystemArrayOutput {
+	return o
+}
+
+func (o LustreFileSystemArrayOutput) Index(i pulumi.IntInput) LustreFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LustreFileSystem {
+		return vs[0].([]LustreFileSystem)[vs[1].(int)]
+	}).(LustreFileSystemOutput)
+}
+
+type LustreFileSystemMapOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LustreFileSystem)(nil))
+}
+
+func (o LustreFileSystemMapOutput) ToLustreFileSystemMapOutput() LustreFileSystemMapOutput {
+	return o
+}
+
+func (o LustreFileSystemMapOutput) ToLustreFileSystemMapOutputWithContext(ctx context.Context) LustreFileSystemMapOutput {
+	return o
+}
+
+func (o LustreFileSystemMapOutput) MapIndex(k pulumi.StringInput) LustreFileSystemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LustreFileSystem {
+		return vs[0].(map[string]LustreFileSystem)[vs[1].(string)]
+	}).(LustreFileSystemOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LustreFileSystemOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemMapOutput{})
 }

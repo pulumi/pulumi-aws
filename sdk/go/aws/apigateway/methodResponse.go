@@ -233,6 +233,85 @@ func (i *MethodResponse) ToMethodResponseOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseOutput)
 }
 
+func (i *MethodResponse) ToMethodResponsePtrOutput() MethodResponsePtrOutput {
+	return i.ToMethodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *MethodResponse) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponsePtrOutput)
+}
+
+type MethodResponsePtrInput interface {
+	pulumi.Input
+
+	ToMethodResponsePtrOutput() MethodResponsePtrOutput
+	ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput
+}
+
+type methodResponsePtrType MethodResponseArgs
+
+func (*methodResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodResponse)(nil))
+}
+
+func (i *methodResponsePtrType) ToMethodResponsePtrOutput() MethodResponsePtrOutput {
+	return i.ToMethodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *methodResponsePtrType) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponsePtrOutput)
+}
+
+// MethodResponseArrayInput is an input type that accepts MethodResponseArray and MethodResponseArrayOutput values.
+// You can construct a concrete instance of `MethodResponseArrayInput` via:
+//
+//          MethodResponseArray{ MethodResponseArgs{...} }
+type MethodResponseArrayInput interface {
+	pulumi.Input
+
+	ToMethodResponseArrayOutput() MethodResponseArrayOutput
+	ToMethodResponseArrayOutputWithContext(context.Context) MethodResponseArrayOutput
+}
+
+type MethodResponseArray []MethodResponseInput
+
+func (MethodResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MethodResponse)(nil))
+}
+
+func (i MethodResponseArray) ToMethodResponseArrayOutput() MethodResponseArrayOutput {
+	return i.ToMethodResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MethodResponseArray) ToMethodResponseArrayOutputWithContext(ctx context.Context) MethodResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseArrayOutput)
+}
+
+// MethodResponseMapInput is an input type that accepts MethodResponseMap and MethodResponseMapOutput values.
+// You can construct a concrete instance of `MethodResponseMapInput` via:
+//
+//          MethodResponseMap{ "key": MethodResponseArgs{...} }
+type MethodResponseMapInput interface {
+	pulumi.Input
+
+	ToMethodResponseMapOutput() MethodResponseMapOutput
+	ToMethodResponseMapOutputWithContext(context.Context) MethodResponseMapOutput
+}
+
+type MethodResponseMap map[string]MethodResponseInput
+
+func (MethodResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MethodResponse)(nil))
+}
+
+func (i MethodResponseMap) ToMethodResponseMapOutput() MethodResponseMapOutput {
+	return i.ToMethodResponseMapOutputWithContext(context.Background())
+}
+
+func (i MethodResponseMap) ToMethodResponseMapOutputWithContext(ctx context.Context) MethodResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseMapOutput)
+}
+
 type MethodResponseOutput struct {
 	*pulumi.OutputState
 }
@@ -249,6 +328,75 @@ func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o MethodResponseOutput) ToMethodResponsePtrOutput() MethodResponsePtrOutput {
+	return o.ToMethodResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MethodResponseOutput) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
+	return o.ApplyT(func(v MethodResponse) *MethodResponse {
+		return &v
+	}).(MethodResponsePtrOutput)
+}
+
+type MethodResponsePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MethodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodResponse)(nil))
+}
+
+func (o MethodResponsePtrOutput) ToMethodResponsePtrOutput() MethodResponsePtrOutput {
+	return o
+}
+
+func (o MethodResponsePtrOutput) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
+	return o
+}
+
+type MethodResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodResponse)(nil))
+}
+
+func (o MethodResponseArrayOutput) ToMethodResponseArrayOutput() MethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodResponseArrayOutput) ToMethodResponseArrayOutputWithContext(ctx context.Context) MethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodResponseArrayOutput) Index(i pulumi.IntInput) MethodResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodResponse {
+		return vs[0].([]MethodResponse)[vs[1].(int)]
+	}).(MethodResponseOutput)
+}
+
+type MethodResponseMapOutput struct{ *pulumi.OutputState }
+
+func (MethodResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MethodResponse)(nil))
+}
+
+func (o MethodResponseMapOutput) ToMethodResponseMapOutput() MethodResponseMapOutput {
+	return o
+}
+
+func (o MethodResponseMapOutput) ToMethodResponseMapOutputWithContext(ctx context.Context) MethodResponseMapOutput {
+	return o
+}
+
+func (o MethodResponseMapOutput) MapIndex(k pulumi.StringInput) MethodResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MethodResponse {
+		return vs[0].(map[string]MethodResponse)[vs[1].(string)]
+	}).(MethodResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MethodResponseOutput{})
+	pulumi.RegisterOutputType(MethodResponsePtrOutput{})
+	pulumi.RegisterOutputType(MethodResponseArrayOutput{})
+	pulumi.RegisterOutputType(MethodResponseMapOutput{})
 }

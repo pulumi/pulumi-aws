@@ -292,6 +292,85 @@ func (i *CertificateAuthority) ToCertificateAuthorityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOutput)
 }
 
+func (i *CertificateAuthority) ToCertificateAuthorityPtrOutput() CertificateAuthorityPtrOutput {
+	return i.ToCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *CertificateAuthority) ToCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityPtrOutput)
+}
+
+type CertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityPtrOutput() CertificateAuthorityPtrOutput
+	ToCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificateAuthorityPtrOutput
+}
+
+type certificateAuthorityPtrType CertificateAuthorityArgs
+
+func (*certificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthority)(nil))
+}
+
+func (i *certificateAuthorityPtrType) ToCertificateAuthorityPtrOutput() CertificateAuthorityPtrOutput {
+	return i.ToCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityPtrType) ToCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityPtrOutput)
+}
+
+// CertificateAuthorityArrayInput is an input type that accepts CertificateAuthorityArray and CertificateAuthorityArrayOutput values.
+// You can construct a concrete instance of `CertificateAuthorityArrayInput` via:
+//
+//          CertificateAuthorityArray{ CertificateAuthorityArgs{...} }
+type CertificateAuthorityArrayInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityArrayOutput() CertificateAuthorityArrayOutput
+	ToCertificateAuthorityArrayOutputWithContext(context.Context) CertificateAuthorityArrayOutput
+}
+
+type CertificateAuthorityArray []CertificateAuthorityInput
+
+func (CertificateAuthorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CertificateAuthority)(nil))
+}
+
+func (i CertificateAuthorityArray) ToCertificateAuthorityArrayOutput() CertificateAuthorityArrayOutput {
+	return i.ToCertificateAuthorityArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityArray) ToCertificateAuthorityArrayOutputWithContext(ctx context.Context) CertificateAuthorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityArrayOutput)
+}
+
+// CertificateAuthorityMapInput is an input type that accepts CertificateAuthorityMap and CertificateAuthorityMapOutput values.
+// You can construct a concrete instance of `CertificateAuthorityMapInput` via:
+//
+//          CertificateAuthorityMap{ "key": CertificateAuthorityArgs{...} }
+type CertificateAuthorityMapInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityMapOutput() CertificateAuthorityMapOutput
+	ToCertificateAuthorityMapOutputWithContext(context.Context) CertificateAuthorityMapOutput
+}
+
+type CertificateAuthorityMap map[string]CertificateAuthorityInput
+
+func (CertificateAuthorityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CertificateAuthority)(nil))
+}
+
+func (i CertificateAuthorityMap) ToCertificateAuthorityMapOutput() CertificateAuthorityMapOutput {
+	return i.ToCertificateAuthorityMapOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityMap) ToCertificateAuthorityMapOutputWithContext(ctx context.Context) CertificateAuthorityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityMapOutput)
+}
+
 type CertificateAuthorityOutput struct {
 	*pulumi.OutputState
 }
@@ -308,6 +387,75 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 	return o
 }
 
+func (o CertificateAuthorityOutput) ToCertificateAuthorityPtrOutput() CertificateAuthorityPtrOutput {
+	return o.ToCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityOutput) ToCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v CertificateAuthority) *CertificateAuthority {
+		return &v
+	}).(CertificateAuthorityPtrOutput)
+}
+
+type CertificateAuthorityPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthority)(nil))
+}
+
+func (o CertificateAuthorityPtrOutput) ToCertificateAuthorityPtrOutput() CertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityPtrOutput) ToCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificateAuthorityPtrOutput {
+	return o
+}
+
+type CertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateAuthority)(nil))
+}
+
+func (o CertificateAuthorityArrayOutput) ToCertificateAuthorityArrayOutput() CertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityArrayOutput) ToCertificateAuthorityArrayOutputWithContext(ctx context.Context) CertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateAuthority {
+		return vs[0].([]CertificateAuthority)[vs[1].(int)]
+	}).(CertificateAuthorityOutput)
+}
+
+type CertificateAuthorityMapOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateAuthority)(nil))
+}
+
+func (o CertificateAuthorityMapOutput) ToCertificateAuthorityMapOutput() CertificateAuthorityMapOutput {
+	return o
+}
+
+func (o CertificateAuthorityMapOutput) ToCertificateAuthorityMapOutputWithContext(ctx context.Context) CertificateAuthorityMapOutput {
+	return o
+}
+
+func (o CertificateAuthorityMapOutput) MapIndex(k pulumi.StringInput) CertificateAuthorityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateAuthority {
+		return vs[0].(map[string]CertificateAuthority)[vs[1].(string)]
+	}).(CertificateAuthorityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityArrayOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityMapOutput{})
 }

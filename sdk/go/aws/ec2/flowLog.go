@@ -316,6 +316,85 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
 }
 
+func (i *FlowLog) ToFlowLogPtrOutput() FlowLogPtrOutput {
+	return i.ToFlowLogPtrOutputWithContext(context.Background())
+}
+
+func (i *FlowLog) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogPtrOutput)
+}
+
+type FlowLogPtrInput interface {
+	pulumi.Input
+
+	ToFlowLogPtrOutput() FlowLogPtrOutput
+	ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput
+}
+
+type flowLogPtrType FlowLogArgs
+
+func (*flowLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLog)(nil))
+}
+
+func (i *flowLogPtrType) ToFlowLogPtrOutput() FlowLogPtrOutput {
+	return i.ToFlowLogPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLogPtrType) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogPtrOutput)
+}
+
+// FlowLogArrayInput is an input type that accepts FlowLogArray and FlowLogArrayOutput values.
+// You can construct a concrete instance of `FlowLogArrayInput` via:
+//
+//          FlowLogArray{ FlowLogArgs{...} }
+type FlowLogArrayInput interface {
+	pulumi.Input
+
+	ToFlowLogArrayOutput() FlowLogArrayOutput
+	ToFlowLogArrayOutputWithContext(context.Context) FlowLogArrayOutput
+}
+
+type FlowLogArray []FlowLogInput
+
+func (FlowLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FlowLog)(nil))
+}
+
+func (i FlowLogArray) ToFlowLogArrayOutput() FlowLogArrayOutput {
+	return i.ToFlowLogArrayOutputWithContext(context.Background())
+}
+
+func (i FlowLogArray) ToFlowLogArrayOutputWithContext(ctx context.Context) FlowLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogArrayOutput)
+}
+
+// FlowLogMapInput is an input type that accepts FlowLogMap and FlowLogMapOutput values.
+// You can construct a concrete instance of `FlowLogMapInput` via:
+//
+//          FlowLogMap{ "key": FlowLogArgs{...} }
+type FlowLogMapInput interface {
+	pulumi.Input
+
+	ToFlowLogMapOutput() FlowLogMapOutput
+	ToFlowLogMapOutputWithContext(context.Context) FlowLogMapOutput
+}
+
+type FlowLogMap map[string]FlowLogInput
+
+func (FlowLogMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FlowLog)(nil))
+}
+
+func (i FlowLogMap) ToFlowLogMapOutput() FlowLogMapOutput {
+	return i.ToFlowLogMapOutputWithContext(context.Background())
+}
+
+func (i FlowLogMap) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogMapOutput)
+}
+
 type FlowLogOutput struct {
 	*pulumi.OutputState
 }
@@ -332,6 +411,75 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 	return o
 }
 
+func (o FlowLogOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
+	return o.ToFlowLogPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLogOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
+	return o.ApplyT(func(v FlowLog) *FlowLog {
+		return &v
+	}).(FlowLogPtrOutput)
+}
+
+type FlowLogPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FlowLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLog)(nil))
+}
+
+func (o FlowLogPtrOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
+	return o
+}
+
+func (o FlowLogPtrOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
+	return o
+}
+
+type FlowLogArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowLog)(nil))
+}
+
+func (o FlowLogArrayOutput) ToFlowLogArrayOutput() FlowLogArrayOutput {
+	return o
+}
+
+func (o FlowLogArrayOutput) ToFlowLogArrayOutputWithContext(ctx context.Context) FlowLogArrayOutput {
+	return o
+}
+
+func (o FlowLogArrayOutput) Index(i pulumi.IntInput) FlowLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowLog {
+		return vs[0].([]FlowLog)[vs[1].(int)]
+	}).(FlowLogOutput)
+}
+
+type FlowLogMapOutput struct{ *pulumi.OutputState }
+
+func (FlowLogMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FlowLog)(nil))
+}
+
+func (o FlowLogMapOutput) ToFlowLogMapOutput() FlowLogMapOutput {
+	return o
+}
+
+func (o FlowLogMapOutput) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMapOutput {
+	return o
+}
+
+func (o FlowLogMapOutput) MapIndex(k pulumi.StringInput) FlowLogOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FlowLog {
+		return vs[0].(map[string]FlowLog)[vs[1].(string)]
+	}).(FlowLogOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FlowLogOutput{})
+	pulumi.RegisterOutputType(FlowLogPtrOutput{})
+	pulumi.RegisterOutputType(FlowLogArrayOutput{})
+	pulumi.RegisterOutputType(FlowLogMapOutput{})
 }

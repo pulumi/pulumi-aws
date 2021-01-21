@@ -451,6 +451,85 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
 }
 
+func (i *Crawler) ToCrawlerPtrOutput() CrawlerPtrOutput {
+	return i.ToCrawlerPtrOutputWithContext(context.Background())
+}
+
+func (i *Crawler) ToCrawlerPtrOutputWithContext(ctx context.Context) CrawlerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerPtrOutput)
+}
+
+type CrawlerPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerPtrOutput() CrawlerPtrOutput
+	ToCrawlerPtrOutputWithContext(ctx context.Context) CrawlerPtrOutput
+}
+
+type crawlerPtrType CrawlerArgs
+
+func (*crawlerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Crawler)(nil))
+}
+
+func (i *crawlerPtrType) ToCrawlerPtrOutput() CrawlerPtrOutput {
+	return i.ToCrawlerPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerPtrType) ToCrawlerPtrOutputWithContext(ctx context.Context) CrawlerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerPtrOutput)
+}
+
+// CrawlerArrayInput is an input type that accepts CrawlerArray and CrawlerArrayOutput values.
+// You can construct a concrete instance of `CrawlerArrayInput` via:
+//
+//          CrawlerArray{ CrawlerArgs{...} }
+type CrawlerArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerArrayOutput() CrawlerArrayOutput
+	ToCrawlerArrayOutputWithContext(context.Context) CrawlerArrayOutput
+}
+
+type CrawlerArray []CrawlerInput
+
+func (CrawlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Crawler)(nil))
+}
+
+func (i CrawlerArray) ToCrawlerArrayOutput() CrawlerArrayOutput {
+	return i.ToCrawlerArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerArray) ToCrawlerArrayOutputWithContext(ctx context.Context) CrawlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerArrayOutput)
+}
+
+// CrawlerMapInput is an input type that accepts CrawlerMap and CrawlerMapOutput values.
+// You can construct a concrete instance of `CrawlerMapInput` via:
+//
+//          CrawlerMap{ "key": CrawlerArgs{...} }
+type CrawlerMapInput interface {
+	pulumi.Input
+
+	ToCrawlerMapOutput() CrawlerMapOutput
+	ToCrawlerMapOutputWithContext(context.Context) CrawlerMapOutput
+}
+
+type CrawlerMap map[string]CrawlerInput
+
+func (CrawlerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Crawler)(nil))
+}
+
+func (i CrawlerMap) ToCrawlerMapOutput() CrawlerMapOutput {
+	return i.ToCrawlerMapOutputWithContext(context.Background())
+}
+
+func (i CrawlerMap) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMapOutput)
+}
+
 type CrawlerOutput struct {
 	*pulumi.OutputState
 }
@@ -467,6 +546,75 @@ func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOu
 	return o
 }
 
+func (o CrawlerOutput) ToCrawlerPtrOutput() CrawlerPtrOutput {
+	return o.ToCrawlerPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerOutput) ToCrawlerPtrOutputWithContext(ctx context.Context) CrawlerPtrOutput {
+	return o.ApplyT(func(v Crawler) *Crawler {
+		return &v
+	}).(CrawlerPtrOutput)
+}
+
+type CrawlerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CrawlerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Crawler)(nil))
+}
+
+func (o CrawlerPtrOutput) ToCrawlerPtrOutput() CrawlerPtrOutput {
+	return o
+}
+
+func (o CrawlerPtrOutput) ToCrawlerPtrOutputWithContext(ctx context.Context) CrawlerPtrOutput {
+	return o
+}
+
+type CrawlerArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Crawler)(nil))
+}
+
+func (o CrawlerArrayOutput) ToCrawlerArrayOutput() CrawlerArrayOutput {
+	return o
+}
+
+func (o CrawlerArrayOutput) ToCrawlerArrayOutputWithContext(ctx context.Context) CrawlerArrayOutput {
+	return o
+}
+
+func (o CrawlerArrayOutput) Index(i pulumi.IntInput) CrawlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Crawler {
+		return vs[0].([]Crawler)[vs[1].(int)]
+	}).(CrawlerOutput)
+}
+
+type CrawlerMapOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Crawler)(nil))
+}
+
+func (o CrawlerMapOutput) ToCrawlerMapOutput() CrawlerMapOutput {
+	return o
+}
+
+func (o CrawlerMapOutput) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMapOutput {
+	return o
+}
+
+func (o CrawlerMapOutput) MapIndex(k pulumi.StringInput) CrawlerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Crawler {
+		return vs[0].(map[string]Crawler)[vs[1].(string)]
+	}).(CrawlerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CrawlerOutput{})
+	pulumi.RegisterOutputType(CrawlerPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerMapOutput{})
 }

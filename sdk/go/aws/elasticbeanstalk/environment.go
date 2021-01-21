@@ -457,6 +457,85 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
+func (i *Environment) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
+	return i.ToEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *Environment) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentPtrOutput)
+}
+
+type EnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentPtrOutput() EnvironmentPtrOutput
+	ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput
+}
+
+type environmentPtrType EnvironmentArgs
+
+func (*environmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Environment)(nil))
+}
+
+func (i *environmentPtrType) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
+	return i.ToEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentPtrType) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentPtrOutput)
+}
+
+// EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
+// You can construct a concrete instance of `EnvironmentArrayInput` via:
+//
+//          EnvironmentArray{ EnvironmentArgs{...} }
+type EnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentArrayOutput() EnvironmentArrayOutput
+	ToEnvironmentArrayOutputWithContext(context.Context) EnvironmentArrayOutput
+}
+
+type EnvironmentArray []EnvironmentInput
+
+func (EnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Environment)(nil))
+}
+
+func (i EnvironmentArray) ToEnvironmentArrayOutput() EnvironmentArrayOutput {
+	return i.ToEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Context) EnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentArrayOutput)
+}
+
+// EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
+// You can construct a concrete instance of `EnvironmentMapInput` via:
+//
+//          EnvironmentMap{ "key": EnvironmentArgs{...} }
+type EnvironmentMapInput interface {
+	pulumi.Input
+
+	ToEnvironmentMapOutput() EnvironmentMapOutput
+	ToEnvironmentMapOutputWithContext(context.Context) EnvironmentMapOutput
+}
+
+type EnvironmentMap map[string]EnvironmentInput
+
+func (EnvironmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Environment)(nil))
+}
+
+func (i EnvironmentMap) ToEnvironmentMapOutput() EnvironmentMapOutput {
+	return i.ToEnvironmentMapOutputWithContext(context.Background())
+}
+
+func (i EnvironmentMap) ToEnvironmentMapOutputWithContext(ctx context.Context) EnvironmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMapOutput)
+}
+
 type EnvironmentOutput struct {
 	*pulumi.OutputState
 }
@@ -473,6 +552,75 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EnvironmentOutput) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
+	return o.ToEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentOutput) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
+	return o.ApplyT(func(v Environment) *Environment {
+		return &v
+	}).(EnvironmentPtrOutput)
+}
+
+type EnvironmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Environment)(nil))
+}
+
+func (o EnvironmentPtrOutput) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
+	return o
+}
+
+func (o EnvironmentPtrOutput) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
+	return o
+}
+
+type EnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Environment)(nil))
+}
+
+func (o EnvironmentArrayOutput) ToEnvironmentArrayOutput() EnvironmentArrayOutput {
+	return o
+}
+
+func (o EnvironmentArrayOutput) ToEnvironmentArrayOutputWithContext(ctx context.Context) EnvironmentArrayOutput {
+	return o
+}
+
+func (o EnvironmentArrayOutput) Index(i pulumi.IntInput) EnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Environment {
+		return vs[0].([]Environment)[vs[1].(int)]
+	}).(EnvironmentOutput)
+}
+
+type EnvironmentMapOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Environment)(nil))
+}
+
+func (o EnvironmentMapOutput) ToEnvironmentMapOutput() EnvironmentMapOutput {
+	return o
+}
+
+func (o EnvironmentMapOutput) ToEnvironmentMapOutputWithContext(ctx context.Context) EnvironmentMapOutput {
+	return o
+}
+
+func (o EnvironmentMapOutput) MapIndex(k pulumi.StringInput) EnvironmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Environment {
+		return vs[0].(map[string]Environment)[vs[1].(string)]
+	}).(EnvironmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentOutput{})
+	pulumi.RegisterOutputType(EnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentMapOutput{})
 }

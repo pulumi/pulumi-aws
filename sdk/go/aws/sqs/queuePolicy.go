@@ -152,6 +152,85 @@ func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueueP
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
 }
 
+func (i *QueuePolicy) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
+	return i.ToQueuePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *QueuePolicy) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyPtrOutput)
+}
+
+type QueuePolicyPtrInput interface {
+	pulumi.Input
+
+	ToQueuePolicyPtrOutput() QueuePolicyPtrOutput
+	ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput
+}
+
+type queuePolicyPtrType QueuePolicyArgs
+
+func (*queuePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePolicy)(nil))
+}
+
+func (i *queuePolicyPtrType) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
+	return i.ToQueuePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *queuePolicyPtrType) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyPtrOutput)
+}
+
+// QueuePolicyArrayInput is an input type that accepts QueuePolicyArray and QueuePolicyArrayOutput values.
+// You can construct a concrete instance of `QueuePolicyArrayInput` via:
+//
+//          QueuePolicyArray{ QueuePolicyArgs{...} }
+type QueuePolicyArrayInput interface {
+	pulumi.Input
+
+	ToQueuePolicyArrayOutput() QueuePolicyArrayOutput
+	ToQueuePolicyArrayOutputWithContext(context.Context) QueuePolicyArrayOutput
+}
+
+type QueuePolicyArray []QueuePolicyInput
+
+func (QueuePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*QueuePolicy)(nil))
+}
+
+func (i QueuePolicyArray) ToQueuePolicyArrayOutput() QueuePolicyArrayOutput {
+	return i.ToQueuePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i QueuePolicyArray) ToQueuePolicyArrayOutputWithContext(ctx context.Context) QueuePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyArrayOutput)
+}
+
+// QueuePolicyMapInput is an input type that accepts QueuePolicyMap and QueuePolicyMapOutput values.
+// You can construct a concrete instance of `QueuePolicyMapInput` via:
+//
+//          QueuePolicyMap{ "key": QueuePolicyArgs{...} }
+type QueuePolicyMapInput interface {
+	pulumi.Input
+
+	ToQueuePolicyMapOutput() QueuePolicyMapOutput
+	ToQueuePolicyMapOutputWithContext(context.Context) QueuePolicyMapOutput
+}
+
+type QueuePolicyMap map[string]QueuePolicyInput
+
+func (QueuePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*QueuePolicy)(nil))
+}
+
+func (i QueuePolicyMap) ToQueuePolicyMapOutput() QueuePolicyMapOutput {
+	return i.ToQueuePolicyMapOutputWithContext(context.Background())
+}
+
+func (i QueuePolicyMap) ToQueuePolicyMapOutputWithContext(ctx context.Context) QueuePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyMapOutput)
+}
+
 type QueuePolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -168,6 +247,75 @@ func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) Q
 	return o
 }
 
+func (o QueuePolicyOutput) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
+	return o.ToQueuePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o QueuePolicyOutput) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
+	return o.ApplyT(func(v QueuePolicy) *QueuePolicy {
+		return &v
+	}).(QueuePolicyPtrOutput)
+}
+
+type QueuePolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueuePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePolicy)(nil))
+}
+
+func (o QueuePolicyPtrOutput) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
+	return o
+}
+
+func (o QueuePolicyPtrOutput) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
+	return o
+}
+
+type QueuePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (QueuePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueuePolicy)(nil))
+}
+
+func (o QueuePolicyArrayOutput) ToQueuePolicyArrayOutput() QueuePolicyArrayOutput {
+	return o
+}
+
+func (o QueuePolicyArrayOutput) ToQueuePolicyArrayOutputWithContext(ctx context.Context) QueuePolicyArrayOutput {
+	return o
+}
+
+func (o QueuePolicyArrayOutput) Index(i pulumi.IntInput) QueuePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueuePolicy {
+		return vs[0].([]QueuePolicy)[vs[1].(int)]
+	}).(QueuePolicyOutput)
+}
+
+type QueuePolicyMapOutput struct{ *pulumi.OutputState }
+
+func (QueuePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueuePolicy)(nil))
+}
+
+func (o QueuePolicyMapOutput) ToQueuePolicyMapOutput() QueuePolicyMapOutput {
+	return o
+}
+
+func (o QueuePolicyMapOutput) ToQueuePolicyMapOutputWithContext(ctx context.Context) QueuePolicyMapOutput {
+	return o
+}
+
+func (o QueuePolicyMapOutput) MapIndex(k pulumi.StringInput) QueuePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QueuePolicy {
+		return vs[0].(map[string]QueuePolicy)[vs[1].(string)]
+	}).(QueuePolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueuePolicyOutput{})
+	pulumi.RegisterOutputType(QueuePolicyPtrOutput{})
+	pulumi.RegisterOutputType(QueuePolicyArrayOutput{})
+	pulumi.RegisterOutputType(QueuePolicyMapOutput{})
 }

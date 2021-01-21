@@ -276,6 +276,85 @@ func (i *Inventory) ToInventoryOutputWithContext(ctx context.Context) InventoryO
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryOutput)
 }
 
+func (i *Inventory) ToInventoryPtrOutput() InventoryPtrOutput {
+	return i.ToInventoryPtrOutputWithContext(context.Background())
+}
+
+func (i *Inventory) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InventoryPtrOutput)
+}
+
+type InventoryPtrInput interface {
+	pulumi.Input
+
+	ToInventoryPtrOutput() InventoryPtrOutput
+	ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput
+}
+
+type inventoryPtrType InventoryArgs
+
+func (*inventoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Inventory)(nil))
+}
+
+func (i *inventoryPtrType) ToInventoryPtrOutput() InventoryPtrOutput {
+	return i.ToInventoryPtrOutputWithContext(context.Background())
+}
+
+func (i *inventoryPtrType) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InventoryPtrOutput)
+}
+
+// InventoryArrayInput is an input type that accepts InventoryArray and InventoryArrayOutput values.
+// You can construct a concrete instance of `InventoryArrayInput` via:
+//
+//          InventoryArray{ InventoryArgs{...} }
+type InventoryArrayInput interface {
+	pulumi.Input
+
+	ToInventoryArrayOutput() InventoryArrayOutput
+	ToInventoryArrayOutputWithContext(context.Context) InventoryArrayOutput
+}
+
+type InventoryArray []InventoryInput
+
+func (InventoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Inventory)(nil))
+}
+
+func (i InventoryArray) ToInventoryArrayOutput() InventoryArrayOutput {
+	return i.ToInventoryArrayOutputWithContext(context.Background())
+}
+
+func (i InventoryArray) ToInventoryArrayOutputWithContext(ctx context.Context) InventoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InventoryArrayOutput)
+}
+
+// InventoryMapInput is an input type that accepts InventoryMap and InventoryMapOutput values.
+// You can construct a concrete instance of `InventoryMapInput` via:
+//
+//          InventoryMap{ "key": InventoryArgs{...} }
+type InventoryMapInput interface {
+	pulumi.Input
+
+	ToInventoryMapOutput() InventoryMapOutput
+	ToInventoryMapOutputWithContext(context.Context) InventoryMapOutput
+}
+
+type InventoryMap map[string]InventoryInput
+
+func (InventoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Inventory)(nil))
+}
+
+func (i InventoryMap) ToInventoryMapOutput() InventoryMapOutput {
+	return i.ToInventoryMapOutputWithContext(context.Background())
+}
+
+func (i InventoryMap) ToInventoryMapOutputWithContext(ctx context.Context) InventoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InventoryMapOutput)
+}
+
 type InventoryOutput struct {
 	*pulumi.OutputState
 }
@@ -292,6 +371,75 @@ func (o InventoryOutput) ToInventoryOutputWithContext(ctx context.Context) Inven
 	return o
 }
 
+func (o InventoryOutput) ToInventoryPtrOutput() InventoryPtrOutput {
+	return o.ToInventoryPtrOutputWithContext(context.Background())
+}
+
+func (o InventoryOutput) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
+	return o.ApplyT(func(v Inventory) *Inventory {
+		return &v
+	}).(InventoryPtrOutput)
+}
+
+type InventoryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InventoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Inventory)(nil))
+}
+
+func (o InventoryPtrOutput) ToInventoryPtrOutput() InventoryPtrOutput {
+	return o
+}
+
+func (o InventoryPtrOutput) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
+	return o
+}
+
+type InventoryArrayOutput struct{ *pulumi.OutputState }
+
+func (InventoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Inventory)(nil))
+}
+
+func (o InventoryArrayOutput) ToInventoryArrayOutput() InventoryArrayOutput {
+	return o
+}
+
+func (o InventoryArrayOutput) ToInventoryArrayOutputWithContext(ctx context.Context) InventoryArrayOutput {
+	return o
+}
+
+func (o InventoryArrayOutput) Index(i pulumi.IntInput) InventoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Inventory {
+		return vs[0].([]Inventory)[vs[1].(int)]
+	}).(InventoryOutput)
+}
+
+type InventoryMapOutput struct{ *pulumi.OutputState }
+
+func (InventoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Inventory)(nil))
+}
+
+func (o InventoryMapOutput) ToInventoryMapOutput() InventoryMapOutput {
+	return o
+}
+
+func (o InventoryMapOutput) ToInventoryMapOutputWithContext(ctx context.Context) InventoryMapOutput {
+	return o
+}
+
+func (o InventoryMapOutput) MapIndex(k pulumi.StringInput) InventoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Inventory {
+		return vs[0].(map[string]Inventory)[vs[1].(string)]
+	}).(InventoryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InventoryOutput{})
+	pulumi.RegisterOutputType(InventoryPtrOutput{})
+	pulumi.RegisterOutputType(InventoryArrayOutput{})
+	pulumi.RegisterOutputType(InventoryMapOutput{})
 }

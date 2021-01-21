@@ -259,6 +259,85 @@ func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceOutput)
 }
 
+func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfacePtrOutput() HostedPublicVirtualInterfacePtrOutput {
+	return i.ToHostedPublicVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i *HostedPublicVirtualInterface) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfacePtrOutput)
+}
+
+type HostedPublicVirtualInterfacePtrInput interface {
+	pulumi.Input
+
+	ToHostedPublicVirtualInterfacePtrOutput() HostedPublicVirtualInterfacePtrOutput
+	ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput
+}
+
+type hostedPublicVirtualInterfacePtrType HostedPublicVirtualInterfaceArgs
+
+func (*hostedPublicVirtualInterfacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedPublicVirtualInterface)(nil))
+}
+
+func (i *hostedPublicVirtualInterfacePtrType) ToHostedPublicVirtualInterfacePtrOutput() HostedPublicVirtualInterfacePtrOutput {
+	return i.ToHostedPublicVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i *hostedPublicVirtualInterfacePtrType) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfacePtrOutput)
+}
+
+// HostedPublicVirtualInterfaceArrayInput is an input type that accepts HostedPublicVirtualInterfaceArray and HostedPublicVirtualInterfaceArrayOutput values.
+// You can construct a concrete instance of `HostedPublicVirtualInterfaceArrayInput` via:
+//
+//          HostedPublicVirtualInterfaceArray{ HostedPublicVirtualInterfaceArgs{...} }
+type HostedPublicVirtualInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToHostedPublicVirtualInterfaceArrayOutput() HostedPublicVirtualInterfaceArrayOutput
+	ToHostedPublicVirtualInterfaceArrayOutputWithContext(context.Context) HostedPublicVirtualInterfaceArrayOutput
+}
+
+type HostedPublicVirtualInterfaceArray []HostedPublicVirtualInterfaceInput
+
+func (HostedPublicVirtualInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HostedPublicVirtualInterface)(nil))
+}
+
+func (i HostedPublicVirtualInterfaceArray) ToHostedPublicVirtualInterfaceArrayOutput() HostedPublicVirtualInterfaceArrayOutput {
+	return i.ToHostedPublicVirtualInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i HostedPublicVirtualInterfaceArray) ToHostedPublicVirtualInterfaceArrayOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceArrayOutput)
+}
+
+// HostedPublicVirtualInterfaceMapInput is an input type that accepts HostedPublicVirtualInterfaceMap and HostedPublicVirtualInterfaceMapOutput values.
+// You can construct a concrete instance of `HostedPublicVirtualInterfaceMapInput` via:
+//
+//          HostedPublicVirtualInterfaceMap{ "key": HostedPublicVirtualInterfaceArgs{...} }
+type HostedPublicVirtualInterfaceMapInput interface {
+	pulumi.Input
+
+	ToHostedPublicVirtualInterfaceMapOutput() HostedPublicVirtualInterfaceMapOutput
+	ToHostedPublicVirtualInterfaceMapOutputWithContext(context.Context) HostedPublicVirtualInterfaceMapOutput
+}
+
+type HostedPublicVirtualInterfaceMap map[string]HostedPublicVirtualInterfaceInput
+
+func (HostedPublicVirtualInterfaceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HostedPublicVirtualInterface)(nil))
+}
+
+func (i HostedPublicVirtualInterfaceMap) ToHostedPublicVirtualInterfaceMapOutput() HostedPublicVirtualInterfaceMapOutput {
+	return i.ToHostedPublicVirtualInterfaceMapOutputWithContext(context.Background())
+}
+
+func (i HostedPublicVirtualInterfaceMap) ToHostedPublicVirtualInterfaceMapOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceMapOutput)
+}
+
 type HostedPublicVirtualInterfaceOutput struct {
 	*pulumi.OutputState
 }
@@ -275,6 +354,75 @@ func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfaceOutput
 	return o
 }
 
+func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfacePtrOutput() HostedPublicVirtualInterfacePtrOutput {
+	return o.ToHostedPublicVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
+	return o.ApplyT(func(v HostedPublicVirtualInterface) *HostedPublicVirtualInterface {
+		return &v
+	}).(HostedPublicVirtualInterfacePtrOutput)
+}
+
+type HostedPublicVirtualInterfacePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedPublicVirtualInterfacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedPublicVirtualInterface)(nil))
+}
+
+func (o HostedPublicVirtualInterfacePtrOutput) ToHostedPublicVirtualInterfacePtrOutput() HostedPublicVirtualInterfacePtrOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfacePtrOutput) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
+	return o
+}
+
+type HostedPublicVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (HostedPublicVirtualInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedPublicVirtualInterface)(nil))
+}
+
+func (o HostedPublicVirtualInterfaceArrayOutput) ToHostedPublicVirtualInterfaceArrayOutput() HostedPublicVirtualInterfaceArrayOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfaceArrayOutput) ToHostedPublicVirtualInterfaceArrayOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceArrayOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) HostedPublicVirtualInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedPublicVirtualInterface {
+		return vs[0].([]HostedPublicVirtualInterface)[vs[1].(int)]
+	}).(HostedPublicVirtualInterfaceOutput)
+}
+
+type HostedPublicVirtualInterfaceMapOutput struct{ *pulumi.OutputState }
+
+func (HostedPublicVirtualInterfaceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HostedPublicVirtualInterface)(nil))
+}
+
+func (o HostedPublicVirtualInterfaceMapOutput) ToHostedPublicVirtualInterfaceMapOutput() HostedPublicVirtualInterfaceMapOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfaceMapOutput) ToHostedPublicVirtualInterfaceMapOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceMapOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) HostedPublicVirtualInterfaceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostedPublicVirtualInterface {
+		return vs[0].(map[string]HostedPublicVirtualInterface)[vs[1].(string)]
+	}).(HostedPublicVirtualInterfaceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceOutput{})
+	pulumi.RegisterOutputType(HostedPublicVirtualInterfacePtrOutput{})
+	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceMapOutput{})
 }

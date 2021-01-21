@@ -310,6 +310,85 @@ func (i *PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpApp
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
 }
 
+func (i *PhpAppLayer) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
+	return i.ToPhpAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *PhpAppLayer) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerPtrOutput)
+}
+
+type PhpAppLayerPtrInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput
+	ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput
+}
+
+type phpAppLayerPtrType PhpAppLayerArgs
+
+func (*phpAppLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayer)(nil))
+}
+
+func (i *phpAppLayerPtrType) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
+	return i.ToPhpAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *phpAppLayerPtrType) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerPtrOutput)
+}
+
+// PhpAppLayerArrayInput is an input type that accepts PhpAppLayerArray and PhpAppLayerArrayOutput values.
+// You can construct a concrete instance of `PhpAppLayerArrayInput` via:
+//
+//          PhpAppLayerArray{ PhpAppLayerArgs{...} }
+type PhpAppLayerArrayInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput
+	ToPhpAppLayerArrayOutputWithContext(context.Context) PhpAppLayerArrayOutput
+}
+
+type PhpAppLayerArray []PhpAppLayerInput
+
+func (PhpAppLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PhpAppLayer)(nil))
+}
+
+func (i PhpAppLayerArray) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
+	return i.ToPhpAppLayerArrayOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerArray) ToPhpAppLayerArrayOutputWithContext(ctx context.Context) PhpAppLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerArrayOutput)
+}
+
+// PhpAppLayerMapInput is an input type that accepts PhpAppLayerMap and PhpAppLayerMapOutput values.
+// You can construct a concrete instance of `PhpAppLayerMapInput` via:
+//
+//          PhpAppLayerMap{ "key": PhpAppLayerArgs{...} }
+type PhpAppLayerMapInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerMapOutput() PhpAppLayerMapOutput
+	ToPhpAppLayerMapOutputWithContext(context.Context) PhpAppLayerMapOutput
+}
+
+type PhpAppLayerMap map[string]PhpAppLayerInput
+
+func (PhpAppLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PhpAppLayer)(nil))
+}
+
+func (i PhpAppLayerMap) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {
+	return i.ToPhpAppLayerMapOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerMap) ToPhpAppLayerMapOutputWithContext(ctx context.Context) PhpAppLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerMapOutput)
+}
+
 type PhpAppLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -326,6 +405,75 @@ func (o PhpAppLayerOutput) ToPhpAppLayerOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
+	return o.ToPhpAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
+	return o.ApplyT(func(v PhpAppLayer) *PhpAppLayer {
+		return &v
+	}).(PhpAppLayerPtrOutput)
+}
+
+type PhpAppLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PhpAppLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayer)(nil))
+}
+
+func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
+	return o
+}
+
+type PhpAppLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PhpAppLayer)(nil))
+}
+
+func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
+	return o
+}
+
+func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutputWithContext(ctx context.Context) PhpAppLayerArrayOutput {
+	return o
+}
+
+func (o PhpAppLayerArrayOutput) Index(i pulumi.IntInput) PhpAppLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayer {
+		return vs[0].([]PhpAppLayer)[vs[1].(int)]
+	}).(PhpAppLayerOutput)
+}
+
+type PhpAppLayerMapOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PhpAppLayer)(nil))
+}
+
+func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {
+	return o
+}
+
+func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutputWithContext(ctx context.Context) PhpAppLayerMapOutput {
+	return o
+}
+
+func (o PhpAppLayerMapOutput) MapIndex(k pulumi.StringInput) PhpAppLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PhpAppLayer {
+		return vs[0].(map[string]PhpAppLayer)[vs[1].(string)]
+	}).(PhpAppLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PhpAppLayerOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerPtrOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerArrayOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerMapOutput{})
 }

@@ -156,6 +156,85 @@ func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
 }
 
+func (i *ResourceDataSync) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
+	return i.ToResourceDataSyncPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourceDataSync) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncPtrOutput)
+}
+
+type ResourceDataSyncPtrInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput
+	ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput
+}
+
+type resourceDataSyncPtrType ResourceDataSyncArgs
+
+func (*resourceDataSyncPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDataSync)(nil))
+}
+
+func (i *resourceDataSyncPtrType) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
+	return i.ToResourceDataSyncPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDataSyncPtrType) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncPtrOutput)
+}
+
+// ResourceDataSyncArrayInput is an input type that accepts ResourceDataSyncArray and ResourceDataSyncArrayOutput values.
+// You can construct a concrete instance of `ResourceDataSyncArrayInput` via:
+//
+//          ResourceDataSyncArray{ ResourceDataSyncArgs{...} }
+type ResourceDataSyncArrayInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncArrayOutput() ResourceDataSyncArrayOutput
+	ToResourceDataSyncArrayOutputWithContext(context.Context) ResourceDataSyncArrayOutput
+}
+
+type ResourceDataSyncArray []ResourceDataSyncInput
+
+func (ResourceDataSyncArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourceDataSync)(nil))
+}
+
+func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutput() ResourceDataSyncArrayOutput {
+	return i.ToResourceDataSyncArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutputWithContext(ctx context.Context) ResourceDataSyncArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncArrayOutput)
+}
+
+// ResourceDataSyncMapInput is an input type that accepts ResourceDataSyncMap and ResourceDataSyncMapOutput values.
+// You can construct a concrete instance of `ResourceDataSyncMapInput` via:
+//
+//          ResourceDataSyncMap{ "key": ResourceDataSyncArgs{...} }
+type ResourceDataSyncMapInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncMapOutput() ResourceDataSyncMapOutput
+	ToResourceDataSyncMapOutputWithContext(context.Context) ResourceDataSyncMapOutput
+}
+
+type ResourceDataSyncMap map[string]ResourceDataSyncInput
+
+func (ResourceDataSyncMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourceDataSync)(nil))
+}
+
+func (i ResourceDataSyncMap) ToResourceDataSyncMapOutput() ResourceDataSyncMapOutput {
+	return i.ToResourceDataSyncMapOutputWithContext(context.Background())
+}
+
+func (i ResourceDataSyncMap) ToResourceDataSyncMapOutputWithContext(ctx context.Context) ResourceDataSyncMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncMapOutput)
+}
+
 type ResourceDataSyncOutput struct {
 	*pulumi.OutputState
 }
@@ -172,6 +251,75 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 	return o
 }
 
+func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
+	return o.ToResourceDataSyncPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
+	return o.ApplyT(func(v ResourceDataSync) *ResourceDataSync {
+		return &v
+	}).(ResourceDataSyncPtrOutput)
+}
+
+type ResourceDataSyncPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceDataSyncPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDataSync)(nil))
+}
+
+func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
+	return o
+}
+
+func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
+	return o
+}
+
+type ResourceDataSyncArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceDataSyncArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceDataSync)(nil))
+}
+
+func (o ResourceDataSyncArrayOutput) ToResourceDataSyncArrayOutput() ResourceDataSyncArrayOutput {
+	return o
+}
+
+func (o ResourceDataSyncArrayOutput) ToResourceDataSyncArrayOutputWithContext(ctx context.Context) ResourceDataSyncArrayOutput {
+	return o
+}
+
+func (o ResourceDataSyncArrayOutput) Index(i pulumi.IntInput) ResourceDataSyncOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceDataSync {
+		return vs[0].([]ResourceDataSync)[vs[1].(int)]
+	}).(ResourceDataSyncOutput)
+}
+
+type ResourceDataSyncMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceDataSyncMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceDataSync)(nil))
+}
+
+func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutput() ResourceDataSyncMapOutput {
+	return o
+}
+
+func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutputWithContext(ctx context.Context) ResourceDataSyncMapOutput {
+	return o
+}
+
+func (o ResourceDataSyncMapOutput) MapIndex(k pulumi.StringInput) ResourceDataSyncOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceDataSync {
+		return vs[0].(map[string]ResourceDataSync)[vs[1].(string)]
+	}).(ResourceDataSyncOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
+	pulumi.RegisterOutputType(ResourceDataSyncPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDataSyncArrayOutput{})
+	pulumi.RegisterOutputType(ResourceDataSyncMapOutput{})
 }

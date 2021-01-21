@@ -241,6 +241,85 @@ func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleOutput)
 }
 
+func (i *OrganizationManagedRule) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
+	return i.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
+}
+
+func (i *OrganizationManagedRule) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRulePtrOutput)
+}
+
+type OrganizationManagedRulePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput
+	ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput
+}
+
+type organizationManagedRulePtrType OrganizationManagedRuleArgs
+
+func (*organizationManagedRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationManagedRule)(nil))
+}
+
+func (i *organizationManagedRulePtrType) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
+	return i.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
+}
+
+func (i *organizationManagedRulePtrType) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRulePtrOutput)
+}
+
+// OrganizationManagedRuleArrayInput is an input type that accepts OrganizationManagedRuleArray and OrganizationManagedRuleArrayOutput values.
+// You can construct a concrete instance of `OrganizationManagedRuleArrayInput` via:
+//
+//          OrganizationManagedRuleArray{ OrganizationManagedRuleArgs{...} }
+type OrganizationManagedRuleArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationManagedRuleArrayOutput() OrganizationManagedRuleArrayOutput
+	ToOrganizationManagedRuleArrayOutputWithContext(context.Context) OrganizationManagedRuleArrayOutput
+}
+
+type OrganizationManagedRuleArray []OrganizationManagedRuleInput
+
+func (OrganizationManagedRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OrganizationManagedRule)(nil))
+}
+
+func (i OrganizationManagedRuleArray) ToOrganizationManagedRuleArrayOutput() OrganizationManagedRuleArrayOutput {
+	return i.ToOrganizationManagedRuleArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationManagedRuleArray) ToOrganizationManagedRuleArrayOutputWithContext(ctx context.Context) OrganizationManagedRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleArrayOutput)
+}
+
+// OrganizationManagedRuleMapInput is an input type that accepts OrganizationManagedRuleMap and OrganizationManagedRuleMapOutput values.
+// You can construct a concrete instance of `OrganizationManagedRuleMapInput` via:
+//
+//          OrganizationManagedRuleMap{ "key": OrganizationManagedRuleArgs{...} }
+type OrganizationManagedRuleMapInput interface {
+	pulumi.Input
+
+	ToOrganizationManagedRuleMapOutput() OrganizationManagedRuleMapOutput
+	ToOrganizationManagedRuleMapOutputWithContext(context.Context) OrganizationManagedRuleMapOutput
+}
+
+type OrganizationManagedRuleMap map[string]OrganizationManagedRuleInput
+
+func (OrganizationManagedRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OrganizationManagedRule)(nil))
+}
+
+func (i OrganizationManagedRuleMap) ToOrganizationManagedRuleMapOutput() OrganizationManagedRuleMapOutput {
+	return i.ToOrganizationManagedRuleMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationManagedRuleMap) ToOrganizationManagedRuleMapOutputWithContext(ctx context.Context) OrganizationManagedRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleMapOutput)
+}
+
 type OrganizationManagedRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -257,6 +336,75 @@ func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutputWithContex
 	return o
 }
 
+func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
+	return o.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
+	return o.ApplyT(func(v OrganizationManagedRule) *OrganizationManagedRule {
+		return &v
+	}).(OrganizationManagedRulePtrOutput)
+}
+
+type OrganizationManagedRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationManagedRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationManagedRule)(nil))
+}
+
+func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
+	return o
+}
+
+func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
+	return o
+}
+
+type OrganizationManagedRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationManagedRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationManagedRule)(nil))
+}
+
+func (o OrganizationManagedRuleArrayOutput) ToOrganizationManagedRuleArrayOutput() OrganizationManagedRuleArrayOutput {
+	return o
+}
+
+func (o OrganizationManagedRuleArrayOutput) ToOrganizationManagedRuleArrayOutputWithContext(ctx context.Context) OrganizationManagedRuleArrayOutput {
+	return o
+}
+
+func (o OrganizationManagedRuleArrayOutput) Index(i pulumi.IntInput) OrganizationManagedRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationManagedRule {
+		return vs[0].([]OrganizationManagedRule)[vs[1].(int)]
+	}).(OrganizationManagedRuleOutput)
+}
+
+type OrganizationManagedRuleMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationManagedRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OrganizationManagedRule)(nil))
+}
+
+func (o OrganizationManagedRuleMapOutput) ToOrganizationManagedRuleMapOutput() OrganizationManagedRuleMapOutput {
+	return o
+}
+
+func (o OrganizationManagedRuleMapOutput) ToOrganizationManagedRuleMapOutputWithContext(ctx context.Context) OrganizationManagedRuleMapOutput {
+	return o
+}
+
+func (o OrganizationManagedRuleMapOutput) MapIndex(k pulumi.StringInput) OrganizationManagedRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationManagedRule {
+		return vs[0].(map[string]OrganizationManagedRule)[vs[1].(string)]
+	}).(OrganizationManagedRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationManagedRuleOutput{})
+	pulumi.RegisterOutputType(OrganizationManagedRulePtrOutput{})
+	pulumi.RegisterOutputType(OrganizationManagedRuleArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationManagedRuleMapOutput{})
 }

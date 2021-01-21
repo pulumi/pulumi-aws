@@ -230,6 +230,85 @@ func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
 }
 
+func (i *ApplicationVersion) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
+	return i.ToApplicationVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *ApplicationVersion) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionPtrOutput)
+}
+
+type ApplicationVersionPtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput
+	ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput
+}
+
+type applicationVersionPtrType ApplicationVersionArgs
+
+func (*applicationVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersion)(nil))
+}
+
+func (i *applicationVersionPtrType) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
+	return i.ToApplicationVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionPtrType) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionPtrOutput)
+}
+
+// ApplicationVersionArrayInput is an input type that accepts ApplicationVersionArray and ApplicationVersionArrayOutput values.
+// You can construct a concrete instance of `ApplicationVersionArrayInput` via:
+//
+//          ApplicationVersionArray{ ApplicationVersionArgs{...} }
+type ApplicationVersionArrayInput interface {
+	pulumi.Input
+
+	ToApplicationVersionArrayOutput() ApplicationVersionArrayOutput
+	ToApplicationVersionArrayOutputWithContext(context.Context) ApplicationVersionArrayOutput
+}
+
+type ApplicationVersionArray []ApplicationVersionInput
+
+func (ApplicationVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApplicationVersion)(nil))
+}
+
+func (i ApplicationVersionArray) ToApplicationVersionArrayOutput() ApplicationVersionArrayOutput {
+	return i.ToApplicationVersionArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionArray) ToApplicationVersionArrayOutputWithContext(ctx context.Context) ApplicationVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionArrayOutput)
+}
+
+// ApplicationVersionMapInput is an input type that accepts ApplicationVersionMap and ApplicationVersionMapOutput values.
+// You can construct a concrete instance of `ApplicationVersionMapInput` via:
+//
+//          ApplicationVersionMap{ "key": ApplicationVersionArgs{...} }
+type ApplicationVersionMapInput interface {
+	pulumi.Input
+
+	ToApplicationVersionMapOutput() ApplicationVersionMapOutput
+	ToApplicationVersionMapOutputWithContext(context.Context) ApplicationVersionMapOutput
+}
+
+type ApplicationVersionMap map[string]ApplicationVersionInput
+
+func (ApplicationVersionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApplicationVersion)(nil))
+}
+
+func (i ApplicationVersionMap) ToApplicationVersionMapOutput() ApplicationVersionMapOutput {
+	return i.ToApplicationVersionMapOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionMap) ToApplicationVersionMapOutputWithContext(ctx context.Context) ApplicationVersionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionMapOutput)
+}
+
 type ApplicationVersionOutput struct {
 	*pulumi.OutputState
 }
@@ -246,6 +325,75 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApplicationVersionOutput) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
+	return o.ToApplicationVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
+	return o.ApplyT(func(v ApplicationVersion) *ApplicationVersion {
+		return &v
+	}).(ApplicationVersionPtrOutput)
+}
+
+type ApplicationVersionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersion)(nil))
+}
+
+func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
+	return o
+}
+
+type ApplicationVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationVersion)(nil))
+}
+
+func (o ApplicationVersionArrayOutput) ToApplicationVersionArrayOutput() ApplicationVersionArrayOutput {
+	return o
+}
+
+func (o ApplicationVersionArrayOutput) ToApplicationVersionArrayOutputWithContext(ctx context.Context) ApplicationVersionArrayOutput {
+	return o
+}
+
+func (o ApplicationVersionArrayOutput) Index(i pulumi.IntInput) ApplicationVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationVersion {
+		return vs[0].([]ApplicationVersion)[vs[1].(int)]
+	}).(ApplicationVersionOutput)
+}
+
+type ApplicationVersionMapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationVersion)(nil))
+}
+
+func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutput() ApplicationVersionMapOutput {
+	return o
+}
+
+func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutputWithContext(ctx context.Context) ApplicationVersionMapOutput {
+	return o
+}
+
+func (o ApplicationVersionMapOutput) MapIndex(k pulumi.StringInput) ApplicationVersionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationVersion {
+		return vs[0].(map[string]ApplicationVersion)[vs[1].(string)]
+	}).(ApplicationVersionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationVersionOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionMapOutput{})
 }

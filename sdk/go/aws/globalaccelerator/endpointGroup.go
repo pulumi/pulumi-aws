@@ -221,6 +221,85 @@ func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) En
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupOutput)
 }
 
+func (i *EndpointGroup) ToEndpointGroupPtrOutput() EndpointGroupPtrOutput {
+	return i.ToEndpointGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *EndpointGroup) ToEndpointGroupPtrOutputWithContext(ctx context.Context) EndpointGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPtrOutput)
+}
+
+type EndpointGroupPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGroupPtrOutput() EndpointGroupPtrOutput
+	ToEndpointGroupPtrOutputWithContext(ctx context.Context) EndpointGroupPtrOutput
+}
+
+type endpointGroupPtrType EndpointGroupArgs
+
+func (*endpointGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGroup)(nil))
+}
+
+func (i *endpointGroupPtrType) ToEndpointGroupPtrOutput() EndpointGroupPtrOutput {
+	return i.ToEndpointGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGroupPtrType) ToEndpointGroupPtrOutputWithContext(ctx context.Context) EndpointGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPtrOutput)
+}
+
+// EndpointGroupArrayInput is an input type that accepts EndpointGroupArray and EndpointGroupArrayOutput values.
+// You can construct a concrete instance of `EndpointGroupArrayInput` via:
+//
+//          EndpointGroupArray{ EndpointGroupArgs{...} }
+type EndpointGroupArrayInput interface {
+	pulumi.Input
+
+	ToEndpointGroupArrayOutput() EndpointGroupArrayOutput
+	ToEndpointGroupArrayOutputWithContext(context.Context) EndpointGroupArrayOutput
+}
+
+type EndpointGroupArray []EndpointGroupInput
+
+func (EndpointGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EndpointGroup)(nil))
+}
+
+func (i EndpointGroupArray) ToEndpointGroupArrayOutput() EndpointGroupArrayOutput {
+	return i.ToEndpointGroupArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointGroupArray) ToEndpointGroupArrayOutputWithContext(ctx context.Context) EndpointGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupArrayOutput)
+}
+
+// EndpointGroupMapInput is an input type that accepts EndpointGroupMap and EndpointGroupMapOutput values.
+// You can construct a concrete instance of `EndpointGroupMapInput` via:
+//
+//          EndpointGroupMap{ "key": EndpointGroupArgs{...} }
+type EndpointGroupMapInput interface {
+	pulumi.Input
+
+	ToEndpointGroupMapOutput() EndpointGroupMapOutput
+	ToEndpointGroupMapOutputWithContext(context.Context) EndpointGroupMapOutput
+}
+
+type EndpointGroupMap map[string]EndpointGroupInput
+
+func (EndpointGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EndpointGroup)(nil))
+}
+
+func (i EndpointGroupMap) ToEndpointGroupMapOutput() EndpointGroupMapOutput {
+	return i.ToEndpointGroupMapOutputWithContext(context.Background())
+}
+
+func (i EndpointGroupMap) ToEndpointGroupMapOutputWithContext(ctx context.Context) EndpointGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupMapOutput)
+}
+
 type EndpointGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -237,6 +316,75 @@ func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EndpointGroupOutput) ToEndpointGroupPtrOutput() EndpointGroupPtrOutput {
+	return o.ToEndpointGroupPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGroupOutput) ToEndpointGroupPtrOutputWithContext(ctx context.Context) EndpointGroupPtrOutput {
+	return o.ApplyT(func(v EndpointGroup) *EndpointGroup {
+		return &v
+	}).(EndpointGroupPtrOutput)
+}
+
+type EndpointGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGroup)(nil))
+}
+
+func (o EndpointGroupPtrOutput) ToEndpointGroupPtrOutput() EndpointGroupPtrOutput {
+	return o
+}
+
+func (o EndpointGroupPtrOutput) ToEndpointGroupPtrOutputWithContext(ctx context.Context) EndpointGroupPtrOutput {
+	return o
+}
+
+type EndpointGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGroup)(nil))
+}
+
+func (o EndpointGroupArrayOutput) ToEndpointGroupArrayOutput() EndpointGroupArrayOutput {
+	return o
+}
+
+func (o EndpointGroupArrayOutput) ToEndpointGroupArrayOutputWithContext(ctx context.Context) EndpointGroupArrayOutput {
+	return o
+}
+
+func (o EndpointGroupArrayOutput) Index(i pulumi.IntInput) EndpointGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGroup {
+		return vs[0].([]EndpointGroup)[vs[1].(int)]
+	}).(EndpointGroupOutput)
+}
+
+type EndpointGroupMapOutput struct{ *pulumi.OutputState }
+
+func (EndpointGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EndpointGroup)(nil))
+}
+
+func (o EndpointGroupMapOutput) ToEndpointGroupMapOutput() EndpointGroupMapOutput {
+	return o
+}
+
+func (o EndpointGroupMapOutput) ToEndpointGroupMapOutputWithContext(ctx context.Context) EndpointGroupMapOutput {
+	return o
+}
+
+func (o EndpointGroupMapOutput) MapIndex(k pulumi.StringInput) EndpointGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EndpointGroup {
+		return vs[0].(map[string]EndpointGroup)[vs[1].(string)]
+	}).(EndpointGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointGroupOutput{})
+	pulumi.RegisterOutputType(EndpointGroupPtrOutput{})
+	pulumi.RegisterOutputType(EndpointGroupArrayOutput{})
+	pulumi.RegisterOutputType(EndpointGroupMapOutput{})
 }

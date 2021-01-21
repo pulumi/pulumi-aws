@@ -237,6 +237,85 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
 }
 
+func (i *NotificationRule) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
+	return i.ToNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *NotificationRule) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRulePtrOutput)
+}
+
+type NotificationRulePtrInput interface {
+	pulumi.Input
+
+	ToNotificationRulePtrOutput() NotificationRulePtrOutput
+	ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput
+}
+
+type notificationRulePtrType NotificationRuleArgs
+
+func (*notificationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationRule)(nil))
+}
+
+func (i *notificationRulePtrType) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
+	return i.ToNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationRulePtrType) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRulePtrOutput)
+}
+
+// NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
+// You can construct a concrete instance of `NotificationRuleArrayInput` via:
+//
+//          NotificationRuleArray{ NotificationRuleArgs{...} }
+type NotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToNotificationRuleArrayOutput() NotificationRuleArrayOutput
+	ToNotificationRuleArrayOutputWithContext(context.Context) NotificationRuleArrayOutput
+}
+
+type NotificationRuleArray []NotificationRuleInput
+
+func (NotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NotificationRule)(nil))
+}
+
+func (i NotificationRuleArray) ToNotificationRuleArrayOutput() NotificationRuleArrayOutput {
+	return i.ToNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationRuleArray) ToNotificationRuleArrayOutputWithContext(ctx context.Context) NotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleArrayOutput)
+}
+
+// NotificationRuleMapInput is an input type that accepts NotificationRuleMap and NotificationRuleMapOutput values.
+// You can construct a concrete instance of `NotificationRuleMapInput` via:
+//
+//          NotificationRuleMap{ "key": NotificationRuleArgs{...} }
+type NotificationRuleMapInput interface {
+	pulumi.Input
+
+	ToNotificationRuleMapOutput() NotificationRuleMapOutput
+	ToNotificationRuleMapOutputWithContext(context.Context) NotificationRuleMapOutput
+}
+
+type NotificationRuleMap map[string]NotificationRuleInput
+
+func (NotificationRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NotificationRule)(nil))
+}
+
+func (i NotificationRuleMap) ToNotificationRuleMapOutput() NotificationRuleMapOutput {
+	return i.ToNotificationRuleMapOutputWithContext(context.Background())
+}
+
+func (i NotificationRuleMap) ToNotificationRuleMapOutputWithContext(ctx context.Context) NotificationRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleMapOutput)
+}
+
 type NotificationRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -253,6 +332,75 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 	return o
 }
 
+func (o NotificationRuleOutput) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
+	return o.ToNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationRuleOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
+	return o.ApplyT(func(v NotificationRule) *NotificationRule {
+		return &v
+	}).(NotificationRulePtrOutput)
+}
+
+type NotificationRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationRule)(nil))
+}
+
+func (o NotificationRulePtrOutput) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
+	return o
+}
+
+func (o NotificationRulePtrOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
+	return o
+}
+
+type NotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationRule)(nil))
+}
+
+func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutput() NotificationRuleArrayOutput {
+	return o
+}
+
+func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutputWithContext(ctx context.Context) NotificationRuleArrayOutput {
+	return o
+}
+
+func (o NotificationRuleArrayOutput) Index(i pulumi.IntInput) NotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationRule {
+		return vs[0].([]NotificationRule)[vs[1].(int)]
+	}).(NotificationRuleOutput)
+}
+
+type NotificationRuleMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationRule)(nil))
+}
+
+func (o NotificationRuleMapOutput) ToNotificationRuleMapOutput() NotificationRuleMapOutput {
+	return o
+}
+
+func (o NotificationRuleMapOutput) ToNotificationRuleMapOutputWithContext(ctx context.Context) NotificationRuleMapOutput {
+	return o
+}
+
+func (o NotificationRuleMapOutput) MapIndex(k pulumi.StringInput) NotificationRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationRule {
+		return vs[0].(map[string]NotificationRule)[vs[1].(string)]
+	}).(NotificationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationRuleOutput{})
+	pulumi.RegisterOutputType(NotificationRulePtrOutput{})
+	pulumi.RegisterOutputType(NotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(NotificationRuleMapOutput{})
 }

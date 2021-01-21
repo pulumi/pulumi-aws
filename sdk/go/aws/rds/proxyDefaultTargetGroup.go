@@ -126,6 +126,85 @@ func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupOutput)
 }
 
+func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupPtrOutput() ProxyDefaultTargetGroupPtrOutput {
+	return i.ToProxyDefaultTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupPtrOutput)
+}
+
+type ProxyDefaultTargetGroupPtrInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupPtrOutput() ProxyDefaultTargetGroupPtrOutput
+	ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput
+}
+
+type proxyDefaultTargetGroupPtrType ProxyDefaultTargetGroupArgs
+
+func (*proxyDefaultTargetGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroup)(nil))
+}
+
+func (i *proxyDefaultTargetGroupPtrType) ToProxyDefaultTargetGroupPtrOutput() ProxyDefaultTargetGroupPtrOutput {
+	return i.ToProxyDefaultTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *proxyDefaultTargetGroupPtrType) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupPtrOutput)
+}
+
+// ProxyDefaultTargetGroupArrayInput is an input type that accepts ProxyDefaultTargetGroupArray and ProxyDefaultTargetGroupArrayOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupArrayInput` via:
+//
+//          ProxyDefaultTargetGroupArray{ ProxyDefaultTargetGroupArgs{...} }
+type ProxyDefaultTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupArrayOutput() ProxyDefaultTargetGroupArrayOutput
+	ToProxyDefaultTargetGroupArrayOutputWithContext(context.Context) ProxyDefaultTargetGroupArrayOutput
+}
+
+type ProxyDefaultTargetGroupArray []ProxyDefaultTargetGroupInput
+
+func (ProxyDefaultTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProxyDefaultTargetGroup)(nil))
+}
+
+func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutput() ProxyDefaultTargetGroupArrayOutput {
+	return i.ToProxyDefaultTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupArrayOutput)
+}
+
+// ProxyDefaultTargetGroupMapInput is an input type that accepts ProxyDefaultTargetGroupMap and ProxyDefaultTargetGroupMapOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupMapInput` via:
+//
+//          ProxyDefaultTargetGroupMap{ "key": ProxyDefaultTargetGroupArgs{...} }
+type ProxyDefaultTargetGroupMapInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupMapOutput() ProxyDefaultTargetGroupMapOutput
+	ToProxyDefaultTargetGroupMapOutputWithContext(context.Context) ProxyDefaultTargetGroupMapOutput
+}
+
+type ProxyDefaultTargetGroupMap map[string]ProxyDefaultTargetGroupInput
+
+func (ProxyDefaultTargetGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProxyDefaultTargetGroup)(nil))
+}
+
+func (i ProxyDefaultTargetGroupMap) ToProxyDefaultTargetGroupMapOutput() ProxyDefaultTargetGroupMapOutput {
+	return i.ToProxyDefaultTargetGroupMapOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupMap) ToProxyDefaultTargetGroupMapOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupMapOutput)
+}
+
 type ProxyDefaultTargetGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -142,6 +221,75 @@ func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutputWithContex
 	return o
 }
 
+func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupPtrOutput() ProxyDefaultTargetGroupPtrOutput {
+	return o.ToProxyDefaultTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroup) *ProxyDefaultTargetGroup {
+		return &v
+	}).(ProxyDefaultTargetGroupPtrOutput)
+}
+
+type ProxyDefaultTargetGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProxyDefaultTargetGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroup)(nil))
+}
+
+func (o ProxyDefaultTargetGroupPtrOutput) ToProxyDefaultTargetGroupPtrOutput() ProxyDefaultTargetGroupPtrOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupPtrOutput) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
+	return o
+}
+
+type ProxyDefaultTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProxyDefaultTargetGroup)(nil))
+}
+
+func (o ProxyDefaultTargetGroupArrayOutput) ToProxyDefaultTargetGroupArrayOutput() ProxyDefaultTargetGroupArrayOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupArrayOutput) ToProxyDefaultTargetGroupArrayOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupArrayOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupArrayOutput) Index(i pulumi.IntInput) ProxyDefaultTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProxyDefaultTargetGroup {
+		return vs[0].([]ProxyDefaultTargetGroup)[vs[1].(int)]
+	}).(ProxyDefaultTargetGroupOutput)
+}
+
+type ProxyDefaultTargetGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProxyDefaultTargetGroup)(nil))
+}
+
+func (o ProxyDefaultTargetGroupMapOutput) ToProxyDefaultTargetGroupMapOutput() ProxyDefaultTargetGroupMapOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupMapOutput) ToProxyDefaultTargetGroupMapOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupMapOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupMapOutput) MapIndex(k pulumi.StringInput) ProxyDefaultTargetGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProxyDefaultTargetGroup {
+		return vs[0].(map[string]ProxyDefaultTargetGroup)[vs[1].(string)]
+	}).(ProxyDefaultTargetGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupPtrOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupMapOutput{})
 }

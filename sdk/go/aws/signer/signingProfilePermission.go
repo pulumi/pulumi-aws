@@ -211,6 +211,85 @@ func (i *SigningProfilePermission) ToSigningProfilePermissionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionOutput)
 }
 
+func (i *SigningProfilePermission) ToSigningProfilePermissionPtrOutput() SigningProfilePermissionPtrOutput {
+	return i.ToSigningProfilePermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *SigningProfilePermission) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionPtrOutput)
+}
+
+type SigningProfilePermissionPtrInput interface {
+	pulumi.Input
+
+	ToSigningProfilePermissionPtrOutput() SigningProfilePermissionPtrOutput
+	ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput
+}
+
+type signingProfilePermissionPtrType SigningProfilePermissionArgs
+
+func (*signingProfilePermissionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SigningProfilePermission)(nil))
+}
+
+func (i *signingProfilePermissionPtrType) ToSigningProfilePermissionPtrOutput() SigningProfilePermissionPtrOutput {
+	return i.ToSigningProfilePermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *signingProfilePermissionPtrType) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionPtrOutput)
+}
+
+// SigningProfilePermissionArrayInput is an input type that accepts SigningProfilePermissionArray and SigningProfilePermissionArrayOutput values.
+// You can construct a concrete instance of `SigningProfilePermissionArrayInput` via:
+//
+//          SigningProfilePermissionArray{ SigningProfilePermissionArgs{...} }
+type SigningProfilePermissionArrayInput interface {
+	pulumi.Input
+
+	ToSigningProfilePermissionArrayOutput() SigningProfilePermissionArrayOutput
+	ToSigningProfilePermissionArrayOutputWithContext(context.Context) SigningProfilePermissionArrayOutput
+}
+
+type SigningProfilePermissionArray []SigningProfilePermissionInput
+
+func (SigningProfilePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SigningProfilePermission)(nil))
+}
+
+func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutput() SigningProfilePermissionArrayOutput {
+	return i.ToSigningProfilePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutputWithContext(ctx context.Context) SigningProfilePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionArrayOutput)
+}
+
+// SigningProfilePermissionMapInput is an input type that accepts SigningProfilePermissionMap and SigningProfilePermissionMapOutput values.
+// You can construct a concrete instance of `SigningProfilePermissionMapInput` via:
+//
+//          SigningProfilePermissionMap{ "key": SigningProfilePermissionArgs{...} }
+type SigningProfilePermissionMapInput interface {
+	pulumi.Input
+
+	ToSigningProfilePermissionMapOutput() SigningProfilePermissionMapOutput
+	ToSigningProfilePermissionMapOutputWithContext(context.Context) SigningProfilePermissionMapOutput
+}
+
+type SigningProfilePermissionMap map[string]SigningProfilePermissionInput
+
+func (SigningProfilePermissionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SigningProfilePermission)(nil))
+}
+
+func (i SigningProfilePermissionMap) ToSigningProfilePermissionMapOutput() SigningProfilePermissionMapOutput {
+	return i.ToSigningProfilePermissionMapOutputWithContext(context.Background())
+}
+
+func (i SigningProfilePermissionMap) ToSigningProfilePermissionMapOutputWithContext(ctx context.Context) SigningProfilePermissionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionMapOutput)
+}
+
 type SigningProfilePermissionOutput struct {
 	*pulumi.OutputState
 }
@@ -227,6 +306,75 @@ func (o SigningProfilePermissionOutput) ToSigningProfilePermissionOutputWithCont
 	return o
 }
 
+func (o SigningProfilePermissionOutput) ToSigningProfilePermissionPtrOutput() SigningProfilePermissionPtrOutput {
+	return o.ToSigningProfilePermissionPtrOutputWithContext(context.Background())
+}
+
+func (o SigningProfilePermissionOutput) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
+	return o.ApplyT(func(v SigningProfilePermission) *SigningProfilePermission {
+		return &v
+	}).(SigningProfilePermissionPtrOutput)
+}
+
+type SigningProfilePermissionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SigningProfilePermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SigningProfilePermission)(nil))
+}
+
+func (o SigningProfilePermissionPtrOutput) ToSigningProfilePermissionPtrOutput() SigningProfilePermissionPtrOutput {
+	return o
+}
+
+func (o SigningProfilePermissionPtrOutput) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
+	return o
+}
+
+type SigningProfilePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (SigningProfilePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningProfilePermission)(nil))
+}
+
+func (o SigningProfilePermissionArrayOutput) ToSigningProfilePermissionArrayOutput() SigningProfilePermissionArrayOutput {
+	return o
+}
+
+func (o SigningProfilePermissionArrayOutput) ToSigningProfilePermissionArrayOutputWithContext(ctx context.Context) SigningProfilePermissionArrayOutput {
+	return o
+}
+
+func (o SigningProfilePermissionArrayOutput) Index(i pulumi.IntInput) SigningProfilePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningProfilePermission {
+		return vs[0].([]SigningProfilePermission)[vs[1].(int)]
+	}).(SigningProfilePermissionOutput)
+}
+
+type SigningProfilePermissionMapOutput struct{ *pulumi.OutputState }
+
+func (SigningProfilePermissionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SigningProfilePermission)(nil))
+}
+
+func (o SigningProfilePermissionMapOutput) ToSigningProfilePermissionMapOutput() SigningProfilePermissionMapOutput {
+	return o
+}
+
+func (o SigningProfilePermissionMapOutput) ToSigningProfilePermissionMapOutputWithContext(ctx context.Context) SigningProfilePermissionMapOutput {
+	return o
+}
+
+func (o SigningProfilePermissionMapOutput) MapIndex(k pulumi.StringInput) SigningProfilePermissionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SigningProfilePermission {
+		return vs[0].(map[string]SigningProfilePermission)[vs[1].(string)]
+	}).(SigningProfilePermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SigningProfilePermissionOutput{})
+	pulumi.RegisterOutputType(SigningProfilePermissionPtrOutput{})
+	pulumi.RegisterOutputType(SigningProfilePermissionArrayOutput{})
+	pulumi.RegisterOutputType(SigningProfilePermissionMapOutput{})
 }

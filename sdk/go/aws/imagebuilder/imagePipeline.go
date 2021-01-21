@@ -262,6 +262,85 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
 }
 
+func (i *ImagePipeline) ToImagePipelinePtrOutput() ImagePipelinePtrOutput {
+	return i.ToImagePipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *ImagePipeline) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelinePtrOutput)
+}
+
+type ImagePipelinePtrInput interface {
+	pulumi.Input
+
+	ToImagePipelinePtrOutput() ImagePipelinePtrOutput
+	ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput
+}
+
+type imagePipelinePtrType ImagePipelineArgs
+
+func (*imagePipelinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipeline)(nil))
+}
+
+func (i *imagePipelinePtrType) ToImagePipelinePtrOutput() ImagePipelinePtrOutput {
+	return i.ToImagePipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelinePtrType) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelinePtrOutput)
+}
+
+// ImagePipelineArrayInput is an input type that accepts ImagePipelineArray and ImagePipelineArrayOutput values.
+// You can construct a concrete instance of `ImagePipelineArrayInput` via:
+//
+//          ImagePipelineArray{ ImagePipelineArgs{...} }
+type ImagePipelineArrayInput interface {
+	pulumi.Input
+
+	ToImagePipelineArrayOutput() ImagePipelineArrayOutput
+	ToImagePipelineArrayOutputWithContext(context.Context) ImagePipelineArrayOutput
+}
+
+type ImagePipelineArray []ImagePipelineInput
+
+func (ImagePipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ImagePipeline)(nil))
+}
+
+func (i ImagePipelineArray) ToImagePipelineArrayOutput() ImagePipelineArrayOutput {
+	return i.ToImagePipelineArrayOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineArray) ToImagePipelineArrayOutputWithContext(ctx context.Context) ImagePipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineArrayOutput)
+}
+
+// ImagePipelineMapInput is an input type that accepts ImagePipelineMap and ImagePipelineMapOutput values.
+// You can construct a concrete instance of `ImagePipelineMapInput` via:
+//
+//          ImagePipelineMap{ "key": ImagePipelineArgs{...} }
+type ImagePipelineMapInput interface {
+	pulumi.Input
+
+	ToImagePipelineMapOutput() ImagePipelineMapOutput
+	ToImagePipelineMapOutputWithContext(context.Context) ImagePipelineMapOutput
+}
+
+type ImagePipelineMap map[string]ImagePipelineInput
+
+func (ImagePipelineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ImagePipeline)(nil))
+}
+
+func (i ImagePipelineMap) ToImagePipelineMapOutput() ImagePipelineMapOutput {
+	return i.ToImagePipelineMapOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineMap) ToImagePipelineMapOutputWithContext(ctx context.Context) ImagePipelineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineMapOutput)
+}
+
 type ImagePipelineOutput struct {
 	*pulumi.OutputState
 }
@@ -278,6 +357,75 @@ func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ImagePipelineOutput) ToImagePipelinePtrOutput() ImagePipelinePtrOutput {
+	return o.ToImagePipelinePtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineOutput) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
+	return o.ApplyT(func(v ImagePipeline) *ImagePipeline {
+		return &v
+	}).(ImagePipelinePtrOutput)
+}
+
+type ImagePipelinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ImagePipelinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipeline)(nil))
+}
+
+func (o ImagePipelinePtrOutput) ToImagePipelinePtrOutput() ImagePipelinePtrOutput {
+	return o
+}
+
+func (o ImagePipelinePtrOutput) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
+	return o
+}
+
+type ImagePipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipeline)(nil))
+}
+
+func (o ImagePipelineArrayOutput) ToImagePipelineArrayOutput() ImagePipelineArrayOutput {
+	return o
+}
+
+func (o ImagePipelineArrayOutput) ToImagePipelineArrayOutputWithContext(ctx context.Context) ImagePipelineArrayOutput {
+	return o
+}
+
+func (o ImagePipelineArrayOutput) Index(i pulumi.IntInput) ImagePipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImagePipeline {
+		return vs[0].([]ImagePipeline)[vs[1].(int)]
+	}).(ImagePipelineOutput)
+}
+
+type ImagePipelineMapOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ImagePipeline)(nil))
+}
+
+func (o ImagePipelineMapOutput) ToImagePipelineMapOutput() ImagePipelineMapOutput {
+	return o
+}
+
+func (o ImagePipelineMapOutput) ToImagePipelineMapOutputWithContext(ctx context.Context) ImagePipelineMapOutput {
+	return o
+}
+
+func (o ImagePipelineMapOutput) MapIndex(k pulumi.StringInput) ImagePipelineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImagePipeline {
+		return vs[0].(map[string]ImagePipeline)[vs[1].(string)]
+	}).(ImagePipelineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ImagePipelineOutput{})
+	pulumi.RegisterOutputType(ImagePipelinePtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineArrayOutput{})
+	pulumi.RegisterOutputType(ImagePipelineMapOutput{})
 }

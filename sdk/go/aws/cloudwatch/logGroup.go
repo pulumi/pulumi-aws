@@ -194,6 +194,85 @@ func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
 }
 
+func (i *LogGroup) ToLogGroupPtrOutput() LogGroupPtrOutput {
+	return i.ToLogGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *LogGroup) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupPtrOutput)
+}
+
+type LogGroupPtrInput interface {
+	pulumi.Input
+
+	ToLogGroupPtrOutput() LogGroupPtrOutput
+	ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput
+}
+
+type logGroupPtrType LogGroupArgs
+
+func (*logGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogGroup)(nil))
+}
+
+func (i *logGroupPtrType) ToLogGroupPtrOutput() LogGroupPtrOutput {
+	return i.ToLogGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *logGroupPtrType) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupPtrOutput)
+}
+
+// LogGroupArrayInput is an input type that accepts LogGroupArray and LogGroupArrayOutput values.
+// You can construct a concrete instance of `LogGroupArrayInput` via:
+//
+//          LogGroupArray{ LogGroupArgs{...} }
+type LogGroupArrayInput interface {
+	pulumi.Input
+
+	ToLogGroupArrayOutput() LogGroupArrayOutput
+	ToLogGroupArrayOutputWithContext(context.Context) LogGroupArrayOutput
+}
+
+type LogGroupArray []LogGroupInput
+
+func (LogGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogGroup)(nil))
+}
+
+func (i LogGroupArray) ToLogGroupArrayOutput() LogGroupArrayOutput {
+	return i.ToLogGroupArrayOutputWithContext(context.Background())
+}
+
+func (i LogGroupArray) ToLogGroupArrayOutputWithContext(ctx context.Context) LogGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupArrayOutput)
+}
+
+// LogGroupMapInput is an input type that accepts LogGroupMap and LogGroupMapOutput values.
+// You can construct a concrete instance of `LogGroupMapInput` via:
+//
+//          LogGroupMap{ "key": LogGroupArgs{...} }
+type LogGroupMapInput interface {
+	pulumi.Input
+
+	ToLogGroupMapOutput() LogGroupMapOutput
+	ToLogGroupMapOutputWithContext(context.Context) LogGroupMapOutput
+}
+
+type LogGroupMap map[string]LogGroupInput
+
+func (LogGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogGroup)(nil))
+}
+
+func (i LogGroupMap) ToLogGroupMapOutput() LogGroupMapOutput {
+	return i.ToLogGroupMapOutputWithContext(context.Background())
+}
+
+func (i LogGroupMap) ToLogGroupMapOutputWithContext(ctx context.Context) LogGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogGroupMapOutput)
+}
+
 type LogGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 	return o
 }
 
+func (o LogGroupOutput) ToLogGroupPtrOutput() LogGroupPtrOutput {
+	return o.ToLogGroupPtrOutputWithContext(context.Background())
+}
+
+func (o LogGroupOutput) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
+	return o.ApplyT(func(v LogGroup) *LogGroup {
+		return &v
+	}).(LogGroupPtrOutput)
+}
+
+type LogGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogGroup)(nil))
+}
+
+func (o LogGroupPtrOutput) ToLogGroupPtrOutput() LogGroupPtrOutput {
+	return o
+}
+
+func (o LogGroupPtrOutput) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
+	return o
+}
+
+type LogGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (LogGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogGroup)(nil))
+}
+
+func (o LogGroupArrayOutput) ToLogGroupArrayOutput() LogGroupArrayOutput {
+	return o
+}
+
+func (o LogGroupArrayOutput) ToLogGroupArrayOutputWithContext(ctx context.Context) LogGroupArrayOutput {
+	return o
+}
+
+func (o LogGroupArrayOutput) Index(i pulumi.IntInput) LogGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogGroup {
+		return vs[0].([]LogGroup)[vs[1].(int)]
+	}).(LogGroupOutput)
+}
+
+type LogGroupMapOutput struct{ *pulumi.OutputState }
+
+func (LogGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogGroup)(nil))
+}
+
+func (o LogGroupMapOutput) ToLogGroupMapOutput() LogGroupMapOutput {
+	return o
+}
+
+func (o LogGroupMapOutput) ToLogGroupMapOutputWithContext(ctx context.Context) LogGroupMapOutput {
+	return o
+}
+
+func (o LogGroupMapOutput) MapIndex(k pulumi.StringInput) LogGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogGroup {
+		return vs[0].(map[string]LogGroup)[vs[1].(string)]
+	}).(LogGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogGroupOutput{})
+	pulumi.RegisterOutputType(LogGroupPtrOutput{})
+	pulumi.RegisterOutputType(LogGroupArrayOutput{})
+	pulumi.RegisterOutputType(LogGroupMapOutput{})
 }

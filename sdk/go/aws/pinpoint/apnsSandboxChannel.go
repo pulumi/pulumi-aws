@@ -203,6 +203,85 @@ func (i *ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelOutput)
 }
 
+func (i *ApnsSandboxChannel) ToApnsSandboxChannelPtrOutput() ApnsSandboxChannelPtrOutput {
+	return i.ToApnsSandboxChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *ApnsSandboxChannel) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelPtrOutput)
+}
+
+type ApnsSandboxChannelPtrInput interface {
+	pulumi.Input
+
+	ToApnsSandboxChannelPtrOutput() ApnsSandboxChannelPtrOutput
+	ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput
+}
+
+type apnsSandboxChannelPtrType ApnsSandboxChannelArgs
+
+func (*apnsSandboxChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsSandboxChannel)(nil))
+}
+
+func (i *apnsSandboxChannelPtrType) ToApnsSandboxChannelPtrOutput() ApnsSandboxChannelPtrOutput {
+	return i.ToApnsSandboxChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *apnsSandboxChannelPtrType) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelPtrOutput)
+}
+
+// ApnsSandboxChannelArrayInput is an input type that accepts ApnsSandboxChannelArray and ApnsSandboxChannelArrayOutput values.
+// You can construct a concrete instance of `ApnsSandboxChannelArrayInput` via:
+//
+//          ApnsSandboxChannelArray{ ApnsSandboxChannelArgs{...} }
+type ApnsSandboxChannelArrayInput interface {
+	pulumi.Input
+
+	ToApnsSandboxChannelArrayOutput() ApnsSandboxChannelArrayOutput
+	ToApnsSandboxChannelArrayOutputWithContext(context.Context) ApnsSandboxChannelArrayOutput
+}
+
+type ApnsSandboxChannelArray []ApnsSandboxChannelInput
+
+func (ApnsSandboxChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApnsSandboxChannel)(nil))
+}
+
+func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutput() ApnsSandboxChannelArrayOutput {
+	return i.ToApnsSandboxChannelArrayOutputWithContext(context.Background())
+}
+
+func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutputWithContext(ctx context.Context) ApnsSandboxChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelArrayOutput)
+}
+
+// ApnsSandboxChannelMapInput is an input type that accepts ApnsSandboxChannelMap and ApnsSandboxChannelMapOutput values.
+// You can construct a concrete instance of `ApnsSandboxChannelMapInput` via:
+//
+//          ApnsSandboxChannelMap{ "key": ApnsSandboxChannelArgs{...} }
+type ApnsSandboxChannelMapInput interface {
+	pulumi.Input
+
+	ToApnsSandboxChannelMapOutput() ApnsSandboxChannelMapOutput
+	ToApnsSandboxChannelMapOutputWithContext(context.Context) ApnsSandboxChannelMapOutput
+}
+
+type ApnsSandboxChannelMap map[string]ApnsSandboxChannelInput
+
+func (ApnsSandboxChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApnsSandboxChannel)(nil))
+}
+
+func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutput() ApnsSandboxChannelMapOutput {
+	return i.ToApnsSandboxChannelMapOutputWithContext(context.Background())
+}
+
+func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutputWithContext(ctx context.Context) ApnsSandboxChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelMapOutput)
+}
+
 type ApnsSandboxChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -219,6 +298,75 @@ func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelPtrOutput() ApnsSandboxChannelPtrOutput {
+	return o.ToApnsSandboxChannelPtrOutputWithContext(context.Background())
+}
+
+func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
+	return o.ApplyT(func(v ApnsSandboxChannel) *ApnsSandboxChannel {
+		return &v
+	}).(ApnsSandboxChannelPtrOutput)
+}
+
+type ApnsSandboxChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApnsSandboxChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsSandboxChannel)(nil))
+}
+
+func (o ApnsSandboxChannelPtrOutput) ToApnsSandboxChannelPtrOutput() ApnsSandboxChannelPtrOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelPtrOutput) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
+	return o
+}
+
+type ApnsSandboxChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (ApnsSandboxChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApnsSandboxChannel)(nil))
+}
+
+func (o ApnsSandboxChannelArrayOutput) ToApnsSandboxChannelArrayOutput() ApnsSandboxChannelArrayOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelArrayOutput) ToApnsSandboxChannelArrayOutputWithContext(ctx context.Context) ApnsSandboxChannelArrayOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelArrayOutput) Index(i pulumi.IntInput) ApnsSandboxChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApnsSandboxChannel {
+		return vs[0].([]ApnsSandboxChannel)[vs[1].(int)]
+	}).(ApnsSandboxChannelOutput)
+}
+
+type ApnsSandboxChannelMapOutput struct{ *pulumi.OutputState }
+
+func (ApnsSandboxChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApnsSandboxChannel)(nil))
+}
+
+func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutput() ApnsSandboxChannelMapOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutputWithContext(ctx context.Context) ApnsSandboxChannelMapOutput {
+	return o
+}
+
+func (o ApnsSandboxChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsSandboxChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApnsSandboxChannel {
+		return vs[0].(map[string]ApnsSandboxChannel)[vs[1].(string)]
+	}).(ApnsSandboxChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApnsSandboxChannelOutput{})
+	pulumi.RegisterOutputType(ApnsSandboxChannelPtrOutput{})
+	pulumi.RegisterOutputType(ApnsSandboxChannelArrayOutput{})
+	pulumi.RegisterOutputType(ApnsSandboxChannelMapOutput{})
 }

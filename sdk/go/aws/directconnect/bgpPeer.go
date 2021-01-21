@@ -207,6 +207,85 @@ func (i *BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerOutput)
 }
 
+func (i *BgpPeer) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
+	return i.ToBgpPeerPtrOutputWithContext(context.Background())
+}
+
+func (i *BgpPeer) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerPtrOutput)
+}
+
+type BgpPeerPtrInput interface {
+	pulumi.Input
+
+	ToBgpPeerPtrOutput() BgpPeerPtrOutput
+	ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput
+}
+
+type bgpPeerPtrType BgpPeerArgs
+
+func (*bgpPeerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpPeer)(nil))
+}
+
+func (i *bgpPeerPtrType) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
+	return i.ToBgpPeerPtrOutputWithContext(context.Background())
+}
+
+func (i *bgpPeerPtrType) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerPtrOutput)
+}
+
+// BgpPeerArrayInput is an input type that accepts BgpPeerArray and BgpPeerArrayOutput values.
+// You can construct a concrete instance of `BgpPeerArrayInput` via:
+//
+//          BgpPeerArray{ BgpPeerArgs{...} }
+type BgpPeerArrayInput interface {
+	pulumi.Input
+
+	ToBgpPeerArrayOutput() BgpPeerArrayOutput
+	ToBgpPeerArrayOutputWithContext(context.Context) BgpPeerArrayOutput
+}
+
+type BgpPeerArray []BgpPeerInput
+
+func (BgpPeerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BgpPeer)(nil))
+}
+
+func (i BgpPeerArray) ToBgpPeerArrayOutput() BgpPeerArrayOutput {
+	return i.ToBgpPeerArrayOutputWithContext(context.Background())
+}
+
+func (i BgpPeerArray) ToBgpPeerArrayOutputWithContext(ctx context.Context) BgpPeerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerArrayOutput)
+}
+
+// BgpPeerMapInput is an input type that accepts BgpPeerMap and BgpPeerMapOutput values.
+// You can construct a concrete instance of `BgpPeerMapInput` via:
+//
+//          BgpPeerMap{ "key": BgpPeerArgs{...} }
+type BgpPeerMapInput interface {
+	pulumi.Input
+
+	ToBgpPeerMapOutput() BgpPeerMapOutput
+	ToBgpPeerMapOutputWithContext(context.Context) BgpPeerMapOutput
+}
+
+type BgpPeerMap map[string]BgpPeerInput
+
+func (BgpPeerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BgpPeer)(nil))
+}
+
+func (i BgpPeerMap) ToBgpPeerMapOutput() BgpPeerMapOutput {
+	return i.ToBgpPeerMapOutputWithContext(context.Background())
+}
+
+func (i BgpPeerMap) ToBgpPeerMapOutputWithContext(ctx context.Context) BgpPeerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerMapOutput)
+}
+
 type BgpPeerOutput struct {
 	*pulumi.OutputState
 }
@@ -223,6 +302,75 @@ func (o BgpPeerOutput) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOu
 	return o
 }
 
+func (o BgpPeerOutput) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
+	return o.ToBgpPeerPtrOutputWithContext(context.Background())
+}
+
+func (o BgpPeerOutput) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
+	return o.ApplyT(func(v BgpPeer) *BgpPeer {
+		return &v
+	}).(BgpPeerPtrOutput)
+}
+
+type BgpPeerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BgpPeerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpPeer)(nil))
+}
+
+func (o BgpPeerPtrOutput) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
+	return o
+}
+
+func (o BgpPeerPtrOutput) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
+	return o
+}
+
+type BgpPeerArrayOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BgpPeer)(nil))
+}
+
+func (o BgpPeerArrayOutput) ToBgpPeerArrayOutput() BgpPeerArrayOutput {
+	return o
+}
+
+func (o BgpPeerArrayOutput) ToBgpPeerArrayOutputWithContext(ctx context.Context) BgpPeerArrayOutput {
+	return o
+}
+
+func (o BgpPeerArrayOutput) Index(i pulumi.IntInput) BgpPeerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BgpPeer {
+		return vs[0].([]BgpPeer)[vs[1].(int)]
+	}).(BgpPeerOutput)
+}
+
+type BgpPeerMapOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BgpPeer)(nil))
+}
+
+func (o BgpPeerMapOutput) ToBgpPeerMapOutput() BgpPeerMapOutput {
+	return o
+}
+
+func (o BgpPeerMapOutput) ToBgpPeerMapOutputWithContext(ctx context.Context) BgpPeerMapOutput {
+	return o
+}
+
+func (o BgpPeerMapOutput) MapIndex(k pulumi.StringInput) BgpPeerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BgpPeer {
+		return vs[0].(map[string]BgpPeer)[vs[1].(string)]
+	}).(BgpPeerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BgpPeerOutput{})
+	pulumi.RegisterOutputType(BgpPeerPtrOutput{})
+	pulumi.RegisterOutputType(BgpPeerArrayOutput{})
+	pulumi.RegisterOutputType(BgpPeerMapOutput{})
 }

@@ -203,6 +203,85 @@ func (i *ApnsChannel) ToApnsChannelOutputWithContext(ctx context.Context) ApnsCh
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelOutput)
 }
 
+func (i *ApnsChannel) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
+	return i.ToApnsChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *ApnsChannel) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelPtrOutput)
+}
+
+type ApnsChannelPtrInput interface {
+	pulumi.Input
+
+	ToApnsChannelPtrOutput() ApnsChannelPtrOutput
+	ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput
+}
+
+type apnsChannelPtrType ApnsChannelArgs
+
+func (*apnsChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsChannel)(nil))
+}
+
+func (i *apnsChannelPtrType) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
+	return i.ToApnsChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *apnsChannelPtrType) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelPtrOutput)
+}
+
+// ApnsChannelArrayInput is an input type that accepts ApnsChannelArray and ApnsChannelArrayOutput values.
+// You can construct a concrete instance of `ApnsChannelArrayInput` via:
+//
+//          ApnsChannelArray{ ApnsChannelArgs{...} }
+type ApnsChannelArrayInput interface {
+	pulumi.Input
+
+	ToApnsChannelArrayOutput() ApnsChannelArrayOutput
+	ToApnsChannelArrayOutputWithContext(context.Context) ApnsChannelArrayOutput
+}
+
+type ApnsChannelArray []ApnsChannelInput
+
+func (ApnsChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApnsChannel)(nil))
+}
+
+func (i ApnsChannelArray) ToApnsChannelArrayOutput() ApnsChannelArrayOutput {
+	return i.ToApnsChannelArrayOutputWithContext(context.Background())
+}
+
+func (i ApnsChannelArray) ToApnsChannelArrayOutputWithContext(ctx context.Context) ApnsChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelArrayOutput)
+}
+
+// ApnsChannelMapInput is an input type that accepts ApnsChannelMap and ApnsChannelMapOutput values.
+// You can construct a concrete instance of `ApnsChannelMapInput` via:
+//
+//          ApnsChannelMap{ "key": ApnsChannelArgs{...} }
+type ApnsChannelMapInput interface {
+	pulumi.Input
+
+	ToApnsChannelMapOutput() ApnsChannelMapOutput
+	ToApnsChannelMapOutputWithContext(context.Context) ApnsChannelMapOutput
+}
+
+type ApnsChannelMap map[string]ApnsChannelInput
+
+func (ApnsChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApnsChannel)(nil))
+}
+
+func (i ApnsChannelMap) ToApnsChannelMapOutput() ApnsChannelMapOutput {
+	return i.ToApnsChannelMapOutputWithContext(context.Background())
+}
+
+func (i ApnsChannelMap) ToApnsChannelMapOutputWithContext(ctx context.Context) ApnsChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelMapOutput)
+}
+
 type ApnsChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -219,6 +298,75 @@ func (o ApnsChannelOutput) ToApnsChannelOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApnsChannelOutput) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
+	return o.ToApnsChannelPtrOutputWithContext(context.Background())
+}
+
+func (o ApnsChannelOutput) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
+	return o.ApplyT(func(v ApnsChannel) *ApnsChannel {
+		return &v
+	}).(ApnsChannelPtrOutput)
+}
+
+type ApnsChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApnsChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsChannel)(nil))
+}
+
+func (o ApnsChannelPtrOutput) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
+	return o
+}
+
+func (o ApnsChannelPtrOutput) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
+	return o
+}
+
+type ApnsChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (ApnsChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApnsChannel)(nil))
+}
+
+func (o ApnsChannelArrayOutput) ToApnsChannelArrayOutput() ApnsChannelArrayOutput {
+	return o
+}
+
+func (o ApnsChannelArrayOutput) ToApnsChannelArrayOutputWithContext(ctx context.Context) ApnsChannelArrayOutput {
+	return o
+}
+
+func (o ApnsChannelArrayOutput) Index(i pulumi.IntInput) ApnsChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApnsChannel {
+		return vs[0].([]ApnsChannel)[vs[1].(int)]
+	}).(ApnsChannelOutput)
+}
+
+type ApnsChannelMapOutput struct{ *pulumi.OutputState }
+
+func (ApnsChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApnsChannel)(nil))
+}
+
+func (o ApnsChannelMapOutput) ToApnsChannelMapOutput() ApnsChannelMapOutput {
+	return o
+}
+
+func (o ApnsChannelMapOutput) ToApnsChannelMapOutputWithContext(ctx context.Context) ApnsChannelMapOutput {
+	return o
+}
+
+func (o ApnsChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApnsChannel {
+		return vs[0].(map[string]ApnsChannel)[vs[1].(string)]
+	}).(ApnsChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApnsChannelOutput{})
+	pulumi.RegisterOutputType(ApnsChannelPtrOutput{})
+	pulumi.RegisterOutputType(ApnsChannelArrayOutput{})
+	pulumi.RegisterOutputType(ApnsChannelMapOutput{})
 }

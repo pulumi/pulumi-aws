@@ -159,6 +159,85 @@ func (i *ClientCertificate) ToClientCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateOutput)
 }
 
+func (i *ClientCertificate) ToClientCertificatePtrOutput() ClientCertificatePtrOutput {
+	return i.ToClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *ClientCertificate) ToClientCertificatePtrOutputWithContext(ctx context.Context) ClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificatePtrOutput)
+}
+
+type ClientCertificatePtrInput interface {
+	pulumi.Input
+
+	ToClientCertificatePtrOutput() ClientCertificatePtrOutput
+	ToClientCertificatePtrOutputWithContext(ctx context.Context) ClientCertificatePtrOutput
+}
+
+type clientCertificatePtrType ClientCertificateArgs
+
+func (*clientCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientCertificate)(nil))
+}
+
+func (i *clientCertificatePtrType) ToClientCertificatePtrOutput() ClientCertificatePtrOutput {
+	return i.ToClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *clientCertificatePtrType) ToClientCertificatePtrOutputWithContext(ctx context.Context) ClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificatePtrOutput)
+}
+
+// ClientCertificateArrayInput is an input type that accepts ClientCertificateArray and ClientCertificateArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateArrayInput` via:
+//
+//          ClientCertificateArray{ ClientCertificateArgs{...} }
+type ClientCertificateArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateArrayOutput() ClientCertificateArrayOutput
+	ToClientCertificateArrayOutputWithContext(context.Context) ClientCertificateArrayOutput
+}
+
+type ClientCertificateArray []ClientCertificateInput
+
+func (ClientCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ClientCertificate)(nil))
+}
+
+func (i ClientCertificateArray) ToClientCertificateArrayOutput() ClientCertificateArrayOutput {
+	return i.ToClientCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx context.Context) ClientCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
+}
+
+// ClientCertificateMapInput is an input type that accepts ClientCertificateMap and ClientCertificateMapOutput values.
+// You can construct a concrete instance of `ClientCertificateMapInput` via:
+//
+//          ClientCertificateMap{ "key": ClientCertificateArgs{...} }
+type ClientCertificateMapInput interface {
+	pulumi.Input
+
+	ToClientCertificateMapOutput() ClientCertificateMapOutput
+	ToClientCertificateMapOutputWithContext(context.Context) ClientCertificateMapOutput
+}
+
+type ClientCertificateMap map[string]ClientCertificateInput
+
+func (ClientCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ClientCertificate)(nil))
+}
+
+func (i ClientCertificateMap) ToClientCertificateMapOutput() ClientCertificateMapOutput {
+	return i.ToClientCertificateMapOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateMap) ToClientCertificateMapOutputWithContext(ctx context.Context) ClientCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateMapOutput)
+}
+
 type ClientCertificateOutput struct {
 	*pulumi.OutputState
 }
@@ -175,6 +254,75 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
+func (o ClientCertificateOutput) ToClientCertificatePtrOutput() ClientCertificatePtrOutput {
+	return o.ToClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ClientCertificateOutput) ToClientCertificatePtrOutputWithContext(ctx context.Context) ClientCertificatePtrOutput {
+	return o.ApplyT(func(v ClientCertificate) *ClientCertificate {
+		return &v
+	}).(ClientCertificatePtrOutput)
+}
+
+type ClientCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClientCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientCertificate)(nil))
+}
+
+func (o ClientCertificatePtrOutput) ToClientCertificatePtrOutput() ClientCertificatePtrOutput {
+	return o
+}
+
+func (o ClientCertificatePtrOutput) ToClientCertificatePtrOutputWithContext(ctx context.Context) ClientCertificatePtrOutput {
+	return o
+}
+
+type ClientCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificate)(nil))
+}
+
+func (o ClientCertificateArrayOutput) ToClientCertificateArrayOutput() ClientCertificateArrayOutput {
+	return o
+}
+
+func (o ClientCertificateArrayOutput) ToClientCertificateArrayOutputWithContext(ctx context.Context) ClientCertificateArrayOutput {
+	return o
+}
+
+func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificate {
+		return vs[0].([]ClientCertificate)[vs[1].(int)]
+	}).(ClientCertificateOutput)
+}
+
+type ClientCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClientCertificate)(nil))
+}
+
+func (o ClientCertificateMapOutput) ToClientCertificateMapOutput() ClientCertificateMapOutput {
+	return o
+}
+
+func (o ClientCertificateMapOutput) ToClientCertificateMapOutputWithContext(ctx context.Context) ClientCertificateMapOutput {
+	return o
+}
+
+func (o ClientCertificateMapOutput) MapIndex(k pulumi.StringInput) ClientCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClientCertificate {
+		return vs[0].(map[string]ClientCertificate)[vs[1].(string)]
+	}).(ClientCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClientCertificateOutput{})
+	pulumi.RegisterOutputType(ClientCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ClientCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateMapOutput{})
 }

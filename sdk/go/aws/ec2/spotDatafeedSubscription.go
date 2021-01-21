@@ -148,6 +148,85 @@ func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionOutput)
 }
 
+func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
+	return i.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionPtrOutput)
+}
+
+type SpotDatafeedSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput
+	ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput
+}
+
+type spotDatafeedSubscriptionPtrType SpotDatafeedSubscriptionArgs
+
+func (*spotDatafeedSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotDatafeedSubscription)(nil))
+}
+
+func (i *spotDatafeedSubscriptionPtrType) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
+	return i.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *spotDatafeedSubscriptionPtrType) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionPtrOutput)
+}
+
+// SpotDatafeedSubscriptionArrayInput is an input type that accepts SpotDatafeedSubscriptionArray and SpotDatafeedSubscriptionArrayOutput values.
+// You can construct a concrete instance of `SpotDatafeedSubscriptionArrayInput` via:
+//
+//          SpotDatafeedSubscriptionArray{ SpotDatafeedSubscriptionArgs{...} }
+type SpotDatafeedSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToSpotDatafeedSubscriptionArrayOutput() SpotDatafeedSubscriptionArrayOutput
+	ToSpotDatafeedSubscriptionArrayOutputWithContext(context.Context) SpotDatafeedSubscriptionArrayOutput
+}
+
+type SpotDatafeedSubscriptionArray []SpotDatafeedSubscriptionInput
+
+func (SpotDatafeedSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SpotDatafeedSubscription)(nil))
+}
+
+func (i SpotDatafeedSubscriptionArray) ToSpotDatafeedSubscriptionArrayOutput() SpotDatafeedSubscriptionArrayOutput {
+	return i.ToSpotDatafeedSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i SpotDatafeedSubscriptionArray) ToSpotDatafeedSubscriptionArrayOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionArrayOutput)
+}
+
+// SpotDatafeedSubscriptionMapInput is an input type that accepts SpotDatafeedSubscriptionMap and SpotDatafeedSubscriptionMapOutput values.
+// You can construct a concrete instance of `SpotDatafeedSubscriptionMapInput` via:
+//
+//          SpotDatafeedSubscriptionMap{ "key": SpotDatafeedSubscriptionArgs{...} }
+type SpotDatafeedSubscriptionMapInput interface {
+	pulumi.Input
+
+	ToSpotDatafeedSubscriptionMapOutput() SpotDatafeedSubscriptionMapOutput
+	ToSpotDatafeedSubscriptionMapOutputWithContext(context.Context) SpotDatafeedSubscriptionMapOutput
+}
+
+type SpotDatafeedSubscriptionMap map[string]SpotDatafeedSubscriptionInput
+
+func (SpotDatafeedSubscriptionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SpotDatafeedSubscription)(nil))
+}
+
+func (i SpotDatafeedSubscriptionMap) ToSpotDatafeedSubscriptionMapOutput() SpotDatafeedSubscriptionMapOutput {
+	return i.ToSpotDatafeedSubscriptionMapOutputWithContext(context.Background())
+}
+
+func (i SpotDatafeedSubscriptionMap) ToSpotDatafeedSubscriptionMapOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionMapOutput)
+}
+
 type SpotDatafeedSubscriptionOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithCont
 	return o
 }
 
+func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
+	return o.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
+	return o.ApplyT(func(v SpotDatafeedSubscription) *SpotDatafeedSubscription {
+		return &v
+	}).(SpotDatafeedSubscriptionPtrOutput)
+}
+
+type SpotDatafeedSubscriptionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotDatafeedSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotDatafeedSubscription)(nil))
+}
+
+func (o SpotDatafeedSubscriptionPtrOutput) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionPtrOutput) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
+	return o
+}
+
+type SpotDatafeedSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotDatafeedSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotDatafeedSubscription)(nil))
+}
+
+func (o SpotDatafeedSubscriptionArrayOutput) ToSpotDatafeedSubscriptionArrayOutput() SpotDatafeedSubscriptionArrayOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionArrayOutput) ToSpotDatafeedSubscriptionArrayOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionArrayOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionArrayOutput) Index(i pulumi.IntInput) SpotDatafeedSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotDatafeedSubscription {
+		return vs[0].([]SpotDatafeedSubscription)[vs[1].(int)]
+	}).(SpotDatafeedSubscriptionOutput)
+}
+
+type SpotDatafeedSubscriptionMapOutput struct{ *pulumi.OutputState }
+
+func (SpotDatafeedSubscriptionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SpotDatafeedSubscription)(nil))
+}
+
+func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutput() SpotDatafeedSubscriptionMapOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionMapOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionMapOutput) MapIndex(k pulumi.StringInput) SpotDatafeedSubscriptionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpotDatafeedSubscription {
+		return vs[0].(map[string]SpotDatafeedSubscription)[vs[1].(string)]
+	}).(SpotDatafeedSubscriptionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionOutput{})
+	pulumi.RegisterOutputType(SpotDatafeedSubscriptionPtrOutput{})
+	pulumi.RegisterOutputType(SpotDatafeedSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(SpotDatafeedSubscriptionMapOutput{})
 }

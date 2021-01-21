@@ -234,6 +234,85 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
 }
 
+func (i *Function) ToFunctionPtrOutput() FunctionPtrOutput {
+	return i.ToFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *Function) ToFunctionPtrOutputWithContext(ctx context.Context) FunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionPtrOutput)
+}
+
+type FunctionPtrInput interface {
+	pulumi.Input
+
+	ToFunctionPtrOutput() FunctionPtrOutput
+	ToFunctionPtrOutputWithContext(ctx context.Context) FunctionPtrOutput
+}
+
+type functionPtrType FunctionArgs
+
+func (*functionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Function)(nil))
+}
+
+func (i *functionPtrType) ToFunctionPtrOutput() FunctionPtrOutput {
+	return i.ToFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *functionPtrType) ToFunctionPtrOutputWithContext(ctx context.Context) FunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionPtrOutput)
+}
+
+// FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
+// You can construct a concrete instance of `FunctionArrayInput` via:
+//
+//          FunctionArray{ FunctionArgs{...} }
+type FunctionArrayInput interface {
+	pulumi.Input
+
+	ToFunctionArrayOutput() FunctionArrayOutput
+	ToFunctionArrayOutputWithContext(context.Context) FunctionArrayOutput
+}
+
+type FunctionArray []FunctionInput
+
+func (FunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Function)(nil))
+}
+
+func (i FunctionArray) ToFunctionArrayOutput() FunctionArrayOutput {
+	return i.ToFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionArrayOutput)
+}
+
+// FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
+// You can construct a concrete instance of `FunctionMapInput` via:
+//
+//          FunctionMap{ "key": FunctionArgs{...} }
+type FunctionMapInput interface {
+	pulumi.Input
+
+	ToFunctionMapOutput() FunctionMapOutput
+	ToFunctionMapOutputWithContext(context.Context) FunctionMapOutput
+}
+
+type FunctionMap map[string]FunctionInput
+
+func (FunctionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Function)(nil))
+}
+
+func (i FunctionMap) ToFunctionMapOutput() FunctionMapOutput {
+	return i.ToFunctionMapOutputWithContext(context.Background())
+}
+
+func (i FunctionMap) ToFunctionMapOutputWithContext(ctx context.Context) FunctionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionMapOutput)
+}
+
 type FunctionOutput struct {
 	*pulumi.OutputState
 }
@@ -250,6 +329,75 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+func (o FunctionOutput) ToFunctionPtrOutput() FunctionPtrOutput {
+	return o.ToFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionOutput) ToFunctionPtrOutputWithContext(ctx context.Context) FunctionPtrOutput {
+	return o.ApplyT(func(v Function) *Function {
+		return &v
+	}).(FunctionPtrOutput)
+}
+
+type FunctionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Function)(nil))
+}
+
+func (o FunctionPtrOutput) ToFunctionPtrOutput() FunctionPtrOutput {
+	return o
+}
+
+func (o FunctionPtrOutput) ToFunctionPtrOutputWithContext(ctx context.Context) FunctionPtrOutput {
+	return o
+}
+
+type FunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Function)(nil))
+}
+
+func (o FunctionArrayOutput) ToFunctionArrayOutput() FunctionArrayOutput {
+	return o
+}
+
+func (o FunctionArrayOutput) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
+	return o
+}
+
+func (o FunctionArrayOutput) Index(i pulumi.IntInput) FunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Function {
+		return vs[0].([]Function)[vs[1].(int)]
+	}).(FunctionOutput)
+}
+
+type FunctionMapOutput struct{ *pulumi.OutputState }
+
+func (FunctionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Function)(nil))
+}
+
+func (o FunctionMapOutput) ToFunctionMapOutput() FunctionMapOutput {
+	return o
+}
+
+func (o FunctionMapOutput) ToFunctionMapOutputWithContext(ctx context.Context) FunctionMapOutput {
+	return o
+}
+
+func (o FunctionMapOutput) MapIndex(k pulumi.StringInput) FunctionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Function {
+		return vs[0].(map[string]Function)[vs[1].(string)]
+	}).(FunctionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FunctionOutput{})
+	pulumi.RegisterOutputType(FunctionPtrOutput{})
+	pulumi.RegisterOutputType(FunctionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionMapOutput{})
 }

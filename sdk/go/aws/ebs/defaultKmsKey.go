@@ -136,6 +136,85 @@ func (i *DefaultKmsKey) ToDefaultKmsKeyOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyOutput)
 }
 
+func (i *DefaultKmsKey) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput {
+	return i.ToDefaultKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *DefaultKmsKey) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyPtrOutput)
+}
+
+type DefaultKmsKeyPtrInput interface {
+	pulumi.Input
+
+	ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput
+	ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput
+}
+
+type defaultKmsKeyPtrType DefaultKmsKeyArgs
+
+func (*defaultKmsKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultKmsKey)(nil))
+}
+
+func (i *defaultKmsKeyPtrType) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput {
+	return i.ToDefaultKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultKmsKeyPtrType) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyPtrOutput)
+}
+
+// DefaultKmsKeyArrayInput is an input type that accepts DefaultKmsKeyArray and DefaultKmsKeyArrayOutput values.
+// You can construct a concrete instance of `DefaultKmsKeyArrayInput` via:
+//
+//          DefaultKmsKeyArray{ DefaultKmsKeyArgs{...} }
+type DefaultKmsKeyArrayInput interface {
+	pulumi.Input
+
+	ToDefaultKmsKeyArrayOutput() DefaultKmsKeyArrayOutput
+	ToDefaultKmsKeyArrayOutputWithContext(context.Context) DefaultKmsKeyArrayOutput
+}
+
+type DefaultKmsKeyArray []DefaultKmsKeyInput
+
+func (DefaultKmsKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DefaultKmsKey)(nil))
+}
+
+func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutput() DefaultKmsKeyArrayOutput {
+	return i.ToDefaultKmsKeyArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutputWithContext(ctx context.Context) DefaultKmsKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyArrayOutput)
+}
+
+// DefaultKmsKeyMapInput is an input type that accepts DefaultKmsKeyMap and DefaultKmsKeyMapOutput values.
+// You can construct a concrete instance of `DefaultKmsKeyMapInput` via:
+//
+//          DefaultKmsKeyMap{ "key": DefaultKmsKeyArgs{...} }
+type DefaultKmsKeyMapInput interface {
+	pulumi.Input
+
+	ToDefaultKmsKeyMapOutput() DefaultKmsKeyMapOutput
+	ToDefaultKmsKeyMapOutputWithContext(context.Context) DefaultKmsKeyMapOutput
+}
+
+type DefaultKmsKeyMap map[string]DefaultKmsKeyInput
+
+func (DefaultKmsKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DefaultKmsKey)(nil))
+}
+
+func (i DefaultKmsKeyMap) ToDefaultKmsKeyMapOutput() DefaultKmsKeyMapOutput {
+	return i.ToDefaultKmsKeyMapOutputWithContext(context.Background())
+}
+
+func (i DefaultKmsKeyMap) ToDefaultKmsKeyMapOutputWithContext(ctx context.Context) DefaultKmsKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyMapOutput)
+}
+
 type DefaultKmsKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -152,6 +231,75 @@ func (o DefaultKmsKeyOutput) ToDefaultKmsKeyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DefaultKmsKeyOutput) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput {
+	return o.ToDefaultKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultKmsKeyOutput) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
+	return o.ApplyT(func(v DefaultKmsKey) *DefaultKmsKey {
+		return &v
+	}).(DefaultKmsKeyPtrOutput)
+}
+
+type DefaultKmsKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultKmsKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultKmsKey)(nil))
+}
+
+func (o DefaultKmsKeyPtrOutput) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput {
+	return o
+}
+
+func (o DefaultKmsKeyPtrOutput) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
+	return o
+}
+
+type DefaultKmsKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultKmsKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultKmsKey)(nil))
+}
+
+func (o DefaultKmsKeyArrayOutput) ToDefaultKmsKeyArrayOutput() DefaultKmsKeyArrayOutput {
+	return o
+}
+
+func (o DefaultKmsKeyArrayOutput) ToDefaultKmsKeyArrayOutputWithContext(ctx context.Context) DefaultKmsKeyArrayOutput {
+	return o
+}
+
+func (o DefaultKmsKeyArrayOutput) Index(i pulumi.IntInput) DefaultKmsKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultKmsKey {
+		return vs[0].([]DefaultKmsKey)[vs[1].(int)]
+	}).(DefaultKmsKeyOutput)
+}
+
+type DefaultKmsKeyMapOutput struct{ *pulumi.OutputState }
+
+func (DefaultKmsKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DefaultKmsKey)(nil))
+}
+
+func (o DefaultKmsKeyMapOutput) ToDefaultKmsKeyMapOutput() DefaultKmsKeyMapOutput {
+	return o
+}
+
+func (o DefaultKmsKeyMapOutput) ToDefaultKmsKeyMapOutputWithContext(ctx context.Context) DefaultKmsKeyMapOutput {
+	return o
+}
+
+func (o DefaultKmsKeyMapOutput) MapIndex(k pulumi.StringInput) DefaultKmsKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultKmsKey {
+		return vs[0].(map[string]DefaultKmsKey)[vs[1].(string)]
+	}).(DefaultKmsKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultKmsKeyOutput{})
+	pulumi.RegisterOutputType(DefaultKmsKeyPtrOutput{})
+	pulumi.RegisterOutputType(DefaultKmsKeyArrayOutput{})
+	pulumi.RegisterOutputType(DefaultKmsKeyMapOutput{})
 }

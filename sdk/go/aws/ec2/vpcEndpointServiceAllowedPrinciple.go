@@ -148,6 +148,85 @@ func (i *VpcEndpointServiceAllowedPrinciple) ToVpcEndpointServiceAllowedPrincipl
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleOutput)
 }
 
+func (i *VpcEndpointServiceAllowedPrinciple) ToVpcEndpointServiceAllowedPrinciplePtrOutput() VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return i.ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(context.Background())
+}
+
+func (i *VpcEndpointServiceAllowedPrinciple) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrinciplePtrOutput)
+}
+
+type VpcEndpointServiceAllowedPrinciplePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceAllowedPrinciplePtrOutput() VpcEndpointServiceAllowedPrinciplePtrOutput
+	ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput
+}
+
+type vpcEndpointServiceAllowedPrinciplePtrType VpcEndpointServiceAllowedPrincipleArgs
+
+func (*vpcEndpointServiceAllowedPrinciplePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (i *vpcEndpointServiceAllowedPrinciplePtrType) ToVpcEndpointServiceAllowedPrinciplePtrOutput() VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return i.ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointServiceAllowedPrinciplePtrType) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrinciplePtrOutput)
+}
+
+// VpcEndpointServiceAllowedPrincipleArrayInput is an input type that accepts VpcEndpointServiceAllowedPrincipleArray and VpcEndpointServiceAllowedPrincipleArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointServiceAllowedPrincipleArrayInput` via:
+//
+//          VpcEndpointServiceAllowedPrincipleArray{ VpcEndpointServiceAllowedPrincipleArgs{...} }
+type VpcEndpointServiceAllowedPrincipleArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceAllowedPrincipleArrayOutput() VpcEndpointServiceAllowedPrincipleArrayOutput
+	ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(context.Context) VpcEndpointServiceAllowedPrincipleArrayOutput
+}
+
+type VpcEndpointServiceAllowedPrincipleArray []VpcEndpointServiceAllowedPrincipleInput
+
+func (VpcEndpointServiceAllowedPrincipleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrincipleArrayOutput() VpcEndpointServiceAllowedPrincipleArrayOutput {
+	return i.ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleArrayOutput)
+}
+
+// VpcEndpointServiceAllowedPrincipleMapInput is an input type that accepts VpcEndpointServiceAllowedPrincipleMap and VpcEndpointServiceAllowedPrincipleMapOutput values.
+// You can construct a concrete instance of `VpcEndpointServiceAllowedPrincipleMapInput` via:
+//
+//          VpcEndpointServiceAllowedPrincipleMap{ "key": VpcEndpointServiceAllowedPrincipleArgs{...} }
+type VpcEndpointServiceAllowedPrincipleMapInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceAllowedPrincipleMapOutput() VpcEndpointServiceAllowedPrincipleMapOutput
+	ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(context.Context) VpcEndpointServiceAllowedPrincipleMapOutput
+}
+
+type VpcEndpointServiceAllowedPrincipleMap map[string]VpcEndpointServiceAllowedPrincipleInput
+
+func (VpcEndpointServiceAllowedPrincipleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (i VpcEndpointServiceAllowedPrincipleMap) ToVpcEndpointServiceAllowedPrincipleMapOutput() VpcEndpointServiceAllowedPrincipleMapOutput {
+	return i.ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServiceAllowedPrincipleMap) ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleMapOutput)
+}
+
 type VpcEndpointServiceAllowedPrincipleOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 	return o
 }
 
+func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutput() VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return o.ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return o.ApplyT(func(v VpcEndpointServiceAllowedPrinciple) *VpcEndpointServiceAllowedPrinciple {
+		return &v
+	}).(VpcEndpointServiceAllowedPrinciplePtrOutput)
+}
+
+type VpcEndpointServiceAllowedPrinciplePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointServiceAllowedPrinciplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (o VpcEndpointServiceAllowedPrinciplePtrOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutput() VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return o
+}
+
+func (o VpcEndpointServiceAllowedPrinciplePtrOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
+	return o
+}
+
+type VpcEndpointServiceAllowedPrincipleArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceAllowedPrincipleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (o VpcEndpointServiceAllowedPrincipleArrayOutput) ToVpcEndpointServiceAllowedPrincipleArrayOutput() VpcEndpointServiceAllowedPrincipleArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceAllowedPrincipleArrayOutput) ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceAllowedPrincipleArrayOutput) Index(i pulumi.IntInput) VpcEndpointServiceAllowedPrincipleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointServiceAllowedPrinciple {
+		return vs[0].([]VpcEndpointServiceAllowedPrinciple)[vs[1].(int)]
+	}).(VpcEndpointServiceAllowedPrincipleOutput)
+}
+
+type VpcEndpointServiceAllowedPrincipleMapOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceAllowedPrincipleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcEndpointServiceAllowedPrinciple)(nil))
+}
+
+func (o VpcEndpointServiceAllowedPrincipleMapOutput) ToVpcEndpointServiceAllowedPrincipleMapOutput() VpcEndpointServiceAllowedPrincipleMapOutput {
+	return o
+}
+
+func (o VpcEndpointServiceAllowedPrincipleMapOutput) ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleMapOutput {
+	return o
+}
+
+func (o VpcEndpointServiceAllowedPrincipleMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointServiceAllowedPrincipleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcEndpointServiceAllowedPrinciple {
+		return vs[0].(map[string]VpcEndpointServiceAllowedPrinciple)[vs[1].(string)]
+	}).(VpcEndpointServiceAllowedPrincipleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrincipleOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrinciplePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrincipleArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrincipleMapOutput{})
 }

@@ -265,6 +265,85 @@ func (i *NetworkAclRule) ToNetworkAclRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleOutput)
 }
 
+func (i *NetworkAclRule) ToNetworkAclRulePtrOutput() NetworkAclRulePtrOutput {
+	return i.ToNetworkAclRulePtrOutputWithContext(context.Background())
+}
+
+func (i *NetworkAclRule) ToNetworkAclRulePtrOutputWithContext(ctx context.Context) NetworkAclRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRulePtrOutput)
+}
+
+type NetworkAclRulePtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclRulePtrOutput() NetworkAclRulePtrOutput
+	ToNetworkAclRulePtrOutputWithContext(ctx context.Context) NetworkAclRulePtrOutput
+}
+
+type networkAclRulePtrType NetworkAclRuleArgs
+
+func (*networkAclRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclRule)(nil))
+}
+
+func (i *networkAclRulePtrType) ToNetworkAclRulePtrOutput() NetworkAclRulePtrOutput {
+	return i.ToNetworkAclRulePtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclRulePtrType) ToNetworkAclRulePtrOutputWithContext(ctx context.Context) NetworkAclRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRulePtrOutput)
+}
+
+// NetworkAclRuleArrayInput is an input type that accepts NetworkAclRuleArray and NetworkAclRuleArrayOutput values.
+// You can construct a concrete instance of `NetworkAclRuleArrayInput` via:
+//
+//          NetworkAclRuleArray{ NetworkAclRuleArgs{...} }
+type NetworkAclRuleArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOutput
+	ToNetworkAclRuleArrayOutputWithContext(context.Context) NetworkAclRuleArrayOutput
+}
+
+type NetworkAclRuleArray []NetworkAclRuleInput
+
+func (NetworkAclRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NetworkAclRule)(nil))
+}
+
+func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOutput {
+	return i.ToNetworkAclRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutputWithContext(ctx context.Context) NetworkAclRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleArrayOutput)
+}
+
+// NetworkAclRuleMapInput is an input type that accepts NetworkAclRuleMap and NetworkAclRuleMapOutput values.
+// You can construct a concrete instance of `NetworkAclRuleMapInput` via:
+//
+//          NetworkAclRuleMap{ "key": NetworkAclRuleArgs{...} }
+type NetworkAclRuleMapInput interface {
+	pulumi.Input
+
+	ToNetworkAclRuleMapOutput() NetworkAclRuleMapOutput
+	ToNetworkAclRuleMapOutputWithContext(context.Context) NetworkAclRuleMapOutput
+}
+
+type NetworkAclRuleMap map[string]NetworkAclRuleInput
+
+func (NetworkAclRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NetworkAclRule)(nil))
+}
+
+func (i NetworkAclRuleMap) ToNetworkAclRuleMapOutput() NetworkAclRuleMapOutput {
+	return i.ToNetworkAclRuleMapOutputWithContext(context.Background())
+}
+
+func (i NetworkAclRuleMap) ToNetworkAclRuleMapOutputWithContext(ctx context.Context) NetworkAclRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleMapOutput)
+}
+
 type NetworkAclRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -281,6 +360,75 @@ func (o NetworkAclRuleOutput) ToNetworkAclRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NetworkAclRuleOutput) ToNetworkAclRulePtrOutput() NetworkAclRulePtrOutput {
+	return o.ToNetworkAclRulePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclRuleOutput) ToNetworkAclRulePtrOutputWithContext(ctx context.Context) NetworkAclRulePtrOutput {
+	return o.ApplyT(func(v NetworkAclRule) *NetworkAclRule {
+		return &v
+	}).(NetworkAclRulePtrOutput)
+}
+
+type NetworkAclRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAclRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclRule)(nil))
+}
+
+func (o NetworkAclRulePtrOutput) ToNetworkAclRulePtrOutput() NetworkAclRulePtrOutput {
+	return o
+}
+
+func (o NetworkAclRulePtrOutput) ToNetworkAclRulePtrOutputWithContext(ctx context.Context) NetworkAclRulePtrOutput {
+	return o
+}
+
+type NetworkAclRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclRule)(nil))
+}
+
+func (o NetworkAclRuleArrayOutput) ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOutput {
+	return o
+}
+
+func (o NetworkAclRuleArrayOutput) ToNetworkAclRuleArrayOutputWithContext(ctx context.Context) NetworkAclRuleArrayOutput {
+	return o
+}
+
+func (o NetworkAclRuleArrayOutput) Index(i pulumi.IntInput) NetworkAclRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclRule {
+		return vs[0].([]NetworkAclRule)[vs[1].(int)]
+	}).(NetworkAclRuleOutput)
+}
+
+type NetworkAclRuleMapOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkAclRule)(nil))
+}
+
+func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutput() NetworkAclRuleMapOutput {
+	return o
+}
+
+func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutputWithContext(ctx context.Context) NetworkAclRuleMapOutput {
+	return o
+}
+
+func (o NetworkAclRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkAclRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkAclRule {
+		return vs[0].(map[string]NetworkAclRule)[vs[1].(string)]
+	}).(NetworkAclRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkAclRuleOutput{})
+	pulumi.RegisterOutputType(NetworkAclRulePtrOutput{})
+	pulumi.RegisterOutputType(NetworkAclRuleArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclRuleMapOutput{})
 }

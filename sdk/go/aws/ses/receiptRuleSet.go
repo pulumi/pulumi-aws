@@ -129,6 +129,85 @@ func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
 }
 
+func (i *ReceiptRuleSet) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
+	return i.ToReceiptRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ReceiptRuleSet) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetPtrOutput)
+}
+
+type ReceiptRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput
+	ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput
+}
+
+type receiptRuleSetPtrType ReceiptRuleSetArgs
+
+func (*receiptRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSet)(nil))
+}
+
+func (i *receiptRuleSetPtrType) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
+	return i.ToReceiptRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleSetPtrType) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetPtrOutput)
+}
+
+// ReceiptRuleSetArrayInput is an input type that accepts ReceiptRuleSetArray and ReceiptRuleSetArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleSetArrayInput` via:
+//
+//          ReceiptRuleSetArray{ ReceiptRuleSetArgs{...} }
+type ReceiptRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOutput
+	ToReceiptRuleSetArrayOutputWithContext(context.Context) ReceiptRuleSetArrayOutput
+}
+
+type ReceiptRuleSetArray []ReceiptRuleSetInput
+
+func (ReceiptRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ReceiptRuleSet)(nil))
+}
+
+func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOutput {
+	return i.ToReceiptRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutputWithContext(ctx context.Context) ReceiptRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetArrayOutput)
+}
+
+// ReceiptRuleSetMapInput is an input type that accepts ReceiptRuleSetMap and ReceiptRuleSetMapOutput values.
+// You can construct a concrete instance of `ReceiptRuleSetMapInput` via:
+//
+//          ReceiptRuleSetMap{ "key": ReceiptRuleSetArgs{...} }
+type ReceiptRuleSetMapInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOutput
+	ToReceiptRuleSetMapOutputWithContext(context.Context) ReceiptRuleSetMapOutput
+}
+
+type ReceiptRuleSetMap map[string]ReceiptRuleSetInput
+
+func (ReceiptRuleSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ReceiptRuleSet)(nil))
+}
+
+func (i ReceiptRuleSetMap) ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOutput {
+	return i.ToReceiptRuleSetMapOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSetMap) ToReceiptRuleSetMapOutputWithContext(ctx context.Context) ReceiptRuleSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetMapOutput)
+}
+
 type ReceiptRuleSetOutput struct {
 	*pulumi.OutputState
 }
@@ -145,6 +224,75 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
+	return o.ToReceiptRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSet) *ReceiptRuleSet {
+		return &v
+	}).(ReceiptRuleSetPtrOutput)
+}
+
+type ReceiptRuleSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReceiptRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSet)(nil))
+}
+
+func (o ReceiptRuleSetPtrOutput) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleSetPtrOutput) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
+	return o
+}
+
+type ReceiptRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReceiptRuleSet)(nil))
+}
+
+func (o ReceiptRuleSetArrayOutput) ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleSetArrayOutput) ToReceiptRuleSetArrayOutputWithContext(ctx context.Context) ReceiptRuleSetArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleSetArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReceiptRuleSet {
+		return vs[0].([]ReceiptRuleSet)[vs[1].(int)]
+	}).(ReceiptRuleSetOutput)
+}
+
+type ReceiptRuleSetMapOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReceiptRuleSet)(nil))
+}
+
+func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOutput {
+	return o
+}
+
+func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutputWithContext(ctx context.Context) ReceiptRuleSetMapOutput {
+	return o
+}
+
+func (o ReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ReceiptRuleSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReceiptRuleSet {
+		return vs[0].(map[string]ReceiptRuleSet)[vs[1].(string)]
+	}).(ReceiptRuleSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSetMapOutput{})
 }

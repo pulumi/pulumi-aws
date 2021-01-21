@@ -147,6 +147,85 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetOutput)
 }
 
+func (i *SizeConstraintSet) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
+	return i.ToSizeConstraintSetPtrOutputWithContext(context.Background())
+}
+
+func (i *SizeConstraintSet) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetPtrOutput)
+}
+
+type SizeConstraintSetPtrInput interface {
+	pulumi.Input
+
+	ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput
+	ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput
+}
+
+type sizeConstraintSetPtrType SizeConstraintSetArgs
+
+func (*sizeConstraintSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SizeConstraintSet)(nil))
+}
+
+func (i *sizeConstraintSetPtrType) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
+	return i.ToSizeConstraintSetPtrOutputWithContext(context.Background())
+}
+
+func (i *sizeConstraintSetPtrType) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetPtrOutput)
+}
+
+// SizeConstraintSetArrayInput is an input type that accepts SizeConstraintSetArray and SizeConstraintSetArrayOutput values.
+// You can construct a concrete instance of `SizeConstraintSetArrayInput` via:
+//
+//          SizeConstraintSetArray{ SizeConstraintSetArgs{...} }
+type SizeConstraintSetArrayInput interface {
+	pulumi.Input
+
+	ToSizeConstraintSetArrayOutput() SizeConstraintSetArrayOutput
+	ToSizeConstraintSetArrayOutputWithContext(context.Context) SizeConstraintSetArrayOutput
+}
+
+type SizeConstraintSetArray []SizeConstraintSetInput
+
+func (SizeConstraintSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SizeConstraintSet)(nil))
+}
+
+func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutput() SizeConstraintSetArrayOutput {
+	return i.ToSizeConstraintSetArrayOutputWithContext(context.Background())
+}
+
+func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutputWithContext(ctx context.Context) SizeConstraintSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetArrayOutput)
+}
+
+// SizeConstraintSetMapInput is an input type that accepts SizeConstraintSetMap and SizeConstraintSetMapOutput values.
+// You can construct a concrete instance of `SizeConstraintSetMapInput` via:
+//
+//          SizeConstraintSetMap{ "key": SizeConstraintSetArgs{...} }
+type SizeConstraintSetMapInput interface {
+	pulumi.Input
+
+	ToSizeConstraintSetMapOutput() SizeConstraintSetMapOutput
+	ToSizeConstraintSetMapOutputWithContext(context.Context) SizeConstraintSetMapOutput
+}
+
+type SizeConstraintSetMap map[string]SizeConstraintSetInput
+
+func (SizeConstraintSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SizeConstraintSet)(nil))
+}
+
+func (i SizeConstraintSetMap) ToSizeConstraintSetMapOutput() SizeConstraintSetMapOutput {
+	return i.ToSizeConstraintSetMapOutputWithContext(context.Background())
+}
+
+func (i SizeConstraintSetMap) ToSizeConstraintSetMapOutputWithContext(ctx context.Context) SizeConstraintSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetMapOutput)
+}
+
 type SizeConstraintSetOutput struct {
 	*pulumi.OutputState
 }
@@ -163,6 +242,75 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 	return o
 }
 
+func (o SizeConstraintSetOutput) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
+	return o.ToSizeConstraintSetPtrOutputWithContext(context.Background())
+}
+
+func (o SizeConstraintSetOutput) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
+	return o.ApplyT(func(v SizeConstraintSet) *SizeConstraintSet {
+		return &v
+	}).(SizeConstraintSetPtrOutput)
+}
+
+type SizeConstraintSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SizeConstraintSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SizeConstraintSet)(nil))
+}
+
+func (o SizeConstraintSetPtrOutput) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
+	return o
+}
+
+func (o SizeConstraintSetPtrOutput) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
+	return o
+}
+
+type SizeConstraintSetArrayOutput struct{ *pulumi.OutputState }
+
+func (SizeConstraintSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SizeConstraintSet)(nil))
+}
+
+func (o SizeConstraintSetArrayOutput) ToSizeConstraintSetArrayOutput() SizeConstraintSetArrayOutput {
+	return o
+}
+
+func (o SizeConstraintSetArrayOutput) ToSizeConstraintSetArrayOutputWithContext(ctx context.Context) SizeConstraintSetArrayOutput {
+	return o
+}
+
+func (o SizeConstraintSetArrayOutput) Index(i pulumi.IntInput) SizeConstraintSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeConstraintSet {
+		return vs[0].([]SizeConstraintSet)[vs[1].(int)]
+	}).(SizeConstraintSetOutput)
+}
+
+type SizeConstraintSetMapOutput struct{ *pulumi.OutputState }
+
+func (SizeConstraintSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SizeConstraintSet)(nil))
+}
+
+func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutput() SizeConstraintSetMapOutput {
+	return o
+}
+
+func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutputWithContext(ctx context.Context) SizeConstraintSetMapOutput {
+	return o
+}
+
+func (o SizeConstraintSetMapOutput) MapIndex(k pulumi.StringInput) SizeConstraintSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SizeConstraintSet {
+		return vs[0].(map[string]SizeConstraintSet)[vs[1].(string)]
+	}).(SizeConstraintSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SizeConstraintSetOutput{})
+	pulumi.RegisterOutputType(SizeConstraintSetPtrOutput{})
+	pulumi.RegisterOutputType(SizeConstraintSetArrayOutput{})
+	pulumi.RegisterOutputType(SizeConstraintSetMapOutput{})
 }

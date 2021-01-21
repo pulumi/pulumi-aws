@@ -269,6 +269,85 @@ func (i *SigningJob) ToSigningJobOutputWithContext(ctx context.Context) SigningJ
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobOutput)
 }
 
+func (i *SigningJob) ToSigningJobPtrOutput() SigningJobPtrOutput {
+	return i.ToSigningJobPtrOutputWithContext(context.Background())
+}
+
+func (i *SigningJob) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningJobPtrOutput)
+}
+
+type SigningJobPtrInput interface {
+	pulumi.Input
+
+	ToSigningJobPtrOutput() SigningJobPtrOutput
+	ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput
+}
+
+type signingJobPtrType SigningJobArgs
+
+func (*signingJobPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SigningJob)(nil))
+}
+
+func (i *signingJobPtrType) ToSigningJobPtrOutput() SigningJobPtrOutput {
+	return i.ToSigningJobPtrOutputWithContext(context.Background())
+}
+
+func (i *signingJobPtrType) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningJobPtrOutput)
+}
+
+// SigningJobArrayInput is an input type that accepts SigningJobArray and SigningJobArrayOutput values.
+// You can construct a concrete instance of `SigningJobArrayInput` via:
+//
+//          SigningJobArray{ SigningJobArgs{...} }
+type SigningJobArrayInput interface {
+	pulumi.Input
+
+	ToSigningJobArrayOutput() SigningJobArrayOutput
+	ToSigningJobArrayOutputWithContext(context.Context) SigningJobArrayOutput
+}
+
+type SigningJobArray []SigningJobInput
+
+func (SigningJobArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SigningJob)(nil))
+}
+
+func (i SigningJobArray) ToSigningJobArrayOutput() SigningJobArrayOutput {
+	return i.ToSigningJobArrayOutputWithContext(context.Background())
+}
+
+func (i SigningJobArray) ToSigningJobArrayOutputWithContext(ctx context.Context) SigningJobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningJobArrayOutput)
+}
+
+// SigningJobMapInput is an input type that accepts SigningJobMap and SigningJobMapOutput values.
+// You can construct a concrete instance of `SigningJobMapInput` via:
+//
+//          SigningJobMap{ "key": SigningJobArgs{...} }
+type SigningJobMapInput interface {
+	pulumi.Input
+
+	ToSigningJobMapOutput() SigningJobMapOutput
+	ToSigningJobMapOutputWithContext(context.Context) SigningJobMapOutput
+}
+
+type SigningJobMap map[string]SigningJobInput
+
+func (SigningJobMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SigningJob)(nil))
+}
+
+func (i SigningJobMap) ToSigningJobMapOutput() SigningJobMapOutput {
+	return i.ToSigningJobMapOutputWithContext(context.Background())
+}
+
+func (i SigningJobMap) ToSigningJobMapOutputWithContext(ctx context.Context) SigningJobMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningJobMapOutput)
+}
+
 type SigningJobOutput struct {
 	*pulumi.OutputState
 }
@@ -285,6 +364,75 @@ func (o SigningJobOutput) ToSigningJobOutputWithContext(ctx context.Context) Sig
 	return o
 }
 
+func (o SigningJobOutput) ToSigningJobPtrOutput() SigningJobPtrOutput {
+	return o.ToSigningJobPtrOutputWithContext(context.Background())
+}
+
+func (o SigningJobOutput) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
+	return o.ApplyT(func(v SigningJob) *SigningJob {
+		return &v
+	}).(SigningJobPtrOutput)
+}
+
+type SigningJobPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SigningJobPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SigningJob)(nil))
+}
+
+func (o SigningJobPtrOutput) ToSigningJobPtrOutput() SigningJobPtrOutput {
+	return o
+}
+
+func (o SigningJobPtrOutput) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
+	return o
+}
+
+type SigningJobArrayOutput struct{ *pulumi.OutputState }
+
+func (SigningJobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningJob)(nil))
+}
+
+func (o SigningJobArrayOutput) ToSigningJobArrayOutput() SigningJobArrayOutput {
+	return o
+}
+
+func (o SigningJobArrayOutput) ToSigningJobArrayOutputWithContext(ctx context.Context) SigningJobArrayOutput {
+	return o
+}
+
+func (o SigningJobArrayOutput) Index(i pulumi.IntInput) SigningJobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningJob {
+		return vs[0].([]SigningJob)[vs[1].(int)]
+	}).(SigningJobOutput)
+}
+
+type SigningJobMapOutput struct{ *pulumi.OutputState }
+
+func (SigningJobMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SigningJob)(nil))
+}
+
+func (o SigningJobMapOutput) ToSigningJobMapOutput() SigningJobMapOutput {
+	return o
+}
+
+func (o SigningJobMapOutput) ToSigningJobMapOutputWithContext(ctx context.Context) SigningJobMapOutput {
+	return o
+}
+
+func (o SigningJobMapOutput) MapIndex(k pulumi.StringInput) SigningJobOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SigningJob {
+		return vs[0].(map[string]SigningJob)[vs[1].(string)]
+	}).(SigningJobOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SigningJobOutput{})
+	pulumi.RegisterOutputType(SigningJobPtrOutput{})
+	pulumi.RegisterOutputType(SigningJobArrayOutput{})
+	pulumi.RegisterOutputType(SigningJobMapOutput{})
 }

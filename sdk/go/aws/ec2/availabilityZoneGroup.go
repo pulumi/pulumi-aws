@@ -145,6 +145,85 @@ func (i *AvailabilityZoneGroup) ToAvailabilityZoneGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupOutput)
 }
 
+func (i *AvailabilityZoneGroup) ToAvailabilityZoneGroupPtrOutput() AvailabilityZoneGroupPtrOutput {
+	return i.ToAvailabilityZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *AvailabilityZoneGroup) ToAvailabilityZoneGroupPtrOutputWithContext(ctx context.Context) AvailabilityZoneGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupPtrOutput)
+}
+
+type AvailabilityZoneGroupPtrInput interface {
+	pulumi.Input
+
+	ToAvailabilityZoneGroupPtrOutput() AvailabilityZoneGroupPtrOutput
+	ToAvailabilityZoneGroupPtrOutputWithContext(ctx context.Context) AvailabilityZoneGroupPtrOutput
+}
+
+type availabilityZoneGroupPtrType AvailabilityZoneGroupArgs
+
+func (*availabilityZoneGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailabilityZoneGroup)(nil))
+}
+
+func (i *availabilityZoneGroupPtrType) ToAvailabilityZoneGroupPtrOutput() AvailabilityZoneGroupPtrOutput {
+	return i.ToAvailabilityZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *availabilityZoneGroupPtrType) ToAvailabilityZoneGroupPtrOutputWithContext(ctx context.Context) AvailabilityZoneGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupPtrOutput)
+}
+
+// AvailabilityZoneGroupArrayInput is an input type that accepts AvailabilityZoneGroupArray and AvailabilityZoneGroupArrayOutput values.
+// You can construct a concrete instance of `AvailabilityZoneGroupArrayInput` via:
+//
+//          AvailabilityZoneGroupArray{ AvailabilityZoneGroupArgs{...} }
+type AvailabilityZoneGroupArrayInput interface {
+	pulumi.Input
+
+	ToAvailabilityZoneGroupArrayOutput() AvailabilityZoneGroupArrayOutput
+	ToAvailabilityZoneGroupArrayOutputWithContext(context.Context) AvailabilityZoneGroupArrayOutput
+}
+
+type AvailabilityZoneGroupArray []AvailabilityZoneGroupInput
+
+func (AvailabilityZoneGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AvailabilityZoneGroup)(nil))
+}
+
+func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutput() AvailabilityZoneGroupArrayOutput {
+	return i.ToAvailabilityZoneGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutputWithContext(ctx context.Context) AvailabilityZoneGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupArrayOutput)
+}
+
+// AvailabilityZoneGroupMapInput is an input type that accepts AvailabilityZoneGroupMap and AvailabilityZoneGroupMapOutput values.
+// You can construct a concrete instance of `AvailabilityZoneGroupMapInput` via:
+//
+//          AvailabilityZoneGroupMap{ "key": AvailabilityZoneGroupArgs{...} }
+type AvailabilityZoneGroupMapInput interface {
+	pulumi.Input
+
+	ToAvailabilityZoneGroupMapOutput() AvailabilityZoneGroupMapOutput
+	ToAvailabilityZoneGroupMapOutputWithContext(context.Context) AvailabilityZoneGroupMapOutput
+}
+
+type AvailabilityZoneGroupMap map[string]AvailabilityZoneGroupInput
+
+func (AvailabilityZoneGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AvailabilityZoneGroup)(nil))
+}
+
+func (i AvailabilityZoneGroupMap) ToAvailabilityZoneGroupMapOutput() AvailabilityZoneGroupMapOutput {
+	return i.ToAvailabilityZoneGroupMapOutputWithContext(context.Background())
+}
+
+func (i AvailabilityZoneGroupMap) ToAvailabilityZoneGroupMapOutputWithContext(ctx context.Context) AvailabilityZoneGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupMapOutput)
+}
+
 type AvailabilityZoneGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupOutputWithContext(ct
 	return o
 }
 
+func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupPtrOutput() AvailabilityZoneGroupPtrOutput {
+	return o.ToAvailabilityZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupPtrOutputWithContext(ctx context.Context) AvailabilityZoneGroupPtrOutput {
+	return o.ApplyT(func(v AvailabilityZoneGroup) *AvailabilityZoneGroup {
+		return &v
+	}).(AvailabilityZoneGroupPtrOutput)
+}
+
+type AvailabilityZoneGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AvailabilityZoneGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailabilityZoneGroup)(nil))
+}
+
+func (o AvailabilityZoneGroupPtrOutput) ToAvailabilityZoneGroupPtrOutput() AvailabilityZoneGroupPtrOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupPtrOutput) ToAvailabilityZoneGroupPtrOutputWithContext(ctx context.Context) AvailabilityZoneGroupPtrOutput {
+	return o
+}
+
+type AvailabilityZoneGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityZoneGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AvailabilityZoneGroup)(nil))
+}
+
+func (o AvailabilityZoneGroupArrayOutput) ToAvailabilityZoneGroupArrayOutput() AvailabilityZoneGroupArrayOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupArrayOutput) ToAvailabilityZoneGroupArrayOutputWithContext(ctx context.Context) AvailabilityZoneGroupArrayOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupArrayOutput) Index(i pulumi.IntInput) AvailabilityZoneGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AvailabilityZoneGroup {
+		return vs[0].([]AvailabilityZoneGroup)[vs[1].(int)]
+	}).(AvailabilityZoneGroupOutput)
+}
+
+type AvailabilityZoneGroupMapOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityZoneGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AvailabilityZoneGroup)(nil))
+}
+
+func (o AvailabilityZoneGroupMapOutput) ToAvailabilityZoneGroupMapOutput() AvailabilityZoneGroupMapOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupMapOutput) ToAvailabilityZoneGroupMapOutputWithContext(ctx context.Context) AvailabilityZoneGroupMapOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupMapOutput) MapIndex(k pulumi.StringInput) AvailabilityZoneGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AvailabilityZoneGroup {
+		return vs[0].(map[string]AvailabilityZoneGroup)[vs[1].(string)]
+	}).(AvailabilityZoneGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AvailabilityZoneGroupOutput{})
+	pulumi.RegisterOutputType(AvailabilityZoneGroupPtrOutput{})
+	pulumi.RegisterOutputType(AvailabilityZoneGroupArrayOutput{})
+	pulumi.RegisterOutputType(AvailabilityZoneGroupMapOutput{})
 }

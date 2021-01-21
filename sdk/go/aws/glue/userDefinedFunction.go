@@ -220,6 +220,85 @@ func (i *UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionOutput)
 }
 
+func (i *UserDefinedFunction) ToUserDefinedFunctionPtrOutput() UserDefinedFunctionPtrOutput {
+	return i.ToUserDefinedFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *UserDefinedFunction) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionPtrOutput)
+}
+
+type UserDefinedFunctionPtrInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionPtrOutput() UserDefinedFunctionPtrOutput
+	ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput
+}
+
+type userDefinedFunctionPtrType UserDefinedFunctionArgs
+
+func (*userDefinedFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunction)(nil))
+}
+
+func (i *userDefinedFunctionPtrType) ToUserDefinedFunctionPtrOutput() UserDefinedFunctionPtrOutput {
+	return i.ToUserDefinedFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *userDefinedFunctionPtrType) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionPtrOutput)
+}
+
+// UserDefinedFunctionArrayInput is an input type that accepts UserDefinedFunctionArray and UserDefinedFunctionArrayOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionArrayInput` via:
+//
+//          UserDefinedFunctionArray{ UserDefinedFunctionArgs{...} }
+type UserDefinedFunctionArrayInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionArrayOutput() UserDefinedFunctionArrayOutput
+	ToUserDefinedFunctionArrayOutputWithContext(context.Context) UserDefinedFunctionArrayOutput
+}
+
+type UserDefinedFunctionArray []UserDefinedFunctionInput
+
+func (UserDefinedFunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserDefinedFunction)(nil))
+}
+
+func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutput() UserDefinedFunctionArrayOutput {
+	return i.ToUserDefinedFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutputWithContext(ctx context.Context) UserDefinedFunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionArrayOutput)
+}
+
+// UserDefinedFunctionMapInput is an input type that accepts UserDefinedFunctionMap and UserDefinedFunctionMapOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionMapInput` via:
+//
+//          UserDefinedFunctionMap{ "key": UserDefinedFunctionArgs{...} }
+type UserDefinedFunctionMapInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionMapOutput() UserDefinedFunctionMapOutput
+	ToUserDefinedFunctionMapOutputWithContext(context.Context) UserDefinedFunctionMapOutput
+}
+
+type UserDefinedFunctionMap map[string]UserDefinedFunctionInput
+
+func (UserDefinedFunctionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserDefinedFunction)(nil))
+}
+
+func (i UserDefinedFunctionMap) ToUserDefinedFunctionMapOutput() UserDefinedFunctionMapOutput {
+	return i.ToUserDefinedFunctionMapOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionMap) ToUserDefinedFunctionMapOutputWithContext(ctx context.Context) UserDefinedFunctionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionMapOutput)
+}
+
 type UserDefinedFunctionOutput struct {
 	*pulumi.OutputState
 }
@@ -236,6 +315,75 @@ func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutputWithContext(ctx co
 	return o
 }
 
+func (o UserDefinedFunctionOutput) ToUserDefinedFunctionPtrOutput() UserDefinedFunctionPtrOutput {
+	return o.ToUserDefinedFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionOutput) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
+	return o.ApplyT(func(v UserDefinedFunction) *UserDefinedFunction {
+		return &v
+	}).(UserDefinedFunctionPtrOutput)
+}
+
+type UserDefinedFunctionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserDefinedFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunction)(nil))
+}
+
+func (o UserDefinedFunctionPtrOutput) ToUserDefinedFunctionPtrOutput() UserDefinedFunctionPtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionPtrOutput) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
+	return o
+}
+
+type UserDefinedFunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDefinedFunction)(nil))
+}
+
+func (o UserDefinedFunctionArrayOutput) ToUserDefinedFunctionArrayOutput() UserDefinedFunctionArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionArrayOutput) ToUserDefinedFunctionArrayOutputWithContext(ctx context.Context) UserDefinedFunctionArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionArrayOutput) Index(i pulumi.IntInput) UserDefinedFunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserDefinedFunction {
+		return vs[0].([]UserDefinedFunction)[vs[1].(int)]
+	}).(UserDefinedFunctionOutput)
+}
+
+type UserDefinedFunctionMapOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserDefinedFunction)(nil))
+}
+
+func (o UserDefinedFunctionMapOutput) ToUserDefinedFunctionMapOutput() UserDefinedFunctionMapOutput {
+	return o
+}
+
+func (o UserDefinedFunctionMapOutput) ToUserDefinedFunctionMapOutputWithContext(ctx context.Context) UserDefinedFunctionMapOutput {
+	return o
+}
+
+func (o UserDefinedFunctionMapOutput) MapIndex(k pulumi.StringInput) UserDefinedFunctionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserDefinedFunction {
+		return vs[0].(map[string]UserDefinedFunction)[vs[1].(string)]
+	}).(UserDefinedFunctionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserDefinedFunctionOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionPtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionArrayOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionMapOutput{})
 }

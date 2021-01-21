@@ -360,6 +360,85 @@ func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) Target
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
 }
 
+func (i *TargetGroup) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
+	return i.ToTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *TargetGroup) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupPtrOutput)
+}
+
+type TargetGroupPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupPtrOutput() TargetGroupPtrOutput
+	ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput
+}
+
+type targetGroupPtrType TargetGroupArgs
+
+func (*targetGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroup)(nil))
+}
+
+func (i *targetGroupPtrType) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
+	return i.ToTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupPtrType) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupPtrOutput)
+}
+
+// TargetGroupArrayInput is an input type that accepts TargetGroupArray and TargetGroupArrayOutput values.
+// You can construct a concrete instance of `TargetGroupArrayInput` via:
+//
+//          TargetGroupArray{ TargetGroupArgs{...} }
+type TargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupArrayOutput() TargetGroupArrayOutput
+	ToTargetGroupArrayOutputWithContext(context.Context) TargetGroupArrayOutput
+}
+
+type TargetGroupArray []TargetGroupInput
+
+func (TargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TargetGroup)(nil))
+}
+
+func (i TargetGroupArray) ToTargetGroupArrayOutput() TargetGroupArrayOutput {
+	return i.ToTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupArray) ToTargetGroupArrayOutputWithContext(ctx context.Context) TargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupArrayOutput)
+}
+
+// TargetGroupMapInput is an input type that accepts TargetGroupMap and TargetGroupMapOutput values.
+// You can construct a concrete instance of `TargetGroupMapInput` via:
+//
+//          TargetGroupMap{ "key": TargetGroupArgs{...} }
+type TargetGroupMapInput interface {
+	pulumi.Input
+
+	ToTargetGroupMapOutput() TargetGroupMapOutput
+	ToTargetGroupMapOutputWithContext(context.Context) TargetGroupMapOutput
+}
+
+type TargetGroupMap map[string]TargetGroupInput
+
+func (TargetGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TargetGroup)(nil))
+}
+
+func (i TargetGroupMap) ToTargetGroupMapOutput() TargetGroupMapOutput {
+	return i.ToTargetGroupMapOutputWithContext(context.Background())
+}
+
+func (i TargetGroupMap) ToTargetGroupMapOutputWithContext(ctx context.Context) TargetGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMapOutput)
+}
+
 type TargetGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -376,6 +455,75 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TargetGroupOutput) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
+	return o.ToTargetGroupPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupOutput) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
+	return o.ApplyT(func(v TargetGroup) *TargetGroup {
+		return &v
+	}).(TargetGroupPtrOutput)
+}
+
+type TargetGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroup)(nil))
+}
+
+func (o TargetGroupPtrOutput) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
+	return o
+}
+
+func (o TargetGroupPtrOutput) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
+	return o
+}
+
+type TargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroup)(nil))
+}
+
+func (o TargetGroupArrayOutput) ToTargetGroupArrayOutput() TargetGroupArrayOutput {
+	return o
+}
+
+func (o TargetGroupArrayOutput) ToTargetGroupArrayOutputWithContext(ctx context.Context) TargetGroupArrayOutput {
+	return o
+}
+
+func (o TargetGroupArrayOutput) Index(i pulumi.IntInput) TargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroup {
+		return vs[0].([]TargetGroup)[vs[1].(int)]
+	}).(TargetGroupOutput)
+}
+
+type TargetGroupMapOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TargetGroup)(nil))
+}
+
+func (o TargetGroupMapOutput) ToTargetGroupMapOutput() TargetGroupMapOutput {
+	return o
+}
+
+func (o TargetGroupMapOutput) ToTargetGroupMapOutputWithContext(ctx context.Context) TargetGroupMapOutput {
+	return o
+}
+
+func (o TargetGroupMapOutput) MapIndex(k pulumi.StringInput) TargetGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TargetGroup {
+		return vs[0].(map[string]TargetGroup)[vs[1].(string)]
+	}).(TargetGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TargetGroupOutput{})
+	pulumi.RegisterOutputType(TargetGroupPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupMapOutput{})
 }

@@ -187,6 +187,85 @@ func (i *RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusOutput)
 }
 
+func (i *RecorderStatus) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
+	return i.ToRecorderStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *RecorderStatus) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusPtrOutput)
+}
+
+type RecorderStatusPtrInput interface {
+	pulumi.Input
+
+	ToRecorderStatusPtrOutput() RecorderStatusPtrOutput
+	ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput
+}
+
+type recorderStatusPtrType RecorderStatusArgs
+
+func (*recorderStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderStatus)(nil))
+}
+
+func (i *recorderStatusPtrType) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
+	return i.ToRecorderStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *recorderStatusPtrType) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusPtrOutput)
+}
+
+// RecorderStatusArrayInput is an input type that accepts RecorderStatusArray and RecorderStatusArrayOutput values.
+// You can construct a concrete instance of `RecorderStatusArrayInput` via:
+//
+//          RecorderStatusArray{ RecorderStatusArgs{...} }
+type RecorderStatusArrayInput interface {
+	pulumi.Input
+
+	ToRecorderStatusArrayOutput() RecorderStatusArrayOutput
+	ToRecorderStatusArrayOutputWithContext(context.Context) RecorderStatusArrayOutput
+}
+
+type RecorderStatusArray []RecorderStatusInput
+
+func (RecorderStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RecorderStatus)(nil))
+}
+
+func (i RecorderStatusArray) ToRecorderStatusArrayOutput() RecorderStatusArrayOutput {
+	return i.ToRecorderStatusArrayOutputWithContext(context.Background())
+}
+
+func (i RecorderStatusArray) ToRecorderStatusArrayOutputWithContext(ctx context.Context) RecorderStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusArrayOutput)
+}
+
+// RecorderStatusMapInput is an input type that accepts RecorderStatusMap and RecorderStatusMapOutput values.
+// You can construct a concrete instance of `RecorderStatusMapInput` via:
+//
+//          RecorderStatusMap{ "key": RecorderStatusArgs{...} }
+type RecorderStatusMapInput interface {
+	pulumi.Input
+
+	ToRecorderStatusMapOutput() RecorderStatusMapOutput
+	ToRecorderStatusMapOutputWithContext(context.Context) RecorderStatusMapOutput
+}
+
+type RecorderStatusMap map[string]RecorderStatusInput
+
+func (RecorderStatusMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RecorderStatus)(nil))
+}
+
+func (i RecorderStatusMap) ToRecorderStatusMapOutput() RecorderStatusMapOutput {
+	return i.ToRecorderStatusMapOutputWithContext(context.Background())
+}
+
+func (i RecorderStatusMap) ToRecorderStatusMapOutputWithContext(ctx context.Context) RecorderStatusMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusMapOutput)
+}
+
 type RecorderStatusOutput struct {
 	*pulumi.OutputState
 }
@@ -203,6 +282,75 @@ func (o RecorderStatusOutput) ToRecorderStatusOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RecorderStatusOutput) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
+	return o.ToRecorderStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RecorderStatusOutput) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
+	return o.ApplyT(func(v RecorderStatus) *RecorderStatus {
+		return &v
+	}).(RecorderStatusPtrOutput)
+}
+
+type RecorderStatusPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecorderStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecorderStatus)(nil))
+}
+
+func (o RecorderStatusPtrOutput) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
+	return o
+}
+
+func (o RecorderStatusPtrOutput) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
+	return o
+}
+
+type RecorderStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (RecorderStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecorderStatus)(nil))
+}
+
+func (o RecorderStatusArrayOutput) ToRecorderStatusArrayOutput() RecorderStatusArrayOutput {
+	return o
+}
+
+func (o RecorderStatusArrayOutput) ToRecorderStatusArrayOutputWithContext(ctx context.Context) RecorderStatusArrayOutput {
+	return o
+}
+
+func (o RecorderStatusArrayOutput) Index(i pulumi.IntInput) RecorderStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecorderStatus {
+		return vs[0].([]RecorderStatus)[vs[1].(int)]
+	}).(RecorderStatusOutput)
+}
+
+type RecorderStatusMapOutput struct{ *pulumi.OutputState }
+
+func (RecorderStatusMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RecorderStatus)(nil))
+}
+
+func (o RecorderStatusMapOutput) ToRecorderStatusMapOutput() RecorderStatusMapOutput {
+	return o
+}
+
+func (o RecorderStatusMapOutput) ToRecorderStatusMapOutputWithContext(ctx context.Context) RecorderStatusMapOutput {
+	return o
+}
+
+func (o RecorderStatusMapOutput) MapIndex(k pulumi.StringInput) RecorderStatusOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RecorderStatus {
+		return vs[0].(map[string]RecorderStatus)[vs[1].(string)]
+	}).(RecorderStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecorderStatusOutput{})
+	pulumi.RegisterOutputType(RecorderStatusPtrOutput{})
+	pulumi.RegisterOutputType(RecorderStatusArrayOutput{})
+	pulumi.RegisterOutputType(RecorderStatusMapOutput{})
 }

@@ -150,6 +150,85 @@ func (i *AssessmentTarget) ToAssessmentTargetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetOutput)
 }
 
+func (i *AssessmentTarget) ToAssessmentTargetPtrOutput() AssessmentTargetPtrOutput {
+	return i.ToAssessmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *AssessmentTarget) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetPtrOutput)
+}
+
+type AssessmentTargetPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentTargetPtrOutput() AssessmentTargetPtrOutput
+	ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput
+}
+
+type assessmentTargetPtrType AssessmentTargetArgs
+
+func (*assessmentTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentTarget)(nil))
+}
+
+func (i *assessmentTargetPtrType) ToAssessmentTargetPtrOutput() AssessmentTargetPtrOutput {
+	return i.ToAssessmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentTargetPtrType) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetPtrOutput)
+}
+
+// AssessmentTargetArrayInput is an input type that accepts AssessmentTargetArray and AssessmentTargetArrayOutput values.
+// You can construct a concrete instance of `AssessmentTargetArrayInput` via:
+//
+//          AssessmentTargetArray{ AssessmentTargetArgs{...} }
+type AssessmentTargetArrayInput interface {
+	pulumi.Input
+
+	ToAssessmentTargetArrayOutput() AssessmentTargetArrayOutput
+	ToAssessmentTargetArrayOutputWithContext(context.Context) AssessmentTargetArrayOutput
+}
+
+type AssessmentTargetArray []AssessmentTargetInput
+
+func (AssessmentTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AssessmentTarget)(nil))
+}
+
+func (i AssessmentTargetArray) ToAssessmentTargetArrayOutput() AssessmentTargetArrayOutput {
+	return i.ToAssessmentTargetArrayOutputWithContext(context.Background())
+}
+
+func (i AssessmentTargetArray) ToAssessmentTargetArrayOutputWithContext(ctx context.Context) AssessmentTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetArrayOutput)
+}
+
+// AssessmentTargetMapInput is an input type that accepts AssessmentTargetMap and AssessmentTargetMapOutput values.
+// You can construct a concrete instance of `AssessmentTargetMapInput` via:
+//
+//          AssessmentTargetMap{ "key": AssessmentTargetArgs{...} }
+type AssessmentTargetMapInput interface {
+	pulumi.Input
+
+	ToAssessmentTargetMapOutput() AssessmentTargetMapOutput
+	ToAssessmentTargetMapOutputWithContext(context.Context) AssessmentTargetMapOutput
+}
+
+type AssessmentTargetMap map[string]AssessmentTargetInput
+
+func (AssessmentTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AssessmentTarget)(nil))
+}
+
+func (i AssessmentTargetMap) ToAssessmentTargetMapOutput() AssessmentTargetMapOutput {
+	return i.ToAssessmentTargetMapOutputWithContext(context.Background())
+}
+
+func (i AssessmentTargetMap) ToAssessmentTargetMapOutputWithContext(ctx context.Context) AssessmentTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetMapOutput)
+}
+
 type AssessmentTargetOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.
 	return o
 }
 
+func (o AssessmentTargetOutput) ToAssessmentTargetPtrOutput() AssessmentTargetPtrOutput {
+	return o.ToAssessmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentTargetOutput) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
+	return o.ApplyT(func(v AssessmentTarget) *AssessmentTarget {
+		return &v
+	}).(AssessmentTargetPtrOutput)
+}
+
+type AssessmentTargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentTarget)(nil))
+}
+
+func (o AssessmentTargetPtrOutput) ToAssessmentTargetPtrOutput() AssessmentTargetPtrOutput {
+	return o
+}
+
+func (o AssessmentTargetPtrOutput) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
+	return o
+}
+
+type AssessmentTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentTarget)(nil))
+}
+
+func (o AssessmentTargetArrayOutput) ToAssessmentTargetArrayOutput() AssessmentTargetArrayOutput {
+	return o
+}
+
+func (o AssessmentTargetArrayOutput) ToAssessmentTargetArrayOutputWithContext(ctx context.Context) AssessmentTargetArrayOutput {
+	return o
+}
+
+func (o AssessmentTargetArrayOutput) Index(i pulumi.IntInput) AssessmentTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentTarget {
+		return vs[0].([]AssessmentTarget)[vs[1].(int)]
+	}).(AssessmentTargetOutput)
+}
+
+type AssessmentTargetMapOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssessmentTarget)(nil))
+}
+
+func (o AssessmentTargetMapOutput) ToAssessmentTargetMapOutput() AssessmentTargetMapOutput {
+	return o
+}
+
+func (o AssessmentTargetMapOutput) ToAssessmentTargetMapOutputWithContext(ctx context.Context) AssessmentTargetMapOutput {
+	return o
+}
+
+func (o AssessmentTargetMapOutput) MapIndex(k pulumi.StringInput) AssessmentTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssessmentTarget {
+		return vs[0].(map[string]AssessmentTarget)[vs[1].(string)]
+	}).(AssessmentTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentTargetOutput{})
+	pulumi.RegisterOutputType(AssessmentTargetPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentTargetArrayOutput{})
+	pulumi.RegisterOutputType(AssessmentTargetMapOutput{})
 }

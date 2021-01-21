@@ -241,6 +241,85 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
 }
 
+func (i *Deployment) ToDeploymentPtrOutput() DeploymentPtrOutput {
+	return i.ToDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *Deployment) ToDeploymentPtrOutputWithContext(ctx context.Context) DeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPtrOutput)
+}
+
+type DeploymentPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentPtrOutput() DeploymentPtrOutput
+	ToDeploymentPtrOutputWithContext(ctx context.Context) DeploymentPtrOutput
+}
+
+type deploymentPtrType DeploymentArgs
+
+func (*deploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Deployment)(nil))
+}
+
+func (i *deploymentPtrType) ToDeploymentPtrOutput() DeploymentPtrOutput {
+	return i.ToDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentPtrType) ToDeploymentPtrOutputWithContext(ctx context.Context) DeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPtrOutput)
+}
+
+// DeploymentArrayInput is an input type that accepts DeploymentArray and DeploymentArrayOutput values.
+// You can construct a concrete instance of `DeploymentArrayInput` via:
+//
+//          DeploymentArray{ DeploymentArgs{...} }
+type DeploymentArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentArrayOutput() DeploymentArrayOutput
+	ToDeploymentArrayOutputWithContext(context.Context) DeploymentArrayOutput
+}
+
+type DeploymentArray []DeploymentInput
+
+func (DeploymentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Deployment)(nil))
+}
+
+func (i DeploymentArray) ToDeploymentArrayOutput() DeploymentArrayOutput {
+	return i.ToDeploymentArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentArray) ToDeploymentArrayOutputWithContext(ctx context.Context) DeploymentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentArrayOutput)
+}
+
+// DeploymentMapInput is an input type that accepts DeploymentMap and DeploymentMapOutput values.
+// You can construct a concrete instance of `DeploymentMapInput` via:
+//
+//          DeploymentMap{ "key": DeploymentArgs{...} }
+type DeploymentMapInput interface {
+	pulumi.Input
+
+	ToDeploymentMapOutput() DeploymentMapOutput
+	ToDeploymentMapOutputWithContext(context.Context) DeploymentMapOutput
+}
+
+type DeploymentMap map[string]DeploymentInput
+
+func (DeploymentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Deployment)(nil))
+}
+
+func (i DeploymentMap) ToDeploymentMapOutput() DeploymentMapOutput {
+	return i.ToDeploymentMapOutputWithContext(context.Background())
+}
+
+func (i DeploymentMap) ToDeploymentMapOutputWithContext(ctx context.Context) DeploymentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMapOutput)
+}
+
 type DeploymentOutput struct {
 	*pulumi.OutputState
 }
@@ -257,6 +336,75 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+func (o DeploymentOutput) ToDeploymentPtrOutput() DeploymentPtrOutput {
+	return o.ToDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentOutput) ToDeploymentPtrOutputWithContext(ctx context.Context) DeploymentPtrOutput {
+	return o.ApplyT(func(v Deployment) *Deployment {
+		return &v
+	}).(DeploymentPtrOutput)
+}
+
+type DeploymentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Deployment)(nil))
+}
+
+func (o DeploymentPtrOutput) ToDeploymentPtrOutput() DeploymentPtrOutput {
+	return o
+}
+
+func (o DeploymentPtrOutput) ToDeploymentPtrOutputWithContext(ctx context.Context) DeploymentPtrOutput {
+	return o
+}
+
+type DeploymentArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Deployment)(nil))
+}
+
+func (o DeploymentArrayOutput) ToDeploymentArrayOutput() DeploymentArrayOutput {
+	return o
+}
+
+func (o DeploymentArrayOutput) ToDeploymentArrayOutputWithContext(ctx context.Context) DeploymentArrayOutput {
+	return o
+}
+
+func (o DeploymentArrayOutput) Index(i pulumi.IntInput) DeploymentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Deployment {
+		return vs[0].([]Deployment)[vs[1].(int)]
+	}).(DeploymentOutput)
+}
+
+type DeploymentMapOutput struct{ *pulumi.OutputState }
+
+func (DeploymentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Deployment)(nil))
+}
+
+func (o DeploymentMapOutput) ToDeploymentMapOutput() DeploymentMapOutput {
+	return o
+}
+
+func (o DeploymentMapOutput) ToDeploymentMapOutputWithContext(ctx context.Context) DeploymentMapOutput {
+	return o
+}
+
+func (o DeploymentMapOutput) MapIndex(k pulumi.StringInput) DeploymentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Deployment {
+		return vs[0].(map[string]Deployment)[vs[1].(string)]
+	}).(DeploymentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentOutput{})
+	pulumi.RegisterOutputType(DeploymentPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentMapOutput{})
 }

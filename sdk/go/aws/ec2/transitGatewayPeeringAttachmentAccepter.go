@@ -163,6 +163,85 @@ func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterOutput)
 }
 
+func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterPtrOutput() TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentAccepterPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentAccepterPtrOutput() TransitGatewayPeeringAttachmentAccepterPtrOutput
+	ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput
+}
+
+type transitGatewayPeeringAttachmentAccepterPtrType TransitGatewayPeeringAttachmentAccepterArgs
+
+func (*transitGatewayPeeringAttachmentAccepterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (i *transitGatewayPeeringAttachmentAccepterPtrType) ToTransitGatewayPeeringAttachmentAccepterPtrOutput() TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayPeeringAttachmentAccepterPtrType) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterPtrOutput)
+}
+
+// TransitGatewayPeeringAttachmentAccepterArrayInput is an input type that accepts TransitGatewayPeeringAttachmentAccepterArray and TransitGatewayPeeringAttachmentAccepterArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentAccepterArrayInput` via:
+//
+//          TransitGatewayPeeringAttachmentAccepterArray{ TransitGatewayPeeringAttachmentAccepterArgs{...} }
+type TransitGatewayPeeringAttachmentAccepterArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentAccepterArrayOutput() TransitGatewayPeeringAttachmentAccepterArrayOutput
+	ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(context.Context) TransitGatewayPeeringAttachmentAccepterArrayOutput
+}
+
+type TransitGatewayPeeringAttachmentAccepterArray []TransitGatewayPeeringAttachmentAccepterInput
+
+func (TransitGatewayPeeringAttachmentAccepterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (i TransitGatewayPeeringAttachmentAccepterArray) ToTransitGatewayPeeringAttachmentAccepterArrayOutput() TransitGatewayPeeringAttachmentAccepterArrayOutput {
+	return i.ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentAccepterArray) ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterArrayOutput)
+}
+
+// TransitGatewayPeeringAttachmentAccepterMapInput is an input type that accepts TransitGatewayPeeringAttachmentAccepterMap and TransitGatewayPeeringAttachmentAccepterMapOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentAccepterMapInput` via:
+//
+//          TransitGatewayPeeringAttachmentAccepterMap{ "key": TransitGatewayPeeringAttachmentAccepterArgs{...} }
+type TransitGatewayPeeringAttachmentAccepterMapInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentAccepterMapOutput() TransitGatewayPeeringAttachmentAccepterMapOutput
+	ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(context.Context) TransitGatewayPeeringAttachmentAccepterMapOutput
+}
+
+type TransitGatewayPeeringAttachmentAccepterMap map[string]TransitGatewayPeeringAttachmentAccepterInput
+
+func (TransitGatewayPeeringAttachmentAccepterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (i TransitGatewayPeeringAttachmentAccepterMap) ToTransitGatewayPeeringAttachmentAccepterMapOutput() TransitGatewayPeeringAttachmentAccepterMapOutput {
+	return i.ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentAccepterMap) ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterMapOutput)
+}
+
 type TransitGatewayPeeringAttachmentAccepterOutput struct {
 	*pulumi.OutputState
 }
@@ -179,6 +258,75 @@ func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAt
 	return o
 }
 
+func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutput() TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return o.ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringAttachmentAccepter) *TransitGatewayPeeringAttachmentAccepter {
+		return &v
+	}).(TransitGatewayPeeringAttachmentAccepterPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentAccepterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransitGatewayPeeringAttachmentAccepterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterPtrOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutput() TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterPtrOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
+	return o
+}
+
+type TransitGatewayPeeringAttachmentAccepterArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentAccepterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) ToTransitGatewayPeeringAttachmentAccepterArrayOutput() TransitGatewayPeeringAttachmentAccepterArrayOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterArrayOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringAttachmentAccepterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayPeeringAttachmentAccepter {
+		return vs[0].([]TransitGatewayPeeringAttachmentAccepter)[vs[1].(int)]
+	}).(TransitGatewayPeeringAttachmentAccepterOutput)
+}
+
+type TransitGatewayPeeringAttachmentAccepterMapOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentAccepterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TransitGatewayPeeringAttachmentAccepter)(nil))
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterMapOutput) ToTransitGatewayPeeringAttachmentAccepterMapOutput() TransitGatewayPeeringAttachmentAccepterMapOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterMapOutput) ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterMapOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayPeeringAttachmentAccepterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TransitGatewayPeeringAttachmentAccepter {
+		return vs[0].(map[string]TransitGatewayPeeringAttachmentAccepter)[vs[1].(string)]
+	}).(TransitGatewayPeeringAttachmentAccepterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterMapOutput{})
 }

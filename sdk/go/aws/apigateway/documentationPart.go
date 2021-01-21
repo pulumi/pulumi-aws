@@ -165,6 +165,85 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
 }
 
+func (i *DocumentationPart) ToDocumentationPartPtrOutput() DocumentationPartPtrOutput {
+	return i.ToDocumentationPartPtrOutputWithContext(context.Background())
+}
+
+func (i *DocumentationPart) ToDocumentationPartPtrOutputWithContext(ctx context.Context) DocumentationPartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartPtrOutput)
+}
+
+type DocumentationPartPtrInput interface {
+	pulumi.Input
+
+	ToDocumentationPartPtrOutput() DocumentationPartPtrOutput
+	ToDocumentationPartPtrOutputWithContext(ctx context.Context) DocumentationPartPtrOutput
+}
+
+type documentationPartPtrType DocumentationPartArgs
+
+func (*documentationPartPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPart)(nil))
+}
+
+func (i *documentationPartPtrType) ToDocumentationPartPtrOutput() DocumentationPartPtrOutput {
+	return i.ToDocumentationPartPtrOutputWithContext(context.Background())
+}
+
+func (i *documentationPartPtrType) ToDocumentationPartPtrOutputWithContext(ctx context.Context) DocumentationPartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartPtrOutput)
+}
+
+// DocumentationPartArrayInput is an input type that accepts DocumentationPartArray and DocumentationPartArrayOutput values.
+// You can construct a concrete instance of `DocumentationPartArrayInput` via:
+//
+//          DocumentationPartArray{ DocumentationPartArgs{...} }
+type DocumentationPartArrayInput interface {
+	pulumi.Input
+
+	ToDocumentationPartArrayOutput() DocumentationPartArrayOutput
+	ToDocumentationPartArrayOutputWithContext(context.Context) DocumentationPartArrayOutput
+}
+
+type DocumentationPartArray []DocumentationPartInput
+
+func (DocumentationPartArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DocumentationPart)(nil))
+}
+
+func (i DocumentationPartArray) ToDocumentationPartArrayOutput() DocumentationPartArrayOutput {
+	return i.ToDocumentationPartArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartArray) ToDocumentationPartArrayOutputWithContext(ctx context.Context) DocumentationPartArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartArrayOutput)
+}
+
+// DocumentationPartMapInput is an input type that accepts DocumentationPartMap and DocumentationPartMapOutput values.
+// You can construct a concrete instance of `DocumentationPartMapInput` via:
+//
+//          DocumentationPartMap{ "key": DocumentationPartArgs{...} }
+type DocumentationPartMapInput interface {
+	pulumi.Input
+
+	ToDocumentationPartMapOutput() DocumentationPartMapOutput
+	ToDocumentationPartMapOutputWithContext(context.Context) DocumentationPartMapOutput
+}
+
+type DocumentationPartMap map[string]DocumentationPartInput
+
+func (DocumentationPartMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DocumentationPart)(nil))
+}
+
+func (i DocumentationPartMap) ToDocumentationPartMapOutput() DocumentationPartMapOutput {
+	return i.ToDocumentationPartMapOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartMap) ToDocumentationPartMapOutputWithContext(ctx context.Context) DocumentationPartMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartMapOutput)
+}
+
 type DocumentationPartOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx contex
 	return o
 }
 
+func (o DocumentationPartOutput) ToDocumentationPartPtrOutput() DocumentationPartPtrOutput {
+	return o.ToDocumentationPartPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartOutput) ToDocumentationPartPtrOutputWithContext(ctx context.Context) DocumentationPartPtrOutput {
+	return o.ApplyT(func(v DocumentationPart) *DocumentationPart {
+		return &v
+	}).(DocumentationPartPtrOutput)
+}
+
+type DocumentationPartPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DocumentationPartPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPart)(nil))
+}
+
+func (o DocumentationPartPtrOutput) ToDocumentationPartPtrOutput() DocumentationPartPtrOutput {
+	return o
+}
+
+func (o DocumentationPartPtrOutput) ToDocumentationPartPtrOutputWithContext(ctx context.Context) DocumentationPartPtrOutput {
+	return o
+}
+
+type DocumentationPartArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentationPart)(nil))
+}
+
+func (o DocumentationPartArrayOutput) ToDocumentationPartArrayOutput() DocumentationPartArrayOutput {
+	return o
+}
+
+func (o DocumentationPartArrayOutput) ToDocumentationPartArrayOutputWithContext(ctx context.Context) DocumentationPartArrayOutput {
+	return o
+}
+
+func (o DocumentationPartArrayOutput) Index(i pulumi.IntInput) DocumentationPartOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentationPart {
+		return vs[0].([]DocumentationPart)[vs[1].(int)]
+	}).(DocumentationPartOutput)
+}
+
+type DocumentationPartMapOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DocumentationPart)(nil))
+}
+
+func (o DocumentationPartMapOutput) ToDocumentationPartMapOutput() DocumentationPartMapOutput {
+	return o
+}
+
+func (o DocumentationPartMapOutput) ToDocumentationPartMapOutputWithContext(ctx context.Context) DocumentationPartMapOutput {
+	return o
+}
+
+func (o DocumentationPartMapOutput) MapIndex(k pulumi.StringInput) DocumentationPartOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DocumentationPart {
+		return vs[0].(map[string]DocumentationPart)[vs[1].(string)]
+	}).(DocumentationPartOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DocumentationPartOutput{})
+	pulumi.RegisterOutputType(DocumentationPartPtrOutput{})
+	pulumi.RegisterOutputType(DocumentationPartArrayOutput{})
+	pulumi.RegisterOutputType(DocumentationPartMapOutput{})
 }

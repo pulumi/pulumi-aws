@@ -119,6 +119,85 @@ func (i *LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServi
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceOutput)
 }
 
+func (i *LogService) ToLogServicePtrOutput() LogServicePtrOutput {
+	return i.ToLogServicePtrOutputWithContext(context.Background())
+}
+
+func (i *LogService) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogServicePtrOutput)
+}
+
+type LogServicePtrInput interface {
+	pulumi.Input
+
+	ToLogServicePtrOutput() LogServicePtrOutput
+	ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput
+}
+
+type logServicePtrType LogServiceArgs
+
+func (*logServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogService)(nil))
+}
+
+func (i *logServicePtrType) ToLogServicePtrOutput() LogServicePtrOutput {
+	return i.ToLogServicePtrOutputWithContext(context.Background())
+}
+
+func (i *logServicePtrType) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogServicePtrOutput)
+}
+
+// LogServiceArrayInput is an input type that accepts LogServiceArray and LogServiceArrayOutput values.
+// You can construct a concrete instance of `LogServiceArrayInput` via:
+//
+//          LogServiceArray{ LogServiceArgs{...} }
+type LogServiceArrayInput interface {
+	pulumi.Input
+
+	ToLogServiceArrayOutput() LogServiceArrayOutput
+	ToLogServiceArrayOutputWithContext(context.Context) LogServiceArrayOutput
+}
+
+type LogServiceArray []LogServiceInput
+
+func (LogServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogService)(nil))
+}
+
+func (i LogServiceArray) ToLogServiceArrayOutput() LogServiceArrayOutput {
+	return i.ToLogServiceArrayOutputWithContext(context.Background())
+}
+
+func (i LogServiceArray) ToLogServiceArrayOutputWithContext(ctx context.Context) LogServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogServiceArrayOutput)
+}
+
+// LogServiceMapInput is an input type that accepts LogServiceMap and LogServiceMapOutput values.
+// You can construct a concrete instance of `LogServiceMapInput` via:
+//
+//          LogServiceMap{ "key": LogServiceArgs{...} }
+type LogServiceMapInput interface {
+	pulumi.Input
+
+	ToLogServiceMapOutput() LogServiceMapOutput
+	ToLogServiceMapOutputWithContext(context.Context) LogServiceMapOutput
+}
+
+type LogServiceMap map[string]LogServiceInput
+
+func (LogServiceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogService)(nil))
+}
+
+func (i LogServiceMap) ToLogServiceMapOutput() LogServiceMapOutput {
+	return i.ToLogServiceMapOutputWithContext(context.Background())
+}
+
+func (i LogServiceMap) ToLogServiceMapOutputWithContext(ctx context.Context) LogServiceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogServiceMapOutput)
+}
+
 type LogServiceOutput struct {
 	*pulumi.OutputState
 }
@@ -135,6 +214,75 @@ func (o LogServiceOutput) ToLogServiceOutputWithContext(ctx context.Context) Log
 	return o
 }
 
+func (o LogServiceOutput) ToLogServicePtrOutput() LogServicePtrOutput {
+	return o.ToLogServicePtrOutputWithContext(context.Background())
+}
+
+func (o LogServiceOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
+	return o.ApplyT(func(v LogService) *LogService {
+		return &v
+	}).(LogServicePtrOutput)
+}
+
+type LogServicePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogService)(nil))
+}
+
+func (o LogServicePtrOutput) ToLogServicePtrOutput() LogServicePtrOutput {
+	return o
+}
+
+func (o LogServicePtrOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
+	return o
+}
+
+type LogServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (LogServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogService)(nil))
+}
+
+func (o LogServiceArrayOutput) ToLogServiceArrayOutput() LogServiceArrayOutput {
+	return o
+}
+
+func (o LogServiceArrayOutput) ToLogServiceArrayOutputWithContext(ctx context.Context) LogServiceArrayOutput {
+	return o
+}
+
+func (o LogServiceArrayOutput) Index(i pulumi.IntInput) LogServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogService {
+		return vs[0].([]LogService)[vs[1].(int)]
+	}).(LogServiceOutput)
+}
+
+type LogServiceMapOutput struct{ *pulumi.OutputState }
+
+func (LogServiceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogService)(nil))
+}
+
+func (o LogServiceMapOutput) ToLogServiceMapOutput() LogServiceMapOutput {
+	return o
+}
+
+func (o LogServiceMapOutput) ToLogServiceMapOutputWithContext(ctx context.Context) LogServiceMapOutput {
+	return o
+}
+
+func (o LogServiceMapOutput) MapIndex(k pulumi.StringInput) LogServiceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogService {
+		return vs[0].(map[string]LogService)[vs[1].(string)]
+	}).(LogServiceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogServiceOutput{})
+	pulumi.RegisterOutputType(LogServicePtrOutput{})
+	pulumi.RegisterOutputType(LogServiceArrayOutput{})
+	pulumi.RegisterOutputType(LogServiceMapOutput{})
 }

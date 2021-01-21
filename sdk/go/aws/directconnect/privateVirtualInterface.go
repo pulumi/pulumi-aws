@@ -277,6 +277,85 @@ func (i *PrivateVirtualInterface) ToPrivateVirtualInterfaceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceOutput)
 }
 
+func (i *PrivateVirtualInterface) ToPrivateVirtualInterfacePtrOutput() PrivateVirtualInterfacePtrOutput {
+	return i.ToPrivateVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i *PrivateVirtualInterface) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfacePtrOutput)
+}
+
+type PrivateVirtualInterfacePtrInput interface {
+	pulumi.Input
+
+	ToPrivateVirtualInterfacePtrOutput() PrivateVirtualInterfacePtrOutput
+	ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput
+}
+
+type privateVirtualInterfacePtrType PrivateVirtualInterfaceArgs
+
+func (*privateVirtualInterfacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateVirtualInterface)(nil))
+}
+
+func (i *privateVirtualInterfacePtrType) ToPrivateVirtualInterfacePtrOutput() PrivateVirtualInterfacePtrOutput {
+	return i.ToPrivateVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i *privateVirtualInterfacePtrType) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfacePtrOutput)
+}
+
+// PrivateVirtualInterfaceArrayInput is an input type that accepts PrivateVirtualInterfaceArray and PrivateVirtualInterfaceArrayOutput values.
+// You can construct a concrete instance of `PrivateVirtualInterfaceArrayInput` via:
+//
+//          PrivateVirtualInterfaceArray{ PrivateVirtualInterfaceArgs{...} }
+type PrivateVirtualInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToPrivateVirtualInterfaceArrayOutput() PrivateVirtualInterfaceArrayOutput
+	ToPrivateVirtualInterfaceArrayOutputWithContext(context.Context) PrivateVirtualInterfaceArrayOutput
+}
+
+type PrivateVirtualInterfaceArray []PrivateVirtualInterfaceInput
+
+func (PrivateVirtualInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PrivateVirtualInterface)(nil))
+}
+
+func (i PrivateVirtualInterfaceArray) ToPrivateVirtualInterfaceArrayOutput() PrivateVirtualInterfaceArrayOutput {
+	return i.ToPrivateVirtualInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateVirtualInterfaceArray) ToPrivateVirtualInterfaceArrayOutputWithContext(ctx context.Context) PrivateVirtualInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceArrayOutput)
+}
+
+// PrivateVirtualInterfaceMapInput is an input type that accepts PrivateVirtualInterfaceMap and PrivateVirtualInterfaceMapOutput values.
+// You can construct a concrete instance of `PrivateVirtualInterfaceMapInput` via:
+//
+//          PrivateVirtualInterfaceMap{ "key": PrivateVirtualInterfaceArgs{...} }
+type PrivateVirtualInterfaceMapInput interface {
+	pulumi.Input
+
+	ToPrivateVirtualInterfaceMapOutput() PrivateVirtualInterfaceMapOutput
+	ToPrivateVirtualInterfaceMapOutputWithContext(context.Context) PrivateVirtualInterfaceMapOutput
+}
+
+type PrivateVirtualInterfaceMap map[string]PrivateVirtualInterfaceInput
+
+func (PrivateVirtualInterfaceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PrivateVirtualInterface)(nil))
+}
+
+func (i PrivateVirtualInterfaceMap) ToPrivateVirtualInterfaceMapOutput() PrivateVirtualInterfaceMapOutput {
+	return i.ToPrivateVirtualInterfaceMapOutputWithContext(context.Background())
+}
+
+func (i PrivateVirtualInterfaceMap) ToPrivateVirtualInterfaceMapOutputWithContext(ctx context.Context) PrivateVirtualInterfaceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceMapOutput)
+}
+
 type PrivateVirtualInterfaceOutput struct {
 	*pulumi.OutputState
 }
@@ -293,6 +372,75 @@ func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfaceOutputWithContex
 	return o
 }
 
+func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfacePtrOutput() PrivateVirtualInterfacePtrOutput {
+	return o.ToPrivateVirtualInterfacePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
+	return o.ApplyT(func(v PrivateVirtualInterface) *PrivateVirtualInterface {
+		return &v
+	}).(PrivateVirtualInterfacePtrOutput)
+}
+
+type PrivateVirtualInterfacePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateVirtualInterfacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateVirtualInterface)(nil))
+}
+
+func (o PrivateVirtualInterfacePtrOutput) ToPrivateVirtualInterfacePtrOutput() PrivateVirtualInterfacePtrOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfacePtrOutput) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
+	return o
+}
+
+type PrivateVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateVirtualInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateVirtualInterface)(nil))
+}
+
+func (o PrivateVirtualInterfaceArrayOutput) ToPrivateVirtualInterfaceArrayOutput() PrivateVirtualInterfaceArrayOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfaceArrayOutput) ToPrivateVirtualInterfaceArrayOutputWithContext(ctx context.Context) PrivateVirtualInterfaceArrayOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) PrivateVirtualInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateVirtualInterface {
+		return vs[0].([]PrivateVirtualInterface)[vs[1].(int)]
+	}).(PrivateVirtualInterfaceOutput)
+}
+
+type PrivateVirtualInterfaceMapOutput struct{ *pulumi.OutputState }
+
+func (PrivateVirtualInterfaceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PrivateVirtualInterface)(nil))
+}
+
+func (o PrivateVirtualInterfaceMapOutput) ToPrivateVirtualInterfaceMapOutput() PrivateVirtualInterfaceMapOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfaceMapOutput) ToPrivateVirtualInterfaceMapOutputWithContext(ctx context.Context) PrivateVirtualInterfaceMapOutput {
+	return o
+}
+
+func (o PrivateVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) PrivateVirtualInterfaceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateVirtualInterface {
+		return vs[0].(map[string]PrivateVirtualInterface)[vs[1].(string)]
+	}).(PrivateVirtualInterfaceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateVirtualInterfaceOutput{})
+	pulumi.RegisterOutputType(PrivateVirtualInterfacePtrOutput{})
+	pulumi.RegisterOutputType(PrivateVirtualInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(PrivateVirtualInterfaceMapOutput{})
 }

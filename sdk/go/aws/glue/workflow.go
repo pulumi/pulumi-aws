@@ -203,6 +203,85 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
+func (i *Workflow) ToWorkflowPtrOutput() WorkflowPtrOutput {
+	return i.ToWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (i *Workflow) ToWorkflowPtrOutputWithContext(ctx context.Context) WorkflowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowPtrOutput)
+}
+
+type WorkflowPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowPtrOutput() WorkflowPtrOutput
+	ToWorkflowPtrOutputWithContext(ctx context.Context) WorkflowPtrOutput
+}
+
+type workflowPtrType WorkflowArgs
+
+func (*workflowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Workflow)(nil))
+}
+
+func (i *workflowPtrType) ToWorkflowPtrOutput() WorkflowPtrOutput {
+	return i.ToWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowPtrType) ToWorkflowPtrOutputWithContext(ctx context.Context) WorkflowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowPtrOutput)
+}
+
+// WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
+// You can construct a concrete instance of `WorkflowArrayInput` via:
+//
+//          WorkflowArray{ WorkflowArgs{...} }
+type WorkflowArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowArrayOutput() WorkflowArrayOutput
+	ToWorkflowArrayOutputWithContext(context.Context) WorkflowArrayOutput
+}
+
+type WorkflowArray []WorkflowInput
+
+func (WorkflowArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Workflow)(nil))
+}
+
+func (i WorkflowArray) ToWorkflowArrayOutput() WorkflowArrayOutput {
+	return i.ToWorkflowArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) WorkflowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowArrayOutput)
+}
+
+// WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
+// You can construct a concrete instance of `WorkflowMapInput` via:
+//
+//          WorkflowMap{ "key": WorkflowArgs{...} }
+type WorkflowMapInput interface {
+	pulumi.Input
+
+	ToWorkflowMapOutput() WorkflowMapOutput
+	ToWorkflowMapOutputWithContext(context.Context) WorkflowMapOutput
+}
+
+type WorkflowMap map[string]WorkflowInput
+
+func (WorkflowMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Workflow)(nil))
+}
+
+func (i WorkflowMap) ToWorkflowMapOutput() WorkflowMapOutput {
+	return i.ToWorkflowMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowMap) ToWorkflowMapOutputWithContext(ctx context.Context) WorkflowMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowMapOutput)
+}
+
 type WorkflowOutput struct {
 	*pulumi.OutputState
 }
@@ -219,6 +298,75 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+func (o WorkflowOutput) ToWorkflowPtrOutput() WorkflowPtrOutput {
+	return o.ToWorkflowPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowOutput) ToWorkflowPtrOutputWithContext(ctx context.Context) WorkflowPtrOutput {
+	return o.ApplyT(func(v Workflow) *Workflow {
+		return &v
+	}).(WorkflowPtrOutput)
+}
+
+type WorkflowPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkflowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Workflow)(nil))
+}
+
+func (o WorkflowPtrOutput) ToWorkflowPtrOutput() WorkflowPtrOutput {
+	return o
+}
+
+func (o WorkflowPtrOutput) ToWorkflowPtrOutputWithContext(ctx context.Context) WorkflowPtrOutput {
+	return o
+}
+
+type WorkflowArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Workflow)(nil))
+}
+
+func (o WorkflowArrayOutput) ToWorkflowArrayOutput() WorkflowArrayOutput {
+	return o
+}
+
+func (o WorkflowArrayOutput) ToWorkflowArrayOutputWithContext(ctx context.Context) WorkflowArrayOutput {
+	return o
+}
+
+func (o WorkflowArrayOutput) Index(i pulumi.IntInput) WorkflowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Workflow {
+		return vs[0].([]Workflow)[vs[1].(int)]
+	}).(WorkflowOutput)
+}
+
+type WorkflowMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Workflow)(nil))
+}
+
+func (o WorkflowMapOutput) ToWorkflowMapOutput() WorkflowMapOutput {
+	return o
+}
+
+func (o WorkflowMapOutput) ToWorkflowMapOutputWithContext(ctx context.Context) WorkflowMapOutput {
+	return o
+}
+
+func (o WorkflowMapOutput) MapIndex(k pulumi.StringInput) WorkflowOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Workflow {
+		return vs[0].(map[string]Workflow)[vs[1].(string)]
+	}).(WorkflowOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkflowOutput{})
+	pulumi.RegisterOutputType(WorkflowPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowMapOutput{})
 }

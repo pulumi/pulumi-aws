@@ -267,6 +267,85 @@ func (i *ClusterEndpoint) ToClusterEndpointOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
 }
 
+func (i *ClusterEndpoint) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return i.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *ClusterEndpoint) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointPtrOutput)
+}
+
+type ClusterEndpointPtrInput interface {
+	pulumi.Input
+
+	ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput
+	ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput
+}
+
+type clusterEndpointPtrType ClusterEndpointArgs
+
+func (*clusterEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEndpoint)(nil))
+}
+
+func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return i.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointPtrOutput)
+}
+
+// ClusterEndpointArrayInput is an input type that accepts ClusterEndpointArray and ClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `ClusterEndpointArrayInput` via:
+//
+//          ClusterEndpointArray{ ClusterEndpointArgs{...} }
+type ClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput
+	ToClusterEndpointArrayOutputWithContext(context.Context) ClusterEndpointArrayOutput
+}
+
+type ClusterEndpointArray []ClusterEndpointInput
+
+func (ClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ClusterEndpoint)(nil))
+}
+
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
+	return i.ToClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointArrayOutput)
+}
+
+// ClusterEndpointMapInput is an input type that accepts ClusterEndpointMap and ClusterEndpointMapOutput values.
+// You can construct a concrete instance of `ClusterEndpointMapInput` via:
+//
+//          ClusterEndpointMap{ "key": ClusterEndpointArgs{...} }
+type ClusterEndpointMapInput interface {
+	pulumi.Input
+
+	ToClusterEndpointMapOutput() ClusterEndpointMapOutput
+	ToClusterEndpointMapOutputWithContext(context.Context) ClusterEndpointMapOutput
+}
+
+type ClusterEndpointMap map[string]ClusterEndpointInput
+
+func (ClusterEndpointMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ClusterEndpoint)(nil))
+}
+
+func (i ClusterEndpointMap) ToClusterEndpointMapOutput() ClusterEndpointMapOutput {
+	return i.ToClusterEndpointMapOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointMap) ToClusterEndpointMapOutputWithContext(ctx context.Context) ClusterEndpointMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointMapOutput)
+}
+
 type ClusterEndpointOutput struct {
 	*pulumi.OutputState
 }
@@ -283,6 +362,75 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ClusterEndpointOutput) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return o.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *ClusterEndpoint {
+		return &v
+	}).(ClusterEndpointPtrOutput)
+}
+
+type ClusterEndpointPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEndpoint)(nil))
+}
+
+func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return o
+}
+
+func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return o
+}
+
+type ClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEndpoint)(nil))
+}
+
+func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
+	return o
+}
+
+func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
+	return o
+}
+
+func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEndpoint {
+		return vs[0].([]ClusterEndpoint)[vs[1].(int)]
+	}).(ClusterEndpointOutput)
+}
+
+type ClusterEndpointMapOutput struct{ *pulumi.OutputState }
+
+func (ClusterEndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterEndpoint)(nil))
+}
+
+func (o ClusterEndpointMapOutput) ToClusterEndpointMapOutput() ClusterEndpointMapOutput {
+	return o
+}
+
+func (o ClusterEndpointMapOutput) ToClusterEndpointMapOutputWithContext(ctx context.Context) ClusterEndpointMapOutput {
+	return o
+}
+
+func (o ClusterEndpointMapOutput) MapIndex(k pulumi.StringInput) ClusterEndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterEndpoint {
+		return vs[0].(map[string]ClusterEndpoint)[vs[1].(string)]
+	}).(ClusterEndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointMapOutput{})
 }

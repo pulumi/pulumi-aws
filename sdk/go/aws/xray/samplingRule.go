@@ -295,6 +295,85 @@ func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) Samp
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleOutput)
 }
 
+func (i *SamplingRule) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
+	return i.ToSamplingRulePtrOutputWithContext(context.Background())
+}
+
+func (i *SamplingRule) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRulePtrOutput)
+}
+
+type SamplingRulePtrInput interface {
+	pulumi.Input
+
+	ToSamplingRulePtrOutput() SamplingRulePtrOutput
+	ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput
+}
+
+type samplingRulePtrType SamplingRuleArgs
+
+func (*samplingRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRule)(nil))
+}
+
+func (i *samplingRulePtrType) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
+	return i.ToSamplingRulePtrOutputWithContext(context.Background())
+}
+
+func (i *samplingRulePtrType) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRulePtrOutput)
+}
+
+// SamplingRuleArrayInput is an input type that accepts SamplingRuleArray and SamplingRuleArrayOutput values.
+// You can construct a concrete instance of `SamplingRuleArrayInput` via:
+//
+//          SamplingRuleArray{ SamplingRuleArgs{...} }
+type SamplingRuleArrayInput interface {
+	pulumi.Input
+
+	ToSamplingRuleArrayOutput() SamplingRuleArrayOutput
+	ToSamplingRuleArrayOutputWithContext(context.Context) SamplingRuleArrayOutput
+}
+
+type SamplingRuleArray []SamplingRuleInput
+
+func (SamplingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SamplingRule)(nil))
+}
+
+func (i SamplingRuleArray) ToSamplingRuleArrayOutput() SamplingRuleArrayOutput {
+	return i.ToSamplingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleArray) ToSamplingRuleArrayOutputWithContext(ctx context.Context) SamplingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleArrayOutput)
+}
+
+// SamplingRuleMapInput is an input type that accepts SamplingRuleMap and SamplingRuleMapOutput values.
+// You can construct a concrete instance of `SamplingRuleMapInput` via:
+//
+//          SamplingRuleMap{ "key": SamplingRuleArgs{...} }
+type SamplingRuleMapInput interface {
+	pulumi.Input
+
+	ToSamplingRuleMapOutput() SamplingRuleMapOutput
+	ToSamplingRuleMapOutputWithContext(context.Context) SamplingRuleMapOutput
+}
+
+type SamplingRuleMap map[string]SamplingRuleInput
+
+func (SamplingRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SamplingRule)(nil))
+}
+
+func (i SamplingRuleMap) ToSamplingRuleMapOutput() SamplingRuleMapOutput {
+	return i.ToSamplingRuleMapOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleMap) ToSamplingRuleMapOutputWithContext(ctx context.Context) SamplingRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleMapOutput)
+}
+
 type SamplingRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -311,6 +390,75 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SamplingRuleOutput) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
+	return o.ToSamplingRulePtrOutputWithContext(context.Background())
+}
+
+func (o SamplingRuleOutput) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
+	return o.ApplyT(func(v SamplingRule) *SamplingRule {
+		return &v
+	}).(SamplingRulePtrOutput)
+}
+
+type SamplingRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamplingRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRule)(nil))
+}
+
+func (o SamplingRulePtrOutput) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
+	return o
+}
+
+func (o SamplingRulePtrOutput) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
+	return o
+}
+
+type SamplingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamplingRule)(nil))
+}
+
+func (o SamplingRuleArrayOutput) ToSamplingRuleArrayOutput() SamplingRuleArrayOutput {
+	return o
+}
+
+func (o SamplingRuleArrayOutput) ToSamplingRuleArrayOutputWithContext(ctx context.Context) SamplingRuleArrayOutput {
+	return o
+}
+
+func (o SamplingRuleArrayOutput) Index(i pulumi.IntInput) SamplingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamplingRule {
+		return vs[0].([]SamplingRule)[vs[1].(int)]
+	}).(SamplingRuleOutput)
+}
+
+type SamplingRuleMapOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SamplingRule)(nil))
+}
+
+func (o SamplingRuleMapOutput) ToSamplingRuleMapOutput() SamplingRuleMapOutput {
+	return o
+}
+
+func (o SamplingRuleMapOutput) ToSamplingRuleMapOutputWithContext(ctx context.Context) SamplingRuleMapOutput {
+	return o
+}
+
+func (o SamplingRuleMapOutput) MapIndex(k pulumi.StringInput) SamplingRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamplingRule {
+		return vs[0].(map[string]SamplingRule)[vs[1].(string)]
+	}).(SamplingRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamplingRuleOutput{})
+	pulumi.RegisterOutputType(SamplingRulePtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleArrayOutput{})
+	pulumi.RegisterOutputType(SamplingRuleMapOutput{})
 }

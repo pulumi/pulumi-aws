@@ -178,6 +178,85 @@ func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostOutput)
 }
 
+func (i *DedicatedHost) ToDedicatedHostPtrOutput() DedicatedHostPtrOutput {
+	return i.ToDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (i *DedicatedHost) ToDedicatedHostPtrOutputWithContext(ctx context.Context) DedicatedHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostPtrOutput)
+}
+
+type DedicatedHostPtrInput interface {
+	pulumi.Input
+
+	ToDedicatedHostPtrOutput() DedicatedHostPtrOutput
+	ToDedicatedHostPtrOutputWithContext(ctx context.Context) DedicatedHostPtrOutput
+}
+
+type dedicatedHostPtrType DedicatedHostArgs
+
+func (*dedicatedHostPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DedicatedHost)(nil))
+}
+
+func (i *dedicatedHostPtrType) ToDedicatedHostPtrOutput() DedicatedHostPtrOutput {
+	return i.ToDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (i *dedicatedHostPtrType) ToDedicatedHostPtrOutputWithContext(ctx context.Context) DedicatedHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostPtrOutput)
+}
+
+// DedicatedHostArrayInput is an input type that accepts DedicatedHostArray and DedicatedHostArrayOutput values.
+// You can construct a concrete instance of `DedicatedHostArrayInput` via:
+//
+//          DedicatedHostArray{ DedicatedHostArgs{...} }
+type DedicatedHostArrayInput interface {
+	pulumi.Input
+
+	ToDedicatedHostArrayOutput() DedicatedHostArrayOutput
+	ToDedicatedHostArrayOutputWithContext(context.Context) DedicatedHostArrayOutput
+}
+
+type DedicatedHostArray []DedicatedHostInput
+
+func (DedicatedHostArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DedicatedHost)(nil))
+}
+
+func (i DedicatedHostArray) ToDedicatedHostArrayOutput() DedicatedHostArrayOutput {
+	return i.ToDedicatedHostArrayOutputWithContext(context.Background())
+}
+
+func (i DedicatedHostArray) ToDedicatedHostArrayOutputWithContext(ctx context.Context) DedicatedHostArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostArrayOutput)
+}
+
+// DedicatedHostMapInput is an input type that accepts DedicatedHostMap and DedicatedHostMapOutput values.
+// You can construct a concrete instance of `DedicatedHostMapInput` via:
+//
+//          DedicatedHostMap{ "key": DedicatedHostArgs{...} }
+type DedicatedHostMapInput interface {
+	pulumi.Input
+
+	ToDedicatedHostMapOutput() DedicatedHostMapOutput
+	ToDedicatedHostMapOutputWithContext(context.Context) DedicatedHostMapOutput
+}
+
+type DedicatedHostMap map[string]DedicatedHostInput
+
+func (DedicatedHostMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DedicatedHost)(nil))
+}
+
+func (i DedicatedHostMap) ToDedicatedHostMapOutput() DedicatedHostMapOutput {
+	return i.ToDedicatedHostMapOutputWithContext(context.Background())
+}
+
+func (i DedicatedHostMap) ToDedicatedHostMapOutputWithContext(ctx context.Context) DedicatedHostMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostMapOutput)
+}
+
 type DedicatedHostOutput struct {
 	*pulumi.OutputState
 }
@@ -194,6 +273,75 @@ func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DedicatedHostOutput) ToDedicatedHostPtrOutput() DedicatedHostPtrOutput {
+	return o.ToDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (o DedicatedHostOutput) ToDedicatedHostPtrOutputWithContext(ctx context.Context) DedicatedHostPtrOutput {
+	return o.ApplyT(func(v DedicatedHost) *DedicatedHost {
+		return &v
+	}).(DedicatedHostPtrOutput)
+}
+
+type DedicatedHostPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DedicatedHostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DedicatedHost)(nil))
+}
+
+func (o DedicatedHostPtrOutput) ToDedicatedHostPtrOutput() DedicatedHostPtrOutput {
+	return o
+}
+
+func (o DedicatedHostPtrOutput) ToDedicatedHostPtrOutputWithContext(ctx context.Context) DedicatedHostPtrOutput {
+	return o
+}
+
+type DedicatedHostArrayOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHostArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DedicatedHost)(nil))
+}
+
+func (o DedicatedHostArrayOutput) ToDedicatedHostArrayOutput() DedicatedHostArrayOutput {
+	return o
+}
+
+func (o DedicatedHostArrayOutput) ToDedicatedHostArrayOutputWithContext(ctx context.Context) DedicatedHostArrayOutput {
+	return o
+}
+
+func (o DedicatedHostArrayOutput) Index(i pulumi.IntInput) DedicatedHostOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DedicatedHost {
+		return vs[0].([]DedicatedHost)[vs[1].(int)]
+	}).(DedicatedHostOutput)
+}
+
+type DedicatedHostMapOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHostMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DedicatedHost)(nil))
+}
+
+func (o DedicatedHostMapOutput) ToDedicatedHostMapOutput() DedicatedHostMapOutput {
+	return o
+}
+
+func (o DedicatedHostMapOutput) ToDedicatedHostMapOutputWithContext(ctx context.Context) DedicatedHostMapOutput {
+	return o
+}
+
+func (o DedicatedHostMapOutput) MapIndex(k pulumi.StringInput) DedicatedHostOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DedicatedHost {
+		return vs[0].(map[string]DedicatedHost)[vs[1].(string)]
+	}).(DedicatedHostOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedHostOutput{})
+	pulumi.RegisterOutputType(DedicatedHostPtrOutput{})
+	pulumi.RegisterOutputType(DedicatedHostArrayOutput{})
+	pulumi.RegisterOutputType(DedicatedHostMapOutput{})
 }

@@ -312,6 +312,85 @@ func (i *NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
 }
 
+func (i *NodejsAppLayer) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
+	return i.ToNodejsAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *NodejsAppLayer) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerPtrOutput)
+}
+
+type NodejsAppLayerPtrInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput
+	ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput
+}
+
+type nodejsAppLayerPtrType NodejsAppLayerArgs
+
+func (*nodejsAppLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayer)(nil))
+}
+
+func (i *nodejsAppLayerPtrType) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
+	return i.ToNodejsAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *nodejsAppLayerPtrType) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerPtrOutput)
+}
+
+// NodejsAppLayerArrayInput is an input type that accepts NodejsAppLayerArray and NodejsAppLayerArrayOutput values.
+// You can construct a concrete instance of `NodejsAppLayerArrayInput` via:
+//
+//          NodejsAppLayerArray{ NodejsAppLayerArgs{...} }
+type NodejsAppLayerArrayInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOutput
+	ToNodejsAppLayerArrayOutputWithContext(context.Context) NodejsAppLayerArrayOutput
+}
+
+type NodejsAppLayerArray []NodejsAppLayerInput
+
+func (NodejsAppLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NodejsAppLayer)(nil))
+}
+
+func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOutput {
+	return i.ToNodejsAppLayerArrayOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutputWithContext(ctx context.Context) NodejsAppLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerArrayOutput)
+}
+
+// NodejsAppLayerMapInput is an input type that accepts NodejsAppLayerMap and NodejsAppLayerMapOutput values.
+// You can construct a concrete instance of `NodejsAppLayerMapInput` via:
+//
+//          NodejsAppLayerMap{ "key": NodejsAppLayerArgs{...} }
+type NodejsAppLayerMapInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerMapOutput() NodejsAppLayerMapOutput
+	ToNodejsAppLayerMapOutputWithContext(context.Context) NodejsAppLayerMapOutput
+}
+
+type NodejsAppLayerMap map[string]NodejsAppLayerInput
+
+func (NodejsAppLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NodejsAppLayer)(nil))
+}
+
+func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOutput {
+	return i.ToNodejsAppLayerMapOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutputWithContext(ctx context.Context) NodejsAppLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerMapOutput)
+}
+
 type NodejsAppLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -328,6 +407,75 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NodejsAppLayerOutput) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
+	return o.ToNodejsAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (o NodejsAppLayerOutput) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayer) *NodejsAppLayer {
+		return &v
+	}).(NodejsAppLayerPtrOutput)
+}
+
+type NodejsAppLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodejsAppLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayer)(nil))
+}
+
+func (o NodejsAppLayerPtrOutput) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerPtrOutput) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
+	return o
+}
+
+type NodejsAppLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodejsAppLayer)(nil))
+}
+
+func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOutput {
+	return o
+}
+
+func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutputWithContext(ctx context.Context) NodejsAppLayerArrayOutput {
+	return o
+}
+
+func (o NodejsAppLayerArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayer {
+		return vs[0].([]NodejsAppLayer)[vs[1].(int)]
+	}).(NodejsAppLayerOutput)
+}
+
+type NodejsAppLayerMapOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NodejsAppLayer)(nil))
+}
+
+func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOutput {
+	return o
+}
+
+func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutputWithContext(ctx context.Context) NodejsAppLayerMapOutput {
+	return o
+}
+
+func (o NodejsAppLayerMapOutput) MapIndex(k pulumi.StringInput) NodejsAppLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NodejsAppLayer {
+		return vs[0].(map[string]NodejsAppLayer)[vs[1].(string)]
+	}).(NodejsAppLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NodejsAppLayerOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerPtrOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerArrayOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerMapOutput{})
 }

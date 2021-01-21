@@ -172,6 +172,85 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
+func (i *Alias) ToAliasPtrOutput() AliasPtrOutput {
+	return i.ToAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *Alias) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasPtrOutput)
+}
+
+type AliasPtrInput interface {
+	pulumi.Input
+
+	ToAliasPtrOutput() AliasPtrOutput
+	ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput
+}
+
+type aliasPtrType AliasArgs
+
+func (*aliasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Alias)(nil))
+}
+
+func (i *aliasPtrType) ToAliasPtrOutput() AliasPtrOutput {
+	return i.ToAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasPtrType) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasPtrOutput)
+}
+
+// AliasArrayInput is an input type that accepts AliasArray and AliasArrayOutput values.
+// You can construct a concrete instance of `AliasArrayInput` via:
+//
+//          AliasArray{ AliasArgs{...} }
+type AliasArrayInput interface {
+	pulumi.Input
+
+	ToAliasArrayOutput() AliasArrayOutput
+	ToAliasArrayOutputWithContext(context.Context) AliasArrayOutput
+}
+
+type AliasArray []AliasInput
+
+func (AliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Alias)(nil))
+}
+
+func (i AliasArray) ToAliasArrayOutput() AliasArrayOutput {
+	return i.ToAliasArrayOutputWithContext(context.Background())
+}
+
+func (i AliasArray) ToAliasArrayOutputWithContext(ctx context.Context) AliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasArrayOutput)
+}
+
+// AliasMapInput is an input type that accepts AliasMap and AliasMapOutput values.
+// You can construct a concrete instance of `AliasMapInput` via:
+//
+//          AliasMap{ "key": AliasArgs{...} }
+type AliasMapInput interface {
+	pulumi.Input
+
+	ToAliasMapOutput() AliasMapOutput
+	ToAliasMapOutputWithContext(context.Context) AliasMapOutput
+}
+
+type AliasMap map[string]AliasInput
+
+func (AliasMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Alias)(nil))
+}
+
+func (i AliasMap) ToAliasMapOutput() AliasMapOutput {
+	return i.ToAliasMapOutputWithContext(context.Background())
+}
+
+func (i AliasMap) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasMapOutput)
+}
+
 type AliasOutput struct {
 	*pulumi.OutputState
 }
@@ -188,6 +267,75 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+func (o AliasOutput) ToAliasPtrOutput() AliasPtrOutput {
+	return o.ToAliasPtrOutputWithContext(context.Background())
+}
+
+func (o AliasOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
+	return o.ApplyT(func(v Alias) *Alias {
+		return &v
+	}).(AliasPtrOutput)
+}
+
+type AliasPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Alias)(nil))
+}
+
+func (o AliasPtrOutput) ToAliasPtrOutput() AliasPtrOutput {
+	return o
+}
+
+func (o AliasPtrOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
+	return o
+}
+
+type AliasArrayOutput struct{ *pulumi.OutputState }
+
+func (AliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Alias)(nil))
+}
+
+func (o AliasArrayOutput) ToAliasArrayOutput() AliasArrayOutput {
+	return o
+}
+
+func (o AliasArrayOutput) ToAliasArrayOutputWithContext(ctx context.Context) AliasArrayOutput {
+	return o
+}
+
+func (o AliasArrayOutput) Index(i pulumi.IntInput) AliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Alias {
+		return vs[0].([]Alias)[vs[1].(int)]
+	}).(AliasOutput)
+}
+
+type AliasMapOutput struct{ *pulumi.OutputState }
+
+func (AliasMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Alias)(nil))
+}
+
+func (o AliasMapOutput) ToAliasMapOutput() AliasMapOutput {
+	return o
+}
+
+func (o AliasMapOutput) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutput {
+	return o
+}
+
+func (o AliasMapOutput) MapIndex(k pulumi.StringInput) AliasOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Alias {
+		return vs[0].(map[string]Alias)[vs[1].(string)]
+	}).(AliasOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AliasOutput{})
+	pulumi.RegisterOutputType(AliasPtrOutput{})
+	pulumi.RegisterOutputType(AliasArrayOutput{})
+	pulumi.RegisterOutputType(AliasMapOutput{})
 }

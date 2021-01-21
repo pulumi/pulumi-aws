@@ -145,6 +145,85 @@ func (i *DomainPolicy) ToDomainPolicyOutputWithContext(ctx context.Context) Doma
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyOutput)
 }
 
+func (i *DomainPolicy) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
+	return i.ToDomainPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *DomainPolicy) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyPtrOutput)
+}
+
+type DomainPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDomainPolicyPtrOutput() DomainPolicyPtrOutput
+	ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput
+}
+
+type domainPolicyPtrType DomainPolicyArgs
+
+func (*domainPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainPolicy)(nil))
+}
+
+func (i *domainPolicyPtrType) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
+	return i.ToDomainPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *domainPolicyPtrType) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyPtrOutput)
+}
+
+// DomainPolicyArrayInput is an input type that accepts DomainPolicyArray and DomainPolicyArrayOutput values.
+// You can construct a concrete instance of `DomainPolicyArrayInput` via:
+//
+//          DomainPolicyArray{ DomainPolicyArgs{...} }
+type DomainPolicyArrayInput interface {
+	pulumi.Input
+
+	ToDomainPolicyArrayOutput() DomainPolicyArrayOutput
+	ToDomainPolicyArrayOutputWithContext(context.Context) DomainPolicyArrayOutput
+}
+
+type DomainPolicyArray []DomainPolicyInput
+
+func (DomainPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DomainPolicy)(nil))
+}
+
+func (i DomainPolicyArray) ToDomainPolicyArrayOutput() DomainPolicyArrayOutput {
+	return i.ToDomainPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i DomainPolicyArray) ToDomainPolicyArrayOutputWithContext(ctx context.Context) DomainPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyArrayOutput)
+}
+
+// DomainPolicyMapInput is an input type that accepts DomainPolicyMap and DomainPolicyMapOutput values.
+// You can construct a concrete instance of `DomainPolicyMapInput` via:
+//
+//          DomainPolicyMap{ "key": DomainPolicyArgs{...} }
+type DomainPolicyMapInput interface {
+	pulumi.Input
+
+	ToDomainPolicyMapOutput() DomainPolicyMapOutput
+	ToDomainPolicyMapOutputWithContext(context.Context) DomainPolicyMapOutput
+}
+
+type DomainPolicyMap map[string]DomainPolicyInput
+
+func (DomainPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DomainPolicy)(nil))
+}
+
+func (i DomainPolicyMap) ToDomainPolicyMapOutput() DomainPolicyMapOutput {
+	return i.ToDomainPolicyMapOutputWithContext(context.Background())
+}
+
+func (i DomainPolicyMap) ToDomainPolicyMapOutputWithContext(ctx context.Context) DomainPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyMapOutput)
+}
+
 type DomainPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o DomainPolicyOutput) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
+	return o.ToDomainPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DomainPolicyOutput) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
+	return o.ApplyT(func(v DomainPolicy) *DomainPolicy {
+		return &v
+	}).(DomainPolicyPtrOutput)
+}
+
+type DomainPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainPolicy)(nil))
+}
+
+func (o DomainPolicyPtrOutput) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
+	return o
+}
+
+func (o DomainPolicyPtrOutput) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
+	return o
+}
+
+type DomainPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainPolicy)(nil))
+}
+
+func (o DomainPolicyArrayOutput) ToDomainPolicyArrayOutput() DomainPolicyArrayOutput {
+	return o
+}
+
+func (o DomainPolicyArrayOutput) ToDomainPolicyArrayOutputWithContext(ctx context.Context) DomainPolicyArrayOutput {
+	return o
+}
+
+func (o DomainPolicyArrayOutput) Index(i pulumi.IntInput) DomainPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainPolicy {
+		return vs[0].([]DomainPolicy)[vs[1].(int)]
+	}).(DomainPolicyOutput)
+}
+
+type DomainPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (DomainPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainPolicy)(nil))
+}
+
+func (o DomainPolicyMapOutput) ToDomainPolicyMapOutput() DomainPolicyMapOutput {
+	return o
+}
+
+func (o DomainPolicyMapOutput) ToDomainPolicyMapOutputWithContext(ctx context.Context) DomainPolicyMapOutput {
+	return o
+}
+
+func (o DomainPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainPolicy {
+		return vs[0].(map[string]DomainPolicy)[vs[1].(string)]
+	}).(DomainPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainPolicyOutput{})
+	pulumi.RegisterOutputType(DomainPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DomainPolicyArrayOutput{})
+	pulumi.RegisterOutputType(DomainPolicyMapOutput{})
 }

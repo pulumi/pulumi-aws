@@ -165,6 +165,85 @@ func (i *RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) Rd
 	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceOutput)
 }
 
+func (i *RdsDbInstance) ToRdsDbInstancePtrOutput() RdsDbInstancePtrOutput {
+	return i.ToRdsDbInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *RdsDbInstance) ToRdsDbInstancePtrOutputWithContext(ctx context.Context) RdsDbInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstancePtrOutput)
+}
+
+type RdsDbInstancePtrInput interface {
+	pulumi.Input
+
+	ToRdsDbInstancePtrOutput() RdsDbInstancePtrOutput
+	ToRdsDbInstancePtrOutputWithContext(ctx context.Context) RdsDbInstancePtrOutput
+}
+
+type rdsDbInstancePtrType RdsDbInstanceArgs
+
+func (*rdsDbInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RdsDbInstance)(nil))
+}
+
+func (i *rdsDbInstancePtrType) ToRdsDbInstancePtrOutput() RdsDbInstancePtrOutput {
+	return i.ToRdsDbInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *rdsDbInstancePtrType) ToRdsDbInstancePtrOutputWithContext(ctx context.Context) RdsDbInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstancePtrOutput)
+}
+
+// RdsDbInstanceArrayInput is an input type that accepts RdsDbInstanceArray and RdsDbInstanceArrayOutput values.
+// You can construct a concrete instance of `RdsDbInstanceArrayInput` via:
+//
+//          RdsDbInstanceArray{ RdsDbInstanceArgs{...} }
+type RdsDbInstanceArrayInput interface {
+	pulumi.Input
+
+	ToRdsDbInstanceArrayOutput() RdsDbInstanceArrayOutput
+	ToRdsDbInstanceArrayOutputWithContext(context.Context) RdsDbInstanceArrayOutput
+}
+
+type RdsDbInstanceArray []RdsDbInstanceInput
+
+func (RdsDbInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RdsDbInstance)(nil))
+}
+
+func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutput() RdsDbInstanceArrayOutput {
+	return i.ToRdsDbInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutputWithContext(ctx context.Context) RdsDbInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceArrayOutput)
+}
+
+// RdsDbInstanceMapInput is an input type that accepts RdsDbInstanceMap and RdsDbInstanceMapOutput values.
+// You can construct a concrete instance of `RdsDbInstanceMapInput` via:
+//
+//          RdsDbInstanceMap{ "key": RdsDbInstanceArgs{...} }
+type RdsDbInstanceMapInput interface {
+	pulumi.Input
+
+	ToRdsDbInstanceMapOutput() RdsDbInstanceMapOutput
+	ToRdsDbInstanceMapOutputWithContext(context.Context) RdsDbInstanceMapOutput
+}
+
+type RdsDbInstanceMap map[string]RdsDbInstanceInput
+
+func (RdsDbInstanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RdsDbInstance)(nil))
+}
+
+func (i RdsDbInstanceMap) ToRdsDbInstanceMapOutput() RdsDbInstanceMapOutput {
+	return i.ToRdsDbInstanceMapOutputWithContext(context.Background())
+}
+
+func (i RdsDbInstanceMap) ToRdsDbInstanceMapOutputWithContext(ctx context.Context) RdsDbInstanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceMapOutput)
+}
+
 type RdsDbInstanceOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o RdsDbInstanceOutput) ToRdsDbInstanceOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RdsDbInstanceOutput) ToRdsDbInstancePtrOutput() RdsDbInstancePtrOutput {
+	return o.ToRdsDbInstancePtrOutputWithContext(context.Background())
+}
+
+func (o RdsDbInstanceOutput) ToRdsDbInstancePtrOutputWithContext(ctx context.Context) RdsDbInstancePtrOutput {
+	return o.ApplyT(func(v RdsDbInstance) *RdsDbInstance {
+		return &v
+	}).(RdsDbInstancePtrOutput)
+}
+
+type RdsDbInstancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RdsDbInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RdsDbInstance)(nil))
+}
+
+func (o RdsDbInstancePtrOutput) ToRdsDbInstancePtrOutput() RdsDbInstancePtrOutput {
+	return o
+}
+
+func (o RdsDbInstancePtrOutput) ToRdsDbInstancePtrOutputWithContext(ctx context.Context) RdsDbInstancePtrOutput {
+	return o
+}
+
+type RdsDbInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (RdsDbInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RdsDbInstance)(nil))
+}
+
+func (o RdsDbInstanceArrayOutput) ToRdsDbInstanceArrayOutput() RdsDbInstanceArrayOutput {
+	return o
+}
+
+func (o RdsDbInstanceArrayOutput) ToRdsDbInstanceArrayOutputWithContext(ctx context.Context) RdsDbInstanceArrayOutput {
+	return o
+}
+
+func (o RdsDbInstanceArrayOutput) Index(i pulumi.IntInput) RdsDbInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RdsDbInstance {
+		return vs[0].([]RdsDbInstance)[vs[1].(int)]
+	}).(RdsDbInstanceOutput)
+}
+
+type RdsDbInstanceMapOutput struct{ *pulumi.OutputState }
+
+func (RdsDbInstanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RdsDbInstance)(nil))
+}
+
+func (o RdsDbInstanceMapOutput) ToRdsDbInstanceMapOutput() RdsDbInstanceMapOutput {
+	return o
+}
+
+func (o RdsDbInstanceMapOutput) ToRdsDbInstanceMapOutputWithContext(ctx context.Context) RdsDbInstanceMapOutput {
+	return o
+}
+
+func (o RdsDbInstanceMapOutput) MapIndex(k pulumi.StringInput) RdsDbInstanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RdsDbInstance {
+		return vs[0].(map[string]RdsDbInstance)[vs[1].(string)]
+	}).(RdsDbInstanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RdsDbInstanceOutput{})
+	pulumi.RegisterOutputType(RdsDbInstancePtrOutput{})
+	pulumi.RegisterOutputType(RdsDbInstanceArrayOutput{})
+	pulumi.RegisterOutputType(RdsDbInstanceMapOutput{})
 }

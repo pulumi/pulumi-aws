@@ -160,6 +160,85 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToEndpointPtrOutput() EndpointPtrOutput {
+	return i.ToEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *Endpoint) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPtrOutput)
+}
+
+type EndpointPtrInput interface {
+	pulumi.Input
+
+	ToEndpointPtrOutput() EndpointPtrOutput
+	ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput
+}
+
+type endpointPtrType EndpointArgs
+
+func (*endpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Endpoint)(nil))
+}
+
+func (i *endpointPtrType) ToEndpointPtrOutput() EndpointPtrOutput {
+	return i.ToEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointPtrType) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPtrOutput)
+}
+
+// EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
+// You can construct a concrete instance of `EndpointArrayInput` via:
+//
+//          EndpointArray{ EndpointArgs{...} }
+type EndpointArrayInput interface {
+	pulumi.Input
+
+	ToEndpointArrayOutput() EndpointArrayOutput
+	ToEndpointArrayOutputWithContext(context.Context) EndpointArrayOutput
+}
+
+type EndpointArray []EndpointInput
+
+func (EndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Endpoint)(nil))
+}
+
+func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
+	return i.ToEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointArrayOutput)
+}
+
+// EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
+// You can construct a concrete instance of `EndpointMapInput` via:
+//
+//          EndpointMap{ "key": EndpointArgs{...} }
+type EndpointMapInput interface {
+	pulumi.Input
+
+	ToEndpointMapOutput() EndpointMapOutput
+	ToEndpointMapOutputWithContext(context.Context) EndpointMapOutput
+}
+
+type EndpointMap map[string]EndpointInput
+
+func (EndpointMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Endpoint)(nil))
+}
+
+func (i EndpointMap) ToEndpointMapOutput() EndpointMapOutput {
+	return i.ToEndpointMapOutputWithContext(context.Background())
+}
+
+func (i EndpointMap) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMapOutput)
+}
+
 type EndpointOutput struct {
 	*pulumi.OutputState
 }
@@ -176,6 +255,75 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+func (o EndpointOutput) ToEndpointPtrOutput() EndpointPtrOutput {
+	return o.ToEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointOutput) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
+	return o.ApplyT(func(v Endpoint) *Endpoint {
+		return &v
+	}).(EndpointPtrOutput)
+}
+
+type EndpointPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Endpoint)(nil))
+}
+
+func (o EndpointPtrOutput) ToEndpointPtrOutput() EndpointPtrOutput {
+	return o
+}
+
+func (o EndpointPtrOutput) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
+	return o
+}
+
+type EndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Endpoint)(nil))
+}
+
+func (o EndpointArrayOutput) ToEndpointArrayOutput() EndpointArrayOutput {
+	return o
+}
+
+func (o EndpointArrayOutput) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
+	return o
+}
+
+func (o EndpointArrayOutput) Index(i pulumi.IntInput) EndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Endpoint {
+		return vs[0].([]Endpoint)[vs[1].(int)]
+	}).(EndpointOutput)
+}
+
+type EndpointMapOutput struct{ *pulumi.OutputState }
+
+func (EndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Endpoint)(nil))
+}
+
+func (o EndpointMapOutput) ToEndpointMapOutput() EndpointMapOutput {
+	return o
+}
+
+func (o EndpointMapOutput) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
+	return o
+}
+
+func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Endpoint {
+		return vs[0].(map[string]Endpoint)[vs[1].(string)]
+	}).(EndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointOutput{})
+	pulumi.RegisterOutputType(EndpointPtrOutput{})
+	pulumi.RegisterOutputType(EndpointArrayOutput{})
+	pulumi.RegisterOutputType(EndpointMapOutput{})
 }

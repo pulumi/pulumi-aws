@@ -223,6 +223,85 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
 }
 
+func (i *FargateProfile) ToFargateProfilePtrOutput() FargateProfilePtrOutput {
+	return i.ToFargateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *FargateProfile) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfilePtrOutput)
+}
+
+type FargateProfilePtrInput interface {
+	pulumi.Input
+
+	ToFargateProfilePtrOutput() FargateProfilePtrOutput
+	ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput
+}
+
+type fargateProfilePtrType FargateProfileArgs
+
+func (*fargateProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfile)(nil))
+}
+
+func (i *fargateProfilePtrType) ToFargateProfilePtrOutput() FargateProfilePtrOutput {
+	return i.ToFargateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *fargateProfilePtrType) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfilePtrOutput)
+}
+
+// FargateProfileArrayInput is an input type that accepts FargateProfileArray and FargateProfileArrayOutput values.
+// You can construct a concrete instance of `FargateProfileArrayInput` via:
+//
+//          FargateProfileArray{ FargateProfileArgs{...} }
+type FargateProfileArrayInput interface {
+	pulumi.Input
+
+	ToFargateProfileArrayOutput() FargateProfileArrayOutput
+	ToFargateProfileArrayOutputWithContext(context.Context) FargateProfileArrayOutput
+}
+
+type FargateProfileArray []FargateProfileInput
+
+func (FargateProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FargateProfile)(nil))
+}
+
+func (i FargateProfileArray) ToFargateProfileArrayOutput() FargateProfileArrayOutput {
+	return i.ToFargateProfileArrayOutputWithContext(context.Background())
+}
+
+func (i FargateProfileArray) ToFargateProfileArrayOutputWithContext(ctx context.Context) FargateProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileArrayOutput)
+}
+
+// FargateProfileMapInput is an input type that accepts FargateProfileMap and FargateProfileMapOutput values.
+// You can construct a concrete instance of `FargateProfileMapInput` via:
+//
+//          FargateProfileMap{ "key": FargateProfileArgs{...} }
+type FargateProfileMapInput interface {
+	pulumi.Input
+
+	ToFargateProfileMapOutput() FargateProfileMapOutput
+	ToFargateProfileMapOutputWithContext(context.Context) FargateProfileMapOutput
+}
+
+type FargateProfileMap map[string]FargateProfileInput
+
+func (FargateProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FargateProfile)(nil))
+}
+
+func (i FargateProfileMap) ToFargateProfileMapOutput() FargateProfileMapOutput {
+	return i.ToFargateProfileMapOutputWithContext(context.Background())
+}
+
+func (i FargateProfileMap) ToFargateProfileMapOutputWithContext(ctx context.Context) FargateProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileMapOutput)
+}
+
 type FargateProfileOutput struct {
 	*pulumi.OutputState
 }
@@ -239,6 +318,75 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o FargateProfileOutput) ToFargateProfilePtrOutput() FargateProfilePtrOutput {
+	return o.ToFargateProfilePtrOutputWithContext(context.Background())
+}
+
+func (o FargateProfileOutput) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
+	return o.ApplyT(func(v FargateProfile) *FargateProfile {
+		return &v
+	}).(FargateProfilePtrOutput)
+}
+
+type FargateProfilePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FargateProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FargateProfile)(nil))
+}
+
+func (o FargateProfilePtrOutput) ToFargateProfilePtrOutput() FargateProfilePtrOutput {
+	return o
+}
+
+func (o FargateProfilePtrOutput) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
+	return o
+}
+
+type FargateProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfile)(nil))
+}
+
+func (o FargateProfileArrayOutput) ToFargateProfileArrayOutput() FargateProfileArrayOutput {
+	return o
+}
+
+func (o FargateProfileArrayOutput) ToFargateProfileArrayOutputWithContext(ctx context.Context) FargateProfileArrayOutput {
+	return o
+}
+
+func (o FargateProfileArrayOutput) Index(i pulumi.IntInput) FargateProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FargateProfile {
+		return vs[0].([]FargateProfile)[vs[1].(int)]
+	}).(FargateProfileOutput)
+}
+
+type FargateProfileMapOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FargateProfile)(nil))
+}
+
+func (o FargateProfileMapOutput) ToFargateProfileMapOutput() FargateProfileMapOutput {
+	return o
+}
+
+func (o FargateProfileMapOutput) ToFargateProfileMapOutputWithContext(ctx context.Context) FargateProfileMapOutput {
+	return o
+}
+
+func (o FargateProfileMapOutput) MapIndex(k pulumi.StringInput) FargateProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FargateProfile {
+		return vs[0].(map[string]FargateProfile)[vs[1].(string)]
+	}).(FargateProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FargateProfileOutput{})
+	pulumi.RegisterOutputType(FargateProfilePtrOutput{})
+	pulumi.RegisterOutputType(FargateProfileArrayOutput{})
+	pulumi.RegisterOutputType(FargateProfileMapOutput{})
 }

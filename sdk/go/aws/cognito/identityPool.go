@@ -187,6 +187,85 @@ func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) Iden
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
 }
 
+func (i *IdentityPool) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
+	return i.ToIdentityPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityPool) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPtrOutput)
+}
+
+type IdentityPoolPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPoolPtrOutput() IdentityPoolPtrOutput
+	ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput
+}
+
+type identityPoolPtrType IdentityPoolArgs
+
+func (*identityPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPool)(nil))
+}
+
+func (i *identityPoolPtrType) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
+	return i.ToIdentityPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPoolPtrType) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPtrOutput)
+}
+
+// IdentityPoolArrayInput is an input type that accepts IdentityPoolArray and IdentityPoolArrayOutput values.
+// You can construct a concrete instance of `IdentityPoolArrayInput` via:
+//
+//          IdentityPoolArray{ IdentityPoolArgs{...} }
+type IdentityPoolArrayInput interface {
+	pulumi.Input
+
+	ToIdentityPoolArrayOutput() IdentityPoolArrayOutput
+	ToIdentityPoolArrayOutputWithContext(context.Context) IdentityPoolArrayOutput
+}
+
+type IdentityPoolArray []IdentityPoolInput
+
+func (IdentityPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityPool)(nil))
+}
+
+func (i IdentityPoolArray) ToIdentityPoolArrayOutput() IdentityPoolArrayOutput {
+	return i.ToIdentityPoolArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolArray) ToIdentityPoolArrayOutputWithContext(ctx context.Context) IdentityPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolArrayOutput)
+}
+
+// IdentityPoolMapInput is an input type that accepts IdentityPoolMap and IdentityPoolMapOutput values.
+// You can construct a concrete instance of `IdentityPoolMapInput` via:
+//
+//          IdentityPoolMap{ "key": IdentityPoolArgs{...} }
+type IdentityPoolMapInput interface {
+	pulumi.Input
+
+	ToIdentityPoolMapOutput() IdentityPoolMapOutput
+	ToIdentityPoolMapOutputWithContext(context.Context) IdentityPoolMapOutput
+}
+
+type IdentityPoolMap map[string]IdentityPoolInput
+
+func (IdentityPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityPool)(nil))
+}
+
+func (i IdentityPoolMap) ToIdentityPoolMapOutput() IdentityPoolMapOutput {
+	return i.ToIdentityPoolMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolMap) ToIdentityPoolMapOutputWithContext(ctx context.Context) IdentityPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolMapOutput)
+}
+
 type IdentityPoolOutput struct {
 	*pulumi.OutputState
 }
@@ -203,6 +282,75 @@ func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o IdentityPoolOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
+	return o.ToIdentityPoolPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPoolOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
+	return o.ApplyT(func(v IdentityPool) *IdentityPool {
+		return &v
+	}).(IdentityPoolPtrOutput)
+}
+
+type IdentityPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPool)(nil))
+}
+
+func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
+	return o
+}
+
+func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
+	return o
+}
+
+type IdentityPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityPool)(nil))
+}
+
+func (o IdentityPoolArrayOutput) ToIdentityPoolArrayOutput() IdentityPoolArrayOutput {
+	return o
+}
+
+func (o IdentityPoolArrayOutput) ToIdentityPoolArrayOutputWithContext(ctx context.Context) IdentityPoolArrayOutput {
+	return o
+}
+
+func (o IdentityPoolArrayOutput) Index(i pulumi.IntInput) IdentityPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPool {
+		return vs[0].([]IdentityPool)[vs[1].(int)]
+	}).(IdentityPoolOutput)
+}
+
+type IdentityPoolMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityPool)(nil))
+}
+
+func (o IdentityPoolMapOutput) ToIdentityPoolMapOutput() IdentityPoolMapOutput {
+	return o
+}
+
+func (o IdentityPoolMapOutput) ToIdentityPoolMapOutputWithContext(ctx context.Context) IdentityPoolMapOutput {
+	return o
+}
+
+func (o IdentityPoolMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPool {
+		return vs[0].(map[string]IdentityPool)[vs[1].(string)]
+	}).(IdentityPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityPoolOutput{})
+	pulumi.RegisterOutputType(IdentityPoolPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPoolArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPoolMapOutput{})
 }

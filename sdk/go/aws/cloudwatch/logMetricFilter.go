@@ -180,6 +180,85 @@ func (i *LogMetricFilter) ToLogMetricFilterOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterOutput)
 }
 
+func (i *LogMetricFilter) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
+	return i.ToLogMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *LogMetricFilter) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterPtrOutput)
+}
+
+type LogMetricFilterPtrInput interface {
+	pulumi.Input
+
+	ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput
+	ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput
+}
+
+type logMetricFilterPtrType LogMetricFilterArgs
+
+func (*logMetricFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricFilter)(nil))
+}
+
+func (i *logMetricFilterPtrType) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
+	return i.ToLogMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *logMetricFilterPtrType) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterPtrOutput)
+}
+
+// LogMetricFilterArrayInput is an input type that accepts LogMetricFilterArray and LogMetricFilterArrayOutput values.
+// You can construct a concrete instance of `LogMetricFilterArrayInput` via:
+//
+//          LogMetricFilterArray{ LogMetricFilterArgs{...} }
+type LogMetricFilterArrayInput interface {
+	pulumi.Input
+
+	ToLogMetricFilterArrayOutput() LogMetricFilterArrayOutput
+	ToLogMetricFilterArrayOutputWithContext(context.Context) LogMetricFilterArrayOutput
+}
+
+type LogMetricFilterArray []LogMetricFilterInput
+
+func (LogMetricFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogMetricFilter)(nil))
+}
+
+func (i LogMetricFilterArray) ToLogMetricFilterArrayOutput() LogMetricFilterArrayOutput {
+	return i.ToLogMetricFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LogMetricFilterArray) ToLogMetricFilterArrayOutputWithContext(ctx context.Context) LogMetricFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterArrayOutput)
+}
+
+// LogMetricFilterMapInput is an input type that accepts LogMetricFilterMap and LogMetricFilterMapOutput values.
+// You can construct a concrete instance of `LogMetricFilterMapInput` via:
+//
+//          LogMetricFilterMap{ "key": LogMetricFilterArgs{...} }
+type LogMetricFilterMapInput interface {
+	pulumi.Input
+
+	ToLogMetricFilterMapOutput() LogMetricFilterMapOutput
+	ToLogMetricFilterMapOutputWithContext(context.Context) LogMetricFilterMapOutput
+}
+
+type LogMetricFilterMap map[string]LogMetricFilterInput
+
+func (LogMetricFilterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogMetricFilter)(nil))
+}
+
+func (i LogMetricFilterMap) ToLogMetricFilterMapOutput() LogMetricFilterMapOutput {
+	return i.ToLogMetricFilterMapOutputWithContext(context.Background())
+}
+
+func (i LogMetricFilterMap) ToLogMetricFilterMapOutputWithContext(ctx context.Context) LogMetricFilterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMapOutput)
+}
+
 type LogMetricFilterOutput struct {
 	*pulumi.OutputState
 }
@@ -196,6 +275,75 @@ func (o LogMetricFilterOutput) ToLogMetricFilterOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o LogMetricFilterOutput) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
+	return o.ToLogMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (o LogMetricFilterOutput) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
+	return o.ApplyT(func(v LogMetricFilter) *LogMetricFilter {
+		return &v
+	}).(LogMetricFilterPtrOutput)
+}
+
+type LogMetricFilterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogMetricFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricFilter)(nil))
+}
+
+func (o LogMetricFilterPtrOutput) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
+	return o
+}
+
+func (o LogMetricFilterPtrOutput) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
+	return o
+}
+
+type LogMetricFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LogMetricFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogMetricFilter)(nil))
+}
+
+func (o LogMetricFilterArrayOutput) ToLogMetricFilterArrayOutput() LogMetricFilterArrayOutput {
+	return o
+}
+
+func (o LogMetricFilterArrayOutput) ToLogMetricFilterArrayOutputWithContext(ctx context.Context) LogMetricFilterArrayOutput {
+	return o
+}
+
+func (o LogMetricFilterArrayOutput) Index(i pulumi.IntInput) LogMetricFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogMetricFilter {
+		return vs[0].([]LogMetricFilter)[vs[1].(int)]
+	}).(LogMetricFilterOutput)
+}
+
+type LogMetricFilterMapOutput struct{ *pulumi.OutputState }
+
+func (LogMetricFilterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogMetricFilter)(nil))
+}
+
+func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutput() LogMetricFilterMapOutput {
+	return o
+}
+
+func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutputWithContext(ctx context.Context) LogMetricFilterMapOutput {
+	return o
+}
+
+func (o LogMetricFilterMapOutput) MapIndex(k pulumi.StringInput) LogMetricFilterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogMetricFilter {
+		return vs[0].(map[string]LogMetricFilter)[vs[1].(string)]
+	}).(LogMetricFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogMetricFilterOutput{})
+	pulumi.RegisterOutputType(LogMetricFilterPtrOutput{})
+	pulumi.RegisterOutputType(LogMetricFilterArrayOutput{})
+	pulumi.RegisterOutputType(LogMetricFilterMapOutput{})
 }

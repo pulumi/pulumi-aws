@@ -148,6 +148,85 @@ func (i *ProductSubscription) ToProductSubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionOutput)
 }
 
+func (i *ProductSubscription) ToProductSubscriptionPtrOutput() ProductSubscriptionPtrOutput {
+	return i.ToProductSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *ProductSubscription) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionPtrOutput)
+}
+
+type ProductSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToProductSubscriptionPtrOutput() ProductSubscriptionPtrOutput
+	ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput
+}
+
+type productSubscriptionPtrType ProductSubscriptionArgs
+
+func (*productSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductSubscription)(nil))
+}
+
+func (i *productSubscriptionPtrType) ToProductSubscriptionPtrOutput() ProductSubscriptionPtrOutput {
+	return i.ToProductSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *productSubscriptionPtrType) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionPtrOutput)
+}
+
+// ProductSubscriptionArrayInput is an input type that accepts ProductSubscriptionArray and ProductSubscriptionArrayOutput values.
+// You can construct a concrete instance of `ProductSubscriptionArrayInput` via:
+//
+//          ProductSubscriptionArray{ ProductSubscriptionArgs{...} }
+type ProductSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToProductSubscriptionArrayOutput() ProductSubscriptionArrayOutput
+	ToProductSubscriptionArrayOutputWithContext(context.Context) ProductSubscriptionArrayOutput
+}
+
+type ProductSubscriptionArray []ProductSubscriptionInput
+
+func (ProductSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProductSubscription)(nil))
+}
+
+func (i ProductSubscriptionArray) ToProductSubscriptionArrayOutput() ProductSubscriptionArrayOutput {
+	return i.ToProductSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i ProductSubscriptionArray) ToProductSubscriptionArrayOutputWithContext(ctx context.Context) ProductSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionArrayOutput)
+}
+
+// ProductSubscriptionMapInput is an input type that accepts ProductSubscriptionMap and ProductSubscriptionMapOutput values.
+// You can construct a concrete instance of `ProductSubscriptionMapInput` via:
+//
+//          ProductSubscriptionMap{ "key": ProductSubscriptionArgs{...} }
+type ProductSubscriptionMapInput interface {
+	pulumi.Input
+
+	ToProductSubscriptionMapOutput() ProductSubscriptionMapOutput
+	ToProductSubscriptionMapOutputWithContext(context.Context) ProductSubscriptionMapOutput
+}
+
+type ProductSubscriptionMap map[string]ProductSubscriptionInput
+
+func (ProductSubscriptionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProductSubscription)(nil))
+}
+
+func (i ProductSubscriptionMap) ToProductSubscriptionMapOutput() ProductSubscriptionMapOutput {
+	return i.ToProductSubscriptionMapOutputWithContext(context.Background())
+}
+
+func (i ProductSubscriptionMap) ToProductSubscriptionMapOutputWithContext(ctx context.Context) ProductSubscriptionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionMapOutput)
+}
+
 type ProductSubscriptionOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o ProductSubscriptionOutput) ToProductSubscriptionOutputWithContext(ctx co
 	return o
 }
 
+func (o ProductSubscriptionOutput) ToProductSubscriptionPtrOutput() ProductSubscriptionPtrOutput {
+	return o.ToProductSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o ProductSubscriptionOutput) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
+	return o.ApplyT(func(v ProductSubscription) *ProductSubscription {
+		return &v
+	}).(ProductSubscriptionPtrOutput)
+}
+
+type ProductSubscriptionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductSubscription)(nil))
+}
+
+func (o ProductSubscriptionPtrOutput) ToProductSubscriptionPtrOutput() ProductSubscriptionPtrOutput {
+	return o
+}
+
+func (o ProductSubscriptionPtrOutput) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
+	return o
+}
+
+type ProductSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductSubscription)(nil))
+}
+
+func (o ProductSubscriptionArrayOutput) ToProductSubscriptionArrayOutput() ProductSubscriptionArrayOutput {
+	return o
+}
+
+func (o ProductSubscriptionArrayOutput) ToProductSubscriptionArrayOutputWithContext(ctx context.Context) ProductSubscriptionArrayOutput {
+	return o
+}
+
+func (o ProductSubscriptionArrayOutput) Index(i pulumi.IntInput) ProductSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductSubscription {
+		return vs[0].([]ProductSubscription)[vs[1].(int)]
+	}).(ProductSubscriptionOutput)
+}
+
+type ProductSubscriptionMapOutput struct{ *pulumi.OutputState }
+
+func (ProductSubscriptionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProductSubscription)(nil))
+}
+
+func (o ProductSubscriptionMapOutput) ToProductSubscriptionMapOutput() ProductSubscriptionMapOutput {
+	return o
+}
+
+func (o ProductSubscriptionMapOutput) ToProductSubscriptionMapOutputWithContext(ctx context.Context) ProductSubscriptionMapOutput {
+	return o
+}
+
+func (o ProductSubscriptionMapOutput) MapIndex(k pulumi.StringInput) ProductSubscriptionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProductSubscription {
+		return vs[0].(map[string]ProductSubscription)[vs[1].(string)]
+	}).(ProductSubscriptionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductSubscriptionOutput{})
+	pulumi.RegisterOutputType(ProductSubscriptionPtrOutput{})
+	pulumi.RegisterOutputType(ProductSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(ProductSubscriptionMapOutput{})
 }

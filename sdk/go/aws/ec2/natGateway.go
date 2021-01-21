@@ -198,6 +198,85 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
 }
 
+func (i *NatGateway) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
+	return i.ToNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *NatGateway) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPtrOutput)
+}
+
+type NatGatewayPtrInput interface {
+	pulumi.Input
+
+	ToNatGatewayPtrOutput() NatGatewayPtrOutput
+	ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput
+}
+
+type natGatewayPtrType NatGatewayArgs
+
+func (*natGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatGateway)(nil))
+}
+
+func (i *natGatewayPtrType) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
+	return i.ToNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *natGatewayPtrType) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPtrOutput)
+}
+
+// NatGatewayArrayInput is an input type that accepts NatGatewayArray and NatGatewayArrayOutput values.
+// You can construct a concrete instance of `NatGatewayArrayInput` via:
+//
+//          NatGatewayArray{ NatGatewayArgs{...} }
+type NatGatewayArrayInput interface {
+	pulumi.Input
+
+	ToNatGatewayArrayOutput() NatGatewayArrayOutput
+	ToNatGatewayArrayOutputWithContext(context.Context) NatGatewayArrayOutput
+}
+
+type NatGatewayArray []NatGatewayInput
+
+func (NatGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NatGateway)(nil))
+}
+
+func (i NatGatewayArray) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
+	return i.ToNatGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i NatGatewayArray) ToNatGatewayArrayOutputWithContext(ctx context.Context) NatGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayArrayOutput)
+}
+
+// NatGatewayMapInput is an input type that accepts NatGatewayMap and NatGatewayMapOutput values.
+// You can construct a concrete instance of `NatGatewayMapInput` via:
+//
+//          NatGatewayMap{ "key": NatGatewayArgs{...} }
+type NatGatewayMapInput interface {
+	pulumi.Input
+
+	ToNatGatewayMapOutput() NatGatewayMapOutput
+	ToNatGatewayMapOutputWithContext(context.Context) NatGatewayMapOutput
+}
+
+type NatGatewayMap map[string]NatGatewayInput
+
+func (NatGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NatGateway)(nil))
+}
+
+func (i NatGatewayMap) ToNatGatewayMapOutput() NatGatewayMapOutput {
+	return i.ToNatGatewayMapOutputWithContext(context.Background())
+}
+
+func (i NatGatewayMap) ToNatGatewayMapOutputWithContext(ctx context.Context) NatGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayMapOutput)
+}
+
 type NatGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -214,6 +293,75 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 	return o
 }
 
+func (o NatGatewayOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
+	return o.ToNatGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o NatGatewayOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
+	return o.ApplyT(func(v NatGateway) *NatGateway {
+		return &v
+	}).(NatGatewayPtrOutput)
+}
+
+type NatGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatGateway)(nil))
+}
+
+func (o NatGatewayPtrOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
+	return o
+}
+
+func (o NatGatewayPtrOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
+	return o
+}
+
+type NatGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGateway)(nil))
+}
+
+func (o NatGatewayArrayOutput) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
+	return o
+}
+
+func (o NatGatewayArrayOutput) ToNatGatewayArrayOutputWithContext(ctx context.Context) NatGatewayArrayOutput {
+	return o
+}
+
+func (o NatGatewayArrayOutput) Index(i pulumi.IntInput) NatGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGateway {
+		return vs[0].([]NatGateway)[vs[1].(int)]
+	}).(NatGatewayOutput)
+}
+
+type NatGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NatGateway)(nil))
+}
+
+func (o NatGatewayMapOutput) ToNatGatewayMapOutput() NatGatewayMapOutput {
+	return o
+}
+
+func (o NatGatewayMapOutput) ToNatGatewayMapOutputWithContext(ctx context.Context) NatGatewayMapOutput {
+	return o
+}
+
+func (o NatGatewayMapOutput) MapIndex(k pulumi.StringInput) NatGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatGateway {
+		return vs[0].(map[string]NatGateway)[vs[1].(string)]
+	}).(NatGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NatGatewayOutput{})
+	pulumi.RegisterOutputType(NatGatewayPtrOutput{})
+	pulumi.RegisterOutputType(NatGatewayArrayOutput{})
+	pulumi.RegisterOutputType(NatGatewayMapOutput{})
 }

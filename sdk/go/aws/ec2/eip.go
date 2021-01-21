@@ -394,6 +394,85 @@ func (i *Eip) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipOutput)
 }
 
+func (i *Eip) ToEipPtrOutput() EipPtrOutput {
+	return i.ToEipPtrOutputWithContext(context.Background())
+}
+
+func (i *Eip) ToEipPtrOutputWithContext(ctx context.Context) EipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipPtrOutput)
+}
+
+type EipPtrInput interface {
+	pulumi.Input
+
+	ToEipPtrOutput() EipPtrOutput
+	ToEipPtrOutputWithContext(ctx context.Context) EipPtrOutput
+}
+
+type eipPtrType EipArgs
+
+func (*eipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Eip)(nil))
+}
+
+func (i *eipPtrType) ToEipPtrOutput() EipPtrOutput {
+	return i.ToEipPtrOutputWithContext(context.Background())
+}
+
+func (i *eipPtrType) ToEipPtrOutputWithContext(ctx context.Context) EipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipPtrOutput)
+}
+
+// EipArrayInput is an input type that accepts EipArray and EipArrayOutput values.
+// You can construct a concrete instance of `EipArrayInput` via:
+//
+//          EipArray{ EipArgs{...} }
+type EipArrayInput interface {
+	pulumi.Input
+
+	ToEipArrayOutput() EipArrayOutput
+	ToEipArrayOutputWithContext(context.Context) EipArrayOutput
+}
+
+type EipArray []EipInput
+
+func (EipArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Eip)(nil))
+}
+
+func (i EipArray) ToEipArrayOutput() EipArrayOutput {
+	return i.ToEipArrayOutputWithContext(context.Background())
+}
+
+func (i EipArray) ToEipArrayOutputWithContext(ctx context.Context) EipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipArrayOutput)
+}
+
+// EipMapInput is an input type that accepts EipMap and EipMapOutput values.
+// You can construct a concrete instance of `EipMapInput` via:
+//
+//          EipMap{ "key": EipArgs{...} }
+type EipMapInput interface {
+	pulumi.Input
+
+	ToEipMapOutput() EipMapOutput
+	ToEipMapOutputWithContext(context.Context) EipMapOutput
+}
+
+type EipMap map[string]EipInput
+
+func (EipMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Eip)(nil))
+}
+
+func (i EipMap) ToEipMapOutput() EipMapOutput {
+	return i.ToEipMapOutputWithContext(context.Background())
+}
+
+func (i EipMap) ToEipMapOutputWithContext(ctx context.Context) EipMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipMapOutput)
+}
+
 type EipOutput struct {
 	*pulumi.OutputState
 }
@@ -410,6 +489,75 @@ func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return o
 }
 
+func (o EipOutput) ToEipPtrOutput() EipPtrOutput {
+	return o.ToEipPtrOutputWithContext(context.Background())
+}
+
+func (o EipOutput) ToEipPtrOutputWithContext(ctx context.Context) EipPtrOutput {
+	return o.ApplyT(func(v Eip) *Eip {
+		return &v
+	}).(EipPtrOutput)
+}
+
+type EipPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Eip)(nil))
+}
+
+func (o EipPtrOutput) ToEipPtrOutput() EipPtrOutput {
+	return o
+}
+
+func (o EipPtrOutput) ToEipPtrOutputWithContext(ctx context.Context) EipPtrOutput {
+	return o
+}
+
+type EipArrayOutput struct{ *pulumi.OutputState }
+
+func (EipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Eip)(nil))
+}
+
+func (o EipArrayOutput) ToEipArrayOutput() EipArrayOutput {
+	return o
+}
+
+func (o EipArrayOutput) ToEipArrayOutputWithContext(ctx context.Context) EipArrayOutput {
+	return o
+}
+
+func (o EipArrayOutput) Index(i pulumi.IntInput) EipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Eip {
+		return vs[0].([]Eip)[vs[1].(int)]
+	}).(EipOutput)
+}
+
+type EipMapOutput struct{ *pulumi.OutputState }
+
+func (EipMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Eip)(nil))
+}
+
+func (o EipMapOutput) ToEipMapOutput() EipMapOutput {
+	return o
+}
+
+func (o EipMapOutput) ToEipMapOutputWithContext(ctx context.Context) EipMapOutput {
+	return o
+}
+
+func (o EipMapOutput) MapIndex(k pulumi.StringInput) EipOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Eip {
+		return vs[0].(map[string]Eip)[vs[1].(string)]
+	}).(EipOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EipOutput{})
+	pulumi.RegisterOutputType(EipPtrOutput{})
+	pulumi.RegisterOutputType(EipArrayOutput{})
+	pulumi.RegisterOutputType(EipMapOutput{})
 }

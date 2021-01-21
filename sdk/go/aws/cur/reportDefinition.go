@@ -263,6 +263,85 @@ func (i *ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
 }
 
+func (i *ReportDefinition) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *ReportDefinition) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
+}
+
+type ReportDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput
+	ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput
+}
+
+type reportDefinitionPtrType ReportDefinitionArgs
+
+func (*reportDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinition)(nil))
+}
+
+func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
+}
+
+// ReportDefinitionArrayInput is an input type that accepts ReportDefinitionArray and ReportDefinitionArrayOutput values.
+// You can construct a concrete instance of `ReportDefinitionArrayInput` via:
+//
+//          ReportDefinitionArray{ ReportDefinitionArgs{...} }
+type ReportDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToReportDefinitionArrayOutput() ReportDefinitionArrayOutput
+	ToReportDefinitionArrayOutputWithContext(context.Context) ReportDefinitionArrayOutput
+}
+
+type ReportDefinitionArray []ReportDefinitionInput
+
+func (ReportDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ReportDefinition)(nil))
+}
+
+func (i ReportDefinitionArray) ToReportDefinitionArrayOutput() ReportDefinitionArrayOutput {
+	return i.ToReportDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionArray) ToReportDefinitionArrayOutputWithContext(ctx context.Context) ReportDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionArrayOutput)
+}
+
+// ReportDefinitionMapInput is an input type that accepts ReportDefinitionMap and ReportDefinitionMapOutput values.
+// You can construct a concrete instance of `ReportDefinitionMapInput` via:
+//
+//          ReportDefinitionMap{ "key": ReportDefinitionArgs{...} }
+type ReportDefinitionMapInput interface {
+	pulumi.Input
+
+	ToReportDefinitionMapOutput() ReportDefinitionMapOutput
+	ToReportDefinitionMapOutputWithContext(context.Context) ReportDefinitionMapOutput
+}
+
+type ReportDefinitionMap map[string]ReportDefinitionInput
+
+func (ReportDefinitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ReportDefinition)(nil))
+}
+
+func (i ReportDefinitionMap) ToReportDefinitionMapOutput() ReportDefinitionMapOutput {
+	return i.ToReportDefinitionMapOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionMap) ToReportDefinitionMapOutputWithContext(ctx context.Context) ReportDefinitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionMapOutput)
+}
+
 type ReportDefinitionOutput struct {
 	*pulumi.OutputState
 }
@@ -279,6 +358,75 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return o.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return o.ApplyT(func(v ReportDefinition) *ReportDefinition {
+		return &v
+	}).(ReportDefinitionPtrOutput)
+}
+
+type ReportDefinitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinition)(nil))
+}
+
+func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return o
+}
+
+func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return o
+}
+
+type ReportDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportDefinition)(nil))
+}
+
+func (o ReportDefinitionArrayOutput) ToReportDefinitionArrayOutput() ReportDefinitionArrayOutput {
+	return o
+}
+
+func (o ReportDefinitionArrayOutput) ToReportDefinitionArrayOutputWithContext(ctx context.Context) ReportDefinitionArrayOutput {
+	return o
+}
+
+func (o ReportDefinitionArrayOutput) Index(i pulumi.IntInput) ReportDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportDefinition {
+		return vs[0].([]ReportDefinition)[vs[1].(int)]
+	}).(ReportDefinitionOutput)
+}
+
+type ReportDefinitionMapOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportDefinition)(nil))
+}
+
+func (o ReportDefinitionMapOutput) ToReportDefinitionMapOutput() ReportDefinitionMapOutput {
+	return o
+}
+
+func (o ReportDefinitionMapOutput) ToReportDefinitionMapOutputWithContext(ctx context.Context) ReportDefinitionMapOutput {
+	return o
+}
+
+func (o ReportDefinitionMapOutput) MapIndex(k pulumi.StringInput) ReportDefinitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportDefinition {
+		return vs[0].(map[string]ReportDefinition)[vs[1].(string)]
+	}).(ReportDefinitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionMapOutput{})
 }

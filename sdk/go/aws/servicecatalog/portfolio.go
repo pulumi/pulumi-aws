@@ -162,6 +162,85 @@ func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioO
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioOutput)
 }
 
+func (i *Portfolio) ToPortfolioPtrOutput() PortfolioPtrOutput {
+	return i.ToPortfolioPtrOutputWithContext(context.Background())
+}
+
+func (i *Portfolio) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioPtrOutput)
+}
+
+type PortfolioPtrInput interface {
+	pulumi.Input
+
+	ToPortfolioPtrOutput() PortfolioPtrOutput
+	ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput
+}
+
+type portfolioPtrType PortfolioArgs
+
+func (*portfolioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Portfolio)(nil))
+}
+
+func (i *portfolioPtrType) ToPortfolioPtrOutput() PortfolioPtrOutput {
+	return i.ToPortfolioPtrOutputWithContext(context.Background())
+}
+
+func (i *portfolioPtrType) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioPtrOutput)
+}
+
+// PortfolioArrayInput is an input type that accepts PortfolioArray and PortfolioArrayOutput values.
+// You can construct a concrete instance of `PortfolioArrayInput` via:
+//
+//          PortfolioArray{ PortfolioArgs{...} }
+type PortfolioArrayInput interface {
+	pulumi.Input
+
+	ToPortfolioArrayOutput() PortfolioArrayOutput
+	ToPortfolioArrayOutputWithContext(context.Context) PortfolioArrayOutput
+}
+
+type PortfolioArray []PortfolioInput
+
+func (PortfolioArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Portfolio)(nil))
+}
+
+func (i PortfolioArray) ToPortfolioArrayOutput() PortfolioArrayOutput {
+	return i.ToPortfolioArrayOutputWithContext(context.Background())
+}
+
+func (i PortfolioArray) ToPortfolioArrayOutputWithContext(ctx context.Context) PortfolioArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioArrayOutput)
+}
+
+// PortfolioMapInput is an input type that accepts PortfolioMap and PortfolioMapOutput values.
+// You can construct a concrete instance of `PortfolioMapInput` via:
+//
+//          PortfolioMap{ "key": PortfolioArgs{...} }
+type PortfolioMapInput interface {
+	pulumi.Input
+
+	ToPortfolioMapOutput() PortfolioMapOutput
+	ToPortfolioMapOutputWithContext(context.Context) PortfolioMapOutput
+}
+
+type PortfolioMap map[string]PortfolioInput
+
+func (PortfolioMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Portfolio)(nil))
+}
+
+func (i PortfolioMap) ToPortfolioMapOutput() PortfolioMapOutput {
+	return i.ToPortfolioMapOutputWithContext(context.Background())
+}
+
+func (i PortfolioMap) ToPortfolioMapOutputWithContext(ctx context.Context) PortfolioMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortfolioMapOutput)
+}
+
 type PortfolioOutput struct {
 	*pulumi.OutputState
 }
@@ -178,6 +257,75 @@ func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) Portf
 	return o
 }
 
+func (o PortfolioOutput) ToPortfolioPtrOutput() PortfolioPtrOutput {
+	return o.ToPortfolioPtrOutputWithContext(context.Background())
+}
+
+func (o PortfolioOutput) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
+	return o.ApplyT(func(v Portfolio) *Portfolio {
+		return &v
+	}).(PortfolioPtrOutput)
+}
+
+type PortfolioPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PortfolioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Portfolio)(nil))
+}
+
+func (o PortfolioPtrOutput) ToPortfolioPtrOutput() PortfolioPtrOutput {
+	return o
+}
+
+func (o PortfolioPtrOutput) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
+	return o
+}
+
+type PortfolioArrayOutput struct{ *pulumi.OutputState }
+
+func (PortfolioArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Portfolio)(nil))
+}
+
+func (o PortfolioArrayOutput) ToPortfolioArrayOutput() PortfolioArrayOutput {
+	return o
+}
+
+func (o PortfolioArrayOutput) ToPortfolioArrayOutputWithContext(ctx context.Context) PortfolioArrayOutput {
+	return o
+}
+
+func (o PortfolioArrayOutput) Index(i pulumi.IntInput) PortfolioOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Portfolio {
+		return vs[0].([]Portfolio)[vs[1].(int)]
+	}).(PortfolioOutput)
+}
+
+type PortfolioMapOutput struct{ *pulumi.OutputState }
+
+func (PortfolioMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Portfolio)(nil))
+}
+
+func (o PortfolioMapOutput) ToPortfolioMapOutput() PortfolioMapOutput {
+	return o
+}
+
+func (o PortfolioMapOutput) ToPortfolioMapOutputWithContext(ctx context.Context) PortfolioMapOutput {
+	return o
+}
+
+func (o PortfolioMapOutput) MapIndex(k pulumi.StringInput) PortfolioOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Portfolio {
+		return vs[0].(map[string]Portfolio)[vs[1].(string)]
+	}).(PortfolioOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PortfolioOutput{})
+	pulumi.RegisterOutputType(PortfolioPtrOutput{})
+	pulumi.RegisterOutputType(PortfolioArrayOutput{})
+	pulumi.RegisterOutputType(PortfolioMapOutput{})
 }

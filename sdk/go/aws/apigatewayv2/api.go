@@ -336,6 +336,85 @@ func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
 }
 
+func (i *Api) ToApiPtrOutput() ApiPtrOutput {
+	return i.ToApiPtrOutputWithContext(context.Background())
+}
+
+func (i *Api) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiPtrOutput)
+}
+
+type ApiPtrInput interface {
+	pulumi.Input
+
+	ToApiPtrOutput() ApiPtrOutput
+	ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput
+}
+
+type apiPtrType ApiArgs
+
+func (*apiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Api)(nil))
+}
+
+func (i *apiPtrType) ToApiPtrOutput() ApiPtrOutput {
+	return i.ToApiPtrOutputWithContext(context.Background())
+}
+
+func (i *apiPtrType) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiPtrOutput)
+}
+
+// ApiArrayInput is an input type that accepts ApiArray and ApiArrayOutput values.
+// You can construct a concrete instance of `ApiArrayInput` via:
+//
+//          ApiArray{ ApiArgs{...} }
+type ApiArrayInput interface {
+	pulumi.Input
+
+	ToApiArrayOutput() ApiArrayOutput
+	ToApiArrayOutputWithContext(context.Context) ApiArrayOutput
+}
+
+type ApiArray []ApiInput
+
+func (ApiArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Api)(nil))
+}
+
+func (i ApiArray) ToApiArrayOutput() ApiArrayOutput {
+	return i.ToApiArrayOutputWithContext(context.Background())
+}
+
+func (i ApiArray) ToApiArrayOutputWithContext(ctx context.Context) ApiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiArrayOutput)
+}
+
+// ApiMapInput is an input type that accepts ApiMap and ApiMapOutput values.
+// You can construct a concrete instance of `ApiMapInput` via:
+//
+//          ApiMap{ "key": ApiArgs{...} }
+type ApiMapInput interface {
+	pulumi.Input
+
+	ToApiMapOutput() ApiMapOutput
+	ToApiMapOutputWithContext(context.Context) ApiMapOutput
+}
+
+type ApiMap map[string]ApiInput
+
+func (ApiMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Api)(nil))
+}
+
+func (i ApiMap) ToApiMapOutput() ApiMapOutput {
+	return i.ToApiMapOutputWithContext(context.Background())
+}
+
+func (i ApiMap) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiMapOutput)
+}
+
 type ApiOutput struct {
 	*pulumi.OutputState
 }
@@ -352,6 +431,75 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
+func (o ApiOutput) ToApiPtrOutput() ApiPtrOutput {
+	return o.ToApiPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOutput) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
+	return o.ApplyT(func(v Api) *Api {
+		return &v
+	}).(ApiPtrOutput)
+}
+
+type ApiPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Api)(nil))
+}
+
+func (o ApiPtrOutput) ToApiPtrOutput() ApiPtrOutput {
+	return o
+}
+
+func (o ApiPtrOutput) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
+	return o
+}
+
+type ApiArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Api)(nil))
+}
+
+func (o ApiArrayOutput) ToApiArrayOutput() ApiArrayOutput {
+	return o
+}
+
+func (o ApiArrayOutput) ToApiArrayOutputWithContext(ctx context.Context) ApiArrayOutput {
+	return o
+}
+
+func (o ApiArrayOutput) Index(i pulumi.IntInput) ApiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Api {
+		return vs[0].([]Api)[vs[1].(int)]
+	}).(ApiOutput)
+}
+
+type ApiMapOutput struct{ *pulumi.OutputState }
+
+func (ApiMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Api)(nil))
+}
+
+func (o ApiMapOutput) ToApiMapOutput() ApiMapOutput {
+	return o
+}
+
+func (o ApiMapOutput) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutput {
+	return o
+}
+
+func (o ApiMapOutput) MapIndex(k pulumi.StringInput) ApiOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Api {
+		return vs[0].(map[string]Api)[vs[1].(string)]
+	}).(ApiOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiOutput{})
+	pulumi.RegisterOutputType(ApiPtrOutput{})
+	pulumi.RegisterOutputType(ApiArrayOutput{})
+	pulumi.RegisterOutputType(ApiMapOutput{})
 }

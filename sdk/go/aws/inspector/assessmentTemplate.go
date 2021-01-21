@@ -188,6 +188,85 @@ func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateOutput)
 }
 
+func (i *AssessmentTemplate) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
+	return i.ToAssessmentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *AssessmentTemplate) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplatePtrOutput)
+}
+
+type AssessmentTemplatePtrInput interface {
+	pulumi.Input
+
+	ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput
+	ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput
+}
+
+type assessmentTemplatePtrType AssessmentTemplateArgs
+
+func (*assessmentTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentTemplate)(nil))
+}
+
+func (i *assessmentTemplatePtrType) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
+	return i.ToAssessmentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentTemplatePtrType) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplatePtrOutput)
+}
+
+// AssessmentTemplateArrayInput is an input type that accepts AssessmentTemplateArray and AssessmentTemplateArrayOutput values.
+// You can construct a concrete instance of `AssessmentTemplateArrayInput` via:
+//
+//          AssessmentTemplateArray{ AssessmentTemplateArgs{...} }
+type AssessmentTemplateArrayInput interface {
+	pulumi.Input
+
+	ToAssessmentTemplateArrayOutput() AssessmentTemplateArrayOutput
+	ToAssessmentTemplateArrayOutputWithContext(context.Context) AssessmentTemplateArrayOutput
+}
+
+type AssessmentTemplateArray []AssessmentTemplateInput
+
+func (AssessmentTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AssessmentTemplate)(nil))
+}
+
+func (i AssessmentTemplateArray) ToAssessmentTemplateArrayOutput() AssessmentTemplateArrayOutput {
+	return i.ToAssessmentTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i AssessmentTemplateArray) ToAssessmentTemplateArrayOutputWithContext(ctx context.Context) AssessmentTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateArrayOutput)
+}
+
+// AssessmentTemplateMapInput is an input type that accepts AssessmentTemplateMap and AssessmentTemplateMapOutput values.
+// You can construct a concrete instance of `AssessmentTemplateMapInput` via:
+//
+//          AssessmentTemplateMap{ "key": AssessmentTemplateArgs{...} }
+type AssessmentTemplateMapInput interface {
+	pulumi.Input
+
+	ToAssessmentTemplateMapOutput() AssessmentTemplateMapOutput
+	ToAssessmentTemplateMapOutputWithContext(context.Context) AssessmentTemplateMapOutput
+}
+
+type AssessmentTemplateMap map[string]AssessmentTemplateInput
+
+func (AssessmentTemplateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AssessmentTemplate)(nil))
+}
+
+func (i AssessmentTemplateMap) ToAssessmentTemplateMapOutput() AssessmentTemplateMapOutput {
+	return i.ToAssessmentTemplateMapOutputWithContext(context.Background())
+}
+
+func (i AssessmentTemplateMap) ToAssessmentTemplateMapOutputWithContext(ctx context.Context) AssessmentTemplateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateMapOutput)
+}
+
 type AssessmentTemplateOutput struct {
 	*pulumi.OutputState
 }
@@ -204,6 +283,75 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+func (o AssessmentTemplateOutput) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
+	return o.ToAssessmentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentTemplateOutput) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
+	return o.ApplyT(func(v AssessmentTemplate) *AssessmentTemplate {
+		return &v
+	}).(AssessmentTemplatePtrOutput)
+}
+
+type AssessmentTemplatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentTemplate)(nil))
+}
+
+func (o AssessmentTemplatePtrOutput) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
+	return o
+}
+
+func (o AssessmentTemplatePtrOutput) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
+	return o
+}
+
+type AssessmentTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentTemplate)(nil))
+}
+
+func (o AssessmentTemplateArrayOutput) ToAssessmentTemplateArrayOutput() AssessmentTemplateArrayOutput {
+	return o
+}
+
+func (o AssessmentTemplateArrayOutput) ToAssessmentTemplateArrayOutputWithContext(ctx context.Context) AssessmentTemplateArrayOutput {
+	return o
+}
+
+func (o AssessmentTemplateArrayOutput) Index(i pulumi.IntInput) AssessmentTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentTemplate {
+		return vs[0].([]AssessmentTemplate)[vs[1].(int)]
+	}).(AssessmentTemplateOutput)
+}
+
+type AssessmentTemplateMapOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTemplateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssessmentTemplate)(nil))
+}
+
+func (o AssessmentTemplateMapOutput) ToAssessmentTemplateMapOutput() AssessmentTemplateMapOutput {
+	return o
+}
+
+func (o AssessmentTemplateMapOutput) ToAssessmentTemplateMapOutputWithContext(ctx context.Context) AssessmentTemplateMapOutput {
+	return o
+}
+
+func (o AssessmentTemplateMapOutput) MapIndex(k pulumi.StringInput) AssessmentTemplateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssessmentTemplate {
+		return vs[0].(map[string]AssessmentTemplate)[vs[1].(string)]
+	}).(AssessmentTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentTemplateOutput{})
+	pulumi.RegisterOutputType(AssessmentTemplatePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentTemplateArrayOutput{})
+	pulumi.RegisterOutputType(AssessmentTemplateMapOutput{})
 }

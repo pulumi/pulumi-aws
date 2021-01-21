@@ -154,6 +154,85 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
 }
 
+func (i *ParameterGroup) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
+	return i.ToParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ParameterGroup) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupPtrOutput)
+}
+
+type ParameterGroupPtrInput interface {
+	pulumi.Input
+
+	ToParameterGroupPtrOutput() ParameterGroupPtrOutput
+	ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput
+}
+
+type parameterGroupPtrType ParameterGroupArgs
+
+func (*parameterGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterGroup)(nil))
+}
+
+func (i *parameterGroupPtrType) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
+	return i.ToParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *parameterGroupPtrType) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupPtrOutput)
+}
+
+// ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupArrayInput` via:
+//
+//          ParameterGroupArray{ ParameterGroupArgs{...} }
+type ParameterGroupArrayInput interface {
+	pulumi.Input
+
+	ToParameterGroupArrayOutput() ParameterGroupArrayOutput
+	ToParameterGroupArrayOutputWithContext(context.Context) ParameterGroupArrayOutput
+}
+
+type ParameterGroupArray []ParameterGroupInput
+
+func (ParameterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ParameterGroup)(nil))
+}
+
+func (i ParameterGroupArray) ToParameterGroupArrayOutput() ParameterGroupArrayOutput {
+	return i.ToParameterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.Context) ParameterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupArrayOutput)
+}
+
+// ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
+// You can construct a concrete instance of `ParameterGroupMapInput` via:
+//
+//          ParameterGroupMap{ "key": ParameterGroupArgs{...} }
+type ParameterGroupMapInput interface {
+	pulumi.Input
+
+	ToParameterGroupMapOutput() ParameterGroupMapOutput
+	ToParameterGroupMapOutputWithContext(context.Context) ParameterGroupMapOutput
+}
+
+type ParameterGroupMap map[string]ParameterGroupInput
+
+func (ParameterGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ParameterGroup)(nil))
+}
+
+func (i ParameterGroupMap) ToParameterGroupMapOutput() ParameterGroupMapOutput {
+	return i.ToParameterGroupMapOutputWithContext(context.Background())
+}
+
+func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Context) ParameterGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupMapOutput)
+}
+
 type ParameterGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -170,6 +249,75 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ParameterGroupOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
+	return o.ToParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterGroupOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
+	return o.ApplyT(func(v ParameterGroup) *ParameterGroup {
+		return &v
+	}).(ParameterGroupPtrOutput)
+}
+
+type ParameterGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ParameterGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterGroup)(nil))
+}
+
+func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
+	return o
+}
+
+func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
+	return o
+}
+
+type ParameterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ParameterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ParameterGroup)(nil))
+}
+
+func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutput() ParameterGroupArrayOutput {
+	return o
+}
+
+func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutputWithContext(ctx context.Context) ParameterGroupArrayOutput {
+	return o
+}
+
+func (o ParameterGroupArrayOutput) Index(i pulumi.IntInput) ParameterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroup {
+		return vs[0].([]ParameterGroup)[vs[1].(int)]
+	}).(ParameterGroupOutput)
+}
+
+type ParameterGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterGroup)(nil))
+}
+
+func (o ParameterGroupMapOutput) ToParameterGroupMapOutput() ParameterGroupMapOutput {
+	return o
+}
+
+func (o ParameterGroupMapOutput) ToParameterGroupMapOutputWithContext(ctx context.Context) ParameterGroupMapOutput {
+	return o
+}
+
+func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterGroup {
+		return vs[0].(map[string]ParameterGroup)[vs[1].(string)]
+	}).(ParameterGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ParameterGroupOutput{})
+	pulumi.RegisterOutputType(ParameterGroupPtrOutput{})
+	pulumi.RegisterOutputType(ParameterGroupArrayOutput{})
+	pulumi.RegisterOutputType(ParameterGroupMapOutput{})
 }

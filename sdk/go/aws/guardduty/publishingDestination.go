@@ -256,6 +256,85 @@ func (i *PublishingDestination) ToPublishingDestinationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationOutput)
 }
 
+func (i *PublishingDestination) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
+	return i.ToPublishingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *PublishingDestination) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationPtrOutput)
+}
+
+type PublishingDestinationPtrInput interface {
+	pulumi.Input
+
+	ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput
+	ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput
+}
+
+type publishingDestinationPtrType PublishingDestinationArgs
+
+func (*publishingDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublishingDestination)(nil))
+}
+
+func (i *publishingDestinationPtrType) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
+	return i.ToPublishingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *publishingDestinationPtrType) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationPtrOutput)
+}
+
+// PublishingDestinationArrayInput is an input type that accepts PublishingDestinationArray and PublishingDestinationArrayOutput values.
+// You can construct a concrete instance of `PublishingDestinationArrayInput` via:
+//
+//          PublishingDestinationArray{ PublishingDestinationArgs{...} }
+type PublishingDestinationArrayInput interface {
+	pulumi.Input
+
+	ToPublishingDestinationArrayOutput() PublishingDestinationArrayOutput
+	ToPublishingDestinationArrayOutputWithContext(context.Context) PublishingDestinationArrayOutput
+}
+
+type PublishingDestinationArray []PublishingDestinationInput
+
+func (PublishingDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PublishingDestination)(nil))
+}
+
+func (i PublishingDestinationArray) ToPublishingDestinationArrayOutput() PublishingDestinationArrayOutput {
+	return i.ToPublishingDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i PublishingDestinationArray) ToPublishingDestinationArrayOutputWithContext(ctx context.Context) PublishingDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationArrayOutput)
+}
+
+// PublishingDestinationMapInput is an input type that accepts PublishingDestinationMap and PublishingDestinationMapOutput values.
+// You can construct a concrete instance of `PublishingDestinationMapInput` via:
+//
+//          PublishingDestinationMap{ "key": PublishingDestinationArgs{...} }
+type PublishingDestinationMapInput interface {
+	pulumi.Input
+
+	ToPublishingDestinationMapOutput() PublishingDestinationMapOutput
+	ToPublishingDestinationMapOutputWithContext(context.Context) PublishingDestinationMapOutput
+}
+
+type PublishingDestinationMap map[string]PublishingDestinationInput
+
+func (PublishingDestinationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PublishingDestination)(nil))
+}
+
+func (i PublishingDestinationMap) ToPublishingDestinationMapOutput() PublishingDestinationMapOutput {
+	return i.ToPublishingDestinationMapOutputWithContext(context.Background())
+}
+
+func (i PublishingDestinationMap) ToPublishingDestinationMapOutputWithContext(ctx context.Context) PublishingDestinationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationMapOutput)
+}
+
 type PublishingDestinationOutput struct {
 	*pulumi.OutputState
 }
@@ -272,6 +351,75 @@ func (o PublishingDestinationOutput) ToPublishingDestinationOutputWithContext(ct
 	return o
 }
 
+func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
+	return o.ToPublishingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
+	return o.ApplyT(func(v PublishingDestination) *PublishingDestination {
+		return &v
+	}).(PublishingDestinationPtrOutput)
+}
+
+type PublishingDestinationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublishingDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublishingDestination)(nil))
+}
+
+func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
+	return o
+}
+
+func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
+	return o
+}
+
+type PublishingDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (PublishingDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublishingDestination)(nil))
+}
+
+func (o PublishingDestinationArrayOutput) ToPublishingDestinationArrayOutput() PublishingDestinationArrayOutput {
+	return o
+}
+
+func (o PublishingDestinationArrayOutput) ToPublishingDestinationArrayOutputWithContext(ctx context.Context) PublishingDestinationArrayOutput {
+	return o
+}
+
+func (o PublishingDestinationArrayOutput) Index(i pulumi.IntInput) PublishingDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublishingDestination {
+		return vs[0].([]PublishingDestination)[vs[1].(int)]
+	}).(PublishingDestinationOutput)
+}
+
+type PublishingDestinationMapOutput struct{ *pulumi.OutputState }
+
+func (PublishingDestinationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PublishingDestination)(nil))
+}
+
+func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutput() PublishingDestinationMapOutput {
+	return o
+}
+
+func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutputWithContext(ctx context.Context) PublishingDestinationMapOutput {
+	return o
+}
+
+func (o PublishingDestinationMapOutput) MapIndex(k pulumi.StringInput) PublishingDestinationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublishingDestination {
+		return vs[0].(map[string]PublishingDestination)[vs[1].(string)]
+	}).(PublishingDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublishingDestinationOutput{})
+	pulumi.RegisterOutputType(PublishingDestinationPtrOutput{})
+	pulumi.RegisterOutputType(PublishingDestinationArrayOutput{})
+	pulumi.RegisterOutputType(PublishingDestinationMapOutput{})
 }

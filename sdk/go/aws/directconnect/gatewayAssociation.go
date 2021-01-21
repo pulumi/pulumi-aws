@@ -311,6 +311,85 @@ func (i *GatewayAssociation) ToGatewayAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationOutput)
 }
 
+func (i *GatewayAssociation) ToGatewayAssociationPtrOutput() GatewayAssociationPtrOutput {
+	return i.ToGatewayAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *GatewayAssociation) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationPtrOutput)
+}
+
+type GatewayAssociationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayAssociationPtrOutput() GatewayAssociationPtrOutput
+	ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput
+}
+
+type gatewayAssociationPtrType GatewayAssociationArgs
+
+func (*gatewayAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAssociation)(nil))
+}
+
+func (i *gatewayAssociationPtrType) ToGatewayAssociationPtrOutput() GatewayAssociationPtrOutput {
+	return i.ToGatewayAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayAssociationPtrType) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationPtrOutput)
+}
+
+// GatewayAssociationArrayInput is an input type that accepts GatewayAssociationArray and GatewayAssociationArrayOutput values.
+// You can construct a concrete instance of `GatewayAssociationArrayInput` via:
+//
+//          GatewayAssociationArray{ GatewayAssociationArgs{...} }
+type GatewayAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGatewayAssociationArrayOutput() GatewayAssociationArrayOutput
+	ToGatewayAssociationArrayOutputWithContext(context.Context) GatewayAssociationArrayOutput
+}
+
+type GatewayAssociationArray []GatewayAssociationInput
+
+func (GatewayAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GatewayAssociation)(nil))
+}
+
+func (i GatewayAssociationArray) ToGatewayAssociationArrayOutput() GatewayAssociationArrayOutput {
+	return i.ToGatewayAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayAssociationArray) ToGatewayAssociationArrayOutputWithContext(ctx context.Context) GatewayAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationArrayOutput)
+}
+
+// GatewayAssociationMapInput is an input type that accepts GatewayAssociationMap and GatewayAssociationMapOutput values.
+// You can construct a concrete instance of `GatewayAssociationMapInput` via:
+//
+//          GatewayAssociationMap{ "key": GatewayAssociationArgs{...} }
+type GatewayAssociationMapInput interface {
+	pulumi.Input
+
+	ToGatewayAssociationMapOutput() GatewayAssociationMapOutput
+	ToGatewayAssociationMapOutputWithContext(context.Context) GatewayAssociationMapOutput
+}
+
+type GatewayAssociationMap map[string]GatewayAssociationInput
+
+func (GatewayAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GatewayAssociation)(nil))
+}
+
+func (i GatewayAssociationMap) ToGatewayAssociationMapOutput() GatewayAssociationMapOutput {
+	return i.ToGatewayAssociationMapOutputWithContext(context.Background())
+}
+
+func (i GatewayAssociationMap) ToGatewayAssociationMapOutputWithContext(ctx context.Context) GatewayAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationMapOutput)
+}
+
 type GatewayAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -327,6 +406,75 @@ func (o GatewayAssociationOutput) ToGatewayAssociationOutputWithContext(ctx cont
 	return o
 }
 
+func (o GatewayAssociationOutput) ToGatewayAssociationPtrOutput() GatewayAssociationPtrOutput {
+	return o.ToGatewayAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayAssociationOutput) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
+	return o.ApplyT(func(v GatewayAssociation) *GatewayAssociation {
+		return &v
+	}).(GatewayAssociationPtrOutput)
+}
+
+type GatewayAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAssociation)(nil))
+}
+
+func (o GatewayAssociationPtrOutput) ToGatewayAssociationPtrOutput() GatewayAssociationPtrOutput {
+	return o
+}
+
+func (o GatewayAssociationPtrOutput) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
+	return o
+}
+
+type GatewayAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayAssociation)(nil))
+}
+
+func (o GatewayAssociationArrayOutput) ToGatewayAssociationArrayOutput() GatewayAssociationArrayOutput {
+	return o
+}
+
+func (o GatewayAssociationArrayOutput) ToGatewayAssociationArrayOutputWithContext(ctx context.Context) GatewayAssociationArrayOutput {
+	return o
+}
+
+func (o GatewayAssociationArrayOutput) Index(i pulumi.IntInput) GatewayAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayAssociation {
+		return vs[0].([]GatewayAssociation)[vs[1].(int)]
+	}).(GatewayAssociationOutput)
+}
+
+type GatewayAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (GatewayAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GatewayAssociation)(nil))
+}
+
+func (o GatewayAssociationMapOutput) ToGatewayAssociationMapOutput() GatewayAssociationMapOutput {
+	return o
+}
+
+func (o GatewayAssociationMapOutput) ToGatewayAssociationMapOutputWithContext(ctx context.Context) GatewayAssociationMapOutput {
+	return o
+}
+
+func (o GatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) GatewayAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GatewayAssociation {
+		return vs[0].(map[string]GatewayAssociation)[vs[1].(string)]
+	}).(GatewayAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayAssociationOutput{})
+	pulumi.RegisterOutputType(GatewayAssociationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAssociationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayAssociationMapOutput{})
 }

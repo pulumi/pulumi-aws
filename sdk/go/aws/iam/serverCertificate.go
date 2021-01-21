@@ -222,6 +222,85 @@ func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateOutput)
 }
 
+func (i *ServerCertificate) ToServerCertificatePtrOutput() ServerCertificatePtrOutput {
+	return i.ToServerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *ServerCertificate) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificatePtrOutput)
+}
+
+type ServerCertificatePtrInput interface {
+	pulumi.Input
+
+	ToServerCertificatePtrOutput() ServerCertificatePtrOutput
+	ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput
+}
+
+type serverCertificatePtrType ServerCertificateArgs
+
+func (*serverCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerCertificate)(nil))
+}
+
+func (i *serverCertificatePtrType) ToServerCertificatePtrOutput() ServerCertificatePtrOutput {
+	return i.ToServerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *serverCertificatePtrType) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificatePtrOutput)
+}
+
+// ServerCertificateArrayInput is an input type that accepts ServerCertificateArray and ServerCertificateArrayOutput values.
+// You can construct a concrete instance of `ServerCertificateArrayInput` via:
+//
+//          ServerCertificateArray{ ServerCertificateArgs{...} }
+type ServerCertificateArrayInput interface {
+	pulumi.Input
+
+	ToServerCertificateArrayOutput() ServerCertificateArrayOutput
+	ToServerCertificateArrayOutputWithContext(context.Context) ServerCertificateArrayOutput
+}
+
+type ServerCertificateArray []ServerCertificateInput
+
+func (ServerCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerCertificate)(nil))
+}
+
+func (i ServerCertificateArray) ToServerCertificateArrayOutput() ServerCertificateArrayOutput {
+	return i.ToServerCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ServerCertificateArray) ToServerCertificateArrayOutputWithContext(ctx context.Context) ServerCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateArrayOutput)
+}
+
+// ServerCertificateMapInput is an input type that accepts ServerCertificateMap and ServerCertificateMapOutput values.
+// You can construct a concrete instance of `ServerCertificateMapInput` via:
+//
+//          ServerCertificateMap{ "key": ServerCertificateArgs{...} }
+type ServerCertificateMapInput interface {
+	pulumi.Input
+
+	ToServerCertificateMapOutput() ServerCertificateMapOutput
+	ToServerCertificateMapOutputWithContext(context.Context) ServerCertificateMapOutput
+}
+
+type ServerCertificateMap map[string]ServerCertificateInput
+
+func (ServerCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerCertificate)(nil))
+}
+
+func (i ServerCertificateMap) ToServerCertificateMapOutput() ServerCertificateMapOutput {
+	return i.ToServerCertificateMapOutputWithContext(context.Background())
+}
+
+func (i ServerCertificateMap) ToServerCertificateMapOutputWithContext(ctx context.Context) ServerCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateMapOutput)
+}
+
 type ServerCertificateOutput struct {
 	*pulumi.OutputState
 }
@@ -238,6 +317,75 @@ func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServerCertificateOutput) ToServerCertificatePtrOutput() ServerCertificatePtrOutput {
+	return o.ToServerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ServerCertificateOutput) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
+	return o.ApplyT(func(v ServerCertificate) *ServerCertificate {
+		return &v
+	}).(ServerCertificatePtrOutput)
+}
+
+type ServerCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerCertificate)(nil))
+}
+
+func (o ServerCertificatePtrOutput) ToServerCertificatePtrOutput() ServerCertificatePtrOutput {
+	return o
+}
+
+func (o ServerCertificatePtrOutput) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
+	return o
+}
+
+type ServerCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerCertificate)(nil))
+}
+
+func (o ServerCertificateArrayOutput) ToServerCertificateArrayOutput() ServerCertificateArrayOutput {
+	return o
+}
+
+func (o ServerCertificateArrayOutput) ToServerCertificateArrayOutputWithContext(ctx context.Context) ServerCertificateArrayOutput {
+	return o
+}
+
+func (o ServerCertificateArrayOutput) Index(i pulumi.IntInput) ServerCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerCertificate {
+		return vs[0].([]ServerCertificate)[vs[1].(int)]
+	}).(ServerCertificateOutput)
+}
+
+type ServerCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (ServerCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerCertificate)(nil))
+}
+
+func (o ServerCertificateMapOutput) ToServerCertificateMapOutput() ServerCertificateMapOutput {
+	return o
+}
+
+func (o ServerCertificateMapOutput) ToServerCertificateMapOutputWithContext(ctx context.Context) ServerCertificateMapOutput {
+	return o
+}
+
+func (o ServerCertificateMapOutput) MapIndex(k pulumi.StringInput) ServerCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerCertificate {
+		return vs[0].(map[string]ServerCertificate)[vs[1].(string)]
+	}).(ServerCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerCertificateOutput{})
+	pulumi.RegisterOutputType(ServerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ServerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ServerCertificateMapOutput{})
 }

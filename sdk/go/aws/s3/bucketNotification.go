@@ -287,6 +287,85 @@ func (i *BucketNotification) ToBucketNotificationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationOutput)
 }
 
+func (i *BucketNotification) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
+	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *BucketNotification) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
+}
+
+type BucketNotificationPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationPtrOutput() BucketNotificationPtrOutput
+	ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput
+}
+
+type bucketNotificationPtrType BucketNotificationArgs
+
+func (*bucketNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotification)(nil))
+}
+
+func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
+	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
+}
+
+// BucketNotificationArrayInput is an input type that accepts BucketNotificationArray and BucketNotificationArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationArrayInput` via:
+//
+//          BucketNotificationArray{ BucketNotificationArgs{...} }
+type BucketNotificationArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationArrayOutput() BucketNotificationArrayOutput
+	ToBucketNotificationArrayOutputWithContext(context.Context) BucketNotificationArrayOutput
+}
+
+type BucketNotificationArray []BucketNotificationInput
+
+func (BucketNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BucketNotification)(nil))
+}
+
+func (i BucketNotificationArray) ToBucketNotificationArrayOutput() BucketNotificationArrayOutput {
+	return i.ToBucketNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationArray) ToBucketNotificationArrayOutputWithContext(ctx context.Context) BucketNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationArrayOutput)
+}
+
+// BucketNotificationMapInput is an input type that accepts BucketNotificationMap and BucketNotificationMapOutput values.
+// You can construct a concrete instance of `BucketNotificationMapInput` via:
+//
+//          BucketNotificationMap{ "key": BucketNotificationArgs{...} }
+type BucketNotificationMapInput interface {
+	pulumi.Input
+
+	ToBucketNotificationMapOutput() BucketNotificationMapOutput
+	ToBucketNotificationMapOutputWithContext(context.Context) BucketNotificationMapOutput
+}
+
+type BucketNotificationMap map[string]BucketNotificationInput
+
+func (BucketNotificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BucketNotification)(nil))
+}
+
+func (i BucketNotificationMap) ToBucketNotificationMapOutput() BucketNotificationMapOutput {
+	return i.ToBucketNotificationMapOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationMap) ToBucketNotificationMapOutputWithContext(ctx context.Context) BucketNotificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationMapOutput)
+}
+
 type BucketNotificationOutput struct {
 	*pulumi.OutputState
 }
@@ -303,6 +382,75 @@ func (o BucketNotificationOutput) ToBucketNotificationOutputWithContext(ctx cont
 	return o
 }
 
+func (o BucketNotificationOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
+	return o.ToBucketNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
+	return o.ApplyT(func(v BucketNotification) *BucketNotification {
+		return &v
+	}).(BucketNotificationPtrOutput)
+}
+
+type BucketNotificationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotification)(nil))
+}
+
+func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
+	return o
+}
+
+func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
+	return o
+}
+
+type BucketNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotification)(nil))
+}
+
+func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutput() BucketNotificationArrayOutput {
+	return o
+}
+
+func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutputWithContext(ctx context.Context) BucketNotificationArrayOutput {
+	return o
+}
+
+func (o BucketNotificationArrayOutput) Index(i pulumi.IntInput) BucketNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotification {
+		return vs[0].([]BucketNotification)[vs[1].(int)]
+	}).(BucketNotificationOutput)
+}
+
+type BucketNotificationMapOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BucketNotification)(nil))
+}
+
+func (o BucketNotificationMapOutput) ToBucketNotificationMapOutput() BucketNotificationMapOutput {
+	return o
+}
+
+func (o BucketNotificationMapOutput) ToBucketNotificationMapOutputWithContext(ctx context.Context) BucketNotificationMapOutput {
+	return o
+}
+
+func (o BucketNotificationMapOutput) MapIndex(k pulumi.StringInput) BucketNotificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketNotification {
+		return vs[0].(map[string]BucketNotification)[vs[1].(string)]
+	}).(BucketNotificationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BucketNotificationOutput{})
+	pulumi.RegisterOutputType(BucketNotificationPtrOutput{})
+	pulumi.RegisterOutputType(BucketNotificationArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationMapOutput{})
 }

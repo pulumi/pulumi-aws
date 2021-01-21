@@ -202,6 +202,85 @@ func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupOutput)
 }
 
+func (i *ClusterParameterGroup) ToClusterParameterGroupPtrOutput() ClusterParameterGroupPtrOutput {
+	return i.ToClusterParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ClusterParameterGroup) ToClusterParameterGroupPtrOutputWithContext(ctx context.Context) ClusterParameterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupPtrOutput)
+}
+
+type ClusterParameterGroupPtrInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupPtrOutput() ClusterParameterGroupPtrOutput
+	ToClusterParameterGroupPtrOutputWithContext(ctx context.Context) ClusterParameterGroupPtrOutput
+}
+
+type clusterParameterGroupPtrType ClusterParameterGroupArgs
+
+func (*clusterParameterGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterParameterGroup)(nil))
+}
+
+func (i *clusterParameterGroupPtrType) ToClusterParameterGroupPtrOutput() ClusterParameterGroupPtrOutput {
+	return i.ToClusterParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterParameterGroupPtrType) ToClusterParameterGroupPtrOutputWithContext(ctx context.Context) ClusterParameterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupPtrOutput)
+}
+
+// ClusterParameterGroupArrayInput is an input type that accepts ClusterParameterGroupArray and ClusterParameterGroupArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupArrayInput` via:
+//
+//          ClusterParameterGroupArray{ ClusterParameterGroupArgs{...} }
+type ClusterParameterGroupArrayInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupArrayOutput() ClusterParameterGroupArrayOutput
+	ToClusterParameterGroupArrayOutputWithContext(context.Context) ClusterParameterGroupArrayOutput
+}
+
+type ClusterParameterGroupArray []ClusterParameterGroupInput
+
+func (ClusterParameterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ClusterParameterGroup)(nil))
+}
+
+func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutput() ClusterParameterGroupArrayOutput {
+	return i.ToClusterParameterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutputWithContext(ctx context.Context) ClusterParameterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupArrayOutput)
+}
+
+// ClusterParameterGroupMapInput is an input type that accepts ClusterParameterGroupMap and ClusterParameterGroupMapOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupMapInput` via:
+//
+//          ClusterParameterGroupMap{ "key": ClusterParameterGroupArgs{...} }
+type ClusterParameterGroupMapInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupMapOutput() ClusterParameterGroupMapOutput
+	ToClusterParameterGroupMapOutputWithContext(context.Context) ClusterParameterGroupMapOutput
+}
+
+type ClusterParameterGroupMap map[string]ClusterParameterGroupInput
+
+func (ClusterParameterGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ClusterParameterGroup)(nil))
+}
+
+func (i ClusterParameterGroupMap) ToClusterParameterGroupMapOutput() ClusterParameterGroupMapOutput {
+	return i.ToClusterParameterGroupMapOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupMap) ToClusterParameterGroupMapOutputWithContext(ctx context.Context) ClusterParameterGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupMapOutput)
+}
+
 type ClusterParameterGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -218,6 +297,75 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 	return o
 }
 
+func (o ClusterParameterGroupOutput) ToClusterParameterGroupPtrOutput() ClusterParameterGroupPtrOutput {
+	return o.ToClusterParameterGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterParameterGroupOutput) ToClusterParameterGroupPtrOutputWithContext(ctx context.Context) ClusterParameterGroupPtrOutput {
+	return o.ApplyT(func(v ClusterParameterGroup) *ClusterParameterGroup {
+		return &v
+	}).(ClusterParameterGroupPtrOutput)
+}
+
+type ClusterParameterGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterParameterGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterParameterGroup)(nil))
+}
+
+func (o ClusterParameterGroupPtrOutput) ToClusterParameterGroupPtrOutput() ClusterParameterGroupPtrOutput {
+	return o
+}
+
+func (o ClusterParameterGroupPtrOutput) ToClusterParameterGroupPtrOutputWithContext(ctx context.Context) ClusterParameterGroupPtrOutput {
+	return o
+}
+
+type ClusterParameterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroup)(nil))
+}
+
+func (o ClusterParameterGroupArrayOutput) ToClusterParameterGroupArrayOutput() ClusterParameterGroupArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupArrayOutput) ToClusterParameterGroupArrayOutputWithContext(ctx context.Context) ClusterParameterGroupArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroup {
+		return vs[0].([]ClusterParameterGroup)[vs[1].(int)]
+	}).(ClusterParameterGroupOutput)
+}
+
+type ClusterParameterGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterParameterGroup)(nil))
+}
+
+func (o ClusterParameterGroupMapOutput) ToClusterParameterGroupMapOutput() ClusterParameterGroupMapOutput {
+	return o
+}
+
+func (o ClusterParameterGroupMapOutput) ToClusterParameterGroupMapOutputWithContext(ctx context.Context) ClusterParameterGroupMapOutput {
+	return o
+}
+
+func (o ClusterParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ClusterParameterGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterParameterGroup {
+		return vs[0].(map[string]ClusterParameterGroup)[vs[1].(string)]
+	}).(ClusterParameterGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterParameterGroupOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupPtrOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupArrayOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupMapOutput{})
 }

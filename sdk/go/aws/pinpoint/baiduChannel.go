@@ -173,6 +173,85 @@ func (i *BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) Baid
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelOutput)
 }
 
+func (i *BaiduChannel) ToBaiduChannelPtrOutput() BaiduChannelPtrOutput {
+	return i.ToBaiduChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *BaiduChannel) ToBaiduChannelPtrOutputWithContext(ctx context.Context) BaiduChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelPtrOutput)
+}
+
+type BaiduChannelPtrInput interface {
+	pulumi.Input
+
+	ToBaiduChannelPtrOutput() BaiduChannelPtrOutput
+	ToBaiduChannelPtrOutputWithContext(ctx context.Context) BaiduChannelPtrOutput
+}
+
+type baiduChannelPtrType BaiduChannelArgs
+
+func (*baiduChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduChannel)(nil))
+}
+
+func (i *baiduChannelPtrType) ToBaiduChannelPtrOutput() BaiduChannelPtrOutput {
+	return i.ToBaiduChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *baiduChannelPtrType) ToBaiduChannelPtrOutputWithContext(ctx context.Context) BaiduChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelPtrOutput)
+}
+
+// BaiduChannelArrayInput is an input type that accepts BaiduChannelArray and BaiduChannelArrayOutput values.
+// You can construct a concrete instance of `BaiduChannelArrayInput` via:
+//
+//          BaiduChannelArray{ BaiduChannelArgs{...} }
+type BaiduChannelArrayInput interface {
+	pulumi.Input
+
+	ToBaiduChannelArrayOutput() BaiduChannelArrayOutput
+	ToBaiduChannelArrayOutputWithContext(context.Context) BaiduChannelArrayOutput
+}
+
+type BaiduChannelArray []BaiduChannelInput
+
+func (BaiduChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BaiduChannel)(nil))
+}
+
+func (i BaiduChannelArray) ToBaiduChannelArrayOutput() BaiduChannelArrayOutput {
+	return i.ToBaiduChannelArrayOutputWithContext(context.Background())
+}
+
+func (i BaiduChannelArray) ToBaiduChannelArrayOutputWithContext(ctx context.Context) BaiduChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelArrayOutput)
+}
+
+// BaiduChannelMapInput is an input type that accepts BaiduChannelMap and BaiduChannelMapOutput values.
+// You can construct a concrete instance of `BaiduChannelMapInput` via:
+//
+//          BaiduChannelMap{ "key": BaiduChannelArgs{...} }
+type BaiduChannelMapInput interface {
+	pulumi.Input
+
+	ToBaiduChannelMapOutput() BaiduChannelMapOutput
+	ToBaiduChannelMapOutputWithContext(context.Context) BaiduChannelMapOutput
+}
+
+type BaiduChannelMap map[string]BaiduChannelInput
+
+func (BaiduChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BaiduChannel)(nil))
+}
+
+func (i BaiduChannelMap) ToBaiduChannelMapOutput() BaiduChannelMapOutput {
+	return i.ToBaiduChannelMapOutputWithContext(context.Background())
+}
+
+func (i BaiduChannelMap) ToBaiduChannelMapOutputWithContext(ctx context.Context) BaiduChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelMapOutput)
+}
+
 type BaiduChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -189,6 +268,75 @@ func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BaiduChannelOutput) ToBaiduChannelPtrOutput() BaiduChannelPtrOutput {
+	return o.ToBaiduChannelPtrOutputWithContext(context.Background())
+}
+
+func (o BaiduChannelOutput) ToBaiduChannelPtrOutputWithContext(ctx context.Context) BaiduChannelPtrOutput {
+	return o.ApplyT(func(v BaiduChannel) *BaiduChannel {
+		return &v
+	}).(BaiduChannelPtrOutput)
+}
+
+type BaiduChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BaiduChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduChannel)(nil))
+}
+
+func (o BaiduChannelPtrOutput) ToBaiduChannelPtrOutput() BaiduChannelPtrOutput {
+	return o
+}
+
+func (o BaiduChannelPtrOutput) ToBaiduChannelPtrOutputWithContext(ctx context.Context) BaiduChannelPtrOutput {
+	return o
+}
+
+type BaiduChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (BaiduChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BaiduChannel)(nil))
+}
+
+func (o BaiduChannelArrayOutput) ToBaiduChannelArrayOutput() BaiduChannelArrayOutput {
+	return o
+}
+
+func (o BaiduChannelArrayOutput) ToBaiduChannelArrayOutputWithContext(ctx context.Context) BaiduChannelArrayOutput {
+	return o
+}
+
+func (o BaiduChannelArrayOutput) Index(i pulumi.IntInput) BaiduChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BaiduChannel {
+		return vs[0].([]BaiduChannel)[vs[1].(int)]
+	}).(BaiduChannelOutput)
+}
+
+type BaiduChannelMapOutput struct{ *pulumi.OutputState }
+
+func (BaiduChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BaiduChannel)(nil))
+}
+
+func (o BaiduChannelMapOutput) ToBaiduChannelMapOutput() BaiduChannelMapOutput {
+	return o
+}
+
+func (o BaiduChannelMapOutput) ToBaiduChannelMapOutputWithContext(ctx context.Context) BaiduChannelMapOutput {
+	return o
+}
+
+func (o BaiduChannelMapOutput) MapIndex(k pulumi.StringInput) BaiduChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BaiduChannel {
+		return vs[0].(map[string]BaiduChannel)[vs[1].(string)]
+	}).(BaiduChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BaiduChannelOutput{})
+	pulumi.RegisterOutputType(BaiduChannelPtrOutput{})
+	pulumi.RegisterOutputType(BaiduChannelArrayOutput{})
+	pulumi.RegisterOutputType(BaiduChannelMapOutput{})
 }

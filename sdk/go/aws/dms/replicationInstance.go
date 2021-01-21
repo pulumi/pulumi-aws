@@ -367,6 +367,85 @@ func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
 }
 
+func (i *ReplicationInstance) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
+	return i.ToReplicationInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *ReplicationInstance) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstancePtrOutput)
+}
+
+type ReplicationInstancePtrInput interface {
+	pulumi.Input
+
+	ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput
+	ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput
+}
+
+type replicationInstancePtrType ReplicationInstanceArgs
+
+func (*replicationInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationInstance)(nil))
+}
+
+func (i *replicationInstancePtrType) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
+	return i.ToReplicationInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *replicationInstancePtrType) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstancePtrOutput)
+}
+
+// ReplicationInstanceArrayInput is an input type that accepts ReplicationInstanceArray and ReplicationInstanceArrayOutput values.
+// You can construct a concrete instance of `ReplicationInstanceArrayInput` via:
+//
+//          ReplicationInstanceArray{ ReplicationInstanceArgs{...} }
+type ReplicationInstanceArrayInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceArrayOutput() ReplicationInstanceArrayOutput
+	ToReplicationInstanceArrayOutputWithContext(context.Context) ReplicationInstanceArrayOutput
+}
+
+type ReplicationInstanceArray []ReplicationInstanceInput
+
+func (ReplicationInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ReplicationInstance)(nil))
+}
+
+func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutput() ReplicationInstanceArrayOutput {
+	return i.ToReplicationInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutputWithContext(ctx context.Context) ReplicationInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceArrayOutput)
+}
+
+// ReplicationInstanceMapInput is an input type that accepts ReplicationInstanceMap and ReplicationInstanceMapOutput values.
+// You can construct a concrete instance of `ReplicationInstanceMapInput` via:
+//
+//          ReplicationInstanceMap{ "key": ReplicationInstanceArgs{...} }
+type ReplicationInstanceMapInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceMapOutput() ReplicationInstanceMapOutput
+	ToReplicationInstanceMapOutputWithContext(context.Context) ReplicationInstanceMapOutput
+}
+
+type ReplicationInstanceMap map[string]ReplicationInstanceInput
+
+func (ReplicationInstanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ReplicationInstance)(nil))
+}
+
+func (i ReplicationInstanceMap) ToReplicationInstanceMapOutput() ReplicationInstanceMapOutput {
+	return i.ToReplicationInstanceMapOutputWithContext(context.Background())
+}
+
+func (i ReplicationInstanceMap) ToReplicationInstanceMapOutputWithContext(ctx context.Context) ReplicationInstanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceMapOutput)
+}
+
 type ReplicationInstanceOutput struct {
 	*pulumi.OutputState
 }
@@ -383,6 +462,75 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx co
 	return o
 }
 
+func (o ReplicationInstanceOutput) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
+	return o.ToReplicationInstancePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationInstanceOutput) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
+	return o.ApplyT(func(v ReplicationInstance) *ReplicationInstance {
+		return &v
+	}).(ReplicationInstancePtrOutput)
+}
+
+type ReplicationInstancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationInstance)(nil))
+}
+
+func (o ReplicationInstancePtrOutput) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
+	return o
+}
+
+func (o ReplicationInstancePtrOutput) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
+	return o
+}
+
+type ReplicationInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationInstance)(nil))
+}
+
+func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutput() ReplicationInstanceArrayOutput {
+	return o
+}
+
+func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutputWithContext(ctx context.Context) ReplicationInstanceArrayOutput {
+	return o
+}
+
+func (o ReplicationInstanceArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationInstance {
+		return vs[0].([]ReplicationInstance)[vs[1].(int)]
+	}).(ReplicationInstanceOutput)
+}
+
+type ReplicationInstanceMapOutput struct{ *pulumi.OutputState }
+
+func (ReplicationInstanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReplicationInstance)(nil))
+}
+
+func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutput() ReplicationInstanceMapOutput {
+	return o
+}
+
+func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutputWithContext(ctx context.Context) ReplicationInstanceMapOutput {
+	return o
+}
+
+func (o ReplicationInstanceMapOutput) MapIndex(k pulumi.StringInput) ReplicationInstanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationInstance {
+		return vs[0].(map[string]ReplicationInstance)[vs[1].(string)]
+	}).(ReplicationInstanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
+	pulumi.RegisterOutputType(ReplicationInstancePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationInstanceArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationInstanceMapOutput{})
 }

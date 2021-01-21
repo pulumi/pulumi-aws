@@ -138,6 +138,85 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
 }
 
+func (i *DataLakeSettings) ToDataLakeSettingsPtrOutput() DataLakeSettingsPtrOutput {
+	return i.ToDataLakeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *DataLakeSettings) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsPtrOutput)
+}
+
+type DataLakeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsPtrOutput() DataLakeSettingsPtrOutput
+	ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput
+}
+
+type dataLakeSettingsPtrType DataLakeSettingsArgs
+
+func (*dataLakeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettings)(nil))
+}
+
+func (i *dataLakeSettingsPtrType) ToDataLakeSettingsPtrOutput() DataLakeSettingsPtrOutput {
+	return i.ToDataLakeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataLakeSettingsPtrType) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsPtrOutput)
+}
+
+// DataLakeSettingsArrayInput is an input type that accepts DataLakeSettingsArray and DataLakeSettingsArrayOutput values.
+// You can construct a concrete instance of `DataLakeSettingsArrayInput` via:
+//
+//          DataLakeSettingsArray{ DataLakeSettingsArgs{...} }
+type DataLakeSettingsArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsArrayOutput() DataLakeSettingsArrayOutput
+	ToDataLakeSettingsArrayOutputWithContext(context.Context) DataLakeSettingsArrayOutput
+}
+
+type DataLakeSettingsArray []DataLakeSettingsInput
+
+func (DataLakeSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DataLakeSettings)(nil))
+}
+
+func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutput() DataLakeSettingsArrayOutput {
+	return i.ToDataLakeSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutputWithContext(ctx context.Context) DataLakeSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsArrayOutput)
+}
+
+// DataLakeSettingsMapInput is an input type that accepts DataLakeSettingsMap and DataLakeSettingsMapOutput values.
+// You can construct a concrete instance of `DataLakeSettingsMapInput` via:
+//
+//          DataLakeSettingsMap{ "key": DataLakeSettingsArgs{...} }
+type DataLakeSettingsMapInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsMapOutput() DataLakeSettingsMapOutput
+	ToDataLakeSettingsMapOutputWithContext(context.Context) DataLakeSettingsMapOutput
+}
+
+type DataLakeSettingsMap map[string]DataLakeSettingsInput
+
+func (DataLakeSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DataLakeSettings)(nil))
+}
+
+func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutput() DataLakeSettingsMapOutput {
+	return i.ToDataLakeSettingsMapOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutputWithContext(ctx context.Context) DataLakeSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsMapOutput)
+}
+
 type DataLakeSettingsOutput struct {
 	*pulumi.OutputState
 }
@@ -154,6 +233,75 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 	return o
 }
 
+func (o DataLakeSettingsOutput) ToDataLakeSettingsPtrOutput() DataLakeSettingsPtrOutput {
+	return o.ToDataLakeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataLakeSettingsOutput) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
+	return o.ApplyT(func(v DataLakeSettings) *DataLakeSettings {
+		return &v
+	}).(DataLakeSettingsPtrOutput)
+}
+
+type DataLakeSettingsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataLakeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettings)(nil))
+}
+
+func (o DataLakeSettingsPtrOutput) ToDataLakeSettingsPtrOutput() DataLakeSettingsPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsPtrOutput) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
+	return o
+}
+
+type DataLakeSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeSettings)(nil))
+}
+
+func (o DataLakeSettingsArrayOutput) ToDataLakeSettingsArrayOutput() DataLakeSettingsArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsArrayOutput) ToDataLakeSettingsArrayOutputWithContext(ctx context.Context) DataLakeSettingsArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeSettings {
+		return vs[0].([]DataLakeSettings)[vs[1].(int)]
+	}).(DataLakeSettingsOutput)
+}
+
+type DataLakeSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataLakeSettings)(nil))
+}
+
+func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutput() DataLakeSettingsMapOutput {
+	return o
+}
+
+func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutputWithContext(ctx context.Context) DataLakeSettingsMapOutput {
+	return o
+}
+
+func (o DataLakeSettingsMapOutput) MapIndex(k pulumi.StringInput) DataLakeSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataLakeSettings {
+		return vs[0].(map[string]DataLakeSettings)[vs[1].(string)]
+	}).(DataLakeSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataLakeSettingsOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsArrayOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsMapOutput{})
 }

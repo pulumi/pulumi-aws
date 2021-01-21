@@ -149,6 +149,85 @@ func (i *BucketOwnershipControls) ToBucketOwnershipControlsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput)
 }
 
+func (i *BucketOwnershipControls) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *BucketOwnershipControls) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsPtrOutput)
+}
+
+type BucketOwnershipControlsPtrInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput
+	ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput
+}
+
+type bucketOwnershipControlsPtrType BucketOwnershipControlsArgs
+
+func (*bucketOwnershipControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil))
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsPtrOutput)
+}
+
+// BucketOwnershipControlsArrayInput is an input type that accepts BucketOwnershipControlsArray and BucketOwnershipControlsArrayOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsArrayInput` via:
+//
+//          BucketOwnershipControlsArray{ BucketOwnershipControlsArgs{...} }
+type BucketOwnershipControlsArrayInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsArrayOutput() BucketOwnershipControlsArrayOutput
+	ToBucketOwnershipControlsArrayOutputWithContext(context.Context) BucketOwnershipControlsArrayOutput
+}
+
+type BucketOwnershipControlsArray []BucketOwnershipControlsInput
+
+func (BucketOwnershipControlsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BucketOwnershipControls)(nil))
+}
+
+func (i BucketOwnershipControlsArray) ToBucketOwnershipControlsArrayOutput() BucketOwnershipControlsArrayOutput {
+	return i.ToBucketOwnershipControlsArrayOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsArray) ToBucketOwnershipControlsArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsArrayOutput)
+}
+
+// BucketOwnershipControlsMapInput is an input type that accepts BucketOwnershipControlsMap and BucketOwnershipControlsMapOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsMapInput` via:
+//
+//          BucketOwnershipControlsMap{ "key": BucketOwnershipControlsArgs{...} }
+type BucketOwnershipControlsMapInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsMapOutput() BucketOwnershipControlsMapOutput
+	ToBucketOwnershipControlsMapOutputWithContext(context.Context) BucketOwnershipControlsMapOutput
+}
+
+type BucketOwnershipControlsMap map[string]BucketOwnershipControlsInput
+
+func (BucketOwnershipControlsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BucketOwnershipControls)(nil))
+}
+
+func (i BucketOwnershipControlsMap) ToBucketOwnershipControlsMapOutput() BucketOwnershipControlsMapOutput {
+	return i.ToBucketOwnershipControlsMapOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsMap) ToBucketOwnershipControlsMapOutputWithContext(ctx context.Context) BucketOwnershipControlsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsMapOutput)
+}
+
 type BucketOwnershipControlsOutput struct {
 	*pulumi.OutputState
 }
@@ -165,6 +244,75 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContex
 	return o
 }
 
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o.ApplyT(func(v BucketOwnershipControls) *BucketOwnershipControls {
+		return &v
+	}).(BucketOwnershipControlsPtrOutput)
+}
+
+type BucketOwnershipControlsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketOwnershipControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil))
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+type BucketOwnershipControlsArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketOwnershipControls)(nil))
+}
+
+func (o BucketOwnershipControlsArrayOutput) ToBucketOwnershipControlsArrayOutput() BucketOwnershipControlsArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsArrayOutput) ToBucketOwnershipControlsArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsArrayOutput) Index(i pulumi.IntInput) BucketOwnershipControlsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketOwnershipControls {
+		return vs[0].([]BucketOwnershipControls)[vs[1].(int)]
+	}).(BucketOwnershipControlsOutput)
+}
+
+type BucketOwnershipControlsMapOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BucketOwnershipControls)(nil))
+}
+
+func (o BucketOwnershipControlsMapOutput) ToBucketOwnershipControlsMapOutput() BucketOwnershipControlsMapOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsMapOutput) ToBucketOwnershipControlsMapOutputWithContext(ctx context.Context) BucketOwnershipControlsMapOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsMapOutput) MapIndex(k pulumi.StringInput) BucketOwnershipControlsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketOwnershipControls {
+		return vs[0].(map[string]BucketOwnershipControls)[vs[1].(string)]
+	}).(BucketOwnershipControlsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BucketOwnershipControlsOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsPtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsArrayOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsMapOutput{})
 }

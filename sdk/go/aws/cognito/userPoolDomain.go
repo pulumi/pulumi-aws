@@ -233,6 +233,85 @@ func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
 }
 
+func (i *UserPoolDomain) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
+	return i.ToUserPoolDomainPtrOutputWithContext(context.Background())
+}
+
+func (i *UserPoolDomain) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainPtrOutput)
+}
+
+type UserPoolDomainPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput
+	ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput
+}
+
+type userPoolDomainPtrType UserPoolDomainArgs
+
+func (*userPoolDomainPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomain)(nil))
+}
+
+func (i *userPoolDomainPtrType) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
+	return i.ToUserPoolDomainPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolDomainPtrType) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainPtrOutput)
+}
+
+// UserPoolDomainArrayInput is an input type that accepts UserPoolDomainArray and UserPoolDomainArrayOutput values.
+// You can construct a concrete instance of `UserPoolDomainArrayInput` via:
+//
+//          UserPoolDomainArray{ UserPoolDomainArgs{...} }
+type UserPoolDomainArrayInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainArrayOutput() UserPoolDomainArrayOutput
+	ToUserPoolDomainArrayOutputWithContext(context.Context) UserPoolDomainArrayOutput
+}
+
+type UserPoolDomainArray []UserPoolDomainInput
+
+func (UserPoolDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserPoolDomain)(nil))
+}
+
+func (i UserPoolDomainArray) ToUserPoolDomainArrayOutput() UserPoolDomainArrayOutput {
+	return i.ToUserPoolDomainArrayOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainArray) ToUserPoolDomainArrayOutputWithContext(ctx context.Context) UserPoolDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainArrayOutput)
+}
+
+// UserPoolDomainMapInput is an input type that accepts UserPoolDomainMap and UserPoolDomainMapOutput values.
+// You can construct a concrete instance of `UserPoolDomainMapInput` via:
+//
+//          UserPoolDomainMap{ "key": UserPoolDomainArgs{...} }
+type UserPoolDomainMapInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainMapOutput() UserPoolDomainMapOutput
+	ToUserPoolDomainMapOutputWithContext(context.Context) UserPoolDomainMapOutput
+}
+
+type UserPoolDomainMap map[string]UserPoolDomainInput
+
+func (UserPoolDomainMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserPoolDomain)(nil))
+}
+
+func (i UserPoolDomainMap) ToUserPoolDomainMapOutput() UserPoolDomainMapOutput {
+	return i.ToUserPoolDomainMapOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainMap) ToUserPoolDomainMapOutputWithContext(ctx context.Context) UserPoolDomainMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainMapOutput)
+}
+
 type UserPoolDomainOutput struct {
 	*pulumi.OutputState
 }
@@ -249,6 +328,75 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
+	return o.ToUserPoolDomainPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
+	return o.ApplyT(func(v UserPoolDomain) *UserPoolDomain {
+		return &v
+	}).(UserPoolDomainPtrOutput)
+}
+
+type UserPoolDomainPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolDomainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomain)(nil))
+}
+
+func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
+	return o
+}
+
+func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
+	return o
+}
+
+type UserPoolDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPoolDomain)(nil))
+}
+
+func (o UserPoolDomainArrayOutput) ToUserPoolDomainArrayOutput() UserPoolDomainArrayOutput {
+	return o
+}
+
+func (o UserPoolDomainArrayOutput) ToUserPoolDomainArrayOutputWithContext(ctx context.Context) UserPoolDomainArrayOutput {
+	return o
+}
+
+func (o UserPoolDomainArrayOutput) Index(i pulumi.IntInput) UserPoolDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolDomain {
+		return vs[0].([]UserPoolDomain)[vs[1].(int)]
+	}).(UserPoolDomainOutput)
+}
+
+type UserPoolDomainMapOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserPoolDomain)(nil))
+}
+
+func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutput() UserPoolDomainMapOutput {
+	return o
+}
+
+func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutputWithContext(ctx context.Context) UserPoolDomainMapOutput {
+	return o
+}
+
+func (o UserPoolDomainMapOutput) MapIndex(k pulumi.StringInput) UserPoolDomainOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserPoolDomain {
+		return vs[0].(map[string]UserPoolDomain)[vs[1].(string)]
+	}).(UserPoolDomainOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserPoolDomainOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainArrayOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainMapOutput{})
 }

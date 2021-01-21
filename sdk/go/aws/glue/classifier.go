@@ -252,6 +252,85 @@ func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) Classifi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
 }
 
+func (i *Classifier) ToClassifierPtrOutput() ClassifierPtrOutput {
+	return i.ToClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *Classifier) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierPtrOutput)
+}
+
+type ClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierPtrOutput() ClassifierPtrOutput
+	ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput
+}
+
+type classifierPtrType ClassifierArgs
+
+func (*classifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Classifier)(nil))
+}
+
+func (i *classifierPtrType) ToClassifierPtrOutput() ClassifierPtrOutput {
+	return i.ToClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierPtrType) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierPtrOutput)
+}
+
+// ClassifierArrayInput is an input type that accepts ClassifierArray and ClassifierArrayOutput values.
+// You can construct a concrete instance of `ClassifierArrayInput` via:
+//
+//          ClassifierArray{ ClassifierArgs{...} }
+type ClassifierArrayInput interface {
+	pulumi.Input
+
+	ToClassifierArrayOutput() ClassifierArrayOutput
+	ToClassifierArrayOutputWithContext(context.Context) ClassifierArrayOutput
+}
+
+type ClassifierArray []ClassifierInput
+
+func (ClassifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Classifier)(nil))
+}
+
+func (i ClassifierArray) ToClassifierArrayOutput() ClassifierArrayOutput {
+	return i.ToClassifierArrayOutputWithContext(context.Background())
+}
+
+func (i ClassifierArray) ToClassifierArrayOutputWithContext(ctx context.Context) ClassifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierArrayOutput)
+}
+
+// ClassifierMapInput is an input type that accepts ClassifierMap and ClassifierMapOutput values.
+// You can construct a concrete instance of `ClassifierMapInput` via:
+//
+//          ClassifierMap{ "key": ClassifierArgs{...} }
+type ClassifierMapInput interface {
+	pulumi.Input
+
+	ToClassifierMapOutput() ClassifierMapOutput
+	ToClassifierMapOutputWithContext(context.Context) ClassifierMapOutput
+}
+
+type ClassifierMap map[string]ClassifierInput
+
+func (ClassifierMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Classifier)(nil))
+}
+
+func (i ClassifierMap) ToClassifierMapOutput() ClassifierMapOutput {
+	return i.ToClassifierMapOutputWithContext(context.Background())
+}
+
+func (i ClassifierMap) ToClassifierMapOutputWithContext(ctx context.Context) ClassifierMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierMapOutput)
+}
+
 type ClassifierOutput struct {
 	*pulumi.OutputState
 }
@@ -268,6 +347,75 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 	return o
 }
 
+func (o ClassifierOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
+	return o.ToClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
+	return o.ApplyT(func(v Classifier) *Classifier {
+		return &v
+	}).(ClassifierPtrOutput)
+}
+
+type ClassifierPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Classifier)(nil))
+}
+
+func (o ClassifierPtrOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierPtrOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
+	return o
+}
+
+type ClassifierArrayOutput struct{ *pulumi.OutputState }
+
+func (ClassifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Classifier)(nil))
+}
+
+func (o ClassifierArrayOutput) ToClassifierArrayOutput() ClassifierArrayOutput {
+	return o
+}
+
+func (o ClassifierArrayOutput) ToClassifierArrayOutputWithContext(ctx context.Context) ClassifierArrayOutput {
+	return o
+}
+
+func (o ClassifierArrayOutput) Index(i pulumi.IntInput) ClassifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Classifier {
+		return vs[0].([]Classifier)[vs[1].(int)]
+	}).(ClassifierOutput)
+}
+
+type ClassifierMapOutput struct{ *pulumi.OutputState }
+
+func (ClassifierMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Classifier)(nil))
+}
+
+func (o ClassifierMapOutput) ToClassifierMapOutput() ClassifierMapOutput {
+	return o
+}
+
+func (o ClassifierMapOutput) ToClassifierMapOutputWithContext(ctx context.Context) ClassifierMapOutput {
+	return o
+}
+
+func (o ClassifierMapOutput) MapIndex(k pulumi.StringInput) ClassifierOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Classifier {
+		return vs[0].(map[string]Classifier)[vs[1].(string)]
+	}).(ClassifierOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierArrayOutput{})
+	pulumi.RegisterOutputType(ClassifierMapOutput{})
 }

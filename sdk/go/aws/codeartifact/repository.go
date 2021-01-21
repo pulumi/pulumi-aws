@@ -287,6 +287,85 @@ func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) Reposito
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
 }
 
+func (i *Repository) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return i.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *Repository) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPtrOutput)
+}
+
+type RepositoryPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPtrOutput() RepositoryPtrOutput
+	ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput
+}
+
+type repositoryPtrType RepositoryArgs
+
+func (*repositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Repository)(nil))
+}
+
+func (i *repositoryPtrType) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return i.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPtrType) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPtrOutput)
+}
+
+// RepositoryArrayInput is an input type that accepts RepositoryArray and RepositoryArrayOutput values.
+// You can construct a concrete instance of `RepositoryArrayInput` via:
+//
+//          RepositoryArray{ RepositoryArgs{...} }
+type RepositoryArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryArrayOutput() RepositoryArrayOutput
+	ToRepositoryArrayOutputWithContext(context.Context) RepositoryArrayOutput
+}
+
+type RepositoryArray []RepositoryInput
+
+func (RepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Repository)(nil))
+}
+
+func (i RepositoryArray) ToRepositoryArrayOutput() RepositoryArrayOutput {
+	return i.ToRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryArray) ToRepositoryArrayOutputWithContext(ctx context.Context) RepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryArrayOutput)
+}
+
+// RepositoryMapInput is an input type that accepts RepositoryMap and RepositoryMapOutput values.
+// You can construct a concrete instance of `RepositoryMapInput` via:
+//
+//          RepositoryMap{ "key": RepositoryArgs{...} }
+type RepositoryMapInput interface {
+	pulumi.Input
+
+	ToRepositoryMapOutput() RepositoryMapOutput
+	ToRepositoryMapOutputWithContext(context.Context) RepositoryMapOutput
+}
+
+type RepositoryMap map[string]RepositoryInput
+
+func (RepositoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Repository)(nil))
+}
+
+func (i RepositoryMap) ToRepositoryMapOutput() RepositoryMapOutput {
+	return i.ToRepositoryMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryMap) ToRepositoryMapOutputWithContext(ctx context.Context) RepositoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMapOutput)
+}
+
 type RepositoryOutput struct {
 	*pulumi.OutputState
 }
@@ -303,6 +382,75 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+func (o RepositoryOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return o.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return o.ApplyT(func(v Repository) *Repository {
+		return &v
+	}).(RepositoryPtrOutput)
+}
+
+type RepositoryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Repository)(nil))
+}
+
+func (o RepositoryPtrOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return o
+}
+
+func (o RepositoryPtrOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return o
+}
+
+type RepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Repository)(nil))
+}
+
+func (o RepositoryArrayOutput) ToRepositoryArrayOutput() RepositoryArrayOutput {
+	return o
+}
+
+func (o RepositoryArrayOutput) ToRepositoryArrayOutputWithContext(ctx context.Context) RepositoryArrayOutput {
+	return o
+}
+
+func (o RepositoryArrayOutput) Index(i pulumi.IntInput) RepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Repository {
+		return vs[0].([]Repository)[vs[1].(int)]
+	}).(RepositoryOutput)
+}
+
+type RepositoryMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Repository)(nil))
+}
+
+func (o RepositoryMapOutput) ToRepositoryMapOutput() RepositoryMapOutput {
+	return o
+}
+
+func (o RepositoryMapOutput) ToRepositoryMapOutputWithContext(ctx context.Context) RepositoryMapOutput {
+	return o
+}
+
+func (o RepositoryMapOutput) MapIndex(k pulumi.StringInput) RepositoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Repository {
+		return vs[0].(map[string]Repository)[vs[1].(string)]
+	}).(RepositoryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryOutput{})
+	pulumi.RegisterOutputType(RepositoryPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryMapOutput{})
 }

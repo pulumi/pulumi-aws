@@ -352,6 +352,85 @@ func (i *JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) Java
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerOutput)
 }
 
+func (i *JavaAppLayer) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
+	return i.ToJavaAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *JavaAppLayer) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerPtrOutput)
+}
+
+type JavaAppLayerPtrInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput
+	ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput
+}
+
+type javaAppLayerPtrType JavaAppLayerArgs
+
+func (*javaAppLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayer)(nil))
+}
+
+func (i *javaAppLayerPtrType) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
+	return i.ToJavaAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *javaAppLayerPtrType) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerPtrOutput)
+}
+
+// JavaAppLayerArrayInput is an input type that accepts JavaAppLayerArray and JavaAppLayerArrayOutput values.
+// You can construct a concrete instance of `JavaAppLayerArrayInput` via:
+//
+//          JavaAppLayerArray{ JavaAppLayerArgs{...} }
+type JavaAppLayerArrayInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput
+	ToJavaAppLayerArrayOutputWithContext(context.Context) JavaAppLayerArrayOutput
+}
+
+type JavaAppLayerArray []JavaAppLayerInput
+
+func (JavaAppLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*JavaAppLayer)(nil))
+}
+
+func (i JavaAppLayerArray) ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput {
+	return i.ToJavaAppLayerArrayOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerArray) ToJavaAppLayerArrayOutputWithContext(ctx context.Context) JavaAppLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerArrayOutput)
+}
+
+// JavaAppLayerMapInput is an input type that accepts JavaAppLayerMap and JavaAppLayerMapOutput values.
+// You can construct a concrete instance of `JavaAppLayerMapInput` via:
+//
+//          JavaAppLayerMap{ "key": JavaAppLayerArgs{...} }
+type JavaAppLayerMapInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerMapOutput() JavaAppLayerMapOutput
+	ToJavaAppLayerMapOutputWithContext(context.Context) JavaAppLayerMapOutput
+}
+
+type JavaAppLayerMap map[string]JavaAppLayerInput
+
+func (JavaAppLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*JavaAppLayer)(nil))
+}
+
+func (i JavaAppLayerMap) ToJavaAppLayerMapOutput() JavaAppLayerMapOutput {
+	return i.ToJavaAppLayerMapOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerMap) ToJavaAppLayerMapOutputWithContext(ctx context.Context) JavaAppLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerMapOutput)
+}
+
 type JavaAppLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -368,6 +447,75 @@ func (o JavaAppLayerOutput) ToJavaAppLayerOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
+	return o.ToJavaAppLayerPtrOutputWithContext(context.Background())
+}
+
+func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
+	return o.ApplyT(func(v JavaAppLayer) *JavaAppLayer {
+		return &v
+	}).(JavaAppLayerPtrOutput)
+}
+
+type JavaAppLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (JavaAppLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayer)(nil))
+}
+
+func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
+	return o
+}
+
+type JavaAppLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JavaAppLayer)(nil))
+}
+
+func (o JavaAppLayerArrayOutput) ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput {
+	return o
+}
+
+func (o JavaAppLayerArrayOutput) ToJavaAppLayerArrayOutputWithContext(ctx context.Context) JavaAppLayerArrayOutput {
+	return o
+}
+
+func (o JavaAppLayerArrayOutput) Index(i pulumi.IntInput) JavaAppLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayer {
+		return vs[0].([]JavaAppLayer)[vs[1].(int)]
+	}).(JavaAppLayerOutput)
+}
+
+type JavaAppLayerMapOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]JavaAppLayer)(nil))
+}
+
+func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutput() JavaAppLayerMapOutput {
+	return o
+}
+
+func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutputWithContext(ctx context.Context) JavaAppLayerMapOutput {
+	return o
+}
+
+func (o JavaAppLayerMapOutput) MapIndex(k pulumi.StringInput) JavaAppLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JavaAppLayer {
+		return vs[0].(map[string]JavaAppLayer)[vs[1].(string)]
+	}).(JavaAppLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JavaAppLayerOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerPtrOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerArrayOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerMapOutput{})
 }

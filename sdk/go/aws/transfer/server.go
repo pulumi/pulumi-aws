@@ -244,6 +244,85 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
+func (i *Server) ToServerPtrOutput() ServerPtrOutput {
+	return i.ToServerPtrOutputWithContext(context.Background())
+}
+
+func (i *Server) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPtrOutput)
+}
+
+type ServerPtrInput interface {
+	pulumi.Input
+
+	ToServerPtrOutput() ServerPtrOutput
+	ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput
+}
+
+type serverPtrType ServerArgs
+
+func (*serverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Server)(nil))
+}
+
+func (i *serverPtrType) ToServerPtrOutput() ServerPtrOutput {
+	return i.ToServerPtrOutputWithContext(context.Background())
+}
+
+func (i *serverPtrType) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPtrOutput)
+}
+
+// ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
+// You can construct a concrete instance of `ServerArrayInput` via:
+//
+//          ServerArray{ ServerArgs{...} }
+type ServerArrayInput interface {
+	pulumi.Input
+
+	ToServerArrayOutput() ServerArrayOutput
+	ToServerArrayOutputWithContext(context.Context) ServerArrayOutput
+}
+
+type ServerArray []ServerInput
+
+func (ServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Server)(nil))
+}
+
+func (i ServerArray) ToServerArrayOutput() ServerArrayOutput {
+	return i.ToServerArrayOutputWithContext(context.Background())
+}
+
+func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerArrayOutput)
+}
+
+// ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
+// You can construct a concrete instance of `ServerMapInput` via:
+//
+//          ServerMap{ "key": ServerArgs{...} }
+type ServerMapInput interface {
+	pulumi.Input
+
+	ToServerMapOutput() ServerMapOutput
+	ToServerMapOutputWithContext(context.Context) ServerMapOutput
+}
+
+type ServerMap map[string]ServerInput
+
+func (ServerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Server)(nil))
+}
+
+func (i ServerMap) ToServerMapOutput() ServerMapOutput {
+	return i.ToServerMapOutputWithContext(context.Background())
+}
+
+func (i ServerMap) ToServerMapOutputWithContext(ctx context.Context) ServerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerMapOutput)
+}
+
 type ServerOutput struct {
 	*pulumi.OutputState
 }
@@ -260,6 +339,75 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+func (o ServerOutput) ToServerPtrOutput() ServerPtrOutput {
+	return o.ToServerPtrOutputWithContext(context.Background())
+}
+
+func (o ServerOutput) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
+	return o.ApplyT(func(v Server) *Server {
+		return &v
+	}).(ServerPtrOutput)
+}
+
+type ServerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Server)(nil))
+}
+
+func (o ServerPtrOutput) ToServerPtrOutput() ServerPtrOutput {
+	return o
+}
+
+func (o ServerPtrOutput) ToServerPtrOutputWithContext(ctx context.Context) ServerPtrOutput {
+	return o
+}
+
+type ServerArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Server)(nil))
+}
+
+func (o ServerArrayOutput) ToServerArrayOutput() ServerArrayOutput {
+	return o
+}
+
+func (o ServerArrayOutput) ToServerArrayOutputWithContext(ctx context.Context) ServerArrayOutput {
+	return o
+}
+
+func (o ServerArrayOutput) Index(i pulumi.IntInput) ServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Server {
+		return vs[0].([]Server)[vs[1].(int)]
+	}).(ServerOutput)
+}
+
+type ServerMapOutput struct{ *pulumi.OutputState }
+
+func (ServerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Server)(nil))
+}
+
+func (o ServerMapOutput) ToServerMapOutput() ServerMapOutput {
+	return o
+}
+
+func (o ServerMapOutput) ToServerMapOutputWithContext(ctx context.Context) ServerMapOutput {
+	return o
+}
+
+func (o ServerMapOutput) MapIndex(k pulumi.StringInput) ServerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Server {
+		return vs[0].(map[string]Server)[vs[1].(string)]
+	}).(ServerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
+	pulumi.RegisterOutputType(ServerPtrOutput{})
+	pulumi.RegisterOutputType(ServerArrayOutput{})
+	pulumi.RegisterOutputType(ServerMapOutput{})
 }

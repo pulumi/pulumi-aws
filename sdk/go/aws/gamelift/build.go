@@ -181,6 +181,85 @@ func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildOutput)
 }
 
+func (i *Build) ToBuildPtrOutput() BuildPtrOutput {
+	return i.ToBuildPtrOutputWithContext(context.Background())
+}
+
+func (i *Build) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildPtrOutput)
+}
+
+type BuildPtrInput interface {
+	pulumi.Input
+
+	ToBuildPtrOutput() BuildPtrOutput
+	ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput
+}
+
+type buildPtrType BuildArgs
+
+func (*buildPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Build)(nil))
+}
+
+func (i *buildPtrType) ToBuildPtrOutput() BuildPtrOutput {
+	return i.ToBuildPtrOutputWithContext(context.Background())
+}
+
+func (i *buildPtrType) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildPtrOutput)
+}
+
+// BuildArrayInput is an input type that accepts BuildArray and BuildArrayOutput values.
+// You can construct a concrete instance of `BuildArrayInput` via:
+//
+//          BuildArray{ BuildArgs{...} }
+type BuildArrayInput interface {
+	pulumi.Input
+
+	ToBuildArrayOutput() BuildArrayOutput
+	ToBuildArrayOutputWithContext(context.Context) BuildArrayOutput
+}
+
+type BuildArray []BuildInput
+
+func (BuildArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Build)(nil))
+}
+
+func (i BuildArray) ToBuildArrayOutput() BuildArrayOutput {
+	return i.ToBuildArrayOutputWithContext(context.Background())
+}
+
+func (i BuildArray) ToBuildArrayOutputWithContext(ctx context.Context) BuildArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildArrayOutput)
+}
+
+// BuildMapInput is an input type that accepts BuildMap and BuildMapOutput values.
+// You can construct a concrete instance of `BuildMapInput` via:
+//
+//          BuildMap{ "key": BuildArgs{...} }
+type BuildMapInput interface {
+	pulumi.Input
+
+	ToBuildMapOutput() BuildMapOutput
+	ToBuildMapOutputWithContext(context.Context) BuildMapOutput
+}
+
+type BuildMap map[string]BuildInput
+
+func (BuildMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Build)(nil))
+}
+
+func (i BuildMap) ToBuildMapOutput() BuildMapOutput {
+	return i.ToBuildMapOutputWithContext(context.Background())
+}
+
+func (i BuildMap) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildMapOutput)
+}
+
 type BuildOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
 }
 
+func (o BuildOutput) ToBuildPtrOutput() BuildPtrOutput {
+	return o.ToBuildPtrOutputWithContext(context.Background())
+}
+
+func (o BuildOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
+	return o.ApplyT(func(v Build) *Build {
+		return &v
+	}).(BuildPtrOutput)
+}
+
+type BuildPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BuildPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Build)(nil))
+}
+
+func (o BuildPtrOutput) ToBuildPtrOutput() BuildPtrOutput {
+	return o
+}
+
+func (o BuildPtrOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
+	return o
+}
+
+type BuildArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Build)(nil))
+}
+
+func (o BuildArrayOutput) ToBuildArrayOutput() BuildArrayOutput {
+	return o
+}
+
+func (o BuildArrayOutput) ToBuildArrayOutputWithContext(ctx context.Context) BuildArrayOutput {
+	return o
+}
+
+func (o BuildArrayOutput) Index(i pulumi.IntInput) BuildOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Build {
+		return vs[0].([]Build)[vs[1].(int)]
+	}).(BuildOutput)
+}
+
+type BuildMapOutput struct{ *pulumi.OutputState }
+
+func (BuildMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Build)(nil))
+}
+
+func (o BuildMapOutput) ToBuildMapOutput() BuildMapOutput {
+	return o
+}
+
+func (o BuildMapOutput) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutput {
+	return o
+}
+
+func (o BuildMapOutput) MapIndex(k pulumi.StringInput) BuildOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Build {
+		return vs[0].(map[string]Build)[vs[1].(string)]
+	}).(BuildOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildOutput{})
+	pulumi.RegisterOutputType(BuildPtrOutput{})
+	pulumi.RegisterOutputType(BuildArrayOutput{})
+	pulumi.RegisterOutputType(BuildMapOutput{})
 }

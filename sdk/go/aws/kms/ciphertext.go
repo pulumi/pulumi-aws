@@ -165,6 +165,85 @@ func (i *Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) Cipherte
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextOutput)
 }
 
+func (i *Ciphertext) ToCiphertextPtrOutput() CiphertextPtrOutput {
+	return i.ToCiphertextPtrOutputWithContext(context.Background())
+}
+
+func (i *Ciphertext) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CiphertextPtrOutput)
+}
+
+type CiphertextPtrInput interface {
+	pulumi.Input
+
+	ToCiphertextPtrOutput() CiphertextPtrOutput
+	ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput
+}
+
+type ciphertextPtrType CiphertextArgs
+
+func (*ciphertextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ciphertext)(nil))
+}
+
+func (i *ciphertextPtrType) ToCiphertextPtrOutput() CiphertextPtrOutput {
+	return i.ToCiphertextPtrOutputWithContext(context.Background())
+}
+
+func (i *ciphertextPtrType) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CiphertextPtrOutput)
+}
+
+// CiphertextArrayInput is an input type that accepts CiphertextArray and CiphertextArrayOutput values.
+// You can construct a concrete instance of `CiphertextArrayInput` via:
+//
+//          CiphertextArray{ CiphertextArgs{...} }
+type CiphertextArrayInput interface {
+	pulumi.Input
+
+	ToCiphertextArrayOutput() CiphertextArrayOutput
+	ToCiphertextArrayOutputWithContext(context.Context) CiphertextArrayOutput
+}
+
+type CiphertextArray []CiphertextInput
+
+func (CiphertextArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Ciphertext)(nil))
+}
+
+func (i CiphertextArray) ToCiphertextArrayOutput() CiphertextArrayOutput {
+	return i.ToCiphertextArrayOutputWithContext(context.Background())
+}
+
+func (i CiphertextArray) ToCiphertextArrayOutputWithContext(ctx context.Context) CiphertextArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CiphertextArrayOutput)
+}
+
+// CiphertextMapInput is an input type that accepts CiphertextMap and CiphertextMapOutput values.
+// You can construct a concrete instance of `CiphertextMapInput` via:
+//
+//          CiphertextMap{ "key": CiphertextArgs{...} }
+type CiphertextMapInput interface {
+	pulumi.Input
+
+	ToCiphertextMapOutput() CiphertextMapOutput
+	ToCiphertextMapOutputWithContext(context.Context) CiphertextMapOutput
+}
+
+type CiphertextMap map[string]CiphertextInput
+
+func (CiphertextMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Ciphertext)(nil))
+}
+
+func (i CiphertextMap) ToCiphertextMapOutput() CiphertextMapOutput {
+	return i.ToCiphertextMapOutputWithContext(context.Background())
+}
+
+func (i CiphertextMap) ToCiphertextMapOutputWithContext(ctx context.Context) CiphertextMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CiphertextMapOutput)
+}
+
 type CiphertextOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) Cip
 	return o
 }
 
+func (o CiphertextOutput) ToCiphertextPtrOutput() CiphertextPtrOutput {
+	return o.ToCiphertextPtrOutputWithContext(context.Background())
+}
+
+func (o CiphertextOutput) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
+	return o.ApplyT(func(v Ciphertext) *Ciphertext {
+		return &v
+	}).(CiphertextPtrOutput)
+}
+
+type CiphertextPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CiphertextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ciphertext)(nil))
+}
+
+func (o CiphertextPtrOutput) ToCiphertextPtrOutput() CiphertextPtrOutput {
+	return o
+}
+
+func (o CiphertextPtrOutput) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
+	return o
+}
+
+type CiphertextArrayOutput struct{ *pulumi.OutputState }
+
+func (CiphertextArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ciphertext)(nil))
+}
+
+func (o CiphertextArrayOutput) ToCiphertextArrayOutput() CiphertextArrayOutput {
+	return o
+}
+
+func (o CiphertextArrayOutput) ToCiphertextArrayOutputWithContext(ctx context.Context) CiphertextArrayOutput {
+	return o
+}
+
+func (o CiphertextArrayOutput) Index(i pulumi.IntInput) CiphertextOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ciphertext {
+		return vs[0].([]Ciphertext)[vs[1].(int)]
+	}).(CiphertextOutput)
+}
+
+type CiphertextMapOutput struct{ *pulumi.OutputState }
+
+func (CiphertextMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Ciphertext)(nil))
+}
+
+func (o CiphertextMapOutput) ToCiphertextMapOutput() CiphertextMapOutput {
+	return o
+}
+
+func (o CiphertextMapOutput) ToCiphertextMapOutputWithContext(ctx context.Context) CiphertextMapOutput {
+	return o
+}
+
+func (o CiphertextMapOutput) MapIndex(k pulumi.StringInput) CiphertextOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Ciphertext {
+		return vs[0].(map[string]Ciphertext)[vs[1].(string)]
+	}).(CiphertextOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CiphertextOutput{})
+	pulumi.RegisterOutputType(CiphertextPtrOutput{})
+	pulumi.RegisterOutputType(CiphertextArrayOutput{})
+	pulumi.RegisterOutputType(CiphertextMapOutput{})
 }

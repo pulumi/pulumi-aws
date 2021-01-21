@@ -194,6 +194,85 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
+func (i *Rule) ToRulePtrOutput() RulePtrOutput {
+	return i.ToRulePtrOutputWithContext(context.Background())
+}
+
+func (i *Rule) ToRulePtrOutputWithContext(ctx context.Context) RulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePtrOutput)
+}
+
+type RulePtrInput interface {
+	pulumi.Input
+
+	ToRulePtrOutput() RulePtrOutput
+	ToRulePtrOutputWithContext(ctx context.Context) RulePtrOutput
+}
+
+type rulePtrType RuleArgs
+
+func (*rulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Rule)(nil))
+}
+
+func (i *rulePtrType) ToRulePtrOutput() RulePtrOutput {
+	return i.ToRulePtrOutputWithContext(context.Background())
+}
+
+func (i *rulePtrType) ToRulePtrOutputWithContext(ctx context.Context) RulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePtrOutput)
+}
+
+// RuleArrayInput is an input type that accepts RuleArray and RuleArrayOutput values.
+// You can construct a concrete instance of `RuleArrayInput` via:
+//
+//          RuleArray{ RuleArgs{...} }
+type RuleArrayInput interface {
+	pulumi.Input
+
+	ToRuleArrayOutput() RuleArrayOutput
+	ToRuleArrayOutputWithContext(context.Context) RuleArrayOutput
+}
+
+type RuleArray []RuleInput
+
+func (RuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Rule)(nil))
+}
+
+func (i RuleArray) ToRuleArrayOutput() RuleArrayOutput {
+	return i.ToRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RuleArray) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleArrayOutput)
+}
+
+// RuleMapInput is an input type that accepts RuleMap and RuleMapOutput values.
+// You can construct a concrete instance of `RuleMapInput` via:
+//
+//          RuleMap{ "key": RuleArgs{...} }
+type RuleMapInput interface {
+	pulumi.Input
+
+	ToRuleMapOutput() RuleMapOutput
+	ToRuleMapOutputWithContext(context.Context) RuleMapOutput
+}
+
+type RuleMap map[string]RuleInput
+
+func (RuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Rule)(nil))
+}
+
+func (i RuleMap) ToRuleMapOutput() RuleMapOutput {
+	return i.ToRuleMapOutputWithContext(context.Background())
+}
+
+func (i RuleMap) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMapOutput)
+}
+
 type RuleOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+func (o RuleOutput) ToRulePtrOutput() RulePtrOutput {
+	return o.ToRulePtrOutputWithContext(context.Background())
+}
+
+func (o RuleOutput) ToRulePtrOutputWithContext(ctx context.Context) RulePtrOutput {
+	return o.ApplyT(func(v Rule) *Rule {
+		return &v
+	}).(RulePtrOutput)
+}
+
+type RulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Rule)(nil))
+}
+
+func (o RulePtrOutput) ToRulePtrOutput() RulePtrOutput {
+	return o
+}
+
+func (o RulePtrOutput) ToRulePtrOutputWithContext(ctx context.Context) RulePtrOutput {
+	return o
+}
+
+type RuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Rule)(nil))
+}
+
+func (o RuleArrayOutput) ToRuleArrayOutput() RuleArrayOutput {
+	return o
+}
+
+func (o RuleArrayOutput) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOutput {
+	return o
+}
+
+func (o RuleArrayOutput) Index(i pulumi.IntInput) RuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Rule {
+		return vs[0].([]Rule)[vs[1].(int)]
+	}).(RuleOutput)
+}
+
+type RuleMapOutput struct{ *pulumi.OutputState }
+
+func (RuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Rule)(nil))
+}
+
+func (o RuleMapOutput) ToRuleMapOutput() RuleMapOutput {
+	return o
+}
+
+func (o RuleMapOutput) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
+	return o
+}
+
+func (o RuleMapOutput) MapIndex(k pulumi.StringInput) RuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Rule {
+		return vs[0].(map[string]Rule)[vs[1].(string)]
+	}).(RuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleOutput{})
+	pulumi.RegisterOutputType(RulePtrOutput{})
+	pulumi.RegisterOutputType(RuleArrayOutput{})
+	pulumi.RegisterOutputType(RuleMapOutput{})
 }

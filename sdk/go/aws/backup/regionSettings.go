@@ -138,6 +138,85 @@ func (i *RegionSettings) ToRegionSettingsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsOutput)
 }
 
+func (i *RegionSettings) ToRegionSettingsPtrOutput() RegionSettingsPtrOutput {
+	return i.ToRegionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *RegionSettings) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsPtrOutput)
+}
+
+type RegionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRegionSettingsPtrOutput() RegionSettingsPtrOutput
+	ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput
+}
+
+type regionSettingsPtrType RegionSettingsArgs
+
+func (*regionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegionSettings)(nil))
+}
+
+func (i *regionSettingsPtrType) ToRegionSettingsPtrOutput() RegionSettingsPtrOutput {
+	return i.ToRegionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *regionSettingsPtrType) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsPtrOutput)
+}
+
+// RegionSettingsArrayInput is an input type that accepts RegionSettingsArray and RegionSettingsArrayOutput values.
+// You can construct a concrete instance of `RegionSettingsArrayInput` via:
+//
+//          RegionSettingsArray{ RegionSettingsArgs{...} }
+type RegionSettingsArrayInput interface {
+	pulumi.Input
+
+	ToRegionSettingsArrayOutput() RegionSettingsArrayOutput
+	ToRegionSettingsArrayOutputWithContext(context.Context) RegionSettingsArrayOutput
+}
+
+type RegionSettingsArray []RegionSettingsInput
+
+func (RegionSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RegionSettings)(nil))
+}
+
+func (i RegionSettingsArray) ToRegionSettingsArrayOutput() RegionSettingsArrayOutput {
+	return i.ToRegionSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i RegionSettingsArray) ToRegionSettingsArrayOutputWithContext(ctx context.Context) RegionSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsArrayOutput)
+}
+
+// RegionSettingsMapInput is an input type that accepts RegionSettingsMap and RegionSettingsMapOutput values.
+// You can construct a concrete instance of `RegionSettingsMapInput` via:
+//
+//          RegionSettingsMap{ "key": RegionSettingsArgs{...} }
+type RegionSettingsMapInput interface {
+	pulumi.Input
+
+	ToRegionSettingsMapOutput() RegionSettingsMapOutput
+	ToRegionSettingsMapOutputWithContext(context.Context) RegionSettingsMapOutput
+}
+
+type RegionSettingsMap map[string]RegionSettingsInput
+
+func (RegionSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RegionSettings)(nil))
+}
+
+func (i RegionSettingsMap) ToRegionSettingsMapOutput() RegionSettingsMapOutput {
+	return i.ToRegionSettingsMapOutputWithContext(context.Background())
+}
+
+func (i RegionSettingsMap) ToRegionSettingsMapOutputWithContext(ctx context.Context) RegionSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsMapOutput)
+}
+
 type RegionSettingsOutput struct {
 	*pulumi.OutputState
 }
@@ -154,6 +233,75 @@ func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RegionSettingsOutput) ToRegionSettingsPtrOutput() RegionSettingsPtrOutput {
+	return o.ToRegionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RegionSettingsOutput) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
+	return o.ApplyT(func(v RegionSettings) *RegionSettings {
+		return &v
+	}).(RegionSettingsPtrOutput)
+}
+
+type RegionSettingsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegionSettings)(nil))
+}
+
+func (o RegionSettingsPtrOutput) ToRegionSettingsPtrOutput() RegionSettingsPtrOutput {
+	return o
+}
+
+func (o RegionSettingsPtrOutput) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
+	return o
+}
+
+type RegionSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (RegionSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionSettings)(nil))
+}
+
+func (o RegionSettingsArrayOutput) ToRegionSettingsArrayOutput() RegionSettingsArrayOutput {
+	return o
+}
+
+func (o RegionSettingsArrayOutput) ToRegionSettingsArrayOutputWithContext(ctx context.Context) RegionSettingsArrayOutput {
+	return o
+}
+
+func (o RegionSettingsArrayOutput) Index(i pulumi.IntInput) RegionSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegionSettings {
+		return vs[0].([]RegionSettings)[vs[1].(int)]
+	}).(RegionSettingsOutput)
+}
+
+type RegionSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (RegionSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RegionSettings)(nil))
+}
+
+func (o RegionSettingsMapOutput) ToRegionSettingsMapOutput() RegionSettingsMapOutput {
+	return o
+}
+
+func (o RegionSettingsMapOutput) ToRegionSettingsMapOutputWithContext(ctx context.Context) RegionSettingsMapOutput {
+	return o
+}
+
+func (o RegionSettingsMapOutput) MapIndex(k pulumi.StringInput) RegionSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegionSettings {
+		return vs[0].(map[string]RegionSettings)[vs[1].(string)]
+	}).(RegionSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegionSettingsOutput{})
+	pulumi.RegisterOutputType(RegionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RegionSettingsArrayOutput{})
+	pulumi.RegisterOutputType(RegionSettingsMapOutput{})
 }

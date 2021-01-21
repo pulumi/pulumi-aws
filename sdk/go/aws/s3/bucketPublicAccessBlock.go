@@ -200,6 +200,85 @@ func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockOutput)
 }
 
+func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
+	return i.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockPtrOutput)
+}
+
+type BucketPublicAccessBlockPtrInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput
+	ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput
+}
+
+type bucketPublicAccessBlockPtrType BucketPublicAccessBlockArgs
+
+func (*bucketPublicAccessBlockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPublicAccessBlock)(nil))
+}
+
+func (i *bucketPublicAccessBlockPtrType) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
+	return i.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketPublicAccessBlockPtrType) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockPtrOutput)
+}
+
+// BucketPublicAccessBlockArrayInput is an input type that accepts BucketPublicAccessBlockArray and BucketPublicAccessBlockArrayOutput values.
+// You can construct a concrete instance of `BucketPublicAccessBlockArrayInput` via:
+//
+//          BucketPublicAccessBlockArray{ BucketPublicAccessBlockArgs{...} }
+type BucketPublicAccessBlockArrayInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockArrayOutput() BucketPublicAccessBlockArrayOutput
+	ToBucketPublicAccessBlockArrayOutputWithContext(context.Context) BucketPublicAccessBlockArrayOutput
+}
+
+type BucketPublicAccessBlockArray []BucketPublicAccessBlockInput
+
+func (BucketPublicAccessBlockArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BucketPublicAccessBlock)(nil))
+}
+
+func (i BucketPublicAccessBlockArray) ToBucketPublicAccessBlockArrayOutput() BucketPublicAccessBlockArrayOutput {
+	return i.ToBucketPublicAccessBlockArrayOutputWithContext(context.Background())
+}
+
+func (i BucketPublicAccessBlockArray) ToBucketPublicAccessBlockArrayOutputWithContext(ctx context.Context) BucketPublicAccessBlockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockArrayOutput)
+}
+
+// BucketPublicAccessBlockMapInput is an input type that accepts BucketPublicAccessBlockMap and BucketPublicAccessBlockMapOutput values.
+// You can construct a concrete instance of `BucketPublicAccessBlockMapInput` via:
+//
+//          BucketPublicAccessBlockMap{ "key": BucketPublicAccessBlockArgs{...} }
+type BucketPublicAccessBlockMapInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockMapOutput() BucketPublicAccessBlockMapOutput
+	ToBucketPublicAccessBlockMapOutputWithContext(context.Context) BucketPublicAccessBlockMapOutput
+}
+
+type BucketPublicAccessBlockMap map[string]BucketPublicAccessBlockInput
+
+func (BucketPublicAccessBlockMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BucketPublicAccessBlock)(nil))
+}
+
+func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutput() BucketPublicAccessBlockMapOutput {
+	return i.ToBucketPublicAccessBlockMapOutputWithContext(context.Background())
+}
+
+func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutputWithContext(ctx context.Context) BucketPublicAccessBlockMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockMapOutput)
+}
+
 type BucketPublicAccessBlockOutput struct {
 	*pulumi.OutputState
 }
@@ -216,6 +295,75 @@ func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutputWithContex
 	return o
 }
 
+func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
+	return o.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
+	return o.ApplyT(func(v BucketPublicAccessBlock) *BucketPublicAccessBlock {
+		return &v
+	}).(BucketPublicAccessBlockPtrOutput)
+}
+
+type BucketPublicAccessBlockPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketPublicAccessBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPublicAccessBlock)(nil))
+}
+
+func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
+	return o
+}
+
+type BucketPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketPublicAccessBlockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketPublicAccessBlock)(nil))
+}
+
+func (o BucketPublicAccessBlockArrayOutput) ToBucketPublicAccessBlockArrayOutput() BucketPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockArrayOutput) ToBucketPublicAccessBlockArrayOutputWithContext(ctx context.Context) BucketPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) BucketPublicAccessBlockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketPublicAccessBlock {
+		return vs[0].([]BucketPublicAccessBlock)[vs[1].(int)]
+	}).(BucketPublicAccessBlockOutput)
+}
+
+type BucketPublicAccessBlockMapOutput struct{ *pulumi.OutputState }
+
+func (BucketPublicAccessBlockMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BucketPublicAccessBlock)(nil))
+}
+
+func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutput() BucketPublicAccessBlockMapOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutputWithContext(ctx context.Context) BucketPublicAccessBlockMapOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) BucketPublicAccessBlockOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketPublicAccessBlock {
+		return vs[0].(map[string]BucketPublicAccessBlock)[vs[1].(string)]
+	}).(BucketPublicAccessBlockOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BucketPublicAccessBlockOutput{})
+	pulumi.RegisterOutputType(BucketPublicAccessBlockPtrOutput{})
+	pulumi.RegisterOutputType(BucketPublicAccessBlockArrayOutput{})
+	pulumi.RegisterOutputType(BucketPublicAccessBlockMapOutput{})
 }

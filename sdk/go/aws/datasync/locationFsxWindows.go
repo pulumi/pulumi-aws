@@ -221,6 +221,85 @@ func (i *LocationFsxWindows) ToLocationFsxWindowsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsOutput)
 }
 
+func (i *LocationFsxWindows) ToLocationFsxWindowsPtrOutput() LocationFsxWindowsPtrOutput {
+	return i.ToLocationFsxWindowsPtrOutputWithContext(context.Background())
+}
+
+func (i *LocationFsxWindows) ToLocationFsxWindowsPtrOutputWithContext(ctx context.Context) LocationFsxWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsPtrOutput)
+}
+
+type LocationFsxWindowsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxWindowsPtrOutput() LocationFsxWindowsPtrOutput
+	ToLocationFsxWindowsPtrOutputWithContext(ctx context.Context) LocationFsxWindowsPtrOutput
+}
+
+type locationFsxWindowsPtrType LocationFsxWindowsArgs
+
+func (*locationFsxWindowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxWindows)(nil))
+}
+
+func (i *locationFsxWindowsPtrType) ToLocationFsxWindowsPtrOutput() LocationFsxWindowsPtrOutput {
+	return i.ToLocationFsxWindowsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxWindowsPtrType) ToLocationFsxWindowsPtrOutputWithContext(ctx context.Context) LocationFsxWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsPtrOutput)
+}
+
+// LocationFsxWindowsArrayInput is an input type that accepts LocationFsxWindowsArray and LocationFsxWindowsArrayOutput values.
+// You can construct a concrete instance of `LocationFsxWindowsArrayInput` via:
+//
+//          LocationFsxWindowsArray{ LocationFsxWindowsArgs{...} }
+type LocationFsxWindowsArrayInput interface {
+	pulumi.Input
+
+	ToLocationFsxWindowsArrayOutput() LocationFsxWindowsArrayOutput
+	ToLocationFsxWindowsArrayOutputWithContext(context.Context) LocationFsxWindowsArrayOutput
+}
+
+type LocationFsxWindowsArray []LocationFsxWindowsInput
+
+func (LocationFsxWindowsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LocationFsxWindows)(nil))
+}
+
+func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutput() LocationFsxWindowsArrayOutput {
+	return i.ToLocationFsxWindowsArrayOutputWithContext(context.Background())
+}
+
+func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutputWithContext(ctx context.Context) LocationFsxWindowsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsArrayOutput)
+}
+
+// LocationFsxWindowsMapInput is an input type that accepts LocationFsxWindowsMap and LocationFsxWindowsMapOutput values.
+// You can construct a concrete instance of `LocationFsxWindowsMapInput` via:
+//
+//          LocationFsxWindowsMap{ "key": LocationFsxWindowsArgs{...} }
+type LocationFsxWindowsMapInput interface {
+	pulumi.Input
+
+	ToLocationFsxWindowsMapOutput() LocationFsxWindowsMapOutput
+	ToLocationFsxWindowsMapOutputWithContext(context.Context) LocationFsxWindowsMapOutput
+}
+
+type LocationFsxWindowsMap map[string]LocationFsxWindowsInput
+
+func (LocationFsxWindowsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LocationFsxWindows)(nil))
+}
+
+func (i LocationFsxWindowsMap) ToLocationFsxWindowsMapOutput() LocationFsxWindowsMapOutput {
+	return i.ToLocationFsxWindowsMapOutputWithContext(context.Background())
+}
+
+func (i LocationFsxWindowsMap) ToLocationFsxWindowsMapOutputWithContext(ctx context.Context) LocationFsxWindowsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsMapOutput)
+}
+
 type LocationFsxWindowsOutput struct {
 	*pulumi.OutputState
 }
@@ -237,6 +316,75 @@ func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutputWithContext(ctx cont
 	return o
 }
 
+func (o LocationFsxWindowsOutput) ToLocationFsxWindowsPtrOutput() LocationFsxWindowsPtrOutput {
+	return o.ToLocationFsxWindowsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxWindowsOutput) ToLocationFsxWindowsPtrOutputWithContext(ctx context.Context) LocationFsxWindowsPtrOutput {
+	return o.ApplyT(func(v LocationFsxWindows) *LocationFsxWindows {
+		return &v
+	}).(LocationFsxWindowsPtrOutput)
+}
+
+type LocationFsxWindowsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocationFsxWindowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxWindows)(nil))
+}
+
+func (o LocationFsxWindowsPtrOutput) ToLocationFsxWindowsPtrOutput() LocationFsxWindowsPtrOutput {
+	return o
+}
+
+func (o LocationFsxWindowsPtrOutput) ToLocationFsxWindowsPtrOutputWithContext(ctx context.Context) LocationFsxWindowsPtrOutput {
+	return o
+}
+
+type LocationFsxWindowsArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxWindowsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFsxWindows)(nil))
+}
+
+func (o LocationFsxWindowsArrayOutput) ToLocationFsxWindowsArrayOutput() LocationFsxWindowsArrayOutput {
+	return o
+}
+
+func (o LocationFsxWindowsArrayOutput) ToLocationFsxWindowsArrayOutputWithContext(ctx context.Context) LocationFsxWindowsArrayOutput {
+	return o
+}
+
+func (o LocationFsxWindowsArrayOutput) Index(i pulumi.IntInput) LocationFsxWindowsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFsxWindows {
+		return vs[0].([]LocationFsxWindows)[vs[1].(int)]
+	}).(LocationFsxWindowsOutput)
+}
+
+type LocationFsxWindowsMapOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxWindowsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LocationFsxWindows)(nil))
+}
+
+func (o LocationFsxWindowsMapOutput) ToLocationFsxWindowsMapOutput() LocationFsxWindowsMapOutput {
+	return o
+}
+
+func (o LocationFsxWindowsMapOutput) ToLocationFsxWindowsMapOutputWithContext(ctx context.Context) LocationFsxWindowsMapOutput {
+	return o
+}
+
+func (o LocationFsxWindowsMapOutput) MapIndex(k pulumi.StringInput) LocationFsxWindowsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocationFsxWindows {
+		return vs[0].(map[string]LocationFsxWindows)[vs[1].(string)]
+	}).(LocationFsxWindowsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LocationFsxWindowsOutput{})
+	pulumi.RegisterOutputType(LocationFsxWindowsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxWindowsArrayOutput{})
+	pulumi.RegisterOutputType(LocationFsxWindowsMapOutput{})
 }

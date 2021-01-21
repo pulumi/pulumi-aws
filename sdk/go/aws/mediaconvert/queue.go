@@ -179,6 +179,85 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
+func (i *Queue) ToQueuePtrOutput() QueuePtrOutput {
+	return i.ToQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *Queue) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePtrOutput)
+}
+
+type QueuePtrInput interface {
+	pulumi.Input
+
+	ToQueuePtrOutput() QueuePtrOutput
+	ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput
+}
+
+type queuePtrType QueueArgs
+
+func (*queuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Queue)(nil))
+}
+
+func (i *queuePtrType) ToQueuePtrOutput() QueuePtrOutput {
+	return i.ToQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *queuePtrType) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePtrOutput)
+}
+
+// QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
+// You can construct a concrete instance of `QueueArrayInput` via:
+//
+//          QueueArray{ QueueArgs{...} }
+type QueueArrayInput interface {
+	pulumi.Input
+
+	ToQueueArrayOutput() QueueArrayOutput
+	ToQueueArrayOutputWithContext(context.Context) QueueArrayOutput
+}
+
+type QueueArray []QueueInput
+
+func (QueueArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Queue)(nil))
+}
+
+func (i QueueArray) ToQueueArrayOutput() QueueArrayOutput {
+	return i.ToQueueArrayOutputWithContext(context.Background())
+}
+
+func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueArrayOutput)
+}
+
+// QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
+// You can construct a concrete instance of `QueueMapInput` via:
+//
+//          QueueMap{ "key": QueueArgs{...} }
+type QueueMapInput interface {
+	pulumi.Input
+
+	ToQueueMapOutput() QueueMapOutput
+	ToQueueMapOutputWithContext(context.Context) QueueMapOutput
+}
+
+type QueueMap map[string]QueueInput
+
+func (QueueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Queue)(nil))
+}
+
+func (i QueueMap) ToQueueMapOutput() QueueMapOutput {
+	return i.ToQueueMapOutputWithContext(context.Background())
+}
+
+func (i QueueMap) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueMapOutput)
+}
+
 type QueueOutput struct {
 	*pulumi.OutputState
 }
@@ -195,6 +274,75 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+func (o QueueOutput) ToQueuePtrOutput() QueuePtrOutput {
+	return o.ToQueuePtrOutputWithContext(context.Background())
+}
+
+func (o QueueOutput) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
+	return o.ApplyT(func(v Queue) *Queue {
+		return &v
+	}).(QueuePtrOutput)
+}
+
+type QueuePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Queue)(nil))
+}
+
+func (o QueuePtrOutput) ToQueuePtrOutput() QueuePtrOutput {
+	return o
+}
+
+func (o QueuePtrOutput) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
+	return o
+}
+
+type QueueArrayOutput struct{ *pulumi.OutputState }
+
+func (QueueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Queue)(nil))
+}
+
+func (o QueueArrayOutput) ToQueueArrayOutput() QueueArrayOutput {
+	return o
+}
+
+func (o QueueArrayOutput) ToQueueArrayOutputWithContext(ctx context.Context) QueueArrayOutput {
+	return o
+}
+
+func (o QueueArrayOutput) Index(i pulumi.IntInput) QueueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Queue {
+		return vs[0].([]Queue)[vs[1].(int)]
+	}).(QueueOutput)
+}
+
+type QueueMapOutput struct{ *pulumi.OutputState }
+
+func (QueueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Queue)(nil))
+}
+
+func (o QueueMapOutput) ToQueueMapOutput() QueueMapOutput {
+	return o
+}
+
+func (o QueueMapOutput) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutput {
+	return o
+}
+
+func (o QueueMapOutput) MapIndex(k pulumi.StringInput) QueueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Queue {
+		return vs[0].(map[string]Queue)[vs[1].(string)]
+	}).(QueueOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueOutput{})
+	pulumi.RegisterOutputType(QueuePtrOutput{})
+	pulumi.RegisterOutputType(QueueArrayOutput{})
+	pulumi.RegisterOutputType(QueueMapOutput{})
 }

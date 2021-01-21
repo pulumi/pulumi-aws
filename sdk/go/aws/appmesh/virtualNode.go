@@ -380,6 +380,85 @@ func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) Virtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
 }
 
+func (i *VirtualNode) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
+	return i.ToVirtualNodePtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualNode) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodePtrOutput)
+}
+
+type VirtualNodePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodePtrOutput() VirtualNodePtrOutput
+	ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput
+}
+
+type virtualNodePtrType VirtualNodeArgs
+
+func (*virtualNodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNode)(nil))
+}
+
+func (i *virtualNodePtrType) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
+	return i.ToVirtualNodePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodePtrType) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodePtrOutput)
+}
+
+// VirtualNodeArrayInput is an input type that accepts VirtualNodeArray and VirtualNodeArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeArrayInput` via:
+//
+//          VirtualNodeArray{ VirtualNodeArgs{...} }
+type VirtualNodeArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNodeArrayOutput() VirtualNodeArrayOutput
+	ToVirtualNodeArrayOutputWithContext(context.Context) VirtualNodeArrayOutput
+}
+
+type VirtualNodeArray []VirtualNodeInput
+
+func (VirtualNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualNode)(nil))
+}
+
+func (i VirtualNodeArray) ToVirtualNodeArrayOutput() VirtualNodeArrayOutput {
+	return i.ToVirtualNodeArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeArray) ToVirtualNodeArrayOutputWithContext(ctx context.Context) VirtualNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeArrayOutput)
+}
+
+// VirtualNodeMapInput is an input type that accepts VirtualNodeMap and VirtualNodeMapOutput values.
+// You can construct a concrete instance of `VirtualNodeMapInput` via:
+//
+//          VirtualNodeMap{ "key": VirtualNodeArgs{...} }
+type VirtualNodeMapInput interface {
+	pulumi.Input
+
+	ToVirtualNodeMapOutput() VirtualNodeMapOutput
+	ToVirtualNodeMapOutputWithContext(context.Context) VirtualNodeMapOutput
+}
+
+type VirtualNodeMap map[string]VirtualNodeInput
+
+func (VirtualNodeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualNode)(nil))
+}
+
+func (i VirtualNodeMap) ToVirtualNodeMapOutput() VirtualNodeMapOutput {
+	return i.ToVirtualNodeMapOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeMap) ToVirtualNodeMapOutputWithContext(ctx context.Context) VirtualNodeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeMapOutput)
+}
+
 type VirtualNodeOutput struct {
 	*pulumi.OutputState
 }
@@ -396,6 +475,75 @@ func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VirtualNodeOutput) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
+	return o.ToVirtualNodePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeOutput) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
+	return o.ApplyT(func(v VirtualNode) *VirtualNode {
+		return &v
+	}).(VirtualNodePtrOutput)
+}
+
+type VirtualNodePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNode)(nil))
+}
+
+func (o VirtualNodePtrOutput) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
+	return o
+}
+
+func (o VirtualNodePtrOutput) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
+	return o
+}
+
+type VirtualNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNode)(nil))
+}
+
+func (o VirtualNodeArrayOutput) ToVirtualNodeArrayOutput() VirtualNodeArrayOutput {
+	return o
+}
+
+func (o VirtualNodeArrayOutput) ToVirtualNodeArrayOutputWithContext(ctx context.Context) VirtualNodeArrayOutput {
+	return o
+}
+
+func (o VirtualNodeArrayOutput) Index(i pulumi.IntInput) VirtualNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNode {
+		return vs[0].([]VirtualNode)[vs[1].(int)]
+	}).(VirtualNodeOutput)
+}
+
+type VirtualNodeMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualNode)(nil))
+}
+
+func (o VirtualNodeMapOutput) ToVirtualNodeMapOutput() VirtualNodeMapOutput {
+	return o
+}
+
+func (o VirtualNodeMapOutput) ToVirtualNodeMapOutputWithContext(ctx context.Context) VirtualNodeMapOutput {
+	return o
+}
+
+func (o VirtualNodeMapOutput) MapIndex(k pulumi.StringInput) VirtualNodeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualNode {
+		return vs[0].(map[string]VirtualNode)[vs[1].(string)]
+	}).(VirtualNodeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNodeOutput{})
+	pulumi.RegisterOutputType(VirtualNodePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNodeMapOutput{})
 }

@@ -121,6 +121,85 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
+func (i *Association) ToAssociationPtrOutput() AssociationPtrOutput {
+	return i.ToAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *Association) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPtrOutput)
+}
+
+type AssociationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationPtrOutput() AssociationPtrOutput
+	ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput
+}
+
+type associationPtrType AssociationArgs
+
+func (*associationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Association)(nil))
+}
+
+func (i *associationPtrType) ToAssociationPtrOutput() AssociationPtrOutput {
+	return i.ToAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationPtrType) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPtrOutput)
+}
+
+// AssociationArrayInput is an input type that accepts AssociationArray and AssociationArrayOutput values.
+// You can construct a concrete instance of `AssociationArrayInput` via:
+//
+//          AssociationArray{ AssociationArgs{...} }
+type AssociationArrayInput interface {
+	pulumi.Input
+
+	ToAssociationArrayOutput() AssociationArrayOutput
+	ToAssociationArrayOutputWithContext(context.Context) AssociationArrayOutput
+}
+
+type AssociationArray []AssociationInput
+
+func (AssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Association)(nil))
+}
+
+func (i AssociationArray) ToAssociationArrayOutput() AssociationArrayOutput {
+	return i.ToAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationArray) ToAssociationArrayOutputWithContext(ctx context.Context) AssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationArrayOutput)
+}
+
+// AssociationMapInput is an input type that accepts AssociationMap and AssociationMapOutput values.
+// You can construct a concrete instance of `AssociationMapInput` via:
+//
+//          AssociationMap{ "key": AssociationArgs{...} }
+type AssociationMapInput interface {
+	pulumi.Input
+
+	ToAssociationMapOutput() AssociationMapOutput
+	ToAssociationMapOutputWithContext(context.Context) AssociationMapOutput
+}
+
+type AssociationMap map[string]AssociationInput
+
+func (AssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Association)(nil))
+}
+
+func (i AssociationMap) ToAssociationMapOutput() AssociationMapOutput {
+	return i.ToAssociationMapOutputWithContext(context.Background())
+}
+
+func (i AssociationMap) ToAssociationMapOutputWithContext(ctx context.Context) AssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMapOutput)
+}
+
 type AssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -137,6 +216,75 @@ func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AssociationOutput) ToAssociationPtrOutput() AssociationPtrOutput {
+	return o.ToAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationOutput) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
+	return o.ApplyT(func(v Association) *Association {
+		return &v
+	}).(AssociationPtrOutput)
+}
+
+type AssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Association)(nil))
+}
+
+func (o AssociationPtrOutput) ToAssociationPtrOutput() AssociationPtrOutput {
+	return o
+}
+
+func (o AssociationPtrOutput) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
+	return o
+}
+
+type AssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Association)(nil))
+}
+
+func (o AssociationArrayOutput) ToAssociationArrayOutput() AssociationArrayOutput {
+	return o
+}
+
+func (o AssociationArrayOutput) ToAssociationArrayOutputWithContext(ctx context.Context) AssociationArrayOutput {
+	return o
+}
+
+func (o AssociationArrayOutput) Index(i pulumi.IntInput) AssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Association {
+		return vs[0].([]Association)[vs[1].(int)]
+	}).(AssociationOutput)
+}
+
+type AssociationMapOutput struct{ *pulumi.OutputState }
+
+func (AssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Association)(nil))
+}
+
+func (o AssociationMapOutput) ToAssociationMapOutput() AssociationMapOutput {
+	return o
+}
+
+func (o AssociationMapOutput) ToAssociationMapOutputWithContext(ctx context.Context) AssociationMapOutput {
+	return o
+}
+
+func (o AssociationMapOutput) MapIndex(k pulumi.StringInput) AssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Association {
+		return vs[0].(map[string]Association)[vs[1].(string)]
+	}).(AssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssociationOutput{})
+	pulumi.RegisterOutputType(AssociationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationArrayOutput{})
+	pulumi.RegisterOutputType(AssociationMapOutput{})
 }

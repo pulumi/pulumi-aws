@@ -261,6 +261,85 @@ func (i *DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultV
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcOutput)
 }
 
+func (i *DefaultVpc) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
+	return i.ToDefaultVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *DefaultVpc) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcPtrOutput)
+}
+
+type DefaultVpcPtrInput interface {
+	pulumi.Input
+
+	ToDefaultVpcPtrOutput() DefaultVpcPtrOutput
+	ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput
+}
+
+type defaultVpcPtrType DefaultVpcArgs
+
+func (*defaultVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultVpc)(nil))
+}
+
+func (i *defaultVpcPtrType) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
+	return i.ToDefaultVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultVpcPtrType) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcPtrOutput)
+}
+
+// DefaultVpcArrayInput is an input type that accepts DefaultVpcArray and DefaultVpcArrayOutput values.
+// You can construct a concrete instance of `DefaultVpcArrayInput` via:
+//
+//          DefaultVpcArray{ DefaultVpcArgs{...} }
+type DefaultVpcArrayInput interface {
+	pulumi.Input
+
+	ToDefaultVpcArrayOutput() DefaultVpcArrayOutput
+	ToDefaultVpcArrayOutputWithContext(context.Context) DefaultVpcArrayOutput
+}
+
+type DefaultVpcArray []DefaultVpcInput
+
+func (DefaultVpcArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DefaultVpc)(nil))
+}
+
+func (i DefaultVpcArray) ToDefaultVpcArrayOutput() DefaultVpcArrayOutput {
+	return i.ToDefaultVpcArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultVpcArray) ToDefaultVpcArrayOutputWithContext(ctx context.Context) DefaultVpcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcArrayOutput)
+}
+
+// DefaultVpcMapInput is an input type that accepts DefaultVpcMap and DefaultVpcMapOutput values.
+// You can construct a concrete instance of `DefaultVpcMapInput` via:
+//
+//          DefaultVpcMap{ "key": DefaultVpcArgs{...} }
+type DefaultVpcMapInput interface {
+	pulumi.Input
+
+	ToDefaultVpcMapOutput() DefaultVpcMapOutput
+	ToDefaultVpcMapOutputWithContext(context.Context) DefaultVpcMapOutput
+}
+
+type DefaultVpcMap map[string]DefaultVpcInput
+
+func (DefaultVpcMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DefaultVpc)(nil))
+}
+
+func (i DefaultVpcMap) ToDefaultVpcMapOutput() DefaultVpcMapOutput {
+	return i.ToDefaultVpcMapOutputWithContext(context.Background())
+}
+
+func (i DefaultVpcMap) ToDefaultVpcMapOutputWithContext(ctx context.Context) DefaultVpcMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcMapOutput)
+}
+
 type DefaultVpcOutput struct {
 	*pulumi.OutputState
 }
@@ -277,6 +356,75 @@ func (o DefaultVpcOutput) ToDefaultVpcOutputWithContext(ctx context.Context) Def
 	return o
 }
 
+func (o DefaultVpcOutput) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
+	return o.ToDefaultVpcPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultVpcOutput) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
+	return o.ApplyT(func(v DefaultVpc) *DefaultVpc {
+		return &v
+	}).(DefaultVpcPtrOutput)
+}
+
+type DefaultVpcPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultVpc)(nil))
+}
+
+func (o DefaultVpcPtrOutput) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
+	return o
+}
+
+func (o DefaultVpcPtrOutput) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
+	return o
+}
+
+type DefaultVpcArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultVpcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultVpc)(nil))
+}
+
+func (o DefaultVpcArrayOutput) ToDefaultVpcArrayOutput() DefaultVpcArrayOutput {
+	return o
+}
+
+func (o DefaultVpcArrayOutput) ToDefaultVpcArrayOutputWithContext(ctx context.Context) DefaultVpcArrayOutput {
+	return o
+}
+
+func (o DefaultVpcArrayOutput) Index(i pulumi.IntInput) DefaultVpcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultVpc {
+		return vs[0].([]DefaultVpc)[vs[1].(int)]
+	}).(DefaultVpcOutput)
+}
+
+type DefaultVpcMapOutput struct{ *pulumi.OutputState }
+
+func (DefaultVpcMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DefaultVpc)(nil))
+}
+
+func (o DefaultVpcMapOutput) ToDefaultVpcMapOutput() DefaultVpcMapOutput {
+	return o
+}
+
+func (o DefaultVpcMapOutput) ToDefaultVpcMapOutputWithContext(ctx context.Context) DefaultVpcMapOutput {
+	return o
+}
+
+func (o DefaultVpcMapOutput) MapIndex(k pulumi.StringInput) DefaultVpcOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultVpc {
+		return vs[0].(map[string]DefaultVpc)[vs[1].(string)]
+	}).(DefaultVpcOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultVpcOutput{})
+	pulumi.RegisterOutputType(DefaultVpcPtrOutput{})
+	pulumi.RegisterOutputType(DefaultVpcArrayOutput{})
+	pulumi.RegisterOutputType(DefaultVpcMapOutput{})
 }

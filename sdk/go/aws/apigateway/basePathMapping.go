@@ -147,6 +147,85 @@ func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
 }
 
+func (i *BasePathMapping) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
+	return i.ToBasePathMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *BasePathMapping) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingPtrOutput)
+}
+
+type BasePathMappingPtrInput interface {
+	pulumi.Input
+
+	ToBasePathMappingPtrOutput() BasePathMappingPtrOutput
+	ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput
+}
+
+type basePathMappingPtrType BasePathMappingArgs
+
+func (*basePathMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BasePathMapping)(nil))
+}
+
+func (i *basePathMappingPtrType) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
+	return i.ToBasePathMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *basePathMappingPtrType) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingPtrOutput)
+}
+
+// BasePathMappingArrayInput is an input type that accepts BasePathMappingArray and BasePathMappingArrayOutput values.
+// You can construct a concrete instance of `BasePathMappingArrayInput` via:
+//
+//          BasePathMappingArray{ BasePathMappingArgs{...} }
+type BasePathMappingArrayInput interface {
+	pulumi.Input
+
+	ToBasePathMappingArrayOutput() BasePathMappingArrayOutput
+	ToBasePathMappingArrayOutputWithContext(context.Context) BasePathMappingArrayOutput
+}
+
+type BasePathMappingArray []BasePathMappingInput
+
+func (BasePathMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BasePathMapping)(nil))
+}
+
+func (i BasePathMappingArray) ToBasePathMappingArrayOutput() BasePathMappingArrayOutput {
+	return i.ToBasePathMappingArrayOutputWithContext(context.Background())
+}
+
+func (i BasePathMappingArray) ToBasePathMappingArrayOutputWithContext(ctx context.Context) BasePathMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingArrayOutput)
+}
+
+// BasePathMappingMapInput is an input type that accepts BasePathMappingMap and BasePathMappingMapOutput values.
+// You can construct a concrete instance of `BasePathMappingMapInput` via:
+//
+//          BasePathMappingMap{ "key": BasePathMappingArgs{...} }
+type BasePathMappingMapInput interface {
+	pulumi.Input
+
+	ToBasePathMappingMapOutput() BasePathMappingMapOutput
+	ToBasePathMappingMapOutputWithContext(context.Context) BasePathMappingMapOutput
+}
+
+type BasePathMappingMap map[string]BasePathMappingInput
+
+func (BasePathMappingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BasePathMapping)(nil))
+}
+
+func (i BasePathMappingMap) ToBasePathMappingMapOutput() BasePathMappingMapOutput {
+	return i.ToBasePathMappingMapOutputWithContext(context.Background())
+}
+
+func (i BasePathMappingMap) ToBasePathMappingMapOutputWithContext(ctx context.Context) BasePathMappingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingMapOutput)
+}
+
 type BasePathMappingOutput struct {
 	*pulumi.OutputState
 }
@@ -163,6 +242,75 @@ func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BasePathMappingOutput) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
+	return o.ToBasePathMappingPtrOutputWithContext(context.Background())
+}
+
+func (o BasePathMappingOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
+	return o.ApplyT(func(v BasePathMapping) *BasePathMapping {
+		return &v
+	}).(BasePathMappingPtrOutput)
+}
+
+type BasePathMappingPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BasePathMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BasePathMapping)(nil))
+}
+
+func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
+	return o
+}
+
+func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
+	return o
+}
+
+type BasePathMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (BasePathMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BasePathMapping)(nil))
+}
+
+func (o BasePathMappingArrayOutput) ToBasePathMappingArrayOutput() BasePathMappingArrayOutput {
+	return o
+}
+
+func (o BasePathMappingArrayOutput) ToBasePathMappingArrayOutputWithContext(ctx context.Context) BasePathMappingArrayOutput {
+	return o
+}
+
+func (o BasePathMappingArrayOutput) Index(i pulumi.IntInput) BasePathMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasePathMapping {
+		return vs[0].([]BasePathMapping)[vs[1].(int)]
+	}).(BasePathMappingOutput)
+}
+
+type BasePathMappingMapOutput struct{ *pulumi.OutputState }
+
+func (BasePathMappingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BasePathMapping)(nil))
+}
+
+func (o BasePathMappingMapOutput) ToBasePathMappingMapOutput() BasePathMappingMapOutput {
+	return o
+}
+
+func (o BasePathMappingMapOutput) ToBasePathMappingMapOutputWithContext(ctx context.Context) BasePathMappingMapOutput {
+	return o
+}
+
+func (o BasePathMappingMapOutput) MapIndex(k pulumi.StringInput) BasePathMappingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BasePathMapping {
+		return vs[0].(map[string]BasePathMapping)[vs[1].(string)]
+	}).(BasePathMappingOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BasePathMappingOutput{})
+	pulumi.RegisterOutputType(BasePathMappingPtrOutput{})
+	pulumi.RegisterOutputType(BasePathMappingArrayOutput{})
+	pulumi.RegisterOutputType(BasePathMappingMapOutput{})
 }

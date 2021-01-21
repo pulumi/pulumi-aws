@@ -585,6 +585,85 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
 }
 
+func (i *LaunchConfiguration) ToLaunchConfigurationPtrOutput() LaunchConfigurationPtrOutput {
+	return i.ToLaunchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *LaunchConfiguration) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationPtrOutput)
+}
+
+type LaunchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationPtrOutput() LaunchConfigurationPtrOutput
+	ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput
+}
+
+type launchConfigurationPtrType LaunchConfigurationArgs
+
+func (*launchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfiguration)(nil))
+}
+
+func (i *launchConfigurationPtrType) ToLaunchConfigurationPtrOutput() LaunchConfigurationPtrOutput {
+	return i.ToLaunchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationPtrType) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationPtrOutput)
+}
+
+// LaunchConfigurationArrayInput is an input type that accepts LaunchConfigurationArray and LaunchConfigurationArrayOutput values.
+// You can construct a concrete instance of `LaunchConfigurationArrayInput` via:
+//
+//          LaunchConfigurationArray{ LaunchConfigurationArgs{...} }
+type LaunchConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationArrayOutput() LaunchConfigurationArrayOutput
+	ToLaunchConfigurationArrayOutputWithContext(context.Context) LaunchConfigurationArrayOutput
+}
+
+type LaunchConfigurationArray []LaunchConfigurationInput
+
+func (LaunchConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LaunchConfiguration)(nil))
+}
+
+func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutput() LaunchConfigurationArrayOutput {
+	return i.ToLaunchConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutputWithContext(ctx context.Context) LaunchConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationArrayOutput)
+}
+
+// LaunchConfigurationMapInput is an input type that accepts LaunchConfigurationMap and LaunchConfigurationMapOutput values.
+// You can construct a concrete instance of `LaunchConfigurationMapInput` via:
+//
+//          LaunchConfigurationMap{ "key": LaunchConfigurationArgs{...} }
+type LaunchConfigurationMapInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationMapOutput() LaunchConfigurationMapOutput
+	ToLaunchConfigurationMapOutputWithContext(context.Context) LaunchConfigurationMapOutput
+}
+
+type LaunchConfigurationMap map[string]LaunchConfigurationInput
+
+func (LaunchConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LaunchConfiguration)(nil))
+}
+
+func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutput() LaunchConfigurationMapOutput {
+	return i.ToLaunchConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutputWithContext(ctx context.Context) LaunchConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMapOutput)
+}
+
 type LaunchConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -601,6 +680,75 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx co
 	return o
 }
 
+func (o LaunchConfigurationOutput) ToLaunchConfigurationPtrOutput() LaunchConfigurationPtrOutput {
+	return o.ToLaunchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationOutput) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
+	return o.ApplyT(func(v LaunchConfiguration) *LaunchConfiguration {
+		return &v
+	}).(LaunchConfigurationPtrOutput)
+}
+
+type LaunchConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfiguration)(nil))
+}
+
+func (o LaunchConfigurationPtrOutput) ToLaunchConfigurationPtrOutput() LaunchConfigurationPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationPtrOutput) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
+	return o
+}
+
+type LaunchConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchConfiguration)(nil))
+}
+
+func (o LaunchConfigurationArrayOutput) ToLaunchConfigurationArrayOutput() LaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationArrayOutput) ToLaunchConfigurationArrayOutputWithContext(ctx context.Context) LaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchConfiguration {
+		return vs[0].([]LaunchConfiguration)[vs[1].(int)]
+	}).(LaunchConfigurationOutput)
+}
+
+type LaunchConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LaunchConfiguration)(nil))
+}
+
+func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutput() LaunchConfigurationMapOutput {
+	return o
+}
+
+func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutputWithContext(ctx context.Context) LaunchConfigurationMapOutput {
+	return o
+}
+
+func (o LaunchConfigurationMapOutput) MapIndex(k pulumi.StringInput) LaunchConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LaunchConfiguration {
+		return vs[0].(map[string]LaunchConfiguration)[vs[1].(string)]
+	}).(LaunchConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LaunchConfigurationOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationMapOutput{})
 }

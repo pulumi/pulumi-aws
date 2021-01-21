@@ -170,6 +170,85 @@ func (i *PermissionSet) ToPermissionSetOutputWithContext(ctx context.Context) Pe
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetOutput)
 }
 
+func (i *PermissionSet) ToPermissionSetPtrOutput() PermissionSetPtrOutput {
+	return i.ToPermissionSetPtrOutputWithContext(context.Background())
+}
+
+func (i *PermissionSet) ToPermissionSetPtrOutputWithContext(ctx context.Context) PermissionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPtrOutput)
+}
+
+type PermissionSetPtrInput interface {
+	pulumi.Input
+
+	ToPermissionSetPtrOutput() PermissionSetPtrOutput
+	ToPermissionSetPtrOutputWithContext(ctx context.Context) PermissionSetPtrOutput
+}
+
+type permissionSetPtrType PermissionSetArgs
+
+func (*permissionSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSet)(nil))
+}
+
+func (i *permissionSetPtrType) ToPermissionSetPtrOutput() PermissionSetPtrOutput {
+	return i.ToPermissionSetPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionSetPtrType) ToPermissionSetPtrOutputWithContext(ctx context.Context) PermissionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPtrOutput)
+}
+
+// PermissionSetArrayInput is an input type that accepts PermissionSetArray and PermissionSetArrayOutput values.
+// You can construct a concrete instance of `PermissionSetArrayInput` via:
+//
+//          PermissionSetArray{ PermissionSetArgs{...} }
+type PermissionSetArrayInput interface {
+	pulumi.Input
+
+	ToPermissionSetArrayOutput() PermissionSetArrayOutput
+	ToPermissionSetArrayOutputWithContext(context.Context) PermissionSetArrayOutput
+}
+
+type PermissionSetArray []PermissionSetInput
+
+func (PermissionSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PermissionSet)(nil))
+}
+
+func (i PermissionSetArray) ToPermissionSetArrayOutput() PermissionSetArrayOutput {
+	return i.ToPermissionSetArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionSetArray) ToPermissionSetArrayOutputWithContext(ctx context.Context) PermissionSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetArrayOutput)
+}
+
+// PermissionSetMapInput is an input type that accepts PermissionSetMap and PermissionSetMapOutput values.
+// You can construct a concrete instance of `PermissionSetMapInput` via:
+//
+//          PermissionSetMap{ "key": PermissionSetArgs{...} }
+type PermissionSetMapInput interface {
+	pulumi.Input
+
+	ToPermissionSetMapOutput() PermissionSetMapOutput
+	ToPermissionSetMapOutputWithContext(context.Context) PermissionSetMapOutput
+}
+
+type PermissionSetMap map[string]PermissionSetInput
+
+func (PermissionSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PermissionSet)(nil))
+}
+
+func (i PermissionSetMap) ToPermissionSetMapOutput() PermissionSetMapOutput {
+	return i.ToPermissionSetMapOutputWithContext(context.Background())
+}
+
+func (i PermissionSetMap) ToPermissionSetMapOutputWithContext(ctx context.Context) PermissionSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetMapOutput)
+}
+
 type PermissionSetOutput struct {
 	*pulumi.OutputState
 }
@@ -186,6 +265,75 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PermissionSetOutput) ToPermissionSetPtrOutput() PermissionSetPtrOutput {
+	return o.ToPermissionSetPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionSetOutput) ToPermissionSetPtrOutputWithContext(ctx context.Context) PermissionSetPtrOutput {
+	return o.ApplyT(func(v PermissionSet) *PermissionSet {
+		return &v
+	}).(PermissionSetPtrOutput)
+}
+
+type PermissionSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PermissionSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSet)(nil))
+}
+
+func (o PermissionSetPtrOutput) ToPermissionSetPtrOutput() PermissionSetPtrOutput {
+	return o
+}
+
+func (o PermissionSetPtrOutput) ToPermissionSetPtrOutputWithContext(ctx context.Context) PermissionSetPtrOutput {
+	return o
+}
+
+type PermissionSetArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSet)(nil))
+}
+
+func (o PermissionSetArrayOutput) ToPermissionSetArrayOutput() PermissionSetArrayOutput {
+	return o
+}
+
+func (o PermissionSetArrayOutput) ToPermissionSetArrayOutputWithContext(ctx context.Context) PermissionSetArrayOutput {
+	return o
+}
+
+func (o PermissionSetArrayOutput) Index(i pulumi.IntInput) PermissionSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSet {
+		return vs[0].([]PermissionSet)[vs[1].(int)]
+	}).(PermissionSetOutput)
+}
+
+type PermissionSetMapOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PermissionSet)(nil))
+}
+
+func (o PermissionSetMapOutput) ToPermissionSetMapOutput() PermissionSetMapOutput {
+	return o
+}
+
+func (o PermissionSetMapOutput) ToPermissionSetMapOutputWithContext(ctx context.Context) PermissionSetMapOutput {
+	return o
+}
+
+func (o PermissionSetMapOutput) MapIndex(k pulumi.StringInput) PermissionSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PermissionSet {
+		return vs[0].(map[string]PermissionSet)[vs[1].(string)]
+	}).(PermissionSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PermissionSetOutput{})
+	pulumi.RegisterOutputType(PermissionSetPtrOutput{})
+	pulumi.RegisterOutputType(PermissionSetArrayOutput{})
+	pulumi.RegisterOutputType(PermissionSetMapOutput{})
 }

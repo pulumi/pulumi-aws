@@ -181,6 +181,85 @@ func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigOutput)
 }
 
+func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigPtrOutput() ResolverQueryLogConfigPtrOutput {
+	return i.ToResolverQueryLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigPtrOutput)
+}
+
+type ResolverQueryLogConfigPtrInput interface {
+	pulumi.Input
+
+	ToResolverQueryLogConfigPtrOutput() ResolverQueryLogConfigPtrOutput
+	ToResolverQueryLogConfigPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigPtrOutput
+}
+
+type resolverQueryLogConfigPtrType ResolverQueryLogConfigArgs
+
+func (*resolverQueryLogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLogConfig)(nil))
+}
+
+func (i *resolverQueryLogConfigPtrType) ToResolverQueryLogConfigPtrOutput() ResolverQueryLogConfigPtrOutput {
+	return i.ToResolverQueryLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverQueryLogConfigPtrType) ToResolverQueryLogConfigPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigPtrOutput)
+}
+
+// ResolverQueryLogConfigArrayInput is an input type that accepts ResolverQueryLogConfigArray and ResolverQueryLogConfigArrayOutput values.
+// You can construct a concrete instance of `ResolverQueryLogConfigArrayInput` via:
+//
+//          ResolverQueryLogConfigArray{ ResolverQueryLogConfigArgs{...} }
+type ResolverQueryLogConfigArrayInput interface {
+	pulumi.Input
+
+	ToResolverQueryLogConfigArrayOutput() ResolverQueryLogConfigArrayOutput
+	ToResolverQueryLogConfigArrayOutputWithContext(context.Context) ResolverQueryLogConfigArrayOutput
+}
+
+type ResolverQueryLogConfigArray []ResolverQueryLogConfigInput
+
+func (ResolverQueryLogConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResolverQueryLogConfig)(nil))
+}
+
+func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutput() ResolverQueryLogConfigArrayOutput {
+	return i.ToResolverQueryLogConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutputWithContext(ctx context.Context) ResolverQueryLogConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigArrayOutput)
+}
+
+// ResolverQueryLogConfigMapInput is an input type that accepts ResolverQueryLogConfigMap and ResolverQueryLogConfigMapOutput values.
+// You can construct a concrete instance of `ResolverQueryLogConfigMapInput` via:
+//
+//          ResolverQueryLogConfigMap{ "key": ResolverQueryLogConfigArgs{...} }
+type ResolverQueryLogConfigMapInput interface {
+	pulumi.Input
+
+	ToResolverQueryLogConfigMapOutput() ResolverQueryLogConfigMapOutput
+	ToResolverQueryLogConfigMapOutputWithContext(context.Context) ResolverQueryLogConfigMapOutput
+}
+
+type ResolverQueryLogConfigMap map[string]ResolverQueryLogConfigInput
+
+func (ResolverQueryLogConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResolverQueryLogConfig)(nil))
+}
+
+func (i ResolverQueryLogConfigMap) ToResolverQueryLogConfigMapOutput() ResolverQueryLogConfigMapOutput {
+	return i.ToResolverQueryLogConfigMapOutputWithContext(context.Background())
+}
+
+func (i ResolverQueryLogConfigMap) ToResolverQueryLogConfigMapOutputWithContext(ctx context.Context) ResolverQueryLogConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigMapOutput)
+}
+
 type ResolverQueryLogConfigOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutputWithContext(
 	return o
 }
 
+func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigPtrOutput() ResolverQueryLogConfigPtrOutput {
+	return o.ToResolverQueryLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigPtrOutput {
+	return o.ApplyT(func(v ResolverQueryLogConfig) *ResolverQueryLogConfig {
+		return &v
+	}).(ResolverQueryLogConfigPtrOutput)
+}
+
+type ResolverQueryLogConfigPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverQueryLogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverQueryLogConfig)(nil))
+}
+
+func (o ResolverQueryLogConfigPtrOutput) ToResolverQueryLogConfigPtrOutput() ResolverQueryLogConfigPtrOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigPtrOutput) ToResolverQueryLogConfigPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigPtrOutput {
+	return o
+}
+
+type ResolverQueryLogConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLogConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverQueryLogConfig)(nil))
+}
+
+func (o ResolverQueryLogConfigArrayOutput) ToResolverQueryLogConfigArrayOutput() ResolverQueryLogConfigArrayOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigArrayOutput) ToResolverQueryLogConfigArrayOutputWithContext(ctx context.Context) ResolverQueryLogConfigArrayOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigArrayOutput) Index(i pulumi.IntInput) ResolverQueryLogConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverQueryLogConfig {
+		return vs[0].([]ResolverQueryLogConfig)[vs[1].(int)]
+	}).(ResolverQueryLogConfigOutput)
+}
+
+type ResolverQueryLogConfigMapOutput struct{ *pulumi.OutputState }
+
+func (ResolverQueryLogConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResolverQueryLogConfig)(nil))
+}
+
+func (o ResolverQueryLogConfigMapOutput) ToResolverQueryLogConfigMapOutput() ResolverQueryLogConfigMapOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigMapOutput) ToResolverQueryLogConfigMapOutputWithContext(ctx context.Context) ResolverQueryLogConfigMapOutput {
+	return o
+}
+
+func (o ResolverQueryLogConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverQueryLogConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverQueryLogConfig {
+		return vs[0].(map[string]ResolverQueryLogConfig)[vs[1].(string)]
+	}).(ResolverQueryLogConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResolverQueryLogConfigOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLogConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLogConfigArrayOutput{})
+	pulumi.RegisterOutputType(ResolverQueryLogConfigMapOutput{})
 }

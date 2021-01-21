@@ -210,6 +210,85 @@ func (i *AnalyticsConfiguration) ToAnalyticsConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationOutput)
 }
 
+func (i *AnalyticsConfiguration) ToAnalyticsConfigurationPtrOutput() AnalyticsConfigurationPtrOutput {
+	return i.ToAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *AnalyticsConfiguration) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationPtrOutput)
+}
+
+type AnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationPtrOutput() AnalyticsConfigurationPtrOutput
+	ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput
+}
+
+type analyticsConfigurationPtrType AnalyticsConfigurationArgs
+
+func (*analyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfiguration)(nil))
+}
+
+func (i *analyticsConfigurationPtrType) ToAnalyticsConfigurationPtrOutput() AnalyticsConfigurationPtrOutput {
+	return i.ToAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsConfigurationPtrType) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationPtrOutput)
+}
+
+// AnalyticsConfigurationArrayInput is an input type that accepts AnalyticsConfigurationArray and AnalyticsConfigurationArrayOutput values.
+// You can construct a concrete instance of `AnalyticsConfigurationArrayInput` via:
+//
+//          AnalyticsConfigurationArray{ AnalyticsConfigurationArgs{...} }
+type AnalyticsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationArrayOutput() AnalyticsConfigurationArrayOutput
+	ToAnalyticsConfigurationArrayOutputWithContext(context.Context) AnalyticsConfigurationArrayOutput
+}
+
+type AnalyticsConfigurationArray []AnalyticsConfigurationInput
+
+func (AnalyticsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AnalyticsConfiguration)(nil))
+}
+
+func (i AnalyticsConfigurationArray) ToAnalyticsConfigurationArrayOutput() AnalyticsConfigurationArrayOutput {
+	return i.ToAnalyticsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationArray) ToAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) AnalyticsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationArrayOutput)
+}
+
+// AnalyticsConfigurationMapInput is an input type that accepts AnalyticsConfigurationMap and AnalyticsConfigurationMapOutput values.
+// You can construct a concrete instance of `AnalyticsConfigurationMapInput` via:
+//
+//          AnalyticsConfigurationMap{ "key": AnalyticsConfigurationArgs{...} }
+type AnalyticsConfigurationMapInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationMapOutput() AnalyticsConfigurationMapOutput
+	ToAnalyticsConfigurationMapOutputWithContext(context.Context) AnalyticsConfigurationMapOutput
+}
+
+type AnalyticsConfigurationMap map[string]AnalyticsConfigurationInput
+
+func (AnalyticsConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AnalyticsConfiguration)(nil))
+}
+
+func (i AnalyticsConfigurationMap) ToAnalyticsConfigurationMapOutput() AnalyticsConfigurationMapOutput {
+	return i.ToAnalyticsConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationMap) ToAnalyticsConfigurationMapOutputWithContext(ctx context.Context) AnalyticsConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationMapOutput)
+}
+
 type AnalyticsConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -226,6 +305,75 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutputWithContext(
 	return o
 }
 
+func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationPtrOutput() AnalyticsConfigurationPtrOutput {
+	return o.ToAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalyticsConfiguration) *AnalyticsConfiguration {
+		return &v
+	}).(AnalyticsConfigurationPtrOutput)
+}
+
+type AnalyticsConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfiguration)(nil))
+}
+
+func (o AnalyticsConfigurationPtrOutput) ToAnalyticsConfigurationPtrOutput() AnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationPtrOutput) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
+	return o
+}
+
+type AnalyticsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsConfiguration)(nil))
+}
+
+func (o AnalyticsConfigurationArrayOutput) ToAnalyticsConfigurationArrayOutput() AnalyticsConfigurationArrayOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationArrayOutput) ToAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) AnalyticsConfigurationArrayOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) AnalyticsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsConfiguration {
+		return vs[0].([]AnalyticsConfiguration)[vs[1].(int)]
+	}).(AnalyticsConfigurationOutput)
+}
+
+type AnalyticsConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AnalyticsConfiguration)(nil))
+}
+
+func (o AnalyticsConfigurationMapOutput) ToAnalyticsConfigurationMapOutput() AnalyticsConfigurationMapOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationMapOutput) ToAnalyticsConfigurationMapOutputWithContext(ctx context.Context) AnalyticsConfigurationMapOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationMapOutput) MapIndex(k pulumi.StringInput) AnalyticsConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsConfiguration {
+		return vs[0].(map[string]AnalyticsConfiguration)[vs[1].(string)]
+	}).(AnalyticsConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationMapOutput{})
 }

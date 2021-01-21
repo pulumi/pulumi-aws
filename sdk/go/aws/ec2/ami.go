@@ -315,6 +315,85 @@ func (i *Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiOutput)
 }
 
+func (i *Ami) ToAmiPtrOutput() AmiPtrOutput {
+	return i.ToAmiPtrOutputWithContext(context.Background())
+}
+
+func (i *Ami) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiPtrOutput)
+}
+
+type AmiPtrInput interface {
+	pulumi.Input
+
+	ToAmiPtrOutput() AmiPtrOutput
+	ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput
+}
+
+type amiPtrType AmiArgs
+
+func (*amiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ami)(nil))
+}
+
+func (i *amiPtrType) ToAmiPtrOutput() AmiPtrOutput {
+	return i.ToAmiPtrOutputWithContext(context.Background())
+}
+
+func (i *amiPtrType) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiPtrOutput)
+}
+
+// AmiArrayInput is an input type that accepts AmiArray and AmiArrayOutput values.
+// You can construct a concrete instance of `AmiArrayInput` via:
+//
+//          AmiArray{ AmiArgs{...} }
+type AmiArrayInput interface {
+	pulumi.Input
+
+	ToAmiArrayOutput() AmiArrayOutput
+	ToAmiArrayOutputWithContext(context.Context) AmiArrayOutput
+}
+
+type AmiArray []AmiInput
+
+func (AmiArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Ami)(nil))
+}
+
+func (i AmiArray) ToAmiArrayOutput() AmiArrayOutput {
+	return i.ToAmiArrayOutputWithContext(context.Background())
+}
+
+func (i AmiArray) ToAmiArrayOutputWithContext(ctx context.Context) AmiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiArrayOutput)
+}
+
+// AmiMapInput is an input type that accepts AmiMap and AmiMapOutput values.
+// You can construct a concrete instance of `AmiMapInput` via:
+//
+//          AmiMap{ "key": AmiArgs{...} }
+type AmiMapInput interface {
+	pulumi.Input
+
+	ToAmiMapOutput() AmiMapOutput
+	ToAmiMapOutputWithContext(context.Context) AmiMapOutput
+}
+
+type AmiMap map[string]AmiInput
+
+func (AmiMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Ami)(nil))
+}
+
+func (i AmiMap) ToAmiMapOutput() AmiMapOutput {
+	return i.ToAmiMapOutputWithContext(context.Background())
+}
+
+func (i AmiMap) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiMapOutput)
+}
+
 type AmiOutput struct {
 	*pulumi.OutputState
 }
@@ -331,6 +410,75 @@ func (o AmiOutput) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return o
 }
 
+func (o AmiOutput) ToAmiPtrOutput() AmiPtrOutput {
+	return o.ToAmiPtrOutputWithContext(context.Background())
+}
+
+func (o AmiOutput) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
+	return o.ApplyT(func(v Ami) *Ami {
+		return &v
+	}).(AmiPtrOutput)
+}
+
+type AmiPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AmiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ami)(nil))
+}
+
+func (o AmiPtrOutput) ToAmiPtrOutput() AmiPtrOutput {
+	return o
+}
+
+func (o AmiPtrOutput) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
+	return o
+}
+
+type AmiArrayOutput struct{ *pulumi.OutputState }
+
+func (AmiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ami)(nil))
+}
+
+func (o AmiArrayOutput) ToAmiArrayOutput() AmiArrayOutput {
+	return o
+}
+
+func (o AmiArrayOutput) ToAmiArrayOutputWithContext(ctx context.Context) AmiArrayOutput {
+	return o
+}
+
+func (o AmiArrayOutput) Index(i pulumi.IntInput) AmiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ami {
+		return vs[0].([]Ami)[vs[1].(int)]
+	}).(AmiOutput)
+}
+
+type AmiMapOutput struct{ *pulumi.OutputState }
+
+func (AmiMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Ami)(nil))
+}
+
+func (o AmiMapOutput) ToAmiMapOutput() AmiMapOutput {
+	return o
+}
+
+func (o AmiMapOutput) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutput {
+	return o
+}
+
+func (o AmiMapOutput) MapIndex(k pulumi.StringInput) AmiOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Ami {
+		return vs[0].(map[string]Ami)[vs[1].(string)]
+	}).(AmiOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AmiOutput{})
+	pulumi.RegisterOutputType(AmiPtrOutput{})
+	pulumi.RegisterOutputType(AmiArrayOutput{})
+	pulumi.RegisterOutputType(AmiMapOutput{})
 }

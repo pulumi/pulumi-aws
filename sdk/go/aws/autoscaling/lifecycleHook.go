@@ -241,6 +241,85 @@ func (i *LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookOutput)
 }
 
+func (i *LifecycleHook) ToLifecycleHookPtrOutput() LifecycleHookPtrOutput {
+	return i.ToLifecycleHookPtrOutputWithContext(context.Background())
+}
+
+func (i *LifecycleHook) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookPtrOutput)
+}
+
+type LifecycleHookPtrInput interface {
+	pulumi.Input
+
+	ToLifecycleHookPtrOutput() LifecycleHookPtrOutput
+	ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput
+}
+
+type lifecycleHookPtrType LifecycleHookArgs
+
+func (*lifecycleHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecycleHook)(nil))
+}
+
+func (i *lifecycleHookPtrType) ToLifecycleHookPtrOutput() LifecycleHookPtrOutput {
+	return i.ToLifecycleHookPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecycleHookPtrType) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookPtrOutput)
+}
+
+// LifecycleHookArrayInput is an input type that accepts LifecycleHookArray and LifecycleHookArrayOutput values.
+// You can construct a concrete instance of `LifecycleHookArrayInput` via:
+//
+//          LifecycleHookArray{ LifecycleHookArgs{...} }
+type LifecycleHookArrayInput interface {
+	pulumi.Input
+
+	ToLifecycleHookArrayOutput() LifecycleHookArrayOutput
+	ToLifecycleHookArrayOutputWithContext(context.Context) LifecycleHookArrayOutput
+}
+
+type LifecycleHookArray []LifecycleHookInput
+
+func (LifecycleHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LifecycleHook)(nil))
+}
+
+func (i LifecycleHookArray) ToLifecycleHookArrayOutput() LifecycleHookArrayOutput {
+	return i.ToLifecycleHookArrayOutputWithContext(context.Background())
+}
+
+func (i LifecycleHookArray) ToLifecycleHookArrayOutputWithContext(ctx context.Context) LifecycleHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookArrayOutput)
+}
+
+// LifecycleHookMapInput is an input type that accepts LifecycleHookMap and LifecycleHookMapOutput values.
+// You can construct a concrete instance of `LifecycleHookMapInput` via:
+//
+//          LifecycleHookMap{ "key": LifecycleHookArgs{...} }
+type LifecycleHookMapInput interface {
+	pulumi.Input
+
+	ToLifecycleHookMapOutput() LifecycleHookMapOutput
+	ToLifecycleHookMapOutputWithContext(context.Context) LifecycleHookMapOutput
+}
+
+type LifecycleHookMap map[string]LifecycleHookInput
+
+func (LifecycleHookMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LifecycleHook)(nil))
+}
+
+func (i LifecycleHookMap) ToLifecycleHookMapOutput() LifecycleHookMapOutput {
+	return i.ToLifecycleHookMapOutputWithContext(context.Background())
+}
+
+func (i LifecycleHookMap) ToLifecycleHookMapOutputWithContext(ctx context.Context) LifecycleHookMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookMapOutput)
+}
+
 type LifecycleHookOutput struct {
 	*pulumi.OutputState
 }
@@ -257,6 +336,75 @@ func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o LifecycleHookOutput) ToLifecycleHookPtrOutput() LifecycleHookPtrOutput {
+	return o.ToLifecycleHookPtrOutputWithContext(context.Background())
+}
+
+func (o LifecycleHookOutput) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
+	return o.ApplyT(func(v LifecycleHook) *LifecycleHook {
+		return &v
+	}).(LifecycleHookPtrOutput)
+}
+
+type LifecycleHookPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LifecycleHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecycleHook)(nil))
+}
+
+func (o LifecycleHookPtrOutput) ToLifecycleHookPtrOutput() LifecycleHookPtrOutput {
+	return o
+}
+
+func (o LifecycleHookPtrOutput) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
+	return o
+}
+
+type LifecycleHookArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecycleHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecycleHook)(nil))
+}
+
+func (o LifecycleHookArrayOutput) ToLifecycleHookArrayOutput() LifecycleHookArrayOutput {
+	return o
+}
+
+func (o LifecycleHookArrayOutput) ToLifecycleHookArrayOutputWithContext(ctx context.Context) LifecycleHookArrayOutput {
+	return o
+}
+
+func (o LifecycleHookArrayOutput) Index(i pulumi.IntInput) LifecycleHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecycleHook {
+		return vs[0].([]LifecycleHook)[vs[1].(int)]
+	}).(LifecycleHookOutput)
+}
+
+type LifecycleHookMapOutput struct{ *pulumi.OutputState }
+
+func (LifecycleHookMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LifecycleHook)(nil))
+}
+
+func (o LifecycleHookMapOutput) ToLifecycleHookMapOutput() LifecycleHookMapOutput {
+	return o
+}
+
+func (o LifecycleHookMapOutput) ToLifecycleHookMapOutputWithContext(ctx context.Context) LifecycleHookMapOutput {
+	return o
+}
+
+func (o LifecycleHookMapOutput) MapIndex(k pulumi.StringInput) LifecycleHookOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LifecycleHook {
+		return vs[0].(map[string]LifecycleHook)[vs[1].(string)]
+	}).(LifecycleHookOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LifecycleHookOutput{})
+	pulumi.RegisterOutputType(LifecycleHookPtrOutput{})
+	pulumi.RegisterOutputType(LifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(LifecycleHookMapOutput{})
 }

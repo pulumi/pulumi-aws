@@ -152,6 +152,85 @@ func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
 }
 
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayPtrOutput() EgressOnlyInternetGatewayPtrOutput {
+	return i.ToEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayPtrOutput)
+}
+
+type EgressOnlyInternetGatewayPtrInput interface {
+	pulumi.Input
+
+	ToEgressOnlyInternetGatewayPtrOutput() EgressOnlyInternetGatewayPtrOutput
+	ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput
+}
+
+type egressOnlyInternetGatewayPtrType EgressOnlyInternetGatewayArgs
+
+func (*egressOnlyInternetGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EgressOnlyInternetGateway)(nil))
+}
+
+func (i *egressOnlyInternetGatewayPtrType) ToEgressOnlyInternetGatewayPtrOutput() EgressOnlyInternetGatewayPtrOutput {
+	return i.ToEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *egressOnlyInternetGatewayPtrType) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayPtrOutput)
+}
+
+// EgressOnlyInternetGatewayArrayInput is an input type that accepts EgressOnlyInternetGatewayArray and EgressOnlyInternetGatewayArrayOutput values.
+// You can construct a concrete instance of `EgressOnlyInternetGatewayArrayInput` via:
+//
+//          EgressOnlyInternetGatewayArray{ EgressOnlyInternetGatewayArgs{...} }
+type EgressOnlyInternetGatewayArrayInput interface {
+	pulumi.Input
+
+	ToEgressOnlyInternetGatewayArrayOutput() EgressOnlyInternetGatewayArrayOutput
+	ToEgressOnlyInternetGatewayArrayOutputWithContext(context.Context) EgressOnlyInternetGatewayArrayOutput
+}
+
+type EgressOnlyInternetGatewayArray []EgressOnlyInternetGatewayInput
+
+func (EgressOnlyInternetGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EgressOnlyInternetGateway)(nil))
+}
+
+func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutput() EgressOnlyInternetGatewayArrayOutput {
+	return i.ToEgressOnlyInternetGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayArrayOutput)
+}
+
+// EgressOnlyInternetGatewayMapInput is an input type that accepts EgressOnlyInternetGatewayMap and EgressOnlyInternetGatewayMapOutput values.
+// You can construct a concrete instance of `EgressOnlyInternetGatewayMapInput` via:
+//
+//          EgressOnlyInternetGatewayMap{ "key": EgressOnlyInternetGatewayArgs{...} }
+type EgressOnlyInternetGatewayMapInput interface {
+	pulumi.Input
+
+	ToEgressOnlyInternetGatewayMapOutput() EgressOnlyInternetGatewayMapOutput
+	ToEgressOnlyInternetGatewayMapOutputWithContext(context.Context) EgressOnlyInternetGatewayMapOutput
+}
+
+type EgressOnlyInternetGatewayMap map[string]EgressOnlyInternetGatewayInput
+
+func (EgressOnlyInternetGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EgressOnlyInternetGateway)(nil))
+}
+
+func (i EgressOnlyInternetGatewayMap) ToEgressOnlyInternetGatewayMapOutput() EgressOnlyInternetGatewayMapOutput {
+	return i.ToEgressOnlyInternetGatewayMapOutputWithContext(context.Background())
+}
+
+func (i EgressOnlyInternetGatewayMap) ToEgressOnlyInternetGatewayMapOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayMapOutput)
+}
+
 type EgressOnlyInternetGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -168,6 +247,75 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithCo
 	return o
 }
 
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayPtrOutput() EgressOnlyInternetGatewayPtrOutput {
+	return o.ToEgressOnlyInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
+	return o.ApplyT(func(v EgressOnlyInternetGateway) *EgressOnlyInternetGateway {
+		return &v
+	}).(EgressOnlyInternetGatewayPtrOutput)
+}
+
+type EgressOnlyInternetGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EgressOnlyInternetGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EgressOnlyInternetGateway)(nil))
+}
+
+func (o EgressOnlyInternetGatewayPtrOutput) ToEgressOnlyInternetGatewayPtrOutput() EgressOnlyInternetGatewayPtrOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayPtrOutput) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
+	return o
+}
+
+type EgressOnlyInternetGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (EgressOnlyInternetGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EgressOnlyInternetGateway)(nil))
+}
+
+func (o EgressOnlyInternetGatewayArrayOutput) ToEgressOnlyInternetGatewayArrayOutput() EgressOnlyInternetGatewayArrayOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayArrayOutput) ToEgressOnlyInternetGatewayArrayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayArrayOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayArrayOutput) Index(i pulumi.IntInput) EgressOnlyInternetGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EgressOnlyInternetGateway {
+		return vs[0].([]EgressOnlyInternetGateway)[vs[1].(int)]
+	}).(EgressOnlyInternetGatewayOutput)
+}
+
+type EgressOnlyInternetGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (EgressOnlyInternetGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EgressOnlyInternetGateway)(nil))
+}
+
+func (o EgressOnlyInternetGatewayMapOutput) ToEgressOnlyInternetGatewayMapOutput() EgressOnlyInternetGatewayMapOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayMapOutput) ToEgressOnlyInternetGatewayMapOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayMapOutput {
+	return o
+}
+
+func (o EgressOnlyInternetGatewayMapOutput) MapIndex(k pulumi.StringInput) EgressOnlyInternetGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EgressOnlyInternetGateway {
+		return vs[0].(map[string]EgressOnlyInternetGateway)[vs[1].(string)]
+	}).(EgressOnlyInternetGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})
+	pulumi.RegisterOutputType(EgressOnlyInternetGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EgressOnlyInternetGatewayArrayOutput{})
+	pulumi.RegisterOutputType(EgressOnlyInternetGatewayMapOutput{})
 }

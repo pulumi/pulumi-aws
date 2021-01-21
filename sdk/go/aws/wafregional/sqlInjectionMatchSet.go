@@ -142,6 +142,85 @@ func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetOutput)
 }
 
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetPtrOutput() SqlInjectionMatchSetPtrOutput {
+	return i.ToSqlInjectionMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetPtrOutput)
+}
+
+type SqlInjectionMatchSetPtrInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetPtrOutput() SqlInjectionMatchSetPtrOutput
+	ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput
+}
+
+type sqlInjectionMatchSetPtrType SqlInjectionMatchSetArgs
+
+func (*sqlInjectionMatchSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlInjectionMatchSet)(nil))
+}
+
+func (i *sqlInjectionMatchSetPtrType) ToSqlInjectionMatchSetPtrOutput() SqlInjectionMatchSetPtrOutput {
+	return i.ToSqlInjectionMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlInjectionMatchSetPtrType) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetPtrOutput)
+}
+
+// SqlInjectionMatchSetArrayInput is an input type that accepts SqlInjectionMatchSetArray and SqlInjectionMatchSetArrayOutput values.
+// You can construct a concrete instance of `SqlInjectionMatchSetArrayInput` via:
+//
+//          SqlInjectionMatchSetArray{ SqlInjectionMatchSetArgs{...} }
+type SqlInjectionMatchSetArrayInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetArrayOutput() SqlInjectionMatchSetArrayOutput
+	ToSqlInjectionMatchSetArrayOutputWithContext(context.Context) SqlInjectionMatchSetArrayOutput
+}
+
+type SqlInjectionMatchSetArray []SqlInjectionMatchSetInput
+
+func (SqlInjectionMatchSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SqlInjectionMatchSet)(nil))
+}
+
+func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutput() SqlInjectionMatchSetArrayOutput {
+	return i.ToSqlInjectionMatchSetArrayOutputWithContext(context.Background())
+}
+
+func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetArrayOutput)
+}
+
+// SqlInjectionMatchSetMapInput is an input type that accepts SqlInjectionMatchSetMap and SqlInjectionMatchSetMapOutput values.
+// You can construct a concrete instance of `SqlInjectionMatchSetMapInput` via:
+//
+//          SqlInjectionMatchSetMap{ "key": SqlInjectionMatchSetArgs{...} }
+type SqlInjectionMatchSetMapInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetMapOutput() SqlInjectionMatchSetMapOutput
+	ToSqlInjectionMatchSetMapOutputWithContext(context.Context) SqlInjectionMatchSetMapOutput
+}
+
+type SqlInjectionMatchSetMap map[string]SqlInjectionMatchSetInput
+
+func (SqlInjectionMatchSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SqlInjectionMatchSet)(nil))
+}
+
+func (i SqlInjectionMatchSetMap) ToSqlInjectionMatchSetMapOutput() SqlInjectionMatchSetMapOutput {
+	return i.ToSqlInjectionMatchSetMapOutputWithContext(context.Background())
+}
+
+func (i SqlInjectionMatchSetMap) ToSqlInjectionMatchSetMapOutputWithContext(ctx context.Context) SqlInjectionMatchSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetMapOutput)
+}
+
 type SqlInjectionMatchSetOutput struct {
 	*pulumi.OutputState
 }
@@ -158,6 +237,75 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx 
 	return o
 }
 
+func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetPtrOutput() SqlInjectionMatchSetPtrOutput {
+	return o.ToSqlInjectionMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
+	return o.ApplyT(func(v SqlInjectionMatchSet) *SqlInjectionMatchSet {
+		return &v
+	}).(SqlInjectionMatchSetPtrOutput)
+}
+
+type SqlInjectionMatchSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlInjectionMatchSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlInjectionMatchSet)(nil))
+}
+
+func (o SqlInjectionMatchSetPtrOutput) ToSqlInjectionMatchSetPtrOutput() SqlInjectionMatchSetPtrOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetPtrOutput) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
+	return o
+}
+
+type SqlInjectionMatchSetArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlInjectionMatchSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlInjectionMatchSet)(nil))
+}
+
+func (o SqlInjectionMatchSetArrayOutput) ToSqlInjectionMatchSetArrayOutput() SqlInjectionMatchSetArrayOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetArrayOutput) ToSqlInjectionMatchSetArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetArrayOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetArrayOutput) Index(i pulumi.IntInput) SqlInjectionMatchSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlInjectionMatchSet {
+		return vs[0].([]SqlInjectionMatchSet)[vs[1].(int)]
+	}).(SqlInjectionMatchSetOutput)
+}
+
+type SqlInjectionMatchSetMapOutput struct{ *pulumi.OutputState }
+
+func (SqlInjectionMatchSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SqlInjectionMatchSet)(nil))
+}
+
+func (o SqlInjectionMatchSetMapOutput) ToSqlInjectionMatchSetMapOutput() SqlInjectionMatchSetMapOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetMapOutput) ToSqlInjectionMatchSetMapOutputWithContext(ctx context.Context) SqlInjectionMatchSetMapOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetMapOutput) MapIndex(k pulumi.StringInput) SqlInjectionMatchSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlInjectionMatchSet {
+		return vs[0].(map[string]SqlInjectionMatchSet)[vs[1].(string)]
+	}).(SqlInjectionMatchSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlInjectionMatchSetOutput{})
+	pulumi.RegisterOutputType(SqlInjectionMatchSetPtrOutput{})
+	pulumi.RegisterOutputType(SqlInjectionMatchSetArrayOutput{})
+	pulumi.RegisterOutputType(SqlInjectionMatchSetMapOutput{})
 }

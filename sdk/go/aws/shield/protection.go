@@ -165,6 +165,85 @@ func (i *Protection) ToProtectionOutputWithContext(ctx context.Context) Protecti
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionOutput)
 }
 
+func (i *Protection) ToProtectionPtrOutput() ProtectionPtrOutput {
+	return i.ToProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *Protection) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPtrOutput)
+}
+
+type ProtectionPtrInput interface {
+	pulumi.Input
+
+	ToProtectionPtrOutput() ProtectionPtrOutput
+	ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput
+}
+
+type protectionPtrType ProtectionArgs
+
+func (*protectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Protection)(nil))
+}
+
+func (i *protectionPtrType) ToProtectionPtrOutput() ProtectionPtrOutput {
+	return i.ToProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *protectionPtrType) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPtrOutput)
+}
+
+// ProtectionArrayInput is an input type that accepts ProtectionArray and ProtectionArrayOutput values.
+// You can construct a concrete instance of `ProtectionArrayInput` via:
+//
+//          ProtectionArray{ ProtectionArgs{...} }
+type ProtectionArrayInput interface {
+	pulumi.Input
+
+	ToProtectionArrayOutput() ProtectionArrayOutput
+	ToProtectionArrayOutputWithContext(context.Context) ProtectionArrayOutput
+}
+
+type ProtectionArray []ProtectionInput
+
+func (ProtectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Protection)(nil))
+}
+
+func (i ProtectionArray) ToProtectionArrayOutput() ProtectionArrayOutput {
+	return i.ToProtectionArrayOutputWithContext(context.Background())
+}
+
+func (i ProtectionArray) ToProtectionArrayOutputWithContext(ctx context.Context) ProtectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionArrayOutput)
+}
+
+// ProtectionMapInput is an input type that accepts ProtectionMap and ProtectionMapOutput values.
+// You can construct a concrete instance of `ProtectionMapInput` via:
+//
+//          ProtectionMap{ "key": ProtectionArgs{...} }
+type ProtectionMapInput interface {
+	pulumi.Input
+
+	ToProtectionMapOutput() ProtectionMapOutput
+	ToProtectionMapOutputWithContext(context.Context) ProtectionMapOutput
+}
+
+type ProtectionMap map[string]ProtectionInput
+
+func (ProtectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Protection)(nil))
+}
+
+func (i ProtectionMap) ToProtectionMapOutput() ProtectionMapOutput {
+	return i.ToProtectionMapOutputWithContext(context.Background())
+}
+
+func (i ProtectionMap) ToProtectionMapOutputWithContext(ctx context.Context) ProtectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionMapOutput)
+}
+
 type ProtectionOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o ProtectionOutput) ToProtectionOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+func (o ProtectionOutput) ToProtectionPtrOutput() ProtectionPtrOutput {
+	return o.ToProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o ProtectionOutput) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
+	return o.ApplyT(func(v Protection) *Protection {
+		return &v
+	}).(ProtectionPtrOutput)
+}
+
+type ProtectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Protection)(nil))
+}
+
+func (o ProtectionPtrOutput) ToProtectionPtrOutput() ProtectionPtrOutput {
+	return o
+}
+
+func (o ProtectionPtrOutput) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
+	return o
+}
+
+type ProtectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProtectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Protection)(nil))
+}
+
+func (o ProtectionArrayOutput) ToProtectionArrayOutput() ProtectionArrayOutput {
+	return o
+}
+
+func (o ProtectionArrayOutput) ToProtectionArrayOutputWithContext(ctx context.Context) ProtectionArrayOutput {
+	return o
+}
+
+func (o ProtectionArrayOutput) Index(i pulumi.IntInput) ProtectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Protection {
+		return vs[0].([]Protection)[vs[1].(int)]
+	}).(ProtectionOutput)
+}
+
+type ProtectionMapOutput struct{ *pulumi.OutputState }
+
+func (ProtectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Protection)(nil))
+}
+
+func (o ProtectionMapOutput) ToProtectionMapOutput() ProtectionMapOutput {
+	return o
+}
+
+func (o ProtectionMapOutput) ToProtectionMapOutputWithContext(ctx context.Context) ProtectionMapOutput {
+	return o
+}
+
+func (o ProtectionMapOutput) MapIndex(k pulumi.StringInput) ProtectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Protection {
+		return vs[0].(map[string]Protection)[vs[1].(string)]
+	}).(ProtectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectionOutput{})
+	pulumi.RegisterOutputType(ProtectionPtrOutput{})
+	pulumi.RegisterOutputType(ProtectionArrayOutput{})
+	pulumi.RegisterOutputType(ProtectionMapOutput{})
 }

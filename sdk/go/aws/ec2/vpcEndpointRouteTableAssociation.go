@@ -143,6 +143,85 @@ func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationOutput)
 }
 
+func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationPtrOutput() VpcEndpointRouteTableAssociationPtrOutput {
+	return i.ToVpcEndpointRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationPtrOutput)
+}
+
+type VpcEndpointRouteTableAssociationPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointRouteTableAssociationPtrOutput() VpcEndpointRouteTableAssociationPtrOutput
+	ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput
+}
+
+type vpcEndpointRouteTableAssociationPtrType VpcEndpointRouteTableAssociationArgs
+
+func (*vpcEndpointRouteTableAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (i *vpcEndpointRouteTableAssociationPtrType) ToVpcEndpointRouteTableAssociationPtrOutput() VpcEndpointRouteTableAssociationPtrOutput {
+	return i.ToVpcEndpointRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointRouteTableAssociationPtrType) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationPtrOutput)
+}
+
+// VpcEndpointRouteTableAssociationArrayInput is an input type that accepts VpcEndpointRouteTableAssociationArray and VpcEndpointRouteTableAssociationArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointRouteTableAssociationArrayInput` via:
+//
+//          VpcEndpointRouteTableAssociationArray{ VpcEndpointRouteTableAssociationArgs{...} }
+type VpcEndpointRouteTableAssociationArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointRouteTableAssociationArrayOutput() VpcEndpointRouteTableAssociationArrayOutput
+	ToVpcEndpointRouteTableAssociationArrayOutputWithContext(context.Context) VpcEndpointRouteTableAssociationArrayOutput
+}
+
+type VpcEndpointRouteTableAssociationArray []VpcEndpointRouteTableAssociationInput
+
+func (VpcEndpointRouteTableAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociationArrayOutput() VpcEndpointRouteTableAssociationArrayOutput {
+	return i.ToVpcEndpointRouteTableAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationArrayOutput)
+}
+
+// VpcEndpointRouteTableAssociationMapInput is an input type that accepts VpcEndpointRouteTableAssociationMap and VpcEndpointRouteTableAssociationMapOutput values.
+// You can construct a concrete instance of `VpcEndpointRouteTableAssociationMapInput` via:
+//
+//          VpcEndpointRouteTableAssociationMap{ "key": VpcEndpointRouteTableAssociationArgs{...} }
+type VpcEndpointRouteTableAssociationMapInput interface {
+	pulumi.Input
+
+	ToVpcEndpointRouteTableAssociationMapOutput() VpcEndpointRouteTableAssociationMapOutput
+	ToVpcEndpointRouteTableAssociationMapOutputWithContext(context.Context) VpcEndpointRouteTableAssociationMapOutput
+}
+
+type VpcEndpointRouteTableAssociationMap map[string]VpcEndpointRouteTableAssociationInput
+
+func (VpcEndpointRouteTableAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (i VpcEndpointRouteTableAssociationMap) ToVpcEndpointRouteTableAssociationMapOutput() VpcEndpointRouteTableAssociationMapOutput {
+	return i.ToVpcEndpointRouteTableAssociationMapOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointRouteTableAssociationMap) ToVpcEndpointRouteTableAssociationMapOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationMapOutput)
+}
+
 type VpcEndpointRouteTableAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -159,6 +238,75 @@ func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociati
 	return o
 }
 
+func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociationPtrOutput() VpcEndpointRouteTableAssociationPtrOutput {
+	return o.ToVpcEndpointRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
+	return o.ApplyT(func(v VpcEndpointRouteTableAssociation) *VpcEndpointRouteTableAssociation {
+		return &v
+	}).(VpcEndpointRouteTableAssociationPtrOutput)
+}
+
+type VpcEndpointRouteTableAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointRouteTableAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (o VpcEndpointRouteTableAssociationPtrOutput) ToVpcEndpointRouteTableAssociationPtrOutput() VpcEndpointRouteTableAssociationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointRouteTableAssociationPtrOutput) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
+	return o
+}
+
+type VpcEndpointRouteTableAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointRouteTableAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (o VpcEndpointRouteTableAssociationArrayOutput) ToVpcEndpointRouteTableAssociationArrayOutput() VpcEndpointRouteTableAssociationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointRouteTableAssociationArrayOutput) ToVpcEndpointRouteTableAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointRouteTableAssociationArrayOutput) Index(i pulumi.IntInput) VpcEndpointRouteTableAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointRouteTableAssociation {
+		return vs[0].([]VpcEndpointRouteTableAssociation)[vs[1].(int)]
+	}).(VpcEndpointRouteTableAssociationOutput)
+}
+
+type VpcEndpointRouteTableAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointRouteTableAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcEndpointRouteTableAssociation)(nil))
+}
+
+func (o VpcEndpointRouteTableAssociationMapOutput) ToVpcEndpointRouteTableAssociationMapOutput() VpcEndpointRouteTableAssociationMapOutput {
+	return o
+}
+
+func (o VpcEndpointRouteTableAssociationMapOutput) ToVpcEndpointRouteTableAssociationMapOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationMapOutput {
+	return o
+}
+
+func (o VpcEndpointRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointRouteTableAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcEndpointRouteTableAssociation {
+		return vs[0].(map[string]VpcEndpointRouteTableAssociation)[vs[1].(string)]
+	}).(VpcEndpointRouteTableAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationMapOutput{})
 }

@@ -347,6 +347,85 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
+func (i *Bot) ToBotPtrOutput() BotPtrOutput {
+	return i.ToBotPtrOutputWithContext(context.Background())
+}
+
+func (i *Bot) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotPtrOutput)
+}
+
+type BotPtrInput interface {
+	pulumi.Input
+
+	ToBotPtrOutput() BotPtrOutput
+	ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput
+}
+
+type botPtrType BotArgs
+
+func (*botPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Bot)(nil))
+}
+
+func (i *botPtrType) ToBotPtrOutput() BotPtrOutput {
+	return i.ToBotPtrOutputWithContext(context.Background())
+}
+
+func (i *botPtrType) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotPtrOutput)
+}
+
+// BotArrayInput is an input type that accepts BotArray and BotArrayOutput values.
+// You can construct a concrete instance of `BotArrayInput` via:
+//
+//          BotArray{ BotArgs{...} }
+type BotArrayInput interface {
+	pulumi.Input
+
+	ToBotArrayOutput() BotArrayOutput
+	ToBotArrayOutputWithContext(context.Context) BotArrayOutput
+}
+
+type BotArray []BotInput
+
+func (BotArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Bot)(nil))
+}
+
+func (i BotArray) ToBotArrayOutput() BotArrayOutput {
+	return i.ToBotArrayOutputWithContext(context.Background())
+}
+
+func (i BotArray) ToBotArrayOutputWithContext(ctx context.Context) BotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotArrayOutput)
+}
+
+// BotMapInput is an input type that accepts BotMap and BotMapOutput values.
+// You can construct a concrete instance of `BotMapInput` via:
+//
+//          BotMap{ "key": BotArgs{...} }
+type BotMapInput interface {
+	pulumi.Input
+
+	ToBotMapOutput() BotMapOutput
+	ToBotMapOutputWithContext(context.Context) BotMapOutput
+}
+
+type BotMap map[string]BotInput
+
+func (BotMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Bot)(nil))
+}
+
+func (i BotMap) ToBotMapOutput() BotMapOutput {
+	return i.ToBotMapOutputWithContext(context.Background())
+}
+
+func (i BotMap) ToBotMapOutputWithContext(ctx context.Context) BotMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotMapOutput)
+}
+
 type BotOutput struct {
 	*pulumi.OutputState
 }
@@ -363,6 +442,75 @@ func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
 }
 
+func (o BotOutput) ToBotPtrOutput() BotPtrOutput {
+	return o.ToBotPtrOutputWithContext(context.Background())
+}
+
+func (o BotOutput) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
+	return o.ApplyT(func(v Bot) *Bot {
+		return &v
+	}).(BotPtrOutput)
+}
+
+type BotPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Bot)(nil))
+}
+
+func (o BotPtrOutput) ToBotPtrOutput() BotPtrOutput {
+	return o
+}
+
+func (o BotPtrOutput) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
+	return o
+}
+
+type BotArrayOutput struct{ *pulumi.OutputState }
+
+func (BotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Bot)(nil))
+}
+
+func (o BotArrayOutput) ToBotArrayOutput() BotArrayOutput {
+	return o
+}
+
+func (o BotArrayOutput) ToBotArrayOutputWithContext(ctx context.Context) BotArrayOutput {
+	return o
+}
+
+func (o BotArrayOutput) Index(i pulumi.IntInput) BotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Bot {
+		return vs[0].([]Bot)[vs[1].(int)]
+	}).(BotOutput)
+}
+
+type BotMapOutput struct{ *pulumi.OutputState }
+
+func (BotMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Bot)(nil))
+}
+
+func (o BotMapOutput) ToBotMapOutput() BotMapOutput {
+	return o
+}
+
+func (o BotMapOutput) ToBotMapOutputWithContext(ctx context.Context) BotMapOutput {
+	return o
+}
+
+func (o BotMapOutput) MapIndex(k pulumi.StringInput) BotOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Bot {
+		return vs[0].(map[string]Bot)[vs[1].(string)]
+	}).(BotOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BotOutput{})
+	pulumi.RegisterOutputType(BotPtrOutput{})
+	pulumi.RegisterOutputType(BotArrayOutput{})
+	pulumi.RegisterOutputType(BotMapOutput{})
 }

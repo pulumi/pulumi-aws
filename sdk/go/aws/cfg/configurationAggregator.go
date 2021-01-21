@@ -212,6 +212,85 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
 }
 
+func (i *ConfigurationAggregator) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
+	return i.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationAggregator) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorPtrOutput)
+}
+
+type ConfigurationAggregatorPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput
+	ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput
+}
+
+type configurationAggregatorPtrType ConfigurationAggregatorArgs
+
+func (*configurationAggregatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationAggregator)(nil))
+}
+
+func (i *configurationAggregatorPtrType) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
+	return i.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationAggregatorPtrType) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorPtrOutput)
+}
+
+// ConfigurationAggregatorArrayInput is an input type that accepts ConfigurationAggregatorArray and ConfigurationAggregatorArrayOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorArrayInput` via:
+//
+//          ConfigurationAggregatorArray{ ConfigurationAggregatorArgs{...} }
+type ConfigurationAggregatorArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorArrayOutput() ConfigurationAggregatorArrayOutput
+	ToConfigurationAggregatorArrayOutputWithContext(context.Context) ConfigurationAggregatorArrayOutput
+}
+
+type ConfigurationAggregatorArray []ConfigurationAggregatorInput
+
+func (ConfigurationAggregatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConfigurationAggregator)(nil))
+}
+
+func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutput() ConfigurationAggregatorArrayOutput {
+	return i.ToConfigurationAggregatorArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorArrayOutput)
+}
+
+// ConfigurationAggregatorMapInput is an input type that accepts ConfigurationAggregatorMap and ConfigurationAggregatorMapOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorMapInput` via:
+//
+//          ConfigurationAggregatorMap{ "key": ConfigurationAggregatorArgs{...} }
+type ConfigurationAggregatorMapInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorMapOutput() ConfigurationAggregatorMapOutput
+	ToConfigurationAggregatorMapOutputWithContext(context.Context) ConfigurationAggregatorMapOutput
+}
+
+type ConfigurationAggregatorMap map[string]ConfigurationAggregatorInput
+
+func (ConfigurationAggregatorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConfigurationAggregator)(nil))
+}
+
+func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutput() ConfigurationAggregatorMapOutput {
+	return i.ToConfigurationAggregatorMapOutputWithContext(context.Background())
+}
+
+func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutputWithContext(ctx context.Context) ConfigurationAggregatorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorMapOutput)
+}
+
 type ConfigurationAggregatorOutput struct {
 	*pulumi.OutputState
 }
@@ -228,6 +307,75 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 	return o
 }
 
+func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
+	return o.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
+	return o.ApplyT(func(v ConfigurationAggregator) *ConfigurationAggregator {
+		return &v
+	}).(ConfigurationAggregatorPtrOutput)
+}
+
+type ConfigurationAggregatorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationAggregatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationAggregator)(nil))
+}
+
+func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
+	return o
+}
+
+type ConfigurationAggregatorArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationAggregatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationAggregator)(nil))
+}
+
+func (o ConfigurationAggregatorArrayOutput) ToConfigurationAggregatorArrayOutput() ConfigurationAggregatorArrayOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorArrayOutput) ToConfigurationAggregatorArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorArrayOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationAggregator {
+		return vs[0].([]ConfigurationAggregator)[vs[1].(int)]
+	}).(ConfigurationAggregatorOutput)
+}
+
+type ConfigurationAggregatorMapOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationAggregatorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationAggregator)(nil))
+}
+
+func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutput() ConfigurationAggregatorMapOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutputWithContext(ctx context.Context) ConfigurationAggregatorMapOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorMapOutput) MapIndex(k pulumi.StringInput) ConfigurationAggregatorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationAggregator {
+		return vs[0].(map[string]ConfigurationAggregator)[vs[1].(string)]
+	}).(ConfigurationAggregatorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})
+	pulumi.RegisterOutputType(ConfigurationAggregatorPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationAggregatorArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationAggregatorMapOutput{})
 }

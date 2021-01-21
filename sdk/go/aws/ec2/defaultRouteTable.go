@@ -206,6 +206,85 @@ func (i *DefaultRouteTable) ToDefaultRouteTableOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableOutput)
 }
 
+func (i *DefaultRouteTable) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
+	return i.ToDefaultRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *DefaultRouteTable) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePtrOutput)
+}
+
+type DefaultRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput
+	ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput
+}
+
+type defaultRouteTablePtrType DefaultRouteTableArgs
+
+func (*defaultRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTable)(nil))
+}
+
+func (i *defaultRouteTablePtrType) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
+	return i.ToDefaultRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRouteTablePtrType) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePtrOutput)
+}
+
+// DefaultRouteTableArrayInput is an input type that accepts DefaultRouteTableArray and DefaultRouteTableArrayOutput values.
+// You can construct a concrete instance of `DefaultRouteTableArrayInput` via:
+//
+//          DefaultRouteTableArray{ DefaultRouteTableArgs{...} }
+type DefaultRouteTableArrayInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableArrayOutput() DefaultRouteTableArrayOutput
+	ToDefaultRouteTableArrayOutputWithContext(context.Context) DefaultRouteTableArrayOutput
+}
+
+type DefaultRouteTableArray []DefaultRouteTableInput
+
+func (DefaultRouteTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DefaultRouteTable)(nil))
+}
+
+func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutput() DefaultRouteTableArrayOutput {
+	return i.ToDefaultRouteTableArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutputWithContext(ctx context.Context) DefaultRouteTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableArrayOutput)
+}
+
+// DefaultRouteTableMapInput is an input type that accepts DefaultRouteTableMap and DefaultRouteTableMapOutput values.
+// You can construct a concrete instance of `DefaultRouteTableMapInput` via:
+//
+//          DefaultRouteTableMap{ "key": DefaultRouteTableArgs{...} }
+type DefaultRouteTableMapInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableMapOutput() DefaultRouteTableMapOutput
+	ToDefaultRouteTableMapOutputWithContext(context.Context) DefaultRouteTableMapOutput
+}
+
+type DefaultRouteTableMap map[string]DefaultRouteTableInput
+
+func (DefaultRouteTableMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DefaultRouteTable)(nil))
+}
+
+func (i DefaultRouteTableMap) ToDefaultRouteTableMapOutput() DefaultRouteTableMapOutput {
+	return i.ToDefaultRouteTableMapOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTableMap) ToDefaultRouteTableMapOutputWithContext(ctx context.Context) DefaultRouteTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableMapOutput)
+}
+
 type DefaultRouteTableOutput struct {
 	*pulumi.OutputState
 }
@@ -222,6 +301,75 @@ func (o DefaultRouteTableOutput) ToDefaultRouteTableOutputWithContext(ctx contex
 	return o
 }
 
+func (o DefaultRouteTableOutput) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
+	return o.ToDefaultRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRouteTableOutput) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
+	return o.ApplyT(func(v DefaultRouteTable) *DefaultRouteTable {
+		return &v
+	}).(DefaultRouteTablePtrOutput)
+}
+
+type DefaultRouteTablePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTable)(nil))
+}
+
+func (o DefaultRouteTablePtrOutput) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
+	return o
+}
+
+func (o DefaultRouteTablePtrOutput) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
+	return o
+}
+
+type DefaultRouteTableArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultRouteTable)(nil))
+}
+
+func (o DefaultRouteTableArrayOutput) ToDefaultRouteTableArrayOutput() DefaultRouteTableArrayOutput {
+	return o
+}
+
+func (o DefaultRouteTableArrayOutput) ToDefaultRouteTableArrayOutputWithContext(ctx context.Context) DefaultRouteTableArrayOutput {
+	return o
+}
+
+func (o DefaultRouteTableArrayOutput) Index(i pulumi.IntInput) DefaultRouteTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultRouteTable {
+		return vs[0].([]DefaultRouteTable)[vs[1].(int)]
+	}).(DefaultRouteTableOutput)
+}
+
+type DefaultRouteTableMapOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DefaultRouteTable)(nil))
+}
+
+func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutput() DefaultRouteTableMapOutput {
+	return o
+}
+
+func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutputWithContext(ctx context.Context) DefaultRouteTableMapOutput {
+	return o
+}
+
+func (o DefaultRouteTableMapOutput) MapIndex(k pulumi.StringInput) DefaultRouteTableOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultRouteTable {
+		return vs[0].(map[string]DefaultRouteTable)[vs[1].(string)]
+	}).(DefaultRouteTableOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultRouteTableOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTablePtrOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTableArrayOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTableMapOutput{})
 }

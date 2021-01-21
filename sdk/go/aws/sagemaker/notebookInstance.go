@@ -316,6 +316,85 @@ func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
 }
 
+func (i *NotebookInstance) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
+	return i.ToNotebookInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *NotebookInstance) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstancePtrOutput)
+}
+
+type NotebookInstancePtrInput interface {
+	pulumi.Input
+
+	ToNotebookInstancePtrOutput() NotebookInstancePtrOutput
+	ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput
+}
+
+type notebookInstancePtrType NotebookInstanceArgs
+
+func (*notebookInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstance)(nil))
+}
+
+func (i *notebookInstancePtrType) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
+	return i.ToNotebookInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *notebookInstancePtrType) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstancePtrOutput)
+}
+
+// NotebookInstanceArrayInput is an input type that accepts NotebookInstanceArray and NotebookInstanceArrayOutput values.
+// You can construct a concrete instance of `NotebookInstanceArrayInput` via:
+//
+//          NotebookInstanceArray{ NotebookInstanceArgs{...} }
+type NotebookInstanceArrayInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceArrayOutput() NotebookInstanceArrayOutput
+	ToNotebookInstanceArrayOutputWithContext(context.Context) NotebookInstanceArrayOutput
+}
+
+type NotebookInstanceArray []NotebookInstanceInput
+
+func (NotebookInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NotebookInstance)(nil))
+}
+
+func (i NotebookInstanceArray) ToNotebookInstanceArrayOutput() NotebookInstanceArrayOutput {
+	return i.ToNotebookInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceArray) ToNotebookInstanceArrayOutputWithContext(ctx context.Context) NotebookInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceArrayOutput)
+}
+
+// NotebookInstanceMapInput is an input type that accepts NotebookInstanceMap and NotebookInstanceMapOutput values.
+// You can construct a concrete instance of `NotebookInstanceMapInput` via:
+//
+//          NotebookInstanceMap{ "key": NotebookInstanceArgs{...} }
+type NotebookInstanceMapInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceMapOutput() NotebookInstanceMapOutput
+	ToNotebookInstanceMapOutputWithContext(context.Context) NotebookInstanceMapOutput
+}
+
+type NotebookInstanceMap map[string]NotebookInstanceInput
+
+func (NotebookInstanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NotebookInstance)(nil))
+}
+
+func (i NotebookInstanceMap) ToNotebookInstanceMapOutput() NotebookInstanceMapOutput {
+	return i.ToNotebookInstanceMapOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceMap) ToNotebookInstanceMapOutputWithContext(ctx context.Context) NotebookInstanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceMapOutput)
+}
+
 type NotebookInstanceOutput struct {
 	*pulumi.OutputState
 }
@@ -332,6 +411,75 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.
 	return o
 }
 
+func (o NotebookInstanceOutput) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
+	return o.ToNotebookInstancePtrOutputWithContext(context.Background())
+}
+
+func (o NotebookInstanceOutput) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
+	return o.ApplyT(func(v NotebookInstance) *NotebookInstance {
+		return &v
+	}).(NotebookInstancePtrOutput)
+}
+
+type NotebookInstancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotebookInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstance)(nil))
+}
+
+func (o NotebookInstancePtrOutput) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
+	return o
+}
+
+func (o NotebookInstancePtrOutput) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
+	return o
+}
+
+type NotebookInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotebookInstance)(nil))
+}
+
+func (o NotebookInstanceArrayOutput) ToNotebookInstanceArrayOutput() NotebookInstanceArrayOutput {
+	return o
+}
+
+func (o NotebookInstanceArrayOutput) ToNotebookInstanceArrayOutputWithContext(ctx context.Context) NotebookInstanceArrayOutput {
+	return o
+}
+
+func (o NotebookInstanceArrayOutput) Index(i pulumi.IntInput) NotebookInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotebookInstance {
+		return vs[0].([]NotebookInstance)[vs[1].(int)]
+	}).(NotebookInstanceOutput)
+}
+
+type NotebookInstanceMapOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotebookInstance)(nil))
+}
+
+func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutput() NotebookInstanceMapOutput {
+	return o
+}
+
+func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutputWithContext(ctx context.Context) NotebookInstanceMapOutput {
+	return o
+}
+
+func (o NotebookInstanceMapOutput) MapIndex(k pulumi.StringInput) NotebookInstanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotebookInstance {
+		return vs[0].(map[string]NotebookInstance)[vs[1].(string)]
+	}).(NotebookInstanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotebookInstanceOutput{})
+	pulumi.RegisterOutputType(NotebookInstancePtrOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceArrayOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceMapOutput{})
 }

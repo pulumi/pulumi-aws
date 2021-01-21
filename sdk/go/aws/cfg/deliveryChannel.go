@@ -206,6 +206,85 @@ func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelOutput)
 }
 
+func (i *DeliveryChannel) ToDeliveryChannelPtrOutput() DeliveryChannelPtrOutput {
+	return i.ToDeliveryChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *DeliveryChannel) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelPtrOutput)
+}
+
+type DeliveryChannelPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelPtrOutput() DeliveryChannelPtrOutput
+	ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput
+}
+
+type deliveryChannelPtrType DeliveryChannelArgs
+
+func (*deliveryChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannel)(nil))
+}
+
+func (i *deliveryChannelPtrType) ToDeliveryChannelPtrOutput() DeliveryChannelPtrOutput {
+	return i.ToDeliveryChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryChannelPtrType) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelPtrOutput)
+}
+
+// DeliveryChannelArrayInput is an input type that accepts DeliveryChannelArray and DeliveryChannelArrayOutput values.
+// You can construct a concrete instance of `DeliveryChannelArrayInput` via:
+//
+//          DeliveryChannelArray{ DeliveryChannelArgs{...} }
+type DeliveryChannelArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelArrayOutput() DeliveryChannelArrayOutput
+	ToDeliveryChannelArrayOutputWithContext(context.Context) DeliveryChannelArrayOutput
+}
+
+type DeliveryChannelArray []DeliveryChannelInput
+
+func (DeliveryChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DeliveryChannel)(nil))
+}
+
+func (i DeliveryChannelArray) ToDeliveryChannelArrayOutput() DeliveryChannelArrayOutput {
+	return i.ToDeliveryChannelArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelArray) ToDeliveryChannelArrayOutputWithContext(ctx context.Context) DeliveryChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelArrayOutput)
+}
+
+// DeliveryChannelMapInput is an input type that accepts DeliveryChannelMap and DeliveryChannelMapOutput values.
+// You can construct a concrete instance of `DeliveryChannelMapInput` via:
+//
+//          DeliveryChannelMap{ "key": DeliveryChannelArgs{...} }
+type DeliveryChannelMapInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelMapOutput() DeliveryChannelMapOutput
+	ToDeliveryChannelMapOutputWithContext(context.Context) DeliveryChannelMapOutput
+}
+
+type DeliveryChannelMap map[string]DeliveryChannelInput
+
+func (DeliveryChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DeliveryChannel)(nil))
+}
+
+func (i DeliveryChannelMap) ToDeliveryChannelMapOutput() DeliveryChannelMapOutput {
+	return i.ToDeliveryChannelMapOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelMap) ToDeliveryChannelMapOutputWithContext(ctx context.Context) DeliveryChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelMapOutput)
+}
+
 type DeliveryChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -222,6 +301,75 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeliveryChannelOutput) ToDeliveryChannelPtrOutput() DeliveryChannelPtrOutput {
+	return o.ToDeliveryChannelPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryChannelOutput) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
+	return o.ApplyT(func(v DeliveryChannel) *DeliveryChannel {
+		return &v
+	}).(DeliveryChannelPtrOutput)
+}
+
+type DeliveryChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeliveryChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannel)(nil))
+}
+
+func (o DeliveryChannelPtrOutput) ToDeliveryChannelPtrOutput() DeliveryChannelPtrOutput {
+	return o
+}
+
+func (o DeliveryChannelPtrOutput) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
+	return o
+}
+
+type DeliveryChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryChannel)(nil))
+}
+
+func (o DeliveryChannelArrayOutput) ToDeliveryChannelArrayOutput() DeliveryChannelArrayOutput {
+	return o
+}
+
+func (o DeliveryChannelArrayOutput) ToDeliveryChannelArrayOutputWithContext(ctx context.Context) DeliveryChannelArrayOutput {
+	return o
+}
+
+func (o DeliveryChannelArrayOutput) Index(i pulumi.IntInput) DeliveryChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryChannel {
+		return vs[0].([]DeliveryChannel)[vs[1].(int)]
+	}).(DeliveryChannelOutput)
+}
+
+type DeliveryChannelMapOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DeliveryChannel)(nil))
+}
+
+func (o DeliveryChannelMapOutput) ToDeliveryChannelMapOutput() DeliveryChannelMapOutput {
+	return o
+}
+
+func (o DeliveryChannelMapOutput) ToDeliveryChannelMapOutputWithContext(ctx context.Context) DeliveryChannelMapOutput {
+	return o
+}
+
+func (o DeliveryChannelMapOutput) MapIndex(k pulumi.StringInput) DeliveryChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeliveryChannel {
+		return vs[0].(map[string]DeliveryChannel)[vs[1].(string)]
+	}).(DeliveryChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeliveryChannelOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelMapOutput{})
 }

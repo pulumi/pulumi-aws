@@ -178,6 +178,85 @@ func (i *CodeSigningConfig) ToCodeSigningConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigOutput)
 }
 
+func (i *CodeSigningConfig) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
+	return i.ToCodeSigningConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *CodeSigningConfig) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPtrOutput)
+}
+
+type CodeSigningConfigPtrInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput
+	ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput
+}
+
+type codeSigningConfigPtrType CodeSigningConfigArgs
+
+func (*codeSigningConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfig)(nil))
+}
+
+func (i *codeSigningConfigPtrType) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
+	return i.ToCodeSigningConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSigningConfigPtrType) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPtrOutput)
+}
+
+// CodeSigningConfigArrayInput is an input type that accepts CodeSigningConfigArray and CodeSigningConfigArrayOutput values.
+// You can construct a concrete instance of `CodeSigningConfigArrayInput` via:
+//
+//          CodeSigningConfigArray{ CodeSigningConfigArgs{...} }
+type CodeSigningConfigArrayInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigArrayOutput() CodeSigningConfigArrayOutput
+	ToCodeSigningConfigArrayOutputWithContext(context.Context) CodeSigningConfigArrayOutput
+}
+
+type CodeSigningConfigArray []CodeSigningConfigInput
+
+func (CodeSigningConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CodeSigningConfig)(nil))
+}
+
+func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutput() CodeSigningConfigArrayOutput {
+	return i.ToCodeSigningConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutputWithContext(ctx context.Context) CodeSigningConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigArrayOutput)
+}
+
+// CodeSigningConfigMapInput is an input type that accepts CodeSigningConfigMap and CodeSigningConfigMapOutput values.
+// You can construct a concrete instance of `CodeSigningConfigMapInput` via:
+//
+//          CodeSigningConfigMap{ "key": CodeSigningConfigArgs{...} }
+type CodeSigningConfigMapInput interface {
+	pulumi.Input
+
+	ToCodeSigningConfigMapOutput() CodeSigningConfigMapOutput
+	ToCodeSigningConfigMapOutputWithContext(context.Context) CodeSigningConfigMapOutput
+}
+
+type CodeSigningConfigMap map[string]CodeSigningConfigInput
+
+func (CodeSigningConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CodeSigningConfig)(nil))
+}
+
+func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutput() CodeSigningConfigMapOutput {
+	return i.ToCodeSigningConfigMapOutputWithContext(context.Background())
+}
+
+func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutputWithContext(ctx context.Context) CodeSigningConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigMapOutput)
+}
+
 type CodeSigningConfigOutput struct {
 	*pulumi.OutputState
 }
@@ -194,6 +273,75 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx contex
 	return o
 }
 
+func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
+	return o.ToCodeSigningConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
+	return o.ApplyT(func(v CodeSigningConfig) *CodeSigningConfig {
+		return &v
+	}).(CodeSigningConfigPtrOutput)
+}
+
+type CodeSigningConfigPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CodeSigningConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSigningConfig)(nil))
+}
+
+func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
+	return o
+}
+
+func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
+	return o
+}
+
+type CodeSigningConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeSigningConfig)(nil))
+}
+
+func (o CodeSigningConfigArrayOutput) ToCodeSigningConfigArrayOutput() CodeSigningConfigArrayOutput {
+	return o
+}
+
+func (o CodeSigningConfigArrayOutput) ToCodeSigningConfigArrayOutputWithContext(ctx context.Context) CodeSigningConfigArrayOutput {
+	return o
+}
+
+func (o CodeSigningConfigArrayOutput) Index(i pulumi.IntInput) CodeSigningConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeSigningConfig {
+		return vs[0].([]CodeSigningConfig)[vs[1].(int)]
+	}).(CodeSigningConfigOutput)
+}
+
+type CodeSigningConfigMapOutput struct{ *pulumi.OutputState }
+
+func (CodeSigningConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CodeSigningConfig)(nil))
+}
+
+func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutput() CodeSigningConfigMapOutput {
+	return o
+}
+
+func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutputWithContext(ctx context.Context) CodeSigningConfigMapOutput {
+	return o
+}
+
+func (o CodeSigningConfigMapOutput) MapIndex(k pulumi.StringInput) CodeSigningConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CodeSigningConfig {
+		return vs[0].(map[string]CodeSigningConfig)[vs[1].(string)]
+	}).(CodeSigningConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CodeSigningConfigOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigPtrOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigArrayOutput{})
+	pulumi.RegisterOutputType(CodeSigningConfigMapOutput{})
 }

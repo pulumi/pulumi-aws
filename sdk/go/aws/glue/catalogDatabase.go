@@ -171,6 +171,85 @@ func (i *CatalogDatabase) ToCatalogDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseOutput)
 }
 
+func (i *CatalogDatabase) ToCatalogDatabasePtrOutput() CatalogDatabasePtrOutput {
+	return i.ToCatalogDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *CatalogDatabase) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabasePtrOutput)
+}
+
+type CatalogDatabasePtrInput interface {
+	pulumi.Input
+
+	ToCatalogDatabasePtrOutput() CatalogDatabasePtrOutput
+	ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput
+}
+
+type catalogDatabasePtrType CatalogDatabaseArgs
+
+func (*catalogDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabase)(nil))
+}
+
+func (i *catalogDatabasePtrType) ToCatalogDatabasePtrOutput() CatalogDatabasePtrOutput {
+	return i.ToCatalogDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDatabasePtrType) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabasePtrOutput)
+}
+
+// CatalogDatabaseArrayInput is an input type that accepts CatalogDatabaseArray and CatalogDatabaseArrayOutput values.
+// You can construct a concrete instance of `CatalogDatabaseArrayInput` via:
+//
+//          CatalogDatabaseArray{ CatalogDatabaseArgs{...} }
+type CatalogDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseArrayOutput() CatalogDatabaseArrayOutput
+	ToCatalogDatabaseArrayOutputWithContext(context.Context) CatalogDatabaseArrayOutput
+}
+
+type CatalogDatabaseArray []CatalogDatabaseInput
+
+func (CatalogDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CatalogDatabase)(nil))
+}
+
+func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutput() CatalogDatabaseArrayOutput {
+	return i.ToCatalogDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutputWithContext(ctx context.Context) CatalogDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseArrayOutput)
+}
+
+// CatalogDatabaseMapInput is an input type that accepts CatalogDatabaseMap and CatalogDatabaseMapOutput values.
+// You can construct a concrete instance of `CatalogDatabaseMapInput` via:
+//
+//          CatalogDatabaseMap{ "key": CatalogDatabaseArgs{...} }
+type CatalogDatabaseMapInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseMapOutput() CatalogDatabaseMapOutput
+	ToCatalogDatabaseMapOutputWithContext(context.Context) CatalogDatabaseMapOutput
+}
+
+type CatalogDatabaseMap map[string]CatalogDatabaseInput
+
+func (CatalogDatabaseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CatalogDatabase)(nil))
+}
+
+func (i CatalogDatabaseMap) ToCatalogDatabaseMapOutput() CatalogDatabaseMapOutput {
+	return i.ToCatalogDatabaseMapOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseMap) ToCatalogDatabaseMapOutputWithContext(ctx context.Context) CatalogDatabaseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseMapOutput)
+}
+
 type CatalogDatabaseOutput struct {
 	*pulumi.OutputState
 }
@@ -187,6 +266,75 @@ func (o CatalogDatabaseOutput) ToCatalogDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CatalogDatabaseOutput) ToCatalogDatabasePtrOutput() CatalogDatabasePtrOutput {
+	return o.ToCatalogDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDatabaseOutput) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
+	return o.ApplyT(func(v CatalogDatabase) *CatalogDatabase {
+		return &v
+	}).(CatalogDatabasePtrOutput)
+}
+
+type CatalogDatabasePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CatalogDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabase)(nil))
+}
+
+func (o CatalogDatabasePtrOutput) ToCatalogDatabasePtrOutput() CatalogDatabasePtrOutput {
+	return o
+}
+
+func (o CatalogDatabasePtrOutput) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
+	return o
+}
+
+type CatalogDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogDatabase)(nil))
+}
+
+func (o CatalogDatabaseArrayOutput) ToCatalogDatabaseArrayOutput() CatalogDatabaseArrayOutput {
+	return o
+}
+
+func (o CatalogDatabaseArrayOutput) ToCatalogDatabaseArrayOutputWithContext(ctx context.Context) CatalogDatabaseArrayOutput {
+	return o
+}
+
+func (o CatalogDatabaseArrayOutput) Index(i pulumi.IntInput) CatalogDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogDatabase {
+		return vs[0].([]CatalogDatabase)[vs[1].(int)]
+	}).(CatalogDatabaseOutput)
+}
+
+type CatalogDatabaseMapOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CatalogDatabase)(nil))
+}
+
+func (o CatalogDatabaseMapOutput) ToCatalogDatabaseMapOutput() CatalogDatabaseMapOutput {
+	return o
+}
+
+func (o CatalogDatabaseMapOutput) ToCatalogDatabaseMapOutputWithContext(ctx context.Context) CatalogDatabaseMapOutput {
+	return o
+}
+
+func (o CatalogDatabaseMapOutput) MapIndex(k pulumi.StringInput) CatalogDatabaseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CatalogDatabase {
+		return vs[0].(map[string]CatalogDatabase)[vs[1].(string)]
+	}).(CatalogDatabaseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CatalogDatabaseOutput{})
+	pulumi.RegisterOutputType(CatalogDatabasePtrOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseMapOutput{})
 }

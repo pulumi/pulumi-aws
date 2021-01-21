@@ -149,6 +149,85 @@ func (i *RestApiPolicy) ToRestApiPolicyOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyOutput)
 }
 
+func (i *RestApiPolicy) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput {
+	return i.ToRestApiPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *RestApiPolicy) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyPtrOutput)
+}
+
+type RestApiPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput
+	ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput
+}
+
+type restApiPolicyPtrType RestApiPolicyArgs
+
+func (*restApiPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiPolicy)(nil))
+}
+
+func (i *restApiPolicyPtrType) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput {
+	return i.ToRestApiPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiPolicyPtrType) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyPtrOutput)
+}
+
+// RestApiPolicyArrayInput is an input type that accepts RestApiPolicyArray and RestApiPolicyArrayOutput values.
+// You can construct a concrete instance of `RestApiPolicyArrayInput` via:
+//
+//          RestApiPolicyArray{ RestApiPolicyArgs{...} }
+type RestApiPolicyArrayInput interface {
+	pulumi.Input
+
+	ToRestApiPolicyArrayOutput() RestApiPolicyArrayOutput
+	ToRestApiPolicyArrayOutputWithContext(context.Context) RestApiPolicyArrayOutput
+}
+
+type RestApiPolicyArray []RestApiPolicyInput
+
+func (RestApiPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RestApiPolicy)(nil))
+}
+
+func (i RestApiPolicyArray) ToRestApiPolicyArrayOutput() RestApiPolicyArrayOutput {
+	return i.ToRestApiPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RestApiPolicyArray) ToRestApiPolicyArrayOutputWithContext(ctx context.Context) RestApiPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyArrayOutput)
+}
+
+// RestApiPolicyMapInput is an input type that accepts RestApiPolicyMap and RestApiPolicyMapOutput values.
+// You can construct a concrete instance of `RestApiPolicyMapInput` via:
+//
+//          RestApiPolicyMap{ "key": RestApiPolicyArgs{...} }
+type RestApiPolicyMapInput interface {
+	pulumi.Input
+
+	ToRestApiPolicyMapOutput() RestApiPolicyMapOutput
+	ToRestApiPolicyMapOutputWithContext(context.Context) RestApiPolicyMapOutput
+}
+
+type RestApiPolicyMap map[string]RestApiPolicyInput
+
+func (RestApiPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RestApiPolicy)(nil))
+}
+
+func (i RestApiPolicyMap) ToRestApiPolicyMapOutput() RestApiPolicyMapOutput {
+	return i.ToRestApiPolicyMapOutputWithContext(context.Background())
+}
+
+func (i RestApiPolicyMap) ToRestApiPolicyMapOutputWithContext(ctx context.Context) RestApiPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyMapOutput)
+}
+
 type RestApiPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -165,6 +244,75 @@ func (o RestApiPolicyOutput) ToRestApiPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RestApiPolicyOutput) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput {
+	return o.ToRestApiPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiPolicyOutput) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
+	return o.ApplyT(func(v RestApiPolicy) *RestApiPolicy {
+		return &v
+	}).(RestApiPolicyPtrOutput)
+}
+
+type RestApiPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RestApiPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiPolicy)(nil))
+}
+
+func (o RestApiPolicyPtrOutput) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput {
+	return o
+}
+
+func (o RestApiPolicyPtrOutput) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
+	return o
+}
+
+type RestApiPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RestApiPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestApiPolicy)(nil))
+}
+
+func (o RestApiPolicyArrayOutput) ToRestApiPolicyArrayOutput() RestApiPolicyArrayOutput {
+	return o
+}
+
+func (o RestApiPolicyArrayOutput) ToRestApiPolicyArrayOutputWithContext(ctx context.Context) RestApiPolicyArrayOutput {
+	return o
+}
+
+func (o RestApiPolicyArrayOutput) Index(i pulumi.IntInput) RestApiPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestApiPolicy {
+		return vs[0].([]RestApiPolicy)[vs[1].(int)]
+	}).(RestApiPolicyOutput)
+}
+
+type RestApiPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (RestApiPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RestApiPolicy)(nil))
+}
+
+func (o RestApiPolicyMapOutput) ToRestApiPolicyMapOutput() RestApiPolicyMapOutput {
+	return o
+}
+
+func (o RestApiPolicyMapOutput) ToRestApiPolicyMapOutputWithContext(ctx context.Context) RestApiPolicyMapOutput {
+	return o
+}
+
+func (o RestApiPolicyMapOutput) MapIndex(k pulumi.StringInput) RestApiPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RestApiPolicy {
+		return vs[0].(map[string]RestApiPolicy)[vs[1].(string)]
+	}).(RestApiPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RestApiPolicyOutput{})
+	pulumi.RegisterOutputType(RestApiPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RestApiPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RestApiPolicyMapOutput{})
 }

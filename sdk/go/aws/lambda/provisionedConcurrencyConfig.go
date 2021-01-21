@@ -182,6 +182,85 @@ func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigOutput)
 }
 
+func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
+	return i.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigPtrOutput)
+}
+
+type ProvisionedConcurrencyConfigPtrInput interface {
+	pulumi.Input
+
+	ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput
+	ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput
+}
+
+type provisionedConcurrencyConfigPtrType ProvisionedConcurrencyConfigArgs
+
+func (*provisionedConcurrencyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil))
+}
+
+func (i *provisionedConcurrencyConfigPtrType) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
+	return i.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionedConcurrencyConfigPtrType) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigPtrOutput)
+}
+
+// ProvisionedConcurrencyConfigArrayInput is an input type that accepts ProvisionedConcurrencyConfigArray and ProvisionedConcurrencyConfigArrayOutput values.
+// You can construct a concrete instance of `ProvisionedConcurrencyConfigArrayInput` via:
+//
+//          ProvisionedConcurrencyConfigArray{ ProvisionedConcurrencyConfigArgs{...} }
+type ProvisionedConcurrencyConfigArrayInput interface {
+	pulumi.Input
+
+	ToProvisionedConcurrencyConfigArrayOutput() ProvisionedConcurrencyConfigArrayOutput
+	ToProvisionedConcurrencyConfigArrayOutputWithContext(context.Context) ProvisionedConcurrencyConfigArrayOutput
+}
+
+type ProvisionedConcurrencyConfigArray []ProvisionedConcurrencyConfigInput
+
+func (ProvisionedConcurrencyConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProvisionedConcurrencyConfig)(nil))
+}
+
+func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOutput() ProvisionedConcurrencyConfigArrayOutput {
+	return i.ToProvisionedConcurrencyConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigArrayOutput)
+}
+
+// ProvisionedConcurrencyConfigMapInput is an input type that accepts ProvisionedConcurrencyConfigMap and ProvisionedConcurrencyConfigMapOutput values.
+// You can construct a concrete instance of `ProvisionedConcurrencyConfigMapInput` via:
+//
+//          ProvisionedConcurrencyConfigMap{ "key": ProvisionedConcurrencyConfigArgs{...} }
+type ProvisionedConcurrencyConfigMapInput interface {
+	pulumi.Input
+
+	ToProvisionedConcurrencyConfigMapOutput() ProvisionedConcurrencyConfigMapOutput
+	ToProvisionedConcurrencyConfigMapOutputWithContext(context.Context) ProvisionedConcurrencyConfigMapOutput
+}
+
+type ProvisionedConcurrencyConfigMap map[string]ProvisionedConcurrencyConfigInput
+
+func (ProvisionedConcurrencyConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProvisionedConcurrencyConfig)(nil))
+}
+
+func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput() ProvisionedConcurrencyConfigMapOutput {
+	return i.ToProvisionedConcurrencyConfigMapOutputWithContext(context.Background())
+}
+
+func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigMapOutput)
+}
+
 type ProvisionedConcurrencyConfigOutput struct {
 	*pulumi.OutputState
 }
@@ -198,6 +277,75 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 	return o
 }
 
+func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
+	return o.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
+	return o.ApplyT(func(v ProvisionedConcurrencyConfig) *ProvisionedConcurrencyConfig {
+		return &v
+	}).(ProvisionedConcurrencyConfigPtrOutput)
+}
+
+type ProvisionedConcurrencyConfigPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProvisionedConcurrencyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil))
+}
+
+func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
+	return o
+}
+
+func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
+	return o
+}
+
+type ProvisionedConcurrencyConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedConcurrencyConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisionedConcurrencyConfig)(nil))
+}
+
+func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigArrayOutput() ProvisionedConcurrencyConfigArrayOutput {
+	return o
+}
+
+func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigArrayOutput {
+	return o
+}
+
+func (o ProvisionedConcurrencyConfigArrayOutput) Index(i pulumi.IntInput) ProvisionedConcurrencyConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisionedConcurrencyConfig {
+		return vs[0].([]ProvisionedConcurrencyConfig)[vs[1].(int)]
+	}).(ProvisionedConcurrencyConfigOutput)
+}
+
+type ProvisionedConcurrencyConfigMapOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedConcurrencyConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProvisionedConcurrencyConfig)(nil))
+}
+
+func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMapOutput() ProvisionedConcurrencyConfigMapOutput {
+	return o
+}
+
+func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMapOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigMapOutput {
+	return o
+}
+
+func (o ProvisionedConcurrencyConfigMapOutput) MapIndex(k pulumi.StringInput) ProvisionedConcurrencyConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProvisionedConcurrencyConfig {
+		return vs[0].(map[string]ProvisionedConcurrencyConfig)[vs[1].(string)]
+	}).(ProvisionedConcurrencyConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigOutput{})
+	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigArrayOutput{})
+	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigMapOutput{})
 }

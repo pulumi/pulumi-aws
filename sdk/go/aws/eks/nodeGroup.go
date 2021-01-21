@@ -372,6 +372,85 @@ func (i *NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupOutput)
 }
 
+func (i *NodeGroup) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
+	return i.ToNodeGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *NodeGroup) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupPtrOutput)
+}
+
+type NodeGroupPtrInput interface {
+	pulumi.Input
+
+	ToNodeGroupPtrOutput() NodeGroupPtrOutput
+	ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput
+}
+
+type nodeGroupPtrType NodeGroupArgs
+
+func (*nodeGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroup)(nil))
+}
+
+func (i *nodeGroupPtrType) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
+	return i.ToNodeGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *nodeGroupPtrType) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupPtrOutput)
+}
+
+// NodeGroupArrayInput is an input type that accepts NodeGroupArray and NodeGroupArrayOutput values.
+// You can construct a concrete instance of `NodeGroupArrayInput` via:
+//
+//          NodeGroupArray{ NodeGroupArgs{...} }
+type NodeGroupArrayInput interface {
+	pulumi.Input
+
+	ToNodeGroupArrayOutput() NodeGroupArrayOutput
+	ToNodeGroupArrayOutputWithContext(context.Context) NodeGroupArrayOutput
+}
+
+type NodeGroupArray []NodeGroupInput
+
+func (NodeGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NodeGroup)(nil))
+}
+
+func (i NodeGroupArray) ToNodeGroupArrayOutput() NodeGroupArrayOutput {
+	return i.ToNodeGroupArrayOutputWithContext(context.Background())
+}
+
+func (i NodeGroupArray) ToNodeGroupArrayOutputWithContext(ctx context.Context) NodeGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupArrayOutput)
+}
+
+// NodeGroupMapInput is an input type that accepts NodeGroupMap and NodeGroupMapOutput values.
+// You can construct a concrete instance of `NodeGroupMapInput` via:
+//
+//          NodeGroupMap{ "key": NodeGroupArgs{...} }
+type NodeGroupMapInput interface {
+	pulumi.Input
+
+	ToNodeGroupMapOutput() NodeGroupMapOutput
+	ToNodeGroupMapOutputWithContext(context.Context) NodeGroupMapOutput
+}
+
+type NodeGroupMap map[string]NodeGroupInput
+
+func (NodeGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NodeGroup)(nil))
+}
+
+func (i NodeGroupMap) ToNodeGroupMapOutput() NodeGroupMapOutput {
+	return i.ToNodeGroupMapOutputWithContext(context.Background())
+}
+
+func (i NodeGroupMap) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupMapOutput)
+}
+
 type NodeGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -388,6 +467,75 @@ func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeG
 	return o
 }
 
+func (o NodeGroupOutput) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
+	return o.ToNodeGroupPtrOutputWithContext(context.Background())
+}
+
+func (o NodeGroupOutput) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
+	return o.ApplyT(func(v NodeGroup) *NodeGroup {
+		return &v
+	}).(NodeGroupPtrOutput)
+}
+
+type NodeGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodeGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroup)(nil))
+}
+
+func (o NodeGroupPtrOutput) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
+	return o
+}
+
+func (o NodeGroupPtrOutput) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
+	return o
+}
+
+type NodeGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeGroup)(nil))
+}
+
+func (o NodeGroupArrayOutput) ToNodeGroupArrayOutput() NodeGroupArrayOutput {
+	return o
+}
+
+func (o NodeGroupArrayOutput) ToNodeGroupArrayOutputWithContext(ctx context.Context) NodeGroupArrayOutput {
+	return o
+}
+
+func (o NodeGroupArrayOutput) Index(i pulumi.IntInput) NodeGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeGroup {
+		return vs[0].([]NodeGroup)[vs[1].(int)]
+	}).(NodeGroupOutput)
+}
+
+type NodeGroupMapOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NodeGroup)(nil))
+}
+
+func (o NodeGroupMapOutput) ToNodeGroupMapOutput() NodeGroupMapOutput {
+	return o
+}
+
+func (o NodeGroupMapOutput) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeGroupMapOutput {
+	return o
+}
+
+func (o NodeGroupMapOutput) MapIndex(k pulumi.StringInput) NodeGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NodeGroup {
+		return vs[0].(map[string]NodeGroup)[vs[1].(string)]
+	}).(NodeGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NodeGroupOutput{})
+	pulumi.RegisterOutputType(NodeGroupPtrOutput{})
+	pulumi.RegisterOutputType(NodeGroupArrayOutput{})
+	pulumi.RegisterOutputType(NodeGroupMapOutput{})
 }

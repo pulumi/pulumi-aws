@@ -195,6 +195,85 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
+func (i *Connection) ToConnectionPtrOutput() ConnectionPtrOutput {
+	return i.ToConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *Connection) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPtrOutput)
+}
+
+type ConnectionPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPtrOutput() ConnectionPtrOutput
+	ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput
+}
+
+type connectionPtrType ConnectionArgs
+
+func (*connectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Connection)(nil))
+}
+
+func (i *connectionPtrType) ToConnectionPtrOutput() ConnectionPtrOutput {
+	return i.ToConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPtrType) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPtrOutput)
+}
+
+// ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
+// You can construct a concrete instance of `ConnectionArrayInput` via:
+//
+//          ConnectionArray{ ConnectionArgs{...} }
+type ConnectionArrayInput interface {
+	pulumi.Input
+
+	ToConnectionArrayOutput() ConnectionArrayOutput
+	ToConnectionArrayOutputWithContext(context.Context) ConnectionArrayOutput
+}
+
+type ConnectionArray []ConnectionInput
+
+func (ConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Connection)(nil))
+}
+
+func (i ConnectionArray) ToConnectionArrayOutput() ConnectionArrayOutput {
+	return i.ToConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionArrayOutput)
+}
+
+// ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
+// You can construct a concrete instance of `ConnectionMapInput` via:
+//
+//          ConnectionMap{ "key": ConnectionArgs{...} }
+type ConnectionMapInput interface {
+	pulumi.Input
+
+	ToConnectionMapOutput() ConnectionMapOutput
+	ToConnectionMapOutputWithContext(context.Context) ConnectionMapOutput
+}
+
+type ConnectionMap map[string]ConnectionInput
+
+func (ConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Connection)(nil))
+}
+
+func (i ConnectionMap) ToConnectionMapOutput() ConnectionMapOutput {
+	return i.ToConnectionMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionMap) ToConnectionMapOutputWithContext(ctx context.Context) ConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMapOutput)
+}
+
 type ConnectionOutput struct {
 	*pulumi.OutputState
 }
@@ -211,6 +290,75 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+func (o ConnectionOutput) ToConnectionPtrOutput() ConnectionPtrOutput {
+	return o.ToConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOutput) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
+	return o.ApplyT(func(v Connection) *Connection {
+		return &v
+	}).(ConnectionPtrOutput)
+}
+
+type ConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Connection)(nil))
+}
+
+func (o ConnectionPtrOutput) ToConnectionPtrOutput() ConnectionPtrOutput {
+	return o
+}
+
+func (o ConnectionPtrOutput) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
+	return o
+}
+
+type ConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Connection)(nil))
+}
+
+func (o ConnectionArrayOutput) ToConnectionArrayOutput() ConnectionArrayOutput {
+	return o
+}
+
+func (o ConnectionArrayOutput) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
+	return o
+}
+
+func (o ConnectionArrayOutput) Index(i pulumi.IntInput) ConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Connection {
+		return vs[0].([]Connection)[vs[1].(int)]
+	}).(ConnectionOutput)
+}
+
+type ConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Connection)(nil))
+}
+
+func (o ConnectionMapOutput) ToConnectionMapOutput() ConnectionMapOutput {
+	return o
+}
+
+func (o ConnectionMapOutput) ToConnectionMapOutputWithContext(ctx context.Context) ConnectionMapOutput {
+	return o
+}
+
+func (o ConnectionMapOutput) MapIndex(k pulumi.StringInput) ConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Connection {
+		return vs[0].(map[string]Connection)[vs[1].(string)]
+	}).(ConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionOutput{})
+	pulumi.RegisterOutputType(ConnectionPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionMapOutput{})
 }

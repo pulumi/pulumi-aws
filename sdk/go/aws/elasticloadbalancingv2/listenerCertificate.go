@@ -154,6 +154,85 @@ func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
 }
 
+func (i *ListenerCertificate) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
+	return i.ToListenerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *ListenerCertificate) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificatePtrOutput)
+}
+
+type ListenerCertificatePtrInput interface {
+	pulumi.Input
+
+	ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput
+	ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput
+}
+
+type listenerCertificatePtrType ListenerCertificateArgs
+
+func (*listenerCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerCertificate)(nil))
+}
+
+func (i *listenerCertificatePtrType) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
+	return i.ToListenerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerCertificatePtrType) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificatePtrOutput)
+}
+
+// ListenerCertificateArrayInput is an input type that accepts ListenerCertificateArray and ListenerCertificateArrayOutput values.
+// You can construct a concrete instance of `ListenerCertificateArrayInput` via:
+//
+//          ListenerCertificateArray{ ListenerCertificateArgs{...} }
+type ListenerCertificateArrayInput interface {
+	pulumi.Input
+
+	ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput
+	ToListenerCertificateArrayOutputWithContext(context.Context) ListenerCertificateArrayOutput
+}
+
+type ListenerCertificateArray []ListenerCertificateInput
+
+func (ListenerCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ListenerCertificate)(nil))
+}
+
+func (i ListenerCertificateArray) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
+	return i.ToListenerCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerCertificateArray) ToListenerCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateArrayOutput)
+}
+
+// ListenerCertificateMapInput is an input type that accepts ListenerCertificateMap and ListenerCertificateMapOutput values.
+// You can construct a concrete instance of `ListenerCertificateMapInput` via:
+//
+//          ListenerCertificateMap{ "key": ListenerCertificateArgs{...} }
+type ListenerCertificateMapInput interface {
+	pulumi.Input
+
+	ToListenerCertificateMapOutput() ListenerCertificateMapOutput
+	ToListenerCertificateMapOutputWithContext(context.Context) ListenerCertificateMapOutput
+}
+
+type ListenerCertificateMap map[string]ListenerCertificateInput
+
+func (ListenerCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ListenerCertificate)(nil))
+}
+
+func (i ListenerCertificateMap) ToListenerCertificateMapOutput() ListenerCertificateMapOutput {
+	return i.ToListenerCertificateMapOutputWithContext(context.Background())
+}
+
+func (i ListenerCertificateMap) ToListenerCertificateMapOutputWithContext(ctx context.Context) ListenerCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateMapOutput)
+}
+
 type ListenerCertificateOutput struct {
 	*pulumi.OutputState
 }
@@ -170,6 +249,75 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx co
 	return o
 }
 
+func (o ListenerCertificateOutput) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
+	return o.ToListenerCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerCertificateOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
+	return o.ApplyT(func(v ListenerCertificate) *ListenerCertificate {
+		return &v
+	}).(ListenerCertificatePtrOutput)
+}
+
+type ListenerCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerCertificate)(nil))
+}
+
+func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
+	return o
+}
+
+func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
+	return o
+}
+
+type ListenerCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerCertificate)(nil))
+}
+
+func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
+	return o
+}
+
+func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateArrayOutput {
+	return o
+}
+
+func (o ListenerCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerCertificate {
+		return vs[0].([]ListenerCertificate)[vs[1].(int)]
+	}).(ListenerCertificateOutput)
+}
+
+type ListenerCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (ListenerCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ListenerCertificate)(nil))
+}
+
+func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutput() ListenerCertificateMapOutput {
+	return o
+}
+
+func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutputWithContext(ctx context.Context) ListenerCertificateMapOutput {
+	return o
+}
+
+func (o ListenerCertificateMapOutput) MapIndex(k pulumi.StringInput) ListenerCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ListenerCertificate {
+		return vs[0].(map[string]ListenerCertificate)[vs[1].(string)]
+	}).(ListenerCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ListenerCertificateOutput{})
+	pulumi.RegisterOutputType(ListenerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateMapOutput{})
 }

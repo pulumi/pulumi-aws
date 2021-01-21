@@ -114,6 +114,85 @@ func (i *EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigOutput)
 }
 
+func (i *EncryptionConfig) ToEncryptionConfigPtrOutput() EncryptionConfigPtrOutput {
+	return i.ToEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *EncryptionConfig) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPtrOutput)
+}
+
+type EncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigPtrOutput() EncryptionConfigPtrOutput
+	ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput
+}
+
+type encryptionConfigPtrType EncryptionConfigArgs
+
+func (*encryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfig)(nil))
+}
+
+func (i *encryptionConfigPtrType) ToEncryptionConfigPtrOutput() EncryptionConfigPtrOutput {
+	return i.ToEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionConfigPtrType) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPtrOutput)
+}
+
+// EncryptionConfigArrayInput is an input type that accepts EncryptionConfigArray and EncryptionConfigArrayOutput values.
+// You can construct a concrete instance of `EncryptionConfigArrayInput` via:
+//
+//          EncryptionConfigArray{ EncryptionConfigArgs{...} }
+type EncryptionConfigArrayInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigArrayOutput() EncryptionConfigArrayOutput
+	ToEncryptionConfigArrayOutputWithContext(context.Context) EncryptionConfigArrayOutput
+}
+
+type EncryptionConfigArray []EncryptionConfigInput
+
+func (EncryptionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EncryptionConfig)(nil))
+}
+
+func (i EncryptionConfigArray) ToEncryptionConfigArrayOutput() EncryptionConfigArrayOutput {
+	return i.ToEncryptionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigArray) ToEncryptionConfigArrayOutputWithContext(ctx context.Context) EncryptionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigArrayOutput)
+}
+
+// EncryptionConfigMapInput is an input type that accepts EncryptionConfigMap and EncryptionConfigMapOutput values.
+// You can construct a concrete instance of `EncryptionConfigMapInput` via:
+//
+//          EncryptionConfigMap{ "key": EncryptionConfigArgs{...} }
+type EncryptionConfigMapInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigMapOutput() EncryptionConfigMapOutput
+	ToEncryptionConfigMapOutputWithContext(context.Context) EncryptionConfigMapOutput
+}
+
+type EncryptionConfigMap map[string]EncryptionConfigInput
+
+func (EncryptionConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EncryptionConfig)(nil))
+}
+
+func (i EncryptionConfigMap) ToEncryptionConfigMapOutput() EncryptionConfigMapOutput {
+	return i.ToEncryptionConfigMapOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigMap) ToEncryptionConfigMapOutputWithContext(ctx context.Context) EncryptionConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigMapOutput)
+}
+
 type EncryptionConfigOutput struct {
 	*pulumi.OutputState
 }
@@ -130,6 +209,75 @@ func (o EncryptionConfigOutput) ToEncryptionConfigOutputWithContext(ctx context.
 	return o
 }
 
+func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutput() EncryptionConfigPtrOutput {
+	return o.ToEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
+	return o.ApplyT(func(v EncryptionConfig) *EncryptionConfig {
+		return &v
+	}).(EncryptionConfigPtrOutput)
+}
+
+type EncryptionConfigPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfig)(nil))
+}
+
+func (o EncryptionConfigPtrOutput) ToEncryptionConfigPtrOutput() EncryptionConfigPtrOutput {
+	return o
+}
+
+func (o EncryptionConfigPtrOutput) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
+	return o
+}
+
+type EncryptionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EncryptionConfig)(nil))
+}
+
+func (o EncryptionConfigArrayOutput) ToEncryptionConfigArrayOutput() EncryptionConfigArrayOutput {
+	return o
+}
+
+func (o EncryptionConfigArrayOutput) ToEncryptionConfigArrayOutputWithContext(ctx context.Context) EncryptionConfigArrayOutput {
+	return o
+}
+
+func (o EncryptionConfigArrayOutput) Index(i pulumi.IntInput) EncryptionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionConfig {
+		return vs[0].([]EncryptionConfig)[vs[1].(int)]
+	}).(EncryptionConfigOutput)
+}
+
+type EncryptionConfigMapOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EncryptionConfig)(nil))
+}
+
+func (o EncryptionConfigMapOutput) ToEncryptionConfigMapOutput() EncryptionConfigMapOutput {
+	return o
+}
+
+func (o EncryptionConfigMapOutput) ToEncryptionConfigMapOutputWithContext(ctx context.Context) EncryptionConfigMapOutput {
+	return o
+}
+
+func (o EncryptionConfigMapOutput) MapIndex(k pulumi.StringInput) EncryptionConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EncryptionConfig {
+		return vs[0].(map[string]EncryptionConfig)[vs[1].(string)]
+	}).(EncryptionConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EncryptionConfigOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigMapOutput{})
 }

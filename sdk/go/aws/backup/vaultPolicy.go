@@ -157,6 +157,85 @@ func (i *VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultP
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyOutput)
 }
 
+func (i *VaultPolicy) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
+	return i.ToVaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *VaultPolicy) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyPtrOutput)
+}
+
+type VaultPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVaultPolicyPtrOutput() VaultPolicyPtrOutput
+	ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput
+}
+
+type vaultPolicyPtrType VaultPolicyArgs
+
+func (*vaultPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPolicy)(nil))
+}
+
+func (i *vaultPolicyPtrType) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
+	return i.ToVaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultPolicyPtrType) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyPtrOutput)
+}
+
+// VaultPolicyArrayInput is an input type that accepts VaultPolicyArray and VaultPolicyArrayOutput values.
+// You can construct a concrete instance of `VaultPolicyArrayInput` via:
+//
+//          VaultPolicyArray{ VaultPolicyArgs{...} }
+type VaultPolicyArrayInput interface {
+	pulumi.Input
+
+	ToVaultPolicyArrayOutput() VaultPolicyArrayOutput
+	ToVaultPolicyArrayOutputWithContext(context.Context) VaultPolicyArrayOutput
+}
+
+type VaultPolicyArray []VaultPolicyInput
+
+func (VaultPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VaultPolicy)(nil))
+}
+
+func (i VaultPolicyArray) ToVaultPolicyArrayOutput() VaultPolicyArrayOutput {
+	return i.ToVaultPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i VaultPolicyArray) ToVaultPolicyArrayOutputWithContext(ctx context.Context) VaultPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyArrayOutput)
+}
+
+// VaultPolicyMapInput is an input type that accepts VaultPolicyMap and VaultPolicyMapOutput values.
+// You can construct a concrete instance of `VaultPolicyMapInput` via:
+//
+//          VaultPolicyMap{ "key": VaultPolicyArgs{...} }
+type VaultPolicyMapInput interface {
+	pulumi.Input
+
+	ToVaultPolicyMapOutput() VaultPolicyMapOutput
+	ToVaultPolicyMapOutputWithContext(context.Context) VaultPolicyMapOutput
+}
+
+type VaultPolicyMap map[string]VaultPolicyInput
+
+func (VaultPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VaultPolicy)(nil))
+}
+
+func (i VaultPolicyMap) ToVaultPolicyMapOutput() VaultPolicyMapOutput {
+	return i.ToVaultPolicyMapOutputWithContext(context.Background())
+}
+
+func (i VaultPolicyMap) ToVaultPolicyMapOutputWithContext(ctx context.Context) VaultPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyMapOutput)
+}
+
 type VaultPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -173,6 +252,75 @@ func (o VaultPolicyOutput) ToVaultPolicyOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VaultPolicyOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
+	return o.ToVaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VaultPolicyOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
+	return o.ApplyT(func(v VaultPolicy) *VaultPolicy {
+		return &v
+	}).(VaultPolicyPtrOutput)
+}
+
+type VaultPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPolicy)(nil))
+}
+
+func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
+	return o
+}
+
+func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
+	return o
+}
+
+type VaultPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultPolicy)(nil))
+}
+
+func (o VaultPolicyArrayOutput) ToVaultPolicyArrayOutput() VaultPolicyArrayOutput {
+	return o
+}
+
+func (o VaultPolicyArrayOutput) ToVaultPolicyArrayOutputWithContext(ctx context.Context) VaultPolicyArrayOutput {
+	return o
+}
+
+func (o VaultPolicyArrayOutput) Index(i pulumi.IntInput) VaultPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultPolicy {
+		return vs[0].([]VaultPolicy)[vs[1].(int)]
+	}).(VaultPolicyOutput)
+}
+
+type VaultPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (VaultPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VaultPolicy)(nil))
+}
+
+func (o VaultPolicyMapOutput) ToVaultPolicyMapOutput() VaultPolicyMapOutput {
+	return o
+}
+
+func (o VaultPolicyMapOutput) ToVaultPolicyMapOutputWithContext(ctx context.Context) VaultPolicyMapOutput {
+	return o
+}
+
+func (o VaultPolicyMapOutput) MapIndex(k pulumi.StringInput) VaultPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VaultPolicy {
+		return vs[0].(map[string]VaultPolicy)[vs[1].(string)]
+	}).(VaultPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VaultPolicyOutput{})
+	pulumi.RegisterOutputType(VaultPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VaultPolicyArrayOutput{})
+	pulumi.RegisterOutputType(VaultPolicyMapOutput{})
 }

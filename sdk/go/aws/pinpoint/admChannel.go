@@ -174,6 +174,85 @@ func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChann
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
 }
 
+func (i *AdmChannel) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
+	return i.ToAdmChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *AdmChannel) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelPtrOutput)
+}
+
+type AdmChannelPtrInput interface {
+	pulumi.Input
+
+	ToAdmChannelPtrOutput() AdmChannelPtrOutput
+	ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput
+}
+
+type admChannelPtrType AdmChannelArgs
+
+func (*admChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmChannel)(nil))
+}
+
+func (i *admChannelPtrType) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
+	return i.ToAdmChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *admChannelPtrType) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelPtrOutput)
+}
+
+// AdmChannelArrayInput is an input type that accepts AdmChannelArray and AdmChannelArrayOutput values.
+// You can construct a concrete instance of `AdmChannelArrayInput` via:
+//
+//          AdmChannelArray{ AdmChannelArgs{...} }
+type AdmChannelArrayInput interface {
+	pulumi.Input
+
+	ToAdmChannelArrayOutput() AdmChannelArrayOutput
+	ToAdmChannelArrayOutputWithContext(context.Context) AdmChannelArrayOutput
+}
+
+type AdmChannelArray []AdmChannelInput
+
+func (AdmChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AdmChannel)(nil))
+}
+
+func (i AdmChannelArray) ToAdmChannelArrayOutput() AdmChannelArrayOutput {
+	return i.ToAdmChannelArrayOutputWithContext(context.Background())
+}
+
+func (i AdmChannelArray) ToAdmChannelArrayOutputWithContext(ctx context.Context) AdmChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelArrayOutput)
+}
+
+// AdmChannelMapInput is an input type that accepts AdmChannelMap and AdmChannelMapOutput values.
+// You can construct a concrete instance of `AdmChannelMapInput` via:
+//
+//          AdmChannelMap{ "key": AdmChannelArgs{...} }
+type AdmChannelMapInput interface {
+	pulumi.Input
+
+	ToAdmChannelMapOutput() AdmChannelMapOutput
+	ToAdmChannelMapOutputWithContext(context.Context) AdmChannelMapOutput
+}
+
+type AdmChannelMap map[string]AdmChannelInput
+
+func (AdmChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AdmChannel)(nil))
+}
+
+func (i AdmChannelMap) ToAdmChannelMapOutput() AdmChannelMapOutput {
+	return i.ToAdmChannelMapOutputWithContext(context.Background())
+}
+
+func (i AdmChannelMap) ToAdmChannelMapOutputWithContext(ctx context.Context) AdmChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelMapOutput)
+}
+
 type AdmChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -190,6 +269,75 @@ func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
+func (o AdmChannelOutput) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
+	return o.ToAdmChannelPtrOutputWithContext(context.Background())
+}
+
+func (o AdmChannelOutput) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
+	return o.ApplyT(func(v AdmChannel) *AdmChannel {
+		return &v
+	}).(AdmChannelPtrOutput)
+}
+
+type AdmChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdmChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmChannel)(nil))
+}
+
+func (o AdmChannelPtrOutput) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
+	return o
+}
+
+func (o AdmChannelPtrOutput) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
+	return o
+}
+
+type AdmChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (AdmChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdmChannel)(nil))
+}
+
+func (o AdmChannelArrayOutput) ToAdmChannelArrayOutput() AdmChannelArrayOutput {
+	return o
+}
+
+func (o AdmChannelArrayOutput) ToAdmChannelArrayOutputWithContext(ctx context.Context) AdmChannelArrayOutput {
+	return o
+}
+
+func (o AdmChannelArrayOutput) Index(i pulumi.IntInput) AdmChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdmChannel {
+		return vs[0].([]AdmChannel)[vs[1].(int)]
+	}).(AdmChannelOutput)
+}
+
+type AdmChannelMapOutput struct{ *pulumi.OutputState }
+
+func (AdmChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AdmChannel)(nil))
+}
+
+func (o AdmChannelMapOutput) ToAdmChannelMapOutput() AdmChannelMapOutput {
+	return o
+}
+
+func (o AdmChannelMapOutput) ToAdmChannelMapOutputWithContext(ctx context.Context) AdmChannelMapOutput {
+	return o
+}
+
+func (o AdmChannelMapOutput) MapIndex(k pulumi.StringInput) AdmChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdmChannel {
+		return vs[0].(map[string]AdmChannel)[vs[1].(string)]
+	}).(AdmChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdmChannelOutput{})
+	pulumi.RegisterOutputType(AdmChannelPtrOutput{})
+	pulumi.RegisterOutputType(AdmChannelArrayOutput{})
+	pulumi.RegisterOutputType(AdmChannelMapOutput{})
 }

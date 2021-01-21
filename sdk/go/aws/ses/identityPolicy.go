@@ -162,6 +162,85 @@ func (i *IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyOutput)
 }
 
+func (i *IdentityPolicy) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
+	return i.ToIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityPolicy) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyPtrOutput)
+}
+
+type IdentityPolicyPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput
+	ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput
+}
+
+type identityPolicyPtrType IdentityPolicyArgs
+
+func (*identityPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPolicy)(nil))
+}
+
+func (i *identityPolicyPtrType) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
+	return i.ToIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPolicyPtrType) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyPtrOutput)
+}
+
+// IdentityPolicyArrayInput is an input type that accepts IdentityPolicyArray and IdentityPolicyArrayOutput values.
+// You can construct a concrete instance of `IdentityPolicyArrayInput` via:
+//
+//          IdentityPolicyArray{ IdentityPolicyArgs{...} }
+type IdentityPolicyArrayInput interface {
+	pulumi.Input
+
+	ToIdentityPolicyArrayOutput() IdentityPolicyArrayOutput
+	ToIdentityPolicyArrayOutputWithContext(context.Context) IdentityPolicyArrayOutput
+}
+
+type IdentityPolicyArray []IdentityPolicyInput
+
+func (IdentityPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityPolicy)(nil))
+}
+
+func (i IdentityPolicyArray) ToIdentityPolicyArrayOutput() IdentityPolicyArrayOutput {
+	return i.ToIdentityPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityPolicyArray) ToIdentityPolicyArrayOutputWithContext(ctx context.Context) IdentityPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyArrayOutput)
+}
+
+// IdentityPolicyMapInput is an input type that accepts IdentityPolicyMap and IdentityPolicyMapOutput values.
+// You can construct a concrete instance of `IdentityPolicyMapInput` via:
+//
+//          IdentityPolicyMap{ "key": IdentityPolicyArgs{...} }
+type IdentityPolicyMapInput interface {
+	pulumi.Input
+
+	ToIdentityPolicyMapOutput() IdentityPolicyMapOutput
+	ToIdentityPolicyMapOutputWithContext(context.Context) IdentityPolicyMapOutput
+}
+
+type IdentityPolicyMap map[string]IdentityPolicyInput
+
+func (IdentityPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityPolicy)(nil))
+}
+
+func (i IdentityPolicyMap) ToIdentityPolicyMapOutput() IdentityPolicyMapOutput {
+	return i.ToIdentityPolicyMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPolicyMap) ToIdentityPolicyMapOutputWithContext(ctx context.Context) IdentityPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyMapOutput)
+}
+
 type IdentityPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -178,6 +257,75 @@ func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
+	return o.ToIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
+	return o.ApplyT(func(v IdentityPolicy) *IdentityPolicy {
+		return &v
+	}).(IdentityPolicyPtrOutput)
+}
+
+type IdentityPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPolicy)(nil))
+}
+
+func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
+	return o
+}
+
+func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
+	return o
+}
+
+type IdentityPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityPolicy)(nil))
+}
+
+func (o IdentityPolicyArrayOutput) ToIdentityPolicyArrayOutput() IdentityPolicyArrayOutput {
+	return o
+}
+
+func (o IdentityPolicyArrayOutput) ToIdentityPolicyArrayOutputWithContext(ctx context.Context) IdentityPolicyArrayOutput {
+	return o
+}
+
+func (o IdentityPolicyArrayOutput) Index(i pulumi.IntInput) IdentityPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPolicy {
+		return vs[0].([]IdentityPolicy)[vs[1].(int)]
+	}).(IdentityPolicyOutput)
+}
+
+type IdentityPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityPolicy)(nil))
+}
+
+func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutput() IdentityPolicyMapOutput {
+	return o
+}
+
+func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutputWithContext(ctx context.Context) IdentityPolicyMapOutput {
+	return o
+}
+
+func (o IdentityPolicyMapOutput) MapIndex(k pulumi.StringInput) IdentityPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPolicy {
+		return vs[0].(map[string]IdentityPolicy)[vs[1].(string)]
+	}).(IdentityPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityPolicyOutput{})
+	pulumi.RegisterOutputType(IdentityPolicyPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPolicyArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPolicyMapOutput{})
 }

@@ -218,6 +218,85 @@ func (i *LogResourcePolicy) ToLogResourcePolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyOutput)
 }
 
+func (i *LogResourcePolicy) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
+	return i.ToLogResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *LogResourcePolicy) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyPtrOutput)
+}
+
+type LogResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput
+	ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput
+}
+
+type logResourcePolicyPtrType LogResourcePolicyArgs
+
+func (*logResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogResourcePolicy)(nil))
+}
+
+func (i *logResourcePolicyPtrType) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
+	return i.ToLogResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *logResourcePolicyPtrType) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyPtrOutput)
+}
+
+// LogResourcePolicyArrayInput is an input type that accepts LogResourcePolicyArray and LogResourcePolicyArrayOutput values.
+// You can construct a concrete instance of `LogResourcePolicyArrayInput` via:
+//
+//          LogResourcePolicyArray{ LogResourcePolicyArgs{...} }
+type LogResourcePolicyArrayInput interface {
+	pulumi.Input
+
+	ToLogResourcePolicyArrayOutput() LogResourcePolicyArrayOutput
+	ToLogResourcePolicyArrayOutputWithContext(context.Context) LogResourcePolicyArrayOutput
+}
+
+type LogResourcePolicyArray []LogResourcePolicyInput
+
+func (LogResourcePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogResourcePolicy)(nil))
+}
+
+func (i LogResourcePolicyArray) ToLogResourcePolicyArrayOutput() LogResourcePolicyArrayOutput {
+	return i.ToLogResourcePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i LogResourcePolicyArray) ToLogResourcePolicyArrayOutputWithContext(ctx context.Context) LogResourcePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyArrayOutput)
+}
+
+// LogResourcePolicyMapInput is an input type that accepts LogResourcePolicyMap and LogResourcePolicyMapOutput values.
+// You can construct a concrete instance of `LogResourcePolicyMapInput` via:
+//
+//          LogResourcePolicyMap{ "key": LogResourcePolicyArgs{...} }
+type LogResourcePolicyMapInput interface {
+	pulumi.Input
+
+	ToLogResourcePolicyMapOutput() LogResourcePolicyMapOutput
+	ToLogResourcePolicyMapOutputWithContext(context.Context) LogResourcePolicyMapOutput
+}
+
+type LogResourcePolicyMap map[string]LogResourcePolicyInput
+
+func (LogResourcePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogResourcePolicy)(nil))
+}
+
+func (i LogResourcePolicyMap) ToLogResourcePolicyMapOutput() LogResourcePolicyMapOutput {
+	return i.ToLogResourcePolicyMapOutputWithContext(context.Background())
+}
+
+func (i LogResourcePolicyMap) ToLogResourcePolicyMapOutputWithContext(ctx context.Context) LogResourcePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyMapOutput)
+}
+
 type LogResourcePolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -234,6 +313,75 @@ func (o LogResourcePolicyOutput) ToLogResourcePolicyOutputWithContext(ctx contex
 	return o
 }
 
+func (o LogResourcePolicyOutput) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
+	return o.ToLogResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LogResourcePolicyOutput) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
+	return o.ApplyT(func(v LogResourcePolicy) *LogResourcePolicy {
+		return &v
+	}).(LogResourcePolicyPtrOutput)
+}
+
+type LogResourcePolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogResourcePolicy)(nil))
+}
+
+func (o LogResourcePolicyPtrOutput) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
+	return o
+}
+
+func (o LogResourcePolicyPtrOutput) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
+	return o
+}
+
+type LogResourcePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (LogResourcePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogResourcePolicy)(nil))
+}
+
+func (o LogResourcePolicyArrayOutput) ToLogResourcePolicyArrayOutput() LogResourcePolicyArrayOutput {
+	return o
+}
+
+func (o LogResourcePolicyArrayOutput) ToLogResourcePolicyArrayOutputWithContext(ctx context.Context) LogResourcePolicyArrayOutput {
+	return o
+}
+
+func (o LogResourcePolicyArrayOutput) Index(i pulumi.IntInput) LogResourcePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogResourcePolicy {
+		return vs[0].([]LogResourcePolicy)[vs[1].(int)]
+	}).(LogResourcePolicyOutput)
+}
+
+type LogResourcePolicyMapOutput struct{ *pulumi.OutputState }
+
+func (LogResourcePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogResourcePolicy)(nil))
+}
+
+func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutput() LogResourcePolicyMapOutput {
+	return o
+}
+
+func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutputWithContext(ctx context.Context) LogResourcePolicyMapOutput {
+	return o
+}
+
+func (o LogResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) LogResourcePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogResourcePolicy {
+		return vs[0].(map[string]LogResourcePolicy)[vs[1].(string)]
+	}).(LogResourcePolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogResourcePolicyOutput{})
+	pulumi.RegisterOutputType(LogResourcePolicyPtrOutput{})
+	pulumi.RegisterOutputType(LogResourcePolicyArrayOutput{})
+	pulumi.RegisterOutputType(LogResourcePolicyMapOutput{})
 }

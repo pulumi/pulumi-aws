@@ -324,6 +324,85 @@ func (i *MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLay
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerOutput)
 }
 
+func (i *MysqlLayer) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
+	return i.ToMysqlLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *MysqlLayer) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerPtrOutput)
+}
+
+type MysqlLayerPtrInput interface {
+	pulumi.Input
+
+	ToMysqlLayerPtrOutput() MysqlLayerPtrOutput
+	ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput
+}
+
+type mysqlLayerPtrType MysqlLayerArgs
+
+func (*mysqlLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayer)(nil))
+}
+
+func (i *mysqlLayerPtrType) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
+	return i.ToMysqlLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *mysqlLayerPtrType) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerPtrOutput)
+}
+
+// MysqlLayerArrayInput is an input type that accepts MysqlLayerArray and MysqlLayerArrayOutput values.
+// You can construct a concrete instance of `MysqlLayerArrayInput` via:
+//
+//          MysqlLayerArray{ MysqlLayerArgs{...} }
+type MysqlLayerArrayInput interface {
+	pulumi.Input
+
+	ToMysqlLayerArrayOutput() MysqlLayerArrayOutput
+	ToMysqlLayerArrayOutputWithContext(context.Context) MysqlLayerArrayOutput
+}
+
+type MysqlLayerArray []MysqlLayerInput
+
+func (MysqlLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MysqlLayer)(nil))
+}
+
+func (i MysqlLayerArray) ToMysqlLayerArrayOutput() MysqlLayerArrayOutput {
+	return i.ToMysqlLayerArrayOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerArray) ToMysqlLayerArrayOutputWithContext(ctx context.Context) MysqlLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerArrayOutput)
+}
+
+// MysqlLayerMapInput is an input type that accepts MysqlLayerMap and MysqlLayerMapOutput values.
+// You can construct a concrete instance of `MysqlLayerMapInput` via:
+//
+//          MysqlLayerMap{ "key": MysqlLayerArgs{...} }
+type MysqlLayerMapInput interface {
+	pulumi.Input
+
+	ToMysqlLayerMapOutput() MysqlLayerMapOutput
+	ToMysqlLayerMapOutputWithContext(context.Context) MysqlLayerMapOutput
+}
+
+type MysqlLayerMap map[string]MysqlLayerInput
+
+func (MysqlLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MysqlLayer)(nil))
+}
+
+func (i MysqlLayerMap) ToMysqlLayerMapOutput() MysqlLayerMapOutput {
+	return i.ToMysqlLayerMapOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerMap) ToMysqlLayerMapOutputWithContext(ctx context.Context) MysqlLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerMapOutput)
+}
+
 type MysqlLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -340,6 +419,75 @@ func (o MysqlLayerOutput) ToMysqlLayerOutputWithContext(ctx context.Context) Mys
 	return o
 }
 
+func (o MysqlLayerOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
+	return o.ToMysqlLayerPtrOutputWithContext(context.Background())
+}
+
+func (o MysqlLayerOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
+	return o.ApplyT(func(v MysqlLayer) *MysqlLayer {
+		return &v
+	}).(MysqlLayerPtrOutput)
+}
+
+type MysqlLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MysqlLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayer)(nil))
+}
+
+func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
+	return o
+}
+
+func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
+	return o
+}
+
+type MysqlLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MysqlLayer)(nil))
+}
+
+func (o MysqlLayerArrayOutput) ToMysqlLayerArrayOutput() MysqlLayerArrayOutput {
+	return o
+}
+
+func (o MysqlLayerArrayOutput) ToMysqlLayerArrayOutputWithContext(ctx context.Context) MysqlLayerArrayOutput {
+	return o
+}
+
+func (o MysqlLayerArrayOutput) Index(i pulumi.IntInput) MysqlLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayer {
+		return vs[0].([]MysqlLayer)[vs[1].(int)]
+	}).(MysqlLayerOutput)
+}
+
+type MysqlLayerMapOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MysqlLayer)(nil))
+}
+
+func (o MysqlLayerMapOutput) ToMysqlLayerMapOutput() MysqlLayerMapOutput {
+	return o
+}
+
+func (o MysqlLayerMapOutput) ToMysqlLayerMapOutputWithContext(ctx context.Context) MysqlLayerMapOutput {
+	return o
+}
+
+func (o MysqlLayerMapOutput) MapIndex(k pulumi.StringInput) MysqlLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MysqlLayer {
+		return vs[0].(map[string]MysqlLayer)[vs[1].(string)]
+	}).(MysqlLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MysqlLayerOutput{})
+	pulumi.RegisterOutputType(MysqlLayerPtrOutput{})
+	pulumi.RegisterOutputType(MysqlLayerArrayOutput{})
+	pulumi.RegisterOutputType(MysqlLayerMapOutput{})
 }

@@ -165,6 +165,85 @@ func (i *ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) Acti
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetOutput)
 }
 
+func (i *ActionTarget) ToActionTargetPtrOutput() ActionTargetPtrOutput {
+	return i.ToActionTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *ActionTarget) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetPtrOutput)
+}
+
+type ActionTargetPtrInput interface {
+	pulumi.Input
+
+	ToActionTargetPtrOutput() ActionTargetPtrOutput
+	ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput
+}
+
+type actionTargetPtrType ActionTargetArgs
+
+func (*actionTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionTarget)(nil))
+}
+
+func (i *actionTargetPtrType) ToActionTargetPtrOutput() ActionTargetPtrOutput {
+	return i.ToActionTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *actionTargetPtrType) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetPtrOutput)
+}
+
+// ActionTargetArrayInput is an input type that accepts ActionTargetArray and ActionTargetArrayOutput values.
+// You can construct a concrete instance of `ActionTargetArrayInput` via:
+//
+//          ActionTargetArray{ ActionTargetArgs{...} }
+type ActionTargetArrayInput interface {
+	pulumi.Input
+
+	ToActionTargetArrayOutput() ActionTargetArrayOutput
+	ToActionTargetArrayOutputWithContext(context.Context) ActionTargetArrayOutput
+}
+
+type ActionTargetArray []ActionTargetInput
+
+func (ActionTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ActionTarget)(nil))
+}
+
+func (i ActionTargetArray) ToActionTargetArrayOutput() ActionTargetArrayOutput {
+	return i.ToActionTargetArrayOutputWithContext(context.Background())
+}
+
+func (i ActionTargetArray) ToActionTargetArrayOutputWithContext(ctx context.Context) ActionTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetArrayOutput)
+}
+
+// ActionTargetMapInput is an input type that accepts ActionTargetMap and ActionTargetMapOutput values.
+// You can construct a concrete instance of `ActionTargetMapInput` via:
+//
+//          ActionTargetMap{ "key": ActionTargetArgs{...} }
+type ActionTargetMapInput interface {
+	pulumi.Input
+
+	ToActionTargetMapOutput() ActionTargetMapOutput
+	ToActionTargetMapOutputWithContext(context.Context) ActionTargetMapOutput
+}
+
+type ActionTargetMap map[string]ActionTargetInput
+
+func (ActionTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ActionTarget)(nil))
+}
+
+func (i ActionTargetMap) ToActionTargetMapOutput() ActionTargetMapOutput {
+	return i.ToActionTargetMapOutputWithContext(context.Background())
+}
+
+func (i ActionTargetMap) ToActionTargetMapOutputWithContext(ctx context.Context) ActionTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetMapOutput)
+}
+
 type ActionTargetOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ActionTargetOutput) ToActionTargetPtrOutput() ActionTargetPtrOutput {
+	return o.ToActionTargetPtrOutputWithContext(context.Background())
+}
+
+func (o ActionTargetOutput) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
+	return o.ApplyT(func(v ActionTarget) *ActionTarget {
+		return &v
+	}).(ActionTargetPtrOutput)
+}
+
+type ActionTargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionTarget)(nil))
+}
+
+func (o ActionTargetPtrOutput) ToActionTargetPtrOutput() ActionTargetPtrOutput {
+	return o
+}
+
+func (o ActionTargetPtrOutput) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
+	return o
+}
+
+type ActionTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionTarget)(nil))
+}
+
+func (o ActionTargetArrayOutput) ToActionTargetArrayOutput() ActionTargetArrayOutput {
+	return o
+}
+
+func (o ActionTargetArrayOutput) ToActionTargetArrayOutputWithContext(ctx context.Context) ActionTargetArrayOutput {
+	return o
+}
+
+func (o ActionTargetArrayOutput) Index(i pulumi.IntInput) ActionTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionTarget {
+		return vs[0].([]ActionTarget)[vs[1].(int)]
+	}).(ActionTargetOutput)
+}
+
+type ActionTargetMapOutput struct{ *pulumi.OutputState }
+
+func (ActionTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ActionTarget)(nil))
+}
+
+func (o ActionTargetMapOutput) ToActionTargetMapOutput() ActionTargetMapOutput {
+	return o
+}
+
+func (o ActionTargetMapOutput) ToActionTargetMapOutputWithContext(ctx context.Context) ActionTargetMapOutput {
+	return o
+}
+
+func (o ActionTargetMapOutput) MapIndex(k pulumi.StringInput) ActionTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionTarget {
+		return vs[0].(map[string]ActionTarget)[vs[1].(string)]
+	}).(ActionTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionTargetOutput{})
+	pulumi.RegisterOutputType(ActionTargetPtrOutput{})
+	pulumi.RegisterOutputType(ActionTargetArrayOutput{})
+	pulumi.RegisterOutputType(ActionTargetMapOutput{})
 }

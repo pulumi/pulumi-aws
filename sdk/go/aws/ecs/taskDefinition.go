@@ -291,6 +291,85 @@ func (i *TaskDefinition) ToTaskDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionOutput)
 }
 
+func (i *TaskDefinition) ToTaskDefinitionPtrOutput() TaskDefinitionPtrOutput {
+	return i.ToTaskDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *TaskDefinition) ToTaskDefinitionPtrOutputWithContext(ctx context.Context) TaskDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPtrOutput)
+}
+
+type TaskDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionPtrOutput() TaskDefinitionPtrOutput
+	ToTaskDefinitionPtrOutputWithContext(ctx context.Context) TaskDefinitionPtrOutput
+}
+
+type taskDefinitionPtrType TaskDefinitionArgs
+
+func (*taskDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinition)(nil))
+}
+
+func (i *taskDefinitionPtrType) ToTaskDefinitionPtrOutput() TaskDefinitionPtrOutput {
+	return i.ToTaskDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionPtrType) ToTaskDefinitionPtrOutputWithContext(ctx context.Context) TaskDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPtrOutput)
+}
+
+// TaskDefinitionArrayInput is an input type that accepts TaskDefinitionArray and TaskDefinitionArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionArrayInput` via:
+//
+//          TaskDefinitionArray{ TaskDefinitionArgs{...} }
+type TaskDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionArrayOutput() TaskDefinitionArrayOutput
+	ToTaskDefinitionArrayOutputWithContext(context.Context) TaskDefinitionArrayOutput
+}
+
+type TaskDefinitionArray []TaskDefinitionInput
+
+func (TaskDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TaskDefinition)(nil))
+}
+
+func (i TaskDefinitionArray) ToTaskDefinitionArrayOutput() TaskDefinitionArrayOutput {
+	return i.ToTaskDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionArray) ToTaskDefinitionArrayOutputWithContext(ctx context.Context) TaskDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionArrayOutput)
+}
+
+// TaskDefinitionMapInput is an input type that accepts TaskDefinitionMap and TaskDefinitionMapOutput values.
+// You can construct a concrete instance of `TaskDefinitionMapInput` via:
+//
+//          TaskDefinitionMap{ "key": TaskDefinitionArgs{...} }
+type TaskDefinitionMapInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionMapOutput() TaskDefinitionMapOutput
+	ToTaskDefinitionMapOutputWithContext(context.Context) TaskDefinitionMapOutput
+}
+
+type TaskDefinitionMap map[string]TaskDefinitionInput
+
+func (TaskDefinitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TaskDefinition)(nil))
+}
+
+func (i TaskDefinitionMap) ToTaskDefinitionMapOutput() TaskDefinitionMapOutput {
+	return i.ToTaskDefinitionMapOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionMap) ToTaskDefinitionMapOutputWithContext(ctx context.Context) TaskDefinitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionMapOutput)
+}
+
 type TaskDefinitionOutput struct {
 	*pulumi.OutputState
 }
@@ -307,6 +386,75 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TaskDefinitionOutput) ToTaskDefinitionPtrOutput() TaskDefinitionPtrOutput {
+	return o.ToTaskDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionOutput) ToTaskDefinitionPtrOutputWithContext(ctx context.Context) TaskDefinitionPtrOutput {
+	return o.ApplyT(func(v TaskDefinition) *TaskDefinition {
+		return &v
+	}).(TaskDefinitionPtrOutput)
+}
+
+type TaskDefinitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinition)(nil))
+}
+
+func (o TaskDefinitionPtrOutput) ToTaskDefinitionPtrOutput() TaskDefinitionPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionPtrOutput) ToTaskDefinitionPtrOutputWithContext(ctx context.Context) TaskDefinitionPtrOutput {
+	return o
+}
+
+type TaskDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinition)(nil))
+}
+
+func (o TaskDefinitionArrayOutput) ToTaskDefinitionArrayOutput() TaskDefinitionArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionArrayOutput) ToTaskDefinitionArrayOutputWithContext(ctx context.Context) TaskDefinitionArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionArrayOutput) Index(i pulumi.IntInput) TaskDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinition {
+		return vs[0].([]TaskDefinition)[vs[1].(int)]
+	}).(TaskDefinitionOutput)
+}
+
+type TaskDefinitionMapOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TaskDefinition)(nil))
+}
+
+func (o TaskDefinitionMapOutput) ToTaskDefinitionMapOutput() TaskDefinitionMapOutput {
+	return o
+}
+
+func (o TaskDefinitionMapOutput) ToTaskDefinitionMapOutputWithContext(ctx context.Context) TaskDefinitionMapOutput {
+	return o
+}
+
+func (o TaskDefinitionMapOutput) MapIndex(k pulumi.StringInput) TaskDefinitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TaskDefinition {
+		return vs[0].(map[string]TaskDefinition)[vs[1].(string)]
+	}).(TaskDefinitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TaskDefinitionOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionMapOutput{})
 }

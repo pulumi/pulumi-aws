@@ -182,6 +182,85 @@ func (i *NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLoc
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOutput)
 }
 
+func (i *NfsLocation) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
+	return i.ToNfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *NfsLocation) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationPtrOutput)
+}
+
+type NfsLocationPtrInput interface {
+	pulumi.Input
+
+	ToNfsLocationPtrOutput() NfsLocationPtrOutput
+	ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput
+}
+
+type nfsLocationPtrType NfsLocationArgs
+
+func (*nfsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsLocation)(nil))
+}
+
+func (i *nfsLocationPtrType) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
+	return i.ToNfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *nfsLocationPtrType) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationPtrOutput)
+}
+
+// NfsLocationArrayInput is an input type that accepts NfsLocationArray and NfsLocationArrayOutput values.
+// You can construct a concrete instance of `NfsLocationArrayInput` via:
+//
+//          NfsLocationArray{ NfsLocationArgs{...} }
+type NfsLocationArrayInput interface {
+	pulumi.Input
+
+	ToNfsLocationArrayOutput() NfsLocationArrayOutput
+	ToNfsLocationArrayOutputWithContext(context.Context) NfsLocationArrayOutput
+}
+
+type NfsLocationArray []NfsLocationInput
+
+func (NfsLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NfsLocation)(nil))
+}
+
+func (i NfsLocationArray) ToNfsLocationArrayOutput() NfsLocationArrayOutput {
+	return i.ToNfsLocationArrayOutputWithContext(context.Background())
+}
+
+func (i NfsLocationArray) ToNfsLocationArrayOutputWithContext(ctx context.Context) NfsLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationArrayOutput)
+}
+
+// NfsLocationMapInput is an input type that accepts NfsLocationMap and NfsLocationMapOutput values.
+// You can construct a concrete instance of `NfsLocationMapInput` via:
+//
+//          NfsLocationMap{ "key": NfsLocationArgs{...} }
+type NfsLocationMapInput interface {
+	pulumi.Input
+
+	ToNfsLocationMapOutput() NfsLocationMapOutput
+	ToNfsLocationMapOutputWithContext(context.Context) NfsLocationMapOutput
+}
+
+type NfsLocationMap map[string]NfsLocationInput
+
+func (NfsLocationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NfsLocation)(nil))
+}
+
+func (i NfsLocationMap) ToNfsLocationMapOutput() NfsLocationMapOutput {
+	return i.ToNfsLocationMapOutputWithContext(context.Background())
+}
+
+func (i NfsLocationMap) ToNfsLocationMapOutputWithContext(ctx context.Context) NfsLocationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMapOutput)
+}
+
 type NfsLocationOutput struct {
 	*pulumi.OutputState
 }
@@ -198,6 +277,75 @@ func (o NfsLocationOutput) ToNfsLocationOutputWithContext(ctx context.Context) N
 	return o
 }
 
+func (o NfsLocationOutput) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
+	return o.ToNfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (o NfsLocationOutput) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
+	return o.ApplyT(func(v NfsLocation) *NfsLocation {
+		return &v
+	}).(NfsLocationPtrOutput)
+}
+
+type NfsLocationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NfsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsLocation)(nil))
+}
+
+func (o NfsLocationPtrOutput) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
+	return o
+}
+
+func (o NfsLocationPtrOutput) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
+	return o
+}
+
+type NfsLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsLocation)(nil))
+}
+
+func (o NfsLocationArrayOutput) ToNfsLocationArrayOutput() NfsLocationArrayOutput {
+	return o
+}
+
+func (o NfsLocationArrayOutput) ToNfsLocationArrayOutputWithContext(ctx context.Context) NfsLocationArrayOutput {
+	return o
+}
+
+func (o NfsLocationArrayOutput) Index(i pulumi.IntInput) NfsLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsLocation {
+		return vs[0].([]NfsLocation)[vs[1].(int)]
+	}).(NfsLocationOutput)
+}
+
+type NfsLocationMapOutput struct{ *pulumi.OutputState }
+
+func (NfsLocationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NfsLocation)(nil))
+}
+
+func (o NfsLocationMapOutput) ToNfsLocationMapOutput() NfsLocationMapOutput {
+	return o
+}
+
+func (o NfsLocationMapOutput) ToNfsLocationMapOutputWithContext(ctx context.Context) NfsLocationMapOutput {
+	return o
+}
+
+func (o NfsLocationMapOutput) MapIndex(k pulumi.StringInput) NfsLocationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NfsLocation {
+		return vs[0].(map[string]NfsLocation)[vs[1].(string)]
+	}).(NfsLocationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NfsLocationOutput{})
+	pulumi.RegisterOutputType(NfsLocationPtrOutput{})
+	pulumi.RegisterOutputType(NfsLocationArrayOutput{})
+	pulumi.RegisterOutputType(NfsLocationMapOutput{})
 }

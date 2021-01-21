@@ -157,6 +157,85 @@ func (i *RepositoryPolicy) ToRepositoryPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyOutput)
 }
 
+func (i *RepositoryPolicy) ToRepositoryPolicyPtrOutput() RepositoryPolicyPtrOutput {
+	return i.ToRepositoryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *RepositoryPolicy) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyPtrOutput)
+}
+
+type RepositoryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyPtrOutput() RepositoryPolicyPtrOutput
+	ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput
+}
+
+type repositoryPolicyPtrType RepositoryPolicyArgs
+
+func (*repositoryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicy)(nil))
+}
+
+func (i *repositoryPolicyPtrType) ToRepositoryPolicyPtrOutput() RepositoryPolicyPtrOutput {
+	return i.ToRepositoryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPolicyPtrType) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyPtrOutput)
+}
+
+// RepositoryPolicyArrayInput is an input type that accepts RepositoryPolicyArray and RepositoryPolicyArrayOutput values.
+// You can construct a concrete instance of `RepositoryPolicyArrayInput` via:
+//
+//          RepositoryPolicyArray{ RepositoryPolicyArgs{...} }
+type RepositoryPolicyArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyArrayOutput() RepositoryPolicyArrayOutput
+	ToRepositoryPolicyArrayOutputWithContext(context.Context) RepositoryPolicyArrayOutput
+}
+
+type RepositoryPolicyArray []RepositoryPolicyInput
+
+func (RepositoryPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RepositoryPolicy)(nil))
+}
+
+func (i RepositoryPolicyArray) ToRepositoryPolicyArrayOutput() RepositoryPolicyArrayOutput {
+	return i.ToRepositoryPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyArray) ToRepositoryPolicyArrayOutputWithContext(ctx context.Context) RepositoryPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyArrayOutput)
+}
+
+// RepositoryPolicyMapInput is an input type that accepts RepositoryPolicyMap and RepositoryPolicyMapOutput values.
+// You can construct a concrete instance of `RepositoryPolicyMapInput` via:
+//
+//          RepositoryPolicyMap{ "key": RepositoryPolicyArgs{...} }
+type RepositoryPolicyMapInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyMapOutput() RepositoryPolicyMapOutput
+	ToRepositoryPolicyMapOutputWithContext(context.Context) RepositoryPolicyMapOutput
+}
+
+type RepositoryPolicyMap map[string]RepositoryPolicyInput
+
+func (RepositoryPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RepositoryPolicy)(nil))
+}
+
+func (i RepositoryPolicyMap) ToRepositoryPolicyMapOutput() RepositoryPolicyMapOutput {
+	return i.ToRepositoryPolicyMapOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyMap) ToRepositoryPolicyMapOutputWithContext(ctx context.Context) RepositoryPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMapOutput)
+}
+
 type RepositoryPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -173,6 +252,75 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.
 	return o
 }
 
+func (o RepositoryPolicyOutput) ToRepositoryPolicyPtrOutput() RepositoryPolicyPtrOutput {
+	return o.ToRepositoryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryPolicyOutput) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
+	return o.ApplyT(func(v RepositoryPolicy) *RepositoryPolicy {
+		return &v
+	}).(RepositoryPolicyPtrOutput)
+}
+
+type RepositoryPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicy)(nil))
+}
+
+func (o RepositoryPolicyPtrOutput) ToRepositoryPolicyPtrOutput() RepositoryPolicyPtrOutput {
+	return o
+}
+
+func (o RepositoryPolicyPtrOutput) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
+	return o
+}
+
+type RepositoryPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryPolicy)(nil))
+}
+
+func (o RepositoryPolicyArrayOutput) ToRepositoryPolicyArrayOutput() RepositoryPolicyArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyArrayOutput) ToRepositoryPolicyArrayOutputWithContext(ctx context.Context) RepositoryPolicyArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicy {
+		return vs[0].([]RepositoryPolicy)[vs[1].(int)]
+	}).(RepositoryPolicyOutput)
+}
+
+type RepositoryPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RepositoryPolicy)(nil))
+}
+
+func (o RepositoryPolicyMapOutput) ToRepositoryPolicyMapOutput() RepositoryPolicyMapOutput {
+	return o
+}
+
+func (o RepositoryPolicyMapOutput) ToRepositoryPolicyMapOutputWithContext(ctx context.Context) RepositoryPolicyMapOutput {
+	return o
+}
+
+func (o RepositoryPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryPolicy {
+		return vs[0].(map[string]RepositoryPolicy)[vs[1].(string)]
+	}).(RepositoryPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryPolicyOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyMapOutput{})
 }

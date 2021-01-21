@@ -117,6 +117,85 @@ func (i *ScramSecretAssociation) ToScramSecretAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationOutput)
 }
 
+func (i *ScramSecretAssociation) ToScramSecretAssociationPtrOutput() ScramSecretAssociationPtrOutput {
+	return i.ToScramSecretAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *ScramSecretAssociation) ToScramSecretAssociationPtrOutputWithContext(ctx context.Context) ScramSecretAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationPtrOutput)
+}
+
+type ScramSecretAssociationPtrInput interface {
+	pulumi.Input
+
+	ToScramSecretAssociationPtrOutput() ScramSecretAssociationPtrOutput
+	ToScramSecretAssociationPtrOutputWithContext(ctx context.Context) ScramSecretAssociationPtrOutput
+}
+
+type scramSecretAssociationPtrType ScramSecretAssociationArgs
+
+func (*scramSecretAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScramSecretAssociation)(nil))
+}
+
+func (i *scramSecretAssociationPtrType) ToScramSecretAssociationPtrOutput() ScramSecretAssociationPtrOutput {
+	return i.ToScramSecretAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *scramSecretAssociationPtrType) ToScramSecretAssociationPtrOutputWithContext(ctx context.Context) ScramSecretAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationPtrOutput)
+}
+
+// ScramSecretAssociationArrayInput is an input type that accepts ScramSecretAssociationArray and ScramSecretAssociationArrayOutput values.
+// You can construct a concrete instance of `ScramSecretAssociationArrayInput` via:
+//
+//          ScramSecretAssociationArray{ ScramSecretAssociationArgs{...} }
+type ScramSecretAssociationArrayInput interface {
+	pulumi.Input
+
+	ToScramSecretAssociationArrayOutput() ScramSecretAssociationArrayOutput
+	ToScramSecretAssociationArrayOutputWithContext(context.Context) ScramSecretAssociationArrayOutput
+}
+
+type ScramSecretAssociationArray []ScramSecretAssociationInput
+
+func (ScramSecretAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ScramSecretAssociation)(nil))
+}
+
+func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutput() ScramSecretAssociationArrayOutput {
+	return i.ToScramSecretAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutputWithContext(ctx context.Context) ScramSecretAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationArrayOutput)
+}
+
+// ScramSecretAssociationMapInput is an input type that accepts ScramSecretAssociationMap and ScramSecretAssociationMapOutput values.
+// You can construct a concrete instance of `ScramSecretAssociationMapInput` via:
+//
+//          ScramSecretAssociationMap{ "key": ScramSecretAssociationArgs{...} }
+type ScramSecretAssociationMapInput interface {
+	pulumi.Input
+
+	ToScramSecretAssociationMapOutput() ScramSecretAssociationMapOutput
+	ToScramSecretAssociationMapOutputWithContext(context.Context) ScramSecretAssociationMapOutput
+}
+
+type ScramSecretAssociationMap map[string]ScramSecretAssociationInput
+
+func (ScramSecretAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ScramSecretAssociation)(nil))
+}
+
+func (i ScramSecretAssociationMap) ToScramSecretAssociationMapOutput() ScramSecretAssociationMapOutput {
+	return i.ToScramSecretAssociationMapOutputWithContext(context.Background())
+}
+
+func (i ScramSecretAssociationMap) ToScramSecretAssociationMapOutputWithContext(ctx context.Context) ScramSecretAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationMapOutput)
+}
+
 type ScramSecretAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -133,6 +212,75 @@ func (o ScramSecretAssociationOutput) ToScramSecretAssociationOutputWithContext(
 	return o
 }
 
+func (o ScramSecretAssociationOutput) ToScramSecretAssociationPtrOutput() ScramSecretAssociationPtrOutput {
+	return o.ToScramSecretAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o ScramSecretAssociationOutput) ToScramSecretAssociationPtrOutputWithContext(ctx context.Context) ScramSecretAssociationPtrOutput {
+	return o.ApplyT(func(v ScramSecretAssociation) *ScramSecretAssociation {
+		return &v
+	}).(ScramSecretAssociationPtrOutput)
+}
+
+type ScramSecretAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScramSecretAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScramSecretAssociation)(nil))
+}
+
+func (o ScramSecretAssociationPtrOutput) ToScramSecretAssociationPtrOutput() ScramSecretAssociationPtrOutput {
+	return o
+}
+
+func (o ScramSecretAssociationPtrOutput) ToScramSecretAssociationPtrOutputWithContext(ctx context.Context) ScramSecretAssociationPtrOutput {
+	return o
+}
+
+type ScramSecretAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (ScramSecretAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScramSecretAssociation)(nil))
+}
+
+func (o ScramSecretAssociationArrayOutput) ToScramSecretAssociationArrayOutput() ScramSecretAssociationArrayOutput {
+	return o
+}
+
+func (o ScramSecretAssociationArrayOutput) ToScramSecretAssociationArrayOutputWithContext(ctx context.Context) ScramSecretAssociationArrayOutput {
+	return o
+}
+
+func (o ScramSecretAssociationArrayOutput) Index(i pulumi.IntInput) ScramSecretAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScramSecretAssociation {
+		return vs[0].([]ScramSecretAssociation)[vs[1].(int)]
+	}).(ScramSecretAssociationOutput)
+}
+
+type ScramSecretAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (ScramSecretAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ScramSecretAssociation)(nil))
+}
+
+func (o ScramSecretAssociationMapOutput) ToScramSecretAssociationMapOutput() ScramSecretAssociationMapOutput {
+	return o
+}
+
+func (o ScramSecretAssociationMapOutput) ToScramSecretAssociationMapOutputWithContext(ctx context.Context) ScramSecretAssociationMapOutput {
+	return o
+}
+
+func (o ScramSecretAssociationMapOutput) MapIndex(k pulumi.StringInput) ScramSecretAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScramSecretAssociation {
+		return vs[0].(map[string]ScramSecretAssociation)[vs[1].(string)]
+	}).(ScramSecretAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScramSecretAssociationOutput{})
+	pulumi.RegisterOutputType(ScramSecretAssociationPtrOutput{})
+	pulumi.RegisterOutputType(ScramSecretAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ScramSecretAssociationMapOutput{})
 }

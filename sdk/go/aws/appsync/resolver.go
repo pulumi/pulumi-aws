@@ -204,6 +204,85 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
 }
 
+func (i *Resolver) ToResolverPtrOutput() ResolverPtrOutput {
+	return i.ToResolverPtrOutputWithContext(context.Background())
+}
+
+func (i *Resolver) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverPtrOutput)
+}
+
+type ResolverPtrInput interface {
+	pulumi.Input
+
+	ToResolverPtrOutput() ResolverPtrOutput
+	ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput
+}
+
+type resolverPtrType ResolverArgs
+
+func (*resolverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Resolver)(nil))
+}
+
+func (i *resolverPtrType) ToResolverPtrOutput() ResolverPtrOutput {
+	return i.ToResolverPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverPtrType) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverPtrOutput)
+}
+
+// ResolverArrayInput is an input type that accepts ResolverArray and ResolverArrayOutput values.
+// You can construct a concrete instance of `ResolverArrayInput` via:
+//
+//          ResolverArray{ ResolverArgs{...} }
+type ResolverArrayInput interface {
+	pulumi.Input
+
+	ToResolverArrayOutput() ResolverArrayOutput
+	ToResolverArrayOutputWithContext(context.Context) ResolverArrayOutput
+}
+
+type ResolverArray []ResolverInput
+
+func (ResolverArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Resolver)(nil))
+}
+
+func (i ResolverArray) ToResolverArrayOutput() ResolverArrayOutput {
+	return i.ToResolverArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverArray) ToResolverArrayOutputWithContext(ctx context.Context) ResolverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverArrayOutput)
+}
+
+// ResolverMapInput is an input type that accepts ResolverMap and ResolverMapOutput values.
+// You can construct a concrete instance of `ResolverMapInput` via:
+//
+//          ResolverMap{ "key": ResolverArgs{...} }
+type ResolverMapInput interface {
+	pulumi.Input
+
+	ToResolverMapOutput() ResolverMapOutput
+	ToResolverMapOutputWithContext(context.Context) ResolverMapOutput
+}
+
+type ResolverMap map[string]ResolverInput
+
+func (ResolverMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Resolver)(nil))
+}
+
+func (i ResolverMap) ToResolverMapOutput() ResolverMapOutput {
+	return i.ToResolverMapOutputWithContext(context.Background())
+}
+
+func (i ResolverMap) ToResolverMapOutputWithContext(ctx context.Context) ResolverMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverMapOutput)
+}
+
 type ResolverOutput struct {
 	*pulumi.OutputState
 }
@@ -220,6 +299,75 @@ func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) Resolve
 	return o
 }
 
+func (o ResolverOutput) ToResolverPtrOutput() ResolverPtrOutput {
+	return o.ToResolverPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverOutput) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
+	return o.ApplyT(func(v Resolver) *Resolver {
+		return &v
+	}).(ResolverPtrOutput)
+}
+
+type ResolverPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Resolver)(nil))
+}
+
+func (o ResolverPtrOutput) ToResolverPtrOutput() ResolverPtrOutput {
+	return o
+}
+
+func (o ResolverPtrOutput) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
+	return o
+}
+
+type ResolverArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Resolver)(nil))
+}
+
+func (o ResolverArrayOutput) ToResolverArrayOutput() ResolverArrayOutput {
+	return o
+}
+
+func (o ResolverArrayOutput) ToResolverArrayOutputWithContext(ctx context.Context) ResolverArrayOutput {
+	return o
+}
+
+func (o ResolverArrayOutput) Index(i pulumi.IntInput) ResolverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Resolver {
+		return vs[0].([]Resolver)[vs[1].(int)]
+	}).(ResolverOutput)
+}
+
+type ResolverMapOutput struct{ *pulumi.OutputState }
+
+func (ResolverMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Resolver)(nil))
+}
+
+func (o ResolverMapOutput) ToResolverMapOutput() ResolverMapOutput {
+	return o
+}
+
+func (o ResolverMapOutput) ToResolverMapOutputWithContext(ctx context.Context) ResolverMapOutput {
+	return o
+}
+
+func (o ResolverMapOutput) MapIndex(k pulumi.StringInput) ResolverOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Resolver {
+		return vs[0].(map[string]Resolver)[vs[1].(string)]
+	}).(ResolverOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResolverOutput{})
+	pulumi.RegisterOutputType(ResolverPtrOutput{})
+	pulumi.RegisterOutputType(ResolverArrayOutput{})
+	pulumi.RegisterOutputType(ResolverMapOutput{})
 }

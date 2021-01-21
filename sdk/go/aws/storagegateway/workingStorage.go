@@ -145,6 +145,85 @@ func (i *WorkingStorage) ToWorkingStorageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageOutput)
 }
 
+func (i *WorkingStorage) ToWorkingStoragePtrOutput() WorkingStoragePtrOutput {
+	return i.ToWorkingStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *WorkingStorage) ToWorkingStoragePtrOutputWithContext(ctx context.Context) WorkingStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkingStoragePtrOutput)
+}
+
+type WorkingStoragePtrInput interface {
+	pulumi.Input
+
+	ToWorkingStoragePtrOutput() WorkingStoragePtrOutput
+	ToWorkingStoragePtrOutputWithContext(ctx context.Context) WorkingStoragePtrOutput
+}
+
+type workingStoragePtrType WorkingStorageArgs
+
+func (*workingStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkingStorage)(nil))
+}
+
+func (i *workingStoragePtrType) ToWorkingStoragePtrOutput() WorkingStoragePtrOutput {
+	return i.ToWorkingStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *workingStoragePtrType) ToWorkingStoragePtrOutputWithContext(ctx context.Context) WorkingStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkingStoragePtrOutput)
+}
+
+// WorkingStorageArrayInput is an input type that accepts WorkingStorageArray and WorkingStorageArrayOutput values.
+// You can construct a concrete instance of `WorkingStorageArrayInput` via:
+//
+//          WorkingStorageArray{ WorkingStorageArgs{...} }
+type WorkingStorageArrayInput interface {
+	pulumi.Input
+
+	ToWorkingStorageArrayOutput() WorkingStorageArrayOutput
+	ToWorkingStorageArrayOutputWithContext(context.Context) WorkingStorageArrayOutput
+}
+
+type WorkingStorageArray []WorkingStorageInput
+
+func (WorkingStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WorkingStorage)(nil))
+}
+
+func (i WorkingStorageArray) ToWorkingStorageArrayOutput() WorkingStorageArrayOutput {
+	return i.ToWorkingStorageArrayOutputWithContext(context.Background())
+}
+
+func (i WorkingStorageArray) ToWorkingStorageArrayOutputWithContext(ctx context.Context) WorkingStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageArrayOutput)
+}
+
+// WorkingStorageMapInput is an input type that accepts WorkingStorageMap and WorkingStorageMapOutput values.
+// You can construct a concrete instance of `WorkingStorageMapInput` via:
+//
+//          WorkingStorageMap{ "key": WorkingStorageArgs{...} }
+type WorkingStorageMapInput interface {
+	pulumi.Input
+
+	ToWorkingStorageMapOutput() WorkingStorageMapOutput
+	ToWorkingStorageMapOutputWithContext(context.Context) WorkingStorageMapOutput
+}
+
+type WorkingStorageMap map[string]WorkingStorageInput
+
+func (WorkingStorageMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WorkingStorage)(nil))
+}
+
+func (i WorkingStorageMap) ToWorkingStorageMapOutput() WorkingStorageMapOutput {
+	return i.ToWorkingStorageMapOutputWithContext(context.Background())
+}
+
+func (i WorkingStorageMap) ToWorkingStorageMapOutputWithContext(ctx context.Context) WorkingStorageMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageMapOutput)
+}
+
 type WorkingStorageOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o WorkingStorageOutput) ToWorkingStorageOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o WorkingStorageOutput) ToWorkingStoragePtrOutput() WorkingStoragePtrOutput {
+	return o.ToWorkingStoragePtrOutputWithContext(context.Background())
+}
+
+func (o WorkingStorageOutput) ToWorkingStoragePtrOutputWithContext(ctx context.Context) WorkingStoragePtrOutput {
+	return o.ApplyT(func(v WorkingStorage) *WorkingStorage {
+		return &v
+	}).(WorkingStoragePtrOutput)
+}
+
+type WorkingStoragePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkingStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkingStorage)(nil))
+}
+
+func (o WorkingStoragePtrOutput) ToWorkingStoragePtrOutput() WorkingStoragePtrOutput {
+	return o
+}
+
+func (o WorkingStoragePtrOutput) ToWorkingStoragePtrOutputWithContext(ctx context.Context) WorkingStoragePtrOutput {
+	return o
+}
+
+type WorkingStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkingStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkingStorage)(nil))
+}
+
+func (o WorkingStorageArrayOutput) ToWorkingStorageArrayOutput() WorkingStorageArrayOutput {
+	return o
+}
+
+func (o WorkingStorageArrayOutput) ToWorkingStorageArrayOutputWithContext(ctx context.Context) WorkingStorageArrayOutput {
+	return o
+}
+
+func (o WorkingStorageArrayOutput) Index(i pulumi.IntInput) WorkingStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkingStorage {
+		return vs[0].([]WorkingStorage)[vs[1].(int)]
+	}).(WorkingStorageOutput)
+}
+
+type WorkingStorageMapOutput struct{ *pulumi.OutputState }
+
+func (WorkingStorageMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkingStorage)(nil))
+}
+
+func (o WorkingStorageMapOutput) ToWorkingStorageMapOutput() WorkingStorageMapOutput {
+	return o
+}
+
+func (o WorkingStorageMapOutput) ToWorkingStorageMapOutputWithContext(ctx context.Context) WorkingStorageMapOutput {
+	return o
+}
+
+func (o WorkingStorageMapOutput) MapIndex(k pulumi.StringInput) WorkingStorageOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkingStorage {
+		return vs[0].(map[string]WorkingStorage)[vs[1].(string)]
+	}).(WorkingStorageOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkingStorageOutput{})
+	pulumi.RegisterOutputType(WorkingStoragePtrOutput{})
+	pulumi.RegisterOutputType(WorkingStorageArrayOutput{})
+	pulumi.RegisterOutputType(WorkingStorageMapOutput{})
 }

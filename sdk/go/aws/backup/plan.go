@@ -185,6 +185,85 @@ func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
 }
 
+func (i *Plan) ToPlanPtrOutput() PlanPtrOutput {
+	return i.ToPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *Plan) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
+}
+
+type PlanPtrInput interface {
+	pulumi.Input
+
+	ToPlanPtrOutput() PlanPtrOutput
+	ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput
+}
+
+type planPtrType PlanArgs
+
+func (*planPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Plan)(nil))
+}
+
+func (i *planPtrType) ToPlanPtrOutput() PlanPtrOutput {
+	return i.ToPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
+}
+
+// PlanArrayInput is an input type that accepts PlanArray and PlanArrayOutput values.
+// You can construct a concrete instance of `PlanArrayInput` via:
+//
+//          PlanArray{ PlanArgs{...} }
+type PlanArrayInput interface {
+	pulumi.Input
+
+	ToPlanArrayOutput() PlanArrayOutput
+	ToPlanArrayOutputWithContext(context.Context) PlanArrayOutput
+}
+
+type PlanArray []PlanInput
+
+func (PlanArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Plan)(nil))
+}
+
+func (i PlanArray) ToPlanArrayOutput() PlanArrayOutput {
+	return i.ToPlanArrayOutputWithContext(context.Background())
+}
+
+func (i PlanArray) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanArrayOutput)
+}
+
+// PlanMapInput is an input type that accepts PlanMap and PlanMapOutput values.
+// You can construct a concrete instance of `PlanMapInput` via:
+//
+//          PlanMap{ "key": PlanArgs{...} }
+type PlanMapInput interface {
+	pulumi.Input
+
+	ToPlanMapOutput() PlanMapOutput
+	ToPlanMapOutputWithContext(context.Context) PlanMapOutput
+}
+
+type PlanMap map[string]PlanInput
+
+func (PlanMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Plan)(nil))
+}
+
+func (i PlanMap) ToPlanMapOutput() PlanMapOutput {
+	return i.ToPlanMapOutputWithContext(context.Background())
+}
+
+func (i PlanMap) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanMapOutput)
+}
+
 type PlanOutput struct {
 	*pulumi.OutputState
 }
@@ -201,6 +280,75 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
+func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
+	return o.ToPlanPtrOutputWithContext(context.Background())
+}
+
+func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
+	return o.ApplyT(func(v Plan) *Plan {
+		return &v
+	}).(PlanPtrOutput)
+}
+
+type PlanPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Plan)(nil))
+}
+
+func (o PlanPtrOutput) ToPlanPtrOutput() PlanPtrOutput {
+	return o
+}
+
+func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
+	return o
+}
+
+type PlanArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Plan)(nil))
+}
+
+func (o PlanArrayOutput) ToPlanArrayOutput() PlanArrayOutput {
+	return o
+}
+
+func (o PlanArrayOutput) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOutput {
+	return o
+}
+
+func (o PlanArrayOutput) Index(i pulumi.IntInput) PlanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Plan {
+		return vs[0].([]Plan)[vs[1].(int)]
+	}).(PlanOutput)
+}
+
+type PlanMapOutput struct{ *pulumi.OutputState }
+
+func (PlanMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Plan)(nil))
+}
+
+func (o PlanMapOutput) ToPlanMapOutput() PlanMapOutput {
+	return o
+}
+
+func (o PlanMapOutput) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
+	return o
+}
+
+func (o PlanMapOutput) MapIndex(k pulumi.StringInput) PlanOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Plan {
+		return vs[0].(map[string]Plan)[vs[1].(string)]
+	}).(PlanOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PlanOutput{})
+	pulumi.RegisterOutputType(PlanPtrOutput{})
+	pulumi.RegisterOutputType(PlanArrayOutput{})
+	pulumi.RegisterOutputType(PlanMapOutput{})
 }

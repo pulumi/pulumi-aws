@@ -359,6 +359,85 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
 }
 
+func (i *DevEndpoint) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
+	return i.ToDevEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *DevEndpoint) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointPtrOutput)
+}
+
+type DevEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDevEndpointPtrOutput() DevEndpointPtrOutput
+	ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput
+}
+
+type devEndpointPtrType DevEndpointArgs
+
+func (*devEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DevEndpoint)(nil))
+}
+
+func (i *devEndpointPtrType) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
+	return i.ToDevEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *devEndpointPtrType) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointPtrOutput)
+}
+
+// DevEndpointArrayInput is an input type that accepts DevEndpointArray and DevEndpointArrayOutput values.
+// You can construct a concrete instance of `DevEndpointArrayInput` via:
+//
+//          DevEndpointArray{ DevEndpointArgs{...} }
+type DevEndpointArrayInput interface {
+	pulumi.Input
+
+	ToDevEndpointArrayOutput() DevEndpointArrayOutput
+	ToDevEndpointArrayOutputWithContext(context.Context) DevEndpointArrayOutput
+}
+
+type DevEndpointArray []DevEndpointInput
+
+func (DevEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DevEndpoint)(nil))
+}
+
+func (i DevEndpointArray) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
+	return i.ToDevEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i DevEndpointArray) ToDevEndpointArrayOutputWithContext(ctx context.Context) DevEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointArrayOutput)
+}
+
+// DevEndpointMapInput is an input type that accepts DevEndpointMap and DevEndpointMapOutput values.
+// You can construct a concrete instance of `DevEndpointMapInput` via:
+//
+//          DevEndpointMap{ "key": DevEndpointArgs{...} }
+type DevEndpointMapInput interface {
+	pulumi.Input
+
+	ToDevEndpointMapOutput() DevEndpointMapOutput
+	ToDevEndpointMapOutputWithContext(context.Context) DevEndpointMapOutput
+}
+
+type DevEndpointMap map[string]DevEndpointInput
+
+func (DevEndpointMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DevEndpoint)(nil))
+}
+
+func (i DevEndpointMap) ToDevEndpointMapOutput() DevEndpointMapOutput {
+	return i.ToDevEndpointMapOutputWithContext(context.Background())
+}
+
+func (i DevEndpointMap) ToDevEndpointMapOutputWithContext(ctx context.Context) DevEndpointMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointMapOutput)
+}
+
 type DevEndpointOutput struct {
 	*pulumi.OutputState
 }
@@ -375,6 +454,75 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DevEndpointOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
+	return o.ToDevEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DevEndpointOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
+	return o.ApplyT(func(v DevEndpoint) *DevEndpoint {
+		return &v
+	}).(DevEndpointPtrOutput)
+}
+
+type DevEndpointPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DevEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DevEndpoint)(nil))
+}
+
+func (o DevEndpointPtrOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
+	return o
+}
+
+func (o DevEndpointPtrOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
+	return o
+}
+
+type DevEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (DevEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DevEndpoint)(nil))
+}
+
+func (o DevEndpointArrayOutput) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
+	return o
+}
+
+func (o DevEndpointArrayOutput) ToDevEndpointArrayOutputWithContext(ctx context.Context) DevEndpointArrayOutput {
+	return o
+}
+
+func (o DevEndpointArrayOutput) Index(i pulumi.IntInput) DevEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DevEndpoint {
+		return vs[0].([]DevEndpoint)[vs[1].(int)]
+	}).(DevEndpointOutput)
+}
+
+type DevEndpointMapOutput struct{ *pulumi.OutputState }
+
+func (DevEndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DevEndpoint)(nil))
+}
+
+func (o DevEndpointMapOutput) ToDevEndpointMapOutput() DevEndpointMapOutput {
+	return o
+}
+
+func (o DevEndpointMapOutput) ToDevEndpointMapOutputWithContext(ctx context.Context) DevEndpointMapOutput {
+	return o
+}
+
+func (o DevEndpointMapOutput) MapIndex(k pulumi.StringInput) DevEndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DevEndpoint {
+		return vs[0].(map[string]DevEndpoint)[vs[1].(string)]
+	}).(DevEndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DevEndpointOutput{})
+	pulumi.RegisterOutputType(DevEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DevEndpointArrayOutput{})
+	pulumi.RegisterOutputType(DevEndpointMapOutput{})
 }

@@ -232,6 +232,85 @@ func (i *ManagedPrefixList) ToManagedPrefixListOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListOutput)
 }
 
+func (i *ManagedPrefixList) ToManagedPrefixListPtrOutput() ManagedPrefixListPtrOutput {
+	return i.ToManagedPrefixListPtrOutputWithContext(context.Background())
+}
+
+func (i *ManagedPrefixList) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListPtrOutput)
+}
+
+type ManagedPrefixListPtrInput interface {
+	pulumi.Input
+
+	ToManagedPrefixListPtrOutput() ManagedPrefixListPtrOutput
+	ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput
+}
+
+type managedPrefixListPtrType ManagedPrefixListArgs
+
+func (*managedPrefixListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrefixList)(nil))
+}
+
+func (i *managedPrefixListPtrType) ToManagedPrefixListPtrOutput() ManagedPrefixListPtrOutput {
+	return i.ToManagedPrefixListPtrOutputWithContext(context.Background())
+}
+
+func (i *managedPrefixListPtrType) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListPtrOutput)
+}
+
+// ManagedPrefixListArrayInput is an input type that accepts ManagedPrefixListArray and ManagedPrefixListArrayOutput values.
+// You can construct a concrete instance of `ManagedPrefixListArrayInput` via:
+//
+//          ManagedPrefixListArray{ ManagedPrefixListArgs{...} }
+type ManagedPrefixListArrayInput interface {
+	pulumi.Input
+
+	ToManagedPrefixListArrayOutput() ManagedPrefixListArrayOutput
+	ToManagedPrefixListArrayOutputWithContext(context.Context) ManagedPrefixListArrayOutput
+}
+
+type ManagedPrefixListArray []ManagedPrefixListInput
+
+func (ManagedPrefixListArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManagedPrefixList)(nil))
+}
+
+func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutput() ManagedPrefixListArrayOutput {
+	return i.ToManagedPrefixListArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutputWithContext(ctx context.Context) ManagedPrefixListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListArrayOutput)
+}
+
+// ManagedPrefixListMapInput is an input type that accepts ManagedPrefixListMap and ManagedPrefixListMapOutput values.
+// You can construct a concrete instance of `ManagedPrefixListMapInput` via:
+//
+//          ManagedPrefixListMap{ "key": ManagedPrefixListArgs{...} }
+type ManagedPrefixListMapInput interface {
+	pulumi.Input
+
+	ToManagedPrefixListMapOutput() ManagedPrefixListMapOutput
+	ToManagedPrefixListMapOutputWithContext(context.Context) ManagedPrefixListMapOutput
+}
+
+type ManagedPrefixListMap map[string]ManagedPrefixListInput
+
+func (ManagedPrefixListMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManagedPrefixList)(nil))
+}
+
+func (i ManagedPrefixListMap) ToManagedPrefixListMapOutput() ManagedPrefixListMapOutput {
+	return i.ToManagedPrefixListMapOutputWithContext(context.Background())
+}
+
+func (i ManagedPrefixListMap) ToManagedPrefixListMapOutputWithContext(ctx context.Context) ManagedPrefixListMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListMapOutput)
+}
+
 type ManagedPrefixListOutput struct {
 	*pulumi.OutputState
 }
@@ -248,6 +327,75 @@ func (o ManagedPrefixListOutput) ToManagedPrefixListOutputWithContext(ctx contex
 	return o
 }
 
+func (o ManagedPrefixListOutput) ToManagedPrefixListPtrOutput() ManagedPrefixListPtrOutput {
+	return o.ToManagedPrefixListPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPrefixListOutput) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
+	return o.ApplyT(func(v ManagedPrefixList) *ManagedPrefixList {
+		return &v
+	}).(ManagedPrefixListPtrOutput)
+}
+
+type ManagedPrefixListPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedPrefixListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrefixList)(nil))
+}
+
+func (o ManagedPrefixListPtrOutput) ToManagedPrefixListPtrOutput() ManagedPrefixListPtrOutput {
+	return o
+}
+
+func (o ManagedPrefixListPtrOutput) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
+	return o
+}
+
+type ManagedPrefixListArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrefixListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrefixList)(nil))
+}
+
+func (o ManagedPrefixListArrayOutput) ToManagedPrefixListArrayOutput() ManagedPrefixListArrayOutput {
+	return o
+}
+
+func (o ManagedPrefixListArrayOutput) ToManagedPrefixListArrayOutputWithContext(ctx context.Context) ManagedPrefixListArrayOutput {
+	return o
+}
+
+func (o ManagedPrefixListArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrefixList {
+		return vs[0].([]ManagedPrefixList)[vs[1].(int)]
+	}).(ManagedPrefixListOutput)
+}
+
+type ManagedPrefixListMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrefixListMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedPrefixList)(nil))
+}
+
+func (o ManagedPrefixListMapOutput) ToManagedPrefixListMapOutput() ManagedPrefixListMapOutput {
+	return o
+}
+
+func (o ManagedPrefixListMapOutput) ToManagedPrefixListMapOutputWithContext(ctx context.Context) ManagedPrefixListMapOutput {
+	return o
+}
+
+func (o ManagedPrefixListMapOutput) MapIndex(k pulumi.StringInput) ManagedPrefixListOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedPrefixList {
+		return vs[0].(map[string]ManagedPrefixList)[vs[1].(string)]
+	}).(ManagedPrefixListOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedPrefixListOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListPtrOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListArrayOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListMapOutput{})
 }

@@ -390,6 +390,85 @@ func (i *WindowsFileSystem) ToWindowsFileSystemOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemOutput)
 }
 
+func (i *WindowsFileSystem) ToWindowsFileSystemPtrOutput() WindowsFileSystemPtrOutput {
+	return i.ToWindowsFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *WindowsFileSystem) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemPtrOutput)
+}
+
+type WindowsFileSystemPtrInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemPtrOutput() WindowsFileSystemPtrOutput
+	ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput
+}
+
+type windowsFileSystemPtrType WindowsFileSystemArgs
+
+func (*windowsFileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystem)(nil))
+}
+
+func (i *windowsFileSystemPtrType) ToWindowsFileSystemPtrOutput() WindowsFileSystemPtrOutput {
+	return i.ToWindowsFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsFileSystemPtrType) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemPtrOutput)
+}
+
+// WindowsFileSystemArrayInput is an input type that accepts WindowsFileSystemArray and WindowsFileSystemArrayOutput values.
+// You can construct a concrete instance of `WindowsFileSystemArrayInput` via:
+//
+//          WindowsFileSystemArray{ WindowsFileSystemArgs{...} }
+type WindowsFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemArrayOutput() WindowsFileSystemArrayOutput
+	ToWindowsFileSystemArrayOutputWithContext(context.Context) WindowsFileSystemArrayOutput
+}
+
+type WindowsFileSystemArray []WindowsFileSystemInput
+
+func (WindowsFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WindowsFileSystem)(nil))
+}
+
+func (i WindowsFileSystemArray) ToWindowsFileSystemArrayOutput() WindowsFileSystemArrayOutput {
+	return i.ToWindowsFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemArray) ToWindowsFileSystemArrayOutputWithContext(ctx context.Context) WindowsFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemArrayOutput)
+}
+
+// WindowsFileSystemMapInput is an input type that accepts WindowsFileSystemMap and WindowsFileSystemMapOutput values.
+// You can construct a concrete instance of `WindowsFileSystemMapInput` via:
+//
+//          WindowsFileSystemMap{ "key": WindowsFileSystemArgs{...} }
+type WindowsFileSystemMapInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemMapOutput() WindowsFileSystemMapOutput
+	ToWindowsFileSystemMapOutputWithContext(context.Context) WindowsFileSystemMapOutput
+}
+
+type WindowsFileSystemMap map[string]WindowsFileSystemInput
+
+func (WindowsFileSystemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WindowsFileSystem)(nil))
+}
+
+func (i WindowsFileSystemMap) ToWindowsFileSystemMapOutput() WindowsFileSystemMapOutput {
+	return i.ToWindowsFileSystemMapOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemMap) ToWindowsFileSystemMapOutputWithContext(ctx context.Context) WindowsFileSystemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemMapOutput)
+}
+
 type WindowsFileSystemOutput struct {
 	*pulumi.OutputState
 }
@@ -406,6 +485,75 @@ func (o WindowsFileSystemOutput) ToWindowsFileSystemOutputWithContext(ctx contex
 	return o
 }
 
+func (o WindowsFileSystemOutput) ToWindowsFileSystemPtrOutput() WindowsFileSystemPtrOutput {
+	return o.ToWindowsFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsFileSystemOutput) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystem) *WindowsFileSystem {
+		return &v
+	}).(WindowsFileSystemPtrOutput)
+}
+
+type WindowsFileSystemPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsFileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystem)(nil))
+}
+
+func (o WindowsFileSystemPtrOutput) ToWindowsFileSystemPtrOutput() WindowsFileSystemPtrOutput {
+	return o
+}
+
+func (o WindowsFileSystemPtrOutput) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
+	return o
+}
+
+type WindowsFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsFileSystem)(nil))
+}
+
+func (o WindowsFileSystemArrayOutput) ToWindowsFileSystemArrayOutput() WindowsFileSystemArrayOutput {
+	return o
+}
+
+func (o WindowsFileSystemArrayOutput) ToWindowsFileSystemArrayOutputWithContext(ctx context.Context) WindowsFileSystemArrayOutput {
+	return o
+}
+
+func (o WindowsFileSystemArrayOutput) Index(i pulumi.IntInput) WindowsFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsFileSystem {
+		return vs[0].([]WindowsFileSystem)[vs[1].(int)]
+	}).(WindowsFileSystemOutput)
+}
+
+type WindowsFileSystemMapOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WindowsFileSystem)(nil))
+}
+
+func (o WindowsFileSystemMapOutput) ToWindowsFileSystemMapOutput() WindowsFileSystemMapOutput {
+	return o
+}
+
+func (o WindowsFileSystemMapOutput) ToWindowsFileSystemMapOutputWithContext(ctx context.Context) WindowsFileSystemMapOutput {
+	return o
+}
+
+func (o WindowsFileSystemMapOutput) MapIndex(k pulumi.StringInput) WindowsFileSystemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WindowsFileSystem {
+		return vs[0].(map[string]WindowsFileSystem)[vs[1].(string)]
+	}).(WindowsFileSystemOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WindowsFileSystemOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemMapOutput{})
 }

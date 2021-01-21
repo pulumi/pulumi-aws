@@ -197,6 +197,85 @@ func (i *DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetOutput)
 }
 
+func (i *DefaultSubnet) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput {
+	return i.ToDefaultSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i *DefaultSubnet) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetPtrOutput)
+}
+
+type DefaultSubnetPtrInput interface {
+	pulumi.Input
+
+	ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput
+	ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput
+}
+
+type defaultSubnetPtrType DefaultSubnetArgs
+
+func (*defaultSubnetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultSubnet)(nil))
+}
+
+func (i *defaultSubnetPtrType) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput {
+	return i.ToDefaultSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultSubnetPtrType) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetPtrOutput)
+}
+
+// DefaultSubnetArrayInput is an input type that accepts DefaultSubnetArray and DefaultSubnetArrayOutput values.
+// You can construct a concrete instance of `DefaultSubnetArrayInput` via:
+//
+//          DefaultSubnetArray{ DefaultSubnetArgs{...} }
+type DefaultSubnetArrayInput interface {
+	pulumi.Input
+
+	ToDefaultSubnetArrayOutput() DefaultSubnetArrayOutput
+	ToDefaultSubnetArrayOutputWithContext(context.Context) DefaultSubnetArrayOutput
+}
+
+type DefaultSubnetArray []DefaultSubnetInput
+
+func (DefaultSubnetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DefaultSubnet)(nil))
+}
+
+func (i DefaultSubnetArray) ToDefaultSubnetArrayOutput() DefaultSubnetArrayOutput {
+	return i.ToDefaultSubnetArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultSubnetArray) ToDefaultSubnetArrayOutputWithContext(ctx context.Context) DefaultSubnetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetArrayOutput)
+}
+
+// DefaultSubnetMapInput is an input type that accepts DefaultSubnetMap and DefaultSubnetMapOutput values.
+// You can construct a concrete instance of `DefaultSubnetMapInput` via:
+//
+//          DefaultSubnetMap{ "key": DefaultSubnetArgs{...} }
+type DefaultSubnetMapInput interface {
+	pulumi.Input
+
+	ToDefaultSubnetMapOutput() DefaultSubnetMapOutput
+	ToDefaultSubnetMapOutputWithContext(context.Context) DefaultSubnetMapOutput
+}
+
+type DefaultSubnetMap map[string]DefaultSubnetInput
+
+func (DefaultSubnetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DefaultSubnet)(nil))
+}
+
+func (i DefaultSubnetMap) ToDefaultSubnetMapOutput() DefaultSubnetMapOutput {
+	return i.ToDefaultSubnetMapOutputWithContext(context.Background())
+}
+
+func (i DefaultSubnetMap) ToDefaultSubnetMapOutputWithContext(ctx context.Context) DefaultSubnetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetMapOutput)
+}
+
 type DefaultSubnetOutput struct {
 	*pulumi.OutputState
 }
@@ -213,6 +292,75 @@ func (o DefaultSubnetOutput) ToDefaultSubnetOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DefaultSubnetOutput) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput {
+	return o.ToDefaultSubnetPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultSubnetOutput) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
+	return o.ApplyT(func(v DefaultSubnet) *DefaultSubnet {
+		return &v
+	}).(DefaultSubnetPtrOutput)
+}
+
+type DefaultSubnetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultSubnetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultSubnet)(nil))
+}
+
+func (o DefaultSubnetPtrOutput) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput {
+	return o
+}
+
+func (o DefaultSubnetPtrOutput) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
+	return o
+}
+
+type DefaultSubnetArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultSubnetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultSubnet)(nil))
+}
+
+func (o DefaultSubnetArrayOutput) ToDefaultSubnetArrayOutput() DefaultSubnetArrayOutput {
+	return o
+}
+
+func (o DefaultSubnetArrayOutput) ToDefaultSubnetArrayOutputWithContext(ctx context.Context) DefaultSubnetArrayOutput {
+	return o
+}
+
+func (o DefaultSubnetArrayOutput) Index(i pulumi.IntInput) DefaultSubnetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultSubnet {
+		return vs[0].([]DefaultSubnet)[vs[1].(int)]
+	}).(DefaultSubnetOutput)
+}
+
+type DefaultSubnetMapOutput struct{ *pulumi.OutputState }
+
+func (DefaultSubnetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DefaultSubnet)(nil))
+}
+
+func (o DefaultSubnetMapOutput) ToDefaultSubnetMapOutput() DefaultSubnetMapOutput {
+	return o
+}
+
+func (o DefaultSubnetMapOutput) ToDefaultSubnetMapOutputWithContext(ctx context.Context) DefaultSubnetMapOutput {
+	return o
+}
+
+func (o DefaultSubnetMapOutput) MapIndex(k pulumi.StringInput) DefaultSubnetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultSubnet {
+		return vs[0].(map[string]DefaultSubnet)[vs[1].(string)]
+	}).(DefaultSubnetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultSubnetOutput{})
+	pulumi.RegisterOutputType(DefaultSubnetPtrOutput{})
+	pulumi.RegisterOutputType(DefaultSubnetArrayOutput{})
+	pulumi.RegisterOutputType(DefaultSubnetMapOutput{})
 }

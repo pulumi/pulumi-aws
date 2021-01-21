@@ -154,6 +154,85 @@ func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayOutput)
 }
 
+func (i *CarrierGateway) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
+	return i.ToCarrierGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *CarrierGateway) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPtrOutput)
+}
+
+type CarrierGatewayPtrInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput
+	ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput
+}
+
+type carrierGatewayPtrType CarrierGatewayArgs
+
+func (*carrierGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGateway)(nil))
+}
+
+func (i *carrierGatewayPtrType) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
+	return i.ToCarrierGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *carrierGatewayPtrType) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPtrOutput)
+}
+
+// CarrierGatewayArrayInput is an input type that accepts CarrierGatewayArray and CarrierGatewayArrayOutput values.
+// You can construct a concrete instance of `CarrierGatewayArrayInput` via:
+//
+//          CarrierGatewayArray{ CarrierGatewayArgs{...} }
+type CarrierGatewayArrayInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayArrayOutput() CarrierGatewayArrayOutput
+	ToCarrierGatewayArrayOutputWithContext(context.Context) CarrierGatewayArrayOutput
+}
+
+type CarrierGatewayArray []CarrierGatewayInput
+
+func (CarrierGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CarrierGateway)(nil))
+}
+
+func (i CarrierGatewayArray) ToCarrierGatewayArrayOutput() CarrierGatewayArrayOutput {
+	return i.ToCarrierGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayArray) ToCarrierGatewayArrayOutputWithContext(ctx context.Context) CarrierGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayArrayOutput)
+}
+
+// CarrierGatewayMapInput is an input type that accepts CarrierGatewayMap and CarrierGatewayMapOutput values.
+// You can construct a concrete instance of `CarrierGatewayMapInput` via:
+//
+//          CarrierGatewayMap{ "key": CarrierGatewayArgs{...} }
+type CarrierGatewayMapInput interface {
+	pulumi.Input
+
+	ToCarrierGatewayMapOutput() CarrierGatewayMapOutput
+	ToCarrierGatewayMapOutputWithContext(context.Context) CarrierGatewayMapOutput
+}
+
+type CarrierGatewayMap map[string]CarrierGatewayInput
+
+func (CarrierGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CarrierGateway)(nil))
+}
+
+func (i CarrierGatewayMap) ToCarrierGatewayMapOutput() CarrierGatewayMapOutput {
+	return i.ToCarrierGatewayMapOutputWithContext(context.Background())
+}
+
+func (i CarrierGatewayMap) ToCarrierGatewayMapOutputWithContext(ctx context.Context) CarrierGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayMapOutput)
+}
+
 type CarrierGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -170,6 +249,75 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CarrierGatewayOutput) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
+	return o.ToCarrierGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o CarrierGatewayOutput) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
+	return o.ApplyT(func(v CarrierGateway) *CarrierGateway {
+		return &v
+	}).(CarrierGatewayPtrOutput)
+}
+
+type CarrierGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CarrierGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CarrierGateway)(nil))
+}
+
+func (o CarrierGatewayPtrOutput) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
+	return o
+}
+
+func (o CarrierGatewayPtrOutput) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
+	return o
+}
+
+type CarrierGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CarrierGateway)(nil))
+}
+
+func (o CarrierGatewayArrayOutput) ToCarrierGatewayArrayOutput() CarrierGatewayArrayOutput {
+	return o
+}
+
+func (o CarrierGatewayArrayOutput) ToCarrierGatewayArrayOutputWithContext(ctx context.Context) CarrierGatewayArrayOutput {
+	return o
+}
+
+func (o CarrierGatewayArrayOutput) Index(i pulumi.IntInput) CarrierGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CarrierGateway {
+		return vs[0].([]CarrierGateway)[vs[1].(int)]
+	}).(CarrierGatewayOutput)
+}
+
+type CarrierGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (CarrierGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CarrierGateway)(nil))
+}
+
+func (o CarrierGatewayMapOutput) ToCarrierGatewayMapOutput() CarrierGatewayMapOutput {
+	return o
+}
+
+func (o CarrierGatewayMapOutput) ToCarrierGatewayMapOutputWithContext(ctx context.Context) CarrierGatewayMapOutput {
+	return o
+}
+
+func (o CarrierGatewayMapOutput) MapIndex(k pulumi.StringInput) CarrierGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CarrierGateway {
+		return vs[0].(map[string]CarrierGateway)[vs[1].(string)]
+	}).(CarrierGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CarrierGatewayOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayPtrOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayArrayOutput{})
+	pulumi.RegisterOutputType(CarrierGatewayMapOutput{})
 }

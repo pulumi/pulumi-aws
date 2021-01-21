@@ -600,6 +600,85 @@ func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestOutput)
 }
 
+func (i *SpotFleetRequest) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
+	return i.ToSpotFleetRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *SpotFleetRequest) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestPtrOutput)
+}
+
+type SpotFleetRequestPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput
+	ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput
+}
+
+type spotFleetRequestPtrType SpotFleetRequestArgs
+
+func (*spotFleetRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequest)(nil))
+}
+
+func (i *spotFleetRequestPtrType) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
+	return i.ToSpotFleetRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestPtrType) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestPtrOutput)
+}
+
+// SpotFleetRequestArrayInput is an input type that accepts SpotFleetRequestArray and SpotFleetRequestArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestArrayInput` via:
+//
+//          SpotFleetRequestArray{ SpotFleetRequestArgs{...} }
+type SpotFleetRequestArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestArrayOutput() SpotFleetRequestArrayOutput
+	ToSpotFleetRequestArrayOutputWithContext(context.Context) SpotFleetRequestArrayOutput
+}
+
+type SpotFleetRequestArray []SpotFleetRequestInput
+
+func (SpotFleetRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SpotFleetRequest)(nil))
+}
+
+func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutput() SpotFleetRequestArrayOutput {
+	return i.ToSpotFleetRequestArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutputWithContext(ctx context.Context) SpotFleetRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestArrayOutput)
+}
+
+// SpotFleetRequestMapInput is an input type that accepts SpotFleetRequestMap and SpotFleetRequestMapOutput values.
+// You can construct a concrete instance of `SpotFleetRequestMapInput` via:
+//
+//          SpotFleetRequestMap{ "key": SpotFleetRequestArgs{...} }
+type SpotFleetRequestMapInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestMapOutput() SpotFleetRequestMapOutput
+	ToSpotFleetRequestMapOutputWithContext(context.Context) SpotFleetRequestMapOutput
+}
+
+type SpotFleetRequestMap map[string]SpotFleetRequestInput
+
+func (SpotFleetRequestMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SpotFleetRequest)(nil))
+}
+
+func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutput() SpotFleetRequestMapOutput {
+	return i.ToSpotFleetRequestMapOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutputWithContext(ctx context.Context) SpotFleetRequestMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestMapOutput)
+}
+
 type SpotFleetRequestOutput struct {
 	*pulumi.OutputState
 }
@@ -616,6 +695,75 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestOutputWithContext(ctx context.
 	return o
 }
 
+func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
+	return o.ToSpotFleetRequestPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequest) *SpotFleetRequest {
+		return &v
+	}).(SpotFleetRequestPtrOutput)
+}
+
+type SpotFleetRequestPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotFleetRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequest)(nil))
+}
+
+func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
+	return o
+}
+
+type SpotFleetRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequest)(nil))
+}
+
+func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutput() SpotFleetRequestArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutputWithContext(ctx context.Context) SpotFleetRequestArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequest {
+		return vs[0].([]SpotFleetRequest)[vs[1].(int)]
+	}).(SpotFleetRequestOutput)
+}
+
+type SpotFleetRequestMapOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SpotFleetRequest)(nil))
+}
+
+func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutput() SpotFleetRequestMapOutput {
+	return o
+}
+
+func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutputWithContext(ctx context.Context) SpotFleetRequestMapOutput {
+	return o
+}
+
+func (o SpotFleetRequestMapOutput) MapIndex(k pulumi.StringInput) SpotFleetRequestOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpotFleetRequest {
+		return vs[0].(map[string]SpotFleetRequest)[vs[1].(string)]
+	}).(SpotFleetRequestOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestMapOutput{})
 }

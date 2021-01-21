@@ -151,6 +151,85 @@ func (i *DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetOutput)
 }
 
+func (i *DelegationSet) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
+	return i.ToDelegationSetPtrOutputWithContext(context.Background())
+}
+
+func (i *DelegationSet) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetPtrOutput)
+}
+
+type DelegationSetPtrInput interface {
+	pulumi.Input
+
+	ToDelegationSetPtrOutput() DelegationSetPtrOutput
+	ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput
+}
+
+type delegationSetPtrType DelegationSetArgs
+
+func (*delegationSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSet)(nil))
+}
+
+func (i *delegationSetPtrType) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
+	return i.ToDelegationSetPtrOutputWithContext(context.Background())
+}
+
+func (i *delegationSetPtrType) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetPtrOutput)
+}
+
+// DelegationSetArrayInput is an input type that accepts DelegationSetArray and DelegationSetArrayOutput values.
+// You can construct a concrete instance of `DelegationSetArrayInput` via:
+//
+//          DelegationSetArray{ DelegationSetArgs{...} }
+type DelegationSetArrayInput interface {
+	pulumi.Input
+
+	ToDelegationSetArrayOutput() DelegationSetArrayOutput
+	ToDelegationSetArrayOutputWithContext(context.Context) DelegationSetArrayOutput
+}
+
+type DelegationSetArray []DelegationSetInput
+
+func (DelegationSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DelegationSet)(nil))
+}
+
+func (i DelegationSetArray) ToDelegationSetArrayOutput() DelegationSetArrayOutput {
+	return i.ToDelegationSetArrayOutputWithContext(context.Background())
+}
+
+func (i DelegationSetArray) ToDelegationSetArrayOutputWithContext(ctx context.Context) DelegationSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetArrayOutput)
+}
+
+// DelegationSetMapInput is an input type that accepts DelegationSetMap and DelegationSetMapOutput values.
+// You can construct a concrete instance of `DelegationSetMapInput` via:
+//
+//          DelegationSetMap{ "key": DelegationSetArgs{...} }
+type DelegationSetMapInput interface {
+	pulumi.Input
+
+	ToDelegationSetMapOutput() DelegationSetMapOutput
+	ToDelegationSetMapOutputWithContext(context.Context) DelegationSetMapOutput
+}
+
+type DelegationSetMap map[string]DelegationSetInput
+
+func (DelegationSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DelegationSet)(nil))
+}
+
+func (i DelegationSetMap) ToDelegationSetMapOutput() DelegationSetMapOutput {
+	return i.ToDelegationSetMapOutputWithContext(context.Background())
+}
+
+func (i DelegationSetMap) ToDelegationSetMapOutputWithContext(ctx context.Context) DelegationSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetMapOutput)
+}
+
 type DelegationSetOutput struct {
 	*pulumi.OutputState
 }
@@ -167,6 +246,75 @@ func (o DelegationSetOutput) ToDelegationSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DelegationSetOutput) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
+	return o.ToDelegationSetPtrOutputWithContext(context.Background())
+}
+
+func (o DelegationSetOutput) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
+	return o.ApplyT(func(v DelegationSet) *DelegationSet {
+		return &v
+	}).(DelegationSetPtrOutput)
+}
+
+type DelegationSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DelegationSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSet)(nil))
+}
+
+func (o DelegationSetPtrOutput) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
+	return o
+}
+
+func (o DelegationSetPtrOutput) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
+	return o
+}
+
+type DelegationSetArrayOutput struct{ *pulumi.OutputState }
+
+func (DelegationSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DelegationSet)(nil))
+}
+
+func (o DelegationSetArrayOutput) ToDelegationSetArrayOutput() DelegationSetArrayOutput {
+	return o
+}
+
+func (o DelegationSetArrayOutput) ToDelegationSetArrayOutputWithContext(ctx context.Context) DelegationSetArrayOutput {
+	return o
+}
+
+func (o DelegationSetArrayOutput) Index(i pulumi.IntInput) DelegationSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DelegationSet {
+		return vs[0].([]DelegationSet)[vs[1].(int)]
+	}).(DelegationSetOutput)
+}
+
+type DelegationSetMapOutput struct{ *pulumi.OutputState }
+
+func (DelegationSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DelegationSet)(nil))
+}
+
+func (o DelegationSetMapOutput) ToDelegationSetMapOutput() DelegationSetMapOutput {
+	return o
+}
+
+func (o DelegationSetMapOutput) ToDelegationSetMapOutputWithContext(ctx context.Context) DelegationSetMapOutput {
+	return o
+}
+
+func (o DelegationSetMapOutput) MapIndex(k pulumi.StringInput) DelegationSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DelegationSet {
+		return vs[0].(map[string]DelegationSet)[vs[1].(string)]
+	}).(DelegationSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DelegationSetOutput{})
+	pulumi.RegisterOutputType(DelegationSetPtrOutput{})
+	pulumi.RegisterOutputType(DelegationSetArrayOutput{})
+	pulumi.RegisterOutputType(DelegationSetMapOutput{})
 }

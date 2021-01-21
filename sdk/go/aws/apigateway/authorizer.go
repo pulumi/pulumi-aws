@@ -191,6 +191,85 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
 }
 
+func (i *Authorizer) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
+	return i.ToAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i *Authorizer) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerPtrOutput)
+}
+
+type AuthorizerPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerPtrOutput() AuthorizerPtrOutput
+	ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput
+}
+
+type authorizerPtrType AuthorizerArgs
+
+func (*authorizerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Authorizer)(nil))
+}
+
+func (i *authorizerPtrType) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
+	return i.ToAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerPtrType) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerPtrOutput)
+}
+
+// AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
+// You can construct a concrete instance of `AuthorizerArrayInput` via:
+//
+//          AuthorizerArray{ AuthorizerArgs{...} }
+type AuthorizerArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizerArrayOutput() AuthorizerArrayOutput
+	ToAuthorizerArrayOutputWithContext(context.Context) AuthorizerArrayOutput
+}
+
+type AuthorizerArray []AuthorizerInput
+
+func (AuthorizerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Authorizer)(nil))
+}
+
+func (i AuthorizerArray) ToAuthorizerArrayOutput() AuthorizerArrayOutput {
+	return i.ToAuthorizerArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context) AuthorizerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerArrayOutput)
+}
+
+// AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
+// You can construct a concrete instance of `AuthorizerMapInput` via:
+//
+//          AuthorizerMap{ "key": AuthorizerArgs{...} }
+type AuthorizerMapInput interface {
+	pulumi.Input
+
+	ToAuthorizerMapOutput() AuthorizerMapOutput
+	ToAuthorizerMapOutputWithContext(context.Context) AuthorizerMapOutput
+}
+
+type AuthorizerMap map[string]AuthorizerInput
+
+func (AuthorizerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Authorizer)(nil))
+}
+
+func (i AuthorizerMap) ToAuthorizerMapOutput() AuthorizerMapOutput {
+	return i.ToAuthorizerMapOutputWithContext(context.Background())
+}
+
+func (i AuthorizerMap) ToAuthorizerMapOutputWithContext(ctx context.Context) AuthorizerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerMapOutput)
+}
+
 type AuthorizerOutput struct {
 	*pulumi.OutputState
 }
@@ -207,6 +286,75 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+func (o AuthorizerOutput) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
+	return o.ToAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerOutput) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
+	return o.ApplyT(func(v Authorizer) *Authorizer {
+		return &v
+	}).(AuthorizerPtrOutput)
+}
+
+type AuthorizerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Authorizer)(nil))
+}
+
+func (o AuthorizerPtrOutput) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
+	return o
+}
+
+func (o AuthorizerPtrOutput) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
+	return o
+}
+
+type AuthorizerArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Authorizer)(nil))
+}
+
+func (o AuthorizerArrayOutput) ToAuthorizerArrayOutput() AuthorizerArrayOutput {
+	return o
+}
+
+func (o AuthorizerArrayOutput) ToAuthorizerArrayOutputWithContext(ctx context.Context) AuthorizerArrayOutput {
+	return o
+}
+
+func (o AuthorizerArrayOutput) Index(i pulumi.IntInput) AuthorizerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Authorizer {
+		return vs[0].([]Authorizer)[vs[1].(int)]
+	}).(AuthorizerOutput)
+}
+
+type AuthorizerMapOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Authorizer)(nil))
+}
+
+func (o AuthorizerMapOutput) ToAuthorizerMapOutput() AuthorizerMapOutput {
+	return o
+}
+
+func (o AuthorizerMapOutput) ToAuthorizerMapOutputWithContext(ctx context.Context) AuthorizerMapOutput {
+	return o
+}
+
+func (o AuthorizerMapOutput) MapIndex(k pulumi.StringInput) AuthorizerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Authorizer {
+		return vs[0].(map[string]Authorizer)[vs[1].(string)]
+	}).(AuthorizerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthorizerOutput{})
+	pulumi.RegisterOutputType(AuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerArrayOutput{})
+	pulumi.RegisterOutputType(AuthorizerMapOutput{})
 }

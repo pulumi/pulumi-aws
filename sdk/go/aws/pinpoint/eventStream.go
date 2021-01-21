@@ -184,6 +184,85 @@ func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamOutput)
 }
 
+func (i *EventStream) ToEventStreamPtrOutput() EventStreamPtrOutput {
+	return i.ToEventStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *EventStream) ToEventStreamPtrOutputWithContext(ctx context.Context) EventStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamPtrOutput)
+}
+
+type EventStreamPtrInput interface {
+	pulumi.Input
+
+	ToEventStreamPtrOutput() EventStreamPtrOutput
+	ToEventStreamPtrOutputWithContext(ctx context.Context) EventStreamPtrOutput
+}
+
+type eventStreamPtrType EventStreamArgs
+
+func (*eventStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventStream)(nil))
+}
+
+func (i *eventStreamPtrType) ToEventStreamPtrOutput() EventStreamPtrOutput {
+	return i.ToEventStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *eventStreamPtrType) ToEventStreamPtrOutputWithContext(ctx context.Context) EventStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamPtrOutput)
+}
+
+// EventStreamArrayInput is an input type that accepts EventStreamArray and EventStreamArrayOutput values.
+// You can construct a concrete instance of `EventStreamArrayInput` via:
+//
+//          EventStreamArray{ EventStreamArgs{...} }
+type EventStreamArrayInput interface {
+	pulumi.Input
+
+	ToEventStreamArrayOutput() EventStreamArrayOutput
+	ToEventStreamArrayOutputWithContext(context.Context) EventStreamArrayOutput
+}
+
+type EventStreamArray []EventStreamInput
+
+func (EventStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventStream)(nil))
+}
+
+func (i EventStreamArray) ToEventStreamArrayOutput() EventStreamArrayOutput {
+	return i.ToEventStreamArrayOutputWithContext(context.Background())
+}
+
+func (i EventStreamArray) ToEventStreamArrayOutputWithContext(ctx context.Context) EventStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamArrayOutput)
+}
+
+// EventStreamMapInput is an input type that accepts EventStreamMap and EventStreamMapOutput values.
+// You can construct a concrete instance of `EventStreamMapInput` via:
+//
+//          EventStreamMap{ "key": EventStreamArgs{...} }
+type EventStreamMapInput interface {
+	pulumi.Input
+
+	ToEventStreamMapOutput() EventStreamMapOutput
+	ToEventStreamMapOutputWithContext(context.Context) EventStreamMapOutput
+}
+
+type EventStreamMap map[string]EventStreamInput
+
+func (EventStreamMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventStream)(nil))
+}
+
+func (i EventStreamMap) ToEventStreamMapOutput() EventStreamMapOutput {
+	return i.ToEventStreamMapOutputWithContext(context.Background())
+}
+
+func (i EventStreamMap) ToEventStreamMapOutputWithContext(ctx context.Context) EventStreamMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamMapOutput)
+}
+
 type EventStreamOutput struct {
 	*pulumi.OutputState
 }
@@ -200,6 +279,75 @@ func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EventStreamOutput) ToEventStreamPtrOutput() EventStreamPtrOutput {
+	return o.ToEventStreamPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamOutput) ToEventStreamPtrOutputWithContext(ctx context.Context) EventStreamPtrOutput {
+	return o.ApplyT(func(v EventStream) *EventStream {
+		return &v
+	}).(EventStreamPtrOutput)
+}
+
+type EventStreamPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventStream)(nil))
+}
+
+func (o EventStreamPtrOutput) ToEventStreamPtrOutput() EventStreamPtrOutput {
+	return o
+}
+
+func (o EventStreamPtrOutput) ToEventStreamPtrOutputWithContext(ctx context.Context) EventStreamPtrOutput {
+	return o
+}
+
+type EventStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (EventStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventStream)(nil))
+}
+
+func (o EventStreamArrayOutput) ToEventStreamArrayOutput() EventStreamArrayOutput {
+	return o
+}
+
+func (o EventStreamArrayOutput) ToEventStreamArrayOutputWithContext(ctx context.Context) EventStreamArrayOutput {
+	return o
+}
+
+func (o EventStreamArrayOutput) Index(i pulumi.IntInput) EventStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventStream {
+		return vs[0].([]EventStream)[vs[1].(int)]
+	}).(EventStreamOutput)
+}
+
+type EventStreamMapOutput struct{ *pulumi.OutputState }
+
+func (EventStreamMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventStream)(nil))
+}
+
+func (o EventStreamMapOutput) ToEventStreamMapOutput() EventStreamMapOutput {
+	return o
+}
+
+func (o EventStreamMapOutput) ToEventStreamMapOutputWithContext(ctx context.Context) EventStreamMapOutput {
+	return o
+}
+
+func (o EventStreamMapOutput) MapIndex(k pulumi.StringInput) EventStreamOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventStream {
+		return vs[0].(map[string]EventStream)[vs[1].(string)]
+	}).(EventStreamOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventStreamOutput{})
+	pulumi.RegisterOutputType(EventStreamPtrOutput{})
+	pulumi.RegisterOutputType(EventStreamArrayOutput{})
+	pulumi.RegisterOutputType(EventStreamMapOutput{})
 }

@@ -292,6 +292,85 @@ func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterO
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
 }
 
+func (i *Parameter) ToParameterPtrOutput() ParameterPtrOutput {
+	return i.ToParameterPtrOutputWithContext(context.Background())
+}
+
+func (i *Parameter) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterPtrOutput)
+}
+
+type ParameterPtrInput interface {
+	pulumi.Input
+
+	ToParameterPtrOutput() ParameterPtrOutput
+	ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput
+}
+
+type parameterPtrType ParameterArgs
+
+func (*parameterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Parameter)(nil))
+}
+
+func (i *parameterPtrType) ToParameterPtrOutput() ParameterPtrOutput {
+	return i.ToParameterPtrOutputWithContext(context.Background())
+}
+
+func (i *parameterPtrType) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterPtrOutput)
+}
+
+// ParameterArrayInput is an input type that accepts ParameterArray and ParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterArrayInput` via:
+//
+//          ParameterArray{ ParameterArgs{...} }
+type ParameterArrayInput interface {
+	pulumi.Input
+
+	ToParameterArrayOutput() ParameterArrayOutput
+	ToParameterArrayOutputWithContext(context.Context) ParameterArrayOutput
+}
+
+type ParameterArray []ParameterInput
+
+func (ParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Parameter)(nil))
+}
+
+func (i ParameterArray) ToParameterArrayOutput() ParameterArrayOutput {
+	return i.ToParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ParameterArray) ToParameterArrayOutputWithContext(ctx context.Context) ParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterArrayOutput)
+}
+
+// ParameterMapInput is an input type that accepts ParameterMap and ParameterMapOutput values.
+// You can construct a concrete instance of `ParameterMapInput` via:
+//
+//          ParameterMap{ "key": ParameterArgs{...} }
+type ParameterMapInput interface {
+	pulumi.Input
+
+	ToParameterMapOutput() ParameterMapOutput
+	ToParameterMapOutputWithContext(context.Context) ParameterMapOutput
+}
+
+type ParameterMap map[string]ParameterInput
+
+func (ParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Parameter)(nil))
+}
+
+func (i ParameterMap) ToParameterMapOutput() ParameterMapOutput {
+	return i.ToParameterMapOutputWithContext(context.Background())
+}
+
+func (i ParameterMap) ToParameterMapOutputWithContext(ctx context.Context) ParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterMapOutput)
+}
+
 type ParameterOutput struct {
 	*pulumi.OutputState
 }
@@ -308,6 +387,75 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
+func (o ParameterOutput) ToParameterPtrOutput() ParameterPtrOutput {
+	return o.ToParameterPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
+	return o.ApplyT(func(v Parameter) *Parameter {
+		return &v
+	}).(ParameterPtrOutput)
+}
+
+type ParameterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ParameterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Parameter)(nil))
+}
+
+func (o ParameterPtrOutput) ToParameterPtrOutput() ParameterPtrOutput {
+	return o
+}
+
+func (o ParameterPtrOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
+	return o
+}
+
+type ParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Parameter)(nil))
+}
+
+func (o ParameterArrayOutput) ToParameterArrayOutput() ParameterArrayOutput {
+	return o
+}
+
+func (o ParameterArrayOutput) ToParameterArrayOutputWithContext(ctx context.Context) ParameterArrayOutput {
+	return o
+}
+
+func (o ParameterArrayOutput) Index(i pulumi.IntInput) ParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Parameter {
+		return vs[0].([]Parameter)[vs[1].(int)]
+	}).(ParameterOutput)
+}
+
+type ParameterMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Parameter)(nil))
+}
+
+func (o ParameterMapOutput) ToParameterMapOutput() ParameterMapOutput {
+	return o
+}
+
+func (o ParameterMapOutput) ToParameterMapOutputWithContext(ctx context.Context) ParameterMapOutput {
+	return o
+}
+
+func (o ParameterMapOutput) MapIndex(k pulumi.StringInput) ParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Parameter {
+		return vs[0].(map[string]Parameter)[vs[1].(string)]
+	}).(ParameterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ParameterOutput{})
+	pulumi.RegisterOutputType(ParameterPtrOutput{})
+	pulumi.RegisterOutputType(ParameterArrayOutput{})
+	pulumi.RegisterOutputType(ParameterMapOutput{})
 }

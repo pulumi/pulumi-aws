@@ -148,6 +148,85 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetOutput)
 }
 
+func (i *XssMatchSet) ToXssMatchSetPtrOutput() XssMatchSetPtrOutput {
+	return i.ToXssMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *XssMatchSet) ToXssMatchSetPtrOutputWithContext(ctx context.Context) XssMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetPtrOutput)
+}
+
+type XssMatchSetPtrInput interface {
+	pulumi.Input
+
+	ToXssMatchSetPtrOutput() XssMatchSetPtrOutput
+	ToXssMatchSetPtrOutputWithContext(ctx context.Context) XssMatchSetPtrOutput
+}
+
+type xssMatchSetPtrType XssMatchSetArgs
+
+func (*xssMatchSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**XssMatchSet)(nil))
+}
+
+func (i *xssMatchSetPtrType) ToXssMatchSetPtrOutput() XssMatchSetPtrOutput {
+	return i.ToXssMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *xssMatchSetPtrType) ToXssMatchSetPtrOutputWithContext(ctx context.Context) XssMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetPtrOutput)
+}
+
+// XssMatchSetArrayInput is an input type that accepts XssMatchSetArray and XssMatchSetArrayOutput values.
+// You can construct a concrete instance of `XssMatchSetArrayInput` via:
+//
+//          XssMatchSetArray{ XssMatchSetArgs{...} }
+type XssMatchSetArrayInput interface {
+	pulumi.Input
+
+	ToXssMatchSetArrayOutput() XssMatchSetArrayOutput
+	ToXssMatchSetArrayOutputWithContext(context.Context) XssMatchSetArrayOutput
+}
+
+type XssMatchSetArray []XssMatchSetInput
+
+func (XssMatchSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*XssMatchSet)(nil))
+}
+
+func (i XssMatchSetArray) ToXssMatchSetArrayOutput() XssMatchSetArrayOutput {
+	return i.ToXssMatchSetArrayOutputWithContext(context.Background())
+}
+
+func (i XssMatchSetArray) ToXssMatchSetArrayOutputWithContext(ctx context.Context) XssMatchSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetArrayOutput)
+}
+
+// XssMatchSetMapInput is an input type that accepts XssMatchSetMap and XssMatchSetMapOutput values.
+// You can construct a concrete instance of `XssMatchSetMapInput` via:
+//
+//          XssMatchSetMap{ "key": XssMatchSetArgs{...} }
+type XssMatchSetMapInput interface {
+	pulumi.Input
+
+	ToXssMatchSetMapOutput() XssMatchSetMapOutput
+	ToXssMatchSetMapOutputWithContext(context.Context) XssMatchSetMapOutput
+}
+
+type XssMatchSetMap map[string]XssMatchSetInput
+
+func (XssMatchSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*XssMatchSet)(nil))
+}
+
+func (i XssMatchSetMap) ToXssMatchSetMapOutput() XssMatchSetMapOutput {
+	return i.ToXssMatchSetMapOutputWithContext(context.Background())
+}
+
+func (i XssMatchSetMap) ToXssMatchSetMapOutputWithContext(ctx context.Context) XssMatchSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetMapOutput)
+}
+
 type XssMatchSetOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 	return o
 }
 
+func (o XssMatchSetOutput) ToXssMatchSetPtrOutput() XssMatchSetPtrOutput {
+	return o.ToXssMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (o XssMatchSetOutput) ToXssMatchSetPtrOutputWithContext(ctx context.Context) XssMatchSetPtrOutput {
+	return o.ApplyT(func(v XssMatchSet) *XssMatchSet {
+		return &v
+	}).(XssMatchSetPtrOutput)
+}
+
+type XssMatchSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (XssMatchSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**XssMatchSet)(nil))
+}
+
+func (o XssMatchSetPtrOutput) ToXssMatchSetPtrOutput() XssMatchSetPtrOutput {
+	return o
+}
+
+func (o XssMatchSetPtrOutput) ToXssMatchSetPtrOutputWithContext(ctx context.Context) XssMatchSetPtrOutput {
+	return o
+}
+
+type XssMatchSetArrayOutput struct{ *pulumi.OutputState }
+
+func (XssMatchSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]XssMatchSet)(nil))
+}
+
+func (o XssMatchSetArrayOutput) ToXssMatchSetArrayOutput() XssMatchSetArrayOutput {
+	return o
+}
+
+func (o XssMatchSetArrayOutput) ToXssMatchSetArrayOutputWithContext(ctx context.Context) XssMatchSetArrayOutput {
+	return o
+}
+
+func (o XssMatchSetArrayOutput) Index(i pulumi.IntInput) XssMatchSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) XssMatchSet {
+		return vs[0].([]XssMatchSet)[vs[1].(int)]
+	}).(XssMatchSetOutput)
+}
+
+type XssMatchSetMapOutput struct{ *pulumi.OutputState }
+
+func (XssMatchSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]XssMatchSet)(nil))
+}
+
+func (o XssMatchSetMapOutput) ToXssMatchSetMapOutput() XssMatchSetMapOutput {
+	return o
+}
+
+func (o XssMatchSetMapOutput) ToXssMatchSetMapOutputWithContext(ctx context.Context) XssMatchSetMapOutput {
+	return o
+}
+
+func (o XssMatchSetMapOutput) MapIndex(k pulumi.StringInput) XssMatchSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) XssMatchSet {
+		return vs[0].(map[string]XssMatchSet)[vs[1].(string)]
+	}).(XssMatchSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(XssMatchSetOutput{})
+	pulumi.RegisterOutputType(XssMatchSetPtrOutput{})
+	pulumi.RegisterOutputType(XssMatchSetArrayOutput{})
+	pulumi.RegisterOutputType(XssMatchSetMapOutput{})
 }

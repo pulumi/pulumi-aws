@@ -209,6 +209,85 @@ func (i *WebAclAssociation) ToWebAclAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationOutput)
 }
 
+func (i *WebAclAssociation) ToWebAclAssociationPtrOutput() WebAclAssociationPtrOutput {
+	return i.ToWebAclAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *WebAclAssociation) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationPtrOutput)
+}
+
+type WebAclAssociationPtrInput interface {
+	pulumi.Input
+
+	ToWebAclAssociationPtrOutput() WebAclAssociationPtrOutput
+	ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput
+}
+
+type webAclAssociationPtrType WebAclAssociationArgs
+
+func (*webAclAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAssociation)(nil))
+}
+
+func (i *webAclAssociationPtrType) ToWebAclAssociationPtrOutput() WebAclAssociationPtrOutput {
+	return i.ToWebAclAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclAssociationPtrType) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationPtrOutput)
+}
+
+// WebAclAssociationArrayInput is an input type that accepts WebAclAssociationArray and WebAclAssociationArrayOutput values.
+// You can construct a concrete instance of `WebAclAssociationArrayInput` via:
+//
+//          WebAclAssociationArray{ WebAclAssociationArgs{...} }
+type WebAclAssociationArrayInput interface {
+	pulumi.Input
+
+	ToWebAclAssociationArrayOutput() WebAclAssociationArrayOutput
+	ToWebAclAssociationArrayOutputWithContext(context.Context) WebAclAssociationArrayOutput
+}
+
+type WebAclAssociationArray []WebAclAssociationInput
+
+func (WebAclAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WebAclAssociation)(nil))
+}
+
+func (i WebAclAssociationArray) ToWebAclAssociationArrayOutput() WebAclAssociationArrayOutput {
+	return i.ToWebAclAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclAssociationArray) ToWebAclAssociationArrayOutputWithContext(ctx context.Context) WebAclAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationArrayOutput)
+}
+
+// WebAclAssociationMapInput is an input type that accepts WebAclAssociationMap and WebAclAssociationMapOutput values.
+// You can construct a concrete instance of `WebAclAssociationMapInput` via:
+//
+//          WebAclAssociationMap{ "key": WebAclAssociationArgs{...} }
+type WebAclAssociationMapInput interface {
+	pulumi.Input
+
+	ToWebAclAssociationMapOutput() WebAclAssociationMapOutput
+	ToWebAclAssociationMapOutputWithContext(context.Context) WebAclAssociationMapOutput
+}
+
+type WebAclAssociationMap map[string]WebAclAssociationInput
+
+func (WebAclAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WebAclAssociation)(nil))
+}
+
+func (i WebAclAssociationMap) ToWebAclAssociationMapOutput() WebAclAssociationMapOutput {
+	return i.ToWebAclAssociationMapOutputWithContext(context.Background())
+}
+
+func (i WebAclAssociationMap) ToWebAclAssociationMapOutputWithContext(ctx context.Context) WebAclAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationMapOutput)
+}
+
 type WebAclAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -225,6 +304,75 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx contex
 	return o
 }
 
+func (o WebAclAssociationOutput) ToWebAclAssociationPtrOutput() WebAclAssociationPtrOutput {
+	return o.ToWebAclAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAssociationOutput) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
+	return o.ApplyT(func(v WebAclAssociation) *WebAclAssociation {
+		return &v
+	}).(WebAclAssociationPtrOutput)
+}
+
+type WebAclAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAclAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAssociation)(nil))
+}
+
+func (o WebAclAssociationPtrOutput) ToWebAclAssociationPtrOutput() WebAclAssociationPtrOutput {
+	return o
+}
+
+func (o WebAclAssociationPtrOutput) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
+	return o
+}
+
+type WebAclAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclAssociation)(nil))
+}
+
+func (o WebAclAssociationArrayOutput) ToWebAclAssociationArrayOutput() WebAclAssociationArrayOutput {
+	return o
+}
+
+func (o WebAclAssociationArrayOutput) ToWebAclAssociationArrayOutputWithContext(ctx context.Context) WebAclAssociationArrayOutput {
+	return o
+}
+
+func (o WebAclAssociationArrayOutput) Index(i pulumi.IntInput) WebAclAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclAssociation {
+		return vs[0].([]WebAclAssociation)[vs[1].(int)]
+	}).(WebAclAssociationOutput)
+}
+
+type WebAclAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (WebAclAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclAssociation)(nil))
+}
+
+func (o WebAclAssociationMapOutput) ToWebAclAssociationMapOutput() WebAclAssociationMapOutput {
+	return o
+}
+
+func (o WebAclAssociationMapOutput) ToWebAclAssociationMapOutputWithContext(ctx context.Context) WebAclAssociationMapOutput {
+	return o
+}
+
+func (o WebAclAssociationMapOutput) MapIndex(k pulumi.StringInput) WebAclAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAclAssociation {
+		return vs[0].(map[string]WebAclAssociation)[vs[1].(string)]
+	}).(WebAclAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAclAssociationOutput{})
+	pulumi.RegisterOutputType(WebAclAssociationPtrOutput{})
+	pulumi.RegisterOutputType(WebAclAssociationArrayOutput{})
+	pulumi.RegisterOutputType(WebAclAssociationMapOutput{})
 }

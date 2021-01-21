@@ -264,6 +264,85 @@ func (i *PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationOutput)
 }
 
+func (i *PlatformApplication) ToPlatformApplicationPtrOutput() PlatformApplicationPtrOutput {
+	return i.ToPlatformApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *PlatformApplication) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationPtrOutput)
+}
+
+type PlatformApplicationPtrInput interface {
+	pulumi.Input
+
+	ToPlatformApplicationPtrOutput() PlatformApplicationPtrOutput
+	ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput
+}
+
+type platformApplicationPtrType PlatformApplicationArgs
+
+func (*platformApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlatformApplication)(nil))
+}
+
+func (i *platformApplicationPtrType) ToPlatformApplicationPtrOutput() PlatformApplicationPtrOutput {
+	return i.ToPlatformApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *platformApplicationPtrType) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationPtrOutput)
+}
+
+// PlatformApplicationArrayInput is an input type that accepts PlatformApplicationArray and PlatformApplicationArrayOutput values.
+// You can construct a concrete instance of `PlatformApplicationArrayInput` via:
+//
+//          PlatformApplicationArray{ PlatformApplicationArgs{...} }
+type PlatformApplicationArrayInput interface {
+	pulumi.Input
+
+	ToPlatformApplicationArrayOutput() PlatformApplicationArrayOutput
+	ToPlatformApplicationArrayOutputWithContext(context.Context) PlatformApplicationArrayOutput
+}
+
+type PlatformApplicationArray []PlatformApplicationInput
+
+func (PlatformApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PlatformApplication)(nil))
+}
+
+func (i PlatformApplicationArray) ToPlatformApplicationArrayOutput() PlatformApplicationArrayOutput {
+	return i.ToPlatformApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i PlatformApplicationArray) ToPlatformApplicationArrayOutputWithContext(ctx context.Context) PlatformApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationArrayOutput)
+}
+
+// PlatformApplicationMapInput is an input type that accepts PlatformApplicationMap and PlatformApplicationMapOutput values.
+// You can construct a concrete instance of `PlatformApplicationMapInput` via:
+//
+//          PlatformApplicationMap{ "key": PlatformApplicationArgs{...} }
+type PlatformApplicationMapInput interface {
+	pulumi.Input
+
+	ToPlatformApplicationMapOutput() PlatformApplicationMapOutput
+	ToPlatformApplicationMapOutputWithContext(context.Context) PlatformApplicationMapOutput
+}
+
+type PlatformApplicationMap map[string]PlatformApplicationInput
+
+func (PlatformApplicationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PlatformApplication)(nil))
+}
+
+func (i PlatformApplicationMap) ToPlatformApplicationMapOutput() PlatformApplicationMapOutput {
+	return i.ToPlatformApplicationMapOutputWithContext(context.Background())
+}
+
+func (i PlatformApplicationMap) ToPlatformApplicationMapOutputWithContext(ctx context.Context) PlatformApplicationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationMapOutput)
+}
+
 type PlatformApplicationOutput struct {
 	*pulumi.OutputState
 }
@@ -280,6 +359,75 @@ func (o PlatformApplicationOutput) ToPlatformApplicationOutputWithContext(ctx co
 	return o
 }
 
+func (o PlatformApplicationOutput) ToPlatformApplicationPtrOutput() PlatformApplicationPtrOutput {
+	return o.ToPlatformApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o PlatformApplicationOutput) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
+	return o.ApplyT(func(v PlatformApplication) *PlatformApplication {
+		return &v
+	}).(PlatformApplicationPtrOutput)
+}
+
+type PlatformApplicationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlatformApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlatformApplication)(nil))
+}
+
+func (o PlatformApplicationPtrOutput) ToPlatformApplicationPtrOutput() PlatformApplicationPtrOutput {
+	return o
+}
+
+func (o PlatformApplicationPtrOutput) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
+	return o
+}
+
+type PlatformApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (PlatformApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlatformApplication)(nil))
+}
+
+func (o PlatformApplicationArrayOutput) ToPlatformApplicationArrayOutput() PlatformApplicationArrayOutput {
+	return o
+}
+
+func (o PlatformApplicationArrayOutput) ToPlatformApplicationArrayOutputWithContext(ctx context.Context) PlatformApplicationArrayOutput {
+	return o
+}
+
+func (o PlatformApplicationArrayOutput) Index(i pulumi.IntInput) PlatformApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlatformApplication {
+		return vs[0].([]PlatformApplication)[vs[1].(int)]
+	}).(PlatformApplicationOutput)
+}
+
+type PlatformApplicationMapOutput struct{ *pulumi.OutputState }
+
+func (PlatformApplicationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PlatformApplication)(nil))
+}
+
+func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutput() PlatformApplicationMapOutput {
+	return o
+}
+
+func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutputWithContext(ctx context.Context) PlatformApplicationMapOutput {
+	return o
+}
+
+func (o PlatformApplicationMapOutput) MapIndex(k pulumi.StringInput) PlatformApplicationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PlatformApplication {
+		return vs[0].(map[string]PlatformApplication)[vs[1].(string)]
+	}).(PlatformApplicationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PlatformApplicationOutput{})
+	pulumi.RegisterOutputType(PlatformApplicationPtrOutput{})
+	pulumi.RegisterOutputType(PlatformApplicationArrayOutput{})
+	pulumi.RegisterOutputType(PlatformApplicationMapOutput{})
 }

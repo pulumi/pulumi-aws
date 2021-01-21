@@ -181,6 +181,85 @@ func (i *VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsOutput)
 }
 
+func (i *VaultNotifications) ToVaultNotificationsPtrOutput() VaultNotificationsPtrOutput {
+	return i.ToVaultNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *VaultNotifications) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsPtrOutput)
+}
+
+type VaultNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsPtrOutput() VaultNotificationsPtrOutput
+	ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput
+}
+
+type vaultNotificationsPtrType VaultNotificationsArgs
+
+func (*vaultNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultNotifications)(nil))
+}
+
+func (i *vaultNotificationsPtrType) ToVaultNotificationsPtrOutput() VaultNotificationsPtrOutput {
+	return i.ToVaultNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultNotificationsPtrType) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsPtrOutput)
+}
+
+// VaultNotificationsArrayInput is an input type that accepts VaultNotificationsArray and VaultNotificationsArrayOutput values.
+// You can construct a concrete instance of `VaultNotificationsArrayInput` via:
+//
+//          VaultNotificationsArray{ VaultNotificationsArgs{...} }
+type VaultNotificationsArrayInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput
+	ToVaultNotificationsArrayOutputWithContext(context.Context) VaultNotificationsArrayOutput
+}
+
+type VaultNotificationsArray []VaultNotificationsInput
+
+func (VaultNotificationsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VaultNotifications)(nil))
+}
+
+func (i VaultNotificationsArray) ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput {
+	return i.ToVaultNotificationsArrayOutputWithContext(context.Background())
+}
+
+func (i VaultNotificationsArray) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsArrayOutput)
+}
+
+// VaultNotificationsMapInput is an input type that accepts VaultNotificationsMap and VaultNotificationsMapOutput values.
+// You can construct a concrete instance of `VaultNotificationsMapInput` via:
+//
+//          VaultNotificationsMap{ "key": VaultNotificationsArgs{...} }
+type VaultNotificationsMapInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsMapOutput() VaultNotificationsMapOutput
+	ToVaultNotificationsMapOutputWithContext(context.Context) VaultNotificationsMapOutput
+}
+
+type VaultNotificationsMap map[string]VaultNotificationsInput
+
+func (VaultNotificationsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VaultNotifications)(nil))
+}
+
+func (i VaultNotificationsMap) ToVaultNotificationsMapOutput() VaultNotificationsMapOutput {
+	return i.ToVaultNotificationsMapOutputWithContext(context.Background())
+}
+
+func (i VaultNotificationsMap) ToVaultNotificationsMapOutputWithContext(ctx context.Context) VaultNotificationsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsMapOutput)
+}
+
 type VaultNotificationsOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx cont
 	return o
 }
 
+func (o VaultNotificationsOutput) ToVaultNotificationsPtrOutput() VaultNotificationsPtrOutput {
+	return o.ToVaultNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o VaultNotificationsOutput) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
+	return o.ApplyT(func(v VaultNotifications) *VaultNotifications {
+		return &v
+	}).(VaultNotificationsPtrOutput)
+}
+
+type VaultNotificationsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultNotifications)(nil))
+}
+
+func (o VaultNotificationsPtrOutput) ToVaultNotificationsPtrOutput() VaultNotificationsPtrOutput {
+	return o
+}
+
+func (o VaultNotificationsPtrOutput) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
+	return o
+}
+
+type VaultNotificationsArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultNotificationsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultNotifications)(nil))
+}
+
+func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput {
+	return o
+}
+
+func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
+	return o
+}
+
+func (o VaultNotificationsArrayOutput) Index(i pulumi.IntInput) VaultNotificationsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultNotifications {
+		return vs[0].([]VaultNotifications)[vs[1].(int)]
+	}).(VaultNotificationsOutput)
+}
+
+type VaultNotificationsMapOutput struct{ *pulumi.OutputState }
+
+func (VaultNotificationsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VaultNotifications)(nil))
+}
+
+func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutput() VaultNotificationsMapOutput {
+	return o
+}
+
+func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutputWithContext(ctx context.Context) VaultNotificationsMapOutput {
+	return o
+}
+
+func (o VaultNotificationsMapOutput) MapIndex(k pulumi.StringInput) VaultNotificationsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VaultNotifications {
+		return vs[0].(map[string]VaultNotifications)[vs[1].(string)]
+	}).(VaultNotificationsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VaultNotificationsOutput{})
+	pulumi.RegisterOutputType(VaultNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(VaultNotificationsArrayOutput{})
+	pulumi.RegisterOutputType(VaultNotificationsMapOutput{})
 }

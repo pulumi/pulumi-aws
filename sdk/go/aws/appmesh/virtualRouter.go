@@ -218,6 +218,85 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
 }
 
+func (i *VirtualRouter) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
+	return i.ToVirtualRouterPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualRouter) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPtrOutput)
+}
+
+type VirtualRouterPtrInput interface {
+	pulumi.Input
+
+	ToVirtualRouterPtrOutput() VirtualRouterPtrOutput
+	ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput
+}
+
+type virtualRouterPtrType VirtualRouterArgs
+
+func (*virtualRouterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualRouter)(nil))
+}
+
+func (i *virtualRouterPtrType) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
+	return i.ToVirtualRouterPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualRouterPtrType) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPtrOutput)
+}
+
+// VirtualRouterArrayInput is an input type that accepts VirtualRouterArray and VirtualRouterArrayOutput values.
+// You can construct a concrete instance of `VirtualRouterArrayInput` via:
+//
+//          VirtualRouterArray{ VirtualRouterArgs{...} }
+type VirtualRouterArrayInput interface {
+	pulumi.Input
+
+	ToVirtualRouterArrayOutput() VirtualRouterArrayOutput
+	ToVirtualRouterArrayOutputWithContext(context.Context) VirtualRouterArrayOutput
+}
+
+type VirtualRouterArray []VirtualRouterInput
+
+func (VirtualRouterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualRouter)(nil))
+}
+
+func (i VirtualRouterArray) ToVirtualRouterArrayOutput() VirtualRouterArrayOutput {
+	return i.ToVirtualRouterArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterArray) ToVirtualRouterArrayOutputWithContext(ctx context.Context) VirtualRouterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterArrayOutput)
+}
+
+// VirtualRouterMapInput is an input type that accepts VirtualRouterMap and VirtualRouterMapOutput values.
+// You can construct a concrete instance of `VirtualRouterMapInput` via:
+//
+//          VirtualRouterMap{ "key": VirtualRouterArgs{...} }
+type VirtualRouterMapInput interface {
+	pulumi.Input
+
+	ToVirtualRouterMapOutput() VirtualRouterMapOutput
+	ToVirtualRouterMapOutputWithContext(context.Context) VirtualRouterMapOutput
+}
+
+type VirtualRouterMap map[string]VirtualRouterInput
+
+func (VirtualRouterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualRouter)(nil))
+}
+
+func (i VirtualRouterMap) ToVirtualRouterMapOutput() VirtualRouterMapOutput {
+	return i.ToVirtualRouterMapOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterMap) ToVirtualRouterMapOutputWithContext(ctx context.Context) VirtualRouterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterMapOutput)
+}
+
 type VirtualRouterOutput struct {
 	*pulumi.OutputState
 }
@@ -234,6 +313,75 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o VirtualRouterOutput) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
+	return o.ToVirtualRouterPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualRouterOutput) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
+	return o.ApplyT(func(v VirtualRouter) *VirtualRouter {
+		return &v
+	}).(VirtualRouterPtrOutput)
+}
+
+type VirtualRouterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualRouterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualRouter)(nil))
+}
+
+func (o VirtualRouterPtrOutput) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
+	return o
+}
+
+func (o VirtualRouterPtrOutput) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
+	return o
+}
+
+type VirtualRouterArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualRouter)(nil))
+}
+
+func (o VirtualRouterArrayOutput) ToVirtualRouterArrayOutput() VirtualRouterArrayOutput {
+	return o
+}
+
+func (o VirtualRouterArrayOutput) ToVirtualRouterArrayOutputWithContext(ctx context.Context) VirtualRouterArrayOutput {
+	return o
+}
+
+func (o VirtualRouterArrayOutput) Index(i pulumi.IntInput) VirtualRouterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouter {
+		return vs[0].([]VirtualRouter)[vs[1].(int)]
+	}).(VirtualRouterOutput)
+}
+
+type VirtualRouterMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualRouter)(nil))
+}
+
+func (o VirtualRouterMapOutput) ToVirtualRouterMapOutput() VirtualRouterMapOutput {
+	return o
+}
+
+func (o VirtualRouterMapOutput) ToVirtualRouterMapOutputWithContext(ctx context.Context) VirtualRouterMapOutput {
+	return o
+}
+
+func (o VirtualRouterMapOutput) MapIndex(k pulumi.StringInput) VirtualRouterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualRouter {
+		return vs[0].(map[string]VirtualRouter)[vs[1].(string)]
+	}).(VirtualRouterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualRouterOutput{})
+	pulumi.RegisterOutputType(VirtualRouterPtrOutput{})
+	pulumi.RegisterOutputType(VirtualRouterArrayOutput{})
+	pulumi.RegisterOutputType(VirtualRouterMapOutput{})
 }

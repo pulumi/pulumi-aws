@@ -251,6 +251,85 @@ func (i *SlotType) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeOutput)
 }
 
+func (i *SlotType) ToSlotTypePtrOutput() SlotTypePtrOutput {
+	return i.ToSlotTypePtrOutputWithContext(context.Background())
+}
+
+func (i *SlotType) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotTypePtrOutput)
+}
+
+type SlotTypePtrInput interface {
+	pulumi.Input
+
+	ToSlotTypePtrOutput() SlotTypePtrOutput
+	ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput
+}
+
+type slotTypePtrType SlotTypeArgs
+
+func (*slotTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotType)(nil))
+}
+
+func (i *slotTypePtrType) ToSlotTypePtrOutput() SlotTypePtrOutput {
+	return i.ToSlotTypePtrOutputWithContext(context.Background())
+}
+
+func (i *slotTypePtrType) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotTypePtrOutput)
+}
+
+// SlotTypeArrayInput is an input type that accepts SlotTypeArray and SlotTypeArrayOutput values.
+// You can construct a concrete instance of `SlotTypeArrayInput` via:
+//
+//          SlotTypeArray{ SlotTypeArgs{...} }
+type SlotTypeArrayInput interface {
+	pulumi.Input
+
+	ToSlotTypeArrayOutput() SlotTypeArrayOutput
+	ToSlotTypeArrayOutputWithContext(context.Context) SlotTypeArrayOutput
+}
+
+type SlotTypeArray []SlotTypeInput
+
+func (SlotTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SlotType)(nil))
+}
+
+func (i SlotTypeArray) ToSlotTypeArrayOutput() SlotTypeArrayOutput {
+	return i.ToSlotTypeArrayOutputWithContext(context.Background())
+}
+
+func (i SlotTypeArray) ToSlotTypeArrayOutputWithContext(ctx context.Context) SlotTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeArrayOutput)
+}
+
+// SlotTypeMapInput is an input type that accepts SlotTypeMap and SlotTypeMapOutput values.
+// You can construct a concrete instance of `SlotTypeMapInput` via:
+//
+//          SlotTypeMap{ "key": SlotTypeArgs{...} }
+type SlotTypeMapInput interface {
+	pulumi.Input
+
+	ToSlotTypeMapOutput() SlotTypeMapOutput
+	ToSlotTypeMapOutputWithContext(context.Context) SlotTypeMapOutput
+}
+
+type SlotTypeMap map[string]SlotTypeInput
+
+func (SlotTypeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SlotType)(nil))
+}
+
+func (i SlotTypeMap) ToSlotTypeMapOutput() SlotTypeMapOutput {
+	return i.ToSlotTypeMapOutputWithContext(context.Background())
+}
+
+func (i SlotTypeMap) ToSlotTypeMapOutputWithContext(ctx context.Context) SlotTypeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeMapOutput)
+}
+
 type SlotTypeOutput struct {
 	*pulumi.OutputState
 }
@@ -267,6 +346,75 @@ func (o SlotTypeOutput) ToSlotTypeOutputWithContext(ctx context.Context) SlotTyp
 	return o
 }
 
+func (o SlotTypeOutput) ToSlotTypePtrOutput() SlotTypePtrOutput {
+	return o.ToSlotTypePtrOutputWithContext(context.Background())
+}
+
+func (o SlotTypeOutput) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
+	return o.ApplyT(func(v SlotType) *SlotType {
+		return &v
+	}).(SlotTypePtrOutput)
+}
+
+type SlotTypePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SlotTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotType)(nil))
+}
+
+func (o SlotTypePtrOutput) ToSlotTypePtrOutput() SlotTypePtrOutput {
+	return o
+}
+
+func (o SlotTypePtrOutput) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
+	return o
+}
+
+type SlotTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (SlotTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotType)(nil))
+}
+
+func (o SlotTypeArrayOutput) ToSlotTypeArrayOutput() SlotTypeArrayOutput {
+	return o
+}
+
+func (o SlotTypeArrayOutput) ToSlotTypeArrayOutputWithContext(ctx context.Context) SlotTypeArrayOutput {
+	return o
+}
+
+func (o SlotTypeArrayOutput) Index(i pulumi.IntInput) SlotTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotType {
+		return vs[0].([]SlotType)[vs[1].(int)]
+	}).(SlotTypeOutput)
+}
+
+type SlotTypeMapOutput struct{ *pulumi.OutputState }
+
+func (SlotTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SlotType)(nil))
+}
+
+func (o SlotTypeMapOutput) ToSlotTypeMapOutput() SlotTypeMapOutput {
+	return o
+}
+
+func (o SlotTypeMapOutput) ToSlotTypeMapOutputWithContext(ctx context.Context) SlotTypeMapOutput {
+	return o
+}
+
+func (o SlotTypeMapOutput) MapIndex(k pulumi.StringInput) SlotTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SlotType {
+		return vs[0].(map[string]SlotType)[vs[1].(string)]
+	}).(SlotTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SlotTypeOutput{})
+	pulumi.RegisterOutputType(SlotTypePtrOutput{})
+	pulumi.RegisterOutputType(SlotTypeArrayOutput{})
+	pulumi.RegisterOutputType(SlotTypeMapOutput{})
 }

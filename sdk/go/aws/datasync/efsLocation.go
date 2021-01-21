@@ -179,6 +179,85 @@ func (i *EfsLocation) ToEfsLocationOutputWithContext(ctx context.Context) EfsLoc
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationOutput)
 }
 
+func (i *EfsLocation) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
+	return i.ToEfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *EfsLocation) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationPtrOutput)
+}
+
+type EfsLocationPtrInput interface {
+	pulumi.Input
+
+	ToEfsLocationPtrOutput() EfsLocationPtrOutput
+	ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput
+}
+
+type efsLocationPtrType EfsLocationArgs
+
+func (*efsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EfsLocation)(nil))
+}
+
+func (i *efsLocationPtrType) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
+	return i.ToEfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *efsLocationPtrType) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationPtrOutput)
+}
+
+// EfsLocationArrayInput is an input type that accepts EfsLocationArray and EfsLocationArrayOutput values.
+// You can construct a concrete instance of `EfsLocationArrayInput` via:
+//
+//          EfsLocationArray{ EfsLocationArgs{...} }
+type EfsLocationArrayInput interface {
+	pulumi.Input
+
+	ToEfsLocationArrayOutput() EfsLocationArrayOutput
+	ToEfsLocationArrayOutputWithContext(context.Context) EfsLocationArrayOutput
+}
+
+type EfsLocationArray []EfsLocationInput
+
+func (EfsLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EfsLocation)(nil))
+}
+
+func (i EfsLocationArray) ToEfsLocationArrayOutput() EfsLocationArrayOutput {
+	return i.ToEfsLocationArrayOutputWithContext(context.Background())
+}
+
+func (i EfsLocationArray) ToEfsLocationArrayOutputWithContext(ctx context.Context) EfsLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationArrayOutput)
+}
+
+// EfsLocationMapInput is an input type that accepts EfsLocationMap and EfsLocationMapOutput values.
+// You can construct a concrete instance of `EfsLocationMapInput` via:
+//
+//          EfsLocationMap{ "key": EfsLocationArgs{...} }
+type EfsLocationMapInput interface {
+	pulumi.Input
+
+	ToEfsLocationMapOutput() EfsLocationMapOutput
+	ToEfsLocationMapOutputWithContext(context.Context) EfsLocationMapOutput
+}
+
+type EfsLocationMap map[string]EfsLocationInput
+
+func (EfsLocationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EfsLocation)(nil))
+}
+
+func (i EfsLocationMap) ToEfsLocationMapOutput() EfsLocationMapOutput {
+	return i.ToEfsLocationMapOutputWithContext(context.Background())
+}
+
+func (i EfsLocationMap) ToEfsLocationMapOutputWithContext(ctx context.Context) EfsLocationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationMapOutput)
+}
+
 type EfsLocationOutput struct {
 	*pulumi.OutputState
 }
@@ -195,6 +274,75 @@ func (o EfsLocationOutput) ToEfsLocationOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EfsLocationOutput) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
+	return o.ToEfsLocationPtrOutputWithContext(context.Background())
+}
+
+func (o EfsLocationOutput) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
+	return o.ApplyT(func(v EfsLocation) *EfsLocation {
+		return &v
+	}).(EfsLocationPtrOutput)
+}
+
+type EfsLocationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EfsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EfsLocation)(nil))
+}
+
+func (o EfsLocationPtrOutput) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
+	return o
+}
+
+func (o EfsLocationPtrOutput) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
+	return o
+}
+
+type EfsLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (EfsLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EfsLocation)(nil))
+}
+
+func (o EfsLocationArrayOutput) ToEfsLocationArrayOutput() EfsLocationArrayOutput {
+	return o
+}
+
+func (o EfsLocationArrayOutput) ToEfsLocationArrayOutputWithContext(ctx context.Context) EfsLocationArrayOutput {
+	return o
+}
+
+func (o EfsLocationArrayOutput) Index(i pulumi.IntInput) EfsLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EfsLocation {
+		return vs[0].([]EfsLocation)[vs[1].(int)]
+	}).(EfsLocationOutput)
+}
+
+type EfsLocationMapOutput struct{ *pulumi.OutputState }
+
+func (EfsLocationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EfsLocation)(nil))
+}
+
+func (o EfsLocationMapOutput) ToEfsLocationMapOutput() EfsLocationMapOutput {
+	return o
+}
+
+func (o EfsLocationMapOutput) ToEfsLocationMapOutputWithContext(ctx context.Context) EfsLocationMapOutput {
+	return o
+}
+
+func (o EfsLocationMapOutput) MapIndex(k pulumi.StringInput) EfsLocationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EfsLocation {
+		return vs[0].(map[string]EfsLocation)[vs[1].(string)]
+	}).(EfsLocationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EfsLocationOutput{})
+	pulumi.RegisterOutputType(EfsLocationPtrOutput{})
+	pulumi.RegisterOutputType(EfsLocationArrayOutput{})
+	pulumi.RegisterOutputType(EfsLocationMapOutput{})
 }

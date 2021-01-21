@@ -283,6 +283,85 @@ func (i *DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupOutput)
 }
 
+func (i *DefaultSecurityGroup) ToDefaultSecurityGroupPtrOutput() DefaultSecurityGroupPtrOutput {
+	return i.ToDefaultSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *DefaultSecurityGroup) ToDefaultSecurityGroupPtrOutputWithContext(ctx context.Context) DefaultSecurityGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupPtrOutput)
+}
+
+type DefaultSecurityGroupPtrInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupPtrOutput() DefaultSecurityGroupPtrOutput
+	ToDefaultSecurityGroupPtrOutputWithContext(ctx context.Context) DefaultSecurityGroupPtrOutput
+}
+
+type defaultSecurityGroupPtrType DefaultSecurityGroupArgs
+
+func (*defaultSecurityGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultSecurityGroup)(nil))
+}
+
+func (i *defaultSecurityGroupPtrType) ToDefaultSecurityGroupPtrOutput() DefaultSecurityGroupPtrOutput {
+	return i.ToDefaultSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultSecurityGroupPtrType) ToDefaultSecurityGroupPtrOutputWithContext(ctx context.Context) DefaultSecurityGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupPtrOutput)
+}
+
+// DefaultSecurityGroupArrayInput is an input type that accepts DefaultSecurityGroupArray and DefaultSecurityGroupArrayOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupArrayInput` via:
+//
+//          DefaultSecurityGroupArray{ DefaultSecurityGroupArgs{...} }
+type DefaultSecurityGroupArrayInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupArrayOutput() DefaultSecurityGroupArrayOutput
+	ToDefaultSecurityGroupArrayOutputWithContext(context.Context) DefaultSecurityGroupArrayOutput
+}
+
+type DefaultSecurityGroupArray []DefaultSecurityGroupInput
+
+func (DefaultSecurityGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DefaultSecurityGroup)(nil))
+}
+
+func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutput() DefaultSecurityGroupArrayOutput {
+	return i.ToDefaultSecurityGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupArrayOutput)
+}
+
+// DefaultSecurityGroupMapInput is an input type that accepts DefaultSecurityGroupMap and DefaultSecurityGroupMapOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupMapInput` via:
+//
+//          DefaultSecurityGroupMap{ "key": DefaultSecurityGroupArgs{...} }
+type DefaultSecurityGroupMapInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupMapOutput() DefaultSecurityGroupMapOutput
+	ToDefaultSecurityGroupMapOutputWithContext(context.Context) DefaultSecurityGroupMapOutput
+}
+
+type DefaultSecurityGroupMap map[string]DefaultSecurityGroupInput
+
+func (DefaultSecurityGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DefaultSecurityGroup)(nil))
+}
+
+func (i DefaultSecurityGroupMap) ToDefaultSecurityGroupMapOutput() DefaultSecurityGroupMapOutput {
+	return i.ToDefaultSecurityGroupMapOutputWithContext(context.Background())
+}
+
+func (i DefaultSecurityGroupMap) ToDefaultSecurityGroupMapOutputWithContext(ctx context.Context) DefaultSecurityGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupMapOutput)
+}
+
 type DefaultSecurityGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -299,6 +378,75 @@ func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
+func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupPtrOutput() DefaultSecurityGroupPtrOutput {
+	return o.ToDefaultSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupPtrOutputWithContext(ctx context.Context) DefaultSecurityGroupPtrOutput {
+	return o.ApplyT(func(v DefaultSecurityGroup) *DefaultSecurityGroup {
+		return &v
+	}).(DefaultSecurityGroupPtrOutput)
+}
+
+type DefaultSecurityGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultSecurityGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultSecurityGroup)(nil))
+}
+
+func (o DefaultSecurityGroupPtrOutput) ToDefaultSecurityGroupPtrOutput() DefaultSecurityGroupPtrOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupPtrOutput) ToDefaultSecurityGroupPtrOutputWithContext(ctx context.Context) DefaultSecurityGroupPtrOutput {
+	return o
+}
+
+type DefaultSecurityGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultSecurityGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultSecurityGroup)(nil))
+}
+
+func (o DefaultSecurityGroupArrayOutput) ToDefaultSecurityGroupArrayOutput() DefaultSecurityGroupArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupArrayOutput) ToDefaultSecurityGroupArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupArrayOutput) Index(i pulumi.IntInput) DefaultSecurityGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultSecurityGroup {
+		return vs[0].([]DefaultSecurityGroup)[vs[1].(int)]
+	}).(DefaultSecurityGroupOutput)
+}
+
+type DefaultSecurityGroupMapOutput struct{ *pulumi.OutputState }
+
+func (DefaultSecurityGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DefaultSecurityGroup)(nil))
+}
+
+func (o DefaultSecurityGroupMapOutput) ToDefaultSecurityGroupMapOutput() DefaultSecurityGroupMapOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupMapOutput) ToDefaultSecurityGroupMapOutputWithContext(ctx context.Context) DefaultSecurityGroupMapOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) DefaultSecurityGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultSecurityGroup {
+		return vs[0].(map[string]DefaultSecurityGroup)[vs[1].(string)]
+	}).(DefaultSecurityGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultSecurityGroupOutput{})
+	pulumi.RegisterOutputType(DefaultSecurityGroupPtrOutput{})
+	pulumi.RegisterOutputType(DefaultSecurityGroupArrayOutput{})
+	pulumi.RegisterOutputType(DefaultSecurityGroupMapOutput{})
 }

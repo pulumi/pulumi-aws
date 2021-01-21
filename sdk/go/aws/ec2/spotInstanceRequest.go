@@ -685,6 +685,85 @@ func (i *SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestOutput)
 }
 
+func (i *SpotInstanceRequest) ToSpotInstanceRequestPtrOutput() SpotInstanceRequestPtrOutput {
+	return i.ToSpotInstanceRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *SpotInstanceRequest) ToSpotInstanceRequestPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestPtrOutput)
+}
+
+type SpotInstanceRequestPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestPtrOutput() SpotInstanceRequestPtrOutput
+	ToSpotInstanceRequestPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPtrOutput
+}
+
+type spotInstanceRequestPtrType SpotInstanceRequestArgs
+
+func (*spotInstanceRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequest)(nil))
+}
+
+func (i *spotInstanceRequestPtrType) ToSpotInstanceRequestPtrOutput() SpotInstanceRequestPtrOutput {
+	return i.ToSpotInstanceRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestPtrType) ToSpotInstanceRequestPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestPtrOutput)
+}
+
+// SpotInstanceRequestArrayInput is an input type that accepts SpotInstanceRequestArray and SpotInstanceRequestArrayOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestArrayInput` via:
+//
+//          SpotInstanceRequestArray{ SpotInstanceRequestArgs{...} }
+type SpotInstanceRequestArrayInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestArrayOutput() SpotInstanceRequestArrayOutput
+	ToSpotInstanceRequestArrayOutputWithContext(context.Context) SpotInstanceRequestArrayOutput
+}
+
+type SpotInstanceRequestArray []SpotInstanceRequestInput
+
+func (SpotInstanceRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SpotInstanceRequest)(nil))
+}
+
+func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutput() SpotInstanceRequestArrayOutput {
+	return i.ToSpotInstanceRequestArrayOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutputWithContext(ctx context.Context) SpotInstanceRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestArrayOutput)
+}
+
+// SpotInstanceRequestMapInput is an input type that accepts SpotInstanceRequestMap and SpotInstanceRequestMapOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMapInput` via:
+//
+//          SpotInstanceRequestMap{ "key": SpotInstanceRequestArgs{...} }
+type SpotInstanceRequestMapInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMapOutput() SpotInstanceRequestMapOutput
+	ToSpotInstanceRequestMapOutputWithContext(context.Context) SpotInstanceRequestMapOutput
+}
+
+type SpotInstanceRequestMap map[string]SpotInstanceRequestInput
+
+func (SpotInstanceRequestMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SpotInstanceRequest)(nil))
+}
+
+func (i SpotInstanceRequestMap) ToSpotInstanceRequestMapOutput() SpotInstanceRequestMapOutput {
+	return i.ToSpotInstanceRequestMapOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMap) ToSpotInstanceRequestMapOutputWithContext(ctx context.Context) SpotInstanceRequestMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMapOutput)
+}
+
 type SpotInstanceRequestOutput struct {
 	*pulumi.OutputState
 }
@@ -701,6 +780,75 @@ func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx co
 	return o
 }
 
+func (o SpotInstanceRequestOutput) ToSpotInstanceRequestPtrOutput() SpotInstanceRequestPtrOutput {
+	return o.ToSpotInstanceRequestPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestOutput) ToSpotInstanceRequestPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequest) *SpotInstanceRequest {
+		return &v
+	}).(SpotInstanceRequestPtrOutput)
+}
+
+type SpotInstanceRequestPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotInstanceRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequest)(nil))
+}
+
+func (o SpotInstanceRequestPtrOutput) ToSpotInstanceRequestPtrOutput() SpotInstanceRequestPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestPtrOutput) ToSpotInstanceRequestPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPtrOutput {
+	return o
+}
+
+type SpotInstanceRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotInstanceRequest)(nil))
+}
+
+func (o SpotInstanceRequestArrayOutput) ToSpotInstanceRequestArrayOutput() SpotInstanceRequestArrayOutput {
+	return o
+}
+
+func (o SpotInstanceRequestArrayOutput) ToSpotInstanceRequestArrayOutputWithContext(ctx context.Context) SpotInstanceRequestArrayOutput {
+	return o
+}
+
+func (o SpotInstanceRequestArrayOutput) Index(i pulumi.IntInput) SpotInstanceRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotInstanceRequest {
+		return vs[0].([]SpotInstanceRequest)[vs[1].(int)]
+	}).(SpotInstanceRequestOutput)
+}
+
+type SpotInstanceRequestMapOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SpotInstanceRequest)(nil))
+}
+
+func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutput() SpotInstanceRequestMapOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutputWithContext(ctx context.Context) SpotInstanceRequestMapOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMapOutput) MapIndex(k pulumi.StringInput) SpotInstanceRequestOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpotInstanceRequest {
+		return vs[0].(map[string]SpotInstanceRequest)[vs[1].(string)]
+	}).(SpotInstanceRequestOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestPtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestArrayOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMapOutput{})
 }
