@@ -145,6 +145,85 @@ func (i *UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) Uplo
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferOutput)
 }
 
+func (i *UploadBuffer) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
+	return i.ToUploadBufferPtrOutputWithContext(context.Background())
+}
+
+func (i *UploadBuffer) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferPtrOutput)
+}
+
+type UploadBufferPtrInput interface {
+	pulumi.Input
+
+	ToUploadBufferPtrOutput() UploadBufferPtrOutput
+	ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput
+}
+
+type uploadBufferPtrType UploadBufferArgs
+
+func (*uploadBufferPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UploadBuffer)(nil))
+}
+
+func (i *uploadBufferPtrType) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
+	return i.ToUploadBufferPtrOutputWithContext(context.Background())
+}
+
+func (i *uploadBufferPtrType) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferPtrOutput)
+}
+
+// UploadBufferArrayInput is an input type that accepts UploadBufferArray and UploadBufferArrayOutput values.
+// You can construct a concrete instance of `UploadBufferArrayInput` via:
+//
+//          UploadBufferArray{ UploadBufferArgs{...} }
+type UploadBufferArrayInput interface {
+	pulumi.Input
+
+	ToUploadBufferArrayOutput() UploadBufferArrayOutput
+	ToUploadBufferArrayOutputWithContext(context.Context) UploadBufferArrayOutput
+}
+
+type UploadBufferArray []UploadBufferInput
+
+func (UploadBufferArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UploadBuffer)(nil))
+}
+
+func (i UploadBufferArray) ToUploadBufferArrayOutput() UploadBufferArrayOutput {
+	return i.ToUploadBufferArrayOutputWithContext(context.Background())
+}
+
+func (i UploadBufferArray) ToUploadBufferArrayOutputWithContext(ctx context.Context) UploadBufferArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferArrayOutput)
+}
+
+// UploadBufferMapInput is an input type that accepts UploadBufferMap and UploadBufferMapOutput values.
+// You can construct a concrete instance of `UploadBufferMapInput` via:
+//
+//          UploadBufferMap{ "key": UploadBufferArgs{...} }
+type UploadBufferMapInput interface {
+	pulumi.Input
+
+	ToUploadBufferMapOutput() UploadBufferMapOutput
+	ToUploadBufferMapOutputWithContext(context.Context) UploadBufferMapOutput
+}
+
+type UploadBufferMap map[string]UploadBufferInput
+
+func (UploadBufferMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UploadBuffer)(nil))
+}
+
+func (i UploadBufferMap) ToUploadBufferMapOutput() UploadBufferMapOutput {
+	return i.ToUploadBufferMapOutputWithContext(context.Background())
+}
+
+func (i UploadBufferMap) ToUploadBufferMapOutputWithContext(ctx context.Context) UploadBufferMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferMapOutput)
+}
+
 type UploadBufferOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o UploadBufferOutput) ToUploadBufferOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o UploadBufferOutput) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
+	return o.ToUploadBufferPtrOutputWithContext(context.Background())
+}
+
+func (o UploadBufferOutput) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
+	return o.ApplyT(func(v UploadBuffer) *UploadBuffer {
+		return &v
+	}).(UploadBufferPtrOutput)
+}
+
+type UploadBufferPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UploadBufferPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UploadBuffer)(nil))
+}
+
+func (o UploadBufferPtrOutput) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
+	return o
+}
+
+func (o UploadBufferPtrOutput) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
+	return o
+}
+
+type UploadBufferArrayOutput struct{ *pulumi.OutputState }
+
+func (UploadBufferArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UploadBuffer)(nil))
+}
+
+func (o UploadBufferArrayOutput) ToUploadBufferArrayOutput() UploadBufferArrayOutput {
+	return o
+}
+
+func (o UploadBufferArrayOutput) ToUploadBufferArrayOutputWithContext(ctx context.Context) UploadBufferArrayOutput {
+	return o
+}
+
+func (o UploadBufferArrayOutput) Index(i pulumi.IntInput) UploadBufferOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UploadBuffer {
+		return vs[0].([]UploadBuffer)[vs[1].(int)]
+	}).(UploadBufferOutput)
+}
+
+type UploadBufferMapOutput struct{ *pulumi.OutputState }
+
+func (UploadBufferMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UploadBuffer)(nil))
+}
+
+func (o UploadBufferMapOutput) ToUploadBufferMapOutput() UploadBufferMapOutput {
+	return o
+}
+
+func (o UploadBufferMapOutput) ToUploadBufferMapOutputWithContext(ctx context.Context) UploadBufferMapOutput {
+	return o
+}
+
+func (o UploadBufferMapOutput) MapIndex(k pulumi.StringInput) UploadBufferOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UploadBuffer {
+		return vs[0].(map[string]UploadBuffer)[vs[1].(string)]
+	}).(UploadBufferOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UploadBufferOutput{})
+	pulumi.RegisterOutputType(UploadBufferPtrOutput{})
+	pulumi.RegisterOutputType(UploadBufferArrayOutput{})
+	pulumi.RegisterOutputType(UploadBufferMapOutput{})
 }

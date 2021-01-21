@@ -207,6 +207,85 @@ func (i *VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoS
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamOutput)
 }
 
+func (i *VideoStream) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
+	return i.ToVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *VideoStream) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamPtrOutput)
+}
+
+type VideoStreamPtrInput interface {
+	pulumi.Input
+
+	ToVideoStreamPtrOutput() VideoStreamPtrOutput
+	ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput
+}
+
+type videoStreamPtrType VideoStreamArgs
+
+func (*videoStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoStream)(nil))
+}
+
+func (i *videoStreamPtrType) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
+	return i.ToVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *videoStreamPtrType) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamPtrOutput)
+}
+
+// VideoStreamArrayInput is an input type that accepts VideoStreamArray and VideoStreamArrayOutput values.
+// You can construct a concrete instance of `VideoStreamArrayInput` via:
+//
+//          VideoStreamArray{ VideoStreamArgs{...} }
+type VideoStreamArrayInput interface {
+	pulumi.Input
+
+	ToVideoStreamArrayOutput() VideoStreamArrayOutput
+	ToVideoStreamArrayOutputWithContext(context.Context) VideoStreamArrayOutput
+}
+
+type VideoStreamArray []VideoStreamInput
+
+func (VideoStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VideoStream)(nil))
+}
+
+func (i VideoStreamArray) ToVideoStreamArrayOutput() VideoStreamArrayOutput {
+	return i.ToVideoStreamArrayOutputWithContext(context.Background())
+}
+
+func (i VideoStreamArray) ToVideoStreamArrayOutputWithContext(ctx context.Context) VideoStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamArrayOutput)
+}
+
+// VideoStreamMapInput is an input type that accepts VideoStreamMap and VideoStreamMapOutput values.
+// You can construct a concrete instance of `VideoStreamMapInput` via:
+//
+//          VideoStreamMap{ "key": VideoStreamArgs{...} }
+type VideoStreamMapInput interface {
+	pulumi.Input
+
+	ToVideoStreamMapOutput() VideoStreamMapOutput
+	ToVideoStreamMapOutputWithContext(context.Context) VideoStreamMapOutput
+}
+
+type VideoStreamMap map[string]VideoStreamInput
+
+func (VideoStreamMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VideoStream)(nil))
+}
+
+func (i VideoStreamMap) ToVideoStreamMapOutput() VideoStreamMapOutput {
+	return i.ToVideoStreamMapOutputWithContext(context.Background())
+}
+
+func (i VideoStreamMap) ToVideoStreamMapOutputWithContext(ctx context.Context) VideoStreamMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamMapOutput)
+}
+
 type VideoStreamOutput struct {
 	*pulumi.OutputState
 }
@@ -223,6 +302,75 @@ func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VideoStreamOutput) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
+	return o.ToVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (o VideoStreamOutput) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
+	return o.ApplyT(func(v VideoStream) *VideoStream {
+		return &v
+	}).(VideoStreamPtrOutput)
+}
+
+type VideoStreamPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VideoStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoStream)(nil))
+}
+
+func (o VideoStreamPtrOutput) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
+	return o
+}
+
+func (o VideoStreamPtrOutput) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
+	return o
+}
+
+type VideoStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (VideoStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VideoStream)(nil))
+}
+
+func (o VideoStreamArrayOutput) ToVideoStreamArrayOutput() VideoStreamArrayOutput {
+	return o
+}
+
+func (o VideoStreamArrayOutput) ToVideoStreamArrayOutputWithContext(ctx context.Context) VideoStreamArrayOutput {
+	return o
+}
+
+func (o VideoStreamArrayOutput) Index(i pulumi.IntInput) VideoStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VideoStream {
+		return vs[0].([]VideoStream)[vs[1].(int)]
+	}).(VideoStreamOutput)
+}
+
+type VideoStreamMapOutput struct{ *pulumi.OutputState }
+
+func (VideoStreamMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VideoStream)(nil))
+}
+
+func (o VideoStreamMapOutput) ToVideoStreamMapOutput() VideoStreamMapOutput {
+	return o
+}
+
+func (o VideoStreamMapOutput) ToVideoStreamMapOutputWithContext(ctx context.Context) VideoStreamMapOutput {
+	return o
+}
+
+func (o VideoStreamMapOutput) MapIndex(k pulumi.StringInput) VideoStreamOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VideoStream {
+		return vs[0].(map[string]VideoStream)[vs[1].(string)]
+	}).(VideoStreamOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VideoStreamOutput{})
+	pulumi.RegisterOutputType(VideoStreamPtrOutput{})
+	pulumi.RegisterOutputType(VideoStreamArrayOutput{})
+	pulumi.RegisterOutputType(VideoStreamMapOutput{})
 }

@@ -103,6 +103,85 @@ func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
 }
 
+func (i *CodeRepository) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
+	return i.ToCodeRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *CodeRepository) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
+}
+
+type CodeRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput
+	ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput
+}
+
+type codeRepositoryPtrType CodeRepositoryArgs
+
+func (*codeRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepository)(nil))
+}
+
+func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
+	return i.ToCodeRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
+}
+
+// CodeRepositoryArrayInput is an input type that accepts CodeRepositoryArray and CodeRepositoryArrayOutput values.
+// You can construct a concrete instance of `CodeRepositoryArrayInput` via:
+//
+//          CodeRepositoryArray{ CodeRepositoryArgs{...} }
+type CodeRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryArrayOutput() CodeRepositoryArrayOutput
+	ToCodeRepositoryArrayOutputWithContext(context.Context) CodeRepositoryArrayOutput
+}
+
+type CodeRepositoryArray []CodeRepositoryInput
+
+func (CodeRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CodeRepository)(nil))
+}
+
+func (i CodeRepositoryArray) ToCodeRepositoryArrayOutput() CodeRepositoryArrayOutput {
+	return i.ToCodeRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryArray) ToCodeRepositoryArrayOutputWithContext(ctx context.Context) CodeRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryArrayOutput)
+}
+
+// CodeRepositoryMapInput is an input type that accepts CodeRepositoryMap and CodeRepositoryMapOutput values.
+// You can construct a concrete instance of `CodeRepositoryMapInput` via:
+//
+//          CodeRepositoryMap{ "key": CodeRepositoryArgs{...} }
+type CodeRepositoryMapInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryMapOutput() CodeRepositoryMapOutput
+	ToCodeRepositoryMapOutputWithContext(context.Context) CodeRepositoryMapOutput
+}
+
+type CodeRepositoryMap map[string]CodeRepositoryInput
+
+func (CodeRepositoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CodeRepository)(nil))
+}
+
+func (i CodeRepositoryMap) ToCodeRepositoryMapOutput() CodeRepositoryMapOutput {
+	return i.ToCodeRepositoryMapOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryMap) ToCodeRepositoryMapOutputWithContext(ctx context.Context) CodeRepositoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryMapOutput)
+}
+
 type CodeRepositoryOutput struct {
 	*pulumi.OutputState
 }
@@ -119,6 +198,75 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
+	return o.ToCodeRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
+	return o.ApplyT(func(v CodeRepository) *CodeRepository {
+		return &v
+	}).(CodeRepositoryPtrOutput)
+}
+
+type CodeRepositoryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CodeRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepository)(nil))
+}
+
+func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
+	return o
+}
+
+type CodeRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeRepository)(nil))
+}
+
+func (o CodeRepositoryArrayOutput) ToCodeRepositoryArrayOutput() CodeRepositoryArrayOutput {
+	return o
+}
+
+func (o CodeRepositoryArrayOutput) ToCodeRepositoryArrayOutputWithContext(ctx context.Context) CodeRepositoryArrayOutput {
+	return o
+}
+
+func (o CodeRepositoryArrayOutput) Index(i pulumi.IntInput) CodeRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeRepository {
+		return vs[0].([]CodeRepository)[vs[1].(int)]
+	}).(CodeRepositoryOutput)
+}
+
+type CodeRepositoryMapOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CodeRepository)(nil))
+}
+
+func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutput() CodeRepositoryMapOutput {
+	return o
+}
+
+func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutputWithContext(ctx context.Context) CodeRepositoryMapOutput {
+	return o
+}
+
+func (o CodeRepositoryMapOutput) MapIndex(k pulumi.StringInput) CodeRepositoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CodeRepository {
+		return vs[0].(map[string]CodeRepository)[vs[1].(string)]
+	}).(CodeRepositoryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryMapOutput{})
 }

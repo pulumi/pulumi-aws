@@ -229,6 +229,85 @@ func (i *GatewayRoute) ToGatewayRouteOutputWithContext(ctx context.Context) Gate
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteOutput)
 }
 
+func (i *GatewayRoute) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
+	return i.ToGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *GatewayRoute) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRoutePtrOutput)
+}
+
+type GatewayRoutePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRoutePtrOutput() GatewayRoutePtrOutput
+	ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput
+}
+
+type gatewayRoutePtrType GatewayRouteArgs
+
+func (*gatewayRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRoute)(nil))
+}
+
+func (i *gatewayRoutePtrType) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
+	return i.ToGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRoutePtrType) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRoutePtrOutput)
+}
+
+// GatewayRouteArrayInput is an input type that accepts GatewayRouteArray and GatewayRouteArrayOutput values.
+// You can construct a concrete instance of `GatewayRouteArrayInput` via:
+//
+//          GatewayRouteArray{ GatewayRouteArgs{...} }
+type GatewayRouteArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRouteArrayOutput() GatewayRouteArrayOutput
+	ToGatewayRouteArrayOutputWithContext(context.Context) GatewayRouteArrayOutput
+}
+
+type GatewayRouteArray []GatewayRouteInput
+
+func (GatewayRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GatewayRoute)(nil))
+}
+
+func (i GatewayRouteArray) ToGatewayRouteArrayOutput() GatewayRouteArrayOutput {
+	return i.ToGatewayRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteArray) ToGatewayRouteArrayOutputWithContext(ctx context.Context) GatewayRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteArrayOutput)
+}
+
+// GatewayRouteMapInput is an input type that accepts GatewayRouteMap and GatewayRouteMapOutput values.
+// You can construct a concrete instance of `GatewayRouteMapInput` via:
+//
+//          GatewayRouteMap{ "key": GatewayRouteArgs{...} }
+type GatewayRouteMapInput interface {
+	pulumi.Input
+
+	ToGatewayRouteMapOutput() GatewayRouteMapOutput
+	ToGatewayRouteMapOutputWithContext(context.Context) GatewayRouteMapOutput
+}
+
+type GatewayRouteMap map[string]GatewayRouteInput
+
+func (GatewayRouteMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GatewayRoute)(nil))
+}
+
+func (i GatewayRouteMap) ToGatewayRouteMapOutput() GatewayRouteMapOutput {
+	return i.ToGatewayRouteMapOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteMap) ToGatewayRouteMapOutputWithContext(ctx context.Context) GatewayRouteMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMapOutput)
+}
+
 type GatewayRouteOutput struct {
 	*pulumi.OutputState
 }
@@ -245,6 +324,75 @@ func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GatewayRouteOutput) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
+	return o.ToGatewayRoutePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteOutput) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRoute) *GatewayRoute {
+		return &v
+	}).(GatewayRoutePtrOutput)
+}
+
+type GatewayRoutePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRoute)(nil))
+}
+
+func (o GatewayRoutePtrOutput) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
+	return o
+}
+
+func (o GatewayRoutePtrOutput) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
+	return o
+}
+
+type GatewayRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRoute)(nil))
+}
+
+func (o GatewayRouteArrayOutput) ToGatewayRouteArrayOutput() GatewayRouteArrayOutput {
+	return o
+}
+
+func (o GatewayRouteArrayOutput) ToGatewayRouteArrayOutputWithContext(ctx context.Context) GatewayRouteArrayOutput {
+	return o
+}
+
+func (o GatewayRouteArrayOutput) Index(i pulumi.IntInput) GatewayRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRoute {
+		return vs[0].([]GatewayRoute)[vs[1].(int)]
+	}).(GatewayRouteOutput)
+}
+
+type GatewayRouteMapOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GatewayRoute)(nil))
+}
+
+func (o GatewayRouteMapOutput) ToGatewayRouteMapOutput() GatewayRouteMapOutput {
+	return o
+}
+
+func (o GatewayRouteMapOutput) ToGatewayRouteMapOutputWithContext(ctx context.Context) GatewayRouteMapOutput {
+	return o
+}
+
+func (o GatewayRouteMapOutput) MapIndex(k pulumi.StringInput) GatewayRouteOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GatewayRoute {
+		return vs[0].(map[string]GatewayRoute)[vs[1].(string)]
+	}).(GatewayRouteOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayRouteOutput{})
+	pulumi.RegisterOutputType(GatewayRoutePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRouteMapOutput{})
 }

@@ -224,6 +224,85 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationOutput)
 }
 
+func (i *RemediationConfiguration) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
+	return i.ToRemediationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *RemediationConfiguration) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationPtrOutput)
+}
+
+type RemediationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput
+	ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput
+}
+
+type remediationConfigurationPtrType RemediationConfigurationArgs
+
+func (*remediationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfiguration)(nil))
+}
+
+func (i *remediationConfigurationPtrType) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
+	return i.ToRemediationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationPtrType) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationPtrOutput)
+}
+
+// RemediationConfigurationArrayInput is an input type that accepts RemediationConfigurationArray and RemediationConfigurationArrayOutput values.
+// You can construct a concrete instance of `RemediationConfigurationArrayInput` via:
+//
+//          RemediationConfigurationArray{ RemediationConfigurationArgs{...} }
+type RemediationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationArrayOutput() RemediationConfigurationArrayOutput
+	ToRemediationConfigurationArrayOutputWithContext(context.Context) RemediationConfigurationArrayOutput
+}
+
+type RemediationConfigurationArray []RemediationConfigurationInput
+
+func (RemediationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RemediationConfiguration)(nil))
+}
+
+func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutput() RemediationConfigurationArrayOutput {
+	return i.ToRemediationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutputWithContext(ctx context.Context) RemediationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationArrayOutput)
+}
+
+// RemediationConfigurationMapInput is an input type that accepts RemediationConfigurationMap and RemediationConfigurationMapOutput values.
+// You can construct a concrete instance of `RemediationConfigurationMapInput` via:
+//
+//          RemediationConfigurationMap{ "key": RemediationConfigurationArgs{...} }
+type RemediationConfigurationMapInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationMapOutput() RemediationConfigurationMapOutput
+	ToRemediationConfigurationMapOutputWithContext(context.Context) RemediationConfigurationMapOutput
+}
+
+type RemediationConfigurationMap map[string]RemediationConfigurationInput
+
+func (RemediationConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RemediationConfiguration)(nil))
+}
+
+func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutput() RemediationConfigurationMapOutput {
+	return i.ToRemediationConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutputWithContext(ctx context.Context) RemediationConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationMapOutput)
+}
+
 type RemediationConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -240,6 +319,75 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 	return o
 }
 
+func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
+	return o.ToRemediationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
+	return o.ApplyT(func(v RemediationConfiguration) *RemediationConfiguration {
+		return &v
+	}).(RemediationConfigurationPtrOutput)
+}
+
+type RemediationConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfiguration)(nil))
+}
+
+func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
+	return o
+}
+
+type RemediationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationConfiguration)(nil))
+}
+
+func (o RemediationConfigurationArrayOutput) ToRemediationConfigurationArrayOutput() RemediationConfigurationArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationArrayOutput) ToRemediationConfigurationArrayOutputWithContext(ctx context.Context) RemediationConfigurationArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationArrayOutput) Index(i pulumi.IntInput) RemediationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationConfiguration {
+		return vs[0].([]RemediationConfiguration)[vs[1].(int)]
+	}).(RemediationConfigurationOutput)
+}
+
+type RemediationConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RemediationConfiguration)(nil))
+}
+
+func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutput() RemediationConfigurationMapOutput {
+	return o
+}
+
+func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutputWithContext(ctx context.Context) RemediationConfigurationMapOutput {
+	return o
+}
+
+func (o RemediationConfigurationMapOutput) MapIndex(k pulumi.StringInput) RemediationConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemediationConfiguration {
+		return vs[0].(map[string]RemediationConfiguration)[vs[1].(string)]
+	}).(RemediationConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RemediationConfigurationOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationMapOutput{})
 }

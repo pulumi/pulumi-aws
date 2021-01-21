@@ -249,6 +249,85 @@ func (i *MaintenanceWindow) ToMaintenanceWindowOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput)
 }
 
+func (i *MaintenanceWindow) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *MaintenanceWindow) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
+}
+
+type MaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput
+	ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput
+}
+
+type maintenanceWindowPtrType MaintenanceWindowArgs
+
+func (*maintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil))
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
+}
+
+// MaintenanceWindowArrayInput is an input type that accepts MaintenanceWindowArray and MaintenanceWindowArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowArrayInput` via:
+//
+//          MaintenanceWindowArray{ MaintenanceWindowArgs{...} }
+type MaintenanceWindowArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowArrayOutput() MaintenanceWindowArrayOutput
+	ToMaintenanceWindowArrayOutputWithContext(context.Context) MaintenanceWindowArrayOutput
+}
+
+type MaintenanceWindowArray []MaintenanceWindowInput
+
+func (MaintenanceWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MaintenanceWindow)(nil))
+}
+
+func (i MaintenanceWindowArray) ToMaintenanceWindowArrayOutput() MaintenanceWindowArrayOutput {
+	return i.ToMaintenanceWindowArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowArray) ToMaintenanceWindowArrayOutputWithContext(ctx context.Context) MaintenanceWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowArrayOutput)
+}
+
+// MaintenanceWindowMapInput is an input type that accepts MaintenanceWindowMap and MaintenanceWindowMapOutput values.
+// You can construct a concrete instance of `MaintenanceWindowMapInput` via:
+//
+//          MaintenanceWindowMap{ "key": MaintenanceWindowArgs{...} }
+type MaintenanceWindowMapInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowMapOutput() MaintenanceWindowMapOutput
+	ToMaintenanceWindowMapOutputWithContext(context.Context) MaintenanceWindowMapOutput
+}
+
+type MaintenanceWindowMap map[string]MaintenanceWindowInput
+
+func (MaintenanceWindowMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MaintenanceWindow)(nil))
+}
+
+func (i MaintenanceWindowMap) ToMaintenanceWindowMapOutput() MaintenanceWindowMapOutput {
+	return i.ToMaintenanceWindowMapOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowMap) ToMaintenanceWindowMapOutputWithContext(ctx context.Context) MaintenanceWindowMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowMapOutput)
+}
+
 type MaintenanceWindowOutput struct {
 	*pulumi.OutputState
 }
@@ -265,6 +344,75 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 	return o
 }
 
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+		return &v
+	}).(MaintenanceWindowPtrOutput)
+}
+
+type MaintenanceWindowPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil))
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o
+}
+
+type MaintenanceWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindow)(nil))
+}
+
+func (o MaintenanceWindowArrayOutput) ToMaintenanceWindowArrayOutput() MaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowArrayOutput) ToMaintenanceWindowArrayOutputWithContext(ctx context.Context) MaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindow {
+		return vs[0].([]MaintenanceWindow)[vs[1].(int)]
+	}).(MaintenanceWindowOutput)
+}
+
+type MaintenanceWindowMapOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MaintenanceWindow)(nil))
+}
+
+func (o MaintenanceWindowMapOutput) ToMaintenanceWindowMapOutput() MaintenanceWindowMapOutput {
+	return o
+}
+
+func (o MaintenanceWindowMapOutput) ToMaintenanceWindowMapOutputWithContext(ctx context.Context) MaintenanceWindowMapOutput {
+	return o
+}
+
+func (o MaintenanceWindowMapOutput) MapIndex(k pulumi.StringInput) MaintenanceWindowOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MaintenanceWindow {
+		return vs[0].(map[string]MaintenanceWindow)[vs[1].(string)]
+	}).(MaintenanceWindowOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowMapOutput{})
 }

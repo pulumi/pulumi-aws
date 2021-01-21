@@ -157,6 +157,85 @@ func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
 }
 
+func (i *PublicDnsNamespace) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
+	return i.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *PublicDnsNamespace) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePtrOutput)
+}
+
+type PublicDnsNamespacePtrInput interface {
+	pulumi.Input
+
+	ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput
+	ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput
+}
+
+type publicDnsNamespacePtrType PublicDnsNamespaceArgs
+
+func (*publicDnsNamespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicDnsNamespace)(nil))
+}
+
+func (i *publicDnsNamespacePtrType) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
+	return i.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *publicDnsNamespacePtrType) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePtrOutput)
+}
+
+// PublicDnsNamespaceArrayInput is an input type that accepts PublicDnsNamespaceArray and PublicDnsNamespaceArrayOutput values.
+// You can construct a concrete instance of `PublicDnsNamespaceArrayInput` via:
+//
+//          PublicDnsNamespaceArray{ PublicDnsNamespaceArgs{...} }
+type PublicDnsNamespaceArrayInput interface {
+	pulumi.Input
+
+	ToPublicDnsNamespaceArrayOutput() PublicDnsNamespaceArrayOutput
+	ToPublicDnsNamespaceArrayOutputWithContext(context.Context) PublicDnsNamespaceArrayOutput
+}
+
+type PublicDnsNamespaceArray []PublicDnsNamespaceInput
+
+func (PublicDnsNamespaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PublicDnsNamespace)(nil))
+}
+
+func (i PublicDnsNamespaceArray) ToPublicDnsNamespaceArrayOutput() PublicDnsNamespaceArrayOutput {
+	return i.ToPublicDnsNamespaceArrayOutputWithContext(context.Background())
+}
+
+func (i PublicDnsNamespaceArray) ToPublicDnsNamespaceArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceArrayOutput)
+}
+
+// PublicDnsNamespaceMapInput is an input type that accepts PublicDnsNamespaceMap and PublicDnsNamespaceMapOutput values.
+// You can construct a concrete instance of `PublicDnsNamespaceMapInput` via:
+//
+//          PublicDnsNamespaceMap{ "key": PublicDnsNamespaceArgs{...} }
+type PublicDnsNamespaceMapInput interface {
+	pulumi.Input
+
+	ToPublicDnsNamespaceMapOutput() PublicDnsNamespaceMapOutput
+	ToPublicDnsNamespaceMapOutputWithContext(context.Context) PublicDnsNamespaceMapOutput
+}
+
+type PublicDnsNamespaceMap map[string]PublicDnsNamespaceInput
+
+func (PublicDnsNamespaceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PublicDnsNamespace)(nil))
+}
+
+func (i PublicDnsNamespaceMap) ToPublicDnsNamespaceMapOutput() PublicDnsNamespaceMapOutput {
+	return i.ToPublicDnsNamespaceMapOutputWithContext(context.Background())
+}
+
+func (i PublicDnsNamespaceMap) ToPublicDnsNamespaceMapOutputWithContext(ctx context.Context) PublicDnsNamespaceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceMapOutput)
+}
+
 type PublicDnsNamespaceOutput struct {
 	*pulumi.OutputState
 }
@@ -173,6 +252,75 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 	return o
 }
 
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
+	return o.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
+	return o.ApplyT(func(v PublicDnsNamespace) *PublicDnsNamespace {
+		return &v
+	}).(PublicDnsNamespacePtrOutput)
+}
+
+type PublicDnsNamespacePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicDnsNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicDnsNamespace)(nil))
+}
+
+func (o PublicDnsNamespacePtrOutput) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
+	return o
+}
+
+func (o PublicDnsNamespacePtrOutput) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
+	return o
+}
+
+type PublicDnsNamespaceArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicDnsNamespaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicDnsNamespace)(nil))
+}
+
+func (o PublicDnsNamespaceArrayOutput) ToPublicDnsNamespaceArrayOutput() PublicDnsNamespaceArrayOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceArrayOutput) ToPublicDnsNamespaceArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceArrayOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceArrayOutput) Index(i pulumi.IntInput) PublicDnsNamespaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicDnsNamespace {
+		return vs[0].([]PublicDnsNamespace)[vs[1].(int)]
+	}).(PublicDnsNamespaceOutput)
+}
+
+type PublicDnsNamespaceMapOutput struct{ *pulumi.OutputState }
+
+func (PublicDnsNamespaceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PublicDnsNamespace)(nil))
+}
+
+func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutput() PublicDnsNamespaceMapOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutputWithContext(ctx context.Context) PublicDnsNamespaceMapOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PublicDnsNamespaceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicDnsNamespace {
+		return vs[0].(map[string]PublicDnsNamespace)[vs[1].(string)]
+	}).(PublicDnsNamespaceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
+	pulumi.RegisterOutputType(PublicDnsNamespacePtrOutput{})
+	pulumi.RegisterOutputType(PublicDnsNamespaceArrayOutput{})
+	pulumi.RegisterOutputType(PublicDnsNamespaceMapOutput{})
 }

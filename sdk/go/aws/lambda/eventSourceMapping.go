@@ -370,6 +370,85 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
 }
 
+func (i *EventSourceMapping) ToEventSourceMappingPtrOutput() EventSourceMappingPtrOutput {
+	return i.ToEventSourceMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *EventSourceMapping) ToEventSourceMappingPtrOutputWithContext(ctx context.Context) EventSourceMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingPtrOutput)
+}
+
+type EventSourceMappingPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingPtrOutput() EventSourceMappingPtrOutput
+	ToEventSourceMappingPtrOutputWithContext(ctx context.Context) EventSourceMappingPtrOutput
+}
+
+type eventSourceMappingPtrType EventSourceMappingArgs
+
+func (*eventSourceMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMapping)(nil))
+}
+
+func (i *eventSourceMappingPtrType) ToEventSourceMappingPtrOutput() EventSourceMappingPtrOutput {
+	return i.ToEventSourceMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingPtrType) ToEventSourceMappingPtrOutputWithContext(ctx context.Context) EventSourceMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingPtrOutput)
+}
+
+// EventSourceMappingArrayInput is an input type that accepts EventSourceMappingArray and EventSourceMappingArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingArrayInput` via:
+//
+//          EventSourceMappingArray{ EventSourceMappingArgs{...} }
+type EventSourceMappingArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingArrayOutput() EventSourceMappingArrayOutput
+	ToEventSourceMappingArrayOutputWithContext(context.Context) EventSourceMappingArrayOutput
+}
+
+type EventSourceMappingArray []EventSourceMappingInput
+
+func (EventSourceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventSourceMapping)(nil))
+}
+
+func (i EventSourceMappingArray) ToEventSourceMappingArrayOutput() EventSourceMappingArrayOutput {
+	return i.ToEventSourceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingArray) ToEventSourceMappingArrayOutputWithContext(ctx context.Context) EventSourceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingArrayOutput)
+}
+
+// EventSourceMappingMapInput is an input type that accepts EventSourceMappingMap and EventSourceMappingMapOutput values.
+// You can construct a concrete instance of `EventSourceMappingMapInput` via:
+//
+//          EventSourceMappingMap{ "key": EventSourceMappingArgs{...} }
+type EventSourceMappingMapInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMapOutput() EventSourceMappingMapOutput
+	ToEventSourceMappingMapOutputWithContext(context.Context) EventSourceMappingMapOutput
+}
+
+type EventSourceMappingMap map[string]EventSourceMappingInput
+
+func (EventSourceMappingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventSourceMapping)(nil))
+}
+
+func (i EventSourceMappingMap) ToEventSourceMappingMapOutput() EventSourceMappingMapOutput {
+	return i.ToEventSourceMappingMapOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingMap) ToEventSourceMappingMapOutputWithContext(ctx context.Context) EventSourceMappingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMapOutput)
+}
+
 type EventSourceMappingOutput struct {
 	*pulumi.OutputState
 }
@@ -386,6 +465,75 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx cont
 	return o
 }
 
+func (o EventSourceMappingOutput) ToEventSourceMappingPtrOutput() EventSourceMappingPtrOutput {
+	return o.ToEventSourceMappingPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingOutput) ToEventSourceMappingPtrOutputWithContext(ctx context.Context) EventSourceMappingPtrOutput {
+	return o.ApplyT(func(v EventSourceMapping) *EventSourceMapping {
+		return &v
+	}).(EventSourceMappingPtrOutput)
+}
+
+type EventSourceMappingPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventSourceMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMapping)(nil))
+}
+
+func (o EventSourceMappingPtrOutput) ToEventSourceMappingPtrOutput() EventSourceMappingPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingPtrOutput) ToEventSourceMappingPtrOutputWithContext(ctx context.Context) EventSourceMappingPtrOutput {
+	return o
+}
+
+type EventSourceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMapping)(nil))
+}
+
+func (o EventSourceMappingArrayOutput) ToEventSourceMappingArrayOutput() EventSourceMappingArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingArrayOutput) ToEventSourceMappingArrayOutputWithContext(ctx context.Context) EventSourceMappingArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingArrayOutput) Index(i pulumi.IntInput) EventSourceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMapping {
+		return vs[0].([]EventSourceMapping)[vs[1].(int)]
+	}).(EventSourceMappingOutput)
+}
+
+type EventSourceMappingMapOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventSourceMapping)(nil))
+}
+
+func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutput() EventSourceMappingMapOutput {
+	return o
+}
+
+func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutputWithContext(ctx context.Context) EventSourceMappingMapOutput {
+	return o
+}
+
+func (o EventSourceMappingMapOutput) MapIndex(k pulumi.StringInput) EventSourceMappingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventSourceMapping {
+		return vs[0].(map[string]EventSourceMapping)[vs[1].(string)]
+	}).(EventSourceMappingOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventSourceMappingOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMapOutput{})
 }

@@ -233,6 +233,85 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
 }
 
+func (i *RuleGroup) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
+	return i.ToRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *RuleGroup) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPtrOutput)
+}
+
+type RuleGroupPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupPtrOutput() RuleGroupPtrOutput
+	ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput
+}
+
+type ruleGroupPtrType RuleGroupArgs
+
+func (*ruleGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroup)(nil))
+}
+
+func (i *ruleGroupPtrType) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
+	return i.ToRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupPtrType) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPtrOutput)
+}
+
+// RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
+// You can construct a concrete instance of `RuleGroupArrayInput` via:
+//
+//          RuleGroupArray{ RuleGroupArgs{...} }
+type RuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupArrayOutput() RuleGroupArrayOutput
+	ToRuleGroupArrayOutputWithContext(context.Context) RuleGroupArrayOutput
+}
+
+type RuleGroupArray []RuleGroupInput
+
+func (RuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RuleGroup)(nil))
+}
+
+func (i RuleGroupArray) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
+	return i.ToRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) RuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupArrayOutput)
+}
+
+// RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
+// You can construct a concrete instance of `RuleGroupMapInput` via:
+//
+//          RuleGroupMap{ "key": RuleGroupArgs{...} }
+type RuleGroupMapInput interface {
+	pulumi.Input
+
+	ToRuleGroupMapOutput() RuleGroupMapOutput
+	ToRuleGroupMapOutputWithContext(context.Context) RuleGroupMapOutput
+}
+
+type RuleGroupMap map[string]RuleGroupInput
+
+func (RuleGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RuleGroup)(nil))
+}
+
+func (i RuleGroupMap) ToRuleGroupMapOutput() RuleGroupMapOutput {
+	return i.ToRuleGroupMapOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMap) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMapOutput)
+}
+
 type RuleGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -249,6 +328,75 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
+func (o RuleGroupOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
+	return o.ToRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
+	return o.ApplyT(func(v RuleGroup) *RuleGroup {
+		return &v
+	}).(RuleGroupPtrOutput)
+}
+
+type RuleGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroup)(nil))
+}
+
+func (o RuleGroupPtrOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
+	return o
+}
+
+func (o RuleGroupPtrOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
+	return o
+}
+
+type RuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroup)(nil))
+}
+
+func (o RuleGroupArrayOutput) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
+	return o
+}
+
+func (o RuleGroupArrayOutput) ToRuleGroupArrayOutputWithContext(ctx context.Context) RuleGroupArrayOutput {
+	return o
+}
+
+func (o RuleGroupArrayOutput) Index(i pulumi.IntInput) RuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroup {
+		return vs[0].([]RuleGroup)[vs[1].(int)]
+	}).(RuleGroupOutput)
+}
+
+type RuleGroupMapOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroup)(nil))
+}
+
+func (o RuleGroupMapOutput) ToRuleGroupMapOutput() RuleGroupMapOutput {
+	return o
+}
+
+func (o RuleGroupMapOutput) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleGroupMapOutput {
+	return o
+}
+
+func (o RuleGroupMapOutput) MapIndex(k pulumi.StringInput) RuleGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroup {
+		return vs[0].(map[string]RuleGroup)[vs[1].(string)]
+	}).(RuleGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleGroupOutput{})
+	pulumi.RegisterOutputType(RuleGroupPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupMapOutput{})
 }

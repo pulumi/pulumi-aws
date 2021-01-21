@@ -160,6 +160,85 @@ func (i *ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyOutput)
 }
 
+func (i *ContainerPolicy) ToContainerPolicyPtrOutput() ContainerPolicyPtrOutput {
+	return i.ToContainerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ContainerPolicy) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyPtrOutput)
+}
+
+type ContainerPolicyPtrInput interface {
+	pulumi.Input
+
+	ToContainerPolicyPtrOutput() ContainerPolicyPtrOutput
+	ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput
+}
+
+type containerPolicyPtrType ContainerPolicyArgs
+
+func (*containerPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPolicy)(nil))
+}
+
+func (i *containerPolicyPtrType) ToContainerPolicyPtrOutput() ContainerPolicyPtrOutput {
+	return i.ToContainerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *containerPolicyPtrType) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyPtrOutput)
+}
+
+// ContainerPolicyArrayInput is an input type that accepts ContainerPolicyArray and ContainerPolicyArrayOutput values.
+// You can construct a concrete instance of `ContainerPolicyArrayInput` via:
+//
+//          ContainerPolicyArray{ ContainerPolicyArgs{...} }
+type ContainerPolicyArrayInput interface {
+	pulumi.Input
+
+	ToContainerPolicyArrayOutput() ContainerPolicyArrayOutput
+	ToContainerPolicyArrayOutputWithContext(context.Context) ContainerPolicyArrayOutput
+}
+
+type ContainerPolicyArray []ContainerPolicyInput
+
+func (ContainerPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ContainerPolicy)(nil))
+}
+
+func (i ContainerPolicyArray) ToContainerPolicyArrayOutput() ContainerPolicyArrayOutput {
+	return i.ToContainerPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerPolicyArray) ToContainerPolicyArrayOutputWithContext(ctx context.Context) ContainerPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyArrayOutput)
+}
+
+// ContainerPolicyMapInput is an input type that accepts ContainerPolicyMap and ContainerPolicyMapOutput values.
+// You can construct a concrete instance of `ContainerPolicyMapInput` via:
+//
+//          ContainerPolicyMap{ "key": ContainerPolicyArgs{...} }
+type ContainerPolicyMapInput interface {
+	pulumi.Input
+
+	ToContainerPolicyMapOutput() ContainerPolicyMapOutput
+	ToContainerPolicyMapOutputWithContext(context.Context) ContainerPolicyMapOutput
+}
+
+type ContainerPolicyMap map[string]ContainerPolicyInput
+
+func (ContainerPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ContainerPolicy)(nil))
+}
+
+func (i ContainerPolicyMap) ToContainerPolicyMapOutput() ContainerPolicyMapOutput {
+	return i.ToContainerPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ContainerPolicyMap) ToContainerPolicyMapOutputWithContext(ctx context.Context) ContainerPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyMapOutput)
+}
+
 type ContainerPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -176,6 +255,75 @@ func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ContainerPolicyOutput) ToContainerPolicyPtrOutput() ContainerPolicyPtrOutput {
+	return o.ToContainerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerPolicyOutput) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
+	return o.ApplyT(func(v ContainerPolicy) *ContainerPolicy {
+		return &v
+	}).(ContainerPolicyPtrOutput)
+}
+
+type ContainerPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPolicy)(nil))
+}
+
+func (o ContainerPolicyPtrOutput) ToContainerPolicyPtrOutput() ContainerPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerPolicyPtrOutput) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
+	return o
+}
+
+type ContainerPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPolicy)(nil))
+}
+
+func (o ContainerPolicyArrayOutput) ToContainerPolicyArrayOutput() ContainerPolicyArrayOutput {
+	return o
+}
+
+func (o ContainerPolicyArrayOutput) ToContainerPolicyArrayOutputWithContext(ctx context.Context) ContainerPolicyArrayOutput {
+	return o
+}
+
+func (o ContainerPolicyArrayOutput) Index(i pulumi.IntInput) ContainerPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPolicy {
+		return vs[0].([]ContainerPolicy)[vs[1].(int)]
+	}).(ContainerPolicyOutput)
+}
+
+type ContainerPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ContainerPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerPolicy)(nil))
+}
+
+func (o ContainerPolicyMapOutput) ToContainerPolicyMapOutput() ContainerPolicyMapOutput {
+	return o
+}
+
+func (o ContainerPolicyMapOutput) ToContainerPolicyMapOutputWithContext(ctx context.Context) ContainerPolicyMapOutput {
+	return o
+}
+
+func (o ContainerPolicyMapOutput) MapIndex(k pulumi.StringInput) ContainerPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContainerPolicy {
+		return vs[0].(map[string]ContainerPolicy)[vs[1].(string)]
+	}).(ContainerPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerPolicyOutput{})
+	pulumi.RegisterOutputType(ContainerPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPolicyMapOutput{})
 }

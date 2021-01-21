@@ -135,6 +135,85 @@ func (i *EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityOutput)
 }
 
+func (i *EmailIdentity) ToEmailIdentityPtrOutput() EmailIdentityPtrOutput {
+	return i.ToEmailIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *EmailIdentity) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityPtrOutput)
+}
+
+type EmailIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityPtrOutput() EmailIdentityPtrOutput
+	ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput
+}
+
+type emailIdentityPtrType EmailIdentityArgs
+
+func (*emailIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentity)(nil))
+}
+
+func (i *emailIdentityPtrType) ToEmailIdentityPtrOutput() EmailIdentityPtrOutput {
+	return i.ToEmailIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityPtrType) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityPtrOutput)
+}
+
+// EmailIdentityArrayInput is an input type that accepts EmailIdentityArray and EmailIdentityArrayOutput values.
+// You can construct a concrete instance of `EmailIdentityArrayInput` via:
+//
+//          EmailIdentityArray{ EmailIdentityArgs{...} }
+type EmailIdentityArrayInput interface {
+	pulumi.Input
+
+	ToEmailIdentityArrayOutput() EmailIdentityArrayOutput
+	ToEmailIdentityArrayOutputWithContext(context.Context) EmailIdentityArrayOutput
+}
+
+type EmailIdentityArray []EmailIdentityInput
+
+func (EmailIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EmailIdentity)(nil))
+}
+
+func (i EmailIdentityArray) ToEmailIdentityArrayOutput() EmailIdentityArrayOutput {
+	return i.ToEmailIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityArray) ToEmailIdentityArrayOutputWithContext(ctx context.Context) EmailIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityArrayOutput)
+}
+
+// EmailIdentityMapInput is an input type that accepts EmailIdentityMap and EmailIdentityMapOutput values.
+// You can construct a concrete instance of `EmailIdentityMapInput` via:
+//
+//          EmailIdentityMap{ "key": EmailIdentityArgs{...} }
+type EmailIdentityMapInput interface {
+	pulumi.Input
+
+	ToEmailIdentityMapOutput() EmailIdentityMapOutput
+	ToEmailIdentityMapOutputWithContext(context.Context) EmailIdentityMapOutput
+}
+
+type EmailIdentityMap map[string]EmailIdentityInput
+
+func (EmailIdentityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EmailIdentity)(nil))
+}
+
+func (i EmailIdentityMap) ToEmailIdentityMapOutput() EmailIdentityMapOutput {
+	return i.ToEmailIdentityMapOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityMap) ToEmailIdentityMapOutputWithContext(ctx context.Context) EmailIdentityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMapOutput)
+}
+
 type EmailIdentityOutput struct {
 	*pulumi.OutputState
 }
@@ -151,6 +230,75 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EmailIdentityOutput) ToEmailIdentityPtrOutput() EmailIdentityPtrOutput {
+	return o.ToEmailIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityOutput) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
+	return o.ApplyT(func(v EmailIdentity) *EmailIdentity {
+		return &v
+	}).(EmailIdentityPtrOutput)
+}
+
+type EmailIdentityPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentity)(nil))
+}
+
+func (o EmailIdentityPtrOutput) ToEmailIdentityPtrOutput() EmailIdentityPtrOutput {
+	return o
+}
+
+func (o EmailIdentityPtrOutput) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
+	return o
+}
+
+type EmailIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailIdentity)(nil))
+}
+
+func (o EmailIdentityArrayOutput) ToEmailIdentityArrayOutput() EmailIdentityArrayOutput {
+	return o
+}
+
+func (o EmailIdentityArrayOutput) ToEmailIdentityArrayOutputWithContext(ctx context.Context) EmailIdentityArrayOutput {
+	return o
+}
+
+func (o EmailIdentityArrayOutput) Index(i pulumi.IntInput) EmailIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailIdentity {
+		return vs[0].([]EmailIdentity)[vs[1].(int)]
+	}).(EmailIdentityOutput)
+}
+
+type EmailIdentityMapOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EmailIdentity)(nil))
+}
+
+func (o EmailIdentityMapOutput) ToEmailIdentityMapOutput() EmailIdentityMapOutput {
+	return o
+}
+
+func (o EmailIdentityMapOutput) ToEmailIdentityMapOutputWithContext(ctx context.Context) EmailIdentityMapOutput {
+	return o
+}
+
+func (o EmailIdentityMapOutput) MapIndex(k pulumi.StringInput) EmailIdentityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EmailIdentity {
+		return vs[0].(map[string]EmailIdentity)[vs[1].(string)]
+	}).(EmailIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EmailIdentityOutput{})
+	pulumi.RegisterOutputType(EmailIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityArrayOutput{})
+	pulumi.RegisterOutputType(EmailIdentityMapOutput{})
 }

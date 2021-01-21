@@ -246,6 +246,85 @@ func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) Laye
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
 }
 
+func (i *LayerVersion) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
+	return i.ToLayerVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *LayerVersion) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPtrOutput)
+}
+
+type LayerVersionPtrInput interface {
+	pulumi.Input
+
+	ToLayerVersionPtrOutput() LayerVersionPtrOutput
+	ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput
+}
+
+type layerVersionPtrType LayerVersionArgs
+
+func (*layerVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LayerVersion)(nil))
+}
+
+func (i *layerVersionPtrType) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
+	return i.ToLayerVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *layerVersionPtrType) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPtrOutput)
+}
+
+// LayerVersionArrayInput is an input type that accepts LayerVersionArray and LayerVersionArrayOutput values.
+// You can construct a concrete instance of `LayerVersionArrayInput` via:
+//
+//          LayerVersionArray{ LayerVersionArgs{...} }
+type LayerVersionArrayInput interface {
+	pulumi.Input
+
+	ToLayerVersionArrayOutput() LayerVersionArrayOutput
+	ToLayerVersionArrayOutputWithContext(context.Context) LayerVersionArrayOutput
+}
+
+type LayerVersionArray []LayerVersionInput
+
+func (LayerVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LayerVersion)(nil))
+}
+
+func (i LayerVersionArray) ToLayerVersionArrayOutput() LayerVersionArrayOutput {
+	return i.ToLayerVersionArrayOutputWithContext(context.Background())
+}
+
+func (i LayerVersionArray) ToLayerVersionArrayOutputWithContext(ctx context.Context) LayerVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionArrayOutput)
+}
+
+// LayerVersionMapInput is an input type that accepts LayerVersionMap and LayerVersionMapOutput values.
+// You can construct a concrete instance of `LayerVersionMapInput` via:
+//
+//          LayerVersionMap{ "key": LayerVersionArgs{...} }
+type LayerVersionMapInput interface {
+	pulumi.Input
+
+	ToLayerVersionMapOutput() LayerVersionMapOutput
+	ToLayerVersionMapOutputWithContext(context.Context) LayerVersionMapOutput
+}
+
+type LayerVersionMap map[string]LayerVersionInput
+
+func (LayerVersionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LayerVersion)(nil))
+}
+
+func (i LayerVersionMap) ToLayerVersionMapOutput() LayerVersionMapOutput {
+	return i.ToLayerVersionMapOutputWithContext(context.Background())
+}
+
+func (i LayerVersionMap) ToLayerVersionMapOutputWithContext(ctx context.Context) LayerVersionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionMapOutput)
+}
+
 type LayerVersionOutput struct {
 	*pulumi.OutputState
 }
@@ -262,6 +341,75 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o LayerVersionOutput) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
+	return o.ToLayerVersionPtrOutputWithContext(context.Background())
+}
+
+func (o LayerVersionOutput) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
+	return o.ApplyT(func(v LayerVersion) *LayerVersion {
+		return &v
+	}).(LayerVersionPtrOutput)
+}
+
+type LayerVersionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LayerVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LayerVersion)(nil))
+}
+
+func (o LayerVersionPtrOutput) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
+	return o
+}
+
+func (o LayerVersionPtrOutput) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
+	return o
+}
+
+type LayerVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LayerVersion)(nil))
+}
+
+func (o LayerVersionArrayOutput) ToLayerVersionArrayOutput() LayerVersionArrayOutput {
+	return o
+}
+
+func (o LayerVersionArrayOutput) ToLayerVersionArrayOutputWithContext(ctx context.Context) LayerVersionArrayOutput {
+	return o
+}
+
+func (o LayerVersionArrayOutput) Index(i pulumi.IntInput) LayerVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LayerVersion {
+		return vs[0].([]LayerVersion)[vs[1].(int)]
+	}).(LayerVersionOutput)
+}
+
+type LayerVersionMapOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LayerVersion)(nil))
+}
+
+func (o LayerVersionMapOutput) ToLayerVersionMapOutput() LayerVersionMapOutput {
+	return o
+}
+
+func (o LayerVersionMapOutput) ToLayerVersionMapOutputWithContext(ctx context.Context) LayerVersionMapOutput {
+	return o
+}
+
+func (o LayerVersionMapOutput) MapIndex(k pulumi.StringInput) LayerVersionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LayerVersion {
+		return vs[0].(map[string]LayerVersion)[vs[1].(string)]
+	}).(LayerVersionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LayerVersionOutput{})
+	pulumi.RegisterOutputType(LayerVersionPtrOutput{})
+	pulumi.RegisterOutputType(LayerVersionArrayOutput{})
+	pulumi.RegisterOutputType(LayerVersionMapOutput{})
 }

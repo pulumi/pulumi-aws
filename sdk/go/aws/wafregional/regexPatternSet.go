@@ -138,6 +138,85 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
+func (i *RegexPatternSet) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
+	return i.ToRegexPatternSetPtrOutputWithContext(context.Background())
+}
+
+func (i *RegexPatternSet) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetPtrOutput)
+}
+
+type RegexPatternSetPtrInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput
+	ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput
+}
+
+type regexPatternSetPtrType RegexPatternSetArgs
+
+func (*regexPatternSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegexPatternSet)(nil))
+}
+
+func (i *regexPatternSetPtrType) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
+	return i.ToRegexPatternSetPtrOutputWithContext(context.Background())
+}
+
+func (i *regexPatternSetPtrType) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetPtrOutput)
+}
+
+// RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
+// You can construct a concrete instance of `RegexPatternSetArrayInput` via:
+//
+//          RegexPatternSetArray{ RegexPatternSetArgs{...} }
+type RegexPatternSetArrayInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetArrayOutput() RegexPatternSetArrayOutput
+	ToRegexPatternSetArrayOutputWithContext(context.Context) RegexPatternSetArrayOutput
+}
+
+type RegexPatternSetArray []RegexPatternSetInput
+
+func (RegexPatternSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RegexPatternSet)(nil))
+}
+
+func (i RegexPatternSetArray) ToRegexPatternSetArrayOutput() RegexPatternSetArrayOutput {
+	return i.ToRegexPatternSetArrayOutputWithContext(context.Background())
+}
+
+func (i RegexPatternSetArray) ToRegexPatternSetArrayOutputWithContext(ctx context.Context) RegexPatternSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetArrayOutput)
+}
+
+// RegexPatternSetMapInput is an input type that accepts RegexPatternSetMap and RegexPatternSetMapOutput values.
+// You can construct a concrete instance of `RegexPatternSetMapInput` via:
+//
+//          RegexPatternSetMap{ "key": RegexPatternSetArgs{...} }
+type RegexPatternSetMapInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetMapOutput() RegexPatternSetMapOutput
+	ToRegexPatternSetMapOutputWithContext(context.Context) RegexPatternSetMapOutput
+}
+
+type RegexPatternSetMap map[string]RegexPatternSetInput
+
+func (RegexPatternSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RegexPatternSet)(nil))
+}
+
+func (i RegexPatternSetMap) ToRegexPatternSetMapOutput() RegexPatternSetMapOutput {
+	return i.ToRegexPatternSetMapOutputWithContext(context.Background())
+}
+
+func (i RegexPatternSetMap) ToRegexPatternSetMapOutputWithContext(ctx context.Context) RegexPatternSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetMapOutput)
+}
+
 type RegexPatternSetOutput struct {
 	*pulumi.OutputState
 }
@@ -154,6 +233,75 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RegexPatternSetOutput) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
+	return o.ToRegexPatternSetPtrOutputWithContext(context.Background())
+}
+
+func (o RegexPatternSetOutput) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
+	return o.ApplyT(func(v RegexPatternSet) *RegexPatternSet {
+		return &v
+	}).(RegexPatternSetPtrOutput)
+}
+
+type RegexPatternSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegexPatternSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegexPatternSet)(nil))
+}
+
+func (o RegexPatternSetPtrOutput) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
+	return o
+}
+
+func (o RegexPatternSetPtrOutput) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
+	return o
+}
+
+type RegexPatternSetArrayOutput struct{ *pulumi.OutputState }
+
+func (RegexPatternSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegexPatternSet)(nil))
+}
+
+func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutput() RegexPatternSetArrayOutput {
+	return o
+}
+
+func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutputWithContext(ctx context.Context) RegexPatternSetArrayOutput {
+	return o
+}
+
+func (o RegexPatternSetArrayOutput) Index(i pulumi.IntInput) RegexPatternSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegexPatternSet {
+		return vs[0].([]RegexPatternSet)[vs[1].(int)]
+	}).(RegexPatternSetOutput)
+}
+
+type RegexPatternSetMapOutput struct{ *pulumi.OutputState }
+
+func (RegexPatternSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RegexPatternSet)(nil))
+}
+
+func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutput() RegexPatternSetMapOutput {
+	return o
+}
+
+func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutputWithContext(ctx context.Context) RegexPatternSetMapOutput {
+	return o
+}
+
+func (o RegexPatternSetMapOutput) MapIndex(k pulumi.StringInput) RegexPatternSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegexPatternSet {
+		return vs[0].(map[string]RegexPatternSet)[vs[1].(string)]
+	}).(RegexPatternSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegexPatternSetOutput{})
+	pulumi.RegisterOutputType(RegexPatternSetPtrOutput{})
+	pulumi.RegisterOutputType(RegexPatternSetArrayOutput{})
+	pulumi.RegisterOutputType(RegexPatternSetMapOutput{})
 }

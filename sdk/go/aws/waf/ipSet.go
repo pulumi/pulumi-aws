@@ -150,6 +150,85 @@ func (i *IpSet) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetOutput)
 }
 
+func (i *IpSet) ToIpSetPtrOutput() IpSetPtrOutput {
+	return i.ToIpSetPtrOutputWithContext(context.Background())
+}
+
+func (i *IpSet) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetPtrOutput)
+}
+
+type IpSetPtrInput interface {
+	pulumi.Input
+
+	ToIpSetPtrOutput() IpSetPtrOutput
+	ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput
+}
+
+type ipSetPtrType IpSetArgs
+
+func (*ipSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpSet)(nil))
+}
+
+func (i *ipSetPtrType) ToIpSetPtrOutput() IpSetPtrOutput {
+	return i.ToIpSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ipSetPtrType) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetPtrOutput)
+}
+
+// IpSetArrayInput is an input type that accepts IpSetArray and IpSetArrayOutput values.
+// You can construct a concrete instance of `IpSetArrayInput` via:
+//
+//          IpSetArray{ IpSetArgs{...} }
+type IpSetArrayInput interface {
+	pulumi.Input
+
+	ToIpSetArrayOutput() IpSetArrayOutput
+	ToIpSetArrayOutputWithContext(context.Context) IpSetArrayOutput
+}
+
+type IpSetArray []IpSetInput
+
+func (IpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IpSet)(nil))
+}
+
+func (i IpSetArray) ToIpSetArrayOutput() IpSetArrayOutput {
+	return i.ToIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i IpSetArray) ToIpSetArrayOutputWithContext(ctx context.Context) IpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetArrayOutput)
+}
+
+// IpSetMapInput is an input type that accepts IpSetMap and IpSetMapOutput values.
+// You can construct a concrete instance of `IpSetMapInput` via:
+//
+//          IpSetMap{ "key": IpSetArgs{...} }
+type IpSetMapInput interface {
+	pulumi.Input
+
+	ToIpSetMapOutput() IpSetMapOutput
+	ToIpSetMapOutputWithContext(context.Context) IpSetMapOutput
+}
+
+type IpSetMap map[string]IpSetInput
+
+func (IpSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IpSet)(nil))
+}
+
+func (i IpSetMap) ToIpSetMapOutput() IpSetMapOutput {
+	return i.ToIpSetMapOutputWithContext(context.Background())
+}
+
+func (i IpSetMap) ToIpSetMapOutputWithContext(ctx context.Context) IpSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpSetMapOutput)
+}
+
 type IpSetOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
+func (o IpSetOutput) ToIpSetPtrOutput() IpSetPtrOutput {
+	return o.ToIpSetPtrOutputWithContext(context.Background())
+}
+
+func (o IpSetOutput) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
+	return o.ApplyT(func(v IpSet) *IpSet {
+		return &v
+	}).(IpSetPtrOutput)
+}
+
+type IpSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpSet)(nil))
+}
+
+func (o IpSetPtrOutput) ToIpSetPtrOutput() IpSetPtrOutput {
+	return o
+}
+
+func (o IpSetPtrOutput) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
+	return o
+}
+
+type IpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (IpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpSet)(nil))
+}
+
+func (o IpSetArrayOutput) ToIpSetArrayOutput() IpSetArrayOutput {
+	return o
+}
+
+func (o IpSetArrayOutput) ToIpSetArrayOutputWithContext(ctx context.Context) IpSetArrayOutput {
+	return o
+}
+
+func (o IpSetArrayOutput) Index(i pulumi.IntInput) IpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpSet {
+		return vs[0].([]IpSet)[vs[1].(int)]
+	}).(IpSetOutput)
+}
+
+type IpSetMapOutput struct{ *pulumi.OutputState }
+
+func (IpSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IpSet)(nil))
+}
+
+func (o IpSetMapOutput) ToIpSetMapOutput() IpSetMapOutput {
+	return o
+}
+
+func (o IpSetMapOutput) ToIpSetMapOutputWithContext(ctx context.Context) IpSetMapOutput {
+	return o
+}
+
+func (o IpSetMapOutput) MapIndex(k pulumi.StringInput) IpSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IpSet {
+		return vs[0].(map[string]IpSet)[vs[1].(string)]
+	}).(IpSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IpSetOutput{})
+	pulumi.RegisterOutputType(IpSetPtrOutput{})
+	pulumi.RegisterOutputType(IpSetArrayOutput{})
+	pulumi.RegisterOutputType(IpSetMapOutput{})
 }

@@ -187,6 +187,85 @@ func (i *TableItem) ToTableItemOutputWithContext(ctx context.Context) TableItemO
 	return pulumi.ToOutputWithContext(ctx, i).(TableItemOutput)
 }
 
+func (i *TableItem) ToTableItemPtrOutput() TableItemPtrOutput {
+	return i.ToTableItemPtrOutputWithContext(context.Background())
+}
+
+func (i *TableItem) ToTableItemPtrOutputWithContext(ctx context.Context) TableItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableItemPtrOutput)
+}
+
+type TableItemPtrInput interface {
+	pulumi.Input
+
+	ToTableItemPtrOutput() TableItemPtrOutput
+	ToTableItemPtrOutputWithContext(ctx context.Context) TableItemPtrOutput
+}
+
+type tableItemPtrType TableItemArgs
+
+func (*tableItemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableItem)(nil))
+}
+
+func (i *tableItemPtrType) ToTableItemPtrOutput() TableItemPtrOutput {
+	return i.ToTableItemPtrOutputWithContext(context.Background())
+}
+
+func (i *tableItemPtrType) ToTableItemPtrOutputWithContext(ctx context.Context) TableItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableItemPtrOutput)
+}
+
+// TableItemArrayInput is an input type that accepts TableItemArray and TableItemArrayOutput values.
+// You can construct a concrete instance of `TableItemArrayInput` via:
+//
+//          TableItemArray{ TableItemArgs{...} }
+type TableItemArrayInput interface {
+	pulumi.Input
+
+	ToTableItemArrayOutput() TableItemArrayOutput
+	ToTableItemArrayOutputWithContext(context.Context) TableItemArrayOutput
+}
+
+type TableItemArray []TableItemInput
+
+func (TableItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TableItem)(nil))
+}
+
+func (i TableItemArray) ToTableItemArrayOutput() TableItemArrayOutput {
+	return i.ToTableItemArrayOutputWithContext(context.Background())
+}
+
+func (i TableItemArray) ToTableItemArrayOutputWithContext(ctx context.Context) TableItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableItemArrayOutput)
+}
+
+// TableItemMapInput is an input type that accepts TableItemMap and TableItemMapOutput values.
+// You can construct a concrete instance of `TableItemMapInput` via:
+//
+//          TableItemMap{ "key": TableItemArgs{...} }
+type TableItemMapInput interface {
+	pulumi.Input
+
+	ToTableItemMapOutput() TableItemMapOutput
+	ToTableItemMapOutputWithContext(context.Context) TableItemMapOutput
+}
+
+type TableItemMap map[string]TableItemInput
+
+func (TableItemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TableItem)(nil))
+}
+
+func (i TableItemMap) ToTableItemMapOutput() TableItemMapOutput {
+	return i.ToTableItemMapOutputWithContext(context.Background())
+}
+
+func (i TableItemMap) ToTableItemMapOutputWithContext(ctx context.Context) TableItemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableItemMapOutput)
+}
+
 type TableItemOutput struct {
 	*pulumi.OutputState
 }
@@ -203,6 +282,75 @@ func (o TableItemOutput) ToTableItemOutputWithContext(ctx context.Context) Table
 	return o
 }
 
+func (o TableItemOutput) ToTableItemPtrOutput() TableItemPtrOutput {
+	return o.ToTableItemPtrOutputWithContext(context.Background())
+}
+
+func (o TableItemOutput) ToTableItemPtrOutputWithContext(ctx context.Context) TableItemPtrOutput {
+	return o.ApplyT(func(v TableItem) *TableItem {
+		return &v
+	}).(TableItemPtrOutput)
+}
+
+type TableItemPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableItem)(nil))
+}
+
+func (o TableItemPtrOutput) ToTableItemPtrOutput() TableItemPtrOutput {
+	return o
+}
+
+func (o TableItemPtrOutput) ToTableItemPtrOutputWithContext(ctx context.Context) TableItemPtrOutput {
+	return o
+}
+
+type TableItemArrayOutput struct{ *pulumi.OutputState }
+
+func (TableItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableItem)(nil))
+}
+
+func (o TableItemArrayOutput) ToTableItemArrayOutput() TableItemArrayOutput {
+	return o
+}
+
+func (o TableItemArrayOutput) ToTableItemArrayOutputWithContext(ctx context.Context) TableItemArrayOutput {
+	return o
+}
+
+func (o TableItemArrayOutput) Index(i pulumi.IntInput) TableItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableItem {
+		return vs[0].([]TableItem)[vs[1].(int)]
+	}).(TableItemOutput)
+}
+
+type TableItemMapOutput struct{ *pulumi.OutputState }
+
+func (TableItemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableItem)(nil))
+}
+
+func (o TableItemMapOutput) ToTableItemMapOutput() TableItemMapOutput {
+	return o
+}
+
+func (o TableItemMapOutput) ToTableItemMapOutputWithContext(ctx context.Context) TableItemMapOutput {
+	return o
+}
+
+func (o TableItemMapOutput) MapIndex(k pulumi.StringInput) TableItemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableItem {
+		return vs[0].(map[string]TableItem)[vs[1].(string)]
+	}).(TableItemOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TableItemOutput{})
+	pulumi.RegisterOutputType(TableItemPtrOutput{})
+	pulumi.RegisterOutputType(TableItemArrayOutput{})
+	pulumi.RegisterOutputType(TableItemMapOutput{})
 }

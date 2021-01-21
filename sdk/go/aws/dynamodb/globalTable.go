@@ -204,6 +204,85 @@ func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) Global
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableOutput)
 }
 
+func (i *GlobalTable) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
+	return i.ToGlobalTablePtrOutputWithContext(context.Background())
+}
+
+func (i *GlobalTable) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePtrOutput)
+}
+
+type GlobalTablePtrInput interface {
+	pulumi.Input
+
+	ToGlobalTablePtrOutput() GlobalTablePtrOutput
+	ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput
+}
+
+type globalTablePtrType GlobalTableArgs
+
+func (*globalTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTable)(nil))
+}
+
+func (i *globalTablePtrType) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
+	return i.ToGlobalTablePtrOutputWithContext(context.Background())
+}
+
+func (i *globalTablePtrType) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePtrOutput)
+}
+
+// GlobalTableArrayInput is an input type that accepts GlobalTableArray and GlobalTableArrayOutput values.
+// You can construct a concrete instance of `GlobalTableArrayInput` via:
+//
+//          GlobalTableArray{ GlobalTableArgs{...} }
+type GlobalTableArrayInput interface {
+	pulumi.Input
+
+	ToGlobalTableArrayOutput() GlobalTableArrayOutput
+	ToGlobalTableArrayOutputWithContext(context.Context) GlobalTableArrayOutput
+}
+
+type GlobalTableArray []GlobalTableInput
+
+func (GlobalTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GlobalTable)(nil))
+}
+
+func (i GlobalTableArray) ToGlobalTableArrayOutput() GlobalTableArrayOutput {
+	return i.ToGlobalTableArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalTableArray) ToGlobalTableArrayOutputWithContext(ctx context.Context) GlobalTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableArrayOutput)
+}
+
+// GlobalTableMapInput is an input type that accepts GlobalTableMap and GlobalTableMapOutput values.
+// You can construct a concrete instance of `GlobalTableMapInput` via:
+//
+//          GlobalTableMap{ "key": GlobalTableArgs{...} }
+type GlobalTableMapInput interface {
+	pulumi.Input
+
+	ToGlobalTableMapOutput() GlobalTableMapOutput
+	ToGlobalTableMapOutputWithContext(context.Context) GlobalTableMapOutput
+}
+
+type GlobalTableMap map[string]GlobalTableInput
+
+func (GlobalTableMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GlobalTable)(nil))
+}
+
+func (i GlobalTableMap) ToGlobalTableMapOutput() GlobalTableMapOutput {
+	return i.ToGlobalTableMapOutputWithContext(context.Background())
+}
+
+func (i GlobalTableMap) ToGlobalTableMapOutputWithContext(ctx context.Context) GlobalTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableMapOutput)
+}
+
 type GlobalTableOutput struct {
 	*pulumi.OutputState
 }
@@ -220,6 +299,75 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 	return o
 }
 
+func (o GlobalTableOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
+	return o.ToGlobalTablePtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
+	return o.ApplyT(func(v GlobalTable) *GlobalTable {
+		return &v
+	}).(GlobalTablePtrOutput)
+}
+
+type GlobalTablePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTable)(nil))
+}
+
+func (o GlobalTablePtrOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
+	return o
+}
+
+func (o GlobalTablePtrOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
+	return o
+}
+
+type GlobalTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTable)(nil))
+}
+
+func (o GlobalTableArrayOutput) ToGlobalTableArrayOutput() GlobalTableArrayOutput {
+	return o
+}
+
+func (o GlobalTableArrayOutput) ToGlobalTableArrayOutputWithContext(ctx context.Context) GlobalTableArrayOutput {
+	return o
+}
+
+func (o GlobalTableArrayOutput) Index(i pulumi.IntInput) GlobalTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTable {
+		return vs[0].([]GlobalTable)[vs[1].(int)]
+	}).(GlobalTableOutput)
+}
+
+type GlobalTableMapOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GlobalTable)(nil))
+}
+
+func (o GlobalTableMapOutput) ToGlobalTableMapOutput() GlobalTableMapOutput {
+	return o
+}
+
+func (o GlobalTableMapOutput) ToGlobalTableMapOutputWithContext(ctx context.Context) GlobalTableMapOutput {
+	return o
+}
+
+func (o GlobalTableMapOutput) MapIndex(k pulumi.StringInput) GlobalTableOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GlobalTable {
+		return vs[0].(map[string]GlobalTable)[vs[1].(string)]
+	}).(GlobalTableOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GlobalTableOutput{})
+	pulumi.RegisterOutputType(GlobalTablePtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableArrayOutput{})
+	pulumi.RegisterOutputType(GlobalTableMapOutput{})
 }

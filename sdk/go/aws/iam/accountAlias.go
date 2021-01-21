@@ -131,6 +131,85 @@ func (i *AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) Acco
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasOutput)
 }
 
+func (i *AccountAlias) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
+	return i.ToAccountAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *AccountAlias) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasPtrOutput)
+}
+
+type AccountAliasPtrInput interface {
+	pulumi.Input
+
+	ToAccountAliasPtrOutput() AccountAliasPtrOutput
+	ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput
+}
+
+type accountAliasPtrType AccountAliasArgs
+
+func (*accountAliasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAlias)(nil))
+}
+
+func (i *accountAliasPtrType) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
+	return i.ToAccountAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAliasPtrType) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasPtrOutput)
+}
+
+// AccountAliasArrayInput is an input type that accepts AccountAliasArray and AccountAliasArrayOutput values.
+// You can construct a concrete instance of `AccountAliasArrayInput` via:
+//
+//          AccountAliasArray{ AccountAliasArgs{...} }
+type AccountAliasArrayInput interface {
+	pulumi.Input
+
+	ToAccountAliasArrayOutput() AccountAliasArrayOutput
+	ToAccountAliasArrayOutputWithContext(context.Context) AccountAliasArrayOutput
+}
+
+type AccountAliasArray []AccountAliasInput
+
+func (AccountAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AccountAlias)(nil))
+}
+
+func (i AccountAliasArray) ToAccountAliasArrayOutput() AccountAliasArrayOutput {
+	return i.ToAccountAliasArrayOutputWithContext(context.Background())
+}
+
+func (i AccountAliasArray) ToAccountAliasArrayOutputWithContext(ctx context.Context) AccountAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasArrayOutput)
+}
+
+// AccountAliasMapInput is an input type that accepts AccountAliasMap and AccountAliasMapOutput values.
+// You can construct a concrete instance of `AccountAliasMapInput` via:
+//
+//          AccountAliasMap{ "key": AccountAliasArgs{...} }
+type AccountAliasMapInput interface {
+	pulumi.Input
+
+	ToAccountAliasMapOutput() AccountAliasMapOutput
+	ToAccountAliasMapOutputWithContext(context.Context) AccountAliasMapOutput
+}
+
+type AccountAliasMap map[string]AccountAliasInput
+
+func (AccountAliasMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AccountAlias)(nil))
+}
+
+func (i AccountAliasMap) ToAccountAliasMapOutput() AccountAliasMapOutput {
+	return i.ToAccountAliasMapOutputWithContext(context.Background())
+}
+
+func (i AccountAliasMap) ToAccountAliasMapOutputWithContext(ctx context.Context) AccountAliasMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasMapOutput)
+}
+
 type AccountAliasOutput struct {
 	*pulumi.OutputState
 }
@@ -147,6 +226,75 @@ func (o AccountAliasOutput) ToAccountAliasOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o AccountAliasOutput) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
+	return o.ToAccountAliasPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAliasOutput) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
+	return o.ApplyT(func(v AccountAlias) *AccountAlias {
+		return &v
+	}).(AccountAliasPtrOutput)
+}
+
+type AccountAliasPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountAliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAlias)(nil))
+}
+
+func (o AccountAliasPtrOutput) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
+	return o
+}
+
+func (o AccountAliasPtrOutput) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
+	return o
+}
+
+type AccountAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountAlias)(nil))
+}
+
+func (o AccountAliasArrayOutput) ToAccountAliasArrayOutput() AccountAliasArrayOutput {
+	return o
+}
+
+func (o AccountAliasArrayOutput) ToAccountAliasArrayOutputWithContext(ctx context.Context) AccountAliasArrayOutput {
+	return o
+}
+
+func (o AccountAliasArrayOutput) Index(i pulumi.IntInput) AccountAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountAlias {
+		return vs[0].([]AccountAlias)[vs[1].(int)]
+	}).(AccountAliasOutput)
+}
+
+type AccountAliasMapOutput struct{ *pulumi.OutputState }
+
+func (AccountAliasMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AccountAlias)(nil))
+}
+
+func (o AccountAliasMapOutput) ToAccountAliasMapOutput() AccountAliasMapOutput {
+	return o
+}
+
+func (o AccountAliasMapOutput) ToAccountAliasMapOutputWithContext(ctx context.Context) AccountAliasMapOutput {
+	return o
+}
+
+func (o AccountAliasMapOutput) MapIndex(k pulumi.StringInput) AccountAliasOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountAlias {
+		return vs[0].(map[string]AccountAlias)[vs[1].(string)]
+	}).(AccountAliasOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountAliasOutput{})
+	pulumi.RegisterOutputType(AccountAliasPtrOutput{})
+	pulumi.RegisterOutputType(AccountAliasArrayOutput{})
+	pulumi.RegisterOutputType(AccountAliasMapOutput{})
 }

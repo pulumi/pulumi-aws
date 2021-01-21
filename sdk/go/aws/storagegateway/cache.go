@@ -145,6 +145,85 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
+func (i *Cache) ToCachePtrOutput() CachePtrOutput {
+	return i.ToCachePtrOutputWithContext(context.Background())
+}
+
+func (i *Cache) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePtrOutput)
+}
+
+type CachePtrInput interface {
+	pulumi.Input
+
+	ToCachePtrOutput() CachePtrOutput
+	ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput
+}
+
+type cachePtrType CacheArgs
+
+func (*cachePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Cache)(nil))
+}
+
+func (i *cachePtrType) ToCachePtrOutput() CachePtrOutput {
+	return i.ToCachePtrOutputWithContext(context.Background())
+}
+
+func (i *cachePtrType) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePtrOutput)
+}
+
+// CacheArrayInput is an input type that accepts CacheArray and CacheArrayOutput values.
+// You can construct a concrete instance of `CacheArrayInput` via:
+//
+//          CacheArray{ CacheArgs{...} }
+type CacheArrayInput interface {
+	pulumi.Input
+
+	ToCacheArrayOutput() CacheArrayOutput
+	ToCacheArrayOutputWithContext(context.Context) CacheArrayOutput
+}
+
+type CacheArray []CacheInput
+
+func (CacheArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Cache)(nil))
+}
+
+func (i CacheArray) ToCacheArrayOutput() CacheArrayOutput {
+	return i.ToCacheArrayOutputWithContext(context.Background())
+}
+
+func (i CacheArray) ToCacheArrayOutputWithContext(ctx context.Context) CacheArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheArrayOutput)
+}
+
+// CacheMapInput is an input type that accepts CacheMap and CacheMapOutput values.
+// You can construct a concrete instance of `CacheMapInput` via:
+//
+//          CacheMap{ "key": CacheArgs{...} }
+type CacheMapInput interface {
+	pulumi.Input
+
+	ToCacheMapOutput() CacheMapOutput
+	ToCacheMapOutputWithContext(context.Context) CacheMapOutput
+}
+
+type CacheMap map[string]CacheInput
+
+func (CacheMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Cache)(nil))
+}
+
+func (i CacheMap) ToCacheMapOutput() CacheMapOutput {
+	return i.ToCacheMapOutputWithContext(context.Background())
+}
+
+func (i CacheMap) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheMapOutput)
+}
+
 type CacheOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+func (o CacheOutput) ToCachePtrOutput() CachePtrOutput {
+	return o.ToCachePtrOutputWithContext(context.Background())
+}
+
+func (o CacheOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
+	return o.ApplyT(func(v Cache) *Cache {
+		return &v
+	}).(CachePtrOutput)
+}
+
+type CachePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CachePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Cache)(nil))
+}
+
+func (o CachePtrOutput) ToCachePtrOutput() CachePtrOutput {
+	return o
+}
+
+func (o CachePtrOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
+	return o
+}
+
+type CacheArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Cache)(nil))
+}
+
+func (o CacheArrayOutput) ToCacheArrayOutput() CacheArrayOutput {
+	return o
+}
+
+func (o CacheArrayOutput) ToCacheArrayOutputWithContext(ctx context.Context) CacheArrayOutput {
+	return o
+}
+
+func (o CacheArrayOutput) Index(i pulumi.IntInput) CacheOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Cache {
+		return vs[0].([]Cache)[vs[1].(int)]
+	}).(CacheOutput)
+}
+
+type CacheMapOutput struct{ *pulumi.OutputState }
+
+func (CacheMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Cache)(nil))
+}
+
+func (o CacheMapOutput) ToCacheMapOutput() CacheMapOutput {
+	return o
+}
+
+func (o CacheMapOutput) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutput {
+	return o
+}
+
+func (o CacheMapOutput) MapIndex(k pulumi.StringInput) CacheOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Cache {
+		return vs[0].(map[string]Cache)[vs[1].(string)]
+	}).(CacheOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheOutput{})
+	pulumi.RegisterOutputType(CachePtrOutput{})
+	pulumi.RegisterOutputType(CacheArrayOutput{})
+	pulumi.RegisterOutputType(CacheMapOutput{})
 }

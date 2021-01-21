@@ -145,6 +145,85 @@ func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationOutput)
 }
 
+func (i *ResourceAssociation) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
+	return i.ToResourceAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourceAssociation) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationPtrOutput)
+}
+
+type ResourceAssociationPtrInput interface {
+	pulumi.Input
+
+	ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput
+	ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput
+}
+
+type resourceAssociationPtrType ResourceAssociationArgs
+
+func (*resourceAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceAssociation)(nil))
+}
+
+func (i *resourceAssociationPtrType) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
+	return i.ToResourceAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceAssociationPtrType) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationPtrOutput)
+}
+
+// ResourceAssociationArrayInput is an input type that accepts ResourceAssociationArray and ResourceAssociationArrayOutput values.
+// You can construct a concrete instance of `ResourceAssociationArrayInput` via:
+//
+//          ResourceAssociationArray{ ResourceAssociationArgs{...} }
+type ResourceAssociationArrayInput interface {
+	pulumi.Input
+
+	ToResourceAssociationArrayOutput() ResourceAssociationArrayOutput
+	ToResourceAssociationArrayOutputWithContext(context.Context) ResourceAssociationArrayOutput
+}
+
+type ResourceAssociationArray []ResourceAssociationInput
+
+func (ResourceAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourceAssociation)(nil))
+}
+
+func (i ResourceAssociationArray) ToResourceAssociationArrayOutput() ResourceAssociationArrayOutput {
+	return i.ToResourceAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAssociationArray) ToResourceAssociationArrayOutputWithContext(ctx context.Context) ResourceAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationArrayOutput)
+}
+
+// ResourceAssociationMapInput is an input type that accepts ResourceAssociationMap and ResourceAssociationMapOutput values.
+// You can construct a concrete instance of `ResourceAssociationMapInput` via:
+//
+//          ResourceAssociationMap{ "key": ResourceAssociationArgs{...} }
+type ResourceAssociationMapInput interface {
+	pulumi.Input
+
+	ToResourceAssociationMapOutput() ResourceAssociationMapOutput
+	ToResourceAssociationMapOutputWithContext(context.Context) ResourceAssociationMapOutput
+}
+
+type ResourceAssociationMap map[string]ResourceAssociationInput
+
+func (ResourceAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourceAssociation)(nil))
+}
+
+func (i ResourceAssociationMap) ToResourceAssociationMapOutput() ResourceAssociationMapOutput {
+	return i.ToResourceAssociationMapOutputWithContext(context.Background())
+}
+
+func (i ResourceAssociationMap) ToResourceAssociationMapOutputWithContext(ctx context.Context) ResourceAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationMapOutput)
+}
+
 type ResourceAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx co
 	return o
 }
 
+func (o ResourceAssociationOutput) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
+	return o.ToResourceAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceAssociationOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
+	return o.ApplyT(func(v ResourceAssociation) *ResourceAssociation {
+		return &v
+	}).(ResourceAssociationPtrOutput)
+}
+
+type ResourceAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceAssociation)(nil))
+}
+
+func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
+	return o
+}
+
+func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
+	return o
+}
+
+type ResourceAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAssociation)(nil))
+}
+
+func (o ResourceAssociationArrayOutput) ToResourceAssociationArrayOutput() ResourceAssociationArrayOutput {
+	return o
+}
+
+func (o ResourceAssociationArrayOutput) ToResourceAssociationArrayOutputWithContext(ctx context.Context) ResourceAssociationArrayOutput {
+	return o
+}
+
+func (o ResourceAssociationArrayOutput) Index(i pulumi.IntInput) ResourceAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAssociation {
+		return vs[0].([]ResourceAssociation)[vs[1].(int)]
+	}).(ResourceAssociationOutput)
+}
+
+type ResourceAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceAssociation)(nil))
+}
+
+func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutput() ResourceAssociationMapOutput {
+	return o
+}
+
+func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutputWithContext(ctx context.Context) ResourceAssociationMapOutput {
+	return o
+}
+
+func (o ResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) ResourceAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceAssociation {
+		return vs[0].(map[string]ResourceAssociation)[vs[1].(string)]
+	}).(ResourceAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceAssociationOutput{})
+	pulumi.RegisterOutputType(ResourceAssociationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceAssociationMapOutput{})
 }

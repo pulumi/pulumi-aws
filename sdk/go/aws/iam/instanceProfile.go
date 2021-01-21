@@ -182,6 +182,85 @@ func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
 }
 
+func (i *InstanceProfile) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
+	return i.ToInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *InstanceProfile) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfilePtrOutput)
+}
+
+type InstanceProfilePtrInput interface {
+	pulumi.Input
+
+	ToInstanceProfilePtrOutput() InstanceProfilePtrOutput
+	ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput
+}
+
+type instanceProfilePtrType InstanceProfileArgs
+
+func (*instanceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceProfile)(nil))
+}
+
+func (i *instanceProfilePtrType) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
+	return i.ToInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceProfilePtrType) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfilePtrOutput)
+}
+
+// InstanceProfileArrayInput is an input type that accepts InstanceProfileArray and InstanceProfileArrayOutput values.
+// You can construct a concrete instance of `InstanceProfileArrayInput` via:
+//
+//          InstanceProfileArray{ InstanceProfileArgs{...} }
+type InstanceProfileArrayInput interface {
+	pulumi.Input
+
+	ToInstanceProfileArrayOutput() InstanceProfileArrayOutput
+	ToInstanceProfileArrayOutputWithContext(context.Context) InstanceProfileArrayOutput
+}
+
+type InstanceProfileArray []InstanceProfileInput
+
+func (InstanceProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InstanceProfile)(nil))
+}
+
+func (i InstanceProfileArray) ToInstanceProfileArrayOutput() InstanceProfileArrayOutput {
+	return i.ToInstanceProfileArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceProfileArray) ToInstanceProfileArrayOutputWithContext(ctx context.Context) InstanceProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileArrayOutput)
+}
+
+// InstanceProfileMapInput is an input type that accepts InstanceProfileMap and InstanceProfileMapOutput values.
+// You can construct a concrete instance of `InstanceProfileMapInput` via:
+//
+//          InstanceProfileMap{ "key": InstanceProfileArgs{...} }
+type InstanceProfileMapInput interface {
+	pulumi.Input
+
+	ToInstanceProfileMapOutput() InstanceProfileMapOutput
+	ToInstanceProfileMapOutputWithContext(context.Context) InstanceProfileMapOutput
+}
+
+type InstanceProfileMap map[string]InstanceProfileInput
+
+func (InstanceProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InstanceProfile)(nil))
+}
+
+func (i InstanceProfileMap) ToInstanceProfileMapOutput() InstanceProfileMapOutput {
+	return i.ToInstanceProfileMapOutputWithContext(context.Background())
+}
+
+func (i InstanceProfileMap) ToInstanceProfileMapOutputWithContext(ctx context.Context) InstanceProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileMapOutput)
+}
+
 type InstanceProfileOutput struct {
 	*pulumi.OutputState
 }
@@ -198,6 +277,75 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InstanceProfileOutput) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
+	return o.ToInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceProfileOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
+	return o.ApplyT(func(v InstanceProfile) *InstanceProfile {
+		return &v
+	}).(InstanceProfilePtrOutput)
+}
+
+type InstanceProfilePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceProfile)(nil))
+}
+
+func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
+	return o
+}
+
+func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
+	return o
+}
+
+type InstanceProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceProfile)(nil))
+}
+
+func (o InstanceProfileArrayOutput) ToInstanceProfileArrayOutput() InstanceProfileArrayOutput {
+	return o
+}
+
+func (o InstanceProfileArrayOutput) ToInstanceProfileArrayOutputWithContext(ctx context.Context) InstanceProfileArrayOutput {
+	return o
+}
+
+func (o InstanceProfileArrayOutput) Index(i pulumi.IntInput) InstanceProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceProfile {
+		return vs[0].([]InstanceProfile)[vs[1].(int)]
+	}).(InstanceProfileOutput)
+}
+
+type InstanceProfileMapOutput struct{ *pulumi.OutputState }
+
+func (InstanceProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InstanceProfile)(nil))
+}
+
+func (o InstanceProfileMapOutput) ToInstanceProfileMapOutput() InstanceProfileMapOutput {
+	return o
+}
+
+func (o InstanceProfileMapOutput) ToInstanceProfileMapOutputWithContext(ctx context.Context) InstanceProfileMapOutput {
+	return o
+}
+
+func (o InstanceProfileMapOutput) MapIndex(k pulumi.StringInput) InstanceProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InstanceProfile {
+		return vs[0].(map[string]InstanceProfile)[vs[1].(string)]
+	}).(InstanceProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceProfileOutput{})
+	pulumi.RegisterOutputType(InstanceProfilePtrOutput{})
+	pulumi.RegisterOutputType(InstanceProfileArrayOutput{})
+	pulumi.RegisterOutputType(InstanceProfileMapOutput{})
 }

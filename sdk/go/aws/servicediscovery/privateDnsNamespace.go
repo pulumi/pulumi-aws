@@ -179,6 +179,85 @@ func (i *PrivateDnsNamespace) ToPrivateDnsNamespaceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceOutput)
 }
 
+func (i *PrivateDnsNamespace) ToPrivateDnsNamespacePtrOutput() PrivateDnsNamespacePtrOutput {
+	return i.ToPrivateDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *PrivateDnsNamespace) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePtrOutput)
+}
+
+type PrivateDnsNamespacePtrInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNamespacePtrOutput() PrivateDnsNamespacePtrOutput
+	ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput
+}
+
+type privateDnsNamespacePtrType PrivateDnsNamespaceArgs
+
+func (*privateDnsNamespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsNamespace)(nil))
+}
+
+func (i *privateDnsNamespacePtrType) ToPrivateDnsNamespacePtrOutput() PrivateDnsNamespacePtrOutput {
+	return i.ToPrivateDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *privateDnsNamespacePtrType) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePtrOutput)
+}
+
+// PrivateDnsNamespaceArrayInput is an input type that accepts PrivateDnsNamespaceArray and PrivateDnsNamespaceArrayOutput values.
+// You can construct a concrete instance of `PrivateDnsNamespaceArrayInput` via:
+//
+//          PrivateDnsNamespaceArray{ PrivateDnsNamespaceArgs{...} }
+type PrivateDnsNamespaceArrayInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNamespaceArrayOutput() PrivateDnsNamespaceArrayOutput
+	ToPrivateDnsNamespaceArrayOutputWithContext(context.Context) PrivateDnsNamespaceArrayOutput
+}
+
+type PrivateDnsNamespaceArray []PrivateDnsNamespaceInput
+
+func (PrivateDnsNamespaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PrivateDnsNamespace)(nil))
+}
+
+func (i PrivateDnsNamespaceArray) ToPrivateDnsNamespaceArrayOutput() PrivateDnsNamespaceArrayOutput {
+	return i.ToPrivateDnsNamespaceArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsNamespaceArray) ToPrivateDnsNamespaceArrayOutputWithContext(ctx context.Context) PrivateDnsNamespaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceArrayOutput)
+}
+
+// PrivateDnsNamespaceMapInput is an input type that accepts PrivateDnsNamespaceMap and PrivateDnsNamespaceMapOutput values.
+// You can construct a concrete instance of `PrivateDnsNamespaceMapInput` via:
+//
+//          PrivateDnsNamespaceMap{ "key": PrivateDnsNamespaceArgs{...} }
+type PrivateDnsNamespaceMapInput interface {
+	pulumi.Input
+
+	ToPrivateDnsNamespaceMapOutput() PrivateDnsNamespaceMapOutput
+	ToPrivateDnsNamespaceMapOutputWithContext(context.Context) PrivateDnsNamespaceMapOutput
+}
+
+type PrivateDnsNamespaceMap map[string]PrivateDnsNamespaceInput
+
+func (PrivateDnsNamespaceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PrivateDnsNamespace)(nil))
+}
+
+func (i PrivateDnsNamespaceMap) ToPrivateDnsNamespaceMapOutput() PrivateDnsNamespaceMapOutput {
+	return i.ToPrivateDnsNamespaceMapOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsNamespaceMap) ToPrivateDnsNamespaceMapOutputWithContext(ctx context.Context) PrivateDnsNamespaceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceMapOutput)
+}
+
 type PrivateDnsNamespaceOutput struct {
 	*pulumi.OutputState
 }
@@ -195,6 +274,75 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx co
 	return o
 }
 
+func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespacePtrOutput() PrivateDnsNamespacePtrOutput {
+	return o.ToPrivateDnsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
+	return o.ApplyT(func(v PrivateDnsNamespace) *PrivateDnsNamespace {
+		return &v
+	}).(PrivateDnsNamespacePtrOutput)
+}
+
+type PrivateDnsNamespacePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateDnsNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsNamespace)(nil))
+}
+
+func (o PrivateDnsNamespacePtrOutput) ToPrivateDnsNamespacePtrOutput() PrivateDnsNamespacePtrOutput {
+	return o
+}
+
+func (o PrivateDnsNamespacePtrOutput) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
+	return o
+}
+
+type PrivateDnsNamespaceArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsNamespaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateDnsNamespace)(nil))
+}
+
+func (o PrivateDnsNamespaceArrayOutput) ToPrivateDnsNamespaceArrayOutput() PrivateDnsNamespaceArrayOutput {
+	return o
+}
+
+func (o PrivateDnsNamespaceArrayOutput) ToPrivateDnsNamespaceArrayOutputWithContext(ctx context.Context) PrivateDnsNamespaceArrayOutput {
+	return o
+}
+
+func (o PrivateDnsNamespaceArrayOutput) Index(i pulumi.IntInput) PrivateDnsNamespaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateDnsNamespace {
+		return vs[0].([]PrivateDnsNamespace)[vs[1].(int)]
+	}).(PrivateDnsNamespaceOutput)
+}
+
+type PrivateDnsNamespaceMapOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsNamespaceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PrivateDnsNamespace)(nil))
+}
+
+func (o PrivateDnsNamespaceMapOutput) ToPrivateDnsNamespaceMapOutput() PrivateDnsNamespaceMapOutput {
+	return o
+}
+
+func (o PrivateDnsNamespaceMapOutput) ToPrivateDnsNamespaceMapOutputWithContext(ctx context.Context) PrivateDnsNamespaceMapOutput {
+	return o
+}
+
+func (o PrivateDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PrivateDnsNamespaceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateDnsNamespace {
+		return vs[0].(map[string]PrivateDnsNamespace)[vs[1].(string)]
+	}).(PrivateDnsNamespaceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateDnsNamespaceOutput{})
+	pulumi.RegisterOutputType(PrivateDnsNamespacePtrOutput{})
+	pulumi.RegisterOutputType(PrivateDnsNamespaceArrayOutput{})
+	pulumi.RegisterOutputType(PrivateDnsNamespaceMapOutput{})
 }

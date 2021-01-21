@@ -166,6 +166,85 @@ func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput)
 }
 
+func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput {
+	return i.ToWebAclLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationPtrOutput)
+}
+
+type WebAclLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput
+	ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput
+}
+
+type webAclLoggingConfigurationPtrType WebAclLoggingConfigurationArgs
+
+func (*webAclLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclLoggingConfiguration)(nil))
+}
+
+func (i *webAclLoggingConfigurationPtrType) ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput {
+	return i.ToWebAclLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclLoggingConfigurationPtrType) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationPtrOutput)
+}
+
+// WebAclLoggingConfigurationArrayInput is an input type that accepts WebAclLoggingConfigurationArray and WebAclLoggingConfigurationArrayOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationArrayInput` via:
+//
+//          WebAclLoggingConfigurationArray{ WebAclLoggingConfigurationArgs{...} }
+type WebAclLoggingConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToWebAclLoggingConfigurationArrayOutput() WebAclLoggingConfigurationArrayOutput
+	ToWebAclLoggingConfigurationArrayOutputWithContext(context.Context) WebAclLoggingConfigurationArrayOutput
+}
+
+type WebAclLoggingConfigurationArray []WebAclLoggingConfigurationInput
+
+func (WebAclLoggingConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WebAclLoggingConfiguration)(nil))
+}
+
+func (i WebAclLoggingConfigurationArray) ToWebAclLoggingConfigurationArrayOutput() WebAclLoggingConfigurationArrayOutput {
+	return i.ToWebAclLoggingConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclLoggingConfigurationArray) ToWebAclLoggingConfigurationArrayOutputWithContext(ctx context.Context) WebAclLoggingConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationArrayOutput)
+}
+
+// WebAclLoggingConfigurationMapInput is an input type that accepts WebAclLoggingConfigurationMap and WebAclLoggingConfigurationMapOutput values.
+// You can construct a concrete instance of `WebAclLoggingConfigurationMapInput` via:
+//
+//          WebAclLoggingConfigurationMap{ "key": WebAclLoggingConfigurationArgs{...} }
+type WebAclLoggingConfigurationMapInput interface {
+	pulumi.Input
+
+	ToWebAclLoggingConfigurationMapOutput() WebAclLoggingConfigurationMapOutput
+	ToWebAclLoggingConfigurationMapOutputWithContext(context.Context) WebAclLoggingConfigurationMapOutput
+}
+
+type WebAclLoggingConfigurationMap map[string]WebAclLoggingConfigurationInput
+
+func (WebAclLoggingConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WebAclLoggingConfiguration)(nil))
+}
+
+func (i WebAclLoggingConfigurationMap) ToWebAclLoggingConfigurationMapOutput() WebAclLoggingConfigurationMapOutput {
+	return i.ToWebAclLoggingConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i WebAclLoggingConfigurationMap) ToWebAclLoggingConfigurationMapOutputWithContext(ctx context.Context) WebAclLoggingConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationMapOutput)
+}
+
 type WebAclLoggingConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -182,6 +261,75 @@ func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutputWith
 	return o
 }
 
+func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput {
+	return o.ToWebAclLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v WebAclLoggingConfiguration) *WebAclLoggingConfiguration {
+		return &v
+	}).(WebAclLoggingConfigurationPtrOutput)
+}
+
+type WebAclLoggingConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAclLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclLoggingConfiguration)(nil))
+}
+
+func (o WebAclLoggingConfigurationPtrOutput) ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationPtrOutput) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
+	return o
+}
+
+type WebAclLoggingConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclLoggingConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclLoggingConfiguration)(nil))
+}
+
+func (o WebAclLoggingConfigurationArrayOutput) ToWebAclLoggingConfigurationArrayOutput() WebAclLoggingConfigurationArrayOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationArrayOutput) ToWebAclLoggingConfigurationArrayOutputWithContext(ctx context.Context) WebAclLoggingConfigurationArrayOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationArrayOutput) Index(i pulumi.IntInput) WebAclLoggingConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclLoggingConfiguration {
+		return vs[0].([]WebAclLoggingConfiguration)[vs[1].(int)]
+	}).(WebAclLoggingConfigurationOutput)
+}
+
+type WebAclLoggingConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (WebAclLoggingConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclLoggingConfiguration)(nil))
+}
+
+func (o WebAclLoggingConfigurationMapOutput) ToWebAclLoggingConfigurationMapOutput() WebAclLoggingConfigurationMapOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationMapOutput) ToWebAclLoggingConfigurationMapOutputWithContext(ctx context.Context) WebAclLoggingConfigurationMapOutput {
+	return o
+}
+
+func (o WebAclLoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) WebAclLoggingConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAclLoggingConfiguration {
+		return vs[0].(map[string]WebAclLoggingConfiguration)[vs[1].(string)]
+	}).(WebAclLoggingConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WebAclLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebAclLoggingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(WebAclLoggingConfigurationMapOutput{})
 }

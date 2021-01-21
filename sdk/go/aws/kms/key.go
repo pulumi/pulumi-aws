@@ -218,6 +218,85 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
+func (i *Key) ToKeyPtrOutput() KeyPtrOutput {
+	return i.ToKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *Key) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPtrOutput)
+}
+
+type KeyPtrInput interface {
+	pulumi.Input
+
+	ToKeyPtrOutput() KeyPtrOutput
+	ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput
+}
+
+type keyPtrType KeyArgs
+
+func (*keyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Key)(nil))
+}
+
+func (i *keyPtrType) ToKeyPtrOutput() KeyPtrOutput {
+	return i.ToKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyPtrType) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPtrOutput)
+}
+
+// KeyArrayInput is an input type that accepts KeyArray and KeyArrayOutput values.
+// You can construct a concrete instance of `KeyArrayInput` via:
+//
+//          KeyArray{ KeyArgs{...} }
+type KeyArrayInput interface {
+	pulumi.Input
+
+	ToKeyArrayOutput() KeyArrayOutput
+	ToKeyArrayOutputWithContext(context.Context) KeyArrayOutput
+}
+
+type KeyArray []KeyInput
+
+func (KeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Key)(nil))
+}
+
+func (i KeyArray) ToKeyArrayOutput() KeyArrayOutput {
+	return i.ToKeyArrayOutputWithContext(context.Background())
+}
+
+func (i KeyArray) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyArrayOutput)
+}
+
+// KeyMapInput is an input type that accepts KeyMap and KeyMapOutput values.
+// You can construct a concrete instance of `KeyMapInput` via:
+//
+//          KeyMap{ "key": KeyArgs{...} }
+type KeyMapInput interface {
+	pulumi.Input
+
+	ToKeyMapOutput() KeyMapOutput
+	ToKeyMapOutputWithContext(context.Context) KeyMapOutput
+}
+
+type KeyMap map[string]KeyInput
+
+func (KeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Key)(nil))
+}
+
+func (i KeyMap) ToKeyMapOutput() KeyMapOutput {
+	return i.ToKeyMapOutputWithContext(context.Background())
+}
+
+func (i KeyMap) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyMapOutput)
+}
+
 type KeyOutput struct {
 	*pulumi.OutputState
 }
@@ -234,6 +313,75 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+func (o KeyOutput) ToKeyPtrOutput() KeyPtrOutput {
+	return o.ToKeyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyOutput) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
+	return o.ApplyT(func(v Key) *Key {
+		return &v
+	}).(KeyPtrOutput)
+}
+
+type KeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Key)(nil))
+}
+
+func (o KeyPtrOutput) ToKeyPtrOutput() KeyPtrOutput {
+	return o
+}
+
+func (o KeyPtrOutput) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
+	return o
+}
+
+type KeyArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Key)(nil))
+}
+
+func (o KeyArrayOutput) ToKeyArrayOutput() KeyArrayOutput {
+	return o
+}
+
+func (o KeyArrayOutput) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutput {
+	return o
+}
+
+func (o KeyArrayOutput) Index(i pulumi.IntInput) KeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Key {
+		return vs[0].([]Key)[vs[1].(int)]
+	}).(KeyOutput)
+}
+
+type KeyMapOutput struct{ *pulumi.OutputState }
+
+func (KeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Key)(nil))
+}
+
+func (o KeyMapOutput) ToKeyMapOutput() KeyMapOutput {
+	return o
+}
+
+func (o KeyMapOutput) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
+	return o
+}
+
+func (o KeyMapOutput) MapIndex(k pulumi.StringInput) KeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Key {
+		return vs[0].(map[string]Key)[vs[1].(string)]
+	}).(KeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KeyOutput{})
+	pulumi.RegisterOutputType(KeyPtrOutput{})
+	pulumi.RegisterOutputType(KeyArrayOutput{})
+	pulumi.RegisterOutputType(KeyMapOutput{})
 }

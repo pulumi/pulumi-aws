@@ -300,6 +300,85 @@ func (i *AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceOutput)
 }
 
+func (i *AmiFromInstance) ToAmiFromInstancePtrOutput() AmiFromInstancePtrOutput {
+	return i.ToAmiFromInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *AmiFromInstance) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstancePtrOutput)
+}
+
+type AmiFromInstancePtrInput interface {
+	pulumi.Input
+
+	ToAmiFromInstancePtrOutput() AmiFromInstancePtrOutput
+	ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput
+}
+
+type amiFromInstancePtrType AmiFromInstanceArgs
+
+func (*amiFromInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AmiFromInstance)(nil))
+}
+
+func (i *amiFromInstancePtrType) ToAmiFromInstancePtrOutput() AmiFromInstancePtrOutput {
+	return i.ToAmiFromInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *amiFromInstancePtrType) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstancePtrOutput)
+}
+
+// AmiFromInstanceArrayInput is an input type that accepts AmiFromInstanceArray and AmiFromInstanceArrayOutput values.
+// You can construct a concrete instance of `AmiFromInstanceArrayInput` via:
+//
+//          AmiFromInstanceArray{ AmiFromInstanceArgs{...} }
+type AmiFromInstanceArrayInput interface {
+	pulumi.Input
+
+	ToAmiFromInstanceArrayOutput() AmiFromInstanceArrayOutput
+	ToAmiFromInstanceArrayOutputWithContext(context.Context) AmiFromInstanceArrayOutput
+}
+
+type AmiFromInstanceArray []AmiFromInstanceInput
+
+func (AmiFromInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AmiFromInstance)(nil))
+}
+
+func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutput() AmiFromInstanceArrayOutput {
+	return i.ToAmiFromInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutputWithContext(ctx context.Context) AmiFromInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceArrayOutput)
+}
+
+// AmiFromInstanceMapInput is an input type that accepts AmiFromInstanceMap and AmiFromInstanceMapOutput values.
+// You can construct a concrete instance of `AmiFromInstanceMapInput` via:
+//
+//          AmiFromInstanceMap{ "key": AmiFromInstanceArgs{...} }
+type AmiFromInstanceMapInput interface {
+	pulumi.Input
+
+	ToAmiFromInstanceMapOutput() AmiFromInstanceMapOutput
+	ToAmiFromInstanceMapOutputWithContext(context.Context) AmiFromInstanceMapOutput
+}
+
+type AmiFromInstanceMap map[string]AmiFromInstanceInput
+
+func (AmiFromInstanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AmiFromInstance)(nil))
+}
+
+func (i AmiFromInstanceMap) ToAmiFromInstanceMapOutput() AmiFromInstanceMapOutput {
+	return i.ToAmiFromInstanceMapOutputWithContext(context.Background())
+}
+
+func (i AmiFromInstanceMap) ToAmiFromInstanceMapOutputWithContext(ctx context.Context) AmiFromInstanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceMapOutput)
+}
+
 type AmiFromInstanceOutput struct {
 	*pulumi.OutputState
 }
@@ -316,6 +395,75 @@ func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AmiFromInstanceOutput) ToAmiFromInstancePtrOutput() AmiFromInstancePtrOutput {
+	return o.ToAmiFromInstancePtrOutputWithContext(context.Background())
+}
+
+func (o AmiFromInstanceOutput) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
+	return o.ApplyT(func(v AmiFromInstance) *AmiFromInstance {
+		return &v
+	}).(AmiFromInstancePtrOutput)
+}
+
+type AmiFromInstancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AmiFromInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AmiFromInstance)(nil))
+}
+
+func (o AmiFromInstancePtrOutput) ToAmiFromInstancePtrOutput() AmiFromInstancePtrOutput {
+	return o
+}
+
+func (o AmiFromInstancePtrOutput) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
+	return o
+}
+
+type AmiFromInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (AmiFromInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmiFromInstance)(nil))
+}
+
+func (o AmiFromInstanceArrayOutput) ToAmiFromInstanceArrayOutput() AmiFromInstanceArrayOutput {
+	return o
+}
+
+func (o AmiFromInstanceArrayOutput) ToAmiFromInstanceArrayOutputWithContext(ctx context.Context) AmiFromInstanceArrayOutput {
+	return o
+}
+
+func (o AmiFromInstanceArrayOutput) Index(i pulumi.IntInput) AmiFromInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmiFromInstance {
+		return vs[0].([]AmiFromInstance)[vs[1].(int)]
+	}).(AmiFromInstanceOutput)
+}
+
+type AmiFromInstanceMapOutput struct{ *pulumi.OutputState }
+
+func (AmiFromInstanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AmiFromInstance)(nil))
+}
+
+func (o AmiFromInstanceMapOutput) ToAmiFromInstanceMapOutput() AmiFromInstanceMapOutput {
+	return o
+}
+
+func (o AmiFromInstanceMapOutput) ToAmiFromInstanceMapOutputWithContext(ctx context.Context) AmiFromInstanceMapOutput {
+	return o
+}
+
+func (o AmiFromInstanceMapOutput) MapIndex(k pulumi.StringInput) AmiFromInstanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AmiFromInstance {
+		return vs[0].(map[string]AmiFromInstance)[vs[1].(string)]
+	}).(AmiFromInstanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AmiFromInstanceOutput{})
+	pulumi.RegisterOutputType(AmiFromInstancePtrOutput{})
+	pulumi.RegisterOutputType(AmiFromInstanceArrayOutput{})
+	pulumi.RegisterOutputType(AmiFromInstanceMapOutput{})
 }

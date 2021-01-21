@@ -365,6 +365,85 @@ func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerOutput)
 }
 
+func (i *Broker) ToBrokerPtrOutput() BrokerPtrOutput {
+	return i.ToBrokerPtrOutputWithContext(context.Background())
+}
+
+func (i *Broker) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerPtrOutput)
+}
+
+type BrokerPtrInput interface {
+	pulumi.Input
+
+	ToBrokerPtrOutput() BrokerPtrOutput
+	ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput
+}
+
+type brokerPtrType BrokerArgs
+
+func (*brokerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Broker)(nil))
+}
+
+func (i *brokerPtrType) ToBrokerPtrOutput() BrokerPtrOutput {
+	return i.ToBrokerPtrOutputWithContext(context.Background())
+}
+
+func (i *brokerPtrType) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerPtrOutput)
+}
+
+// BrokerArrayInput is an input type that accepts BrokerArray and BrokerArrayOutput values.
+// You can construct a concrete instance of `BrokerArrayInput` via:
+//
+//          BrokerArray{ BrokerArgs{...} }
+type BrokerArrayInput interface {
+	pulumi.Input
+
+	ToBrokerArrayOutput() BrokerArrayOutput
+	ToBrokerArrayOutputWithContext(context.Context) BrokerArrayOutput
+}
+
+type BrokerArray []BrokerInput
+
+func (BrokerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Broker)(nil))
+}
+
+func (i BrokerArray) ToBrokerArrayOutput() BrokerArrayOutput {
+	return i.ToBrokerArrayOutputWithContext(context.Background())
+}
+
+func (i BrokerArray) ToBrokerArrayOutputWithContext(ctx context.Context) BrokerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerArrayOutput)
+}
+
+// BrokerMapInput is an input type that accepts BrokerMap and BrokerMapOutput values.
+// You can construct a concrete instance of `BrokerMapInput` via:
+//
+//          BrokerMap{ "key": BrokerArgs{...} }
+type BrokerMapInput interface {
+	pulumi.Input
+
+	ToBrokerMapOutput() BrokerMapOutput
+	ToBrokerMapOutputWithContext(context.Context) BrokerMapOutput
+}
+
+type BrokerMap map[string]BrokerInput
+
+func (BrokerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Broker)(nil))
+}
+
+func (i BrokerMap) ToBrokerMapOutput() BrokerMapOutput {
+	return i.ToBrokerMapOutputWithContext(context.Background())
+}
+
+func (i BrokerMap) ToBrokerMapOutputWithContext(ctx context.Context) BrokerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerMapOutput)
+}
+
 type BrokerOutput struct {
 	*pulumi.OutputState
 }
@@ -381,6 +460,75 @@ func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutpu
 	return o
 }
 
+func (o BrokerOutput) ToBrokerPtrOutput() BrokerPtrOutput {
+	return o.ToBrokerPtrOutputWithContext(context.Background())
+}
+
+func (o BrokerOutput) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
+	return o.ApplyT(func(v Broker) *Broker {
+		return &v
+	}).(BrokerPtrOutput)
+}
+
+type BrokerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BrokerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Broker)(nil))
+}
+
+func (o BrokerPtrOutput) ToBrokerPtrOutput() BrokerPtrOutput {
+	return o
+}
+
+func (o BrokerPtrOutput) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
+	return o
+}
+
+type BrokerArrayOutput struct{ *pulumi.OutputState }
+
+func (BrokerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Broker)(nil))
+}
+
+func (o BrokerArrayOutput) ToBrokerArrayOutput() BrokerArrayOutput {
+	return o
+}
+
+func (o BrokerArrayOutput) ToBrokerArrayOutputWithContext(ctx context.Context) BrokerArrayOutput {
+	return o
+}
+
+func (o BrokerArrayOutput) Index(i pulumi.IntInput) BrokerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Broker {
+		return vs[0].([]Broker)[vs[1].(int)]
+	}).(BrokerOutput)
+}
+
+type BrokerMapOutput struct{ *pulumi.OutputState }
+
+func (BrokerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Broker)(nil))
+}
+
+func (o BrokerMapOutput) ToBrokerMapOutput() BrokerMapOutput {
+	return o
+}
+
+func (o BrokerMapOutput) ToBrokerMapOutputWithContext(ctx context.Context) BrokerMapOutput {
+	return o
+}
+
+func (o BrokerMapOutput) MapIndex(k pulumi.StringInput) BrokerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Broker {
+		return vs[0].(map[string]Broker)[vs[1].(string)]
+	}).(BrokerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BrokerOutput{})
+	pulumi.RegisterOutputType(BrokerPtrOutput{})
+	pulumi.RegisterOutputType(BrokerArrayOutput{})
+	pulumi.RegisterOutputType(BrokerMapOutput{})
 }

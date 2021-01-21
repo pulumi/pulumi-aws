@@ -145,6 +145,85 @@ func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountOutput)
 }
 
+func (i *OrganizationAdminAccount) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
+	return i.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *OrganizationAdminAccount) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountPtrOutput)
+}
+
+type OrganizationAdminAccountPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput
+	ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput
+}
+
+type organizationAdminAccountPtrType OrganizationAdminAccountArgs
+
+func (*organizationAdminAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationAdminAccount)(nil))
+}
+
+func (i *organizationAdminAccountPtrType) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
+	return i.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationAdminAccountPtrType) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountPtrOutput)
+}
+
+// OrganizationAdminAccountArrayInput is an input type that accepts OrganizationAdminAccountArray and OrganizationAdminAccountArrayOutput values.
+// You can construct a concrete instance of `OrganizationAdminAccountArrayInput` via:
+//
+//          OrganizationAdminAccountArray{ OrganizationAdminAccountArgs{...} }
+type OrganizationAdminAccountArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationAdminAccountArrayOutput() OrganizationAdminAccountArrayOutput
+	ToOrganizationAdminAccountArrayOutputWithContext(context.Context) OrganizationAdminAccountArrayOutput
+}
+
+type OrganizationAdminAccountArray []OrganizationAdminAccountInput
+
+func (OrganizationAdminAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OrganizationAdminAccount)(nil))
+}
+
+func (i OrganizationAdminAccountArray) ToOrganizationAdminAccountArrayOutput() OrganizationAdminAccountArrayOutput {
+	return i.ToOrganizationAdminAccountArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationAdminAccountArray) ToOrganizationAdminAccountArrayOutputWithContext(ctx context.Context) OrganizationAdminAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountArrayOutput)
+}
+
+// OrganizationAdminAccountMapInput is an input type that accepts OrganizationAdminAccountMap and OrganizationAdminAccountMapOutput values.
+// You can construct a concrete instance of `OrganizationAdminAccountMapInput` via:
+//
+//          OrganizationAdminAccountMap{ "key": OrganizationAdminAccountArgs{...} }
+type OrganizationAdminAccountMapInput interface {
+	pulumi.Input
+
+	ToOrganizationAdminAccountMapOutput() OrganizationAdminAccountMapOutput
+	ToOrganizationAdminAccountMapOutputWithContext(context.Context) OrganizationAdminAccountMapOutput
+}
+
+type OrganizationAdminAccountMap map[string]OrganizationAdminAccountInput
+
+func (OrganizationAdminAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OrganizationAdminAccount)(nil))
+}
+
+func (i OrganizationAdminAccountMap) ToOrganizationAdminAccountMapOutput() OrganizationAdminAccountMapOutput {
+	return i.ToOrganizationAdminAccountMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationAdminAccountMap) ToOrganizationAdminAccountMapOutputWithContext(ctx context.Context) OrganizationAdminAccountMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountMapOutput)
+}
+
 type OrganizationAdminAccountOutput struct {
 	*pulumi.OutputState
 }
@@ -161,6 +240,75 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 	return o
 }
 
+func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
+	return o.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
+	return o.ApplyT(func(v OrganizationAdminAccount) *OrganizationAdminAccount {
+		return &v
+	}).(OrganizationAdminAccountPtrOutput)
+}
+
+type OrganizationAdminAccountPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationAdminAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationAdminAccount)(nil))
+}
+
+func (o OrganizationAdminAccountPtrOutput) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountPtrOutput) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
+	return o
+}
+
+type OrganizationAdminAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationAdminAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationAdminAccount)(nil))
+}
+
+func (o OrganizationAdminAccountArrayOutput) ToOrganizationAdminAccountArrayOutput() OrganizationAdminAccountArrayOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountArrayOutput) ToOrganizationAdminAccountArrayOutputWithContext(ctx context.Context) OrganizationAdminAccountArrayOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAdminAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationAdminAccount {
+		return vs[0].([]OrganizationAdminAccount)[vs[1].(int)]
+	}).(OrganizationAdminAccountOutput)
+}
+
+type OrganizationAdminAccountMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationAdminAccountMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OrganizationAdminAccount)(nil))
+}
+
+func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutput() OrganizationAdminAccountMapOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutputWithContext(ctx context.Context) OrganizationAdminAccountMapOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountMapOutput) MapIndex(k pulumi.StringInput) OrganizationAdminAccountOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationAdminAccount {
+		return vs[0].(map[string]OrganizationAdminAccount)[vs[1].(string)]
+	}).(OrganizationAdminAccountOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationAdminAccountOutput{})
+	pulumi.RegisterOutputType(OrganizationAdminAccountPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationAdminAccountArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationAdminAccountMapOutput{})
 }

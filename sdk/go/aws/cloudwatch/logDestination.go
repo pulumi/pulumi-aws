@@ -159,6 +159,85 @@ func (i *LogDestination) ToLogDestinationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationOutput)
 }
 
+func (i *LogDestination) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
+	return i.ToLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *LogDestination) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPtrOutput)
+}
+
+type LogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToLogDestinationPtrOutput() LogDestinationPtrOutput
+	ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput
+}
+
+type logDestinationPtrType LogDestinationArgs
+
+func (*logDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDestination)(nil))
+}
+
+func (i *logDestinationPtrType) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
+	return i.ToLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDestinationPtrType) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPtrOutput)
+}
+
+// LogDestinationArrayInput is an input type that accepts LogDestinationArray and LogDestinationArrayOutput values.
+// You can construct a concrete instance of `LogDestinationArrayInput` via:
+//
+//          LogDestinationArray{ LogDestinationArgs{...} }
+type LogDestinationArrayInput interface {
+	pulumi.Input
+
+	ToLogDestinationArrayOutput() LogDestinationArrayOutput
+	ToLogDestinationArrayOutputWithContext(context.Context) LogDestinationArrayOutput
+}
+
+type LogDestinationArray []LogDestinationInput
+
+func (LogDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogDestination)(nil))
+}
+
+func (i LogDestinationArray) ToLogDestinationArrayOutput() LogDestinationArrayOutput {
+	return i.ToLogDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i LogDestinationArray) ToLogDestinationArrayOutputWithContext(ctx context.Context) LogDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationArrayOutput)
+}
+
+// LogDestinationMapInput is an input type that accepts LogDestinationMap and LogDestinationMapOutput values.
+// You can construct a concrete instance of `LogDestinationMapInput` via:
+//
+//          LogDestinationMap{ "key": LogDestinationArgs{...} }
+type LogDestinationMapInput interface {
+	pulumi.Input
+
+	ToLogDestinationMapOutput() LogDestinationMapOutput
+	ToLogDestinationMapOutputWithContext(context.Context) LogDestinationMapOutput
+}
+
+type LogDestinationMap map[string]LogDestinationInput
+
+func (LogDestinationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogDestination)(nil))
+}
+
+func (i LogDestinationMap) ToLogDestinationMapOutput() LogDestinationMapOutput {
+	return i.ToLogDestinationMapOutputWithContext(context.Background())
+}
+
+func (i LogDestinationMap) ToLogDestinationMapOutputWithContext(ctx context.Context) LogDestinationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationMapOutput)
+}
+
 type LogDestinationOutput struct {
 	*pulumi.OutputState
 }
@@ -175,6 +254,75 @@ func (o LogDestinationOutput) ToLogDestinationOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LogDestinationOutput) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
+	return o.ToLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDestinationOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
+	return o.ApplyT(func(v LogDestination) *LogDestination {
+		return &v
+	}).(LogDestinationPtrOutput)
+}
+
+type LogDestinationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDestination)(nil))
+}
+
+func (o LogDestinationPtrOutput) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
+	return o
+}
+
+func (o LogDestinationPtrOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
+	return o
+}
+
+type LogDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (LogDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDestination)(nil))
+}
+
+func (o LogDestinationArrayOutput) ToLogDestinationArrayOutput() LogDestinationArrayOutput {
+	return o
+}
+
+func (o LogDestinationArrayOutput) ToLogDestinationArrayOutputWithContext(ctx context.Context) LogDestinationArrayOutput {
+	return o
+}
+
+func (o LogDestinationArrayOutput) Index(i pulumi.IntInput) LogDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDestination {
+		return vs[0].([]LogDestination)[vs[1].(int)]
+	}).(LogDestinationOutput)
+}
+
+type LogDestinationMapOutput struct{ *pulumi.OutputState }
+
+func (LogDestinationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogDestination)(nil))
+}
+
+func (o LogDestinationMapOutput) ToLogDestinationMapOutput() LogDestinationMapOutput {
+	return o
+}
+
+func (o LogDestinationMapOutput) ToLogDestinationMapOutputWithContext(ctx context.Context) LogDestinationMapOutput {
+	return o
+}
+
+func (o LogDestinationMapOutput) MapIndex(k pulumi.StringInput) LogDestinationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogDestination {
+		return vs[0].(map[string]LogDestination)[vs[1].(string)]
+	}).(LogDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogDestinationOutput{})
+	pulumi.RegisterOutputType(LogDestinationPtrOutput{})
+	pulumi.RegisterOutputType(LogDestinationArrayOutput{})
+	pulumi.RegisterOutputType(LogDestinationMapOutput{})
 }

@@ -187,6 +187,85 @@ func (i *EndpointConfiguration) ToEndpointConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOutput)
 }
 
+func (i *EndpointConfiguration) ToEndpointConfigurationPtrOutput() EndpointConfigurationPtrOutput {
+	return i.ToEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *EndpointConfiguration) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationPtrOutput)
+}
+
+type EndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationPtrOutput() EndpointConfigurationPtrOutput
+	ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput
+}
+
+type endpointConfigurationPtrType EndpointConfigurationArgs
+
+func (*endpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfiguration)(nil))
+}
+
+func (i *endpointConfigurationPtrType) ToEndpointConfigurationPtrOutput() EndpointConfigurationPtrOutput {
+	return i.ToEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationPtrType) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationPtrOutput)
+}
+
+// EndpointConfigurationArrayInput is an input type that accepts EndpointConfigurationArray and EndpointConfigurationArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigurationArrayInput` via:
+//
+//          EndpointConfigurationArray{ EndpointConfigurationArgs{...} }
+type EndpointConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationArrayOutput() EndpointConfigurationArrayOutput
+	ToEndpointConfigurationArrayOutputWithContext(context.Context) EndpointConfigurationArrayOutput
+}
+
+type EndpointConfigurationArray []EndpointConfigurationInput
+
+func (EndpointConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EndpointConfiguration)(nil))
+}
+
+func (i EndpointConfigurationArray) ToEndpointConfigurationArrayOutput() EndpointConfigurationArrayOutput {
+	return i.ToEndpointConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationArray) ToEndpointConfigurationArrayOutputWithContext(ctx context.Context) EndpointConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationArrayOutput)
+}
+
+// EndpointConfigurationMapInput is an input type that accepts EndpointConfigurationMap and EndpointConfigurationMapOutput values.
+// You can construct a concrete instance of `EndpointConfigurationMapInput` via:
+//
+//          EndpointConfigurationMap{ "key": EndpointConfigurationArgs{...} }
+type EndpointConfigurationMapInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationMapOutput() EndpointConfigurationMapOutput
+	ToEndpointConfigurationMapOutputWithContext(context.Context) EndpointConfigurationMapOutput
+}
+
+type EndpointConfigurationMap map[string]EndpointConfigurationInput
+
+func (EndpointConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EndpointConfiguration)(nil))
+}
+
+func (i EndpointConfigurationMap) ToEndpointConfigurationMapOutput() EndpointConfigurationMapOutput {
+	return i.ToEndpointConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationMap) ToEndpointConfigurationMapOutputWithContext(ctx context.Context) EndpointConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationMapOutput)
+}
+
 type EndpointConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -203,6 +282,75 @@ func (o EndpointConfigurationOutput) ToEndpointConfigurationOutputWithContext(ct
 	return o
 }
 
+func (o EndpointConfigurationOutput) ToEndpointConfigurationPtrOutput() EndpointConfigurationPtrOutput {
+	return o.ToEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationOutput) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointConfiguration) *EndpointConfiguration {
+		return &v
+	}).(EndpointConfigurationPtrOutput)
+}
+
+type EndpointConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfiguration)(nil))
+}
+
+func (o EndpointConfigurationPtrOutput) ToEndpointConfigurationPtrOutput() EndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationPtrOutput) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
+	return o
+}
+
+type EndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfiguration)(nil))
+}
+
+func (o EndpointConfigurationArrayOutput) ToEndpointConfigurationArrayOutput() EndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationArrayOutput) ToEndpointConfigurationArrayOutputWithContext(ctx context.Context) EndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfiguration {
+		return vs[0].([]EndpointConfiguration)[vs[1].(int)]
+	}).(EndpointConfigurationOutput)
+}
+
+type EndpointConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EndpointConfiguration)(nil))
+}
+
+func (o EndpointConfigurationMapOutput) ToEndpointConfigurationMapOutput() EndpointConfigurationMapOutput {
+	return o
+}
+
+func (o EndpointConfigurationMapOutput) ToEndpointConfigurationMapOutputWithContext(ctx context.Context) EndpointConfigurationMapOutput {
+	return o
+}
+
+func (o EndpointConfigurationMapOutput) MapIndex(k pulumi.StringInput) EndpointConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EndpointConfiguration {
+		return vs[0].(map[string]EndpointConfiguration)[vs[1].(string)]
+	}).(EndpointConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationMapOutput{})
 }

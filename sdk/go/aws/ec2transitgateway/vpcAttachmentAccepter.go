@@ -210,6 +210,85 @@ func (i *VpcAttachmentAccepter) ToVpcAttachmentAccepterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterOutput)
 }
 
+func (i *VpcAttachmentAccepter) ToVpcAttachmentAccepterPtrOutput() VpcAttachmentAccepterPtrOutput {
+	return i.ToVpcAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcAttachmentAccepter) ToVpcAttachmentAccepterPtrOutputWithContext(ctx context.Context) VpcAttachmentAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterPtrOutput)
+}
+
+type VpcAttachmentAccepterPtrInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentAccepterPtrOutput() VpcAttachmentAccepterPtrOutput
+	ToVpcAttachmentAccepterPtrOutputWithContext(ctx context.Context) VpcAttachmentAccepterPtrOutput
+}
+
+type vpcAttachmentAccepterPtrType VpcAttachmentAccepterArgs
+
+func (*vpcAttachmentAccepterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentAccepter)(nil))
+}
+
+func (i *vpcAttachmentAccepterPtrType) ToVpcAttachmentAccepterPtrOutput() VpcAttachmentAccepterPtrOutput {
+	return i.ToVpcAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcAttachmentAccepterPtrType) ToVpcAttachmentAccepterPtrOutputWithContext(ctx context.Context) VpcAttachmentAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterPtrOutput)
+}
+
+// VpcAttachmentAccepterArrayInput is an input type that accepts VpcAttachmentAccepterArray and VpcAttachmentAccepterArrayOutput values.
+// You can construct a concrete instance of `VpcAttachmentAccepterArrayInput` via:
+//
+//          VpcAttachmentAccepterArray{ VpcAttachmentAccepterArgs{...} }
+type VpcAttachmentAccepterArrayInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentAccepterArrayOutput() VpcAttachmentAccepterArrayOutput
+	ToVpcAttachmentAccepterArrayOutputWithContext(context.Context) VpcAttachmentAccepterArrayOutput
+}
+
+type VpcAttachmentAccepterArray []VpcAttachmentAccepterInput
+
+func (VpcAttachmentAccepterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcAttachmentAccepter)(nil))
+}
+
+func (i VpcAttachmentAccepterArray) ToVpcAttachmentAccepterArrayOutput() VpcAttachmentAccepterArrayOutput {
+	return i.ToVpcAttachmentAccepterArrayOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentAccepterArray) ToVpcAttachmentAccepterArrayOutputWithContext(ctx context.Context) VpcAttachmentAccepterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterArrayOutput)
+}
+
+// VpcAttachmentAccepterMapInput is an input type that accepts VpcAttachmentAccepterMap and VpcAttachmentAccepterMapOutput values.
+// You can construct a concrete instance of `VpcAttachmentAccepterMapInput` via:
+//
+//          VpcAttachmentAccepterMap{ "key": VpcAttachmentAccepterArgs{...} }
+type VpcAttachmentAccepterMapInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentAccepterMapOutput() VpcAttachmentAccepterMapOutput
+	ToVpcAttachmentAccepterMapOutputWithContext(context.Context) VpcAttachmentAccepterMapOutput
+}
+
+type VpcAttachmentAccepterMap map[string]VpcAttachmentAccepterInput
+
+func (VpcAttachmentAccepterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcAttachmentAccepter)(nil))
+}
+
+func (i VpcAttachmentAccepterMap) ToVpcAttachmentAccepterMapOutput() VpcAttachmentAccepterMapOutput {
+	return i.ToVpcAttachmentAccepterMapOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentAccepterMap) ToVpcAttachmentAccepterMapOutputWithContext(ctx context.Context) VpcAttachmentAccepterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterMapOutput)
+}
+
 type VpcAttachmentAccepterOutput struct {
 	*pulumi.OutputState
 }
@@ -226,6 +305,75 @@ func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterOutputWithContext(ct
 	return o
 }
 
+func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterPtrOutput() VpcAttachmentAccepterPtrOutput {
+	return o.ToVpcAttachmentAccepterPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterPtrOutputWithContext(ctx context.Context) VpcAttachmentAccepterPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentAccepter) *VpcAttachmentAccepter {
+		return &v
+	}).(VpcAttachmentAccepterPtrOutput)
+}
+
+type VpcAttachmentAccepterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcAttachmentAccepterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentAccepter)(nil))
+}
+
+func (o VpcAttachmentAccepterPtrOutput) ToVpcAttachmentAccepterPtrOutput() VpcAttachmentAccepterPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentAccepterPtrOutput) ToVpcAttachmentAccepterPtrOutputWithContext(ctx context.Context) VpcAttachmentAccepterPtrOutput {
+	return o
+}
+
+type VpcAttachmentAccepterArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentAccepterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcAttachmentAccepter)(nil))
+}
+
+func (o VpcAttachmentAccepterArrayOutput) ToVpcAttachmentAccepterArrayOutput() VpcAttachmentAccepterArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentAccepterArrayOutput) ToVpcAttachmentAccepterArrayOutputWithContext(ctx context.Context) VpcAttachmentAccepterArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentAccepterArrayOutput) Index(i pulumi.IntInput) VpcAttachmentAccepterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcAttachmentAccepter {
+		return vs[0].([]VpcAttachmentAccepter)[vs[1].(int)]
+	}).(VpcAttachmentAccepterOutput)
+}
+
+type VpcAttachmentAccepterMapOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentAccepterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcAttachmentAccepter)(nil))
+}
+
+func (o VpcAttachmentAccepterMapOutput) ToVpcAttachmentAccepterMapOutput() VpcAttachmentAccepterMapOutput {
+	return o
+}
+
+func (o VpcAttachmentAccepterMapOutput) ToVpcAttachmentAccepterMapOutputWithContext(ctx context.Context) VpcAttachmentAccepterMapOutput {
+	return o
+}
+
+func (o VpcAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcAttachmentAccepterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcAttachmentAccepter {
+		return vs[0].(map[string]VpcAttachmentAccepter)[vs[1].(string)]
+	}).(VpcAttachmentAccepterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcAttachmentAccepterOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentAccepterPtrOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentAccepterArrayOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentAccepterMapOutput{})
 }

@@ -149,6 +149,85 @@ func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamO
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamOutput)
 }
 
+func (i *LogStream) ToLogStreamPtrOutput() LogStreamPtrOutput {
+	return i.ToLogStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *LogStream) ToLogStreamPtrOutputWithContext(ctx context.Context) LogStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamPtrOutput)
+}
+
+type LogStreamPtrInput interface {
+	pulumi.Input
+
+	ToLogStreamPtrOutput() LogStreamPtrOutput
+	ToLogStreamPtrOutputWithContext(ctx context.Context) LogStreamPtrOutput
+}
+
+type logStreamPtrType LogStreamArgs
+
+func (*logStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogStream)(nil))
+}
+
+func (i *logStreamPtrType) ToLogStreamPtrOutput() LogStreamPtrOutput {
+	return i.ToLogStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *logStreamPtrType) ToLogStreamPtrOutputWithContext(ctx context.Context) LogStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamPtrOutput)
+}
+
+// LogStreamArrayInput is an input type that accepts LogStreamArray and LogStreamArrayOutput values.
+// You can construct a concrete instance of `LogStreamArrayInput` via:
+//
+//          LogStreamArray{ LogStreamArgs{...} }
+type LogStreamArrayInput interface {
+	pulumi.Input
+
+	ToLogStreamArrayOutput() LogStreamArrayOutput
+	ToLogStreamArrayOutputWithContext(context.Context) LogStreamArrayOutput
+}
+
+type LogStreamArray []LogStreamInput
+
+func (LogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogStream)(nil))
+}
+
+func (i LogStreamArray) ToLogStreamArrayOutput() LogStreamArrayOutput {
+	return i.ToLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i LogStreamArray) ToLogStreamArrayOutputWithContext(ctx context.Context) LogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamArrayOutput)
+}
+
+// LogStreamMapInput is an input type that accepts LogStreamMap and LogStreamMapOutput values.
+// You can construct a concrete instance of `LogStreamMapInput` via:
+//
+//          LogStreamMap{ "key": LogStreamArgs{...} }
+type LogStreamMapInput interface {
+	pulumi.Input
+
+	ToLogStreamMapOutput() LogStreamMapOutput
+	ToLogStreamMapOutputWithContext(context.Context) LogStreamMapOutput
+}
+
+type LogStreamMap map[string]LogStreamInput
+
+func (LogStreamMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogStream)(nil))
+}
+
+func (i LogStreamMap) ToLogStreamMapOutput() LogStreamMapOutput {
+	return i.ToLogStreamMapOutputWithContext(context.Background())
+}
+
+func (i LogStreamMap) ToLogStreamMapOutputWithContext(ctx context.Context) LogStreamMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamMapOutput)
+}
+
 type LogStreamOutput struct {
 	*pulumi.OutputState
 }
@@ -165,6 +244,75 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
+func (o LogStreamOutput) ToLogStreamPtrOutput() LogStreamPtrOutput {
+	return o.ToLogStreamPtrOutputWithContext(context.Background())
+}
+
+func (o LogStreamOutput) ToLogStreamPtrOutputWithContext(ctx context.Context) LogStreamPtrOutput {
+	return o.ApplyT(func(v LogStream) *LogStream {
+		return &v
+	}).(LogStreamPtrOutput)
+}
+
+type LogStreamPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogStream)(nil))
+}
+
+func (o LogStreamPtrOutput) ToLogStreamPtrOutput() LogStreamPtrOutput {
+	return o
+}
+
+func (o LogStreamPtrOutput) ToLogStreamPtrOutputWithContext(ctx context.Context) LogStreamPtrOutput {
+	return o
+}
+
+type LogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (LogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogStream)(nil))
+}
+
+func (o LogStreamArrayOutput) ToLogStreamArrayOutput() LogStreamArrayOutput {
+	return o
+}
+
+func (o LogStreamArrayOutput) ToLogStreamArrayOutputWithContext(ctx context.Context) LogStreamArrayOutput {
+	return o
+}
+
+func (o LogStreamArrayOutput) Index(i pulumi.IntInput) LogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogStream {
+		return vs[0].([]LogStream)[vs[1].(int)]
+	}).(LogStreamOutput)
+}
+
+type LogStreamMapOutput struct{ *pulumi.OutputState }
+
+func (LogStreamMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogStream)(nil))
+}
+
+func (o LogStreamMapOutput) ToLogStreamMapOutput() LogStreamMapOutput {
+	return o
+}
+
+func (o LogStreamMapOutput) ToLogStreamMapOutputWithContext(ctx context.Context) LogStreamMapOutput {
+	return o
+}
+
+func (o LogStreamMapOutput) MapIndex(k pulumi.StringInput) LogStreamOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogStream {
+		return vs[0].(map[string]LogStream)[vs[1].(string)]
+	}).(LogStreamOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogStreamOutput{})
+	pulumi.RegisterOutputType(LogStreamPtrOutput{})
+	pulumi.RegisterOutputType(LogStreamArrayOutput{})
+	pulumi.RegisterOutputType(LogStreamMapOutput{})
 }

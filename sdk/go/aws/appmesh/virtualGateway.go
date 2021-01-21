@@ -255,6 +255,85 @@ func (i *VirtualGateway) ToVirtualGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayOutput)
 }
 
+func (i *VirtualGateway) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutput {
+	return i.ToVirtualGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualGateway) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPtrOutput)
+}
+
+type VirtualGatewayPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutput
+	ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput
+}
+
+type virtualGatewayPtrType VirtualGatewayArgs
+
+func (*virtualGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGateway)(nil))
+}
+
+func (i *virtualGatewayPtrType) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutput {
+	return i.ToVirtualGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayPtrType) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPtrOutput)
+}
+
+// VirtualGatewayArrayInput is an input type that accepts VirtualGatewayArray and VirtualGatewayArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewayArrayInput` via:
+//
+//          VirtualGatewayArray{ VirtualGatewayArgs{...} }
+type VirtualGatewayArrayInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayArrayOutput() VirtualGatewayArrayOutput
+	ToVirtualGatewayArrayOutputWithContext(context.Context) VirtualGatewayArrayOutput
+}
+
+type VirtualGatewayArray []VirtualGatewayInput
+
+func (VirtualGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualGateway)(nil))
+}
+
+func (i VirtualGatewayArray) ToVirtualGatewayArrayOutput() VirtualGatewayArrayOutput {
+	return i.ToVirtualGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayArray) ToVirtualGatewayArrayOutputWithContext(ctx context.Context) VirtualGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayArrayOutput)
+}
+
+// VirtualGatewayMapInput is an input type that accepts VirtualGatewayMap and VirtualGatewayMapOutput values.
+// You can construct a concrete instance of `VirtualGatewayMapInput` via:
+//
+//          VirtualGatewayMap{ "key": VirtualGatewayArgs{...} }
+type VirtualGatewayMapInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayMapOutput() VirtualGatewayMapOutput
+	ToVirtualGatewayMapOutputWithContext(context.Context) VirtualGatewayMapOutput
+}
+
+type VirtualGatewayMap map[string]VirtualGatewayInput
+
+func (VirtualGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualGateway)(nil))
+}
+
+func (i VirtualGatewayMap) ToVirtualGatewayMapOutput() VirtualGatewayMapOutput {
+	return i.ToVirtualGatewayMapOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayMap) ToVirtualGatewayMapOutputWithContext(ctx context.Context) VirtualGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayMapOutput)
+}
+
 type VirtualGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -271,6 +350,75 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VirtualGatewayOutput) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutput {
+	return o.ToVirtualGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayOutput) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
+	return o.ApplyT(func(v VirtualGateway) *VirtualGateway {
+		return &v
+	}).(VirtualGatewayPtrOutput)
+}
+
+type VirtualGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGateway)(nil))
+}
+
+func (o VirtualGatewayPtrOutput) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayPtrOutput) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
+	return o
+}
+
+type VirtualGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGateway)(nil))
+}
+
+func (o VirtualGatewayArrayOutput) ToVirtualGatewayArrayOutput() VirtualGatewayArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayArrayOutput) ToVirtualGatewayArrayOutputWithContext(ctx context.Context) VirtualGatewayArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayArrayOutput) Index(i pulumi.IntInput) VirtualGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGateway {
+		return vs[0].([]VirtualGateway)[vs[1].(int)]
+	}).(VirtualGatewayOutput)
+}
+
+type VirtualGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualGateway)(nil))
+}
+
+func (o VirtualGatewayMapOutput) ToVirtualGatewayMapOutput() VirtualGatewayMapOutput {
+	return o
+}
+
+func (o VirtualGatewayMapOutput) ToVirtualGatewayMapOutputWithContext(ctx context.Context) VirtualGatewayMapOutput {
+	return o
+}
+
+func (o VirtualGatewayMapOutput) MapIndex(k pulumi.StringInput) VirtualGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualGateway {
+		return vs[0].(map[string]VirtualGateway)[vs[1].(string)]
+	}).(VirtualGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualGatewayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayArrayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayMapOutput{})
 }

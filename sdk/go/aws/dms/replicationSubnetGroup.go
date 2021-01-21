@@ -181,6 +181,85 @@ func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupOutput)
 }
 
+func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupPtrOutput() ReplicationSubnetGroupPtrOutput {
+	return i.ToReplicationSubnetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupPtrOutput)
+}
+
+type ReplicationSubnetGroupPtrInput interface {
+	pulumi.Input
+
+	ToReplicationSubnetGroupPtrOutput() ReplicationSubnetGroupPtrOutput
+	ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput
+}
+
+type replicationSubnetGroupPtrType ReplicationSubnetGroupArgs
+
+func (*replicationSubnetGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationSubnetGroup)(nil))
+}
+
+func (i *replicationSubnetGroupPtrType) ToReplicationSubnetGroupPtrOutput() ReplicationSubnetGroupPtrOutput {
+	return i.ToReplicationSubnetGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationSubnetGroupPtrType) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupPtrOutput)
+}
+
+// ReplicationSubnetGroupArrayInput is an input type that accepts ReplicationSubnetGroupArray and ReplicationSubnetGroupArrayOutput values.
+// You can construct a concrete instance of `ReplicationSubnetGroupArrayInput` via:
+//
+//          ReplicationSubnetGroupArray{ ReplicationSubnetGroupArgs{...} }
+type ReplicationSubnetGroupArrayInput interface {
+	pulumi.Input
+
+	ToReplicationSubnetGroupArrayOutput() ReplicationSubnetGroupArrayOutput
+	ToReplicationSubnetGroupArrayOutputWithContext(context.Context) ReplicationSubnetGroupArrayOutput
+}
+
+type ReplicationSubnetGroupArray []ReplicationSubnetGroupInput
+
+func (ReplicationSubnetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ReplicationSubnetGroup)(nil))
+}
+
+func (i ReplicationSubnetGroupArray) ToReplicationSubnetGroupArrayOutput() ReplicationSubnetGroupArrayOutput {
+	return i.ToReplicationSubnetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationSubnetGroupArray) ToReplicationSubnetGroupArrayOutputWithContext(ctx context.Context) ReplicationSubnetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupArrayOutput)
+}
+
+// ReplicationSubnetGroupMapInput is an input type that accepts ReplicationSubnetGroupMap and ReplicationSubnetGroupMapOutput values.
+// You can construct a concrete instance of `ReplicationSubnetGroupMapInput` via:
+//
+//          ReplicationSubnetGroupMap{ "key": ReplicationSubnetGroupArgs{...} }
+type ReplicationSubnetGroupMapInput interface {
+	pulumi.Input
+
+	ToReplicationSubnetGroupMapOutput() ReplicationSubnetGroupMapOutput
+	ToReplicationSubnetGroupMapOutputWithContext(context.Context) ReplicationSubnetGroupMapOutput
+}
+
+type ReplicationSubnetGroupMap map[string]ReplicationSubnetGroupInput
+
+func (ReplicationSubnetGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ReplicationSubnetGroup)(nil))
+}
+
+func (i ReplicationSubnetGroupMap) ToReplicationSubnetGroupMapOutput() ReplicationSubnetGroupMapOutput {
+	return i.ToReplicationSubnetGroupMapOutputWithContext(context.Background())
+}
+
+func (i ReplicationSubnetGroupMap) ToReplicationSubnetGroupMapOutputWithContext(ctx context.Context) ReplicationSubnetGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupMapOutput)
+}
+
 type ReplicationSubnetGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 	return o
 }
 
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupPtrOutput() ReplicationSubnetGroupPtrOutput {
+	return o.ToReplicationSubnetGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
+	return o.ApplyT(func(v ReplicationSubnetGroup) *ReplicationSubnetGroup {
+		return &v
+	}).(ReplicationSubnetGroupPtrOutput)
+}
+
+type ReplicationSubnetGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationSubnetGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationSubnetGroup)(nil))
+}
+
+func (o ReplicationSubnetGroupPtrOutput) ToReplicationSubnetGroupPtrOutput() ReplicationSubnetGroupPtrOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupPtrOutput) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
+	return o
+}
+
+type ReplicationSubnetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationSubnetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationSubnetGroup)(nil))
+}
+
+func (o ReplicationSubnetGroupArrayOutput) ToReplicationSubnetGroupArrayOutput() ReplicationSubnetGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupArrayOutput) ToReplicationSubnetGroupArrayOutputWithContext(ctx context.Context) ReplicationSubnetGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupArrayOutput) Index(i pulumi.IntInput) ReplicationSubnetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationSubnetGroup {
+		return vs[0].([]ReplicationSubnetGroup)[vs[1].(int)]
+	}).(ReplicationSubnetGroupOutput)
+}
+
+type ReplicationSubnetGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ReplicationSubnetGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReplicationSubnetGroup)(nil))
+}
+
+func (o ReplicationSubnetGroupMapOutput) ToReplicationSubnetGroupMapOutput() ReplicationSubnetGroupMapOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupMapOutput) ToReplicationSubnetGroupMapOutputWithContext(ctx context.Context) ReplicationSubnetGroupMapOutput {
+	return o
+}
+
+func (o ReplicationSubnetGroupMapOutput) MapIndex(k pulumi.StringInput) ReplicationSubnetGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationSubnetGroup {
+		return vs[0].(map[string]ReplicationSubnetGroup)[vs[1].(string)]
+	}).(ReplicationSubnetGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})
+	pulumi.RegisterOutputType(ReplicationSubnetGroupPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationSubnetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationSubnetGroupMapOutput{})
 }

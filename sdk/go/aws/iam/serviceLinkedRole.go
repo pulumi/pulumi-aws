@@ -179,6 +179,85 @@ func (i *ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleOutput)
 }
 
+func (i *ServiceLinkedRole) ToServiceLinkedRolePtrOutput() ServiceLinkedRolePtrOutput {
+	return i.ToServiceLinkedRolePtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceLinkedRole) ToServiceLinkedRolePtrOutputWithContext(ctx context.Context) ServiceLinkedRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRolePtrOutput)
+}
+
+type ServiceLinkedRolePtrInput interface {
+	pulumi.Input
+
+	ToServiceLinkedRolePtrOutput() ServiceLinkedRolePtrOutput
+	ToServiceLinkedRolePtrOutputWithContext(ctx context.Context) ServiceLinkedRolePtrOutput
+}
+
+type serviceLinkedRolePtrType ServiceLinkedRoleArgs
+
+func (*serviceLinkedRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLinkedRole)(nil))
+}
+
+func (i *serviceLinkedRolePtrType) ToServiceLinkedRolePtrOutput() ServiceLinkedRolePtrOutput {
+	return i.ToServiceLinkedRolePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLinkedRolePtrType) ToServiceLinkedRolePtrOutputWithContext(ctx context.Context) ServiceLinkedRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRolePtrOutput)
+}
+
+// ServiceLinkedRoleArrayInput is an input type that accepts ServiceLinkedRoleArray and ServiceLinkedRoleArrayOutput values.
+// You can construct a concrete instance of `ServiceLinkedRoleArrayInput` via:
+//
+//          ServiceLinkedRoleArray{ ServiceLinkedRoleArgs{...} }
+type ServiceLinkedRoleArrayInput interface {
+	pulumi.Input
+
+	ToServiceLinkedRoleArrayOutput() ServiceLinkedRoleArrayOutput
+	ToServiceLinkedRoleArrayOutputWithContext(context.Context) ServiceLinkedRoleArrayOutput
+}
+
+type ServiceLinkedRoleArray []ServiceLinkedRoleInput
+
+func (ServiceLinkedRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceLinkedRole)(nil))
+}
+
+func (i ServiceLinkedRoleArray) ToServiceLinkedRoleArrayOutput() ServiceLinkedRoleArrayOutput {
+	return i.ToServiceLinkedRoleArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLinkedRoleArray) ToServiceLinkedRoleArrayOutputWithContext(ctx context.Context) ServiceLinkedRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleArrayOutput)
+}
+
+// ServiceLinkedRoleMapInput is an input type that accepts ServiceLinkedRoleMap and ServiceLinkedRoleMapOutput values.
+// You can construct a concrete instance of `ServiceLinkedRoleMapInput` via:
+//
+//          ServiceLinkedRoleMap{ "key": ServiceLinkedRoleArgs{...} }
+type ServiceLinkedRoleMapInput interface {
+	pulumi.Input
+
+	ToServiceLinkedRoleMapOutput() ServiceLinkedRoleMapOutput
+	ToServiceLinkedRoleMapOutputWithContext(context.Context) ServiceLinkedRoleMapOutput
+}
+
+type ServiceLinkedRoleMap map[string]ServiceLinkedRoleInput
+
+func (ServiceLinkedRoleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceLinkedRole)(nil))
+}
+
+func (i ServiceLinkedRoleMap) ToServiceLinkedRoleMapOutput() ServiceLinkedRoleMapOutput {
+	return i.ToServiceLinkedRoleMapOutputWithContext(context.Background())
+}
+
+func (i ServiceLinkedRoleMap) ToServiceLinkedRoleMapOutputWithContext(ctx context.Context) ServiceLinkedRoleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinkedRoleMapOutput)
+}
+
 type ServiceLinkedRoleOutput struct {
 	*pulumi.OutputState
 }
@@ -195,6 +274,75 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRolePtrOutput() ServiceLinkedRolePtrOutput {
+	return o.ToServiceLinkedRolePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLinkedRoleOutput) ToServiceLinkedRolePtrOutputWithContext(ctx context.Context) ServiceLinkedRolePtrOutput {
+	return o.ApplyT(func(v ServiceLinkedRole) *ServiceLinkedRole {
+		return &v
+	}).(ServiceLinkedRolePtrOutput)
+}
+
+type ServiceLinkedRolePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceLinkedRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLinkedRole)(nil))
+}
+
+func (o ServiceLinkedRolePtrOutput) ToServiceLinkedRolePtrOutput() ServiceLinkedRolePtrOutput {
+	return o
+}
+
+func (o ServiceLinkedRolePtrOutput) ToServiceLinkedRolePtrOutputWithContext(ctx context.Context) ServiceLinkedRolePtrOutput {
+	return o
+}
+
+type ServiceLinkedRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLinkedRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLinkedRole)(nil))
+}
+
+func (o ServiceLinkedRoleArrayOutput) ToServiceLinkedRoleArrayOutput() ServiceLinkedRoleArrayOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleArrayOutput) ToServiceLinkedRoleArrayOutputWithContext(ctx context.Context) ServiceLinkedRoleArrayOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleArrayOutput) Index(i pulumi.IntInput) ServiceLinkedRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLinkedRole {
+		return vs[0].([]ServiceLinkedRole)[vs[1].(int)]
+	}).(ServiceLinkedRoleOutput)
+}
+
+type ServiceLinkedRoleMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceLinkedRoleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceLinkedRole)(nil))
+}
+
+func (o ServiceLinkedRoleMapOutput) ToServiceLinkedRoleMapOutput() ServiceLinkedRoleMapOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleMapOutput) ToServiceLinkedRoleMapOutputWithContext(ctx context.Context) ServiceLinkedRoleMapOutput {
+	return o
+}
+
+func (o ServiceLinkedRoleMapOutput) MapIndex(k pulumi.StringInput) ServiceLinkedRoleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceLinkedRole {
+		return vs[0].(map[string]ServiceLinkedRole)[vs[1].(string)]
+	}).(ServiceLinkedRoleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceLinkedRoleOutput{})
+	pulumi.RegisterOutputType(ServiceLinkedRolePtrOutput{})
+	pulumi.RegisterOutputType(ServiceLinkedRoleArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLinkedRoleMapOutput{})
 }

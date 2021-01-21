@@ -236,6 +236,85 @@ func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsOutput)
 }
 
+func (i *VpcDhcpOptions) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
+	return i.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcDhcpOptions) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsPtrOutput)
+}
+
+type VpcDhcpOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput
+	ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput
+}
+
+type vpcDhcpOptionsPtrType VpcDhcpOptionsArgs
+
+func (*vpcDhcpOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcDhcpOptions)(nil))
+}
+
+func (i *vpcDhcpOptionsPtrType) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
+	return i.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcDhcpOptionsPtrType) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsPtrOutput)
+}
+
+// VpcDhcpOptionsArrayInput is an input type that accepts VpcDhcpOptionsArray and VpcDhcpOptionsArrayOutput values.
+// You can construct a concrete instance of `VpcDhcpOptionsArrayInput` via:
+//
+//          VpcDhcpOptionsArray{ VpcDhcpOptionsArgs{...} }
+type VpcDhcpOptionsArrayInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsArrayOutput() VpcDhcpOptionsArrayOutput
+	ToVpcDhcpOptionsArrayOutputWithContext(context.Context) VpcDhcpOptionsArrayOutput
+}
+
+type VpcDhcpOptionsArray []VpcDhcpOptionsInput
+
+func (VpcDhcpOptionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcDhcpOptions)(nil))
+}
+
+func (i VpcDhcpOptionsArray) ToVpcDhcpOptionsArrayOutput() VpcDhcpOptionsArrayOutput {
+	return i.ToVpcDhcpOptionsArrayOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptionsArray) ToVpcDhcpOptionsArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsArrayOutput)
+}
+
+// VpcDhcpOptionsMapInput is an input type that accepts VpcDhcpOptionsMap and VpcDhcpOptionsMapOutput values.
+// You can construct a concrete instance of `VpcDhcpOptionsMapInput` via:
+//
+//          VpcDhcpOptionsMap{ "key": VpcDhcpOptionsArgs{...} }
+type VpcDhcpOptionsMapInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsMapOutput() VpcDhcpOptionsMapOutput
+	ToVpcDhcpOptionsMapOutputWithContext(context.Context) VpcDhcpOptionsMapOutput
+}
+
+type VpcDhcpOptionsMap map[string]VpcDhcpOptionsInput
+
+func (VpcDhcpOptionsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcDhcpOptions)(nil))
+}
+
+func (i VpcDhcpOptionsMap) ToVpcDhcpOptionsMapOutput() VpcDhcpOptionsMapOutput {
+	return i.ToVpcDhcpOptionsMapOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptionsMap) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Context) VpcDhcpOptionsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsMapOutput)
+}
+
 type VpcDhcpOptionsOutput struct {
 	*pulumi.OutputState
 }
@@ -252,6 +331,75 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
+	return o.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
+	return o.ApplyT(func(v VpcDhcpOptions) *VpcDhcpOptions {
+		return &v
+	}).(VpcDhcpOptionsPtrOutput)
+}
+
+type VpcDhcpOptionsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcDhcpOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcDhcpOptions)(nil))
+}
+
+func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
+	return o
+}
+
+type VpcDhcpOptionsArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcDhcpOptionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcDhcpOptions)(nil))
+}
+
+func (o VpcDhcpOptionsArrayOutput) ToVpcDhcpOptionsArrayOutput() VpcDhcpOptionsArrayOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsArrayOutput) ToVpcDhcpOptionsArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsArrayOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsArrayOutput) Index(i pulumi.IntInput) VpcDhcpOptionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcDhcpOptions {
+		return vs[0].([]VpcDhcpOptions)[vs[1].(int)]
+	}).(VpcDhcpOptionsOutput)
+}
+
+type VpcDhcpOptionsMapOutput struct{ *pulumi.OutputState }
+
+func (VpcDhcpOptionsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcDhcpOptions)(nil))
+}
+
+func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutput() VpcDhcpOptionsMapOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Context) VpcDhcpOptionsMapOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) VpcDhcpOptionsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcDhcpOptions {
+		return vs[0].(map[string]VpcDhcpOptions)[vs[1].(string)]
+	}).(VpcDhcpOptionsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcDhcpOptionsOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsArrayOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsMapOutput{})
 }

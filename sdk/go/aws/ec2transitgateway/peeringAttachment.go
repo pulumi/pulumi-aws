@@ -216,6 +216,85 @@ func (i *PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOutput)
 }
 
+func (i *PeeringAttachment) ToPeeringAttachmentPtrOutput() PeeringAttachmentPtrOutput {
+	return i.ToPeeringAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *PeeringAttachment) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentPtrOutput)
+}
+
+type PeeringAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentPtrOutput() PeeringAttachmentPtrOutput
+	ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput
+}
+
+type peeringAttachmentPtrType PeeringAttachmentArgs
+
+func (*peeringAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeeringAttachment)(nil))
+}
+
+func (i *peeringAttachmentPtrType) ToPeeringAttachmentPtrOutput() PeeringAttachmentPtrOutput {
+	return i.ToPeeringAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *peeringAttachmentPtrType) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentPtrOutput)
+}
+
+// PeeringAttachmentArrayInput is an input type that accepts PeeringAttachmentArray and PeeringAttachmentArrayOutput values.
+// You can construct a concrete instance of `PeeringAttachmentArrayInput` via:
+//
+//          PeeringAttachmentArray{ PeeringAttachmentArgs{...} }
+type PeeringAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentArrayOutput() PeeringAttachmentArrayOutput
+	ToPeeringAttachmentArrayOutputWithContext(context.Context) PeeringAttachmentArrayOutput
+}
+
+type PeeringAttachmentArray []PeeringAttachmentInput
+
+func (PeeringAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PeeringAttachment)(nil))
+}
+
+func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutput() PeeringAttachmentArrayOutput {
+	return i.ToPeeringAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutputWithContext(ctx context.Context) PeeringAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentArrayOutput)
+}
+
+// PeeringAttachmentMapInput is an input type that accepts PeeringAttachmentMap and PeeringAttachmentMapOutput values.
+// You can construct a concrete instance of `PeeringAttachmentMapInput` via:
+//
+//          PeeringAttachmentMap{ "key": PeeringAttachmentArgs{...} }
+type PeeringAttachmentMapInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentMapOutput() PeeringAttachmentMapOutput
+	ToPeeringAttachmentMapOutputWithContext(context.Context) PeeringAttachmentMapOutput
+}
+
+type PeeringAttachmentMap map[string]PeeringAttachmentInput
+
+func (PeeringAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PeeringAttachment)(nil))
+}
+
+func (i PeeringAttachmentMap) ToPeeringAttachmentMapOutput() PeeringAttachmentMapOutput {
+	return i.ToPeeringAttachmentMapOutputWithContext(context.Background())
+}
+
+func (i PeeringAttachmentMap) ToPeeringAttachmentMapOutputWithContext(ctx context.Context) PeeringAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentMapOutput)
+}
+
 type PeeringAttachmentOutput struct {
 	*pulumi.OutputState
 }
@@ -232,6 +311,75 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx contex
 	return o
 }
 
+func (o PeeringAttachmentOutput) ToPeeringAttachmentPtrOutput() PeeringAttachmentPtrOutput {
+	return o.ToPeeringAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o PeeringAttachmentOutput) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
+	return o.ApplyT(func(v PeeringAttachment) *PeeringAttachment {
+		return &v
+	}).(PeeringAttachmentPtrOutput)
+}
+
+type PeeringAttachmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeeringAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeeringAttachment)(nil))
+}
+
+func (o PeeringAttachmentPtrOutput) ToPeeringAttachmentPtrOutput() PeeringAttachmentPtrOutput {
+	return o
+}
+
+func (o PeeringAttachmentPtrOutput) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
+	return o
+}
+
+type PeeringAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (PeeringAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PeeringAttachment)(nil))
+}
+
+func (o PeeringAttachmentArrayOutput) ToPeeringAttachmentArrayOutput() PeeringAttachmentArrayOutput {
+	return o
+}
+
+func (o PeeringAttachmentArrayOutput) ToPeeringAttachmentArrayOutputWithContext(ctx context.Context) PeeringAttachmentArrayOutput {
+	return o
+}
+
+func (o PeeringAttachmentArrayOutput) Index(i pulumi.IntInput) PeeringAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PeeringAttachment {
+		return vs[0].([]PeeringAttachment)[vs[1].(int)]
+	}).(PeeringAttachmentOutput)
+}
+
+type PeeringAttachmentMapOutput struct{ *pulumi.OutputState }
+
+func (PeeringAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PeeringAttachment)(nil))
+}
+
+func (o PeeringAttachmentMapOutput) ToPeeringAttachmentMapOutput() PeeringAttachmentMapOutput {
+	return o
+}
+
+func (o PeeringAttachmentMapOutput) ToPeeringAttachmentMapOutputWithContext(ctx context.Context) PeeringAttachmentMapOutput {
+	return o
+}
+
+func (o PeeringAttachmentMapOutput) MapIndex(k pulumi.StringInput) PeeringAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PeeringAttachment {
+		return vs[0].(map[string]PeeringAttachment)[vs[1].(string)]
+	}).(PeeringAttachmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PeeringAttachmentOutput{})
+	pulumi.RegisterOutputType(PeeringAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(PeeringAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(PeeringAttachmentMapOutput{})
 }

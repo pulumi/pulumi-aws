@@ -336,6 +336,85 @@ func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
 }
 
+func (i *Method) ToMethodPtrOutput() MethodPtrOutput {
+	return i.ToMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *Method) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodPtrOutput)
+}
+
+type MethodPtrInput interface {
+	pulumi.Input
+
+	ToMethodPtrOutput() MethodPtrOutput
+	ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput
+}
+
+type methodPtrType MethodArgs
+
+func (*methodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Method)(nil))
+}
+
+func (i *methodPtrType) ToMethodPtrOutput() MethodPtrOutput {
+	return i.ToMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *methodPtrType) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodPtrOutput)
+}
+
+// MethodArrayInput is an input type that accepts MethodArray and MethodArrayOutput values.
+// You can construct a concrete instance of `MethodArrayInput` via:
+//
+//          MethodArray{ MethodArgs{...} }
+type MethodArrayInput interface {
+	pulumi.Input
+
+	ToMethodArrayOutput() MethodArrayOutput
+	ToMethodArrayOutputWithContext(context.Context) MethodArrayOutput
+}
+
+type MethodArray []MethodInput
+
+func (MethodArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Method)(nil))
+}
+
+func (i MethodArray) ToMethodArrayOutput() MethodArrayOutput {
+	return i.ToMethodArrayOutputWithContext(context.Background())
+}
+
+func (i MethodArray) ToMethodArrayOutputWithContext(ctx context.Context) MethodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodArrayOutput)
+}
+
+// MethodMapInput is an input type that accepts MethodMap and MethodMapOutput values.
+// You can construct a concrete instance of `MethodMapInput` via:
+//
+//          MethodMap{ "key": MethodArgs{...} }
+type MethodMapInput interface {
+	pulumi.Input
+
+	ToMethodMapOutput() MethodMapOutput
+	ToMethodMapOutputWithContext(context.Context) MethodMapOutput
+}
+
+type MethodMap map[string]MethodInput
+
+func (MethodMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Method)(nil))
+}
+
+func (i MethodMap) ToMethodMapOutput() MethodMapOutput {
+	return i.ToMethodMapOutputWithContext(context.Background())
+}
+
+func (i MethodMap) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodMapOutput)
+}
+
 type MethodOutput struct {
 	*pulumi.OutputState
 }
@@ -352,6 +431,75 @@ func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutpu
 	return o
 }
 
+func (o MethodOutput) ToMethodPtrOutput() MethodPtrOutput {
+	return o.ToMethodPtrOutputWithContext(context.Background())
+}
+
+func (o MethodOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
+	return o.ApplyT(func(v Method) *Method {
+		return &v
+	}).(MethodPtrOutput)
+}
+
+type MethodPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Method)(nil))
+}
+
+func (o MethodPtrOutput) ToMethodPtrOutput() MethodPtrOutput {
+	return o
+}
+
+func (o MethodPtrOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
+	return o
+}
+
+type MethodArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Method)(nil))
+}
+
+func (o MethodArrayOutput) ToMethodArrayOutput() MethodArrayOutput {
+	return o
+}
+
+func (o MethodArrayOutput) ToMethodArrayOutputWithContext(ctx context.Context) MethodArrayOutput {
+	return o
+}
+
+func (o MethodArrayOutput) Index(i pulumi.IntInput) MethodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Method {
+		return vs[0].([]Method)[vs[1].(int)]
+	}).(MethodOutput)
+}
+
+type MethodMapOutput struct{ *pulumi.OutputState }
+
+func (MethodMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Method)(nil))
+}
+
+func (o MethodMapOutput) ToMethodMapOutput() MethodMapOutput {
+	return o
+}
+
+func (o MethodMapOutput) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOutput {
+	return o
+}
+
+func (o MethodMapOutput) MapIndex(k pulumi.StringInput) MethodOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Method {
+		return vs[0].(map[string]Method)[vs[1].(string)]
+	}).(MethodOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MethodOutput{})
+	pulumi.RegisterOutputType(MethodPtrOutput{})
+	pulumi.RegisterOutputType(MethodArrayOutput{})
+	pulumi.RegisterOutputType(MethodMapOutput{})
 }

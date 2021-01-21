@@ -394,6 +394,85 @@ func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
 }
 
+func (i *DeploymentGroup) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
+	return i.ToDeploymentGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *DeploymentGroup) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupPtrOutput)
+}
+
+type DeploymentGroupPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput
+	ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput
+}
+
+type deploymentGroupPtrType DeploymentGroupArgs
+
+func (*deploymentGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroup)(nil))
+}
+
+func (i *deploymentGroupPtrType) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
+	return i.ToDeploymentGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupPtrType) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupPtrOutput)
+}
+
+// DeploymentGroupArrayInput is an input type that accepts DeploymentGroupArray and DeploymentGroupArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupArrayInput` via:
+//
+//          DeploymentGroupArray{ DeploymentGroupArgs{...} }
+type DeploymentGroupArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupArrayOutput() DeploymentGroupArrayOutput
+	ToDeploymentGroupArrayOutputWithContext(context.Context) DeploymentGroupArrayOutput
+}
+
+type DeploymentGroupArray []DeploymentGroupInput
+
+func (DeploymentGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DeploymentGroup)(nil))
+}
+
+func (i DeploymentGroupArray) ToDeploymentGroupArrayOutput() DeploymentGroupArrayOutput {
+	return i.ToDeploymentGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupArray) ToDeploymentGroupArrayOutputWithContext(ctx context.Context) DeploymentGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupArrayOutput)
+}
+
+// DeploymentGroupMapInput is an input type that accepts DeploymentGroupMap and DeploymentGroupMapOutput values.
+// You can construct a concrete instance of `DeploymentGroupMapInput` via:
+//
+//          DeploymentGroupMap{ "key": DeploymentGroupArgs{...} }
+type DeploymentGroupMapInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupMapOutput() DeploymentGroupMapOutput
+	ToDeploymentGroupMapOutputWithContext(context.Context) DeploymentGroupMapOutput
+}
+
+type DeploymentGroupMap map[string]DeploymentGroupInput
+
+func (DeploymentGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DeploymentGroup)(nil))
+}
+
+func (i DeploymentGroupMap) ToDeploymentGroupMapOutput() DeploymentGroupMapOutput {
+	return i.ToDeploymentGroupMapOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupMap) ToDeploymentGroupMapOutputWithContext(ctx context.Context) DeploymentGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupMapOutput)
+}
+
 type DeploymentGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -410,6 +489,75 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeploymentGroupOutput) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
+	return o.ToDeploymentGroupPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupOutput) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
+	return o.ApplyT(func(v DeploymentGroup) *DeploymentGroup {
+		return &v
+	}).(DeploymentGroupPtrOutput)
+}
+
+type DeploymentGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroup)(nil))
+}
+
+func (o DeploymentGroupPtrOutput) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupPtrOutput) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
+	return o
+}
+
+type DeploymentGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroup)(nil))
+}
+
+func (o DeploymentGroupArrayOutput) ToDeploymentGroupArrayOutput() DeploymentGroupArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupArrayOutput) ToDeploymentGroupArrayOutputWithContext(ctx context.Context) DeploymentGroupArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroup {
+		return vs[0].([]DeploymentGroup)[vs[1].(int)]
+	}).(DeploymentGroupOutput)
+}
+
+type DeploymentGroupMapOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DeploymentGroup)(nil))
+}
+
+func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutput() DeploymentGroupMapOutput {
+	return o
+}
+
+func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutputWithContext(ctx context.Context) DeploymentGroupMapOutput {
+	return o
+}
+
+func (o DeploymentGroupMapOutput) MapIndex(k pulumi.StringInput) DeploymentGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeploymentGroup {
+		return vs[0].(map[string]DeploymentGroup)[vs[1].(string)]
+	}).(DeploymentGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentGroupOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupMapOutput{})
 }

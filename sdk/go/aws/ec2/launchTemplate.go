@@ -479,6 +479,85 @@ func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateOutput)
 }
 
+func (i *LaunchTemplate) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutput {
+	return i.ToLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *LaunchTemplate) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePtrOutput)
+}
+
+type LaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutput
+	ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput
+}
+
+type launchTemplatePtrType LaunchTemplateArgs
+
+func (*launchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplate)(nil))
+}
+
+func (i *launchTemplatePtrType) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutput {
+	return i.ToLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplatePtrType) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePtrOutput)
+}
+
+// LaunchTemplateArrayInput is an input type that accepts LaunchTemplateArray and LaunchTemplateArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateArrayInput` via:
+//
+//          LaunchTemplateArray{ LaunchTemplateArgs{...} }
+type LaunchTemplateArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateArrayOutput() LaunchTemplateArrayOutput
+	ToLaunchTemplateArrayOutputWithContext(context.Context) LaunchTemplateArrayOutput
+}
+
+type LaunchTemplateArray []LaunchTemplateInput
+
+func (LaunchTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LaunchTemplate)(nil))
+}
+
+func (i LaunchTemplateArray) ToLaunchTemplateArrayOutput() LaunchTemplateArrayOutput {
+	return i.ToLaunchTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateArray) ToLaunchTemplateArrayOutputWithContext(ctx context.Context) LaunchTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateArrayOutput)
+}
+
+// LaunchTemplateMapInput is an input type that accepts LaunchTemplateMap and LaunchTemplateMapOutput values.
+// You can construct a concrete instance of `LaunchTemplateMapInput` via:
+//
+//          LaunchTemplateMap{ "key": LaunchTemplateArgs{...} }
+type LaunchTemplateMapInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMapOutput() LaunchTemplateMapOutput
+	ToLaunchTemplateMapOutputWithContext(context.Context) LaunchTemplateMapOutput
+}
+
+type LaunchTemplateMap map[string]LaunchTemplateInput
+
+func (LaunchTemplateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LaunchTemplate)(nil))
+}
+
+func (i LaunchTemplateMap) ToLaunchTemplateMapOutput() LaunchTemplateMapOutput {
+	return i.ToLaunchTemplateMapOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMap) ToLaunchTemplateMapOutputWithContext(ctx context.Context) LaunchTemplateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMapOutput)
+}
+
 type LaunchTemplateOutput struct {
 	*pulumi.OutputState
 }
@@ -495,6 +574,75 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LaunchTemplateOutput) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutput {
+	return o.ToLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateOutput) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
+	return o.ApplyT(func(v LaunchTemplate) *LaunchTemplate {
+		return &v
+	}).(LaunchTemplatePtrOutput)
+}
+
+type LaunchTemplatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplate)(nil))
+}
+
+func (o LaunchTemplatePtrOutput) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePtrOutput) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
+	return o
+}
+
+type LaunchTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplate)(nil))
+}
+
+func (o LaunchTemplateArrayOutput) ToLaunchTemplateArrayOutput() LaunchTemplateArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateArrayOutput) ToLaunchTemplateArrayOutputWithContext(ctx context.Context) LaunchTemplateArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateArrayOutput) Index(i pulumi.IntInput) LaunchTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplate {
+		return vs[0].([]LaunchTemplate)[vs[1].(int)]
+	}).(LaunchTemplateOutput)
+}
+
+type LaunchTemplateMapOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LaunchTemplate)(nil))
+}
+
+func (o LaunchTemplateMapOutput) ToLaunchTemplateMapOutput() LaunchTemplateMapOutput {
+	return o
+}
+
+func (o LaunchTemplateMapOutput) ToLaunchTemplateMapOutputWithContext(ctx context.Context) LaunchTemplateMapOutput {
+	return o
+}
+
+func (o LaunchTemplateMapOutput) MapIndex(k pulumi.StringInput) LaunchTemplateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LaunchTemplate {
+		return vs[0].(map[string]LaunchTemplate)[vs[1].(string)]
+	}).(LaunchTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LaunchTemplateOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMapOutput{})
 }

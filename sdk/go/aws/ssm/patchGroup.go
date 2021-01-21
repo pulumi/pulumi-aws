@@ -143,6 +143,85 @@ func (i *PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGro
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupOutput)
 }
 
+func (i *PatchGroup) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
+	return i.ToPatchGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *PatchGroup) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupPtrOutput)
+}
+
+type PatchGroupPtrInput interface {
+	pulumi.Input
+
+	ToPatchGroupPtrOutput() PatchGroupPtrOutput
+	ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput
+}
+
+type patchGroupPtrType PatchGroupArgs
+
+func (*patchGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchGroup)(nil))
+}
+
+func (i *patchGroupPtrType) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
+	return i.ToPatchGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *patchGroupPtrType) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupPtrOutput)
+}
+
+// PatchGroupArrayInput is an input type that accepts PatchGroupArray and PatchGroupArrayOutput values.
+// You can construct a concrete instance of `PatchGroupArrayInput` via:
+//
+//          PatchGroupArray{ PatchGroupArgs{...} }
+type PatchGroupArrayInput interface {
+	pulumi.Input
+
+	ToPatchGroupArrayOutput() PatchGroupArrayOutput
+	ToPatchGroupArrayOutputWithContext(context.Context) PatchGroupArrayOutput
+}
+
+type PatchGroupArray []PatchGroupInput
+
+func (PatchGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PatchGroup)(nil))
+}
+
+func (i PatchGroupArray) ToPatchGroupArrayOutput() PatchGroupArrayOutput {
+	return i.ToPatchGroupArrayOutputWithContext(context.Background())
+}
+
+func (i PatchGroupArray) ToPatchGroupArrayOutputWithContext(ctx context.Context) PatchGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupArrayOutput)
+}
+
+// PatchGroupMapInput is an input type that accepts PatchGroupMap and PatchGroupMapOutput values.
+// You can construct a concrete instance of `PatchGroupMapInput` via:
+//
+//          PatchGroupMap{ "key": PatchGroupArgs{...} }
+type PatchGroupMapInput interface {
+	pulumi.Input
+
+	ToPatchGroupMapOutput() PatchGroupMapOutput
+	ToPatchGroupMapOutputWithContext(context.Context) PatchGroupMapOutput
+}
+
+type PatchGroupMap map[string]PatchGroupInput
+
+func (PatchGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PatchGroup)(nil))
+}
+
+func (i PatchGroupMap) ToPatchGroupMapOutput() PatchGroupMapOutput {
+	return i.ToPatchGroupMapOutputWithContext(context.Background())
+}
+
+func (i PatchGroupMap) ToPatchGroupMapOutputWithContext(ctx context.Context) PatchGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupMapOutput)
+}
+
 type PatchGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -159,6 +238,75 @@ func (o PatchGroupOutput) ToPatchGroupOutputWithContext(ctx context.Context) Pat
 	return o
 }
 
+func (o PatchGroupOutput) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
+	return o.ToPatchGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PatchGroupOutput) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
+	return o.ApplyT(func(v PatchGroup) *PatchGroup {
+		return &v
+	}).(PatchGroupPtrOutput)
+}
+
+type PatchGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PatchGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchGroup)(nil))
+}
+
+func (o PatchGroupPtrOutput) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
+	return o
+}
+
+func (o PatchGroupPtrOutput) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
+	return o
+}
+
+type PatchGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchGroup)(nil))
+}
+
+func (o PatchGroupArrayOutput) ToPatchGroupArrayOutput() PatchGroupArrayOutput {
+	return o
+}
+
+func (o PatchGroupArrayOutput) ToPatchGroupArrayOutputWithContext(ctx context.Context) PatchGroupArrayOutput {
+	return o
+}
+
+func (o PatchGroupArrayOutput) Index(i pulumi.IntInput) PatchGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchGroup {
+		return vs[0].([]PatchGroup)[vs[1].(int)]
+	}).(PatchGroupOutput)
+}
+
+type PatchGroupMapOutput struct{ *pulumi.OutputState }
+
+func (PatchGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PatchGroup)(nil))
+}
+
+func (o PatchGroupMapOutput) ToPatchGroupMapOutput() PatchGroupMapOutput {
+	return o
+}
+
+func (o PatchGroupMapOutput) ToPatchGroupMapOutputWithContext(ctx context.Context) PatchGroupMapOutput {
+	return o
+}
+
+func (o PatchGroupMapOutput) MapIndex(k pulumi.StringInput) PatchGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PatchGroup {
+		return vs[0].(map[string]PatchGroup)[vs[1].(string)]
+	}).(PatchGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PatchGroupOutput{})
+	pulumi.RegisterOutputType(PatchGroupPtrOutput{})
+	pulumi.RegisterOutputType(PatchGroupArrayOutput{})
+	pulumi.RegisterOutputType(PatchGroupMapOutput{})
 }

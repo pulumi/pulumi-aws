@@ -247,6 +247,85 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
 }
 
+func (i *CapacityReservation) ToCapacityReservationPtrOutput() CapacityReservationPtrOutput {
+	return i.ToCapacityReservationPtrOutputWithContext(context.Background())
+}
+
+func (i *CapacityReservation) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationPtrOutput)
+}
+
+type CapacityReservationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationPtrOutput() CapacityReservationPtrOutput
+	ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput
+}
+
+type capacityReservationPtrType CapacityReservationArgs
+
+func (*capacityReservationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservation)(nil))
+}
+
+func (i *capacityReservationPtrType) ToCapacityReservationPtrOutput() CapacityReservationPtrOutput {
+	return i.ToCapacityReservationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationPtrType) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationPtrOutput)
+}
+
+// CapacityReservationArrayInput is an input type that accepts CapacityReservationArray and CapacityReservationArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationArrayInput` via:
+//
+//          CapacityReservationArray{ CapacityReservationArgs{...} }
+type CapacityReservationArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationArrayOutput() CapacityReservationArrayOutput
+	ToCapacityReservationArrayOutputWithContext(context.Context) CapacityReservationArrayOutput
+}
+
+type CapacityReservationArray []CapacityReservationInput
+
+func (CapacityReservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CapacityReservation)(nil))
+}
+
+func (i CapacityReservationArray) ToCapacityReservationArrayOutput() CapacityReservationArrayOutput {
+	return i.ToCapacityReservationArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationArray) ToCapacityReservationArrayOutputWithContext(ctx context.Context) CapacityReservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationArrayOutput)
+}
+
+// CapacityReservationMapInput is an input type that accepts CapacityReservationMap and CapacityReservationMapOutput values.
+// You can construct a concrete instance of `CapacityReservationMapInput` via:
+//
+//          CapacityReservationMap{ "key": CapacityReservationArgs{...} }
+type CapacityReservationMapInput interface {
+	pulumi.Input
+
+	ToCapacityReservationMapOutput() CapacityReservationMapOutput
+	ToCapacityReservationMapOutputWithContext(context.Context) CapacityReservationMapOutput
+}
+
+type CapacityReservationMap map[string]CapacityReservationInput
+
+func (CapacityReservationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CapacityReservation)(nil))
+}
+
+func (i CapacityReservationMap) ToCapacityReservationMapOutput() CapacityReservationMapOutput {
+	return i.ToCapacityReservationMapOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationMap) ToCapacityReservationMapOutputWithContext(ctx context.Context) CapacityReservationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationMapOutput)
+}
+
 type CapacityReservationOutput struct {
 	*pulumi.OutputState
 }
@@ -263,6 +342,75 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 	return o
 }
 
+func (o CapacityReservationOutput) ToCapacityReservationPtrOutput() CapacityReservationPtrOutput {
+	return o.ToCapacityReservationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationOutput) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
+	return o.ApplyT(func(v CapacityReservation) *CapacityReservation {
+		return &v
+	}).(CapacityReservationPtrOutput)
+}
+
+type CapacityReservationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CapacityReservationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservation)(nil))
+}
+
+func (o CapacityReservationPtrOutput) ToCapacityReservationPtrOutput() CapacityReservationPtrOutput {
+	return o
+}
+
+func (o CapacityReservationPtrOutput) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
+	return o
+}
+
+type CapacityReservationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservation)(nil))
+}
+
+func (o CapacityReservationArrayOutput) ToCapacityReservationArrayOutput() CapacityReservationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationArrayOutput) ToCapacityReservationArrayOutputWithContext(ctx context.Context) CapacityReservationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationArrayOutput) Index(i pulumi.IntInput) CapacityReservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservation {
+		return vs[0].([]CapacityReservation)[vs[1].(int)]
+	}).(CapacityReservationOutput)
+}
+
+type CapacityReservationMapOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CapacityReservation)(nil))
+}
+
+func (o CapacityReservationMapOutput) ToCapacityReservationMapOutput() CapacityReservationMapOutput {
+	return o
+}
+
+func (o CapacityReservationMapOutput) ToCapacityReservationMapOutputWithContext(ctx context.Context) CapacityReservationMapOutput {
+	return o
+}
+
+func (o CapacityReservationMapOutput) MapIndex(k pulumi.StringInput) CapacityReservationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CapacityReservation {
+		return vs[0].(map[string]CapacityReservation)[vs[1].(string)]
+	}).(CapacityReservationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CapacityReservationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationArrayOutput{})
+	pulumi.RegisterOutputType(CapacityReservationMapOutput{})
 }

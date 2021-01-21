@@ -200,6 +200,85 @@ func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
 }
 
+func (i *Mesh) ToMeshPtrOutput() MeshPtrOutput {
+	return i.ToMeshPtrOutputWithContext(context.Background())
+}
+
+func (i *Mesh) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshPtrOutput)
+}
+
+type MeshPtrInput interface {
+	pulumi.Input
+
+	ToMeshPtrOutput() MeshPtrOutput
+	ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput
+}
+
+type meshPtrType MeshArgs
+
+func (*meshPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mesh)(nil))
+}
+
+func (i *meshPtrType) ToMeshPtrOutput() MeshPtrOutput {
+	return i.ToMeshPtrOutputWithContext(context.Background())
+}
+
+func (i *meshPtrType) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshPtrOutput)
+}
+
+// MeshArrayInput is an input type that accepts MeshArray and MeshArrayOutput values.
+// You can construct a concrete instance of `MeshArrayInput` via:
+//
+//          MeshArray{ MeshArgs{...} }
+type MeshArrayInput interface {
+	pulumi.Input
+
+	ToMeshArrayOutput() MeshArrayOutput
+	ToMeshArrayOutputWithContext(context.Context) MeshArrayOutput
+}
+
+type MeshArray []MeshInput
+
+func (MeshArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Mesh)(nil))
+}
+
+func (i MeshArray) ToMeshArrayOutput() MeshArrayOutput {
+	return i.ToMeshArrayOutputWithContext(context.Background())
+}
+
+func (i MeshArray) ToMeshArrayOutputWithContext(ctx context.Context) MeshArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshArrayOutput)
+}
+
+// MeshMapInput is an input type that accepts MeshMap and MeshMapOutput values.
+// You can construct a concrete instance of `MeshMapInput` via:
+//
+//          MeshMap{ "key": MeshArgs{...} }
+type MeshMapInput interface {
+	pulumi.Input
+
+	ToMeshMapOutput() MeshMapOutput
+	ToMeshMapOutputWithContext(context.Context) MeshMapOutput
+}
+
+type MeshMap map[string]MeshInput
+
+func (MeshMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Mesh)(nil))
+}
+
+func (i MeshMap) ToMeshMapOutput() MeshMapOutput {
+	return i.ToMeshMapOutputWithContext(context.Background())
+}
+
+func (i MeshMap) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshMapOutput)
+}
+
 type MeshOutput struct {
 	*pulumi.OutputState
 }
@@ -216,6 +295,75 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return o
 }
 
+func (o MeshOutput) ToMeshPtrOutput() MeshPtrOutput {
+	return o.ToMeshPtrOutputWithContext(context.Background())
+}
+
+func (o MeshOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
+	return o.ApplyT(func(v Mesh) *Mesh {
+		return &v
+	}).(MeshPtrOutput)
+}
+
+type MeshPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mesh)(nil))
+}
+
+func (o MeshPtrOutput) ToMeshPtrOutput() MeshPtrOutput {
+	return o
+}
+
+func (o MeshPtrOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
+	return o
+}
+
+type MeshArrayOutput struct{ *pulumi.OutputState }
+
+func (MeshArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Mesh)(nil))
+}
+
+func (o MeshArrayOutput) ToMeshArrayOutput() MeshArrayOutput {
+	return o
+}
+
+func (o MeshArrayOutput) ToMeshArrayOutputWithContext(ctx context.Context) MeshArrayOutput {
+	return o
+}
+
+func (o MeshArrayOutput) Index(i pulumi.IntInput) MeshOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Mesh {
+		return vs[0].([]Mesh)[vs[1].(int)]
+	}).(MeshOutput)
+}
+
+type MeshMapOutput struct{ *pulumi.OutputState }
+
+func (MeshMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Mesh)(nil))
+}
+
+func (o MeshMapOutput) ToMeshMapOutput() MeshMapOutput {
+	return o
+}
+
+func (o MeshMapOutput) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
+	return o
+}
+
+func (o MeshMapOutput) MapIndex(k pulumi.StringInput) MeshOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Mesh {
+		return vs[0].(map[string]Mesh)[vs[1].(string)]
+	}).(MeshOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MeshOutput{})
+	pulumi.RegisterOutputType(MeshPtrOutput{})
+	pulumi.RegisterOutputType(MeshArrayOutput{})
+	pulumi.RegisterOutputType(MeshMapOutput{})
 }

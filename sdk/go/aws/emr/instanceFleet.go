@@ -160,6 +160,85 @@ func (i *InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) In
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetOutput)
 }
 
+func (i *InstanceFleet) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
+	return i.ToInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *InstanceFleet) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetPtrOutput)
+}
+
+type InstanceFleetPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetPtrOutput() InstanceFleetPtrOutput
+	ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput
+}
+
+type instanceFleetPtrType InstanceFleetArgs
+
+func (*instanceFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleet)(nil))
+}
+
+func (i *instanceFleetPtrType) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
+	return i.ToInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetPtrType) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetPtrOutput)
+}
+
+// InstanceFleetArrayInput is an input type that accepts InstanceFleetArray and InstanceFleetArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetArrayInput` via:
+//
+//          InstanceFleetArray{ InstanceFleetArgs{...} }
+type InstanceFleetArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetArrayOutput() InstanceFleetArrayOutput
+	ToInstanceFleetArrayOutputWithContext(context.Context) InstanceFleetArrayOutput
+}
+
+type InstanceFleetArray []InstanceFleetInput
+
+func (InstanceFleetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InstanceFleet)(nil))
+}
+
+func (i InstanceFleetArray) ToInstanceFleetArrayOutput() InstanceFleetArrayOutput {
+	return i.ToInstanceFleetArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetArray) ToInstanceFleetArrayOutputWithContext(ctx context.Context) InstanceFleetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetArrayOutput)
+}
+
+// InstanceFleetMapInput is an input type that accepts InstanceFleetMap and InstanceFleetMapOutput values.
+// You can construct a concrete instance of `InstanceFleetMapInput` via:
+//
+//          InstanceFleetMap{ "key": InstanceFleetArgs{...} }
+type InstanceFleetMapInput interface {
+	pulumi.Input
+
+	ToInstanceFleetMapOutput() InstanceFleetMapOutput
+	ToInstanceFleetMapOutputWithContext(context.Context) InstanceFleetMapOutput
+}
+
+type InstanceFleetMap map[string]InstanceFleetInput
+
+func (InstanceFleetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InstanceFleet)(nil))
+}
+
+func (i InstanceFleetMap) ToInstanceFleetMapOutput() InstanceFleetMapOutput {
+	return i.ToInstanceFleetMapOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetMap) ToInstanceFleetMapOutputWithContext(ctx context.Context) InstanceFleetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetMapOutput)
+}
+
 type InstanceFleetOutput struct {
 	*pulumi.OutputState
 }
@@ -176,6 +255,75 @@ func (o InstanceFleetOutput) ToInstanceFleetOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InstanceFleetOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
+	return o.ToInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
+	return o.ApplyT(func(v InstanceFleet) *InstanceFleet {
+		return &v
+	}).(InstanceFleetPtrOutput)
+}
+
+type InstanceFleetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleet)(nil))
+}
+
+func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
+	return o
+}
+
+func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
+	return o
+}
+
+type InstanceFleetArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleet)(nil))
+}
+
+func (o InstanceFleetArrayOutput) ToInstanceFleetArrayOutput() InstanceFleetArrayOutput {
+	return o
+}
+
+func (o InstanceFleetArrayOutput) ToInstanceFleetArrayOutputWithContext(ctx context.Context) InstanceFleetArrayOutput {
+	return o
+}
+
+func (o InstanceFleetArrayOutput) Index(i pulumi.IntInput) InstanceFleetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleet {
+		return vs[0].([]InstanceFleet)[vs[1].(int)]
+	}).(InstanceFleetOutput)
+}
+
+type InstanceFleetMapOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InstanceFleet)(nil))
+}
+
+func (o InstanceFleetMapOutput) ToInstanceFleetMapOutput() InstanceFleetMapOutput {
+	return o
+}
+
+func (o InstanceFleetMapOutput) ToInstanceFleetMapOutputWithContext(ctx context.Context) InstanceFleetMapOutput {
+	return o
+}
+
+func (o InstanceFleetMapOutput) MapIndex(k pulumi.StringInput) InstanceFleetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InstanceFleet {
+		return vs[0].(map[string]InstanceFleet)[vs[1].(string)]
+	}).(InstanceFleetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceFleetOutput{})
+	pulumi.RegisterOutputType(InstanceFleetPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetMapOutput{})
 }

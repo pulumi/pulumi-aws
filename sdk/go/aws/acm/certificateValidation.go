@@ -148,6 +148,85 @@ func (i *CertificateValidation) ToCertificateValidationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOutput)
 }
 
+func (i *CertificateValidation) ToCertificateValidationPtrOutput() CertificateValidationPtrOutput {
+	return i.ToCertificateValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *CertificateValidation) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationPtrOutput)
+}
+
+type CertificateValidationPtrInput interface {
+	pulumi.Input
+
+	ToCertificateValidationPtrOutput() CertificateValidationPtrOutput
+	ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput
+}
+
+type certificateValidationPtrType CertificateValidationArgs
+
+func (*certificateValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateValidation)(nil))
+}
+
+func (i *certificateValidationPtrType) ToCertificateValidationPtrOutput() CertificateValidationPtrOutput {
+	return i.ToCertificateValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateValidationPtrType) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationPtrOutput)
+}
+
+// CertificateValidationArrayInput is an input type that accepts CertificateValidationArray and CertificateValidationArrayOutput values.
+// You can construct a concrete instance of `CertificateValidationArrayInput` via:
+//
+//          CertificateValidationArray{ CertificateValidationArgs{...} }
+type CertificateValidationArrayInput interface {
+	pulumi.Input
+
+	ToCertificateValidationArrayOutput() CertificateValidationArrayOutput
+	ToCertificateValidationArrayOutputWithContext(context.Context) CertificateValidationArrayOutput
+}
+
+type CertificateValidationArray []CertificateValidationInput
+
+func (CertificateValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CertificateValidation)(nil))
+}
+
+func (i CertificateValidationArray) ToCertificateValidationArrayOutput() CertificateValidationArrayOutput {
+	return i.ToCertificateValidationArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateValidationArray) ToCertificateValidationArrayOutputWithContext(ctx context.Context) CertificateValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationArrayOutput)
+}
+
+// CertificateValidationMapInput is an input type that accepts CertificateValidationMap and CertificateValidationMapOutput values.
+// You can construct a concrete instance of `CertificateValidationMapInput` via:
+//
+//          CertificateValidationMap{ "key": CertificateValidationArgs{...} }
+type CertificateValidationMapInput interface {
+	pulumi.Input
+
+	ToCertificateValidationMapOutput() CertificateValidationMapOutput
+	ToCertificateValidationMapOutputWithContext(context.Context) CertificateValidationMapOutput
+}
+
+type CertificateValidationMap map[string]CertificateValidationInput
+
+func (CertificateValidationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CertificateValidation)(nil))
+}
+
+func (i CertificateValidationMap) ToCertificateValidationMapOutput() CertificateValidationMapOutput {
+	return i.ToCertificateValidationMapOutputWithContext(context.Background())
+}
+
+func (i CertificateValidationMap) ToCertificateValidationMapOutputWithContext(ctx context.Context) CertificateValidationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationMapOutput)
+}
+
 type CertificateValidationOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ct
 	return o
 }
 
+func (o CertificateValidationOutput) ToCertificateValidationPtrOutput() CertificateValidationPtrOutput {
+	return o.ToCertificateValidationPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateValidationOutput) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
+	return o.ApplyT(func(v CertificateValidation) *CertificateValidation {
+		return &v
+	}).(CertificateValidationPtrOutput)
+}
+
+type CertificateValidationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateValidation)(nil))
+}
+
+func (o CertificateValidationPtrOutput) ToCertificateValidationPtrOutput() CertificateValidationPtrOutput {
+	return o
+}
+
+func (o CertificateValidationPtrOutput) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
+	return o
+}
+
+type CertificateValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateValidation)(nil))
+}
+
+func (o CertificateValidationArrayOutput) ToCertificateValidationArrayOutput() CertificateValidationArrayOutput {
+	return o
+}
+
+func (o CertificateValidationArrayOutput) ToCertificateValidationArrayOutputWithContext(ctx context.Context) CertificateValidationArrayOutput {
+	return o
+}
+
+func (o CertificateValidationArrayOutput) Index(i pulumi.IntInput) CertificateValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateValidation {
+		return vs[0].([]CertificateValidation)[vs[1].(int)]
+	}).(CertificateValidationOutput)
+}
+
+type CertificateValidationMapOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateValidation)(nil))
+}
+
+func (o CertificateValidationMapOutput) ToCertificateValidationMapOutput() CertificateValidationMapOutput {
+	return o
+}
+
+func (o CertificateValidationMapOutput) ToCertificateValidationMapOutputWithContext(ctx context.Context) CertificateValidationMapOutput {
+	return o
+}
+
+func (o CertificateValidationMapOutput) MapIndex(k pulumi.StringInput) CertificateValidationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateValidation {
+		return vs[0].(map[string]CertificateValidation)[vs[1].(string)]
+	}).(CertificateValidationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateValidationOutput{})
+	pulumi.RegisterOutputType(CertificateValidationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateValidationArrayOutput{})
+	pulumi.RegisterOutputType(CertificateValidationMapOutput{})
 }

@@ -143,6 +143,85 @@ func (i *AmiLaunchPermission) ToAmiLaunchPermissionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionOutput)
 }
 
+func (i *AmiLaunchPermission) ToAmiLaunchPermissionPtrOutput() AmiLaunchPermissionPtrOutput {
+	return i.ToAmiLaunchPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *AmiLaunchPermission) ToAmiLaunchPermissionPtrOutputWithContext(ctx context.Context) AmiLaunchPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionPtrOutput)
+}
+
+type AmiLaunchPermissionPtrInput interface {
+	pulumi.Input
+
+	ToAmiLaunchPermissionPtrOutput() AmiLaunchPermissionPtrOutput
+	ToAmiLaunchPermissionPtrOutputWithContext(ctx context.Context) AmiLaunchPermissionPtrOutput
+}
+
+type amiLaunchPermissionPtrType AmiLaunchPermissionArgs
+
+func (*amiLaunchPermissionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AmiLaunchPermission)(nil))
+}
+
+func (i *amiLaunchPermissionPtrType) ToAmiLaunchPermissionPtrOutput() AmiLaunchPermissionPtrOutput {
+	return i.ToAmiLaunchPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *amiLaunchPermissionPtrType) ToAmiLaunchPermissionPtrOutputWithContext(ctx context.Context) AmiLaunchPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionPtrOutput)
+}
+
+// AmiLaunchPermissionArrayInput is an input type that accepts AmiLaunchPermissionArray and AmiLaunchPermissionArrayOutput values.
+// You can construct a concrete instance of `AmiLaunchPermissionArrayInput` via:
+//
+//          AmiLaunchPermissionArray{ AmiLaunchPermissionArgs{...} }
+type AmiLaunchPermissionArrayInput interface {
+	pulumi.Input
+
+	ToAmiLaunchPermissionArrayOutput() AmiLaunchPermissionArrayOutput
+	ToAmiLaunchPermissionArrayOutputWithContext(context.Context) AmiLaunchPermissionArrayOutput
+}
+
+type AmiLaunchPermissionArray []AmiLaunchPermissionInput
+
+func (AmiLaunchPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AmiLaunchPermission)(nil))
+}
+
+func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutput() AmiLaunchPermissionArrayOutput {
+	return i.ToAmiLaunchPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutputWithContext(ctx context.Context) AmiLaunchPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionArrayOutput)
+}
+
+// AmiLaunchPermissionMapInput is an input type that accepts AmiLaunchPermissionMap and AmiLaunchPermissionMapOutput values.
+// You can construct a concrete instance of `AmiLaunchPermissionMapInput` via:
+//
+//          AmiLaunchPermissionMap{ "key": AmiLaunchPermissionArgs{...} }
+type AmiLaunchPermissionMapInput interface {
+	pulumi.Input
+
+	ToAmiLaunchPermissionMapOutput() AmiLaunchPermissionMapOutput
+	ToAmiLaunchPermissionMapOutputWithContext(context.Context) AmiLaunchPermissionMapOutput
+}
+
+type AmiLaunchPermissionMap map[string]AmiLaunchPermissionInput
+
+func (AmiLaunchPermissionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AmiLaunchPermission)(nil))
+}
+
+func (i AmiLaunchPermissionMap) ToAmiLaunchPermissionMapOutput() AmiLaunchPermissionMapOutput {
+	return i.ToAmiLaunchPermissionMapOutputWithContext(context.Background())
+}
+
+func (i AmiLaunchPermissionMap) ToAmiLaunchPermissionMapOutputWithContext(ctx context.Context) AmiLaunchPermissionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionMapOutput)
+}
+
 type AmiLaunchPermissionOutput struct {
 	*pulumi.OutputState
 }
@@ -159,6 +238,75 @@ func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionOutputWithContext(ctx co
 	return o
 }
 
+func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionPtrOutput() AmiLaunchPermissionPtrOutput {
+	return o.ToAmiLaunchPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionPtrOutputWithContext(ctx context.Context) AmiLaunchPermissionPtrOutput {
+	return o.ApplyT(func(v AmiLaunchPermission) *AmiLaunchPermission {
+		return &v
+	}).(AmiLaunchPermissionPtrOutput)
+}
+
+type AmiLaunchPermissionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AmiLaunchPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AmiLaunchPermission)(nil))
+}
+
+func (o AmiLaunchPermissionPtrOutput) ToAmiLaunchPermissionPtrOutput() AmiLaunchPermissionPtrOutput {
+	return o
+}
+
+func (o AmiLaunchPermissionPtrOutput) ToAmiLaunchPermissionPtrOutputWithContext(ctx context.Context) AmiLaunchPermissionPtrOutput {
+	return o
+}
+
+type AmiLaunchPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (AmiLaunchPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmiLaunchPermission)(nil))
+}
+
+func (o AmiLaunchPermissionArrayOutput) ToAmiLaunchPermissionArrayOutput() AmiLaunchPermissionArrayOutput {
+	return o
+}
+
+func (o AmiLaunchPermissionArrayOutput) ToAmiLaunchPermissionArrayOutputWithContext(ctx context.Context) AmiLaunchPermissionArrayOutput {
+	return o
+}
+
+func (o AmiLaunchPermissionArrayOutput) Index(i pulumi.IntInput) AmiLaunchPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmiLaunchPermission {
+		return vs[0].([]AmiLaunchPermission)[vs[1].(int)]
+	}).(AmiLaunchPermissionOutput)
+}
+
+type AmiLaunchPermissionMapOutput struct{ *pulumi.OutputState }
+
+func (AmiLaunchPermissionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AmiLaunchPermission)(nil))
+}
+
+func (o AmiLaunchPermissionMapOutput) ToAmiLaunchPermissionMapOutput() AmiLaunchPermissionMapOutput {
+	return o
+}
+
+func (o AmiLaunchPermissionMapOutput) ToAmiLaunchPermissionMapOutputWithContext(ctx context.Context) AmiLaunchPermissionMapOutput {
+	return o
+}
+
+func (o AmiLaunchPermissionMapOutput) MapIndex(k pulumi.StringInput) AmiLaunchPermissionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AmiLaunchPermission {
+		return vs[0].(map[string]AmiLaunchPermission)[vs[1].(string)]
+	}).(AmiLaunchPermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AmiLaunchPermissionOutput{})
+	pulumi.RegisterOutputType(AmiLaunchPermissionPtrOutput{})
+	pulumi.RegisterOutputType(AmiLaunchPermissionArrayOutput{})
+	pulumi.RegisterOutputType(AmiLaunchPermissionMapOutput{})
 }

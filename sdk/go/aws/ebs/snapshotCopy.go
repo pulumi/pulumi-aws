@@ -236,6 +236,85 @@ func (i *SnapshotCopy) ToSnapshotCopyOutputWithContext(ctx context.Context) Snap
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyOutput)
 }
 
+func (i *SnapshotCopy) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
+	return i.ToSnapshotCopyPtrOutputWithContext(context.Background())
+}
+
+func (i *SnapshotCopy) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyPtrOutput)
+}
+
+type SnapshotCopyPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput
+	ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput
+}
+
+type snapshotCopyPtrType SnapshotCopyArgs
+
+func (*snapshotCopyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotCopy)(nil))
+}
+
+func (i *snapshotCopyPtrType) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
+	return i.ToSnapshotCopyPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotCopyPtrType) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyPtrOutput)
+}
+
+// SnapshotCopyArrayInput is an input type that accepts SnapshotCopyArray and SnapshotCopyArrayOutput values.
+// You can construct a concrete instance of `SnapshotCopyArrayInput` via:
+//
+//          SnapshotCopyArray{ SnapshotCopyArgs{...} }
+type SnapshotCopyArrayInput interface {
+	pulumi.Input
+
+	ToSnapshotCopyArrayOutput() SnapshotCopyArrayOutput
+	ToSnapshotCopyArrayOutputWithContext(context.Context) SnapshotCopyArrayOutput
+}
+
+type SnapshotCopyArray []SnapshotCopyInput
+
+func (SnapshotCopyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SnapshotCopy)(nil))
+}
+
+func (i SnapshotCopyArray) ToSnapshotCopyArrayOutput() SnapshotCopyArrayOutput {
+	return i.ToSnapshotCopyArrayOutputWithContext(context.Background())
+}
+
+func (i SnapshotCopyArray) ToSnapshotCopyArrayOutputWithContext(ctx context.Context) SnapshotCopyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyArrayOutput)
+}
+
+// SnapshotCopyMapInput is an input type that accepts SnapshotCopyMap and SnapshotCopyMapOutput values.
+// You can construct a concrete instance of `SnapshotCopyMapInput` via:
+//
+//          SnapshotCopyMap{ "key": SnapshotCopyArgs{...} }
+type SnapshotCopyMapInput interface {
+	pulumi.Input
+
+	ToSnapshotCopyMapOutput() SnapshotCopyMapOutput
+	ToSnapshotCopyMapOutputWithContext(context.Context) SnapshotCopyMapOutput
+}
+
+type SnapshotCopyMap map[string]SnapshotCopyInput
+
+func (SnapshotCopyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SnapshotCopy)(nil))
+}
+
+func (i SnapshotCopyMap) ToSnapshotCopyMapOutput() SnapshotCopyMapOutput {
+	return i.ToSnapshotCopyMapOutputWithContext(context.Background())
+}
+
+func (i SnapshotCopyMap) ToSnapshotCopyMapOutputWithContext(ctx context.Context) SnapshotCopyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyMapOutput)
+}
+
 type SnapshotCopyOutput struct {
 	*pulumi.OutputState
 }
@@ -252,6 +331,75 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SnapshotCopyOutput) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
+	return o.ToSnapshotCopyPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotCopyOutput) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
+	return o.ApplyT(func(v SnapshotCopy) *SnapshotCopy {
+		return &v
+	}).(SnapshotCopyPtrOutput)
+}
+
+type SnapshotCopyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotCopyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotCopy)(nil))
+}
+
+func (o SnapshotCopyPtrOutput) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
+	return o
+}
+
+func (o SnapshotCopyPtrOutput) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
+	return o
+}
+
+type SnapshotCopyArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotCopyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotCopy)(nil))
+}
+
+func (o SnapshotCopyArrayOutput) ToSnapshotCopyArrayOutput() SnapshotCopyArrayOutput {
+	return o
+}
+
+func (o SnapshotCopyArrayOutput) ToSnapshotCopyArrayOutputWithContext(ctx context.Context) SnapshotCopyArrayOutput {
+	return o
+}
+
+func (o SnapshotCopyArrayOutput) Index(i pulumi.IntInput) SnapshotCopyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotCopy {
+		return vs[0].([]SnapshotCopy)[vs[1].(int)]
+	}).(SnapshotCopyOutput)
+}
+
+type SnapshotCopyMapOutput struct{ *pulumi.OutputState }
+
+func (SnapshotCopyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SnapshotCopy)(nil))
+}
+
+func (o SnapshotCopyMapOutput) ToSnapshotCopyMapOutput() SnapshotCopyMapOutput {
+	return o
+}
+
+func (o SnapshotCopyMapOutput) ToSnapshotCopyMapOutputWithContext(ctx context.Context) SnapshotCopyMapOutput {
+	return o
+}
+
+func (o SnapshotCopyMapOutput) MapIndex(k pulumi.StringInput) SnapshotCopyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotCopy {
+		return vs[0].(map[string]SnapshotCopy)[vs[1].(string)]
+	}).(SnapshotCopyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotCopyOutput{})
+	pulumi.RegisterOutputType(SnapshotCopyPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotCopyArrayOutput{})
+	pulumi.RegisterOutputType(SnapshotCopyMapOutput{})
 }

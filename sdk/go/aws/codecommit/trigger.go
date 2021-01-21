@@ -147,6 +147,85 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
+func (i *Trigger) ToTriggerPtrOutput() TriggerPtrOutput {
+	return i.ToTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *Trigger) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerPtrOutput)
+}
+
+type TriggerPtrInput interface {
+	pulumi.Input
+
+	ToTriggerPtrOutput() TriggerPtrOutput
+	ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput
+}
+
+type triggerPtrType TriggerArgs
+
+func (*triggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Trigger)(nil))
+}
+
+func (i *triggerPtrType) ToTriggerPtrOutput() TriggerPtrOutput {
+	return i.ToTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerPtrType) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerPtrOutput)
+}
+
+// TriggerArrayInput is an input type that accepts TriggerArray and TriggerArrayOutput values.
+// You can construct a concrete instance of `TriggerArrayInput` via:
+//
+//          TriggerArray{ TriggerArgs{...} }
+type TriggerArrayInput interface {
+	pulumi.Input
+
+	ToTriggerArrayOutput() TriggerArrayOutput
+	ToTriggerArrayOutputWithContext(context.Context) TriggerArrayOutput
+}
+
+type TriggerArray []TriggerInput
+
+func (TriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Trigger)(nil))
+}
+
+func (i TriggerArray) ToTriggerArrayOutput() TriggerArrayOutput {
+	return i.ToTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerArray) ToTriggerArrayOutputWithContext(ctx context.Context) TriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerArrayOutput)
+}
+
+// TriggerMapInput is an input type that accepts TriggerMap and TriggerMapOutput values.
+// You can construct a concrete instance of `TriggerMapInput` via:
+//
+//          TriggerMap{ "key": TriggerArgs{...} }
+type TriggerMapInput interface {
+	pulumi.Input
+
+	ToTriggerMapOutput() TriggerMapOutput
+	ToTriggerMapOutputWithContext(context.Context) TriggerMapOutput
+}
+
+type TriggerMap map[string]TriggerInput
+
+func (TriggerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Trigger)(nil))
+}
+
+func (i TriggerMap) ToTriggerMapOutput() TriggerMapOutput {
+	return i.ToTriggerMapOutputWithContext(context.Background())
+}
+
+func (i TriggerMap) ToTriggerMapOutputWithContext(ctx context.Context) TriggerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerMapOutput)
+}
+
 type TriggerOutput struct {
 	*pulumi.OutputState
 }
@@ -163,6 +242,75 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+func (o TriggerOutput) ToTriggerPtrOutput() TriggerPtrOutput {
+	return o.ToTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
+	return o.ApplyT(func(v Trigger) *Trigger {
+		return &v
+	}).(TriggerPtrOutput)
+}
+
+type TriggerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Trigger)(nil))
+}
+
+func (o TriggerPtrOutput) ToTriggerPtrOutput() TriggerPtrOutput {
+	return o
+}
+
+func (o TriggerPtrOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
+	return o
+}
+
+type TriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Trigger)(nil))
+}
+
+func (o TriggerArrayOutput) ToTriggerArrayOutput() TriggerArrayOutput {
+	return o
+}
+
+func (o TriggerArrayOutput) ToTriggerArrayOutputWithContext(ctx context.Context) TriggerArrayOutput {
+	return o
+}
+
+func (o TriggerArrayOutput) Index(i pulumi.IntInput) TriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Trigger {
+		return vs[0].([]Trigger)[vs[1].(int)]
+	}).(TriggerOutput)
+}
+
+type TriggerMapOutput struct{ *pulumi.OutputState }
+
+func (TriggerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Trigger)(nil))
+}
+
+func (o TriggerMapOutput) ToTriggerMapOutput() TriggerMapOutput {
+	return o
+}
+
+func (o TriggerMapOutput) ToTriggerMapOutputWithContext(ctx context.Context) TriggerMapOutput {
+	return o
+}
+
+func (o TriggerMapOutput) MapIndex(k pulumi.StringInput) TriggerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Trigger {
+		return vs[0].(map[string]Trigger)[vs[1].(string)]
+	}).(TriggerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerOutput{})
+	pulumi.RegisterOutputType(TriggerPtrOutput{})
+	pulumi.RegisterOutputType(TriggerArrayOutput{})
+	pulumi.RegisterOutputType(TriggerMapOutput{})
 }

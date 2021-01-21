@@ -197,6 +197,85 @@ func (i *HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceA
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterOutput)
 }
 
+func (i *HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterPtrOutput() HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return i.ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *HostedPrivateVirtualInterfaceAccepter) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterPtrOutput)
+}
+
+type HostedPrivateVirtualInterfaceAccepterPtrInput interface {
+	pulumi.Input
+
+	ToHostedPrivateVirtualInterfaceAccepterPtrOutput() HostedPrivateVirtualInterfaceAccepterPtrOutput
+	ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput
+}
+
+type hostedPrivateVirtualInterfaceAccepterPtrType HostedPrivateVirtualInterfaceAccepterArgs
+
+func (*hostedPrivateVirtualInterfaceAccepterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (i *hostedPrivateVirtualInterfaceAccepterPtrType) ToHostedPrivateVirtualInterfaceAccepterPtrOutput() HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return i.ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *hostedPrivateVirtualInterfaceAccepterPtrType) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterPtrOutput)
+}
+
+// HostedPrivateVirtualInterfaceAccepterArrayInput is an input type that accepts HostedPrivateVirtualInterfaceAccepterArray and HostedPrivateVirtualInterfaceAccepterArrayOutput values.
+// You can construct a concrete instance of `HostedPrivateVirtualInterfaceAccepterArrayInput` via:
+//
+//          HostedPrivateVirtualInterfaceAccepterArray{ HostedPrivateVirtualInterfaceAccepterArgs{...} }
+type HostedPrivateVirtualInterfaceAccepterArrayInput interface {
+	pulumi.Input
+
+	ToHostedPrivateVirtualInterfaceAccepterArrayOutput() HostedPrivateVirtualInterfaceAccepterArrayOutput
+	ToHostedPrivateVirtualInterfaceAccepterArrayOutputWithContext(context.Context) HostedPrivateVirtualInterfaceAccepterArrayOutput
+}
+
+type HostedPrivateVirtualInterfaceAccepterArray []HostedPrivateVirtualInterfaceAccepterInput
+
+func (HostedPrivateVirtualInterfaceAccepterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (i HostedPrivateVirtualInterfaceAccepterArray) ToHostedPrivateVirtualInterfaceAccepterArrayOutput() HostedPrivateVirtualInterfaceAccepterArrayOutput {
+	return i.ToHostedPrivateVirtualInterfaceAccepterArrayOutputWithContext(context.Background())
+}
+
+func (i HostedPrivateVirtualInterfaceAccepterArray) ToHostedPrivateVirtualInterfaceAccepterArrayOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterArrayOutput)
+}
+
+// HostedPrivateVirtualInterfaceAccepterMapInput is an input type that accepts HostedPrivateVirtualInterfaceAccepterMap and HostedPrivateVirtualInterfaceAccepterMapOutput values.
+// You can construct a concrete instance of `HostedPrivateVirtualInterfaceAccepterMapInput` via:
+//
+//          HostedPrivateVirtualInterfaceAccepterMap{ "key": HostedPrivateVirtualInterfaceAccepterArgs{...} }
+type HostedPrivateVirtualInterfaceAccepterMapInput interface {
+	pulumi.Input
+
+	ToHostedPrivateVirtualInterfaceAccepterMapOutput() HostedPrivateVirtualInterfaceAccepterMapOutput
+	ToHostedPrivateVirtualInterfaceAccepterMapOutputWithContext(context.Context) HostedPrivateVirtualInterfaceAccepterMapOutput
+}
+
+type HostedPrivateVirtualInterfaceAccepterMap map[string]HostedPrivateVirtualInterfaceAccepterInput
+
+func (HostedPrivateVirtualInterfaceAccepterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (i HostedPrivateVirtualInterfaceAccepterMap) ToHostedPrivateVirtualInterfaceAccepterMapOutput() HostedPrivateVirtualInterfaceAccepterMapOutput {
+	return i.ToHostedPrivateVirtualInterfaceAccepterMapOutputWithContext(context.Background())
+}
+
+func (i HostedPrivateVirtualInterfaceAccepterMap) ToHostedPrivateVirtualInterfaceAccepterMapOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterMapOutput)
+}
+
 type HostedPrivateVirtualInterfaceAccepterOutput struct {
 	*pulumi.OutputState
 }
@@ -213,6 +292,75 @@ func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInter
 	return o
 }
 
+func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutput() HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return o.ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(context.Background())
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return o.ApplyT(func(v HostedPrivateVirtualInterfaceAccepter) *HostedPrivateVirtualInterfaceAccepter {
+		return &v
+	}).(HostedPrivateVirtualInterfaceAccepterPtrOutput)
+}
+
+type HostedPrivateVirtualInterfaceAccepterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedPrivateVirtualInterfaceAccepterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterPtrOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutput() HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterPtrOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
+	return o
+}
+
+type HostedPrivateVirtualInterfaceAccepterArrayOutput struct{ *pulumi.OutputState }
+
+func (HostedPrivateVirtualInterfaceAccepterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterArrayOutput) ToHostedPrivateVirtualInterfaceAccepterArrayOutput() HostedPrivateVirtualInterfaceAccepterArrayOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterArrayOutput) ToHostedPrivateVirtualInterfaceAccepterArrayOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterArrayOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterArrayOutput) Index(i pulumi.IntInput) HostedPrivateVirtualInterfaceAccepterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedPrivateVirtualInterfaceAccepter {
+		return vs[0].([]HostedPrivateVirtualInterfaceAccepter)[vs[1].(int)]
+	}).(HostedPrivateVirtualInterfaceAccepterOutput)
+}
+
+type HostedPrivateVirtualInterfaceAccepterMapOutput struct{ *pulumi.OutputState }
+
+func (HostedPrivateVirtualInterfaceAccepterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HostedPrivateVirtualInterfaceAccepter)(nil))
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterMapOutput) ToHostedPrivateVirtualInterfaceAccepterMapOutput() HostedPrivateVirtualInterfaceAccepterMapOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterMapOutput) ToHostedPrivateVirtualInterfaceAccepterMapOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterMapOutput {
+	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterMapOutput) MapIndex(k pulumi.StringInput) HostedPrivateVirtualInterfaceAccepterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostedPrivateVirtualInterfaceAccepter {
+		return vs[0].(map[string]HostedPrivateVirtualInterfaceAccepter)[vs[1].(string)]
+	}).(HostedPrivateVirtualInterfaceAccepterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostedPrivateVirtualInterfaceAccepterOutput{})
+	pulumi.RegisterOutputType(HostedPrivateVirtualInterfaceAccepterPtrOutput{})
+	pulumi.RegisterOutputType(HostedPrivateVirtualInterfaceAccepterArrayOutput{})
+	pulumi.RegisterOutputType(HostedPrivateVirtualInterfaceAccepterMapOutput{})
 }

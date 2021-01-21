@@ -165,6 +165,85 @@ func (i *OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderOutput)
 }
 
+func (i *OpenIdConnectProvider) ToOpenIdConnectProviderPtrOutput() OpenIdConnectProviderPtrOutput {
+	return i.ToOpenIdConnectProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *OpenIdConnectProvider) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderPtrOutput)
+}
+
+type OpenIdConnectProviderPtrInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderPtrOutput() OpenIdConnectProviderPtrOutput
+	ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput
+}
+
+type openIdConnectProviderPtrType OpenIdConnectProviderArgs
+
+func (*openIdConnectProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenIdConnectProvider)(nil))
+}
+
+func (i *openIdConnectProviderPtrType) ToOpenIdConnectProviderPtrOutput() OpenIdConnectProviderPtrOutput {
+	return i.ToOpenIdConnectProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *openIdConnectProviderPtrType) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderPtrOutput)
+}
+
+// OpenIdConnectProviderArrayInput is an input type that accepts OpenIdConnectProviderArray and OpenIdConnectProviderArrayOutput values.
+// You can construct a concrete instance of `OpenIdConnectProviderArrayInput` via:
+//
+//          OpenIdConnectProviderArray{ OpenIdConnectProviderArgs{...} }
+type OpenIdConnectProviderArrayInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderArrayOutput() OpenIdConnectProviderArrayOutput
+	ToOpenIdConnectProviderArrayOutputWithContext(context.Context) OpenIdConnectProviderArrayOutput
+}
+
+type OpenIdConnectProviderArray []OpenIdConnectProviderInput
+
+func (OpenIdConnectProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OpenIdConnectProvider)(nil))
+}
+
+func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutput() OpenIdConnectProviderArrayOutput {
+	return i.ToOpenIdConnectProviderArrayOutputWithContext(context.Background())
+}
+
+func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutputWithContext(ctx context.Context) OpenIdConnectProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderArrayOutput)
+}
+
+// OpenIdConnectProviderMapInput is an input type that accepts OpenIdConnectProviderMap and OpenIdConnectProviderMapOutput values.
+// You can construct a concrete instance of `OpenIdConnectProviderMapInput` via:
+//
+//          OpenIdConnectProviderMap{ "key": OpenIdConnectProviderArgs{...} }
+type OpenIdConnectProviderMapInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderMapOutput() OpenIdConnectProviderMapOutput
+	ToOpenIdConnectProviderMapOutputWithContext(context.Context) OpenIdConnectProviderMapOutput
+}
+
+type OpenIdConnectProviderMap map[string]OpenIdConnectProviderInput
+
+func (OpenIdConnectProviderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OpenIdConnectProvider)(nil))
+}
+
+func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutput() OpenIdConnectProviderMapOutput {
+	return i.ToOpenIdConnectProviderMapOutputWithContext(context.Background())
+}
+
+func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutputWithContext(ctx context.Context) OpenIdConnectProviderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderMapOutput)
+}
+
 type OpenIdConnectProviderOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ct
 	return o
 }
 
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderPtrOutput() OpenIdConnectProviderPtrOutput {
+	return o.ToOpenIdConnectProviderPtrOutputWithContext(context.Background())
+}
+
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
+	return o.ApplyT(func(v OpenIdConnectProvider) *OpenIdConnectProvider {
+		return &v
+	}).(OpenIdConnectProviderPtrOutput)
+}
+
+type OpenIdConnectProviderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OpenIdConnectProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenIdConnectProvider)(nil))
+}
+
+func (o OpenIdConnectProviderPtrOutput) ToOpenIdConnectProviderPtrOutput() OpenIdConnectProviderPtrOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderPtrOutput) ToOpenIdConnectProviderPtrOutputWithContext(ctx context.Context) OpenIdConnectProviderPtrOutput {
+	return o
+}
+
+type OpenIdConnectProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenIdConnectProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenIdConnectProvider)(nil))
+}
+
+func (o OpenIdConnectProviderArrayOutput) ToOpenIdConnectProviderArrayOutput() OpenIdConnectProviderArrayOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderArrayOutput) ToOpenIdConnectProviderArrayOutputWithContext(ctx context.Context) OpenIdConnectProviderArrayOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderArrayOutput) Index(i pulumi.IntInput) OpenIdConnectProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenIdConnectProvider {
+		return vs[0].([]OpenIdConnectProvider)[vs[1].(int)]
+	}).(OpenIdConnectProviderOutput)
+}
+
+type OpenIdConnectProviderMapOutput struct{ *pulumi.OutputState }
+
+func (OpenIdConnectProviderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OpenIdConnectProvider)(nil))
+}
+
+func (o OpenIdConnectProviderMapOutput) ToOpenIdConnectProviderMapOutput() OpenIdConnectProviderMapOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderMapOutput) ToOpenIdConnectProviderMapOutputWithContext(ctx context.Context) OpenIdConnectProviderMapOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderMapOutput) MapIndex(k pulumi.StringInput) OpenIdConnectProviderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OpenIdConnectProvider {
+		return vs[0].(map[string]OpenIdConnectProvider)[vs[1].(string)]
+	}).(OpenIdConnectProviderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
+	pulumi.RegisterOutputType(OpenIdConnectProviderPtrOutput{})
+	pulumi.RegisterOutputType(OpenIdConnectProviderArrayOutput{})
+	pulumi.RegisterOutputType(OpenIdConnectProviderMapOutput{})
 }

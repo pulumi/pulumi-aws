@@ -234,6 +234,85 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationOutput)
 }
 
+func (i *InfrastructureConfiguration) ToInfrastructureConfigurationPtrOutput() InfrastructureConfigurationPtrOutput {
+	return i.ToInfrastructureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *InfrastructureConfiguration) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationPtrOutput)
+}
+
+type InfrastructureConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationPtrOutput() InfrastructureConfigurationPtrOutput
+	ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput
+}
+
+type infrastructureConfigurationPtrType InfrastructureConfigurationArgs
+
+func (*infrastructureConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfiguration)(nil))
+}
+
+func (i *infrastructureConfigurationPtrType) ToInfrastructureConfigurationPtrOutput() InfrastructureConfigurationPtrOutput {
+	return i.ToInfrastructureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationPtrType) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationPtrOutput)
+}
+
+// InfrastructureConfigurationArrayInput is an input type that accepts InfrastructureConfigurationArray and InfrastructureConfigurationArrayOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationArrayInput` via:
+//
+//          InfrastructureConfigurationArray{ InfrastructureConfigurationArgs{...} }
+type InfrastructureConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationArrayOutput() InfrastructureConfigurationArrayOutput
+	ToInfrastructureConfigurationArrayOutputWithContext(context.Context) InfrastructureConfigurationArrayOutput
+}
+
+type InfrastructureConfigurationArray []InfrastructureConfigurationInput
+
+func (InfrastructureConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InfrastructureConfiguration)(nil))
+}
+
+func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutput() InfrastructureConfigurationArrayOutput {
+	return i.ToInfrastructureConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutputWithContext(ctx context.Context) InfrastructureConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationArrayOutput)
+}
+
+// InfrastructureConfigurationMapInput is an input type that accepts InfrastructureConfigurationMap and InfrastructureConfigurationMapOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationMapInput` via:
+//
+//          InfrastructureConfigurationMap{ "key": InfrastructureConfigurationArgs{...} }
+type InfrastructureConfigurationMapInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationMapOutput() InfrastructureConfigurationMapOutput
+	ToInfrastructureConfigurationMapOutputWithContext(context.Context) InfrastructureConfigurationMapOutput
+}
+
+type InfrastructureConfigurationMap map[string]InfrastructureConfigurationInput
+
+func (InfrastructureConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InfrastructureConfiguration)(nil))
+}
+
+func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutput() InfrastructureConfigurationMapOutput {
+	return i.ToInfrastructureConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutputWithContext(ctx context.Context) InfrastructureConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationMapOutput)
+}
+
 type InfrastructureConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -250,6 +329,75 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 	return o
 }
 
+func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationPtrOutput() InfrastructureConfigurationPtrOutput {
+	return o.ToInfrastructureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfiguration) *InfrastructureConfiguration {
+		return &v
+	}).(InfrastructureConfigurationPtrOutput)
+}
+
+type InfrastructureConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InfrastructureConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfiguration)(nil))
+}
+
+func (o InfrastructureConfigurationPtrOutput) ToInfrastructureConfigurationPtrOutput() InfrastructureConfigurationPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPtrOutput) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
+	return o
+}
+
+type InfrastructureConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InfrastructureConfiguration)(nil))
+}
+
+func (o InfrastructureConfigurationArrayOutput) ToInfrastructureConfigurationArrayOutput() InfrastructureConfigurationArrayOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationArrayOutput) ToInfrastructureConfigurationArrayOutputWithContext(ctx context.Context) InfrastructureConfigurationArrayOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationArrayOutput) Index(i pulumi.IntInput) InfrastructureConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InfrastructureConfiguration {
+		return vs[0].([]InfrastructureConfiguration)[vs[1].(int)]
+	}).(InfrastructureConfigurationOutput)
+}
+
+type InfrastructureConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InfrastructureConfiguration)(nil))
+}
+
+func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOutput() InfrastructureConfigurationMapOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOutputWithContext(ctx context.Context) InfrastructureConfigurationMapOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationMapOutput) MapIndex(k pulumi.StringInput) InfrastructureConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InfrastructureConfiguration {
+		return vs[0].(map[string]InfrastructureConfiguration)[vs[1].(string)]
+	}).(InfrastructureConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InfrastructureConfigurationOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationMapOutput{})
 }

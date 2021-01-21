@@ -324,6 +324,85 @@ func (i *CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) Custom
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerOutput)
 }
 
+func (i *CustomLayer) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
+	return i.ToCustomLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *CustomLayer) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerPtrOutput)
+}
+
+type CustomLayerPtrInput interface {
+	pulumi.Input
+
+	ToCustomLayerPtrOutput() CustomLayerPtrOutput
+	ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput
+}
+
+type customLayerPtrType CustomLayerArgs
+
+func (*customLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayer)(nil))
+}
+
+func (i *customLayerPtrType) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
+	return i.ToCustomLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *customLayerPtrType) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerPtrOutput)
+}
+
+// CustomLayerArrayInput is an input type that accepts CustomLayerArray and CustomLayerArrayOutput values.
+// You can construct a concrete instance of `CustomLayerArrayInput` via:
+//
+//          CustomLayerArray{ CustomLayerArgs{...} }
+type CustomLayerArrayInput interface {
+	pulumi.Input
+
+	ToCustomLayerArrayOutput() CustomLayerArrayOutput
+	ToCustomLayerArrayOutputWithContext(context.Context) CustomLayerArrayOutput
+}
+
+type CustomLayerArray []CustomLayerInput
+
+func (CustomLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CustomLayer)(nil))
+}
+
+func (i CustomLayerArray) ToCustomLayerArrayOutput() CustomLayerArrayOutput {
+	return i.ToCustomLayerArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLayerArray) ToCustomLayerArrayOutputWithContext(ctx context.Context) CustomLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerArrayOutput)
+}
+
+// CustomLayerMapInput is an input type that accepts CustomLayerMap and CustomLayerMapOutput values.
+// You can construct a concrete instance of `CustomLayerMapInput` via:
+//
+//          CustomLayerMap{ "key": CustomLayerArgs{...} }
+type CustomLayerMapInput interface {
+	pulumi.Input
+
+	ToCustomLayerMapOutput() CustomLayerMapOutput
+	ToCustomLayerMapOutputWithContext(context.Context) CustomLayerMapOutput
+}
+
+type CustomLayerMap map[string]CustomLayerInput
+
+func (CustomLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CustomLayer)(nil))
+}
+
+func (i CustomLayerMap) ToCustomLayerMapOutput() CustomLayerMapOutput {
+	return i.ToCustomLayerMapOutputWithContext(context.Background())
+}
+
+func (i CustomLayerMap) ToCustomLayerMapOutputWithContext(ctx context.Context) CustomLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerMapOutput)
+}
+
 type CustomLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -340,6 +419,75 @@ func (o CustomLayerOutput) ToCustomLayerOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CustomLayerOutput) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
+	return o.ToCustomLayerPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLayerOutput) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
+	return o.ApplyT(func(v CustomLayer) *CustomLayer {
+		return &v
+	}).(CustomLayerPtrOutput)
+}
+
+type CustomLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayer)(nil))
+}
+
+func (o CustomLayerPtrOutput) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
+	return o
+}
+
+func (o CustomLayerPtrOutput) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
+	return o
+}
+
+type CustomLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLayer)(nil))
+}
+
+func (o CustomLayerArrayOutput) ToCustomLayerArrayOutput() CustomLayerArrayOutput {
+	return o
+}
+
+func (o CustomLayerArrayOutput) ToCustomLayerArrayOutputWithContext(ctx context.Context) CustomLayerArrayOutput {
+	return o
+}
+
+func (o CustomLayerArrayOutput) Index(i pulumi.IntInput) CustomLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLayer {
+		return vs[0].([]CustomLayer)[vs[1].(int)]
+	}).(CustomLayerOutput)
+}
+
+type CustomLayerMapOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomLayer)(nil))
+}
+
+func (o CustomLayerMapOutput) ToCustomLayerMapOutput() CustomLayerMapOutput {
+	return o
+}
+
+func (o CustomLayerMapOutput) ToCustomLayerMapOutputWithContext(ctx context.Context) CustomLayerMapOutput {
+	return o
+}
+
+func (o CustomLayerMapOutput) MapIndex(k pulumi.StringInput) CustomLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomLayer {
+		return vs[0].(map[string]CustomLayer)[vs[1].(string)]
+	}).(CustomLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomLayerOutput{})
+	pulumi.RegisterOutputType(CustomLayerPtrOutput{})
+	pulumi.RegisterOutputType(CustomLayerArrayOutput{})
+	pulumi.RegisterOutputType(CustomLayerMapOutput{})
 }

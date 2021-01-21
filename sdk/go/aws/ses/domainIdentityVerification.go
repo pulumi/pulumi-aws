@@ -158,6 +158,85 @@ func (i *DomainIdentityVerification) ToDomainIdentityVerificationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationOutput)
 }
 
+func (i *DomainIdentityVerification) ToDomainIdentityVerificationPtrOutput() DomainIdentityVerificationPtrOutput {
+	return i.ToDomainIdentityVerificationPtrOutputWithContext(context.Background())
+}
+
+func (i *DomainIdentityVerification) ToDomainIdentityVerificationPtrOutputWithContext(ctx context.Context) DomainIdentityVerificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationPtrOutput)
+}
+
+type DomainIdentityVerificationPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityVerificationPtrOutput() DomainIdentityVerificationPtrOutput
+	ToDomainIdentityVerificationPtrOutputWithContext(ctx context.Context) DomainIdentityVerificationPtrOutput
+}
+
+type domainIdentityVerificationPtrType DomainIdentityVerificationArgs
+
+func (*domainIdentityVerificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityVerification)(nil))
+}
+
+func (i *domainIdentityVerificationPtrType) ToDomainIdentityVerificationPtrOutput() DomainIdentityVerificationPtrOutput {
+	return i.ToDomainIdentityVerificationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdentityVerificationPtrType) ToDomainIdentityVerificationPtrOutputWithContext(ctx context.Context) DomainIdentityVerificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationPtrOutput)
+}
+
+// DomainIdentityVerificationArrayInput is an input type that accepts DomainIdentityVerificationArray and DomainIdentityVerificationArrayOutput values.
+// You can construct a concrete instance of `DomainIdentityVerificationArrayInput` via:
+//
+//          DomainIdentityVerificationArray{ DomainIdentityVerificationArgs{...} }
+type DomainIdentityVerificationArrayInput interface {
+	pulumi.Input
+
+	ToDomainIdentityVerificationArrayOutput() DomainIdentityVerificationArrayOutput
+	ToDomainIdentityVerificationArrayOutputWithContext(context.Context) DomainIdentityVerificationArrayOutput
+}
+
+type DomainIdentityVerificationArray []DomainIdentityVerificationInput
+
+func (DomainIdentityVerificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DomainIdentityVerification)(nil))
+}
+
+func (i DomainIdentityVerificationArray) ToDomainIdentityVerificationArrayOutput() DomainIdentityVerificationArrayOutput {
+	return i.ToDomainIdentityVerificationArrayOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityVerificationArray) ToDomainIdentityVerificationArrayOutputWithContext(ctx context.Context) DomainIdentityVerificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationArrayOutput)
+}
+
+// DomainIdentityVerificationMapInput is an input type that accepts DomainIdentityVerificationMap and DomainIdentityVerificationMapOutput values.
+// You can construct a concrete instance of `DomainIdentityVerificationMapInput` via:
+//
+//          DomainIdentityVerificationMap{ "key": DomainIdentityVerificationArgs{...} }
+type DomainIdentityVerificationMapInput interface {
+	pulumi.Input
+
+	ToDomainIdentityVerificationMapOutput() DomainIdentityVerificationMapOutput
+	ToDomainIdentityVerificationMapOutputWithContext(context.Context) DomainIdentityVerificationMapOutput
+}
+
+type DomainIdentityVerificationMap map[string]DomainIdentityVerificationInput
+
+func (DomainIdentityVerificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DomainIdentityVerification)(nil))
+}
+
+func (i DomainIdentityVerificationMap) ToDomainIdentityVerificationMapOutput() DomainIdentityVerificationMapOutput {
+	return i.ToDomainIdentityVerificationMapOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityVerificationMap) ToDomainIdentityVerificationMapOutputWithContext(ctx context.Context) DomainIdentityVerificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationMapOutput)
+}
+
 type DomainIdentityVerificationOutput struct {
 	*pulumi.OutputState
 }
@@ -174,6 +253,75 @@ func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutputWith
 	return o
 }
 
+func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationPtrOutput() DomainIdentityVerificationPtrOutput {
+	return o.ToDomainIdentityVerificationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationPtrOutputWithContext(ctx context.Context) DomainIdentityVerificationPtrOutput {
+	return o.ApplyT(func(v DomainIdentityVerification) *DomainIdentityVerification {
+		return &v
+	}).(DomainIdentityVerificationPtrOutput)
+}
+
+type DomainIdentityVerificationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainIdentityVerificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityVerification)(nil))
+}
+
+func (o DomainIdentityVerificationPtrOutput) ToDomainIdentityVerificationPtrOutput() DomainIdentityVerificationPtrOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationPtrOutput) ToDomainIdentityVerificationPtrOutputWithContext(ctx context.Context) DomainIdentityVerificationPtrOutput {
+	return o
+}
+
+type DomainIdentityVerificationArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityVerificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainIdentityVerification)(nil))
+}
+
+func (o DomainIdentityVerificationArrayOutput) ToDomainIdentityVerificationArrayOutput() DomainIdentityVerificationArrayOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationArrayOutput) ToDomainIdentityVerificationArrayOutputWithContext(ctx context.Context) DomainIdentityVerificationArrayOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationArrayOutput) Index(i pulumi.IntInput) DomainIdentityVerificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainIdentityVerification {
+		return vs[0].([]DomainIdentityVerification)[vs[1].(int)]
+	}).(DomainIdentityVerificationOutput)
+}
+
+type DomainIdentityVerificationMapOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityVerificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainIdentityVerification)(nil))
+}
+
+func (o DomainIdentityVerificationMapOutput) ToDomainIdentityVerificationMapOutput() DomainIdentityVerificationMapOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationMapOutput) ToDomainIdentityVerificationMapOutputWithContext(ctx context.Context) DomainIdentityVerificationMapOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationMapOutput) MapIndex(k pulumi.StringInput) DomainIdentityVerificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainIdentityVerification {
+		return vs[0].(map[string]DomainIdentityVerification)[vs[1].(string)]
+	}).(DomainIdentityVerificationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainIdentityVerificationOutput{})
+	pulumi.RegisterOutputType(DomainIdentityVerificationPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityVerificationArrayOutput{})
+	pulumi.RegisterOutputType(DomainIdentityVerificationMapOutput{})
 }

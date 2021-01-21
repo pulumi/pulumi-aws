@@ -470,6 +470,85 @@ func (i *BucketObject) ToBucketObjectOutputWithContext(ctx context.Context) Buck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectOutput)
 }
 
+func (i *BucketObject) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
+	return i.ToBucketObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *BucketObject) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectPtrOutput)
+}
+
+type BucketObjectPtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectPtrOutput() BucketObjectPtrOutput
+	ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput
+}
+
+type bucketObjectPtrType BucketObjectArgs
+
+func (*bucketObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObject)(nil))
+}
+
+func (i *bucketObjectPtrType) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
+	return i.ToBucketObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectPtrType) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectPtrOutput)
+}
+
+// BucketObjectArrayInput is an input type that accepts BucketObjectArray and BucketObjectArrayOutput values.
+// You can construct a concrete instance of `BucketObjectArrayInput` via:
+//
+//          BucketObjectArray{ BucketObjectArgs{...} }
+type BucketObjectArrayInput interface {
+	pulumi.Input
+
+	ToBucketObjectArrayOutput() BucketObjectArrayOutput
+	ToBucketObjectArrayOutputWithContext(context.Context) BucketObjectArrayOutput
+}
+
+type BucketObjectArray []BucketObjectInput
+
+func (BucketObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BucketObject)(nil))
+}
+
+func (i BucketObjectArray) ToBucketObjectArrayOutput() BucketObjectArrayOutput {
+	return i.ToBucketObjectArrayOutputWithContext(context.Background())
+}
+
+func (i BucketObjectArray) ToBucketObjectArrayOutputWithContext(ctx context.Context) BucketObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectArrayOutput)
+}
+
+// BucketObjectMapInput is an input type that accepts BucketObjectMap and BucketObjectMapOutput values.
+// You can construct a concrete instance of `BucketObjectMapInput` via:
+//
+//          BucketObjectMap{ "key": BucketObjectArgs{...} }
+type BucketObjectMapInput interface {
+	pulumi.Input
+
+	ToBucketObjectMapOutput() BucketObjectMapOutput
+	ToBucketObjectMapOutputWithContext(context.Context) BucketObjectMapOutput
+}
+
+type BucketObjectMap map[string]BucketObjectInput
+
+func (BucketObjectMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BucketObject)(nil))
+}
+
+func (i BucketObjectMap) ToBucketObjectMapOutput() BucketObjectMapOutput {
+	return i.ToBucketObjectMapOutputWithContext(context.Background())
+}
+
+func (i BucketObjectMap) ToBucketObjectMapOutputWithContext(ctx context.Context) BucketObjectMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectMapOutput)
+}
+
 type BucketObjectOutput struct {
 	*pulumi.OutputState
 }
@@ -486,6 +565,75 @@ func (o BucketObjectOutput) ToBucketObjectOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BucketObjectOutput) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
+	return o.ToBucketObjectPtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectOutput) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
+	return o.ApplyT(func(v BucketObject) *BucketObject {
+		return &v
+	}).(BucketObjectPtrOutput)
+}
+
+type BucketObjectPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObject)(nil))
+}
+
+func (o BucketObjectPtrOutput) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
+	return o
+}
+
+func (o BucketObjectPtrOutput) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
+	return o
+}
+
+type BucketObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketObject)(nil))
+}
+
+func (o BucketObjectArrayOutput) ToBucketObjectArrayOutput() BucketObjectArrayOutput {
+	return o
+}
+
+func (o BucketObjectArrayOutput) ToBucketObjectArrayOutputWithContext(ctx context.Context) BucketObjectArrayOutput {
+	return o
+}
+
+func (o BucketObjectArrayOutput) Index(i pulumi.IntInput) BucketObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketObject {
+		return vs[0].([]BucketObject)[vs[1].(int)]
+	}).(BucketObjectOutput)
+}
+
+type BucketObjectMapOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BucketObject)(nil))
+}
+
+func (o BucketObjectMapOutput) ToBucketObjectMapOutput() BucketObjectMapOutput {
+	return o
+}
+
+func (o BucketObjectMapOutput) ToBucketObjectMapOutputWithContext(ctx context.Context) BucketObjectMapOutput {
+	return o
+}
+
+func (o BucketObjectMapOutput) MapIndex(k pulumi.StringInput) BucketObjectOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketObject {
+		return vs[0].(map[string]BucketObject)[vs[1].(string)]
+	}).(BucketObjectOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BucketObjectOutput{})
+	pulumi.RegisterOutputType(BucketObjectPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectArrayOutput{})
+	pulumi.RegisterOutputType(BucketObjectMapOutput{})
 }

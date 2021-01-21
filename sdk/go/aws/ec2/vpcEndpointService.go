@@ -213,6 +213,85 @@ func (i *VpcEndpointService) ToVpcEndpointServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceOutput)
 }
 
+func (i *VpcEndpointService) ToVpcEndpointServicePtrOutput() VpcEndpointServicePtrOutput {
+	return i.ToVpcEndpointServicePtrOutputWithContext(context.Background())
+}
+
+func (i *VpcEndpointService) ToVpcEndpointServicePtrOutputWithContext(ctx context.Context) VpcEndpointServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePtrOutput)
+}
+
+type VpcEndpointServicePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServicePtrOutput() VpcEndpointServicePtrOutput
+	ToVpcEndpointServicePtrOutputWithContext(ctx context.Context) VpcEndpointServicePtrOutput
+}
+
+type vpcEndpointServicePtrType VpcEndpointServiceArgs
+
+func (*vpcEndpointServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointService)(nil))
+}
+
+func (i *vpcEndpointServicePtrType) ToVpcEndpointServicePtrOutput() VpcEndpointServicePtrOutput {
+	return i.ToVpcEndpointServicePtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointServicePtrType) ToVpcEndpointServicePtrOutputWithContext(ctx context.Context) VpcEndpointServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePtrOutput)
+}
+
+// VpcEndpointServiceArrayInput is an input type that accepts VpcEndpointServiceArray and VpcEndpointServiceArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointServiceArrayInput` via:
+//
+//          VpcEndpointServiceArray{ VpcEndpointServiceArgs{...} }
+type VpcEndpointServiceArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceArrayOutput() VpcEndpointServiceArrayOutput
+	ToVpcEndpointServiceArrayOutputWithContext(context.Context) VpcEndpointServiceArrayOutput
+}
+
+type VpcEndpointServiceArray []VpcEndpointServiceInput
+
+func (VpcEndpointServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcEndpointService)(nil))
+}
+
+func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutput() VpcEndpointServiceArrayOutput {
+	return i.ToVpcEndpointServiceArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutputWithContext(ctx context.Context) VpcEndpointServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceArrayOutput)
+}
+
+// VpcEndpointServiceMapInput is an input type that accepts VpcEndpointServiceMap and VpcEndpointServiceMapOutput values.
+// You can construct a concrete instance of `VpcEndpointServiceMapInput` via:
+//
+//          VpcEndpointServiceMap{ "key": VpcEndpointServiceArgs{...} }
+type VpcEndpointServiceMapInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceMapOutput() VpcEndpointServiceMapOutput
+	ToVpcEndpointServiceMapOutputWithContext(context.Context) VpcEndpointServiceMapOutput
+}
+
+type VpcEndpointServiceMap map[string]VpcEndpointServiceInput
+
+func (VpcEndpointServiceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcEndpointService)(nil))
+}
+
+func (i VpcEndpointServiceMap) ToVpcEndpointServiceMapOutput() VpcEndpointServiceMapOutput {
+	return i.ToVpcEndpointServiceMapOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServiceMap) ToVpcEndpointServiceMapOutputWithContext(ctx context.Context) VpcEndpointServiceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceMapOutput)
+}
+
 type VpcEndpointServiceOutput struct {
 	*pulumi.OutputState
 }
@@ -229,6 +308,75 @@ func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutputWithContext(ctx cont
 	return o
 }
 
+func (o VpcEndpointServiceOutput) ToVpcEndpointServicePtrOutput() VpcEndpointServicePtrOutput {
+	return o.ToVpcEndpointServicePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceOutput) ToVpcEndpointServicePtrOutputWithContext(ctx context.Context) VpcEndpointServicePtrOutput {
+	return o.ApplyT(func(v VpcEndpointService) *VpcEndpointService {
+		return &v
+	}).(VpcEndpointServicePtrOutput)
+}
+
+type VpcEndpointServicePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointService)(nil))
+}
+
+func (o VpcEndpointServicePtrOutput) ToVpcEndpointServicePtrOutput() VpcEndpointServicePtrOutput {
+	return o
+}
+
+func (o VpcEndpointServicePtrOutput) ToVpcEndpointServicePtrOutputWithContext(ctx context.Context) VpcEndpointServicePtrOutput {
+	return o
+}
+
+type VpcEndpointServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointService)(nil))
+}
+
+func (o VpcEndpointServiceArrayOutput) ToVpcEndpointServiceArrayOutput() VpcEndpointServiceArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceArrayOutput) ToVpcEndpointServiceArrayOutputWithContext(ctx context.Context) VpcEndpointServiceArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceArrayOutput) Index(i pulumi.IntInput) VpcEndpointServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointService {
+		return vs[0].([]VpcEndpointService)[vs[1].(int)]
+	}).(VpcEndpointServiceOutput)
+}
+
+type VpcEndpointServiceMapOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcEndpointService)(nil))
+}
+
+func (o VpcEndpointServiceMapOutput) ToVpcEndpointServiceMapOutput() VpcEndpointServiceMapOutput {
+	return o
+}
+
+func (o VpcEndpointServiceMapOutput) ToVpcEndpointServiceMapOutputWithContext(ctx context.Context) VpcEndpointServiceMapOutput {
+	return o
+}
+
+func (o VpcEndpointServiceMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointServiceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcEndpointService {
+		return vs[0].(map[string]VpcEndpointService)[vs[1].(string)]
+	}).(VpcEndpointServiceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcEndpointServiceOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServicePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceMapOutput{})
 }

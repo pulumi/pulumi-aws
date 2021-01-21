@@ -203,6 +203,85 @@ func (i *ResourceShareAccepter) ToResourceShareAccepterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterOutput)
 }
 
+func (i *ResourceShareAccepter) ToResourceShareAccepterPtrOutput() ResourceShareAccepterPtrOutput {
+	return i.ToResourceShareAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourceShareAccepter) ToResourceShareAccepterPtrOutputWithContext(ctx context.Context) ResourceShareAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterPtrOutput)
+}
+
+type ResourceShareAccepterPtrInput interface {
+	pulumi.Input
+
+	ToResourceShareAccepterPtrOutput() ResourceShareAccepterPtrOutput
+	ToResourceShareAccepterPtrOutputWithContext(ctx context.Context) ResourceShareAccepterPtrOutput
+}
+
+type resourceShareAccepterPtrType ResourceShareAccepterArgs
+
+func (*resourceShareAccepterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareAccepter)(nil))
+}
+
+func (i *resourceShareAccepterPtrType) ToResourceShareAccepterPtrOutput() ResourceShareAccepterPtrOutput {
+	return i.ToResourceShareAccepterPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceShareAccepterPtrType) ToResourceShareAccepterPtrOutputWithContext(ctx context.Context) ResourceShareAccepterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterPtrOutput)
+}
+
+// ResourceShareAccepterArrayInput is an input type that accepts ResourceShareAccepterArray and ResourceShareAccepterArrayOutput values.
+// You can construct a concrete instance of `ResourceShareAccepterArrayInput` via:
+//
+//          ResourceShareAccepterArray{ ResourceShareAccepterArgs{...} }
+type ResourceShareAccepterArrayInput interface {
+	pulumi.Input
+
+	ToResourceShareAccepterArrayOutput() ResourceShareAccepterArrayOutput
+	ToResourceShareAccepterArrayOutputWithContext(context.Context) ResourceShareAccepterArrayOutput
+}
+
+type ResourceShareAccepterArray []ResourceShareAccepterInput
+
+func (ResourceShareAccepterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourceShareAccepter)(nil))
+}
+
+func (i ResourceShareAccepterArray) ToResourceShareAccepterArrayOutput() ResourceShareAccepterArrayOutput {
+	return i.ToResourceShareAccepterArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceShareAccepterArray) ToResourceShareAccepterArrayOutputWithContext(ctx context.Context) ResourceShareAccepterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterArrayOutput)
+}
+
+// ResourceShareAccepterMapInput is an input type that accepts ResourceShareAccepterMap and ResourceShareAccepterMapOutput values.
+// You can construct a concrete instance of `ResourceShareAccepterMapInput` via:
+//
+//          ResourceShareAccepterMap{ "key": ResourceShareAccepterArgs{...} }
+type ResourceShareAccepterMapInput interface {
+	pulumi.Input
+
+	ToResourceShareAccepterMapOutput() ResourceShareAccepterMapOutput
+	ToResourceShareAccepterMapOutputWithContext(context.Context) ResourceShareAccepterMapOutput
+}
+
+type ResourceShareAccepterMap map[string]ResourceShareAccepterInput
+
+func (ResourceShareAccepterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourceShareAccepter)(nil))
+}
+
+func (i ResourceShareAccepterMap) ToResourceShareAccepterMapOutput() ResourceShareAccepterMapOutput {
+	return i.ToResourceShareAccepterMapOutputWithContext(context.Background())
+}
+
+func (i ResourceShareAccepterMap) ToResourceShareAccepterMapOutputWithContext(ctx context.Context) ResourceShareAccepterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterMapOutput)
+}
+
 type ResourceShareAccepterOutput struct {
 	*pulumi.OutputState
 }
@@ -219,6 +298,75 @@ func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutputWithContext(ct
 	return o
 }
 
+func (o ResourceShareAccepterOutput) ToResourceShareAccepterPtrOutput() ResourceShareAccepterPtrOutput {
+	return o.ToResourceShareAccepterPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceShareAccepterOutput) ToResourceShareAccepterPtrOutputWithContext(ctx context.Context) ResourceShareAccepterPtrOutput {
+	return o.ApplyT(func(v ResourceShareAccepter) *ResourceShareAccepter {
+		return &v
+	}).(ResourceShareAccepterPtrOutput)
+}
+
+type ResourceShareAccepterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceShareAccepterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareAccepter)(nil))
+}
+
+func (o ResourceShareAccepterPtrOutput) ToResourceShareAccepterPtrOutput() ResourceShareAccepterPtrOutput {
+	return o
+}
+
+func (o ResourceShareAccepterPtrOutput) ToResourceShareAccepterPtrOutputWithContext(ctx context.Context) ResourceShareAccepterPtrOutput {
+	return o
+}
+
+type ResourceShareAccepterArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareAccepterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceShareAccepter)(nil))
+}
+
+func (o ResourceShareAccepterArrayOutput) ToResourceShareAccepterArrayOutput() ResourceShareAccepterArrayOutput {
+	return o
+}
+
+func (o ResourceShareAccepterArrayOutput) ToResourceShareAccepterArrayOutputWithContext(ctx context.Context) ResourceShareAccepterArrayOutput {
+	return o
+}
+
+func (o ResourceShareAccepterArrayOutput) Index(i pulumi.IntInput) ResourceShareAccepterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceShareAccepter {
+		return vs[0].([]ResourceShareAccepter)[vs[1].(int)]
+	}).(ResourceShareAccepterOutput)
+}
+
+type ResourceShareAccepterMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareAccepterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceShareAccepter)(nil))
+}
+
+func (o ResourceShareAccepterMapOutput) ToResourceShareAccepterMapOutput() ResourceShareAccepterMapOutput {
+	return o
+}
+
+func (o ResourceShareAccepterMapOutput) ToResourceShareAccepterMapOutputWithContext(ctx context.Context) ResourceShareAccepterMapOutput {
+	return o
+}
+
+func (o ResourceShareAccepterMapOutput) MapIndex(k pulumi.StringInput) ResourceShareAccepterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceShareAccepter {
+		return vs[0].(map[string]ResourceShareAccepter)[vs[1].(string)]
+	}).(ResourceShareAccepterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceShareAccepterOutput{})
+	pulumi.RegisterOutputType(ResourceShareAccepterPtrOutput{})
+	pulumi.RegisterOutputType(ResourceShareAccepterArrayOutput{})
+	pulumi.RegisterOutputType(ResourceShareAccepterMapOutput{})
 }

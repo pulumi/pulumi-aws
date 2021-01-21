@@ -123,6 +123,85 @@ func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyOutput)
 }
 
+func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyPtrOutput() LoadBalancerBackendServerPolicyPtrOutput {
+	return i.ToLoadBalancerBackendServerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyPtrOutput)
+}
+
+type LoadBalancerBackendServerPolicyPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBackendServerPolicyPtrOutput() LoadBalancerBackendServerPolicyPtrOutput
+	ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput
+}
+
+type loadBalancerBackendServerPolicyPtrType LoadBalancerBackendServerPolicyArgs
+
+func (*loadBalancerBackendServerPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (i *loadBalancerBackendServerPolicyPtrType) ToLoadBalancerBackendServerPolicyPtrOutput() LoadBalancerBackendServerPolicyPtrOutput {
+	return i.ToLoadBalancerBackendServerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerBackendServerPolicyPtrType) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyPtrOutput)
+}
+
+// LoadBalancerBackendServerPolicyArrayInput is an input type that accepts LoadBalancerBackendServerPolicyArray and LoadBalancerBackendServerPolicyArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerBackendServerPolicyArrayInput` via:
+//
+//          LoadBalancerBackendServerPolicyArray{ LoadBalancerBackendServerPolicyArgs{...} }
+type LoadBalancerBackendServerPolicyArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBackendServerPolicyArrayOutput() LoadBalancerBackendServerPolicyArrayOutput
+	ToLoadBalancerBackendServerPolicyArrayOutputWithContext(context.Context) LoadBalancerBackendServerPolicyArrayOutput
+}
+
+type LoadBalancerBackendServerPolicyArray []LoadBalancerBackendServerPolicyInput
+
+func (LoadBalancerBackendServerPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (i LoadBalancerBackendServerPolicyArray) ToLoadBalancerBackendServerPolicyArrayOutput() LoadBalancerBackendServerPolicyArrayOutput {
+	return i.ToLoadBalancerBackendServerPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerBackendServerPolicyArray) ToLoadBalancerBackendServerPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyArrayOutput)
+}
+
+// LoadBalancerBackendServerPolicyMapInput is an input type that accepts LoadBalancerBackendServerPolicyMap and LoadBalancerBackendServerPolicyMapOutput values.
+// You can construct a concrete instance of `LoadBalancerBackendServerPolicyMapInput` via:
+//
+//          LoadBalancerBackendServerPolicyMap{ "key": LoadBalancerBackendServerPolicyArgs{...} }
+type LoadBalancerBackendServerPolicyMapInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBackendServerPolicyMapOutput() LoadBalancerBackendServerPolicyMapOutput
+	ToLoadBalancerBackendServerPolicyMapOutputWithContext(context.Context) LoadBalancerBackendServerPolicyMapOutput
+}
+
+type LoadBalancerBackendServerPolicyMap map[string]LoadBalancerBackendServerPolicyInput
+
+func (LoadBalancerBackendServerPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (i LoadBalancerBackendServerPolicyMap) ToLoadBalancerBackendServerPolicyMapOutput() LoadBalancerBackendServerPolicyMapOutput {
+	return i.ToLoadBalancerBackendServerPolicyMapOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerBackendServerPolicyMap) ToLoadBalancerBackendServerPolicyMapOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyMapOutput)
+}
+
 type LoadBalancerBackendServerPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -139,6 +218,75 @@ func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicy
 	return o
 }
 
+func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicyPtrOutput() LoadBalancerBackendServerPolicyPtrOutput {
+	return o.ToLoadBalancerBackendServerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
+	return o.ApplyT(func(v LoadBalancerBackendServerPolicy) *LoadBalancerBackendServerPolicy {
+		return &v
+	}).(LoadBalancerBackendServerPolicyPtrOutput)
+}
+
+type LoadBalancerBackendServerPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerBackendServerPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (o LoadBalancerBackendServerPolicyPtrOutput) ToLoadBalancerBackendServerPolicyPtrOutput() LoadBalancerBackendServerPolicyPtrOutput {
+	return o
+}
+
+func (o LoadBalancerBackendServerPolicyPtrOutput) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
+	return o
+}
+
+type LoadBalancerBackendServerPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerBackendServerPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (o LoadBalancerBackendServerPolicyArrayOutput) ToLoadBalancerBackendServerPolicyArrayOutput() LoadBalancerBackendServerPolicyArrayOutput {
+	return o
+}
+
+func (o LoadBalancerBackendServerPolicyArrayOutput) ToLoadBalancerBackendServerPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyArrayOutput {
+	return o
+}
+
+func (o LoadBalancerBackendServerPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerBackendServerPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerBackendServerPolicy {
+		return vs[0].([]LoadBalancerBackendServerPolicy)[vs[1].(int)]
+	}).(LoadBalancerBackendServerPolicyOutput)
+}
+
+type LoadBalancerBackendServerPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerBackendServerPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LoadBalancerBackendServerPolicy)(nil))
+}
+
+func (o LoadBalancerBackendServerPolicyMapOutput) ToLoadBalancerBackendServerPolicyMapOutput() LoadBalancerBackendServerPolicyMapOutput {
+	return o
+}
+
+func (o LoadBalancerBackendServerPolicyMapOutput) ToLoadBalancerBackendServerPolicyMapOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyMapOutput {
+	return o
+}
+
+func (o LoadBalancerBackendServerPolicyMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerBackendServerPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadBalancerBackendServerPolicy {
+		return vs[0].(map[string]LoadBalancerBackendServerPolicy)[vs[1].(string)]
+	}).(LoadBalancerBackendServerPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyOutput{})
+	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyMapOutput{})
 }

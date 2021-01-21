@@ -244,6 +244,85 @@ func (i *EipAssociation) ToEipAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationOutput)
 }
 
+func (i *EipAssociation) ToEipAssociationPtrOutput() EipAssociationPtrOutput {
+	return i.ToEipAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *EipAssociation) ToEipAssociationPtrOutputWithContext(ctx context.Context) EipAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationPtrOutput)
+}
+
+type EipAssociationPtrInput interface {
+	pulumi.Input
+
+	ToEipAssociationPtrOutput() EipAssociationPtrOutput
+	ToEipAssociationPtrOutputWithContext(ctx context.Context) EipAssociationPtrOutput
+}
+
+type eipAssociationPtrType EipAssociationArgs
+
+func (*eipAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EipAssociation)(nil))
+}
+
+func (i *eipAssociationPtrType) ToEipAssociationPtrOutput() EipAssociationPtrOutput {
+	return i.ToEipAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *eipAssociationPtrType) ToEipAssociationPtrOutputWithContext(ctx context.Context) EipAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationPtrOutput)
+}
+
+// EipAssociationArrayInput is an input type that accepts EipAssociationArray and EipAssociationArrayOutput values.
+// You can construct a concrete instance of `EipAssociationArrayInput` via:
+//
+//          EipAssociationArray{ EipAssociationArgs{...} }
+type EipAssociationArrayInput interface {
+	pulumi.Input
+
+	ToEipAssociationArrayOutput() EipAssociationArrayOutput
+	ToEipAssociationArrayOutputWithContext(context.Context) EipAssociationArrayOutput
+}
+
+type EipAssociationArray []EipAssociationInput
+
+func (EipAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EipAssociation)(nil))
+}
+
+func (i EipAssociationArray) ToEipAssociationArrayOutput() EipAssociationArrayOutput {
+	return i.ToEipAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i EipAssociationArray) ToEipAssociationArrayOutputWithContext(ctx context.Context) EipAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationArrayOutput)
+}
+
+// EipAssociationMapInput is an input type that accepts EipAssociationMap and EipAssociationMapOutput values.
+// You can construct a concrete instance of `EipAssociationMapInput` via:
+//
+//          EipAssociationMap{ "key": EipAssociationArgs{...} }
+type EipAssociationMapInput interface {
+	pulumi.Input
+
+	ToEipAssociationMapOutput() EipAssociationMapOutput
+	ToEipAssociationMapOutputWithContext(context.Context) EipAssociationMapOutput
+}
+
+type EipAssociationMap map[string]EipAssociationInput
+
+func (EipAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EipAssociation)(nil))
+}
+
+func (i EipAssociationMap) ToEipAssociationMapOutput() EipAssociationMapOutput {
+	return i.ToEipAssociationMapOutputWithContext(context.Background())
+}
+
+func (i EipAssociationMap) ToEipAssociationMapOutputWithContext(ctx context.Context) EipAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationMapOutput)
+}
+
 type EipAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -260,6 +339,75 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EipAssociationOutput) ToEipAssociationPtrOutput() EipAssociationPtrOutput {
+	return o.ToEipAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o EipAssociationOutput) ToEipAssociationPtrOutputWithContext(ctx context.Context) EipAssociationPtrOutput {
+	return o.ApplyT(func(v EipAssociation) *EipAssociation {
+		return &v
+	}).(EipAssociationPtrOutput)
+}
+
+type EipAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EipAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EipAssociation)(nil))
+}
+
+func (o EipAssociationPtrOutput) ToEipAssociationPtrOutput() EipAssociationPtrOutput {
+	return o
+}
+
+func (o EipAssociationPtrOutput) ToEipAssociationPtrOutputWithContext(ctx context.Context) EipAssociationPtrOutput {
+	return o
+}
+
+type EipAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (EipAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EipAssociation)(nil))
+}
+
+func (o EipAssociationArrayOutput) ToEipAssociationArrayOutput() EipAssociationArrayOutput {
+	return o
+}
+
+func (o EipAssociationArrayOutput) ToEipAssociationArrayOutputWithContext(ctx context.Context) EipAssociationArrayOutput {
+	return o
+}
+
+func (o EipAssociationArrayOutput) Index(i pulumi.IntInput) EipAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EipAssociation {
+		return vs[0].([]EipAssociation)[vs[1].(int)]
+	}).(EipAssociationOutput)
+}
+
+type EipAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (EipAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EipAssociation)(nil))
+}
+
+func (o EipAssociationMapOutput) ToEipAssociationMapOutput() EipAssociationMapOutput {
+	return o
+}
+
+func (o EipAssociationMapOutput) ToEipAssociationMapOutputWithContext(ctx context.Context) EipAssociationMapOutput {
+	return o
+}
+
+func (o EipAssociationMapOutput) MapIndex(k pulumi.StringInput) EipAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EipAssociation {
+		return vs[0].(map[string]EipAssociation)[vs[1].(string)]
+	}).(EipAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EipAssociationOutput{})
+	pulumi.RegisterOutputType(EipAssociationPtrOutput{})
+	pulumi.RegisterOutputType(EipAssociationArrayOutput{})
+	pulumi.RegisterOutputType(EipAssociationMapOutput{})
 }

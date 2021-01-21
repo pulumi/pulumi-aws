@@ -396,6 +396,85 @@ func (i *SmbFileShare) ToSmbFileShareOutputWithContext(ctx context.Context) SmbF
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareOutput)
 }
 
+func (i *SmbFileShare) ToSmbFileSharePtrOutput() SmbFileSharePtrOutput {
+	return i.ToSmbFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *SmbFileShare) ToSmbFileSharePtrOutputWithContext(ctx context.Context) SmbFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileSharePtrOutput)
+}
+
+type SmbFileSharePtrInput interface {
+	pulumi.Input
+
+	ToSmbFileSharePtrOutput() SmbFileSharePtrOutput
+	ToSmbFileSharePtrOutputWithContext(ctx context.Context) SmbFileSharePtrOutput
+}
+
+type smbFileSharePtrType SmbFileShareArgs
+
+func (*smbFileSharePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShare)(nil))
+}
+
+func (i *smbFileSharePtrType) ToSmbFileSharePtrOutput() SmbFileSharePtrOutput {
+	return i.ToSmbFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *smbFileSharePtrType) ToSmbFileSharePtrOutputWithContext(ctx context.Context) SmbFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileSharePtrOutput)
+}
+
+// SmbFileShareArrayInput is an input type that accepts SmbFileShareArray and SmbFileShareArrayOutput values.
+// You can construct a concrete instance of `SmbFileShareArrayInput` via:
+//
+//          SmbFileShareArray{ SmbFileShareArgs{...} }
+type SmbFileShareArrayInput interface {
+	pulumi.Input
+
+	ToSmbFileShareArrayOutput() SmbFileShareArrayOutput
+	ToSmbFileShareArrayOutputWithContext(context.Context) SmbFileShareArrayOutput
+}
+
+type SmbFileShareArray []SmbFileShareInput
+
+func (SmbFileShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SmbFileShare)(nil))
+}
+
+func (i SmbFileShareArray) ToSmbFileShareArrayOutput() SmbFileShareArrayOutput {
+	return i.ToSmbFileShareArrayOutputWithContext(context.Background())
+}
+
+func (i SmbFileShareArray) ToSmbFileShareArrayOutputWithContext(ctx context.Context) SmbFileShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareArrayOutput)
+}
+
+// SmbFileShareMapInput is an input type that accepts SmbFileShareMap and SmbFileShareMapOutput values.
+// You can construct a concrete instance of `SmbFileShareMapInput` via:
+//
+//          SmbFileShareMap{ "key": SmbFileShareArgs{...} }
+type SmbFileShareMapInput interface {
+	pulumi.Input
+
+	ToSmbFileShareMapOutput() SmbFileShareMapOutput
+	ToSmbFileShareMapOutputWithContext(context.Context) SmbFileShareMapOutput
+}
+
+type SmbFileShareMap map[string]SmbFileShareInput
+
+func (SmbFileShareMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SmbFileShare)(nil))
+}
+
+func (i SmbFileShareMap) ToSmbFileShareMapOutput() SmbFileShareMapOutput {
+	return i.ToSmbFileShareMapOutputWithContext(context.Background())
+}
+
+func (i SmbFileShareMap) ToSmbFileShareMapOutputWithContext(ctx context.Context) SmbFileShareMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareMapOutput)
+}
+
 type SmbFileShareOutput struct {
 	*pulumi.OutputState
 }
@@ -412,6 +491,75 @@ func (o SmbFileShareOutput) ToSmbFileShareOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SmbFileShareOutput) ToSmbFileSharePtrOutput() SmbFileSharePtrOutput {
+	return o.ToSmbFileSharePtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareOutput) ToSmbFileSharePtrOutputWithContext(ctx context.Context) SmbFileSharePtrOutput {
+	return o.ApplyT(func(v SmbFileShare) *SmbFileShare {
+		return &v
+	}).(SmbFileSharePtrOutput)
+}
+
+type SmbFileSharePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmbFileSharePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShare)(nil))
+}
+
+func (o SmbFileSharePtrOutput) ToSmbFileSharePtrOutput() SmbFileSharePtrOutput {
+	return o
+}
+
+func (o SmbFileSharePtrOutput) ToSmbFileSharePtrOutputWithContext(ctx context.Context) SmbFileSharePtrOutput {
+	return o
+}
+
+type SmbFileShareArrayOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SmbFileShare)(nil))
+}
+
+func (o SmbFileShareArrayOutput) ToSmbFileShareArrayOutput() SmbFileShareArrayOutput {
+	return o
+}
+
+func (o SmbFileShareArrayOutput) ToSmbFileShareArrayOutputWithContext(ctx context.Context) SmbFileShareArrayOutput {
+	return o
+}
+
+func (o SmbFileShareArrayOutput) Index(i pulumi.IntInput) SmbFileShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SmbFileShare {
+		return vs[0].([]SmbFileShare)[vs[1].(int)]
+	}).(SmbFileShareOutput)
+}
+
+type SmbFileShareMapOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SmbFileShare)(nil))
+}
+
+func (o SmbFileShareMapOutput) ToSmbFileShareMapOutput() SmbFileShareMapOutput {
+	return o
+}
+
+func (o SmbFileShareMapOutput) ToSmbFileShareMapOutputWithContext(ctx context.Context) SmbFileShareMapOutput {
+	return o
+}
+
+func (o SmbFileShareMapOutput) MapIndex(k pulumi.StringInput) SmbFileShareOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SmbFileShare {
+		return vs[0].(map[string]SmbFileShare)[vs[1].(string)]
+	}).(SmbFileShareOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SmbFileShareOutput{})
+	pulumi.RegisterOutputType(SmbFileSharePtrOutput{})
+	pulumi.RegisterOutputType(SmbFileShareArrayOutput{})
+	pulumi.RegisterOutputType(SmbFileShareMapOutput{})
 }

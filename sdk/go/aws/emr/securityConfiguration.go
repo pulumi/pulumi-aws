@@ -162,6 +162,85 @@ func (i *SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationOutput)
 }
 
+func (i *SecurityConfiguration) ToSecurityConfigurationPtrOutput() SecurityConfigurationPtrOutput {
+	return i.ToSecurityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *SecurityConfiguration) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationPtrOutput)
+}
+
+type SecurityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationPtrOutput() SecurityConfigurationPtrOutput
+	ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput
+}
+
+type securityConfigurationPtrType SecurityConfigurationArgs
+
+func (*securityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfiguration)(nil))
+}
+
+func (i *securityConfigurationPtrType) ToSecurityConfigurationPtrOutput() SecurityConfigurationPtrOutput {
+	return i.ToSecurityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationPtrType) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationPtrOutput)
+}
+
+// SecurityConfigurationArrayInput is an input type that accepts SecurityConfigurationArray and SecurityConfigurationArrayOutput values.
+// You can construct a concrete instance of `SecurityConfigurationArrayInput` via:
+//
+//          SecurityConfigurationArray{ SecurityConfigurationArgs{...} }
+type SecurityConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationArrayOutput() SecurityConfigurationArrayOutput
+	ToSecurityConfigurationArrayOutputWithContext(context.Context) SecurityConfigurationArrayOutput
+}
+
+type SecurityConfigurationArray []SecurityConfigurationInput
+
+func (SecurityConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecurityConfiguration)(nil))
+}
+
+func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutput() SecurityConfigurationArrayOutput {
+	return i.ToSecurityConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutputWithContext(ctx context.Context) SecurityConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationArrayOutput)
+}
+
+// SecurityConfigurationMapInput is an input type that accepts SecurityConfigurationMap and SecurityConfigurationMapOutput values.
+// You can construct a concrete instance of `SecurityConfigurationMapInput` via:
+//
+//          SecurityConfigurationMap{ "key": SecurityConfigurationArgs{...} }
+type SecurityConfigurationMapInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationMapOutput() SecurityConfigurationMapOutput
+	ToSecurityConfigurationMapOutputWithContext(context.Context) SecurityConfigurationMapOutput
+}
+
+type SecurityConfigurationMap map[string]SecurityConfigurationInput
+
+func (SecurityConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecurityConfiguration)(nil))
+}
+
+func (i SecurityConfigurationMap) ToSecurityConfigurationMapOutput() SecurityConfigurationMapOutput {
+	return i.ToSecurityConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationMap) ToSecurityConfigurationMapOutputWithContext(ctx context.Context) SecurityConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationMapOutput)
+}
+
 type SecurityConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -178,6 +257,75 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ct
 	return o
 }
 
+func (o SecurityConfigurationOutput) ToSecurityConfigurationPtrOutput() SecurityConfigurationPtrOutput {
+	return o.ToSecurityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationOutput) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfiguration) *SecurityConfiguration {
+		return &v
+	}).(SecurityConfigurationPtrOutput)
+}
+
+type SecurityConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfiguration)(nil))
+}
+
+func (o SecurityConfigurationPtrOutput) ToSecurityConfigurationPtrOutput() SecurityConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationPtrOutput) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
+	return o
+}
+
+type SecurityConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityConfiguration)(nil))
+}
+
+func (o SecurityConfigurationArrayOutput) ToSecurityConfigurationArrayOutput() SecurityConfigurationArrayOutput {
+	return o
+}
+
+func (o SecurityConfigurationArrayOutput) ToSecurityConfigurationArrayOutputWithContext(ctx context.Context) SecurityConfigurationArrayOutput {
+	return o
+}
+
+func (o SecurityConfigurationArrayOutput) Index(i pulumi.IntInput) SecurityConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityConfiguration {
+		return vs[0].([]SecurityConfiguration)[vs[1].(int)]
+	}).(SecurityConfigurationOutput)
+}
+
+type SecurityConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityConfiguration)(nil))
+}
+
+func (o SecurityConfigurationMapOutput) ToSecurityConfigurationMapOutput() SecurityConfigurationMapOutput {
+	return o
+}
+
+func (o SecurityConfigurationMapOutput) ToSecurityConfigurationMapOutputWithContext(ctx context.Context) SecurityConfigurationMapOutput {
+	return o
+}
+
+func (o SecurityConfigurationMapOutput) MapIndex(k pulumi.StringInput) SecurityConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityConfiguration {
+		return vs[0].(map[string]SecurityConfiguration)[vs[1].(string)]
+	}).(SecurityConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationMapOutput{})
 }

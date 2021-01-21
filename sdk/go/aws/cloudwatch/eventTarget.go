@@ -486,6 +486,85 @@ func (i *EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventT
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
 }
 
+func (i *EventTarget) ToEventTargetPtrOutput() EventTargetPtrOutput {
+	return i.ToEventTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *EventTarget) ToEventTargetPtrOutputWithContext(ctx context.Context) EventTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetPtrOutput)
+}
+
+type EventTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetPtrOutput() EventTargetPtrOutput
+	ToEventTargetPtrOutputWithContext(ctx context.Context) EventTargetPtrOutput
+}
+
+type eventTargetPtrType EventTargetArgs
+
+func (*eventTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTarget)(nil))
+}
+
+func (i *eventTargetPtrType) ToEventTargetPtrOutput() EventTargetPtrOutput {
+	return i.ToEventTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetPtrType) ToEventTargetPtrOutputWithContext(ctx context.Context) EventTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetPtrOutput)
+}
+
+// EventTargetArrayInput is an input type that accepts EventTargetArray and EventTargetArrayOutput values.
+// You can construct a concrete instance of `EventTargetArrayInput` via:
+//
+//          EventTargetArray{ EventTargetArgs{...} }
+type EventTargetArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetArrayOutput() EventTargetArrayOutput
+	ToEventTargetArrayOutputWithContext(context.Context) EventTargetArrayOutput
+}
+
+type EventTargetArray []EventTargetInput
+
+func (EventTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventTarget)(nil))
+}
+
+func (i EventTargetArray) ToEventTargetArrayOutput() EventTargetArrayOutput {
+	return i.ToEventTargetArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetArray) ToEventTargetArrayOutputWithContext(ctx context.Context) EventTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetArrayOutput)
+}
+
+// EventTargetMapInput is an input type that accepts EventTargetMap and EventTargetMapOutput values.
+// You can construct a concrete instance of `EventTargetMapInput` via:
+//
+//          EventTargetMap{ "key": EventTargetArgs{...} }
+type EventTargetMapInput interface {
+	pulumi.Input
+
+	ToEventTargetMapOutput() EventTargetMapOutput
+	ToEventTargetMapOutputWithContext(context.Context) EventTargetMapOutput
+}
+
+type EventTargetMap map[string]EventTargetInput
+
+func (EventTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventTarget)(nil))
+}
+
+func (i EventTargetMap) ToEventTargetMapOutput() EventTargetMapOutput {
+	return i.ToEventTargetMapOutputWithContext(context.Background())
+}
+
+func (i EventTargetMap) ToEventTargetMapOutputWithContext(ctx context.Context) EventTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetMapOutput)
+}
+
 type EventTargetOutput struct {
 	*pulumi.OutputState
 }
@@ -502,6 +581,75 @@ func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EventTargetOutput) ToEventTargetPtrOutput() EventTargetPtrOutput {
+	return o.ToEventTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetOutput) ToEventTargetPtrOutputWithContext(ctx context.Context) EventTargetPtrOutput {
+	return o.ApplyT(func(v EventTarget) *EventTarget {
+		return &v
+	}).(EventTargetPtrOutput)
+}
+
+type EventTargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTarget)(nil))
+}
+
+func (o EventTargetPtrOutput) ToEventTargetPtrOutput() EventTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetPtrOutput) ToEventTargetPtrOutputWithContext(ctx context.Context) EventTargetPtrOutput {
+	return o
+}
+
+type EventTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTarget)(nil))
+}
+
+func (o EventTargetArrayOutput) ToEventTargetArrayOutput() EventTargetArrayOutput {
+	return o
+}
+
+func (o EventTargetArrayOutput) ToEventTargetArrayOutputWithContext(ctx context.Context) EventTargetArrayOutput {
+	return o
+}
+
+func (o EventTargetArrayOutput) Index(i pulumi.IntInput) EventTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTarget {
+		return vs[0].([]EventTarget)[vs[1].(int)]
+	}).(EventTargetOutput)
+}
+
+type EventTargetMapOutput struct{ *pulumi.OutputState }
+
+func (EventTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventTarget)(nil))
+}
+
+func (o EventTargetMapOutput) ToEventTargetMapOutput() EventTargetMapOutput {
+	return o
+}
+
+func (o EventTargetMapOutput) ToEventTargetMapOutputWithContext(ctx context.Context) EventTargetMapOutput {
+	return o
+}
+
+func (o EventTargetMapOutput) MapIndex(k pulumi.StringInput) EventTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventTarget {
+		return vs[0].(map[string]EventTarget)[vs[1].(string)]
+	}).(EventTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetArrayOutput{})
+	pulumi.RegisterOutputType(EventTargetMapOutput{})
 }

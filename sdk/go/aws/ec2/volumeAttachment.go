@@ -241,6 +241,85 @@ func (i *VolumeAttachment) ToVolumeAttachmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentOutput)
 }
 
+func (i *VolumeAttachment) ToVolumeAttachmentPtrOutput() VolumeAttachmentPtrOutput {
+	return i.ToVolumeAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *VolumeAttachment) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentPtrOutput)
+}
+
+type VolumeAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToVolumeAttachmentPtrOutput() VolumeAttachmentPtrOutput
+	ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput
+}
+
+type volumeAttachmentPtrType VolumeAttachmentArgs
+
+func (*volumeAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAttachment)(nil))
+}
+
+func (i *volumeAttachmentPtrType) ToVolumeAttachmentPtrOutput() VolumeAttachmentPtrOutput {
+	return i.ToVolumeAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeAttachmentPtrType) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentPtrOutput)
+}
+
+// VolumeAttachmentArrayInput is an input type that accepts VolumeAttachmentArray and VolumeAttachmentArrayOutput values.
+// You can construct a concrete instance of `VolumeAttachmentArrayInput` via:
+//
+//          VolumeAttachmentArray{ VolumeAttachmentArgs{...} }
+type VolumeAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToVolumeAttachmentArrayOutput() VolumeAttachmentArrayOutput
+	ToVolumeAttachmentArrayOutputWithContext(context.Context) VolumeAttachmentArrayOutput
+}
+
+type VolumeAttachmentArray []VolumeAttachmentInput
+
+func (VolumeAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VolumeAttachment)(nil))
+}
+
+func (i VolumeAttachmentArray) ToVolumeAttachmentArrayOutput() VolumeAttachmentArrayOutput {
+	return i.ToVolumeAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeAttachmentArray) ToVolumeAttachmentArrayOutputWithContext(ctx context.Context) VolumeAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentArrayOutput)
+}
+
+// VolumeAttachmentMapInput is an input type that accepts VolumeAttachmentMap and VolumeAttachmentMapOutput values.
+// You can construct a concrete instance of `VolumeAttachmentMapInput` via:
+//
+//          VolumeAttachmentMap{ "key": VolumeAttachmentArgs{...} }
+type VolumeAttachmentMapInput interface {
+	pulumi.Input
+
+	ToVolumeAttachmentMapOutput() VolumeAttachmentMapOutput
+	ToVolumeAttachmentMapOutputWithContext(context.Context) VolumeAttachmentMapOutput
+}
+
+type VolumeAttachmentMap map[string]VolumeAttachmentInput
+
+func (VolumeAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VolumeAttachment)(nil))
+}
+
+func (i VolumeAttachmentMap) ToVolumeAttachmentMapOutput() VolumeAttachmentMapOutput {
+	return i.ToVolumeAttachmentMapOutputWithContext(context.Background())
+}
+
+func (i VolumeAttachmentMap) ToVolumeAttachmentMapOutputWithContext(ctx context.Context) VolumeAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentMapOutput)
+}
+
 type VolumeAttachmentOutput struct {
 	*pulumi.OutputState
 }
@@ -257,6 +336,75 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.
 	return o
 }
 
+func (o VolumeAttachmentOutput) ToVolumeAttachmentPtrOutput() VolumeAttachmentPtrOutput {
+	return o.ToVolumeAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeAttachmentOutput) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
+	return o.ApplyT(func(v VolumeAttachment) *VolumeAttachment {
+		return &v
+	}).(VolumeAttachmentPtrOutput)
+}
+
+type VolumeAttachmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VolumeAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAttachment)(nil))
+}
+
+func (o VolumeAttachmentPtrOutput) ToVolumeAttachmentPtrOutput() VolumeAttachmentPtrOutput {
+	return o
+}
+
+func (o VolumeAttachmentPtrOutput) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
+	return o
+}
+
+type VolumeAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeAttachment)(nil))
+}
+
+func (o VolumeAttachmentArrayOutput) ToVolumeAttachmentArrayOutput() VolumeAttachmentArrayOutput {
+	return o
+}
+
+func (o VolumeAttachmentArrayOutput) ToVolumeAttachmentArrayOutputWithContext(ctx context.Context) VolumeAttachmentArrayOutput {
+	return o
+}
+
+func (o VolumeAttachmentArrayOutput) Index(i pulumi.IntInput) VolumeAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeAttachment {
+		return vs[0].([]VolumeAttachment)[vs[1].(int)]
+	}).(VolumeAttachmentOutput)
+}
+
+type VolumeAttachmentMapOutput struct{ *pulumi.OutputState }
+
+func (VolumeAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VolumeAttachment)(nil))
+}
+
+func (o VolumeAttachmentMapOutput) ToVolumeAttachmentMapOutput() VolumeAttachmentMapOutput {
+	return o
+}
+
+func (o VolumeAttachmentMapOutput) ToVolumeAttachmentMapOutputWithContext(ctx context.Context) VolumeAttachmentMapOutput {
+	return o
+}
+
+func (o VolumeAttachmentMapOutput) MapIndex(k pulumi.StringInput) VolumeAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VolumeAttachment {
+		return vs[0].(map[string]VolumeAttachment)[vs[1].(string)]
+	}).(VolumeAttachmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeAttachmentOutput{})
+	pulumi.RegisterOutputType(VolumeAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(VolumeAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(VolumeAttachmentMapOutput{})
 }

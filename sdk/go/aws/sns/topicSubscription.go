@@ -463,6 +463,85 @@ func (i *TopicSubscription) ToTopicSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionOutput)
 }
 
+func (i *TopicSubscription) ToTopicSubscriptionPtrOutput() TopicSubscriptionPtrOutput {
+	return i.ToTopicSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *TopicSubscription) ToTopicSubscriptionPtrOutputWithContext(ctx context.Context) TopicSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionPtrOutput)
+}
+
+type TopicSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToTopicSubscriptionPtrOutput() TopicSubscriptionPtrOutput
+	ToTopicSubscriptionPtrOutputWithContext(ctx context.Context) TopicSubscriptionPtrOutput
+}
+
+type topicSubscriptionPtrType TopicSubscriptionArgs
+
+func (*topicSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicSubscription)(nil))
+}
+
+func (i *topicSubscriptionPtrType) ToTopicSubscriptionPtrOutput() TopicSubscriptionPtrOutput {
+	return i.ToTopicSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *topicSubscriptionPtrType) ToTopicSubscriptionPtrOutputWithContext(ctx context.Context) TopicSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionPtrOutput)
+}
+
+// TopicSubscriptionArrayInput is an input type that accepts TopicSubscriptionArray and TopicSubscriptionArrayOutput values.
+// You can construct a concrete instance of `TopicSubscriptionArrayInput` via:
+//
+//          TopicSubscriptionArray{ TopicSubscriptionArgs{...} }
+type TopicSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToTopicSubscriptionArrayOutput() TopicSubscriptionArrayOutput
+	ToTopicSubscriptionArrayOutputWithContext(context.Context) TopicSubscriptionArrayOutput
+}
+
+type TopicSubscriptionArray []TopicSubscriptionInput
+
+func (TopicSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TopicSubscription)(nil))
+}
+
+func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutput() TopicSubscriptionArrayOutput {
+	return i.ToTopicSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutputWithContext(ctx context.Context) TopicSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionArrayOutput)
+}
+
+// TopicSubscriptionMapInput is an input type that accepts TopicSubscriptionMap and TopicSubscriptionMapOutput values.
+// You can construct a concrete instance of `TopicSubscriptionMapInput` via:
+//
+//          TopicSubscriptionMap{ "key": TopicSubscriptionArgs{...} }
+type TopicSubscriptionMapInput interface {
+	pulumi.Input
+
+	ToTopicSubscriptionMapOutput() TopicSubscriptionMapOutput
+	ToTopicSubscriptionMapOutputWithContext(context.Context) TopicSubscriptionMapOutput
+}
+
+type TopicSubscriptionMap map[string]TopicSubscriptionInput
+
+func (TopicSubscriptionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TopicSubscription)(nil))
+}
+
+func (i TopicSubscriptionMap) ToTopicSubscriptionMapOutput() TopicSubscriptionMapOutput {
+	return i.ToTopicSubscriptionMapOutputWithContext(context.Background())
+}
+
+func (i TopicSubscriptionMap) ToTopicSubscriptionMapOutputWithContext(ctx context.Context) TopicSubscriptionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionMapOutput)
+}
+
 type TopicSubscriptionOutput struct {
 	*pulumi.OutputState
 }
@@ -479,6 +558,75 @@ func (o TopicSubscriptionOutput) ToTopicSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+func (o TopicSubscriptionOutput) ToTopicSubscriptionPtrOutput() TopicSubscriptionPtrOutput {
+	return o.ToTopicSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicSubscriptionOutput) ToTopicSubscriptionPtrOutputWithContext(ctx context.Context) TopicSubscriptionPtrOutput {
+	return o.ApplyT(func(v TopicSubscription) *TopicSubscription {
+		return &v
+	}).(TopicSubscriptionPtrOutput)
+}
+
+type TopicSubscriptionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicSubscription)(nil))
+}
+
+func (o TopicSubscriptionPtrOutput) ToTopicSubscriptionPtrOutput() TopicSubscriptionPtrOutput {
+	return o
+}
+
+func (o TopicSubscriptionPtrOutput) ToTopicSubscriptionPtrOutputWithContext(ctx context.Context) TopicSubscriptionPtrOutput {
+	return o
+}
+
+type TopicSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicSubscription)(nil))
+}
+
+func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutput() TopicSubscriptionArrayOutput {
+	return o
+}
+
+func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutputWithContext(ctx context.Context) TopicSubscriptionArrayOutput {
+	return o
+}
+
+func (o TopicSubscriptionArrayOutput) Index(i pulumi.IntInput) TopicSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicSubscription {
+		return vs[0].([]TopicSubscription)[vs[1].(int)]
+	}).(TopicSubscriptionOutput)
+}
+
+type TopicSubscriptionMapOutput struct{ *pulumi.OutputState }
+
+func (TopicSubscriptionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TopicSubscription)(nil))
+}
+
+func (o TopicSubscriptionMapOutput) ToTopicSubscriptionMapOutput() TopicSubscriptionMapOutput {
+	return o
+}
+
+func (o TopicSubscriptionMapOutput) ToTopicSubscriptionMapOutputWithContext(ctx context.Context) TopicSubscriptionMapOutput {
+	return o
+}
+
+func (o TopicSubscriptionMapOutput) MapIndex(k pulumi.StringInput) TopicSubscriptionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TopicSubscription {
+		return vs[0].(map[string]TopicSubscription)[vs[1].(string)]
+	}).(TopicSubscriptionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TopicSubscriptionOutput{})
+	pulumi.RegisterOutputType(TopicSubscriptionPtrOutput{})
+	pulumi.RegisterOutputType(TopicSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(TopicSubscriptionMapOutput{})
 }

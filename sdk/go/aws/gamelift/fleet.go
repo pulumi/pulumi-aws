@@ -263,6 +263,85 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
 }
 
+func (i *Fleet) ToFleetPtrOutput() FleetPtrOutput {
+	return i.ToFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *Fleet) ToFleetPtrOutputWithContext(ctx context.Context) FleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPtrOutput)
+}
+
+type FleetPtrInput interface {
+	pulumi.Input
+
+	ToFleetPtrOutput() FleetPtrOutput
+	ToFleetPtrOutputWithContext(ctx context.Context) FleetPtrOutput
+}
+
+type fleetPtrType FleetArgs
+
+func (*fleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Fleet)(nil))
+}
+
+func (i *fleetPtrType) ToFleetPtrOutput() FleetPtrOutput {
+	return i.ToFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetPtrType) ToFleetPtrOutputWithContext(ctx context.Context) FleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPtrOutput)
+}
+
+// FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
+// You can construct a concrete instance of `FleetArrayInput` via:
+//
+//          FleetArray{ FleetArgs{...} }
+type FleetArrayInput interface {
+	pulumi.Input
+
+	ToFleetArrayOutput() FleetArrayOutput
+	ToFleetArrayOutputWithContext(context.Context) FleetArrayOutput
+}
+
+type FleetArray []FleetInput
+
+func (FleetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Fleet)(nil))
+}
+
+func (i FleetArray) ToFleetArrayOutput() FleetArrayOutput {
+	return i.ToFleetArrayOutputWithContext(context.Background())
+}
+
+func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetArrayOutput)
+}
+
+// FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
+// You can construct a concrete instance of `FleetMapInput` via:
+//
+//          FleetMap{ "key": FleetArgs{...} }
+type FleetMapInput interface {
+	pulumi.Input
+
+	ToFleetMapOutput() FleetMapOutput
+	ToFleetMapOutputWithContext(context.Context) FleetMapOutput
+}
+
+type FleetMap map[string]FleetInput
+
+func (FleetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Fleet)(nil))
+}
+
+func (i FleetMap) ToFleetMapOutput() FleetMapOutput {
+	return i.ToFleetMapOutputWithContext(context.Background())
+}
+
+func (i FleetMap) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMapOutput)
+}
+
 type FleetOutput struct {
 	*pulumi.OutputState
 }
@@ -279,6 +358,75 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+func (o FleetOutput) ToFleetPtrOutput() FleetPtrOutput {
+	return o.ToFleetPtrOutputWithContext(context.Background())
+}
+
+func (o FleetOutput) ToFleetPtrOutputWithContext(ctx context.Context) FleetPtrOutput {
+	return o.ApplyT(func(v Fleet) *Fleet {
+		return &v
+	}).(FleetPtrOutput)
+}
+
+type FleetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Fleet)(nil))
+}
+
+func (o FleetPtrOutput) ToFleetPtrOutput() FleetPtrOutput {
+	return o
+}
+
+func (o FleetPtrOutput) ToFleetPtrOutputWithContext(ctx context.Context) FleetPtrOutput {
+	return o
+}
+
+type FleetArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Fleet)(nil))
+}
+
+func (o FleetArrayOutput) ToFleetArrayOutput() FleetArrayOutput {
+	return o
+}
+
+func (o FleetArrayOutput) ToFleetArrayOutputWithContext(ctx context.Context) FleetArrayOutput {
+	return o
+}
+
+func (o FleetArrayOutput) Index(i pulumi.IntInput) FleetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Fleet {
+		return vs[0].([]Fleet)[vs[1].(int)]
+	}).(FleetOutput)
+}
+
+type FleetMapOutput struct{ *pulumi.OutputState }
+
+func (FleetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Fleet)(nil))
+}
+
+func (o FleetMapOutput) ToFleetMapOutput() FleetMapOutput {
+	return o
+}
+
+func (o FleetMapOutput) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutput {
+	return o
+}
+
+func (o FleetMapOutput) MapIndex(k pulumi.StringInput) FleetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Fleet {
+		return vs[0].(map[string]Fleet)[vs[1].(string)]
+	}).(FleetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FleetOutput{})
+	pulumi.RegisterOutputType(FleetPtrOutput{})
+	pulumi.RegisterOutputType(FleetArrayOutput{})
+	pulumi.RegisterOutputType(FleetMapOutput{})
 }

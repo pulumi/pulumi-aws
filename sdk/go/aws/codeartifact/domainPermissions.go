@@ -187,6 +187,85 @@ func (i *DomainPermissions) ToDomainPermissionsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsOutput)
 }
 
+func (i *DomainPermissions) ToDomainPermissionsPtrOutput() DomainPermissionsPtrOutput {
+	return i.ToDomainPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *DomainPermissions) ToDomainPermissionsPtrOutputWithContext(ctx context.Context) DomainPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsPtrOutput)
+}
+
+type DomainPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainPermissionsPtrOutput() DomainPermissionsPtrOutput
+	ToDomainPermissionsPtrOutputWithContext(ctx context.Context) DomainPermissionsPtrOutput
+}
+
+type domainPermissionsPtrType DomainPermissionsArgs
+
+func (*domainPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainPermissions)(nil))
+}
+
+func (i *domainPermissionsPtrType) ToDomainPermissionsPtrOutput() DomainPermissionsPtrOutput {
+	return i.ToDomainPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainPermissionsPtrType) ToDomainPermissionsPtrOutputWithContext(ctx context.Context) DomainPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsPtrOutput)
+}
+
+// DomainPermissionsArrayInput is an input type that accepts DomainPermissionsArray and DomainPermissionsArrayOutput values.
+// You can construct a concrete instance of `DomainPermissionsArrayInput` via:
+//
+//          DomainPermissionsArray{ DomainPermissionsArgs{...} }
+type DomainPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToDomainPermissionsArrayOutput() DomainPermissionsArrayOutput
+	ToDomainPermissionsArrayOutputWithContext(context.Context) DomainPermissionsArrayOutput
+}
+
+type DomainPermissionsArray []DomainPermissionsInput
+
+func (DomainPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DomainPermissions)(nil))
+}
+
+func (i DomainPermissionsArray) ToDomainPermissionsArrayOutput() DomainPermissionsArrayOutput {
+	return i.ToDomainPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i DomainPermissionsArray) ToDomainPermissionsArrayOutputWithContext(ctx context.Context) DomainPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsArrayOutput)
+}
+
+// DomainPermissionsMapInput is an input type that accepts DomainPermissionsMap and DomainPermissionsMapOutput values.
+// You can construct a concrete instance of `DomainPermissionsMapInput` via:
+//
+//          DomainPermissionsMap{ "key": DomainPermissionsArgs{...} }
+type DomainPermissionsMapInput interface {
+	pulumi.Input
+
+	ToDomainPermissionsMapOutput() DomainPermissionsMapOutput
+	ToDomainPermissionsMapOutputWithContext(context.Context) DomainPermissionsMapOutput
+}
+
+type DomainPermissionsMap map[string]DomainPermissionsInput
+
+func (DomainPermissionsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DomainPermissions)(nil))
+}
+
+func (i DomainPermissionsMap) ToDomainPermissionsMapOutput() DomainPermissionsMapOutput {
+	return i.ToDomainPermissionsMapOutputWithContext(context.Background())
+}
+
+func (i DomainPermissionsMap) ToDomainPermissionsMapOutputWithContext(ctx context.Context) DomainPermissionsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsMapOutput)
+}
+
 type DomainPermissionsOutput struct {
 	*pulumi.OutputState
 }
@@ -203,6 +282,75 @@ func (o DomainPermissionsOutput) ToDomainPermissionsOutputWithContext(ctx contex
 	return o
 }
 
+func (o DomainPermissionsOutput) ToDomainPermissionsPtrOutput() DomainPermissionsPtrOutput {
+	return o.ToDomainPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainPermissionsOutput) ToDomainPermissionsPtrOutputWithContext(ctx context.Context) DomainPermissionsPtrOutput {
+	return o.ApplyT(func(v DomainPermissions) *DomainPermissions {
+		return &v
+	}).(DomainPermissionsPtrOutput)
+}
+
+type DomainPermissionsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainPermissions)(nil))
+}
+
+func (o DomainPermissionsPtrOutput) ToDomainPermissionsPtrOutput() DomainPermissionsPtrOutput {
+	return o
+}
+
+func (o DomainPermissionsPtrOutput) ToDomainPermissionsPtrOutputWithContext(ctx context.Context) DomainPermissionsPtrOutput {
+	return o
+}
+
+type DomainPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainPermissions)(nil))
+}
+
+func (o DomainPermissionsArrayOutput) ToDomainPermissionsArrayOutput() DomainPermissionsArrayOutput {
+	return o
+}
+
+func (o DomainPermissionsArrayOutput) ToDomainPermissionsArrayOutputWithContext(ctx context.Context) DomainPermissionsArrayOutput {
+	return o
+}
+
+func (o DomainPermissionsArrayOutput) Index(i pulumi.IntInput) DomainPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainPermissions {
+		return vs[0].([]DomainPermissions)[vs[1].(int)]
+	}).(DomainPermissionsOutput)
+}
+
+type DomainPermissionsMapOutput struct{ *pulumi.OutputState }
+
+func (DomainPermissionsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainPermissions)(nil))
+}
+
+func (o DomainPermissionsMapOutput) ToDomainPermissionsMapOutput() DomainPermissionsMapOutput {
+	return o
+}
+
+func (o DomainPermissionsMapOutput) ToDomainPermissionsMapOutputWithContext(ctx context.Context) DomainPermissionsMapOutput {
+	return o
+}
+
+func (o DomainPermissionsMapOutput) MapIndex(k pulumi.StringInput) DomainPermissionsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainPermissions {
+		return vs[0].(map[string]DomainPermissions)[vs[1].(string)]
+	}).(DomainPermissionsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainPermissionsOutput{})
+	pulumi.RegisterOutputType(DomainPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainPermissionsArrayOutput{})
+	pulumi.RegisterOutputType(DomainPermissionsMapOutput{})
 }

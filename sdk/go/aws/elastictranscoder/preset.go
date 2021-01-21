@@ -272,6 +272,85 @@ func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
 }
 
+func (i *Preset) ToPresetPtrOutput() PresetPtrOutput {
+	return i.ToPresetPtrOutputWithContext(context.Background())
+}
+
+func (i *Preset) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetPtrOutput)
+}
+
+type PresetPtrInput interface {
+	pulumi.Input
+
+	ToPresetPtrOutput() PresetPtrOutput
+	ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput
+}
+
+type presetPtrType PresetArgs
+
+func (*presetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Preset)(nil))
+}
+
+func (i *presetPtrType) ToPresetPtrOutput() PresetPtrOutput {
+	return i.ToPresetPtrOutputWithContext(context.Background())
+}
+
+func (i *presetPtrType) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetPtrOutput)
+}
+
+// PresetArrayInput is an input type that accepts PresetArray and PresetArrayOutput values.
+// You can construct a concrete instance of `PresetArrayInput` via:
+//
+//          PresetArray{ PresetArgs{...} }
+type PresetArrayInput interface {
+	pulumi.Input
+
+	ToPresetArrayOutput() PresetArrayOutput
+	ToPresetArrayOutputWithContext(context.Context) PresetArrayOutput
+}
+
+type PresetArray []PresetInput
+
+func (PresetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Preset)(nil))
+}
+
+func (i PresetArray) ToPresetArrayOutput() PresetArrayOutput {
+	return i.ToPresetArrayOutputWithContext(context.Background())
+}
+
+func (i PresetArray) ToPresetArrayOutputWithContext(ctx context.Context) PresetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetArrayOutput)
+}
+
+// PresetMapInput is an input type that accepts PresetMap and PresetMapOutput values.
+// You can construct a concrete instance of `PresetMapInput` via:
+//
+//          PresetMap{ "key": PresetArgs{...} }
+type PresetMapInput interface {
+	pulumi.Input
+
+	ToPresetMapOutput() PresetMapOutput
+	ToPresetMapOutputWithContext(context.Context) PresetMapOutput
+}
+
+type PresetMap map[string]PresetInput
+
+func (PresetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Preset)(nil))
+}
+
+func (i PresetMap) ToPresetMapOutput() PresetMapOutput {
+	return i.ToPresetMapOutputWithContext(context.Background())
+}
+
+func (i PresetMap) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetMapOutput)
+}
+
 type PresetOutput struct {
 	*pulumi.OutputState
 }
@@ -288,6 +367,75 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 	return o
 }
 
+func (o PresetOutput) ToPresetPtrOutput() PresetPtrOutput {
+	return o.ToPresetPtrOutputWithContext(context.Background())
+}
+
+func (o PresetOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
+	return o.ApplyT(func(v Preset) *Preset {
+		return &v
+	}).(PresetPtrOutput)
+}
+
+type PresetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PresetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Preset)(nil))
+}
+
+func (o PresetPtrOutput) ToPresetPtrOutput() PresetPtrOutput {
+	return o
+}
+
+func (o PresetPtrOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
+	return o
+}
+
+type PresetArrayOutput struct{ *pulumi.OutputState }
+
+func (PresetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Preset)(nil))
+}
+
+func (o PresetArrayOutput) ToPresetArrayOutput() PresetArrayOutput {
+	return o
+}
+
+func (o PresetArrayOutput) ToPresetArrayOutputWithContext(ctx context.Context) PresetArrayOutput {
+	return o
+}
+
+func (o PresetArrayOutput) Index(i pulumi.IntInput) PresetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Preset {
+		return vs[0].([]Preset)[vs[1].(int)]
+	}).(PresetOutput)
+}
+
+type PresetMapOutput struct{ *pulumi.OutputState }
+
+func (PresetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Preset)(nil))
+}
+
+func (o PresetMapOutput) ToPresetMapOutput() PresetMapOutput {
+	return o
+}
+
+func (o PresetMapOutput) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOutput {
+	return o
+}
+
+func (o PresetMapOutput) MapIndex(k pulumi.StringInput) PresetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Preset {
+		return vs[0].(map[string]Preset)[vs[1].(string)]
+	}).(PresetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PresetOutput{})
+	pulumi.RegisterOutputType(PresetPtrOutput{})
+	pulumi.RegisterOutputType(PresetArrayOutput{})
+	pulumi.RegisterOutputType(PresetMapOutput{})
 }

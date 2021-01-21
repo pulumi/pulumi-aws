@@ -415,6 +415,85 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
 }
 
+func (i *DomainName) ToDomainNamePtrOutput() DomainNamePtrOutput {
+	return i.ToDomainNamePtrOutputWithContext(context.Background())
+}
+
+func (i *DomainName) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNamePtrOutput)
+}
+
+type DomainNamePtrInput interface {
+	pulumi.Input
+
+	ToDomainNamePtrOutput() DomainNamePtrOutput
+	ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput
+}
+
+type domainNamePtrType DomainNameArgs
+
+func (*domainNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainName)(nil))
+}
+
+func (i *domainNamePtrType) ToDomainNamePtrOutput() DomainNamePtrOutput {
+	return i.ToDomainNamePtrOutputWithContext(context.Background())
+}
+
+func (i *domainNamePtrType) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNamePtrOutput)
+}
+
+// DomainNameArrayInput is an input type that accepts DomainNameArray and DomainNameArrayOutput values.
+// You can construct a concrete instance of `DomainNameArrayInput` via:
+//
+//          DomainNameArray{ DomainNameArgs{...} }
+type DomainNameArrayInput interface {
+	pulumi.Input
+
+	ToDomainNameArrayOutput() DomainNameArrayOutput
+	ToDomainNameArrayOutputWithContext(context.Context) DomainNameArrayOutput
+}
+
+type DomainNameArray []DomainNameInput
+
+func (DomainNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DomainName)(nil))
+}
+
+func (i DomainNameArray) ToDomainNameArrayOutput() DomainNameArrayOutput {
+	return i.ToDomainNameArrayOutputWithContext(context.Background())
+}
+
+func (i DomainNameArray) ToDomainNameArrayOutputWithContext(ctx context.Context) DomainNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameArrayOutput)
+}
+
+// DomainNameMapInput is an input type that accepts DomainNameMap and DomainNameMapOutput values.
+// You can construct a concrete instance of `DomainNameMapInput` via:
+//
+//          DomainNameMap{ "key": DomainNameArgs{...} }
+type DomainNameMapInput interface {
+	pulumi.Input
+
+	ToDomainNameMapOutput() DomainNameMapOutput
+	ToDomainNameMapOutputWithContext(context.Context) DomainNameMapOutput
+}
+
+type DomainNameMap map[string]DomainNameInput
+
+func (DomainNameMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DomainName)(nil))
+}
+
+func (i DomainNameMap) ToDomainNameMapOutput() DomainNameMapOutput {
+	return i.ToDomainNameMapOutputWithContext(context.Background())
+}
+
+func (i DomainNameMap) ToDomainNameMapOutputWithContext(ctx context.Context) DomainNameMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMapOutput)
+}
+
 type DomainNameOutput struct {
 	*pulumi.OutputState
 }
@@ -431,6 +510,75 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
+func (o DomainNameOutput) ToDomainNamePtrOutput() DomainNamePtrOutput {
+	return o.ToDomainNamePtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameOutput) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
+	return o.ApplyT(func(v DomainName) *DomainName {
+		return &v
+	}).(DomainNamePtrOutput)
+}
+
+type DomainNamePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainName)(nil))
+}
+
+func (o DomainNamePtrOutput) ToDomainNamePtrOutput() DomainNamePtrOutput {
+	return o
+}
+
+func (o DomainNamePtrOutput) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
+	return o
+}
+
+type DomainNameArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainName)(nil))
+}
+
+func (o DomainNameArrayOutput) ToDomainNameArrayOutput() DomainNameArrayOutput {
+	return o
+}
+
+func (o DomainNameArrayOutput) ToDomainNameArrayOutputWithContext(ctx context.Context) DomainNameArrayOutput {
+	return o
+}
+
+func (o DomainNameArrayOutput) Index(i pulumi.IntInput) DomainNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainName {
+		return vs[0].([]DomainName)[vs[1].(int)]
+	}).(DomainNameOutput)
+}
+
+type DomainNameMapOutput struct{ *pulumi.OutputState }
+
+func (DomainNameMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainName)(nil))
+}
+
+func (o DomainNameMapOutput) ToDomainNameMapOutput() DomainNameMapOutput {
+	return o
+}
+
+func (o DomainNameMapOutput) ToDomainNameMapOutputWithContext(ctx context.Context) DomainNameMapOutput {
+	return o
+}
+
+func (o DomainNameMapOutput) MapIndex(k pulumi.StringInput) DomainNameOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainName {
+		return vs[0].(map[string]DomainName)[vs[1].(string)]
+	}).(DomainNameOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainNameOutput{})
+	pulumi.RegisterOutputType(DomainNamePtrOutput{})
+	pulumi.RegisterOutputType(DomainNameArrayOutput{})
+	pulumi.RegisterOutputType(DomainNameMapOutput{})
 }

@@ -223,6 +223,85 @@ func (i *Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionO
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionOutput)
 }
 
+func (i *Selection) ToSelectionPtrOutput() SelectionPtrOutput {
+	return i.ToSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *Selection) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionPtrOutput)
+}
+
+type SelectionPtrInput interface {
+	pulumi.Input
+
+	ToSelectionPtrOutput() SelectionPtrOutput
+	ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput
+}
+
+type selectionPtrType SelectionArgs
+
+func (*selectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Selection)(nil))
+}
+
+func (i *selectionPtrType) ToSelectionPtrOutput() SelectionPtrOutput {
+	return i.ToSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *selectionPtrType) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionPtrOutput)
+}
+
+// SelectionArrayInput is an input type that accepts SelectionArray and SelectionArrayOutput values.
+// You can construct a concrete instance of `SelectionArrayInput` via:
+//
+//          SelectionArray{ SelectionArgs{...} }
+type SelectionArrayInput interface {
+	pulumi.Input
+
+	ToSelectionArrayOutput() SelectionArrayOutput
+	ToSelectionArrayOutputWithContext(context.Context) SelectionArrayOutput
+}
+
+type SelectionArray []SelectionInput
+
+func (SelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Selection)(nil))
+}
+
+func (i SelectionArray) ToSelectionArrayOutput() SelectionArrayOutput {
+	return i.ToSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionArray) ToSelectionArrayOutputWithContext(ctx context.Context) SelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionArrayOutput)
+}
+
+// SelectionMapInput is an input type that accepts SelectionMap and SelectionMapOutput values.
+// You can construct a concrete instance of `SelectionMapInput` via:
+//
+//          SelectionMap{ "key": SelectionArgs{...} }
+type SelectionMapInput interface {
+	pulumi.Input
+
+	ToSelectionMapOutput() SelectionMapOutput
+	ToSelectionMapOutputWithContext(context.Context) SelectionMapOutput
+}
+
+type SelectionMap map[string]SelectionInput
+
+func (SelectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Selection)(nil))
+}
+
+func (i SelectionMap) ToSelectionMapOutput() SelectionMapOutput {
+	return i.ToSelectionMapOutputWithContext(context.Background())
+}
+
+func (i SelectionMap) ToSelectionMapOutputWithContext(ctx context.Context) SelectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionMapOutput)
+}
+
 type SelectionOutput struct {
 	*pulumi.OutputState
 }
@@ -239,6 +318,75 @@ func (o SelectionOutput) ToSelectionOutputWithContext(ctx context.Context) Selec
 	return o
 }
 
+func (o SelectionOutput) ToSelectionPtrOutput() SelectionPtrOutput {
+	return o.ToSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o SelectionOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
+	return o.ApplyT(func(v Selection) *Selection {
+		return &v
+	}).(SelectionPtrOutput)
+}
+
+type SelectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Selection)(nil))
+}
+
+func (o SelectionPtrOutput) ToSelectionPtrOutput() SelectionPtrOutput {
+	return o
+}
+
+func (o SelectionPtrOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
+	return o
+}
+
+type SelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Selection)(nil))
+}
+
+func (o SelectionArrayOutput) ToSelectionArrayOutput() SelectionArrayOutput {
+	return o
+}
+
+func (o SelectionArrayOutput) ToSelectionArrayOutputWithContext(ctx context.Context) SelectionArrayOutput {
+	return o
+}
+
+func (o SelectionArrayOutput) Index(i pulumi.IntInput) SelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Selection {
+		return vs[0].([]Selection)[vs[1].(int)]
+	}).(SelectionOutput)
+}
+
+type SelectionMapOutput struct{ *pulumi.OutputState }
+
+func (SelectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Selection)(nil))
+}
+
+func (o SelectionMapOutput) ToSelectionMapOutput() SelectionMapOutput {
+	return o
+}
+
+func (o SelectionMapOutput) ToSelectionMapOutputWithContext(ctx context.Context) SelectionMapOutput {
+	return o
+}
+
+func (o SelectionMapOutput) MapIndex(k pulumi.StringInput) SelectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Selection {
+		return vs[0].(map[string]Selection)[vs[1].(string)]
+	}).(SelectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SelectionOutput{})
+	pulumi.RegisterOutputType(SelectionPtrOutput{})
+	pulumi.RegisterOutputType(SelectionArrayOutput{})
+	pulumi.RegisterOutputType(SelectionMapOutput{})
 }

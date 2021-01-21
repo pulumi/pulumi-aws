@@ -168,6 +168,85 @@ func (i *AccountAssignment) ToAccountAssignmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentOutput)
 }
 
+func (i *AccountAssignment) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
+	return i.ToAccountAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *AccountAssignment) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentPtrOutput)
+}
+
+type AccountAssignmentPtrInput interface {
+	pulumi.Input
+
+	ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput
+	ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput
+}
+
+type accountAssignmentPtrType AccountAssignmentArgs
+
+func (*accountAssignmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAssignment)(nil))
+}
+
+func (i *accountAssignmentPtrType) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
+	return i.ToAccountAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAssignmentPtrType) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentPtrOutput)
+}
+
+// AccountAssignmentArrayInput is an input type that accepts AccountAssignmentArray and AccountAssignmentArrayOutput values.
+// You can construct a concrete instance of `AccountAssignmentArrayInput` via:
+//
+//          AccountAssignmentArray{ AccountAssignmentArgs{...} }
+type AccountAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToAccountAssignmentArrayOutput() AccountAssignmentArrayOutput
+	ToAccountAssignmentArrayOutputWithContext(context.Context) AccountAssignmentArrayOutput
+}
+
+type AccountAssignmentArray []AccountAssignmentInput
+
+func (AccountAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AccountAssignment)(nil))
+}
+
+func (i AccountAssignmentArray) ToAccountAssignmentArrayOutput() AccountAssignmentArrayOutput {
+	return i.ToAccountAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i AccountAssignmentArray) ToAccountAssignmentArrayOutputWithContext(ctx context.Context) AccountAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentArrayOutput)
+}
+
+// AccountAssignmentMapInput is an input type that accepts AccountAssignmentMap and AccountAssignmentMapOutput values.
+// You can construct a concrete instance of `AccountAssignmentMapInput` via:
+//
+//          AccountAssignmentMap{ "key": AccountAssignmentArgs{...} }
+type AccountAssignmentMapInput interface {
+	pulumi.Input
+
+	ToAccountAssignmentMapOutput() AccountAssignmentMapOutput
+	ToAccountAssignmentMapOutputWithContext(context.Context) AccountAssignmentMapOutput
+}
+
+type AccountAssignmentMap map[string]AccountAssignmentInput
+
+func (AccountAssignmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AccountAssignment)(nil))
+}
+
+func (i AccountAssignmentMap) ToAccountAssignmentMapOutput() AccountAssignmentMapOutput {
+	return i.ToAccountAssignmentMapOutputWithContext(context.Background())
+}
+
+func (i AccountAssignmentMap) ToAccountAssignmentMapOutputWithContext(ctx context.Context) AccountAssignmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentMapOutput)
+}
+
 type AccountAssignmentOutput struct {
 	*pulumi.OutputState
 }
@@ -184,6 +263,75 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx contex
 	return o
 }
 
+func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
+	return o.ToAccountAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
+	return o.ApplyT(func(v AccountAssignment) *AccountAssignment {
+		return &v
+	}).(AccountAssignmentPtrOutput)
+}
+
+type AccountAssignmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountAssignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAssignment)(nil))
+}
+
+func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
+	return o
+}
+
+func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
+	return o
+}
+
+type AccountAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountAssignment)(nil))
+}
+
+func (o AccountAssignmentArrayOutput) ToAccountAssignmentArrayOutput() AccountAssignmentArrayOutput {
+	return o
+}
+
+func (o AccountAssignmentArrayOutput) ToAccountAssignmentArrayOutputWithContext(ctx context.Context) AccountAssignmentArrayOutput {
+	return o
+}
+
+func (o AccountAssignmentArrayOutput) Index(i pulumi.IntInput) AccountAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountAssignment {
+		return vs[0].([]AccountAssignment)[vs[1].(int)]
+	}).(AccountAssignmentOutput)
+}
+
+type AccountAssignmentMapOutput struct{ *pulumi.OutputState }
+
+func (AccountAssignmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AccountAssignment)(nil))
+}
+
+func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutput() AccountAssignmentMapOutput {
+	return o
+}
+
+func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutputWithContext(ctx context.Context) AccountAssignmentMapOutput {
+	return o
+}
+
+func (o AccountAssignmentMapOutput) MapIndex(k pulumi.StringInput) AccountAssignmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountAssignment {
+		return vs[0].(map[string]AccountAssignment)[vs[1].(string)]
+	}).(AccountAssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountAssignmentOutput{})
+	pulumi.RegisterOutputType(AccountAssignmentPtrOutput{})
+	pulumi.RegisterOutputType(AccountAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(AccountAssignmentMapOutput{})
 }

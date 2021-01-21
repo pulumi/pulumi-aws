@@ -193,6 +193,85 @@ func (i *HostedTransitVirtualInterfaceAcceptor) ToHostedTransitVirtualInterfaceA
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorOutput)
 }
 
+func (i *HostedTransitVirtualInterfaceAcceptor) ToHostedTransitVirtualInterfaceAcceptorPtrOutput() HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return i.ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(context.Background())
+}
+
+func (i *HostedTransitVirtualInterfaceAcceptor) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorPtrOutput)
+}
+
+type HostedTransitVirtualInterfaceAcceptorPtrInput interface {
+	pulumi.Input
+
+	ToHostedTransitVirtualInterfaceAcceptorPtrOutput() HostedTransitVirtualInterfaceAcceptorPtrOutput
+	ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput
+}
+
+type hostedTransitVirtualInterfaceAcceptorPtrType HostedTransitVirtualInterfaceAcceptorArgs
+
+func (*hostedTransitVirtualInterfaceAcceptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (i *hostedTransitVirtualInterfaceAcceptorPtrType) ToHostedTransitVirtualInterfaceAcceptorPtrOutput() HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return i.ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(context.Background())
+}
+
+func (i *hostedTransitVirtualInterfaceAcceptorPtrType) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorPtrOutput)
+}
+
+// HostedTransitVirtualInterfaceAcceptorArrayInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorArray and HostedTransitVirtualInterfaceAcceptorArrayOutput values.
+// You can construct a concrete instance of `HostedTransitVirtualInterfaceAcceptorArrayInput` via:
+//
+//          HostedTransitVirtualInterfaceAcceptorArray{ HostedTransitVirtualInterfaceAcceptorArgs{...} }
+type HostedTransitVirtualInterfaceAcceptorArrayInput interface {
+	pulumi.Input
+
+	ToHostedTransitVirtualInterfaceAcceptorArrayOutput() HostedTransitVirtualInterfaceAcceptorArrayOutput
+	ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(context.Context) HostedTransitVirtualInterfaceAcceptorArrayOutput
+}
+
+type HostedTransitVirtualInterfaceAcceptorArray []HostedTransitVirtualInterfaceAcceptorInput
+
+func (HostedTransitVirtualInterfaceAcceptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterfaceAcceptorArrayOutput() HostedTransitVirtualInterfaceAcceptorArrayOutput {
+	return i.ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(context.Background())
+}
+
+func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorArrayOutput)
+}
+
+// HostedTransitVirtualInterfaceAcceptorMapInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorMap and HostedTransitVirtualInterfaceAcceptorMapOutput values.
+// You can construct a concrete instance of `HostedTransitVirtualInterfaceAcceptorMapInput` via:
+//
+//          HostedTransitVirtualInterfaceAcceptorMap{ "key": HostedTransitVirtualInterfaceAcceptorArgs{...} }
+type HostedTransitVirtualInterfaceAcceptorMapInput interface {
+	pulumi.Input
+
+	ToHostedTransitVirtualInterfaceAcceptorMapOutput() HostedTransitVirtualInterfaceAcceptorMapOutput
+	ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(context.Context) HostedTransitVirtualInterfaceAcceptorMapOutput
+}
+
+type HostedTransitVirtualInterfaceAcceptorMap map[string]HostedTransitVirtualInterfaceAcceptorInput
+
+func (HostedTransitVirtualInterfaceAcceptorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (i HostedTransitVirtualInterfaceAcceptorMap) ToHostedTransitVirtualInterfaceAcceptorMapOutput() HostedTransitVirtualInterfaceAcceptorMapOutput {
+	return i.ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(context.Background())
+}
+
+func (i HostedTransitVirtualInterfaceAcceptorMap) ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorMapOutput)
+}
+
 type HostedTransitVirtualInterfaceAcceptorOutput struct {
 	*pulumi.OutputState
 }
@@ -209,6 +288,75 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInter
 	return o
 }
 
+func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutput() HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return o.ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(context.Background())
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return o.ApplyT(func(v HostedTransitVirtualInterfaceAcceptor) *HostedTransitVirtualInterfaceAcceptor {
+		return &v
+	}).(HostedTransitVirtualInterfaceAcceptorPtrOutput)
+}
+
+type HostedTransitVirtualInterfaceAcceptorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedTransitVirtualInterfaceAcceptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorPtrOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutput() HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorPtrOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
+	return o
+}
+
+type HostedTransitVirtualInterfaceAcceptorArrayOutput struct{ *pulumi.OutputState }
+
+func (HostedTransitVirtualInterfaceAcceptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) ToHostedTransitVirtualInterfaceAcceptorArrayOutput() HostedTransitVirtualInterfaceAcceptorArrayOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorArrayOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) Index(i pulumi.IntInput) HostedTransitVirtualInterfaceAcceptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedTransitVirtualInterfaceAcceptor {
+		return vs[0].([]HostedTransitVirtualInterfaceAcceptor)[vs[1].(int)]
+	}).(HostedTransitVirtualInterfaceAcceptorOutput)
+}
+
+type HostedTransitVirtualInterfaceAcceptorMapOutput struct{ *pulumi.OutputState }
+
+func (HostedTransitVirtualInterfaceAcceptorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HostedTransitVirtualInterfaceAcceptor)(nil))
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorMapOutput) ToHostedTransitVirtualInterfaceAcceptorMapOutput() HostedTransitVirtualInterfaceAcceptorMapOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorMapOutput) ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorMapOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorMapOutput) MapIndex(k pulumi.StringInput) HostedTransitVirtualInterfaceAcceptorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostedTransitVirtualInterfaceAcceptor {
+		return vs[0].(map[string]HostedTransitVirtualInterfaceAcceptor)[vs[1].(string)]
+	}).(HostedTransitVirtualInterfaceAcceptorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceAcceptorOutput{})
+	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceAcceptorPtrOutput{})
+	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceAcceptorArrayOutput{})
+	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceAcceptorMapOutput{})
 }

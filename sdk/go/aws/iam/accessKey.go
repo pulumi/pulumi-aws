@@ -246,6 +246,85 @@ func (i *AccessKey) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyOutput)
 }
 
+func (i *AccessKey) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
+	return i.ToAccessKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *AccessKey) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyPtrOutput)
+}
+
+type AccessKeyPtrInput interface {
+	pulumi.Input
+
+	ToAccessKeyPtrOutput() AccessKeyPtrOutput
+	ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput
+}
+
+type accessKeyPtrType AccessKeyArgs
+
+func (*accessKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessKey)(nil))
+}
+
+func (i *accessKeyPtrType) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
+	return i.ToAccessKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *accessKeyPtrType) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyPtrOutput)
+}
+
+// AccessKeyArrayInput is an input type that accepts AccessKeyArray and AccessKeyArrayOutput values.
+// You can construct a concrete instance of `AccessKeyArrayInput` via:
+//
+//          AccessKeyArray{ AccessKeyArgs{...} }
+type AccessKeyArrayInput interface {
+	pulumi.Input
+
+	ToAccessKeyArrayOutput() AccessKeyArrayOutput
+	ToAccessKeyArrayOutputWithContext(context.Context) AccessKeyArrayOutput
+}
+
+type AccessKeyArray []AccessKeyInput
+
+func (AccessKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AccessKey)(nil))
+}
+
+func (i AccessKeyArray) ToAccessKeyArrayOutput() AccessKeyArrayOutput {
+	return i.ToAccessKeyArrayOutputWithContext(context.Background())
+}
+
+func (i AccessKeyArray) ToAccessKeyArrayOutputWithContext(ctx context.Context) AccessKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyArrayOutput)
+}
+
+// AccessKeyMapInput is an input type that accepts AccessKeyMap and AccessKeyMapOutput values.
+// You can construct a concrete instance of `AccessKeyMapInput` via:
+//
+//          AccessKeyMap{ "key": AccessKeyArgs{...} }
+type AccessKeyMapInput interface {
+	pulumi.Input
+
+	ToAccessKeyMapOutput() AccessKeyMapOutput
+	ToAccessKeyMapOutputWithContext(context.Context) AccessKeyMapOutput
+}
+
+type AccessKeyMap map[string]AccessKeyInput
+
+func (AccessKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AccessKey)(nil))
+}
+
+func (i AccessKeyMap) ToAccessKeyMapOutput() AccessKeyMapOutput {
+	return i.ToAccessKeyMapOutputWithContext(context.Background())
+}
+
+func (i AccessKeyMap) ToAccessKeyMapOutputWithContext(ctx context.Context) AccessKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyMapOutput)
+}
+
 type AccessKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -262,6 +341,75 @@ func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) Acces
 	return o
 }
 
+func (o AccessKeyOutput) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
+	return o.ToAccessKeyPtrOutputWithContext(context.Background())
+}
+
+func (o AccessKeyOutput) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
+	return o.ApplyT(func(v AccessKey) *AccessKey {
+		return &v
+	}).(AccessKeyPtrOutput)
+}
+
+type AccessKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessKey)(nil))
+}
+
+func (o AccessKeyPtrOutput) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
+	return o
+}
+
+func (o AccessKeyPtrOutput) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
+	return o
+}
+
+type AccessKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessKey)(nil))
+}
+
+func (o AccessKeyArrayOutput) ToAccessKeyArrayOutput() AccessKeyArrayOutput {
+	return o
+}
+
+func (o AccessKeyArrayOutput) ToAccessKeyArrayOutputWithContext(ctx context.Context) AccessKeyArrayOutput {
+	return o
+}
+
+func (o AccessKeyArrayOutput) Index(i pulumi.IntInput) AccessKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessKey {
+		return vs[0].([]AccessKey)[vs[1].(int)]
+	}).(AccessKeyOutput)
+}
+
+type AccessKeyMapOutput struct{ *pulumi.OutputState }
+
+func (AccessKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AccessKey)(nil))
+}
+
+func (o AccessKeyMapOutput) ToAccessKeyMapOutput() AccessKeyMapOutput {
+	return o
+}
+
+func (o AccessKeyMapOutput) ToAccessKeyMapOutputWithContext(ctx context.Context) AccessKeyMapOutput {
+	return o
+}
+
+func (o AccessKeyMapOutput) MapIndex(k pulumi.StringInput) AccessKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccessKey {
+		return vs[0].(map[string]AccessKey)[vs[1].(string)]
+	}).(AccessKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessKeyOutput{})
+	pulumi.RegisterOutputType(AccessKeyPtrOutput{})
+	pulumi.RegisterOutputType(AccessKeyArrayOutput{})
+	pulumi.RegisterOutputType(AccessKeyMapOutput{})
 }

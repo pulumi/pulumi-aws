@@ -295,6 +295,85 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
+func (i *Pipeline) ToPipelinePtrOutput() PipelinePtrOutput {
+	return i.ToPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *Pipeline) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelinePtrOutput)
+}
+
+type PipelinePtrInput interface {
+	pulumi.Input
+
+	ToPipelinePtrOutput() PipelinePtrOutput
+	ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput
+}
+
+type pipelinePtrType PipelineArgs
+
+func (*pipelinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Pipeline)(nil))
+}
+
+func (i *pipelinePtrType) ToPipelinePtrOutput() PipelinePtrOutput {
+	return i.ToPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelinePtrType) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelinePtrOutput)
+}
+
+// PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
+// You can construct a concrete instance of `PipelineArrayInput` via:
+//
+//          PipelineArray{ PipelineArgs{...} }
+type PipelineArrayInput interface {
+	pulumi.Input
+
+	ToPipelineArrayOutput() PipelineArrayOutput
+	ToPipelineArrayOutputWithContext(context.Context) PipelineArrayOutput
+}
+
+type PipelineArray []PipelineInput
+
+func (PipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Pipeline)(nil))
+}
+
+func (i PipelineArray) ToPipelineArrayOutput() PipelineArrayOutput {
+	return i.ToPipelineArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineArray) ToPipelineArrayOutputWithContext(ctx context.Context) PipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineArrayOutput)
+}
+
+// PipelineMapInput is an input type that accepts PipelineMap and PipelineMapOutput values.
+// You can construct a concrete instance of `PipelineMapInput` via:
+//
+//          PipelineMap{ "key": PipelineArgs{...} }
+type PipelineMapInput interface {
+	pulumi.Input
+
+	ToPipelineMapOutput() PipelineMapOutput
+	ToPipelineMapOutputWithContext(context.Context) PipelineMapOutput
+}
+
+type PipelineMap map[string]PipelineInput
+
+func (PipelineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Pipeline)(nil))
+}
+
+func (i PipelineMap) ToPipelineMapOutput() PipelineMapOutput {
+	return i.ToPipelineMapOutputWithContext(context.Background())
+}
+
+func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) PipelineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineMapOutput)
+}
+
 type PipelineOutput struct {
 	*pulumi.OutputState
 }
@@ -311,6 +390,75 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+func (o PipelineOutput) ToPipelinePtrOutput() PipelinePtrOutput {
+	return o.ToPipelinePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
+	return o.ApplyT(func(v Pipeline) *Pipeline {
+		return &v
+	}).(PipelinePtrOutput)
+}
+
+type PipelinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PipelinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Pipeline)(nil))
+}
+
+func (o PipelinePtrOutput) ToPipelinePtrOutput() PipelinePtrOutput {
+	return o
+}
+
+func (o PipelinePtrOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
+	return o
+}
+
+type PipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Pipeline)(nil))
+}
+
+func (o PipelineArrayOutput) ToPipelineArrayOutput() PipelineArrayOutput {
+	return o
+}
+
+func (o PipelineArrayOutput) ToPipelineArrayOutputWithContext(ctx context.Context) PipelineArrayOutput {
+	return o
+}
+
+func (o PipelineArrayOutput) Index(i pulumi.IntInput) PipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Pipeline {
+		return vs[0].([]Pipeline)[vs[1].(int)]
+	}).(PipelineOutput)
+}
+
+type PipelineMapOutput struct{ *pulumi.OutputState }
+
+func (PipelineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Pipeline)(nil))
+}
+
+func (o PipelineMapOutput) ToPipelineMapOutput() PipelineMapOutput {
+	return o
+}
+
+func (o PipelineMapOutput) ToPipelineMapOutputWithContext(ctx context.Context) PipelineMapOutput {
+	return o
+}
+
+func (o PipelineMapOutput) MapIndex(k pulumi.StringInput) PipelineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Pipeline {
+		return vs[0].(map[string]Pipeline)[vs[1].(string)]
+	}).(PipelineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineOutput{})
+	pulumi.RegisterOutputType(PipelinePtrOutput{})
+	pulumi.RegisterOutputType(PipelineArrayOutput{})
+	pulumi.RegisterOutputType(PipelineMapOutput{})
 }

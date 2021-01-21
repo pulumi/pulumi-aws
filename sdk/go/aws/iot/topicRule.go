@@ -316,6 +316,85 @@ func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOutput)
 }
 
+func (i *TopicRule) ToTopicRulePtrOutput() TopicRulePtrOutput {
+	return i.ToTopicRulePtrOutputWithContext(context.Background())
+}
+
+func (i *TopicRule) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePtrOutput)
+}
+
+type TopicRulePtrInput interface {
+	pulumi.Input
+
+	ToTopicRulePtrOutput() TopicRulePtrOutput
+	ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput
+}
+
+type topicRulePtrType TopicRuleArgs
+
+func (*topicRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRule)(nil))
+}
+
+func (i *topicRulePtrType) ToTopicRulePtrOutput() TopicRulePtrOutput {
+	return i.ToTopicRulePtrOutputWithContext(context.Background())
+}
+
+func (i *topicRulePtrType) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePtrOutput)
+}
+
+// TopicRuleArrayInput is an input type that accepts TopicRuleArray and TopicRuleArrayOutput values.
+// You can construct a concrete instance of `TopicRuleArrayInput` via:
+//
+//          TopicRuleArray{ TopicRuleArgs{...} }
+type TopicRuleArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleArrayOutput() TopicRuleArrayOutput
+	ToTopicRuleArrayOutputWithContext(context.Context) TopicRuleArrayOutput
+}
+
+type TopicRuleArray []TopicRuleInput
+
+func (TopicRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TopicRule)(nil))
+}
+
+func (i TopicRuleArray) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
+	return i.ToTopicRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleArray) ToTopicRuleArrayOutputWithContext(ctx context.Context) TopicRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleArrayOutput)
+}
+
+// TopicRuleMapInput is an input type that accepts TopicRuleMap and TopicRuleMapOutput values.
+// You can construct a concrete instance of `TopicRuleMapInput` via:
+//
+//          TopicRuleMap{ "key": TopicRuleArgs{...} }
+type TopicRuleMapInput interface {
+	pulumi.Input
+
+	ToTopicRuleMapOutput() TopicRuleMapOutput
+	ToTopicRuleMapOutputWithContext(context.Context) TopicRuleMapOutput
+}
+
+type TopicRuleMap map[string]TopicRuleInput
+
+func (TopicRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TopicRule)(nil))
+}
+
+func (i TopicRuleMap) ToTopicRuleMapOutput() TopicRuleMapOutput {
+	return i.ToTopicRuleMapOutputWithContext(context.Background())
+}
+
+func (i TopicRuleMap) ToTopicRuleMapOutputWithContext(ctx context.Context) TopicRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleMapOutput)
+}
+
 type TopicRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -332,6 +411,75 @@ func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) Topic
 	return o
 }
 
+func (o TopicRuleOutput) ToTopicRulePtrOutput() TopicRulePtrOutput {
+	return o.ToTopicRulePtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleOutput) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
+	return o.ApplyT(func(v TopicRule) *TopicRule {
+		return &v
+	}).(TopicRulePtrOutput)
+}
+
+type TopicRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRule)(nil))
+}
+
+func (o TopicRulePtrOutput) ToTopicRulePtrOutput() TopicRulePtrOutput {
+	return o
+}
+
+func (o TopicRulePtrOutput) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
+	return o
+}
+
+type TopicRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRule)(nil))
+}
+
+func (o TopicRuleArrayOutput) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
+	return o
+}
+
+func (o TopicRuleArrayOutput) ToTopicRuleArrayOutputWithContext(ctx context.Context) TopicRuleArrayOutput {
+	return o
+}
+
+func (o TopicRuleArrayOutput) Index(i pulumi.IntInput) TopicRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRule {
+		return vs[0].([]TopicRule)[vs[1].(int)]
+	}).(TopicRuleOutput)
+}
+
+type TopicRuleMapOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TopicRule)(nil))
+}
+
+func (o TopicRuleMapOutput) ToTopicRuleMapOutput() TopicRuleMapOutput {
+	return o
+}
+
+func (o TopicRuleMapOutput) ToTopicRuleMapOutputWithContext(ctx context.Context) TopicRuleMapOutput {
+	return o
+}
+
+func (o TopicRuleMapOutput) MapIndex(k pulumi.StringInput) TopicRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TopicRule {
+		return vs[0].(map[string]TopicRule)[vs[1].(string)]
+	}).(TopicRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TopicRuleOutput{})
+	pulumi.RegisterOutputType(TopicRulePtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleMapOutput{})
 }

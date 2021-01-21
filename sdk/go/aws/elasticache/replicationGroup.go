@@ -591,6 +591,85 @@ func (i *ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupOutput)
 }
 
+func (i *ReplicationGroup) ToReplicationGroupPtrOutput() ReplicationGroupPtrOutput {
+	return i.ToReplicationGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ReplicationGroup) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupPtrOutput)
+}
+
+type ReplicationGroupPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupPtrOutput() ReplicationGroupPtrOutput
+	ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput
+}
+
+type replicationGroupPtrType ReplicationGroupArgs
+
+func (*replicationGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroup)(nil))
+}
+
+func (i *replicationGroupPtrType) ToReplicationGroupPtrOutput() ReplicationGroupPtrOutput {
+	return i.ToReplicationGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupPtrType) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupPtrOutput)
+}
+
+// ReplicationGroupArrayInput is an input type that accepts ReplicationGroupArray and ReplicationGroupArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupArrayInput` via:
+//
+//          ReplicationGroupArray{ ReplicationGroupArgs{...} }
+type ReplicationGroupArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupArrayOutput() ReplicationGroupArrayOutput
+	ToReplicationGroupArrayOutputWithContext(context.Context) ReplicationGroupArrayOutput
+}
+
+type ReplicationGroupArray []ReplicationGroupInput
+
+func (ReplicationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ReplicationGroup)(nil))
+}
+
+func (i ReplicationGroupArray) ToReplicationGroupArrayOutput() ReplicationGroupArrayOutput {
+	return i.ToReplicationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupArray) ToReplicationGroupArrayOutputWithContext(ctx context.Context) ReplicationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupArrayOutput)
+}
+
+// ReplicationGroupMapInput is an input type that accepts ReplicationGroupMap and ReplicationGroupMapOutput values.
+// You can construct a concrete instance of `ReplicationGroupMapInput` via:
+//
+//          ReplicationGroupMap{ "key": ReplicationGroupArgs{...} }
+type ReplicationGroupMapInput interface {
+	pulumi.Input
+
+	ToReplicationGroupMapOutput() ReplicationGroupMapOutput
+	ToReplicationGroupMapOutputWithContext(context.Context) ReplicationGroupMapOutput
+}
+
+type ReplicationGroupMap map[string]ReplicationGroupInput
+
+func (ReplicationGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ReplicationGroup)(nil))
+}
+
+func (i ReplicationGroupMap) ToReplicationGroupMapOutput() ReplicationGroupMapOutput {
+	return i.ToReplicationGroupMapOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupMap) ToReplicationGroupMapOutputWithContext(ctx context.Context) ReplicationGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupMapOutput)
+}
+
 type ReplicationGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -607,6 +686,75 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.
 	return o
 }
 
+func (o ReplicationGroupOutput) ToReplicationGroupPtrOutput() ReplicationGroupPtrOutput {
+	return o.ToReplicationGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupOutput) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
+	return o.ApplyT(func(v ReplicationGroup) *ReplicationGroup {
+		return &v
+	}).(ReplicationGroupPtrOutput)
+}
+
+type ReplicationGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroup)(nil))
+}
+
+func (o ReplicationGroupPtrOutput) ToReplicationGroupPtrOutput() ReplicationGroupPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupPtrOutput) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
+	return o
+}
+
+type ReplicationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroup)(nil))
+}
+
+func (o ReplicationGroupArrayOutput) ToReplicationGroupArrayOutput() ReplicationGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupArrayOutput) ToReplicationGroupArrayOutputWithContext(ctx context.Context) ReplicationGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupArrayOutput) Index(i pulumi.IntInput) ReplicationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroup {
+		return vs[0].([]ReplicationGroup)[vs[1].(int)]
+	}).(ReplicationGroupOutput)
+}
+
+type ReplicationGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReplicationGroup)(nil))
+}
+
+func (o ReplicationGroupMapOutput) ToReplicationGroupMapOutput() ReplicationGroupMapOutput {
+	return o
+}
+
+func (o ReplicationGroupMapOutput) ToReplicationGroupMapOutputWithContext(ctx context.Context) ReplicationGroupMapOutput {
+	return o
+}
+
+func (o ReplicationGroupMapOutput) MapIndex(k pulumi.StringInput) ReplicationGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationGroup {
+		return vs[0].(map[string]ReplicationGroup)[vs[1].(string)]
+	}).(ReplicationGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationGroupOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupMapOutput{})
 }

@@ -367,6 +367,85 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
 }
 
+func (i *PatchBaseline) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
+	return i.ToPatchBaselinePtrOutputWithContext(context.Background())
+}
+
+func (i *PatchBaseline) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePtrOutput)
+}
+
+type PatchBaselinePtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePtrOutput() PatchBaselinePtrOutput
+	ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput
+}
+
+type patchBaselinePtrType PatchBaselineArgs
+
+func (*patchBaselinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaseline)(nil))
+}
+
+func (i *patchBaselinePtrType) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
+	return i.ToPatchBaselinePtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselinePtrType) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePtrOutput)
+}
+
+// PatchBaselineArrayInput is an input type that accepts PatchBaselineArray and PatchBaselineArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineArrayInput` via:
+//
+//          PatchBaselineArray{ PatchBaselineArgs{...} }
+type PatchBaselineArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineArrayOutput() PatchBaselineArrayOutput
+	ToPatchBaselineArrayOutputWithContext(context.Context) PatchBaselineArrayOutput
+}
+
+type PatchBaselineArray []PatchBaselineInput
+
+func (PatchBaselineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PatchBaseline)(nil))
+}
+
+func (i PatchBaselineArray) ToPatchBaselineArrayOutput() PatchBaselineArrayOutput {
+	return i.ToPatchBaselineArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineArray) ToPatchBaselineArrayOutputWithContext(ctx context.Context) PatchBaselineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineArrayOutput)
+}
+
+// PatchBaselineMapInput is an input type that accepts PatchBaselineMap and PatchBaselineMapOutput values.
+// You can construct a concrete instance of `PatchBaselineMapInput` via:
+//
+//          PatchBaselineMap{ "key": PatchBaselineArgs{...} }
+type PatchBaselineMapInput interface {
+	pulumi.Input
+
+	ToPatchBaselineMapOutput() PatchBaselineMapOutput
+	ToPatchBaselineMapOutputWithContext(context.Context) PatchBaselineMapOutput
+}
+
+type PatchBaselineMap map[string]PatchBaselineInput
+
+func (PatchBaselineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PatchBaseline)(nil))
+}
+
+func (i PatchBaselineMap) ToPatchBaselineMapOutput() PatchBaselineMapOutput {
+	return i.ToPatchBaselineMapOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineMap) ToPatchBaselineMapOutputWithContext(ctx context.Context) PatchBaselineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineMapOutput)
+}
+
 type PatchBaselineOutput struct {
 	*pulumi.OutputState
 }
@@ -383,6 +462,75 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PatchBaselineOutput) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
+	return o.ToPatchBaselinePtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineOutput) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
+	return o.ApplyT(func(v PatchBaseline) *PatchBaseline {
+		return &v
+	}).(PatchBaselinePtrOutput)
+}
+
+type PatchBaselinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PatchBaselinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaseline)(nil))
+}
+
+func (o PatchBaselinePtrOutput) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
+	return o
+}
+
+func (o PatchBaselinePtrOutput) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
+	return o
+}
+
+type PatchBaselineArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaseline)(nil))
+}
+
+func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutput() PatchBaselineArrayOutput {
+	return o
+}
+
+func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutputWithContext(ctx context.Context) PatchBaselineArrayOutput {
+	return o
+}
+
+func (o PatchBaselineArrayOutput) Index(i pulumi.IntInput) PatchBaselineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaseline {
+		return vs[0].([]PatchBaseline)[vs[1].(int)]
+	}).(PatchBaselineOutput)
+}
+
+type PatchBaselineMapOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PatchBaseline)(nil))
+}
+
+func (o PatchBaselineMapOutput) ToPatchBaselineMapOutput() PatchBaselineMapOutput {
+	return o
+}
+
+func (o PatchBaselineMapOutput) ToPatchBaselineMapOutputWithContext(ctx context.Context) PatchBaselineMapOutput {
+	return o
+}
+
+func (o PatchBaselineMapOutput) MapIndex(k pulumi.StringInput) PatchBaselineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PatchBaseline {
+		return vs[0].(map[string]PatchBaseline)[vs[1].(string)]
+	}).(PatchBaselineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PatchBaselineOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselineMapOutput{})
 }

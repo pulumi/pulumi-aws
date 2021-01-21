@@ -238,6 +238,85 @@ func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
 }
 
+func (i *EventRule) ToEventRulePtrOutput() EventRulePtrOutput {
+	return i.ToEventRulePtrOutputWithContext(context.Background())
+}
+
+func (i *EventRule) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRulePtrOutput)
+}
+
+type EventRulePtrInput interface {
+	pulumi.Input
+
+	ToEventRulePtrOutput() EventRulePtrOutput
+	ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput
+}
+
+type eventRulePtrType EventRuleArgs
+
+func (*eventRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventRule)(nil))
+}
+
+func (i *eventRulePtrType) ToEventRulePtrOutput() EventRulePtrOutput {
+	return i.ToEventRulePtrOutputWithContext(context.Background())
+}
+
+func (i *eventRulePtrType) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRulePtrOutput)
+}
+
+// EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
+// You can construct a concrete instance of `EventRuleArrayInput` via:
+//
+//          EventRuleArray{ EventRuleArgs{...} }
+type EventRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventRuleArrayOutput() EventRuleArrayOutput
+	ToEventRuleArrayOutputWithContext(context.Context) EventRuleArrayOutput
+}
+
+type EventRuleArray []EventRuleInput
+
+func (EventRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventRule)(nil))
+}
+
+func (i EventRuleArray) ToEventRuleArrayOutput() EventRuleArrayOutput {
+	return i.ToEventRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventRuleArray) ToEventRuleArrayOutputWithContext(ctx context.Context) EventRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRuleArrayOutput)
+}
+
+// EventRuleMapInput is an input type that accepts EventRuleMap and EventRuleMapOutput values.
+// You can construct a concrete instance of `EventRuleMapInput` via:
+//
+//          EventRuleMap{ "key": EventRuleArgs{...} }
+type EventRuleMapInput interface {
+	pulumi.Input
+
+	ToEventRuleMapOutput() EventRuleMapOutput
+	ToEventRuleMapOutputWithContext(context.Context) EventRuleMapOutput
+}
+
+type EventRuleMap map[string]EventRuleInput
+
+func (EventRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventRule)(nil))
+}
+
+func (i EventRuleMap) ToEventRuleMapOutput() EventRuleMapOutput {
+	return i.ToEventRuleMapOutputWithContext(context.Background())
+}
+
+func (i EventRuleMap) ToEventRuleMapOutputWithContext(ctx context.Context) EventRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRuleMapOutput)
+}
+
 type EventRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -254,6 +333,75 @@ func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) Event
 	return o
 }
 
+func (o EventRuleOutput) ToEventRulePtrOutput() EventRulePtrOutput {
+	return o.ToEventRulePtrOutputWithContext(context.Background())
+}
+
+func (o EventRuleOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
+	return o.ApplyT(func(v EventRule) *EventRule {
+		return &v
+	}).(EventRulePtrOutput)
+}
+
+type EventRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventRule)(nil))
+}
+
+func (o EventRulePtrOutput) ToEventRulePtrOutput() EventRulePtrOutput {
+	return o
+}
+
+func (o EventRulePtrOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
+	return o
+}
+
+type EventRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventRule)(nil))
+}
+
+func (o EventRuleArrayOutput) ToEventRuleArrayOutput() EventRuleArrayOutput {
+	return o
+}
+
+func (o EventRuleArrayOutput) ToEventRuleArrayOutputWithContext(ctx context.Context) EventRuleArrayOutput {
+	return o
+}
+
+func (o EventRuleArrayOutput) Index(i pulumi.IntInput) EventRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventRule {
+		return vs[0].([]EventRule)[vs[1].(int)]
+	}).(EventRuleOutput)
+}
+
+type EventRuleMapOutput struct{ *pulumi.OutputState }
+
+func (EventRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventRule)(nil))
+}
+
+func (o EventRuleMapOutput) ToEventRuleMapOutput() EventRuleMapOutput {
+	return o
+}
+
+func (o EventRuleMapOutput) ToEventRuleMapOutputWithContext(ctx context.Context) EventRuleMapOutput {
+	return o
+}
+
+func (o EventRuleMapOutput) MapIndex(k pulumi.StringInput) EventRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventRule {
+		return vs[0].(map[string]EventRule)[vs[1].(string)]
+	}).(EventRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventRuleOutput{})
+	pulumi.RegisterOutputType(EventRulePtrOutput{})
+	pulumi.RegisterOutputType(EventRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventRuleMapOutput{})
 }

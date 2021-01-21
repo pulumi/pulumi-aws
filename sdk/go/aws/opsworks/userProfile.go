@@ -155,6 +155,85 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
 }
 
+func (i *UserProfile) ToUserProfilePtrOutput() UserProfilePtrOutput {
+	return i.ToUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *UserProfile) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfilePtrOutput)
+}
+
+type UserProfilePtrInput interface {
+	pulumi.Input
+
+	ToUserProfilePtrOutput() UserProfilePtrOutput
+	ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput
+}
+
+type userProfilePtrType UserProfileArgs
+
+func (*userProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfile)(nil))
+}
+
+func (i *userProfilePtrType) ToUserProfilePtrOutput() UserProfilePtrOutput {
+	return i.ToUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *userProfilePtrType) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfilePtrOutput)
+}
+
+// UserProfileArrayInput is an input type that accepts UserProfileArray and UserProfileArrayOutput values.
+// You can construct a concrete instance of `UserProfileArrayInput` via:
+//
+//          UserProfileArray{ UserProfileArgs{...} }
+type UserProfileArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileArrayOutput() UserProfileArrayOutput
+	ToUserProfileArrayOutputWithContext(context.Context) UserProfileArrayOutput
+}
+
+type UserProfileArray []UserProfileInput
+
+func (UserProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserProfile)(nil))
+}
+
+func (i UserProfileArray) ToUserProfileArrayOutput() UserProfileArrayOutput {
+	return i.ToUserProfileArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileArray) ToUserProfileArrayOutputWithContext(ctx context.Context) UserProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileArrayOutput)
+}
+
+// UserProfileMapInput is an input type that accepts UserProfileMap and UserProfileMapOutput values.
+// You can construct a concrete instance of `UserProfileMapInput` via:
+//
+//          UserProfileMap{ "key": UserProfileArgs{...} }
+type UserProfileMapInput interface {
+	pulumi.Input
+
+	ToUserProfileMapOutput() UserProfileMapOutput
+	ToUserProfileMapOutputWithContext(context.Context) UserProfileMapOutput
+}
+
+type UserProfileMap map[string]UserProfileInput
+
+func (UserProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserProfile)(nil))
+}
+
+func (i UserProfileMap) ToUserProfileMapOutput() UserProfileMapOutput {
+	return i.ToUserProfileMapOutputWithContext(context.Background())
+}
+
+func (i UserProfileMap) ToUserProfileMapOutputWithContext(ctx context.Context) UserProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileMapOutput)
+}
+
 type UserProfileOutput struct {
 	*pulumi.OutputState
 }
@@ -171,6 +250,75 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
+func (o UserProfileOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
+	return o.ToUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
+	return o.ApplyT(func(v UserProfile) *UserProfile {
+		return &v
+	}).(UserProfilePtrOutput)
+}
+
+type UserProfilePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfile)(nil))
+}
+
+func (o UserProfilePtrOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
+	return o
+}
+
+func (o UserProfilePtrOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
+	return o
+}
+
+type UserProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfile)(nil))
+}
+
+func (o UserProfileArrayOutput) ToUserProfileArrayOutput() UserProfileArrayOutput {
+	return o
+}
+
+func (o UserProfileArrayOutput) ToUserProfileArrayOutputWithContext(ctx context.Context) UserProfileArrayOutput {
+	return o
+}
+
+func (o UserProfileArrayOutput) Index(i pulumi.IntInput) UserProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfile {
+		return vs[0].([]UserProfile)[vs[1].(int)]
+	}).(UserProfileOutput)
+}
+
+type UserProfileMapOutput struct{ *pulumi.OutputState }
+
+func (UserProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserProfile)(nil))
+}
+
+func (o UserProfileMapOutput) ToUserProfileMapOutput() UserProfileMapOutput {
+	return o
+}
+
+func (o UserProfileMapOutput) ToUserProfileMapOutputWithContext(ctx context.Context) UserProfileMapOutput {
+	return o
+}
+
+func (o UserProfileMapOutput) MapIndex(k pulumi.StringInput) UserProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserProfile {
+		return vs[0].(map[string]UserProfile)[vs[1].(string)]
+	}).(UserProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserProfileOutput{})
+	pulumi.RegisterOutputType(UserProfilePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileMapOutput{})
 }

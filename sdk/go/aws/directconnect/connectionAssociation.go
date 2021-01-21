@@ -149,6 +149,85 @@ func (i *ConnectionAssociation) ToConnectionAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationOutput)
 }
 
+func (i *ConnectionAssociation) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
+	return i.ToConnectionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *ConnectionAssociation) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationPtrOutput)
+}
+
+type ConnectionAssociationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput
+	ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput
+}
+
+type connectionAssociationPtrType ConnectionAssociationArgs
+
+func (*connectionAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAssociation)(nil))
+}
+
+func (i *connectionAssociationPtrType) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
+	return i.ToConnectionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAssociationPtrType) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationPtrOutput)
+}
+
+// ConnectionAssociationArrayInput is an input type that accepts ConnectionAssociationArray and ConnectionAssociationArrayOutput values.
+// You can construct a concrete instance of `ConnectionAssociationArrayInput` via:
+//
+//          ConnectionAssociationArray{ ConnectionAssociationArgs{...} }
+type ConnectionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToConnectionAssociationArrayOutput() ConnectionAssociationArrayOutput
+	ToConnectionAssociationArrayOutputWithContext(context.Context) ConnectionAssociationArrayOutput
+}
+
+type ConnectionAssociationArray []ConnectionAssociationInput
+
+func (ConnectionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConnectionAssociation)(nil))
+}
+
+func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutput() ConnectionAssociationArrayOutput {
+	return i.ToConnectionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutputWithContext(ctx context.Context) ConnectionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationArrayOutput)
+}
+
+// ConnectionAssociationMapInput is an input type that accepts ConnectionAssociationMap and ConnectionAssociationMapOutput values.
+// You can construct a concrete instance of `ConnectionAssociationMapInput` via:
+//
+//          ConnectionAssociationMap{ "key": ConnectionAssociationArgs{...} }
+type ConnectionAssociationMapInput interface {
+	pulumi.Input
+
+	ToConnectionAssociationMapOutput() ConnectionAssociationMapOutput
+	ToConnectionAssociationMapOutputWithContext(context.Context) ConnectionAssociationMapOutput
+}
+
+type ConnectionAssociationMap map[string]ConnectionAssociationInput
+
+func (ConnectionAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConnectionAssociation)(nil))
+}
+
+func (i ConnectionAssociationMap) ToConnectionAssociationMapOutput() ConnectionAssociationMapOutput {
+	return i.ToConnectionAssociationMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionAssociationMap) ToConnectionAssociationMapOutputWithContext(ctx context.Context) ConnectionAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationMapOutput)
+}
+
 type ConnectionAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -165,6 +244,75 @@ func (o ConnectionAssociationOutput) ToConnectionAssociationOutputWithContext(ct
 	return o
 }
 
+func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
+	return o.ToConnectionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
+	return o.ApplyT(func(v ConnectionAssociation) *ConnectionAssociation {
+		return &v
+	}).(ConnectionAssociationPtrOutput)
+}
+
+type ConnectionAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAssociation)(nil))
+}
+
+func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
+	return o
+}
+
+func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
+	return o
+}
+
+type ConnectionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionAssociation)(nil))
+}
+
+func (o ConnectionAssociationArrayOutput) ToConnectionAssociationArrayOutput() ConnectionAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionAssociationArrayOutput) ToConnectionAssociationArrayOutputWithContext(ctx context.Context) ConnectionAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAssociation {
+		return vs[0].([]ConnectionAssociation)[vs[1].(int)]
+	}).(ConnectionAssociationOutput)
+}
+
+type ConnectionAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionAssociation)(nil))
+}
+
+func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutput() ConnectionAssociationMapOutput {
+	return o
+}
+
+func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutputWithContext(ctx context.Context) ConnectionAssociationMapOutput {
+	return o
+}
+
+func (o ConnectionAssociationMapOutput) MapIndex(k pulumi.StringInput) ConnectionAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionAssociation {
+		return vs[0].(map[string]ConnectionAssociation)[vs[1].(string)]
+	}).(ConnectionAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionAssociationOutput{})
+	pulumi.RegisterOutputType(ConnectionAssociationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionAssociationMapOutput{})
 }

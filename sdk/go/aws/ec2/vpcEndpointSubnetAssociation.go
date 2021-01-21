@@ -143,6 +143,85 @@ func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationOutput)
 }
 
+func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationPtrOutput() VpcEndpointSubnetAssociationPtrOutput {
+	return i.ToVpcEndpointSubnetAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationPtrOutput)
+}
+
+type VpcEndpointSubnetAssociationPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetAssociationPtrOutput() VpcEndpointSubnetAssociationPtrOutput
+	ToVpcEndpointSubnetAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationPtrOutput
+}
+
+type vpcEndpointSubnetAssociationPtrType VpcEndpointSubnetAssociationArgs
+
+func (*vpcEndpointSubnetAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointSubnetAssociation)(nil))
+}
+
+func (i *vpcEndpointSubnetAssociationPtrType) ToVpcEndpointSubnetAssociationPtrOutput() VpcEndpointSubnetAssociationPtrOutput {
+	return i.ToVpcEndpointSubnetAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointSubnetAssociationPtrType) ToVpcEndpointSubnetAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationPtrOutput)
+}
+
+// VpcEndpointSubnetAssociationArrayInput is an input type that accepts VpcEndpointSubnetAssociationArray and VpcEndpointSubnetAssociationArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointSubnetAssociationArrayInput` via:
+//
+//          VpcEndpointSubnetAssociationArray{ VpcEndpointSubnetAssociationArgs{...} }
+type VpcEndpointSubnetAssociationArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetAssociationArrayOutput() VpcEndpointSubnetAssociationArrayOutput
+	ToVpcEndpointSubnetAssociationArrayOutputWithContext(context.Context) VpcEndpointSubnetAssociationArrayOutput
+}
+
+type VpcEndpointSubnetAssociationArray []VpcEndpointSubnetAssociationInput
+
+func (VpcEndpointSubnetAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcEndpointSubnetAssociation)(nil))
+}
+
+func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOutput() VpcEndpointSubnetAssociationArrayOutput {
+	return i.ToVpcEndpointSubnetAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationArrayOutput)
+}
+
+// VpcEndpointSubnetAssociationMapInput is an input type that accepts VpcEndpointSubnetAssociationMap and VpcEndpointSubnetAssociationMapOutput values.
+// You can construct a concrete instance of `VpcEndpointSubnetAssociationMapInput` via:
+//
+//          VpcEndpointSubnetAssociationMap{ "key": VpcEndpointSubnetAssociationArgs{...} }
+type VpcEndpointSubnetAssociationMapInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetAssociationMapOutput() VpcEndpointSubnetAssociationMapOutput
+	ToVpcEndpointSubnetAssociationMapOutputWithContext(context.Context) VpcEndpointSubnetAssociationMapOutput
+}
+
+type VpcEndpointSubnetAssociationMap map[string]VpcEndpointSubnetAssociationInput
+
+func (VpcEndpointSubnetAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcEndpointSubnetAssociation)(nil))
+}
+
+func (i VpcEndpointSubnetAssociationMap) ToVpcEndpointSubnetAssociationMapOutput() VpcEndpointSubnetAssociationMapOutput {
+	return i.ToVpcEndpointSubnetAssociationMapOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointSubnetAssociationMap) ToVpcEndpointSubnetAssociationMapOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationMapOutput)
+}
+
 type VpcEndpointSubnetAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -159,6 +238,75 @@ func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutput
 	return o
 }
 
+func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationPtrOutput() VpcEndpointSubnetAssociationPtrOutput {
+	return o.ToVpcEndpointSubnetAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationPtrOutput {
+	return o.ApplyT(func(v VpcEndpointSubnetAssociation) *VpcEndpointSubnetAssociation {
+		return &v
+	}).(VpcEndpointSubnetAssociationPtrOutput)
+}
+
+type VpcEndpointSubnetAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointSubnetAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointSubnetAssociation)(nil))
+}
+
+func (o VpcEndpointSubnetAssociationPtrOutput) ToVpcEndpointSubnetAssociationPtrOutput() VpcEndpointSubnetAssociationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationPtrOutput) ToVpcEndpointSubnetAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationPtrOutput {
+	return o
+}
+
+type VpcEndpointSubnetAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointSubnetAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointSubnetAssociation)(nil))
+}
+
+func (o VpcEndpointSubnetAssociationArrayOutput) ToVpcEndpointSubnetAssociationArrayOutput() VpcEndpointSubnetAssociationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationArrayOutput) ToVpcEndpointSubnetAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationArrayOutput) Index(i pulumi.IntInput) VpcEndpointSubnetAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointSubnetAssociation {
+		return vs[0].([]VpcEndpointSubnetAssociation)[vs[1].(int)]
+	}).(VpcEndpointSubnetAssociationOutput)
+}
+
+type VpcEndpointSubnetAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointSubnetAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcEndpointSubnetAssociation)(nil))
+}
+
+func (o VpcEndpointSubnetAssociationMapOutput) ToVpcEndpointSubnetAssociationMapOutput() VpcEndpointSubnetAssociationMapOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationMapOutput) ToVpcEndpointSubnetAssociationMapOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationMapOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointSubnetAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcEndpointSubnetAssociation {
+		return vs[0].(map[string]VpcEndpointSubnetAssociation)[vs[1].(string)]
+	}).(VpcEndpointSubnetAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationMapOutput{})
 }

@@ -524,6 +524,85 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
 }
 
+func (i *Distribution) ToDistributionPtrOutput() DistributionPtrOutput {
+	return i.ToDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i *Distribution) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionPtrOutput)
+}
+
+type DistributionPtrInput interface {
+	pulumi.Input
+
+	ToDistributionPtrOutput() DistributionPtrOutput
+	ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput
+}
+
+type distributionPtrType DistributionArgs
+
+func (*distributionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Distribution)(nil))
+}
+
+func (i *distributionPtrType) ToDistributionPtrOutput() DistributionPtrOutput {
+	return i.ToDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionPtrType) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionPtrOutput)
+}
+
+// DistributionArrayInput is an input type that accepts DistributionArray and DistributionArrayOutput values.
+// You can construct a concrete instance of `DistributionArrayInput` via:
+//
+//          DistributionArray{ DistributionArgs{...} }
+type DistributionArrayInput interface {
+	pulumi.Input
+
+	ToDistributionArrayOutput() DistributionArrayOutput
+	ToDistributionArrayOutputWithContext(context.Context) DistributionArrayOutput
+}
+
+type DistributionArray []DistributionInput
+
+func (DistributionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Distribution)(nil))
+}
+
+func (i DistributionArray) ToDistributionArrayOutput() DistributionArrayOutput {
+	return i.ToDistributionArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionArray) ToDistributionArrayOutputWithContext(ctx context.Context) DistributionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionArrayOutput)
+}
+
+// DistributionMapInput is an input type that accepts DistributionMap and DistributionMapOutput values.
+// You can construct a concrete instance of `DistributionMapInput` via:
+//
+//          DistributionMap{ "key": DistributionArgs{...} }
+type DistributionMapInput interface {
+	pulumi.Input
+
+	ToDistributionMapOutput() DistributionMapOutput
+	ToDistributionMapOutputWithContext(context.Context) DistributionMapOutput
+}
+
+type DistributionMap map[string]DistributionInput
+
+func (DistributionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Distribution)(nil))
+}
+
+func (i DistributionMap) ToDistributionMapOutput() DistributionMapOutput {
+	return i.ToDistributionMapOutputWithContext(context.Background())
+}
+
+func (i DistributionMap) ToDistributionMapOutputWithContext(ctx context.Context) DistributionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionMapOutput)
+}
+
 type DistributionOutput struct {
 	*pulumi.OutputState
 }
@@ -540,6 +619,75 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o DistributionOutput) ToDistributionPtrOutput() DistributionPtrOutput {
+	return o.ToDistributionPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOutput) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
+	return o.ApplyT(func(v Distribution) *Distribution {
+		return &v
+	}).(DistributionPtrOutput)
+}
+
+type DistributionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DistributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Distribution)(nil))
+}
+
+func (o DistributionPtrOutput) ToDistributionPtrOutput() DistributionPtrOutput {
+	return o
+}
+
+func (o DistributionPtrOutput) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
+	return o
+}
+
+type DistributionArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Distribution)(nil))
+}
+
+func (o DistributionArrayOutput) ToDistributionArrayOutput() DistributionArrayOutput {
+	return o
+}
+
+func (o DistributionArrayOutput) ToDistributionArrayOutputWithContext(ctx context.Context) DistributionArrayOutput {
+	return o
+}
+
+func (o DistributionArrayOutput) Index(i pulumi.IntInput) DistributionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Distribution {
+		return vs[0].([]Distribution)[vs[1].(int)]
+	}).(DistributionOutput)
+}
+
+type DistributionMapOutput struct{ *pulumi.OutputState }
+
+func (DistributionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Distribution)(nil))
+}
+
+func (o DistributionMapOutput) ToDistributionMapOutput() DistributionMapOutput {
+	return o
+}
+
+func (o DistributionMapOutput) ToDistributionMapOutputWithContext(ctx context.Context) DistributionMapOutput {
+	return o
+}
+
+func (o DistributionMapOutput) MapIndex(k pulumi.StringInput) DistributionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Distribution {
+		return vs[0].(map[string]Distribution)[vs[1].(string)]
+	}).(DistributionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DistributionOutput{})
+	pulumi.RegisterOutputType(DistributionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionArrayOutput{})
+	pulumi.RegisterOutputType(DistributionMapOutput{})
 }

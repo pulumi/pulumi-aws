@@ -185,6 +185,85 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupOutput)
 }
 
+func (i *UserGroup) ToUserGroupPtrOutput() UserGroupPtrOutput {
+	return i.ToUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *UserGroup) ToUserGroupPtrOutputWithContext(ctx context.Context) UserGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupPtrOutput)
+}
+
+type UserGroupPtrInput interface {
+	pulumi.Input
+
+	ToUserGroupPtrOutput() UserGroupPtrOutput
+	ToUserGroupPtrOutputWithContext(ctx context.Context) UserGroupPtrOutput
+}
+
+type userGroupPtrType UserGroupArgs
+
+func (*userGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserGroup)(nil))
+}
+
+func (i *userGroupPtrType) ToUserGroupPtrOutput() UserGroupPtrOutput {
+	return i.ToUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *userGroupPtrType) ToUserGroupPtrOutputWithContext(ctx context.Context) UserGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupPtrOutput)
+}
+
+// UserGroupArrayInput is an input type that accepts UserGroupArray and UserGroupArrayOutput values.
+// You can construct a concrete instance of `UserGroupArrayInput` via:
+//
+//          UserGroupArray{ UserGroupArgs{...} }
+type UserGroupArrayInput interface {
+	pulumi.Input
+
+	ToUserGroupArrayOutput() UserGroupArrayOutput
+	ToUserGroupArrayOutputWithContext(context.Context) UserGroupArrayOutput
+}
+
+type UserGroupArray []UserGroupInput
+
+func (UserGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserGroup)(nil))
+}
+
+func (i UserGroupArray) ToUserGroupArrayOutput() UserGroupArrayOutput {
+	return i.ToUserGroupArrayOutputWithContext(context.Background())
+}
+
+func (i UserGroupArray) ToUserGroupArrayOutputWithContext(ctx context.Context) UserGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupArrayOutput)
+}
+
+// UserGroupMapInput is an input type that accepts UserGroupMap and UserGroupMapOutput values.
+// You can construct a concrete instance of `UserGroupMapInput` via:
+//
+//          UserGroupMap{ "key": UserGroupArgs{...} }
+type UserGroupMapInput interface {
+	pulumi.Input
+
+	ToUserGroupMapOutput() UserGroupMapOutput
+	ToUserGroupMapOutputWithContext(context.Context) UserGroupMapOutput
+}
+
+type UserGroupMap map[string]UserGroupInput
+
+func (UserGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserGroup)(nil))
+}
+
+func (i UserGroupMap) ToUserGroupMapOutput() UserGroupMapOutput {
+	return i.ToUserGroupMapOutputWithContext(context.Background())
+}
+
+func (i UserGroupMap) ToUserGroupMapOutputWithContext(ctx context.Context) UserGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMapOutput)
+}
+
 type UserGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -201,6 +280,75 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 	return o
 }
 
+func (o UserGroupOutput) ToUserGroupPtrOutput() UserGroupPtrOutput {
+	return o.ToUserGroupPtrOutputWithContext(context.Background())
+}
+
+func (o UserGroupOutput) ToUserGroupPtrOutputWithContext(ctx context.Context) UserGroupPtrOutput {
+	return o.ApplyT(func(v UserGroup) *UserGroup {
+		return &v
+	}).(UserGroupPtrOutput)
+}
+
+type UserGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserGroup)(nil))
+}
+
+func (o UserGroupPtrOutput) ToUserGroupPtrOutput() UserGroupPtrOutput {
+	return o
+}
+
+func (o UserGroupPtrOutput) ToUserGroupPtrOutputWithContext(ctx context.Context) UserGroupPtrOutput {
+	return o
+}
+
+type UserGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (UserGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserGroup)(nil))
+}
+
+func (o UserGroupArrayOutput) ToUserGroupArrayOutput() UserGroupArrayOutput {
+	return o
+}
+
+func (o UserGroupArrayOutput) ToUserGroupArrayOutputWithContext(ctx context.Context) UserGroupArrayOutput {
+	return o
+}
+
+func (o UserGroupArrayOutput) Index(i pulumi.IntInput) UserGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserGroup {
+		return vs[0].([]UserGroup)[vs[1].(int)]
+	}).(UserGroupOutput)
+}
+
+type UserGroupMapOutput struct{ *pulumi.OutputState }
+
+func (UserGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserGroup)(nil))
+}
+
+func (o UserGroupMapOutput) ToUserGroupMapOutput() UserGroupMapOutput {
+	return o
+}
+
+func (o UserGroupMapOutput) ToUserGroupMapOutputWithContext(ctx context.Context) UserGroupMapOutput {
+	return o
+}
+
+func (o UserGroupMapOutput) MapIndex(k pulumi.StringInput) UserGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserGroup {
+		return vs[0].(map[string]UserGroup)[vs[1].(string)]
+	}).(UserGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserGroupOutput{})
+	pulumi.RegisterOutputType(UserGroupPtrOutput{})
+	pulumi.RegisterOutputType(UserGroupArrayOutput{})
+	pulumi.RegisterOutputType(UserGroupMapOutput{})
 }

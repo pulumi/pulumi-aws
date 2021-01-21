@@ -204,6 +204,85 @@ func (i *EventPermission) ToEventPermissionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionOutput)
 }
 
+func (i *EventPermission) ToEventPermissionPtrOutput() EventPermissionPtrOutput {
+	return i.ToEventPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *EventPermission) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionPtrOutput)
+}
+
+type EventPermissionPtrInput interface {
+	pulumi.Input
+
+	ToEventPermissionPtrOutput() EventPermissionPtrOutput
+	ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput
+}
+
+type eventPermissionPtrType EventPermissionArgs
+
+func (*eventPermissionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventPermission)(nil))
+}
+
+func (i *eventPermissionPtrType) ToEventPermissionPtrOutput() EventPermissionPtrOutput {
+	return i.ToEventPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventPermissionPtrType) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionPtrOutput)
+}
+
+// EventPermissionArrayInput is an input type that accepts EventPermissionArray and EventPermissionArrayOutput values.
+// You can construct a concrete instance of `EventPermissionArrayInput` via:
+//
+//          EventPermissionArray{ EventPermissionArgs{...} }
+type EventPermissionArrayInput interface {
+	pulumi.Input
+
+	ToEventPermissionArrayOutput() EventPermissionArrayOutput
+	ToEventPermissionArrayOutputWithContext(context.Context) EventPermissionArrayOutput
+}
+
+type EventPermissionArray []EventPermissionInput
+
+func (EventPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventPermission)(nil))
+}
+
+func (i EventPermissionArray) ToEventPermissionArrayOutput() EventPermissionArrayOutput {
+	return i.ToEventPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i EventPermissionArray) ToEventPermissionArrayOutputWithContext(ctx context.Context) EventPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionArrayOutput)
+}
+
+// EventPermissionMapInput is an input type that accepts EventPermissionMap and EventPermissionMapOutput values.
+// You can construct a concrete instance of `EventPermissionMapInput` via:
+//
+//          EventPermissionMap{ "key": EventPermissionArgs{...} }
+type EventPermissionMapInput interface {
+	pulumi.Input
+
+	ToEventPermissionMapOutput() EventPermissionMapOutput
+	ToEventPermissionMapOutputWithContext(context.Context) EventPermissionMapOutput
+}
+
+type EventPermissionMap map[string]EventPermissionInput
+
+func (EventPermissionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventPermission)(nil))
+}
+
+func (i EventPermissionMap) ToEventPermissionMapOutput() EventPermissionMapOutput {
+	return i.ToEventPermissionMapOutputWithContext(context.Background())
+}
+
+func (i EventPermissionMap) ToEventPermissionMapOutputWithContext(ctx context.Context) EventPermissionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionMapOutput)
+}
+
 type EventPermissionOutput struct {
 	*pulumi.OutputState
 }
@@ -220,6 +299,75 @@ func (o EventPermissionOutput) ToEventPermissionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o EventPermissionOutput) ToEventPermissionPtrOutput() EventPermissionPtrOutput {
+	return o.ToEventPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o EventPermissionOutput) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
+	return o.ApplyT(func(v EventPermission) *EventPermission {
+		return &v
+	}).(EventPermissionPtrOutput)
+}
+
+type EventPermissionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventPermission)(nil))
+}
+
+func (o EventPermissionPtrOutput) ToEventPermissionPtrOutput() EventPermissionPtrOutput {
+	return o
+}
+
+func (o EventPermissionPtrOutput) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
+	return o
+}
+
+type EventPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventPermission)(nil))
+}
+
+func (o EventPermissionArrayOutput) ToEventPermissionArrayOutput() EventPermissionArrayOutput {
+	return o
+}
+
+func (o EventPermissionArrayOutput) ToEventPermissionArrayOutputWithContext(ctx context.Context) EventPermissionArrayOutput {
+	return o
+}
+
+func (o EventPermissionArrayOutput) Index(i pulumi.IntInput) EventPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventPermission {
+		return vs[0].([]EventPermission)[vs[1].(int)]
+	}).(EventPermissionOutput)
+}
+
+type EventPermissionMapOutput struct{ *pulumi.OutputState }
+
+func (EventPermissionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventPermission)(nil))
+}
+
+func (o EventPermissionMapOutput) ToEventPermissionMapOutput() EventPermissionMapOutput {
+	return o
+}
+
+func (o EventPermissionMapOutput) ToEventPermissionMapOutputWithContext(ctx context.Context) EventPermissionMapOutput {
+	return o
+}
+
+func (o EventPermissionMapOutput) MapIndex(k pulumi.StringInput) EventPermissionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventPermission {
+		return vs[0].(map[string]EventPermission)[vs[1].(string)]
+	}).(EventPermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventPermissionOutput{})
+	pulumi.RegisterOutputType(EventPermissionPtrOutput{})
+	pulumi.RegisterOutputType(EventPermissionArrayOutput{})
+	pulumi.RegisterOutputType(EventPermissionMapOutput{})
 }

@@ -161,6 +161,85 @@ func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationOutput)
 }
 
+func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
+	return i.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationPtrOutput)
+}
+
+type SnapshotScheduleAssociationPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput
+	ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput
+}
+
+type snapshotScheduleAssociationPtrType SnapshotScheduleAssociationArgs
+
+func (*snapshotScheduleAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil))
+}
+
+func (i *snapshotScheduleAssociationPtrType) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
+	return i.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotScheduleAssociationPtrType) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationPtrOutput)
+}
+
+// SnapshotScheduleAssociationArrayInput is an input type that accepts SnapshotScheduleAssociationArray and SnapshotScheduleAssociationArrayOutput values.
+// You can construct a concrete instance of `SnapshotScheduleAssociationArrayInput` via:
+//
+//          SnapshotScheduleAssociationArray{ SnapshotScheduleAssociationArgs{...} }
+type SnapshotScheduleAssociationArrayInput interface {
+	pulumi.Input
+
+	ToSnapshotScheduleAssociationArrayOutput() SnapshotScheduleAssociationArrayOutput
+	ToSnapshotScheduleAssociationArrayOutputWithContext(context.Context) SnapshotScheduleAssociationArrayOutput
+}
+
+type SnapshotScheduleAssociationArray []SnapshotScheduleAssociationInput
+
+func (SnapshotScheduleAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SnapshotScheduleAssociation)(nil))
+}
+
+func (i SnapshotScheduleAssociationArray) ToSnapshotScheduleAssociationArrayOutput() SnapshotScheduleAssociationArrayOutput {
+	return i.ToSnapshotScheduleAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i SnapshotScheduleAssociationArray) ToSnapshotScheduleAssociationArrayOutputWithContext(ctx context.Context) SnapshotScheduleAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationArrayOutput)
+}
+
+// SnapshotScheduleAssociationMapInput is an input type that accepts SnapshotScheduleAssociationMap and SnapshotScheduleAssociationMapOutput values.
+// You can construct a concrete instance of `SnapshotScheduleAssociationMapInput` via:
+//
+//          SnapshotScheduleAssociationMap{ "key": SnapshotScheduleAssociationArgs{...} }
+type SnapshotScheduleAssociationMapInput interface {
+	pulumi.Input
+
+	ToSnapshotScheduleAssociationMapOutput() SnapshotScheduleAssociationMapOutput
+	ToSnapshotScheduleAssociationMapOutputWithContext(context.Context) SnapshotScheduleAssociationMapOutput
+}
+
+type SnapshotScheduleAssociationMap map[string]SnapshotScheduleAssociationInput
+
+func (SnapshotScheduleAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SnapshotScheduleAssociation)(nil))
+}
+
+func (i SnapshotScheduleAssociationMap) ToSnapshotScheduleAssociationMapOutput() SnapshotScheduleAssociationMapOutput {
+	return i.ToSnapshotScheduleAssociationMapOutputWithContext(context.Background())
+}
+
+func (i SnapshotScheduleAssociationMap) ToSnapshotScheduleAssociationMapOutputWithContext(ctx context.Context) SnapshotScheduleAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationMapOutput)
+}
+
 type SnapshotScheduleAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -177,6 +256,75 @@ func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutputWi
 	return o
 }
 
+func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
+	return o.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
+	return o.ApplyT(func(v SnapshotScheduleAssociation) *SnapshotScheduleAssociation {
+		return &v
+	}).(SnapshotScheduleAssociationPtrOutput)
+}
+
+type SnapshotScheduleAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotScheduleAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil))
+}
+
+func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
+	return o
+}
+
+func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
+	return o
+}
+
+type SnapshotScheduleAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotScheduleAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotScheduleAssociation)(nil))
+}
+
+func (o SnapshotScheduleAssociationArrayOutput) ToSnapshotScheduleAssociationArrayOutput() SnapshotScheduleAssociationArrayOutput {
+	return o
+}
+
+func (o SnapshotScheduleAssociationArrayOutput) ToSnapshotScheduleAssociationArrayOutputWithContext(ctx context.Context) SnapshotScheduleAssociationArrayOutput {
+	return o
+}
+
+func (o SnapshotScheduleAssociationArrayOutput) Index(i pulumi.IntInput) SnapshotScheduleAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotScheduleAssociation {
+		return vs[0].([]SnapshotScheduleAssociation)[vs[1].(int)]
+	}).(SnapshotScheduleAssociationOutput)
+}
+
+type SnapshotScheduleAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (SnapshotScheduleAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SnapshotScheduleAssociation)(nil))
+}
+
+func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOutput() SnapshotScheduleAssociationMapOutput {
+	return o
+}
+
+func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOutputWithContext(ctx context.Context) SnapshotScheduleAssociationMapOutput {
+	return o
+}
+
+func (o SnapshotScheduleAssociationMapOutput) MapIndex(k pulumi.StringInput) SnapshotScheduleAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotScheduleAssociation {
+		return vs[0].(map[string]SnapshotScheduleAssociation)[vs[1].(string)]
+	}).(SnapshotScheduleAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationOutput{})
+	pulumi.RegisterOutputType(SnapshotScheduleAssociationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotScheduleAssociationArrayOutput{})
+	pulumi.RegisterOutputType(SnapshotScheduleAssociationMapOutput{})
 }

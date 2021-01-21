@@ -128,6 +128,85 @@ func (i *SamlProvider) ToSamlProviderOutputWithContext(ctx context.Context) Saml
 	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderOutput)
 }
 
+func (i *SamlProvider) ToSamlProviderPtrOutput() SamlProviderPtrOutput {
+	return i.ToSamlProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *SamlProvider) ToSamlProviderPtrOutputWithContext(ctx context.Context) SamlProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderPtrOutput)
+}
+
+type SamlProviderPtrInput interface {
+	pulumi.Input
+
+	ToSamlProviderPtrOutput() SamlProviderPtrOutput
+	ToSamlProviderPtrOutputWithContext(ctx context.Context) SamlProviderPtrOutput
+}
+
+type samlProviderPtrType SamlProviderArgs
+
+func (*samlProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlProvider)(nil))
+}
+
+func (i *samlProviderPtrType) ToSamlProviderPtrOutput() SamlProviderPtrOutput {
+	return i.ToSamlProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *samlProviderPtrType) ToSamlProviderPtrOutputWithContext(ctx context.Context) SamlProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderPtrOutput)
+}
+
+// SamlProviderArrayInput is an input type that accepts SamlProviderArray and SamlProviderArrayOutput values.
+// You can construct a concrete instance of `SamlProviderArrayInput` via:
+//
+//          SamlProviderArray{ SamlProviderArgs{...} }
+type SamlProviderArrayInput interface {
+	pulumi.Input
+
+	ToSamlProviderArrayOutput() SamlProviderArrayOutput
+	ToSamlProviderArrayOutputWithContext(context.Context) SamlProviderArrayOutput
+}
+
+type SamlProviderArray []SamlProviderInput
+
+func (SamlProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SamlProvider)(nil))
+}
+
+func (i SamlProviderArray) ToSamlProviderArrayOutput() SamlProviderArrayOutput {
+	return i.ToSamlProviderArrayOutputWithContext(context.Background())
+}
+
+func (i SamlProviderArray) ToSamlProviderArrayOutputWithContext(ctx context.Context) SamlProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderArrayOutput)
+}
+
+// SamlProviderMapInput is an input type that accepts SamlProviderMap and SamlProviderMapOutput values.
+// You can construct a concrete instance of `SamlProviderMapInput` via:
+//
+//          SamlProviderMap{ "key": SamlProviderArgs{...} }
+type SamlProviderMapInput interface {
+	pulumi.Input
+
+	ToSamlProviderMapOutput() SamlProviderMapOutput
+	ToSamlProviderMapOutputWithContext(context.Context) SamlProviderMapOutput
+}
+
+type SamlProviderMap map[string]SamlProviderInput
+
+func (SamlProviderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SamlProvider)(nil))
+}
+
+func (i SamlProviderMap) ToSamlProviderMapOutput() SamlProviderMapOutput {
+	return i.ToSamlProviderMapOutputWithContext(context.Background())
+}
+
+func (i SamlProviderMap) ToSamlProviderMapOutputWithContext(ctx context.Context) SamlProviderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderMapOutput)
+}
+
 type SamlProviderOutput struct {
 	*pulumi.OutputState
 }
@@ -144,6 +223,75 @@ func (o SamlProviderOutput) ToSamlProviderOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SamlProviderOutput) ToSamlProviderPtrOutput() SamlProviderPtrOutput {
+	return o.ToSamlProviderPtrOutputWithContext(context.Background())
+}
+
+func (o SamlProviderOutput) ToSamlProviderPtrOutputWithContext(ctx context.Context) SamlProviderPtrOutput {
+	return o.ApplyT(func(v SamlProvider) *SamlProvider {
+		return &v
+	}).(SamlProviderPtrOutput)
+}
+
+type SamlProviderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlProvider)(nil))
+}
+
+func (o SamlProviderPtrOutput) ToSamlProviderPtrOutput() SamlProviderPtrOutput {
+	return o
+}
+
+func (o SamlProviderPtrOutput) ToSamlProviderPtrOutputWithContext(ctx context.Context) SamlProviderPtrOutput {
+	return o
+}
+
+type SamlProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlProvider)(nil))
+}
+
+func (o SamlProviderArrayOutput) ToSamlProviderArrayOutput() SamlProviderArrayOutput {
+	return o
+}
+
+func (o SamlProviderArrayOutput) ToSamlProviderArrayOutputWithContext(ctx context.Context) SamlProviderArrayOutput {
+	return o
+}
+
+func (o SamlProviderArrayOutput) Index(i pulumi.IntInput) SamlProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlProvider {
+		return vs[0].([]SamlProvider)[vs[1].(int)]
+	}).(SamlProviderOutput)
+}
+
+type SamlProviderMapOutput struct{ *pulumi.OutputState }
+
+func (SamlProviderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SamlProvider)(nil))
+}
+
+func (o SamlProviderMapOutput) ToSamlProviderMapOutput() SamlProviderMapOutput {
+	return o
+}
+
+func (o SamlProviderMapOutput) ToSamlProviderMapOutputWithContext(ctx context.Context) SamlProviderMapOutput {
+	return o
+}
+
+func (o SamlProviderMapOutput) MapIndex(k pulumi.StringInput) SamlProviderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlProvider {
+		return vs[0].(map[string]SamlProvider)[vs[1].(string)]
+	}).(SamlProviderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamlProviderOutput{})
+	pulumi.RegisterOutputType(SamlProviderPtrOutput{})
+	pulumi.RegisterOutputType(SamlProviderArrayOutput{})
+	pulumi.RegisterOutputType(SamlProviderMapOutput{})
 }

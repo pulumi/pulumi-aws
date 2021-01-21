@@ -227,6 +227,85 @@ func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamOutput)
 }
 
+func (i *Stream) ToStreamPtrOutput() StreamPtrOutput {
+	return i.ToStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *Stream) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamPtrOutput)
+}
+
+type StreamPtrInput interface {
+	pulumi.Input
+
+	ToStreamPtrOutput() StreamPtrOutput
+	ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput
+}
+
+type streamPtrType StreamArgs
+
+func (*streamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Stream)(nil))
+}
+
+func (i *streamPtrType) ToStreamPtrOutput() StreamPtrOutput {
+	return i.ToStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *streamPtrType) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamPtrOutput)
+}
+
+// StreamArrayInput is an input type that accepts StreamArray and StreamArrayOutput values.
+// You can construct a concrete instance of `StreamArrayInput` via:
+//
+//          StreamArray{ StreamArgs{...} }
+type StreamArrayInput interface {
+	pulumi.Input
+
+	ToStreamArrayOutput() StreamArrayOutput
+	ToStreamArrayOutputWithContext(context.Context) StreamArrayOutput
+}
+
+type StreamArray []StreamInput
+
+func (StreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Stream)(nil))
+}
+
+func (i StreamArray) ToStreamArrayOutput() StreamArrayOutput {
+	return i.ToStreamArrayOutputWithContext(context.Background())
+}
+
+func (i StreamArray) ToStreamArrayOutputWithContext(ctx context.Context) StreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamArrayOutput)
+}
+
+// StreamMapInput is an input type that accepts StreamMap and StreamMapOutput values.
+// You can construct a concrete instance of `StreamMapInput` via:
+//
+//          StreamMap{ "key": StreamArgs{...} }
+type StreamMapInput interface {
+	pulumi.Input
+
+	ToStreamMapOutput() StreamMapOutput
+	ToStreamMapOutputWithContext(context.Context) StreamMapOutput
+}
+
+type StreamMap map[string]StreamInput
+
+func (StreamMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Stream)(nil))
+}
+
+func (i StreamMap) ToStreamMapOutput() StreamMapOutput {
+	return i.ToStreamMapOutputWithContext(context.Background())
+}
+
+func (i StreamMap) ToStreamMapOutputWithContext(ctx context.Context) StreamMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamMapOutput)
+}
+
 type StreamOutput struct {
 	*pulumi.OutputState
 }
@@ -243,6 +322,75 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+func (o StreamOutput) ToStreamPtrOutput() StreamPtrOutput {
+	return o.ToStreamPtrOutputWithContext(context.Background())
+}
+
+func (o StreamOutput) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
+	return o.ApplyT(func(v Stream) *Stream {
+		return &v
+	}).(StreamPtrOutput)
+}
+
+type StreamPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Stream)(nil))
+}
+
+func (o StreamPtrOutput) ToStreamPtrOutput() StreamPtrOutput {
+	return o
+}
+
+func (o StreamPtrOutput) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
+	return o
+}
+
+type StreamArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Stream)(nil))
+}
+
+func (o StreamArrayOutput) ToStreamArrayOutput() StreamArrayOutput {
+	return o
+}
+
+func (o StreamArrayOutput) ToStreamArrayOutputWithContext(ctx context.Context) StreamArrayOutput {
+	return o
+}
+
+func (o StreamArrayOutput) Index(i pulumi.IntInput) StreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Stream {
+		return vs[0].([]Stream)[vs[1].(int)]
+	}).(StreamOutput)
+}
+
+type StreamMapOutput struct{ *pulumi.OutputState }
+
+func (StreamMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Stream)(nil))
+}
+
+func (o StreamMapOutput) ToStreamMapOutput() StreamMapOutput {
+	return o
+}
+
+func (o StreamMapOutput) ToStreamMapOutputWithContext(ctx context.Context) StreamMapOutput {
+	return o
+}
+
+func (o StreamMapOutput) MapIndex(k pulumi.StringInput) StreamOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Stream {
+		return vs[0].(map[string]Stream)[vs[1].(string)]
+	}).(StreamOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamOutput{})
+	pulumi.RegisterOutputType(StreamPtrOutput{})
+	pulumi.RegisterOutputType(StreamArrayOutput{})
+	pulumi.RegisterOutputType(StreamMapOutput{})
 }

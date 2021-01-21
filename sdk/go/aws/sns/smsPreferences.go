@@ -165,6 +165,85 @@ func (i *SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesOutput)
 }
 
+func (i *SmsPreferences) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutput {
+	return i.ToSmsPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *SmsPreferences) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesPtrOutput)
+}
+
+type SmsPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutput
+	ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput
+}
+
+type smsPreferencesPtrType SmsPreferencesArgs
+
+func (*smsPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmsPreferences)(nil))
+}
+
+func (i *smsPreferencesPtrType) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutput {
+	return i.ToSmsPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *smsPreferencesPtrType) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesPtrOutput)
+}
+
+// SmsPreferencesArrayInput is an input type that accepts SmsPreferencesArray and SmsPreferencesArrayOutput values.
+// You can construct a concrete instance of `SmsPreferencesArrayInput` via:
+//
+//          SmsPreferencesArray{ SmsPreferencesArgs{...} }
+type SmsPreferencesArrayInput interface {
+	pulumi.Input
+
+	ToSmsPreferencesArrayOutput() SmsPreferencesArrayOutput
+	ToSmsPreferencesArrayOutputWithContext(context.Context) SmsPreferencesArrayOutput
+}
+
+type SmsPreferencesArray []SmsPreferencesInput
+
+func (SmsPreferencesArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SmsPreferences)(nil))
+}
+
+func (i SmsPreferencesArray) ToSmsPreferencesArrayOutput() SmsPreferencesArrayOutput {
+	return i.ToSmsPreferencesArrayOutputWithContext(context.Background())
+}
+
+func (i SmsPreferencesArray) ToSmsPreferencesArrayOutputWithContext(ctx context.Context) SmsPreferencesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesArrayOutput)
+}
+
+// SmsPreferencesMapInput is an input type that accepts SmsPreferencesMap and SmsPreferencesMapOutput values.
+// You can construct a concrete instance of `SmsPreferencesMapInput` via:
+//
+//          SmsPreferencesMap{ "key": SmsPreferencesArgs{...} }
+type SmsPreferencesMapInput interface {
+	pulumi.Input
+
+	ToSmsPreferencesMapOutput() SmsPreferencesMapOutput
+	ToSmsPreferencesMapOutputWithContext(context.Context) SmsPreferencesMapOutput
+}
+
+type SmsPreferencesMap map[string]SmsPreferencesInput
+
+func (SmsPreferencesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SmsPreferences)(nil))
+}
+
+func (i SmsPreferencesMap) ToSmsPreferencesMapOutput() SmsPreferencesMapOutput {
+	return i.ToSmsPreferencesMapOutputWithContext(context.Background())
+}
+
+func (i SmsPreferencesMap) ToSmsPreferencesMapOutputWithContext(ctx context.Context) SmsPreferencesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesMapOutput)
+}
+
 type SmsPreferencesOutput struct {
 	*pulumi.OutputState
 }
@@ -181,6 +260,75 @@ func (o SmsPreferencesOutput) ToSmsPreferencesOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o SmsPreferencesOutput) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutput {
+	return o.ToSmsPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o SmsPreferencesOutput) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
+	return o.ApplyT(func(v SmsPreferences) *SmsPreferences {
+		return &v
+	}).(SmsPreferencesPtrOutput)
+}
+
+type SmsPreferencesPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmsPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmsPreferences)(nil))
+}
+
+func (o SmsPreferencesPtrOutput) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutput {
+	return o
+}
+
+func (o SmsPreferencesPtrOutput) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
+	return o
+}
+
+type SmsPreferencesArrayOutput struct{ *pulumi.OutputState }
+
+func (SmsPreferencesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SmsPreferences)(nil))
+}
+
+func (o SmsPreferencesArrayOutput) ToSmsPreferencesArrayOutput() SmsPreferencesArrayOutput {
+	return o
+}
+
+func (o SmsPreferencesArrayOutput) ToSmsPreferencesArrayOutputWithContext(ctx context.Context) SmsPreferencesArrayOutput {
+	return o
+}
+
+func (o SmsPreferencesArrayOutput) Index(i pulumi.IntInput) SmsPreferencesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SmsPreferences {
+		return vs[0].([]SmsPreferences)[vs[1].(int)]
+	}).(SmsPreferencesOutput)
+}
+
+type SmsPreferencesMapOutput struct{ *pulumi.OutputState }
+
+func (SmsPreferencesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SmsPreferences)(nil))
+}
+
+func (o SmsPreferencesMapOutput) ToSmsPreferencesMapOutput() SmsPreferencesMapOutput {
+	return o
+}
+
+func (o SmsPreferencesMapOutput) ToSmsPreferencesMapOutputWithContext(ctx context.Context) SmsPreferencesMapOutput {
+	return o
+}
+
+func (o SmsPreferencesMapOutput) MapIndex(k pulumi.StringInput) SmsPreferencesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SmsPreferences {
+		return vs[0].(map[string]SmsPreferences)[vs[1].(string)]
+	}).(SmsPreferencesOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SmsPreferencesOutput{})
+	pulumi.RegisterOutputType(SmsPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(SmsPreferencesArrayOutput{})
+	pulumi.RegisterOutputType(SmsPreferencesMapOutput{})
 }

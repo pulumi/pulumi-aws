@@ -263,6 +263,85 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
 }
 
+func (i *DataSource) ToDataSourcePtrOutput() DataSourcePtrOutput {
+	return i.ToDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *DataSource) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePtrOutput)
+}
+
+type DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataSourcePtrOutput() DataSourcePtrOutput
+	ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput
+}
+
+type dataSourcePtrType DataSourceArgs
+
+func (*dataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSource)(nil))
+}
+
+func (i *dataSourcePtrType) ToDataSourcePtrOutput() DataSourcePtrOutput {
+	return i.ToDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourcePtrType) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePtrOutput)
+}
+
+// DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
+// You can construct a concrete instance of `DataSourceArrayInput` via:
+//
+//          DataSourceArray{ DataSourceArgs{...} }
+type DataSourceArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceArrayOutput() DataSourceArrayOutput
+	ToDataSourceArrayOutputWithContext(context.Context) DataSourceArrayOutput
+}
+
+type DataSourceArray []DataSourceInput
+
+func (DataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DataSource)(nil))
+}
+
+func (i DataSourceArray) ToDataSourceArrayOutput() DataSourceArrayOutput {
+	return i.ToDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context) DataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceArrayOutput)
+}
+
+// DataSourceMapInput is an input type that accepts DataSourceMap and DataSourceMapOutput values.
+// You can construct a concrete instance of `DataSourceMapInput` via:
+//
+//          DataSourceMap{ "key": DataSourceArgs{...} }
+type DataSourceMapInput interface {
+	pulumi.Input
+
+	ToDataSourceMapOutput() DataSourceMapOutput
+	ToDataSourceMapOutputWithContext(context.Context) DataSourceMapOutput
+}
+
+type DataSourceMap map[string]DataSourceInput
+
+func (DataSourceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DataSource)(nil))
+}
+
+func (i DataSourceMap) ToDataSourceMapOutput() DataSourceMapOutput {
+	return i.ToDataSourceMapOutputWithContext(context.Background())
+}
+
+func (i DataSourceMap) ToDataSourceMapOutputWithContext(ctx context.Context) DataSourceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMapOutput)
+}
+
 type DataSourceOutput struct {
 	*pulumi.OutputState
 }
@@ -279,6 +358,75 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+func (o DataSourceOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
+	return o.ToDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
+	return o.ApplyT(func(v DataSource) *DataSource {
+		return &v
+	}).(DataSourcePtrOutput)
+}
+
+type DataSourcePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSource)(nil))
+}
+
+func (o DataSourcePtrOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
+	return o
+}
+
+func (o DataSourcePtrOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
+	return o
+}
+
+type DataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSource)(nil))
+}
+
+func (o DataSourceArrayOutput) ToDataSourceArrayOutput() DataSourceArrayOutput {
+	return o
+}
+
+func (o DataSourceArrayOutput) ToDataSourceArrayOutputWithContext(ctx context.Context) DataSourceArrayOutput {
+	return o
+}
+
+func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSource {
+		return vs[0].([]DataSource)[vs[1].(int)]
+	}).(DataSourceOutput)
+}
+
+type DataSourceMapOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataSource)(nil))
+}
+
+func (o DataSourceMapOutput) ToDataSourceMapOutput() DataSourceMapOutput {
+	return o
+}
+
+func (o DataSourceMapOutput) ToDataSourceMapOutputWithContext(ctx context.Context) DataSourceMapOutput {
+	return o
+}
+
+func (o DataSourceMapOutput) MapIndex(k pulumi.StringInput) DataSourceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSource {
+		return vs[0].(map[string]DataSource)[vs[1].(string)]
+	}).(DataSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataSourceOutput{})
+	pulumi.RegisterOutputType(DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceMapOutput{})
 }

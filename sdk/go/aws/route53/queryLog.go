@@ -201,6 +201,85 @@ func (i *QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutp
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogOutput)
 }
 
+func (i *QueryLog) ToQueryLogPtrOutput() QueryLogPtrOutput {
+	return i.ToQueryLogPtrOutputWithContext(context.Background())
+}
+
+func (i *QueryLog) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLogPtrOutput)
+}
+
+type QueryLogPtrInput interface {
+	pulumi.Input
+
+	ToQueryLogPtrOutput() QueryLogPtrOutput
+	ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput
+}
+
+type queryLogPtrType QueryLogArgs
+
+func (*queryLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLog)(nil))
+}
+
+func (i *queryLogPtrType) ToQueryLogPtrOutput() QueryLogPtrOutput {
+	return i.ToQueryLogPtrOutputWithContext(context.Background())
+}
+
+func (i *queryLogPtrType) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLogPtrOutput)
+}
+
+// QueryLogArrayInput is an input type that accepts QueryLogArray and QueryLogArrayOutput values.
+// You can construct a concrete instance of `QueryLogArrayInput` via:
+//
+//          QueryLogArray{ QueryLogArgs{...} }
+type QueryLogArrayInput interface {
+	pulumi.Input
+
+	ToQueryLogArrayOutput() QueryLogArrayOutput
+	ToQueryLogArrayOutputWithContext(context.Context) QueryLogArrayOutput
+}
+
+type QueryLogArray []QueryLogInput
+
+func (QueryLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*QueryLog)(nil))
+}
+
+func (i QueryLogArray) ToQueryLogArrayOutput() QueryLogArrayOutput {
+	return i.ToQueryLogArrayOutputWithContext(context.Background())
+}
+
+func (i QueryLogArray) ToQueryLogArrayOutputWithContext(ctx context.Context) QueryLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLogArrayOutput)
+}
+
+// QueryLogMapInput is an input type that accepts QueryLogMap and QueryLogMapOutput values.
+// You can construct a concrete instance of `QueryLogMapInput` via:
+//
+//          QueryLogMap{ "key": QueryLogArgs{...} }
+type QueryLogMapInput interface {
+	pulumi.Input
+
+	ToQueryLogMapOutput() QueryLogMapOutput
+	ToQueryLogMapOutputWithContext(context.Context) QueryLogMapOutput
+}
+
+type QueryLogMap map[string]QueryLogInput
+
+func (QueryLogMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*QueryLog)(nil))
+}
+
+func (i QueryLogMap) ToQueryLogMapOutput() QueryLogMapOutput {
+	return i.ToQueryLogMapOutputWithContext(context.Background())
+}
+
+func (i QueryLogMap) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLogMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLogMapOutput)
+}
+
 type QueryLogOutput struct {
 	*pulumi.OutputState
 }
@@ -217,6 +296,75 @@ func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLo
 	return o
 }
 
+func (o QueryLogOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
+	return o.ToQueryLogPtrOutputWithContext(context.Background())
+}
+
+func (o QueryLogOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
+	return o.ApplyT(func(v QueryLog) *QueryLog {
+		return &v
+	}).(QueryLogPtrOutput)
+}
+
+type QueryLogPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueryLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLog)(nil))
+}
+
+func (o QueryLogPtrOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
+	return o
+}
+
+func (o QueryLogPtrOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
+	return o
+}
+
+type QueryLogArrayOutput struct{ *pulumi.OutputState }
+
+func (QueryLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryLog)(nil))
+}
+
+func (o QueryLogArrayOutput) ToQueryLogArrayOutput() QueryLogArrayOutput {
+	return o
+}
+
+func (o QueryLogArrayOutput) ToQueryLogArrayOutputWithContext(ctx context.Context) QueryLogArrayOutput {
+	return o
+}
+
+func (o QueryLogArrayOutput) Index(i pulumi.IntInput) QueryLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryLog {
+		return vs[0].([]QueryLog)[vs[1].(int)]
+	}).(QueryLogOutput)
+}
+
+type QueryLogMapOutput struct{ *pulumi.OutputState }
+
+func (QueryLogMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueryLog)(nil))
+}
+
+func (o QueryLogMapOutput) ToQueryLogMapOutput() QueryLogMapOutput {
+	return o
+}
+
+func (o QueryLogMapOutput) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLogMapOutput {
+	return o
+}
+
+func (o QueryLogMapOutput) MapIndex(k pulumi.StringInput) QueryLogOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QueryLog {
+		return vs[0].(map[string]QueryLog)[vs[1].(string)]
+	}).(QueryLogOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueryLogOutput{})
+	pulumi.RegisterOutputType(QueryLogPtrOutput{})
+	pulumi.RegisterOutputType(QueryLogArrayOutput{})
+	pulumi.RegisterOutputType(QueryLogMapOutput{})
 }

@@ -380,6 +380,85 @@ func (i *ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) List
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleOutput)
 }
 
+func (i *ListenerRule) ToListenerRulePtrOutput() ListenerRulePtrOutput {
+	return i.ToListenerRulePtrOutputWithContext(context.Background())
+}
+
+func (i *ListenerRule) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRulePtrOutput)
+}
+
+type ListenerRulePtrInput interface {
+	pulumi.Input
+
+	ToListenerRulePtrOutput() ListenerRulePtrOutput
+	ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput
+}
+
+type listenerRulePtrType ListenerRuleArgs
+
+func (*listenerRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRule)(nil))
+}
+
+func (i *listenerRulePtrType) ToListenerRulePtrOutput() ListenerRulePtrOutput {
+	return i.ToListenerRulePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRulePtrType) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRulePtrOutput)
+}
+
+// ListenerRuleArrayInput is an input type that accepts ListenerRuleArray and ListenerRuleArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleArrayInput` via:
+//
+//          ListenerRuleArray{ ListenerRuleArgs{...} }
+type ListenerRuleArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleArrayOutput() ListenerRuleArrayOutput
+	ToListenerRuleArrayOutputWithContext(context.Context) ListenerRuleArrayOutput
+}
+
+type ListenerRuleArray []ListenerRuleInput
+
+func (ListenerRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ListenerRule)(nil))
+}
+
+func (i ListenerRuleArray) ToListenerRuleArrayOutput() ListenerRuleArrayOutput {
+	return i.ToListenerRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleArray) ToListenerRuleArrayOutputWithContext(ctx context.Context) ListenerRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleArrayOutput)
+}
+
+// ListenerRuleMapInput is an input type that accepts ListenerRuleMap and ListenerRuleMapOutput values.
+// You can construct a concrete instance of `ListenerRuleMapInput` via:
+//
+//          ListenerRuleMap{ "key": ListenerRuleArgs{...} }
+type ListenerRuleMapInput interface {
+	pulumi.Input
+
+	ToListenerRuleMapOutput() ListenerRuleMapOutput
+	ToListenerRuleMapOutputWithContext(context.Context) ListenerRuleMapOutput
+}
+
+type ListenerRuleMap map[string]ListenerRuleInput
+
+func (ListenerRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ListenerRule)(nil))
+}
+
+func (i ListenerRuleMap) ToListenerRuleMapOutput() ListenerRuleMapOutput {
+	return i.ToListenerRuleMapOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMap) ToListenerRuleMapOutputWithContext(ctx context.Context) ListenerRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMapOutput)
+}
+
 type ListenerRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -396,6 +475,75 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ListenerRuleOutput) ToListenerRulePtrOutput() ListenerRulePtrOutput {
+	return o.ToListenerRulePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleOutput) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
+	return o.ApplyT(func(v ListenerRule) *ListenerRule {
+		return &v
+	}).(ListenerRulePtrOutput)
+}
+
+type ListenerRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRule)(nil))
+}
+
+func (o ListenerRulePtrOutput) ToListenerRulePtrOutput() ListenerRulePtrOutput {
+	return o
+}
+
+func (o ListenerRulePtrOutput) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
+	return o
+}
+
+type ListenerRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRule)(nil))
+}
+
+func (o ListenerRuleArrayOutput) ToListenerRuleArrayOutput() ListenerRuleArrayOutput {
+	return o
+}
+
+func (o ListenerRuleArrayOutput) ToListenerRuleArrayOutputWithContext(ctx context.Context) ListenerRuleArrayOutput {
+	return o
+}
+
+func (o ListenerRuleArrayOutput) Index(i pulumi.IntInput) ListenerRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRule {
+		return vs[0].([]ListenerRule)[vs[1].(int)]
+	}).(ListenerRuleOutput)
+}
+
+type ListenerRuleMapOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ListenerRule)(nil))
+}
+
+func (o ListenerRuleMapOutput) ToListenerRuleMapOutput() ListenerRuleMapOutput {
+	return o
+}
+
+func (o ListenerRuleMapOutput) ToListenerRuleMapOutputWithContext(ctx context.Context) ListenerRuleMapOutput {
+	return o
+}
+
+func (o ListenerRuleMapOutput) MapIndex(k pulumi.StringInput) ListenerRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ListenerRule {
+		return vs[0].(map[string]ListenerRule)[vs[1].(string)]
+	}).(ListenerRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ListenerRuleOutput{})
+	pulumi.RegisterOutputType(ListenerRulePtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMapOutput{})
 }

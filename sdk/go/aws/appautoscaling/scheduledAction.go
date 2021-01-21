@@ -257,6 +257,85 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
 }
 
+func (i *ScheduledAction) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
+	return i.ToScheduledActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ScheduledAction) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPtrOutput)
+}
+
+type ScheduledActionPtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionPtrOutput() ScheduledActionPtrOutput
+	ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput
+}
+
+type scheduledActionPtrType ScheduledActionArgs
+
+func (*scheduledActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledAction)(nil))
+}
+
+func (i *scheduledActionPtrType) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
+	return i.ToScheduledActionPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionPtrType) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPtrOutput)
+}
+
+// ScheduledActionArrayInput is an input type that accepts ScheduledActionArray and ScheduledActionArrayOutput values.
+// You can construct a concrete instance of `ScheduledActionArrayInput` via:
+//
+//          ScheduledActionArray{ ScheduledActionArgs{...} }
+type ScheduledActionArrayInput interface {
+	pulumi.Input
+
+	ToScheduledActionArrayOutput() ScheduledActionArrayOutput
+	ToScheduledActionArrayOutputWithContext(context.Context) ScheduledActionArrayOutput
+}
+
+type ScheduledActionArray []ScheduledActionInput
+
+func (ScheduledActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ScheduledAction)(nil))
+}
+
+func (i ScheduledActionArray) ToScheduledActionArrayOutput() ScheduledActionArrayOutput {
+	return i.ToScheduledActionArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionArray) ToScheduledActionArrayOutputWithContext(ctx context.Context) ScheduledActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionArrayOutput)
+}
+
+// ScheduledActionMapInput is an input type that accepts ScheduledActionMap and ScheduledActionMapOutput values.
+// You can construct a concrete instance of `ScheduledActionMapInput` via:
+//
+//          ScheduledActionMap{ "key": ScheduledActionArgs{...} }
+type ScheduledActionMapInput interface {
+	pulumi.Input
+
+	ToScheduledActionMapOutput() ScheduledActionMapOutput
+	ToScheduledActionMapOutputWithContext(context.Context) ScheduledActionMapOutput
+}
+
+type ScheduledActionMap map[string]ScheduledActionInput
+
+func (ScheduledActionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ScheduledAction)(nil))
+}
+
+func (i ScheduledActionMap) ToScheduledActionMapOutput() ScheduledActionMapOutput {
+	return i.ToScheduledActionMapOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionMap) ToScheduledActionMapOutputWithContext(ctx context.Context) ScheduledActionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionMapOutput)
+}
+
 type ScheduledActionOutput struct {
 	*pulumi.OutputState
 }
@@ -273,6 +352,75 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ScheduledActionOutput) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
+	return o.ToScheduledActionPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
+	return o.ApplyT(func(v ScheduledAction) *ScheduledAction {
+		return &v
+	}).(ScheduledActionPtrOutput)
+}
+
+type ScheduledActionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledAction)(nil))
+}
+
+func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
+	return o
+}
+
+func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
+	return o
+}
+
+type ScheduledActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledAction)(nil))
+}
+
+func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutput() ScheduledActionArrayOutput {
+	return o
+}
+
+func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutputWithContext(ctx context.Context) ScheduledActionArrayOutput {
+	return o
+}
+
+func (o ScheduledActionArrayOutput) Index(i pulumi.IntInput) ScheduledActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledAction {
+		return vs[0].([]ScheduledAction)[vs[1].(int)]
+	}).(ScheduledActionOutput)
+}
+
+type ScheduledActionMapOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ScheduledAction)(nil))
+}
+
+func (o ScheduledActionMapOutput) ToScheduledActionMapOutput() ScheduledActionMapOutput {
+	return o
+}
+
+func (o ScheduledActionMapOutput) ToScheduledActionMapOutputWithContext(ctx context.Context) ScheduledActionMapOutput {
+	return o
+}
+
+func (o ScheduledActionMapOutput) MapIndex(k pulumi.StringInput) ScheduledActionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScheduledAction {
+		return vs[0].(map[string]ScheduledAction)[vs[1].(string)]
+	}).(ScheduledActionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledActionOutput{})
+	pulumi.RegisterOutputType(ScheduledActionPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledActionMapOutput{})
 }

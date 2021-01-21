@@ -203,6 +203,85 @@ func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateOutput)
 }
 
+func (i *ConfigurationTemplate) ToConfigurationTemplatePtrOutput() ConfigurationTemplatePtrOutput {
+	return i.ToConfigurationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationTemplate) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplatePtrOutput)
+}
+
+type ConfigurationTemplatePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplatePtrOutput() ConfigurationTemplatePtrOutput
+	ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput
+}
+
+type configurationTemplatePtrType ConfigurationTemplateArgs
+
+func (*configurationTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationTemplate)(nil))
+}
+
+func (i *configurationTemplatePtrType) ToConfigurationTemplatePtrOutput() ConfigurationTemplatePtrOutput {
+	return i.ToConfigurationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationTemplatePtrType) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplatePtrOutput)
+}
+
+// ConfigurationTemplateArrayInput is an input type that accepts ConfigurationTemplateArray and ConfigurationTemplateArrayOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateArrayInput` via:
+//
+//          ConfigurationTemplateArray{ ConfigurationTemplateArgs{...} }
+type ConfigurationTemplateArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplateArrayOutput() ConfigurationTemplateArrayOutput
+	ToConfigurationTemplateArrayOutputWithContext(context.Context) ConfigurationTemplateArrayOutput
+}
+
+type ConfigurationTemplateArray []ConfigurationTemplateInput
+
+func (ConfigurationTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConfigurationTemplate)(nil))
+}
+
+func (i ConfigurationTemplateArray) ToConfigurationTemplateArrayOutput() ConfigurationTemplateArrayOutput {
+	return i.ToConfigurationTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationTemplateArray) ToConfigurationTemplateArrayOutputWithContext(ctx context.Context) ConfigurationTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateArrayOutput)
+}
+
+// ConfigurationTemplateMapInput is an input type that accepts ConfigurationTemplateMap and ConfigurationTemplateMapOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateMapInput` via:
+//
+//          ConfigurationTemplateMap{ "key": ConfigurationTemplateArgs{...} }
+type ConfigurationTemplateMapInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplateMapOutput() ConfigurationTemplateMapOutput
+	ToConfigurationTemplateMapOutputWithContext(context.Context) ConfigurationTemplateMapOutput
+}
+
+type ConfigurationTemplateMap map[string]ConfigurationTemplateInput
+
+func (ConfigurationTemplateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConfigurationTemplate)(nil))
+}
+
+func (i ConfigurationTemplateMap) ToConfigurationTemplateMapOutput() ConfigurationTemplateMapOutput {
+	return i.ToConfigurationTemplateMapOutputWithContext(context.Background())
+}
+
+func (i ConfigurationTemplateMap) ToConfigurationTemplateMapOutputWithContext(ctx context.Context) ConfigurationTemplateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateMapOutput)
+}
+
 type ConfigurationTemplateOutput struct {
 	*pulumi.OutputState
 }
@@ -219,6 +298,75 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ct
 	return o
 }
 
+func (o ConfigurationTemplateOutput) ToConfigurationTemplatePtrOutput() ConfigurationTemplatePtrOutput {
+	return o.ToConfigurationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationTemplateOutput) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
+	return o.ApplyT(func(v ConfigurationTemplate) *ConfigurationTemplate {
+		return &v
+	}).(ConfigurationTemplatePtrOutput)
+}
+
+type ConfigurationTemplatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationTemplate)(nil))
+}
+
+func (o ConfigurationTemplatePtrOutput) ToConfigurationTemplatePtrOutput() ConfigurationTemplatePtrOutput {
+	return o
+}
+
+func (o ConfigurationTemplatePtrOutput) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
+	return o
+}
+
+type ConfigurationTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationTemplate)(nil))
+}
+
+func (o ConfigurationTemplateArrayOutput) ToConfigurationTemplateArrayOutput() ConfigurationTemplateArrayOutput {
+	return o
+}
+
+func (o ConfigurationTemplateArrayOutput) ToConfigurationTemplateArrayOutputWithContext(ctx context.Context) ConfigurationTemplateArrayOutput {
+	return o
+}
+
+func (o ConfigurationTemplateArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationTemplate {
+		return vs[0].([]ConfigurationTemplate)[vs[1].(int)]
+	}).(ConfigurationTemplateOutput)
+}
+
+type ConfigurationTemplateMapOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationTemplateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationTemplate)(nil))
+}
+
+func (o ConfigurationTemplateMapOutput) ToConfigurationTemplateMapOutput() ConfigurationTemplateMapOutput {
+	return o
+}
+
+func (o ConfigurationTemplateMapOutput) ToConfigurationTemplateMapOutputWithContext(ctx context.Context) ConfigurationTemplateMapOutput {
+	return o
+}
+
+func (o ConfigurationTemplateMapOutput) MapIndex(k pulumi.StringInput) ConfigurationTemplateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationTemplate {
+		return vs[0].(map[string]ConfigurationTemplate)[vs[1].(string)]
+	}).(ConfigurationTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationTemplateOutput{})
+	pulumi.RegisterOutputType(ConfigurationTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationTemplateArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationTemplateMapOutput{})
 }

@@ -225,6 +225,85 @@ func (i *ClusterSnapshot) ToClusterSnapshotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotOutput)
 }
 
+func (i *ClusterSnapshot) ToClusterSnapshotPtrOutput() ClusterSnapshotPtrOutput {
+	return i.ToClusterSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i *ClusterSnapshot) ToClusterSnapshotPtrOutputWithContext(ctx context.Context) ClusterSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotPtrOutput)
+}
+
+type ClusterSnapshotPtrInput interface {
+	pulumi.Input
+
+	ToClusterSnapshotPtrOutput() ClusterSnapshotPtrOutput
+	ToClusterSnapshotPtrOutputWithContext(ctx context.Context) ClusterSnapshotPtrOutput
+}
+
+type clusterSnapshotPtrType ClusterSnapshotArgs
+
+func (*clusterSnapshotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSnapshot)(nil))
+}
+
+func (i *clusterSnapshotPtrType) ToClusterSnapshotPtrOutput() ClusterSnapshotPtrOutput {
+	return i.ToClusterSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSnapshotPtrType) ToClusterSnapshotPtrOutputWithContext(ctx context.Context) ClusterSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotPtrOutput)
+}
+
+// ClusterSnapshotArrayInput is an input type that accepts ClusterSnapshotArray and ClusterSnapshotArrayOutput values.
+// You can construct a concrete instance of `ClusterSnapshotArrayInput` via:
+//
+//          ClusterSnapshotArray{ ClusterSnapshotArgs{...} }
+type ClusterSnapshotArrayInput interface {
+	pulumi.Input
+
+	ToClusterSnapshotArrayOutput() ClusterSnapshotArrayOutput
+	ToClusterSnapshotArrayOutputWithContext(context.Context) ClusterSnapshotArrayOutput
+}
+
+type ClusterSnapshotArray []ClusterSnapshotInput
+
+func (ClusterSnapshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ClusterSnapshot)(nil))
+}
+
+func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutput() ClusterSnapshotArrayOutput {
+	return i.ToClusterSnapshotArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutputWithContext(ctx context.Context) ClusterSnapshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotArrayOutput)
+}
+
+// ClusterSnapshotMapInput is an input type that accepts ClusterSnapshotMap and ClusterSnapshotMapOutput values.
+// You can construct a concrete instance of `ClusterSnapshotMapInput` via:
+//
+//          ClusterSnapshotMap{ "key": ClusterSnapshotArgs{...} }
+type ClusterSnapshotMapInput interface {
+	pulumi.Input
+
+	ToClusterSnapshotMapOutput() ClusterSnapshotMapOutput
+	ToClusterSnapshotMapOutputWithContext(context.Context) ClusterSnapshotMapOutput
+}
+
+type ClusterSnapshotMap map[string]ClusterSnapshotInput
+
+func (ClusterSnapshotMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ClusterSnapshot)(nil))
+}
+
+func (i ClusterSnapshotMap) ToClusterSnapshotMapOutput() ClusterSnapshotMapOutput {
+	return i.ToClusterSnapshotMapOutputWithContext(context.Background())
+}
+
+func (i ClusterSnapshotMap) ToClusterSnapshotMapOutputWithContext(ctx context.Context) ClusterSnapshotMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotMapOutput)
+}
+
 type ClusterSnapshotOutput struct {
 	*pulumi.OutputState
 }
@@ -241,6 +320,75 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ClusterSnapshotOutput) ToClusterSnapshotPtrOutput() ClusterSnapshotPtrOutput {
+	return o.ToClusterSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSnapshotOutput) ToClusterSnapshotPtrOutputWithContext(ctx context.Context) ClusterSnapshotPtrOutput {
+	return o.ApplyT(func(v ClusterSnapshot) *ClusterSnapshot {
+		return &v
+	}).(ClusterSnapshotPtrOutput)
+}
+
+type ClusterSnapshotPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterSnapshotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSnapshot)(nil))
+}
+
+func (o ClusterSnapshotPtrOutput) ToClusterSnapshotPtrOutput() ClusterSnapshotPtrOutput {
+	return o
+}
+
+func (o ClusterSnapshotPtrOutput) ToClusterSnapshotPtrOutputWithContext(ctx context.Context) ClusterSnapshotPtrOutput {
+	return o
+}
+
+type ClusterSnapshotArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSnapshot)(nil))
+}
+
+func (o ClusterSnapshotArrayOutput) ToClusterSnapshotArrayOutput() ClusterSnapshotArrayOutput {
+	return o
+}
+
+func (o ClusterSnapshotArrayOutput) ToClusterSnapshotArrayOutputWithContext(ctx context.Context) ClusterSnapshotArrayOutput {
+	return o
+}
+
+func (o ClusterSnapshotArrayOutput) Index(i pulumi.IntInput) ClusterSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSnapshot {
+		return vs[0].([]ClusterSnapshot)[vs[1].(int)]
+	}).(ClusterSnapshotOutput)
+}
+
+type ClusterSnapshotMapOutput struct{ *pulumi.OutputState }
+
+func (ClusterSnapshotMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterSnapshot)(nil))
+}
+
+func (o ClusterSnapshotMapOutput) ToClusterSnapshotMapOutput() ClusterSnapshotMapOutput {
+	return o
+}
+
+func (o ClusterSnapshotMapOutput) ToClusterSnapshotMapOutputWithContext(ctx context.Context) ClusterSnapshotMapOutput {
+	return o
+}
+
+func (o ClusterSnapshotMapOutput) MapIndex(k pulumi.StringInput) ClusterSnapshotOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterSnapshot {
+		return vs[0].(map[string]ClusterSnapshot)[vs[1].(string)]
+	}).(ClusterSnapshotOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterSnapshotOutput{})
+	pulumi.RegisterOutputType(ClusterSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(ClusterSnapshotMapOutput{})
 }

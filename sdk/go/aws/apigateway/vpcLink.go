@@ -181,6 +181,85 @@ func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkOutput)
 }
 
+func (i *VpcLink) ToVpcLinkPtrOutput() VpcLinkPtrOutput {
+	return i.ToVpcLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcLink) ToVpcLinkPtrOutputWithContext(ctx context.Context) VpcLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkPtrOutput)
+}
+
+type VpcLinkPtrInput interface {
+	pulumi.Input
+
+	ToVpcLinkPtrOutput() VpcLinkPtrOutput
+	ToVpcLinkPtrOutputWithContext(ctx context.Context) VpcLinkPtrOutput
+}
+
+type vpcLinkPtrType VpcLinkArgs
+
+func (*vpcLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcLink)(nil))
+}
+
+func (i *vpcLinkPtrType) ToVpcLinkPtrOutput() VpcLinkPtrOutput {
+	return i.ToVpcLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcLinkPtrType) ToVpcLinkPtrOutputWithContext(ctx context.Context) VpcLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkPtrOutput)
+}
+
+// VpcLinkArrayInput is an input type that accepts VpcLinkArray and VpcLinkArrayOutput values.
+// You can construct a concrete instance of `VpcLinkArrayInput` via:
+//
+//          VpcLinkArray{ VpcLinkArgs{...} }
+type VpcLinkArrayInput interface {
+	pulumi.Input
+
+	ToVpcLinkArrayOutput() VpcLinkArrayOutput
+	ToVpcLinkArrayOutputWithContext(context.Context) VpcLinkArrayOutput
+}
+
+type VpcLinkArray []VpcLinkInput
+
+func (VpcLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcLink)(nil))
+}
+
+func (i VpcLinkArray) ToVpcLinkArrayOutput() VpcLinkArrayOutput {
+	return i.ToVpcLinkArrayOutputWithContext(context.Background())
+}
+
+func (i VpcLinkArray) ToVpcLinkArrayOutputWithContext(ctx context.Context) VpcLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkArrayOutput)
+}
+
+// VpcLinkMapInput is an input type that accepts VpcLinkMap and VpcLinkMapOutput values.
+// You can construct a concrete instance of `VpcLinkMapInput` via:
+//
+//          VpcLinkMap{ "key": VpcLinkArgs{...} }
+type VpcLinkMapInput interface {
+	pulumi.Input
+
+	ToVpcLinkMapOutput() VpcLinkMapOutput
+	ToVpcLinkMapOutputWithContext(context.Context) VpcLinkMapOutput
+}
+
+type VpcLinkMap map[string]VpcLinkInput
+
+func (VpcLinkMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcLink)(nil))
+}
+
+func (i VpcLinkMap) ToVpcLinkMapOutput() VpcLinkMapOutput {
+	return i.ToVpcLinkMapOutputWithContext(context.Background())
+}
+
+func (i VpcLinkMap) ToVpcLinkMapOutputWithContext(ctx context.Context) VpcLinkMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkMapOutput)
+}
+
 type VpcLinkOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
+func (o VpcLinkOutput) ToVpcLinkPtrOutput() VpcLinkPtrOutput {
+	return o.ToVpcLinkPtrOutputWithContext(context.Background())
+}
+
+func (o VpcLinkOutput) ToVpcLinkPtrOutputWithContext(ctx context.Context) VpcLinkPtrOutput {
+	return o.ApplyT(func(v VpcLink) *VpcLink {
+		return &v
+	}).(VpcLinkPtrOutput)
+}
+
+type VpcLinkPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcLink)(nil))
+}
+
+func (o VpcLinkPtrOutput) ToVpcLinkPtrOutput() VpcLinkPtrOutput {
+	return o
+}
+
+func (o VpcLinkPtrOutput) ToVpcLinkPtrOutputWithContext(ctx context.Context) VpcLinkPtrOutput {
+	return o
+}
+
+type VpcLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcLink)(nil))
+}
+
+func (o VpcLinkArrayOutput) ToVpcLinkArrayOutput() VpcLinkArrayOutput {
+	return o
+}
+
+func (o VpcLinkArrayOutput) ToVpcLinkArrayOutputWithContext(ctx context.Context) VpcLinkArrayOutput {
+	return o
+}
+
+func (o VpcLinkArrayOutput) Index(i pulumi.IntInput) VpcLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcLink {
+		return vs[0].([]VpcLink)[vs[1].(int)]
+	}).(VpcLinkOutput)
+}
+
+type VpcLinkMapOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcLink)(nil))
+}
+
+func (o VpcLinkMapOutput) ToVpcLinkMapOutput() VpcLinkMapOutput {
+	return o
+}
+
+func (o VpcLinkMapOutput) ToVpcLinkMapOutputWithContext(ctx context.Context) VpcLinkMapOutput {
+	return o
+}
+
+func (o VpcLinkMapOutput) MapIndex(k pulumi.StringInput) VpcLinkOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcLink {
+		return vs[0].(map[string]VpcLink)[vs[1].(string)]
+	}).(VpcLinkOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcLinkOutput{})
+	pulumi.RegisterOutputType(VpcLinkPtrOutput{})
+	pulumi.RegisterOutputType(VpcLinkArrayOutput{})
+	pulumi.RegisterOutputType(VpcLinkMapOutput{})
 }

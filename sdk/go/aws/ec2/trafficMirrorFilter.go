@@ -151,6 +151,85 @@ func (i *TrafficMirrorFilter) ToTrafficMirrorFilterOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterOutput)
 }
 
+func (i *TrafficMirrorFilter) ToTrafficMirrorFilterPtrOutput() TrafficMirrorFilterPtrOutput {
+	return i.ToTrafficMirrorFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *TrafficMirrorFilter) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterPtrOutput)
+}
+
+type TrafficMirrorFilterPtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterPtrOutput() TrafficMirrorFilterPtrOutput
+	ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput
+}
+
+type trafficMirrorFilterPtrType TrafficMirrorFilterArgs
+
+func (*trafficMirrorFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilter)(nil))
+}
+
+func (i *trafficMirrorFilterPtrType) ToTrafficMirrorFilterPtrOutput() TrafficMirrorFilterPtrOutput {
+	return i.ToTrafficMirrorFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *trafficMirrorFilterPtrType) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterPtrOutput)
+}
+
+// TrafficMirrorFilterArrayInput is an input type that accepts TrafficMirrorFilterArray and TrafficMirrorFilterArrayOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterArrayInput` via:
+//
+//          TrafficMirrorFilterArray{ TrafficMirrorFilterArgs{...} }
+type TrafficMirrorFilterArrayInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterArrayOutput() TrafficMirrorFilterArrayOutput
+	ToTrafficMirrorFilterArrayOutputWithContext(context.Context) TrafficMirrorFilterArrayOutput
+}
+
+type TrafficMirrorFilterArray []TrafficMirrorFilterInput
+
+func (TrafficMirrorFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TrafficMirrorFilter)(nil))
+}
+
+func (i TrafficMirrorFilterArray) ToTrafficMirrorFilterArrayOutput() TrafficMirrorFilterArrayOutput {
+	return i.ToTrafficMirrorFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterArray) ToTrafficMirrorFilterArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterArrayOutput)
+}
+
+// TrafficMirrorFilterMapInput is an input type that accepts TrafficMirrorFilterMap and TrafficMirrorFilterMapOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterMapInput` via:
+//
+//          TrafficMirrorFilterMap{ "key": TrafficMirrorFilterArgs{...} }
+type TrafficMirrorFilterMapInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterMapOutput() TrafficMirrorFilterMapOutput
+	ToTrafficMirrorFilterMapOutputWithContext(context.Context) TrafficMirrorFilterMapOutput
+}
+
+type TrafficMirrorFilterMap map[string]TrafficMirrorFilterInput
+
+func (TrafficMirrorFilterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TrafficMirrorFilter)(nil))
+}
+
+func (i TrafficMirrorFilterMap) ToTrafficMirrorFilterMapOutput() TrafficMirrorFilterMapOutput {
+	return i.ToTrafficMirrorFilterMapOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterMap) ToTrafficMirrorFilterMapOutputWithContext(ctx context.Context) TrafficMirrorFilterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterMapOutput)
+}
+
 type TrafficMirrorFilterOutput struct {
 	*pulumi.OutputState
 }
@@ -167,6 +246,75 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx co
 	return o
 }
 
+func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterPtrOutput() TrafficMirrorFilterPtrOutput {
+	return o.ToTrafficMirrorFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
+	return o.ApplyT(func(v TrafficMirrorFilter) *TrafficMirrorFilter {
+		return &v
+	}).(TrafficMirrorFilterPtrOutput)
+}
+
+type TrafficMirrorFilterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficMirrorFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilter)(nil))
+}
+
+func (o TrafficMirrorFilterPtrOutput) ToTrafficMirrorFilterPtrOutput() TrafficMirrorFilterPtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterPtrOutput) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
+	return o
+}
+
+type TrafficMirrorFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorFilter)(nil))
+}
+
+func (o TrafficMirrorFilterArrayOutput) ToTrafficMirrorFilterArrayOutput() TrafficMirrorFilterArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterArrayOutput) ToTrafficMirrorFilterArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterArrayOutput) Index(i pulumi.IntInput) TrafficMirrorFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorFilter {
+		return vs[0].([]TrafficMirrorFilter)[vs[1].(int)]
+	}).(TrafficMirrorFilterOutput)
+}
+
+type TrafficMirrorFilterMapOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TrafficMirrorFilter)(nil))
+}
+
+func (o TrafficMirrorFilterMapOutput) ToTrafficMirrorFilterMapOutput() TrafficMirrorFilterMapOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterMapOutput) ToTrafficMirrorFilterMapOutputWithContext(ctx context.Context) TrafficMirrorFilterMapOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterMapOutput) MapIndex(k pulumi.StringInput) TrafficMirrorFilterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TrafficMirrorFilter {
+		return vs[0].(map[string]TrafficMirrorFilter)[vs[1].(string)]
+	}).(TrafficMirrorFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterPtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterArrayOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterMapOutput{})
 }

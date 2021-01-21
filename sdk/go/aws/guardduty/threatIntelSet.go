@@ -227,6 +227,85 @@ func (i *ThreatIntelSet) ToThreatIntelSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetOutput)
 }
 
+func (i *ThreatIntelSet) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutput {
+	return i.ToThreatIntelSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ThreatIntelSet) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetPtrOutput)
+}
+
+type ThreatIntelSetPtrInput interface {
+	pulumi.Input
+
+	ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutput
+	ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput
+}
+
+type threatIntelSetPtrType ThreatIntelSetArgs
+
+func (*threatIntelSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThreatIntelSet)(nil))
+}
+
+func (i *threatIntelSetPtrType) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutput {
+	return i.ToThreatIntelSetPtrOutputWithContext(context.Background())
+}
+
+func (i *threatIntelSetPtrType) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetPtrOutput)
+}
+
+// ThreatIntelSetArrayInput is an input type that accepts ThreatIntelSetArray and ThreatIntelSetArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelSetArrayInput` via:
+//
+//          ThreatIntelSetArray{ ThreatIntelSetArgs{...} }
+type ThreatIntelSetArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelSetArrayOutput() ThreatIntelSetArrayOutput
+	ToThreatIntelSetArrayOutputWithContext(context.Context) ThreatIntelSetArrayOutput
+}
+
+type ThreatIntelSetArray []ThreatIntelSetInput
+
+func (ThreatIntelSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ThreatIntelSet)(nil))
+}
+
+func (i ThreatIntelSetArray) ToThreatIntelSetArrayOutput() ThreatIntelSetArrayOutput {
+	return i.ToThreatIntelSetArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelSetArray) ToThreatIntelSetArrayOutputWithContext(ctx context.Context) ThreatIntelSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetArrayOutput)
+}
+
+// ThreatIntelSetMapInput is an input type that accepts ThreatIntelSetMap and ThreatIntelSetMapOutput values.
+// You can construct a concrete instance of `ThreatIntelSetMapInput` via:
+//
+//          ThreatIntelSetMap{ "key": ThreatIntelSetArgs{...} }
+type ThreatIntelSetMapInput interface {
+	pulumi.Input
+
+	ToThreatIntelSetMapOutput() ThreatIntelSetMapOutput
+	ToThreatIntelSetMapOutputWithContext(context.Context) ThreatIntelSetMapOutput
+}
+
+type ThreatIntelSetMap map[string]ThreatIntelSetInput
+
+func (ThreatIntelSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ThreatIntelSet)(nil))
+}
+
+func (i ThreatIntelSetMap) ToThreatIntelSetMapOutput() ThreatIntelSetMapOutput {
+	return i.ToThreatIntelSetMapOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelSetMap) ToThreatIntelSetMapOutputWithContext(ctx context.Context) ThreatIntelSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetMapOutput)
+}
+
 type ThreatIntelSetOutput struct {
 	*pulumi.OutputState
 }
@@ -243,6 +322,75 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ThreatIntelSetOutput) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutput {
+	return o.ToThreatIntelSetPtrOutputWithContext(context.Background())
+}
+
+func (o ThreatIntelSetOutput) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
+	return o.ApplyT(func(v ThreatIntelSet) *ThreatIntelSet {
+		return &v
+	}).(ThreatIntelSetPtrOutput)
+}
+
+type ThreatIntelSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreatIntelSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThreatIntelSet)(nil))
+}
+
+func (o ThreatIntelSetPtrOutput) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutput {
+	return o
+}
+
+func (o ThreatIntelSetPtrOutput) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
+	return o
+}
+
+type ThreatIntelSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelSet)(nil))
+}
+
+func (o ThreatIntelSetArrayOutput) ToThreatIntelSetArrayOutput() ThreatIntelSetArrayOutput {
+	return o
+}
+
+func (o ThreatIntelSetArrayOutput) ToThreatIntelSetArrayOutputWithContext(ctx context.Context) ThreatIntelSetArrayOutput {
+	return o
+}
+
+func (o ThreatIntelSetArrayOutput) Index(i pulumi.IntInput) ThreatIntelSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelSet {
+		return vs[0].([]ThreatIntelSet)[vs[1].(int)]
+	}).(ThreatIntelSetOutput)
+}
+
+type ThreatIntelSetMapOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ThreatIntelSet)(nil))
+}
+
+func (o ThreatIntelSetMapOutput) ToThreatIntelSetMapOutput() ThreatIntelSetMapOutput {
+	return o
+}
+
+func (o ThreatIntelSetMapOutput) ToThreatIntelSetMapOutputWithContext(ctx context.Context) ThreatIntelSetMapOutput {
+	return o
+}
+
+func (o ThreatIntelSetMapOutput) MapIndex(k pulumi.StringInput) ThreatIntelSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThreatIntelSet {
+		return vs[0].(map[string]ThreatIntelSet)[vs[1].(string)]
+	}).(ThreatIntelSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ThreatIntelSetOutput{})
+	pulumi.RegisterOutputType(ThreatIntelSetPtrOutput{})
+	pulumi.RegisterOutputType(ThreatIntelSetArrayOutput{})
+	pulumi.RegisterOutputType(ThreatIntelSetMapOutput{})
 }

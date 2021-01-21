@@ -211,6 +211,85 @@ func (i *LicenseConfiguration) ToLicenseConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationOutput)
 }
 
+func (i *LicenseConfiguration) ToLicenseConfigurationPtrOutput() LicenseConfigurationPtrOutput {
+	return i.ToLicenseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *LicenseConfiguration) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationPtrOutput)
+}
+
+type LicenseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationPtrOutput() LicenseConfigurationPtrOutput
+	ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput
+}
+
+type licenseConfigurationPtrType LicenseConfigurationArgs
+
+func (*licenseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseConfiguration)(nil))
+}
+
+func (i *licenseConfigurationPtrType) ToLicenseConfigurationPtrOutput() LicenseConfigurationPtrOutput {
+	return i.ToLicenseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseConfigurationPtrType) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationPtrOutput)
+}
+
+// LicenseConfigurationArrayInput is an input type that accepts LicenseConfigurationArray and LicenseConfigurationArrayOutput values.
+// You can construct a concrete instance of `LicenseConfigurationArrayInput` via:
+//
+//          LicenseConfigurationArray{ LicenseConfigurationArgs{...} }
+type LicenseConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationArrayOutput() LicenseConfigurationArrayOutput
+	ToLicenseConfigurationArrayOutputWithContext(context.Context) LicenseConfigurationArrayOutput
+}
+
+type LicenseConfigurationArray []LicenseConfigurationInput
+
+func (LicenseConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LicenseConfiguration)(nil))
+}
+
+func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutput() LicenseConfigurationArrayOutput {
+	return i.ToLicenseConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutputWithContext(ctx context.Context) LicenseConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationArrayOutput)
+}
+
+// LicenseConfigurationMapInput is an input type that accepts LicenseConfigurationMap and LicenseConfigurationMapOutput values.
+// You can construct a concrete instance of `LicenseConfigurationMapInput` via:
+//
+//          LicenseConfigurationMap{ "key": LicenseConfigurationArgs{...} }
+type LicenseConfigurationMapInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationMapOutput() LicenseConfigurationMapOutput
+	ToLicenseConfigurationMapOutputWithContext(context.Context) LicenseConfigurationMapOutput
+}
+
+type LicenseConfigurationMap map[string]LicenseConfigurationInput
+
+func (LicenseConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LicenseConfiguration)(nil))
+}
+
+func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutput() LicenseConfigurationMapOutput {
+	return i.ToLicenseConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutputWithContext(ctx context.Context) LicenseConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationMapOutput)
+}
+
 type LicenseConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -227,6 +306,75 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationOutputWithContext(ctx 
 	return o
 }
 
+func (o LicenseConfigurationOutput) ToLicenseConfigurationPtrOutput() LicenseConfigurationPtrOutput {
+	return o.ToLicenseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseConfigurationOutput) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
+	return o.ApplyT(func(v LicenseConfiguration) *LicenseConfiguration {
+		return &v
+	}).(LicenseConfigurationPtrOutput)
+}
+
+type LicenseConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LicenseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseConfiguration)(nil))
+}
+
+func (o LicenseConfigurationPtrOutput) ToLicenseConfigurationPtrOutput() LicenseConfigurationPtrOutput {
+	return o
+}
+
+func (o LicenseConfigurationPtrOutput) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
+	return o
+}
+
+type LicenseConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseConfiguration)(nil))
+}
+
+func (o LicenseConfigurationArrayOutput) ToLicenseConfigurationArrayOutput() LicenseConfigurationArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationArrayOutput) ToLicenseConfigurationArrayOutputWithContext(ctx context.Context) LicenseConfigurationArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationArrayOutput) Index(i pulumi.IntInput) LicenseConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseConfiguration {
+		return vs[0].([]LicenseConfiguration)[vs[1].(int)]
+	}).(LicenseConfigurationOutput)
+}
+
+type LicenseConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LicenseConfiguration)(nil))
+}
+
+func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutput() LicenseConfigurationMapOutput {
+	return o
+}
+
+func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutputWithContext(ctx context.Context) LicenseConfigurationMapOutput {
+	return o
+}
+
+func (o LicenseConfigurationMapOutput) MapIndex(k pulumi.StringInput) LicenseConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LicenseConfiguration {
+		return vs[0].(map[string]LicenseConfiguration)[vs[1].(string)]
+	}).(LicenseConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LicenseConfigurationOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationMapOutput{})
 }

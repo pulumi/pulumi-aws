@@ -147,6 +147,85 @@ func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationOutput)
 }
 
+func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationPtrOutput() VpcDhcpOptionsAssociationPtrOutput {
+	return i.ToVpcDhcpOptionsAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationPtrOutput)
+}
+
+type VpcDhcpOptionsAssociationPtrInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsAssociationPtrOutput() VpcDhcpOptionsAssociationPtrOutput
+	ToVpcDhcpOptionsAssociationPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationPtrOutput
+}
+
+type vpcDhcpOptionsAssociationPtrType VpcDhcpOptionsAssociationArgs
+
+func (*vpcDhcpOptionsAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcDhcpOptionsAssociation)(nil))
+}
+
+func (i *vpcDhcpOptionsAssociationPtrType) ToVpcDhcpOptionsAssociationPtrOutput() VpcDhcpOptionsAssociationPtrOutput {
+	return i.ToVpcDhcpOptionsAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcDhcpOptionsAssociationPtrType) ToVpcDhcpOptionsAssociationPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationPtrOutput)
+}
+
+// VpcDhcpOptionsAssociationArrayInput is an input type that accepts VpcDhcpOptionsAssociationArray and VpcDhcpOptionsAssociationArrayOutput values.
+// You can construct a concrete instance of `VpcDhcpOptionsAssociationArrayInput` via:
+//
+//          VpcDhcpOptionsAssociationArray{ VpcDhcpOptionsAssociationArgs{...} }
+type VpcDhcpOptionsAssociationArrayInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsAssociationArrayOutput() VpcDhcpOptionsAssociationArrayOutput
+	ToVpcDhcpOptionsAssociationArrayOutputWithContext(context.Context) VpcDhcpOptionsAssociationArrayOutput
+}
+
+type VpcDhcpOptionsAssociationArray []VpcDhcpOptionsAssociationInput
+
+func (VpcDhcpOptionsAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpcDhcpOptionsAssociation)(nil))
+}
+
+func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutput() VpcDhcpOptionsAssociationArrayOutput {
+	return i.ToVpcDhcpOptionsAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationArrayOutput)
+}
+
+// VpcDhcpOptionsAssociationMapInput is an input type that accepts VpcDhcpOptionsAssociationMap and VpcDhcpOptionsAssociationMapOutput values.
+// You can construct a concrete instance of `VpcDhcpOptionsAssociationMapInput` via:
+//
+//          VpcDhcpOptionsAssociationMap{ "key": VpcDhcpOptionsAssociationArgs{...} }
+type VpcDhcpOptionsAssociationMapInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsAssociationMapOutput() VpcDhcpOptionsAssociationMapOutput
+	ToVpcDhcpOptionsAssociationMapOutputWithContext(context.Context) VpcDhcpOptionsAssociationMapOutput
+}
+
+type VpcDhcpOptionsAssociationMap map[string]VpcDhcpOptionsAssociationInput
+
+func (VpcDhcpOptionsAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpcDhcpOptionsAssociation)(nil))
+}
+
+func (i VpcDhcpOptionsAssociationMap) ToVpcDhcpOptionsAssociationMapOutput() VpcDhcpOptionsAssociationMapOutput {
+	return i.ToVpcDhcpOptionsAssociationMapOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptionsAssociationMap) ToVpcDhcpOptionsAssociationMapOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationMapOutput)
+}
+
 type VpcDhcpOptionsAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -163,6 +242,75 @@ func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutputWithCo
 	return o
 }
 
+func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationPtrOutput() VpcDhcpOptionsAssociationPtrOutput {
+	return o.ToVpcDhcpOptionsAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationPtrOutput {
+	return o.ApplyT(func(v VpcDhcpOptionsAssociation) *VpcDhcpOptionsAssociation {
+		return &v
+	}).(VpcDhcpOptionsAssociationPtrOutput)
+}
+
+type VpcDhcpOptionsAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcDhcpOptionsAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcDhcpOptionsAssociation)(nil))
+}
+
+func (o VpcDhcpOptionsAssociationPtrOutput) ToVpcDhcpOptionsAssociationPtrOutput() VpcDhcpOptionsAssociationPtrOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationPtrOutput) ToVpcDhcpOptionsAssociationPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationPtrOutput {
+	return o
+}
+
+type VpcDhcpOptionsAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcDhcpOptionsAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcDhcpOptionsAssociation)(nil))
+}
+
+func (o VpcDhcpOptionsAssociationArrayOutput) ToVpcDhcpOptionsAssociationArrayOutput() VpcDhcpOptionsAssociationArrayOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationArrayOutput) ToVpcDhcpOptionsAssociationArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationArrayOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationArrayOutput) Index(i pulumi.IntInput) VpcDhcpOptionsAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcDhcpOptionsAssociation {
+		return vs[0].([]VpcDhcpOptionsAssociation)[vs[1].(int)]
+	}).(VpcDhcpOptionsAssociationOutput)
+}
+
+type VpcDhcpOptionsAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (VpcDhcpOptionsAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcDhcpOptionsAssociation)(nil))
+}
+
+func (o VpcDhcpOptionsAssociationMapOutput) ToVpcDhcpOptionsAssociationMapOutput() VpcDhcpOptionsAssociationMapOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationMapOutput) ToVpcDhcpOptionsAssociationMapOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationMapOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcDhcpOptionsAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcDhcpOptionsAssociation {
+		return vs[0].(map[string]VpcDhcpOptionsAssociation)[vs[1].(string)]
+	}).(VpcDhcpOptionsAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationPtrOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationArrayOutput{})
+	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationMapOutput{})
 }

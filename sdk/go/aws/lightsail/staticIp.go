@@ -135,6 +135,85 @@ func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpOutput)
 }
 
+func (i *StaticIp) ToStaticIpPtrOutput() StaticIpPtrOutput {
+	return i.ToStaticIpPtrOutputWithContext(context.Background())
+}
+
+func (i *StaticIp) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpPtrOutput)
+}
+
+type StaticIpPtrInput interface {
+	pulumi.Input
+
+	ToStaticIpPtrOutput() StaticIpPtrOutput
+	ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput
+}
+
+type staticIpPtrType StaticIpArgs
+
+func (*staticIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticIp)(nil))
+}
+
+func (i *staticIpPtrType) ToStaticIpPtrOutput() StaticIpPtrOutput {
+	return i.ToStaticIpPtrOutputWithContext(context.Background())
+}
+
+func (i *staticIpPtrType) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpPtrOutput)
+}
+
+// StaticIpArrayInput is an input type that accepts StaticIpArray and StaticIpArrayOutput values.
+// You can construct a concrete instance of `StaticIpArrayInput` via:
+//
+//          StaticIpArray{ StaticIpArgs{...} }
+type StaticIpArrayInput interface {
+	pulumi.Input
+
+	ToStaticIpArrayOutput() StaticIpArrayOutput
+	ToStaticIpArrayOutputWithContext(context.Context) StaticIpArrayOutput
+}
+
+type StaticIpArray []StaticIpInput
+
+func (StaticIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StaticIp)(nil))
+}
+
+func (i StaticIpArray) ToStaticIpArrayOutput() StaticIpArrayOutput {
+	return i.ToStaticIpArrayOutputWithContext(context.Background())
+}
+
+func (i StaticIpArray) ToStaticIpArrayOutputWithContext(ctx context.Context) StaticIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpArrayOutput)
+}
+
+// StaticIpMapInput is an input type that accepts StaticIpMap and StaticIpMapOutput values.
+// You can construct a concrete instance of `StaticIpMapInput` via:
+//
+//          StaticIpMap{ "key": StaticIpArgs{...} }
+type StaticIpMapInput interface {
+	pulumi.Input
+
+	ToStaticIpMapOutput() StaticIpMapOutput
+	ToStaticIpMapOutputWithContext(context.Context) StaticIpMapOutput
+}
+
+type StaticIpMap map[string]StaticIpInput
+
+func (StaticIpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StaticIp)(nil))
+}
+
+func (i StaticIpMap) ToStaticIpMapOutput() StaticIpMapOutput {
+	return i.ToStaticIpMapOutputWithContext(context.Background())
+}
+
+func (i StaticIpMap) ToStaticIpMapOutputWithContext(ctx context.Context) StaticIpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpMapOutput)
+}
+
 type StaticIpOutput struct {
 	*pulumi.OutputState
 }
@@ -151,6 +230,75 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 	return o
 }
 
+func (o StaticIpOutput) ToStaticIpPtrOutput() StaticIpPtrOutput {
+	return o.ToStaticIpPtrOutputWithContext(context.Background())
+}
+
+func (o StaticIpOutput) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
+	return o.ApplyT(func(v StaticIp) *StaticIp {
+		return &v
+	}).(StaticIpPtrOutput)
+}
+
+type StaticIpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StaticIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticIp)(nil))
+}
+
+func (o StaticIpPtrOutput) ToStaticIpPtrOutput() StaticIpPtrOutput {
+	return o
+}
+
+func (o StaticIpPtrOutput) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
+	return o
+}
+
+type StaticIpArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticIp)(nil))
+}
+
+func (o StaticIpArrayOutput) ToStaticIpArrayOutput() StaticIpArrayOutput {
+	return o
+}
+
+func (o StaticIpArrayOutput) ToStaticIpArrayOutputWithContext(ctx context.Context) StaticIpArrayOutput {
+	return o
+}
+
+func (o StaticIpArrayOutput) Index(i pulumi.IntInput) StaticIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticIp {
+		return vs[0].([]StaticIp)[vs[1].(int)]
+	}).(StaticIpOutput)
+}
+
+type StaticIpMapOutput struct{ *pulumi.OutputState }
+
+func (StaticIpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StaticIp)(nil))
+}
+
+func (o StaticIpMapOutput) ToStaticIpMapOutput() StaticIpMapOutput {
+	return o
+}
+
+func (o StaticIpMapOutput) ToStaticIpMapOutputWithContext(ctx context.Context) StaticIpMapOutput {
+	return o
+}
+
+func (o StaticIpMapOutput) MapIndex(k pulumi.StringInput) StaticIpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StaticIp {
+		return vs[0].(map[string]StaticIp)[vs[1].(string)]
+	}).(StaticIpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticIpOutput{})
+	pulumi.RegisterOutputType(StaticIpPtrOutput{})
+	pulumi.RegisterOutputType(StaticIpArrayOutput{})
+	pulumi.RegisterOutputType(StaticIpMapOutput{})
 }

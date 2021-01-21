@@ -181,6 +181,85 @@ func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
 }
 
+func (i *StackSetInstance) ToStackSetInstancePtrOutput() StackSetInstancePtrOutput {
+	return i.ToStackSetInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *StackSetInstance) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstancePtrOutput)
+}
+
+type StackSetInstancePtrInput interface {
+	pulumi.Input
+
+	ToStackSetInstancePtrOutput() StackSetInstancePtrOutput
+	ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput
+}
+
+type stackSetInstancePtrType StackSetInstanceArgs
+
+func (*stackSetInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstance)(nil))
+}
+
+func (i *stackSetInstancePtrType) ToStackSetInstancePtrOutput() StackSetInstancePtrOutput {
+	return i.ToStackSetInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetInstancePtrType) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstancePtrOutput)
+}
+
+// StackSetInstanceArrayInput is an input type that accepts StackSetInstanceArray and StackSetInstanceArrayOutput values.
+// You can construct a concrete instance of `StackSetInstanceArrayInput` via:
+//
+//          StackSetInstanceArray{ StackSetInstanceArgs{...} }
+type StackSetInstanceArrayInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceArrayOutput() StackSetInstanceArrayOutput
+	ToStackSetInstanceArrayOutputWithContext(context.Context) StackSetInstanceArrayOutput
+}
+
+type StackSetInstanceArray []StackSetInstanceInput
+
+func (StackSetInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StackSetInstance)(nil))
+}
+
+func (i StackSetInstanceArray) ToStackSetInstanceArrayOutput() StackSetInstanceArrayOutput {
+	return i.ToStackSetInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceArray) ToStackSetInstanceArrayOutputWithContext(ctx context.Context) StackSetInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceArrayOutput)
+}
+
+// StackSetInstanceMapInput is an input type that accepts StackSetInstanceMap and StackSetInstanceMapOutput values.
+// You can construct a concrete instance of `StackSetInstanceMapInput` via:
+//
+//          StackSetInstanceMap{ "key": StackSetInstanceArgs{...} }
+type StackSetInstanceMapInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceMapOutput() StackSetInstanceMapOutput
+	ToStackSetInstanceMapOutputWithContext(context.Context) StackSetInstanceMapOutput
+}
+
+type StackSetInstanceMap map[string]StackSetInstanceInput
+
+func (StackSetInstanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StackSetInstance)(nil))
+}
+
+func (i StackSetInstanceMap) ToStackSetInstanceMapOutput() StackSetInstanceMapOutput {
+	return i.ToStackSetInstanceMapOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceMap) ToStackSetInstanceMapOutputWithContext(ctx context.Context) StackSetInstanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceMapOutput)
+}
+
 type StackSetInstanceOutput struct {
 	*pulumi.OutputState
 }
@@ -197,6 +276,75 @@ func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.
 	return o
 }
 
+func (o StackSetInstanceOutput) ToStackSetInstancePtrOutput() StackSetInstancePtrOutput {
+	return o.ToStackSetInstancePtrOutputWithContext(context.Background())
+}
+
+func (o StackSetInstanceOutput) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
+	return o.ApplyT(func(v StackSetInstance) *StackSetInstance {
+		return &v
+	}).(StackSetInstancePtrOutput)
+}
+
+type StackSetInstancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackSetInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstance)(nil))
+}
+
+func (o StackSetInstancePtrOutput) ToStackSetInstancePtrOutput() StackSetInstancePtrOutput {
+	return o
+}
+
+func (o StackSetInstancePtrOutput) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
+	return o
+}
+
+type StackSetInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetInstance)(nil))
+}
+
+func (o StackSetInstanceArrayOutput) ToStackSetInstanceArrayOutput() StackSetInstanceArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceArrayOutput) ToStackSetInstanceArrayOutputWithContext(ctx context.Context) StackSetInstanceArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceArrayOutput) Index(i pulumi.IntInput) StackSetInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetInstance {
+		return vs[0].([]StackSetInstance)[vs[1].(int)]
+	}).(StackSetInstanceOutput)
+}
+
+type StackSetInstanceMapOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StackSetInstance)(nil))
+}
+
+func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutput() StackSetInstanceMapOutput {
+	return o
+}
+
+func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutputWithContext(ctx context.Context) StackSetInstanceMapOutput {
+	return o
+}
+
+func (o StackSetInstanceMapOutput) MapIndex(k pulumi.StringInput) StackSetInstanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StackSetInstance {
+		return vs[0].(map[string]StackSetInstance)[vs[1].(string)]
+	}).(StackSetInstanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StackSetInstanceOutput{})
+	pulumi.RegisterOutputType(StackSetInstancePtrOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceArrayOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceMapOutput{})
 }

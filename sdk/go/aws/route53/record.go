@@ -413,6 +413,85 @@ func (i *Record) ToRecordOutputWithContext(ctx context.Context) RecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordOutput)
 }
 
+func (i *Record) ToRecordPtrOutput() RecordPtrOutput {
+	return i.ToRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *Record) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordPtrOutput)
+}
+
+type RecordPtrInput interface {
+	pulumi.Input
+
+	ToRecordPtrOutput() RecordPtrOutput
+	ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput
+}
+
+type recordPtrType RecordArgs
+
+func (*recordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Record)(nil))
+}
+
+func (i *recordPtrType) ToRecordPtrOutput() RecordPtrOutput {
+	return i.ToRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *recordPtrType) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordPtrOutput)
+}
+
+// RecordArrayInput is an input type that accepts RecordArray and RecordArrayOutput values.
+// You can construct a concrete instance of `RecordArrayInput` via:
+//
+//          RecordArray{ RecordArgs{...} }
+type RecordArrayInput interface {
+	pulumi.Input
+
+	ToRecordArrayOutput() RecordArrayOutput
+	ToRecordArrayOutputWithContext(context.Context) RecordArrayOutput
+}
+
+type RecordArray []RecordInput
+
+func (RecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Record)(nil))
+}
+
+func (i RecordArray) ToRecordArrayOutput() RecordArrayOutput {
+	return i.ToRecordArrayOutputWithContext(context.Background())
+}
+
+func (i RecordArray) ToRecordArrayOutputWithContext(ctx context.Context) RecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordArrayOutput)
+}
+
+// RecordMapInput is an input type that accepts RecordMap and RecordMapOutput values.
+// You can construct a concrete instance of `RecordMapInput` via:
+//
+//          RecordMap{ "key": RecordArgs{...} }
+type RecordMapInput interface {
+	pulumi.Input
+
+	ToRecordMapOutput() RecordMapOutput
+	ToRecordMapOutputWithContext(context.Context) RecordMapOutput
+}
+
+type RecordMap map[string]RecordInput
+
+func (RecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Record)(nil))
+}
+
+func (i RecordMap) ToRecordMapOutput() RecordMapOutput {
+	return i.ToRecordMapOutputWithContext(context.Background())
+}
+
+func (i RecordMap) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordMapOutput)
+}
+
 type RecordOutput struct {
 	*pulumi.OutputState
 }
@@ -429,6 +508,75 @@ func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutpu
 	return o
 }
 
+func (o RecordOutput) ToRecordPtrOutput() RecordPtrOutput {
+	return o.ToRecordPtrOutputWithContext(context.Background())
+}
+
+func (o RecordOutput) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
+	return o.ApplyT(func(v Record) *Record {
+		return &v
+	}).(RecordPtrOutput)
+}
+
+type RecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Record)(nil))
+}
+
+func (o RecordPtrOutput) ToRecordPtrOutput() RecordPtrOutput {
+	return o
+}
+
+func (o RecordPtrOutput) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
+	return o
+}
+
+type RecordArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Record)(nil))
+}
+
+func (o RecordArrayOutput) ToRecordArrayOutput() RecordArrayOutput {
+	return o
+}
+
+func (o RecordArrayOutput) ToRecordArrayOutputWithContext(ctx context.Context) RecordArrayOutput {
+	return o
+}
+
+func (o RecordArrayOutput) Index(i pulumi.IntInput) RecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Record {
+		return vs[0].([]Record)[vs[1].(int)]
+	}).(RecordOutput)
+}
+
+type RecordMapOutput struct{ *pulumi.OutputState }
+
+func (RecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Record)(nil))
+}
+
+func (o RecordMapOutput) ToRecordMapOutput() RecordMapOutput {
+	return o
+}
+
+func (o RecordMapOutput) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOutput {
+	return o
+}
+
+func (o RecordMapOutput) MapIndex(k pulumi.StringInput) RecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Record {
+		return vs[0].(map[string]Record)[vs[1].(string)]
+	}).(RecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecordOutput{})
+	pulumi.RegisterOutputType(RecordPtrOutput{})
+	pulumi.RegisterOutputType(RecordArrayOutput{})
+	pulumi.RegisterOutputType(RecordMapOutput{})
 }

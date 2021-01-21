@@ -211,6 +211,85 @@ func (i *NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclOutput)
 }
 
+func (i *NetworkAcl) ToNetworkAclPtrOutput() NetworkAclPtrOutput {
+	return i.ToNetworkAclPtrOutputWithContext(context.Background())
+}
+
+func (i *NetworkAcl) ToNetworkAclPtrOutputWithContext(ctx context.Context) NetworkAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPtrOutput)
+}
+
+type NetworkAclPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclPtrOutput() NetworkAclPtrOutput
+	ToNetworkAclPtrOutputWithContext(ctx context.Context) NetworkAclPtrOutput
+}
+
+type networkAclPtrType NetworkAclArgs
+
+func (*networkAclPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAcl)(nil))
+}
+
+func (i *networkAclPtrType) ToNetworkAclPtrOutput() NetworkAclPtrOutput {
+	return i.ToNetworkAclPtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclPtrType) ToNetworkAclPtrOutputWithContext(ctx context.Context) NetworkAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPtrOutput)
+}
+
+// NetworkAclArrayInput is an input type that accepts NetworkAclArray and NetworkAclArrayOutput values.
+// You can construct a concrete instance of `NetworkAclArrayInput` via:
+//
+//          NetworkAclArray{ NetworkAclArgs{...} }
+type NetworkAclArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclArrayOutput() NetworkAclArrayOutput
+	ToNetworkAclArrayOutputWithContext(context.Context) NetworkAclArrayOutput
+}
+
+type NetworkAclArray []NetworkAclInput
+
+func (NetworkAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NetworkAcl)(nil))
+}
+
+func (i NetworkAclArray) ToNetworkAclArrayOutput() NetworkAclArrayOutput {
+	return i.ToNetworkAclArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclArray) ToNetworkAclArrayOutputWithContext(ctx context.Context) NetworkAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclArrayOutput)
+}
+
+// NetworkAclMapInput is an input type that accepts NetworkAclMap and NetworkAclMapOutput values.
+// You can construct a concrete instance of `NetworkAclMapInput` via:
+//
+//          NetworkAclMap{ "key": NetworkAclArgs{...} }
+type NetworkAclMapInput interface {
+	pulumi.Input
+
+	ToNetworkAclMapOutput() NetworkAclMapOutput
+	ToNetworkAclMapOutputWithContext(context.Context) NetworkAclMapOutput
+}
+
+type NetworkAclMap map[string]NetworkAclInput
+
+func (NetworkAclMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NetworkAcl)(nil))
+}
+
+func (i NetworkAclMap) ToNetworkAclMapOutput() NetworkAclMapOutput {
+	return i.ToNetworkAclMapOutputWithContext(context.Background())
+}
+
+func (i NetworkAclMap) ToNetworkAclMapOutputWithContext(ctx context.Context) NetworkAclMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclMapOutput)
+}
+
 type NetworkAclOutput struct {
 	*pulumi.OutputState
 }
@@ -227,6 +306,75 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 	return o
 }
 
+func (o NetworkAclOutput) ToNetworkAclPtrOutput() NetworkAclPtrOutput {
+	return o.ToNetworkAclPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclOutput) ToNetworkAclPtrOutputWithContext(ctx context.Context) NetworkAclPtrOutput {
+	return o.ApplyT(func(v NetworkAcl) *NetworkAcl {
+		return &v
+	}).(NetworkAclPtrOutput)
+}
+
+type NetworkAclPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAclPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAcl)(nil))
+}
+
+func (o NetworkAclPtrOutput) ToNetworkAclPtrOutput() NetworkAclPtrOutput {
+	return o
+}
+
+func (o NetworkAclPtrOutput) ToNetworkAclPtrOutputWithContext(ctx context.Context) NetworkAclPtrOutput {
+	return o
+}
+
+type NetworkAclArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAcl)(nil))
+}
+
+func (o NetworkAclArrayOutput) ToNetworkAclArrayOutput() NetworkAclArrayOutput {
+	return o
+}
+
+func (o NetworkAclArrayOutput) ToNetworkAclArrayOutputWithContext(ctx context.Context) NetworkAclArrayOutput {
+	return o
+}
+
+func (o NetworkAclArrayOutput) Index(i pulumi.IntInput) NetworkAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAcl {
+		return vs[0].([]NetworkAcl)[vs[1].(int)]
+	}).(NetworkAclOutput)
+}
+
+type NetworkAclMapOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkAcl)(nil))
+}
+
+func (o NetworkAclMapOutput) ToNetworkAclMapOutput() NetworkAclMapOutput {
+	return o
+}
+
+func (o NetworkAclMapOutput) ToNetworkAclMapOutputWithContext(ctx context.Context) NetworkAclMapOutput {
+	return o
+}
+
+func (o NetworkAclMapOutput) MapIndex(k pulumi.StringInput) NetworkAclOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkAcl {
+		return vs[0].(map[string]NetworkAcl)[vs[1].(string)]
+	}).(NetworkAclOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkAclOutput{})
+	pulumi.RegisterOutputType(NetworkAclPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAclArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclMapOutput{})
 }

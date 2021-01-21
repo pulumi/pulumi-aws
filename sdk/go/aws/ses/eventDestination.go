@@ -266,6 +266,85 @@ func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
 }
 
+func (i *EventDestination) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
+	return i.ToEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *EventDestination) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationPtrOutput)
+}
+
+type EventDestinationPtrInput interface {
+	pulumi.Input
+
+	ToEventDestinationPtrOutput() EventDestinationPtrOutput
+	ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput
+}
+
+type eventDestinationPtrType EventDestinationArgs
+
+func (*eventDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventDestination)(nil))
+}
+
+func (i *eventDestinationPtrType) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
+	return i.ToEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventDestinationPtrType) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationPtrOutput)
+}
+
+// EventDestinationArrayInput is an input type that accepts EventDestinationArray and EventDestinationArrayOutput values.
+// You can construct a concrete instance of `EventDestinationArrayInput` via:
+//
+//          EventDestinationArray{ EventDestinationArgs{...} }
+type EventDestinationArrayInput interface {
+	pulumi.Input
+
+	ToEventDestinationArrayOutput() EventDestinationArrayOutput
+	ToEventDestinationArrayOutputWithContext(context.Context) EventDestinationArrayOutput
+}
+
+type EventDestinationArray []EventDestinationInput
+
+func (EventDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventDestination)(nil))
+}
+
+func (i EventDestinationArray) ToEventDestinationArrayOutput() EventDestinationArrayOutput {
+	return i.ToEventDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i EventDestinationArray) ToEventDestinationArrayOutputWithContext(ctx context.Context) EventDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationArrayOutput)
+}
+
+// EventDestinationMapInput is an input type that accepts EventDestinationMap and EventDestinationMapOutput values.
+// You can construct a concrete instance of `EventDestinationMapInput` via:
+//
+//          EventDestinationMap{ "key": EventDestinationArgs{...} }
+type EventDestinationMapInput interface {
+	pulumi.Input
+
+	ToEventDestinationMapOutput() EventDestinationMapOutput
+	ToEventDestinationMapOutputWithContext(context.Context) EventDestinationMapOutput
+}
+
+type EventDestinationMap map[string]EventDestinationInput
+
+func (EventDestinationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventDestination)(nil))
+}
+
+func (i EventDestinationMap) ToEventDestinationMapOutput() EventDestinationMapOutput {
+	return i.ToEventDestinationMapOutputWithContext(context.Background())
+}
+
+func (i EventDestinationMap) ToEventDestinationMapOutputWithContext(ctx context.Context) EventDestinationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationMapOutput)
+}
+
 type EventDestinationOutput struct {
 	*pulumi.OutputState
 }
@@ -282,6 +361,75 @@ func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.
 	return o
 }
 
+func (o EventDestinationOutput) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
+	return o.ToEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o EventDestinationOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
+	return o.ApplyT(func(v EventDestination) *EventDestination {
+		return &v
+	}).(EventDestinationPtrOutput)
+}
+
+type EventDestinationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventDestination)(nil))
+}
+
+func (o EventDestinationPtrOutput) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
+	return o
+}
+
+func (o EventDestinationPtrOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
+	return o
+}
+
+type EventDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (EventDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDestination)(nil))
+}
+
+func (o EventDestinationArrayOutput) ToEventDestinationArrayOutput() EventDestinationArrayOutput {
+	return o
+}
+
+func (o EventDestinationArrayOutput) ToEventDestinationArrayOutputWithContext(ctx context.Context) EventDestinationArrayOutput {
+	return o
+}
+
+func (o EventDestinationArrayOutput) Index(i pulumi.IntInput) EventDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDestination {
+		return vs[0].([]EventDestination)[vs[1].(int)]
+	}).(EventDestinationOutput)
+}
+
+type EventDestinationMapOutput struct{ *pulumi.OutputState }
+
+func (EventDestinationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventDestination)(nil))
+}
+
+func (o EventDestinationMapOutput) ToEventDestinationMapOutput() EventDestinationMapOutput {
+	return o
+}
+
+func (o EventDestinationMapOutput) ToEventDestinationMapOutputWithContext(ctx context.Context) EventDestinationMapOutput {
+	return o
+}
+
+func (o EventDestinationMapOutput) MapIndex(k pulumi.StringInput) EventDestinationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventDestination {
+		return vs[0].(map[string]EventDestination)[vs[1].(string)]
+	}).(EventDestinationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventDestinationOutput{})
+	pulumi.RegisterOutputType(EventDestinationPtrOutput{})
+	pulumi.RegisterOutputType(EventDestinationArrayOutput{})
+	pulumi.RegisterOutputType(EventDestinationMapOutput{})
 }

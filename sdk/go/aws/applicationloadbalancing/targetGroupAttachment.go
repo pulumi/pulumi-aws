@@ -218,6 +218,85 @@ func (i *TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentOutput)
 }
 
+func (i *TargetGroupAttachment) ToTargetGroupAttachmentPtrOutput() TargetGroupAttachmentPtrOutput {
+	return i.ToTargetGroupAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *TargetGroupAttachment) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentPtrOutput)
+}
+
+type TargetGroupAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentPtrOutput() TargetGroupAttachmentPtrOutput
+	ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput
+}
+
+type targetGroupAttachmentPtrType TargetGroupAttachmentArgs
+
+func (*targetGroupAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupAttachment)(nil))
+}
+
+func (i *targetGroupAttachmentPtrType) ToTargetGroupAttachmentPtrOutput() TargetGroupAttachmentPtrOutput {
+	return i.ToTargetGroupAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupAttachmentPtrType) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentPtrOutput)
+}
+
+// TargetGroupAttachmentArrayInput is an input type that accepts TargetGroupAttachmentArray and TargetGroupAttachmentArrayOutput values.
+// You can construct a concrete instance of `TargetGroupAttachmentArrayInput` via:
+//
+//          TargetGroupAttachmentArray{ TargetGroupAttachmentArgs{...} }
+type TargetGroupAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentArrayOutput() TargetGroupAttachmentArrayOutput
+	ToTargetGroupAttachmentArrayOutputWithContext(context.Context) TargetGroupAttachmentArrayOutput
+}
+
+type TargetGroupAttachmentArray []TargetGroupAttachmentInput
+
+func (TargetGroupAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TargetGroupAttachment)(nil))
+}
+
+func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutput() TargetGroupAttachmentArrayOutput {
+	return i.ToTargetGroupAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutputWithContext(ctx context.Context) TargetGroupAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentArrayOutput)
+}
+
+// TargetGroupAttachmentMapInput is an input type that accepts TargetGroupAttachmentMap and TargetGroupAttachmentMapOutput values.
+// You can construct a concrete instance of `TargetGroupAttachmentMapInput` via:
+//
+//          TargetGroupAttachmentMap{ "key": TargetGroupAttachmentArgs{...} }
+type TargetGroupAttachmentMapInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentMapOutput() TargetGroupAttachmentMapOutput
+	ToTargetGroupAttachmentMapOutputWithContext(context.Context) TargetGroupAttachmentMapOutput
+}
+
+type TargetGroupAttachmentMap map[string]TargetGroupAttachmentInput
+
+func (TargetGroupAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TargetGroupAttachment)(nil))
+}
+
+func (i TargetGroupAttachmentMap) ToTargetGroupAttachmentMapOutput() TargetGroupAttachmentMapOutput {
+	return i.ToTargetGroupAttachmentMapOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttachmentMap) ToTargetGroupAttachmentMapOutputWithContext(ctx context.Context) TargetGroupAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentMapOutput)
+}
+
 type TargetGroupAttachmentOutput struct {
 	*pulumi.OutputState
 }
@@ -234,6 +313,75 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ct
 	return o
 }
 
+func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentPtrOutput() TargetGroupAttachmentPtrOutput {
+	return o.ToTargetGroupAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
+	return o.ApplyT(func(v TargetGroupAttachment) *TargetGroupAttachment {
+		return &v
+	}).(TargetGroupAttachmentPtrOutput)
+}
+
+type TargetGroupAttachmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetGroupAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupAttachment)(nil))
+}
+
+func (o TargetGroupAttachmentPtrOutput) ToTargetGroupAttachmentPtrOutput() TargetGroupAttachmentPtrOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentPtrOutput) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
+	return o
+}
+
+type TargetGroupAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupAttachment)(nil))
+}
+
+func (o TargetGroupAttachmentArrayOutput) ToTargetGroupAttachmentArrayOutput() TargetGroupAttachmentArrayOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentArrayOutput) ToTargetGroupAttachmentArrayOutputWithContext(ctx context.Context) TargetGroupAttachmentArrayOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentArrayOutput) Index(i pulumi.IntInput) TargetGroupAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupAttachment {
+		return vs[0].([]TargetGroupAttachment)[vs[1].(int)]
+	}).(TargetGroupAttachmentOutput)
+}
+
+type TargetGroupAttachmentMapOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TargetGroupAttachment)(nil))
+}
+
+func (o TargetGroupAttachmentMapOutput) ToTargetGroupAttachmentMapOutput() TargetGroupAttachmentMapOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentMapOutput) ToTargetGroupAttachmentMapOutputWithContext(ctx context.Context) TargetGroupAttachmentMapOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentMapOutput) MapIndex(k pulumi.StringInput) TargetGroupAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TargetGroupAttachment {
+		return vs[0].(map[string]TargetGroupAttachment)[vs[1].(string)]
+	}).(TargetGroupAttachmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TargetGroupAttachmentOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttachmentMapOutput{})
 }

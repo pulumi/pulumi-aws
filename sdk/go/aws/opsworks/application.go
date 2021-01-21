@@ -269,6 +269,85 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
+func (i *Application) ToApplicationPtrOutput() ApplicationPtrOutput {
+	return i.ToApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *Application) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPtrOutput)
+}
+
+type ApplicationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPtrOutput() ApplicationPtrOutput
+	ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput
+}
+
+type applicationPtrType ApplicationArgs
+
+func (*applicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Application)(nil))
+}
+
+func (i *applicationPtrType) ToApplicationPtrOutput() ApplicationPtrOutput {
+	return i.ToApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPtrType) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPtrOutput)
+}
+
+// ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
+// You can construct a concrete instance of `ApplicationArrayInput` via:
+//
+//          ApplicationArray{ ApplicationArgs{...} }
+type ApplicationArrayInput interface {
+	pulumi.Input
+
+	ToApplicationArrayOutput() ApplicationArrayOutput
+	ToApplicationArrayOutputWithContext(context.Context) ApplicationArrayOutput
+}
+
+type ApplicationArray []ApplicationInput
+
+func (ApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Application)(nil))
+}
+
+func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
+	return i.ToApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Context) ApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArrayOutput)
+}
+
+// ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
+// You can construct a concrete instance of `ApplicationMapInput` via:
+//
+//          ApplicationMap{ "key": ApplicationArgs{...} }
+type ApplicationMapInput interface {
+	pulumi.Input
+
+	ToApplicationMapOutput() ApplicationMapOutput
+	ToApplicationMapOutputWithContext(context.Context) ApplicationMapOutput
+}
+
+type ApplicationMap map[string]ApplicationInput
+
+func (ApplicationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Application)(nil))
+}
+
+func (i ApplicationMap) ToApplicationMapOutput() ApplicationMapOutput {
+	return i.ToApplicationMapOutputWithContext(context.Background())
+}
+
+func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) ApplicationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMapOutput)
+}
+
 type ApplicationOutput struct {
 	*pulumi.OutputState
 }
@@ -285,6 +364,75 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ApplicationOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
+	return o.ToApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
+	return o.ApplyT(func(v Application) *Application {
+		return &v
+	}).(ApplicationPtrOutput)
+}
+
+type ApplicationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Application)(nil))
+}
+
+func (o ApplicationPtrOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
+	return o
+}
+
+func (o ApplicationPtrOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
+	return o
+}
+
+type ApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Application)(nil))
+}
+
+func (o ApplicationArrayOutput) ToApplicationArrayOutput() ApplicationArrayOutput {
+	return o
+}
+
+func (o ApplicationArrayOutput) ToApplicationArrayOutputWithContext(ctx context.Context) ApplicationArrayOutput {
+	return o
+}
+
+func (o ApplicationArrayOutput) Index(i pulumi.IntInput) ApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Application {
+		return vs[0].([]Application)[vs[1].(int)]
+	}).(ApplicationOutput)
+}
+
+type ApplicationMapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Application)(nil))
+}
+
+func (o ApplicationMapOutput) ToApplicationMapOutput() ApplicationMapOutput {
+	return o
+}
+
+func (o ApplicationMapOutput) ToApplicationMapOutputWithContext(ctx context.Context) ApplicationMapOutput {
+	return o
+}
+
+func (o ApplicationMapOutput) MapIndex(k pulumi.StringInput) ApplicationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Application {
+		return vs[0].(map[string]Application)[vs[1].(string)]
+	}).(ApplicationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
+	pulumi.RegisterOutputType(ApplicationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationMapOutput{})
 }

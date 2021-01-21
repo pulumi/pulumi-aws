@@ -139,6 +139,85 @@ func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationOutput)
 }
 
+func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationPtrOutput() VpnGatewayRoutePropagationPtrOutput {
+	return i.ToVpnGatewayRoutePropagationPtrOutputWithContext(context.Background())
+}
+
+func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationPtrOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationPtrOutput)
+}
+
+type VpnGatewayRoutePropagationPtrInput interface {
+	pulumi.Input
+
+	ToVpnGatewayRoutePropagationPtrOutput() VpnGatewayRoutePropagationPtrOutput
+	ToVpnGatewayRoutePropagationPtrOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationPtrOutput
+}
+
+type vpnGatewayRoutePropagationPtrType VpnGatewayRoutePropagationArgs
+
+func (*vpnGatewayRoutePropagationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayRoutePropagation)(nil))
+}
+
+func (i *vpnGatewayRoutePropagationPtrType) ToVpnGatewayRoutePropagationPtrOutput() VpnGatewayRoutePropagationPtrOutput {
+	return i.ToVpnGatewayRoutePropagationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayRoutePropagationPtrType) ToVpnGatewayRoutePropagationPtrOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationPtrOutput)
+}
+
+// VpnGatewayRoutePropagationArrayInput is an input type that accepts VpnGatewayRoutePropagationArray and VpnGatewayRoutePropagationArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayRoutePropagationArrayInput` via:
+//
+//          VpnGatewayRoutePropagationArray{ VpnGatewayRoutePropagationArgs{...} }
+type VpnGatewayRoutePropagationArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayRoutePropagationArrayOutput() VpnGatewayRoutePropagationArrayOutput
+	ToVpnGatewayRoutePropagationArrayOutputWithContext(context.Context) VpnGatewayRoutePropagationArrayOutput
+}
+
+type VpnGatewayRoutePropagationArray []VpnGatewayRoutePropagationInput
+
+func (VpnGatewayRoutePropagationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpnGatewayRoutePropagation)(nil))
+}
+
+func (i VpnGatewayRoutePropagationArray) ToVpnGatewayRoutePropagationArrayOutput() VpnGatewayRoutePropagationArrayOutput {
+	return i.ToVpnGatewayRoutePropagationArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayRoutePropagationArray) ToVpnGatewayRoutePropagationArrayOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationArrayOutput)
+}
+
+// VpnGatewayRoutePropagationMapInput is an input type that accepts VpnGatewayRoutePropagationMap and VpnGatewayRoutePropagationMapOutput values.
+// You can construct a concrete instance of `VpnGatewayRoutePropagationMapInput` via:
+//
+//          VpnGatewayRoutePropagationMap{ "key": VpnGatewayRoutePropagationArgs{...} }
+type VpnGatewayRoutePropagationMapInput interface {
+	pulumi.Input
+
+	ToVpnGatewayRoutePropagationMapOutput() VpnGatewayRoutePropagationMapOutput
+	ToVpnGatewayRoutePropagationMapOutputWithContext(context.Context) VpnGatewayRoutePropagationMapOutput
+}
+
+type VpnGatewayRoutePropagationMap map[string]VpnGatewayRoutePropagationInput
+
+func (VpnGatewayRoutePropagationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpnGatewayRoutePropagation)(nil))
+}
+
+func (i VpnGatewayRoutePropagationMap) ToVpnGatewayRoutePropagationMapOutput() VpnGatewayRoutePropagationMapOutput {
+	return i.ToVpnGatewayRoutePropagationMapOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayRoutePropagationMap) ToVpnGatewayRoutePropagationMapOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationMapOutput)
+}
+
 type VpnGatewayRoutePropagationOutput struct {
 	*pulumi.OutputState
 }
@@ -155,6 +234,75 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWith
 	return o
 }
 
+func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationPtrOutput() VpnGatewayRoutePropagationPtrOutput {
+	return o.ToVpnGatewayRoutePropagationPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationPtrOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationPtrOutput {
+	return o.ApplyT(func(v VpnGatewayRoutePropagation) *VpnGatewayRoutePropagation {
+		return &v
+	}).(VpnGatewayRoutePropagationPtrOutput)
+}
+
+type VpnGatewayRoutePropagationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayRoutePropagationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayRoutePropagation)(nil))
+}
+
+func (o VpnGatewayRoutePropagationPtrOutput) ToVpnGatewayRoutePropagationPtrOutput() VpnGatewayRoutePropagationPtrOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationPtrOutput) ToVpnGatewayRoutePropagationPtrOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationPtrOutput {
+	return o
+}
+
+type VpnGatewayRoutePropagationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayRoutePropagationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayRoutePropagation)(nil))
+}
+
+func (o VpnGatewayRoutePropagationArrayOutput) ToVpnGatewayRoutePropagationArrayOutput() VpnGatewayRoutePropagationArrayOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationArrayOutput) ToVpnGatewayRoutePropagationArrayOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationArrayOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationArrayOutput) Index(i pulumi.IntInput) VpnGatewayRoutePropagationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayRoutePropagation {
+		return vs[0].([]VpnGatewayRoutePropagation)[vs[1].(int)]
+	}).(VpnGatewayRoutePropagationOutput)
+}
+
+type VpnGatewayRoutePropagationMapOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayRoutePropagationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpnGatewayRoutePropagation)(nil))
+}
+
+func (o VpnGatewayRoutePropagationMapOutput) ToVpnGatewayRoutePropagationMapOutput() VpnGatewayRoutePropagationMapOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationMapOutput) ToVpnGatewayRoutePropagationMapOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationMapOutput {
+	return o
+}
+
+func (o VpnGatewayRoutePropagationMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayRoutePropagationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnGatewayRoutePropagation {
+		return vs[0].(map[string]VpnGatewayRoutePropagation)[vs[1].(string)]
+	}).(VpnGatewayRoutePropagationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnGatewayRoutePropagationOutput{})
+	pulumi.RegisterOutputType(VpnGatewayRoutePropagationPtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayRoutePropagationArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayRoutePropagationMapOutput{})
 }

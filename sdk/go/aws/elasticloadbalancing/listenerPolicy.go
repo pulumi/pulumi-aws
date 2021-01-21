@@ -253,6 +253,85 @@ func (i *ListenerPolicy) ToListenerPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyOutput)
 }
 
+func (i *ListenerPolicy) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
+	return i.ToListenerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ListenerPolicy) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyPtrOutput)
+}
+
+type ListenerPolicyPtrInput interface {
+	pulumi.Input
+
+	ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput
+	ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput
+}
+
+type listenerPolicyPtrType ListenerPolicyArgs
+
+func (*listenerPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerPolicy)(nil))
+}
+
+func (i *listenerPolicyPtrType) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
+	return i.ToListenerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerPolicyPtrType) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyPtrOutput)
+}
+
+// ListenerPolicyArrayInput is an input type that accepts ListenerPolicyArray and ListenerPolicyArrayOutput values.
+// You can construct a concrete instance of `ListenerPolicyArrayInput` via:
+//
+//          ListenerPolicyArray{ ListenerPolicyArgs{...} }
+type ListenerPolicyArrayInput interface {
+	pulumi.Input
+
+	ToListenerPolicyArrayOutput() ListenerPolicyArrayOutput
+	ToListenerPolicyArrayOutputWithContext(context.Context) ListenerPolicyArrayOutput
+}
+
+type ListenerPolicyArray []ListenerPolicyInput
+
+func (ListenerPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ListenerPolicy)(nil))
+}
+
+func (i ListenerPolicyArray) ToListenerPolicyArrayOutput() ListenerPolicyArrayOutput {
+	return i.ToListenerPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerPolicyArray) ToListenerPolicyArrayOutputWithContext(ctx context.Context) ListenerPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyArrayOutput)
+}
+
+// ListenerPolicyMapInput is an input type that accepts ListenerPolicyMap and ListenerPolicyMapOutput values.
+// You can construct a concrete instance of `ListenerPolicyMapInput` via:
+//
+//          ListenerPolicyMap{ "key": ListenerPolicyArgs{...} }
+type ListenerPolicyMapInput interface {
+	pulumi.Input
+
+	ToListenerPolicyMapOutput() ListenerPolicyMapOutput
+	ToListenerPolicyMapOutputWithContext(context.Context) ListenerPolicyMapOutput
+}
+
+type ListenerPolicyMap map[string]ListenerPolicyInput
+
+func (ListenerPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ListenerPolicy)(nil))
+}
+
+func (i ListenerPolicyMap) ToListenerPolicyMapOutput() ListenerPolicyMapOutput {
+	return i.ToListenerPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ListenerPolicyMap) ToListenerPolicyMapOutputWithContext(ctx context.Context) ListenerPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyMapOutput)
+}
+
 type ListenerPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -269,6 +348,75 @@ func (o ListenerPolicyOutput) ToListenerPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ListenerPolicyOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
+	return o.ToListenerPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerPolicyOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
+	return o.ApplyT(func(v ListenerPolicy) *ListenerPolicy {
+		return &v
+	}).(ListenerPolicyPtrOutput)
+}
+
+type ListenerPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerPolicy)(nil))
+}
+
+func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
+	return o
+}
+
+func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
+	return o
+}
+
+type ListenerPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerPolicy)(nil))
+}
+
+func (o ListenerPolicyArrayOutput) ToListenerPolicyArrayOutput() ListenerPolicyArrayOutput {
+	return o
+}
+
+func (o ListenerPolicyArrayOutput) ToListenerPolicyArrayOutputWithContext(ctx context.Context) ListenerPolicyArrayOutput {
+	return o
+}
+
+func (o ListenerPolicyArrayOutput) Index(i pulumi.IntInput) ListenerPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerPolicy {
+		return vs[0].([]ListenerPolicy)[vs[1].(int)]
+	}).(ListenerPolicyOutput)
+}
+
+type ListenerPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ListenerPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ListenerPolicy)(nil))
+}
+
+func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutput() ListenerPolicyMapOutput {
+	return o
+}
+
+func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutputWithContext(ctx context.Context) ListenerPolicyMapOutput {
+	return o
+}
+
+func (o ListenerPolicyMapOutput) MapIndex(k pulumi.StringInput) ListenerPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ListenerPolicy {
+		return vs[0].(map[string]ListenerPolicy)[vs[1].(string)]
+	}).(ListenerPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ListenerPolicyOutput{})
+	pulumi.RegisterOutputType(ListenerPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ListenerPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ListenerPolicyMapOutput{})
 }

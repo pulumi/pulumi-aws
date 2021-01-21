@@ -209,6 +209,85 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
 }
 
+func (i *ResourcePolicy) ToResourcePolicyPtrOutput() ResourcePolicyPtrOutput {
+	return i.ToResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourcePolicy) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPtrOutput)
+}
+
+type ResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToResourcePolicyPtrOutput() ResourcePolicyPtrOutput
+	ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput
+}
+
+type resourcePolicyPtrType ResourcePolicyArgs
+
+func (*resourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicy)(nil))
+}
+
+func (i *resourcePolicyPtrType) ToResourcePolicyPtrOutput() ResourcePolicyPtrOutput {
+	return i.ToResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *resourcePolicyPtrType) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPtrOutput)
+}
+
+// ResourcePolicyArrayInput is an input type that accepts ResourcePolicyArray and ResourcePolicyArrayOutput values.
+// You can construct a concrete instance of `ResourcePolicyArrayInput` via:
+//
+//          ResourcePolicyArray{ ResourcePolicyArgs{...} }
+type ResourcePolicyArrayInput interface {
+	pulumi.Input
+
+	ToResourcePolicyArrayOutput() ResourcePolicyArrayOutput
+	ToResourcePolicyArrayOutputWithContext(context.Context) ResourcePolicyArrayOutput
+}
+
+type ResourcePolicyArray []ResourcePolicyInput
+
+func (ResourcePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourcePolicy)(nil))
+}
+
+func (i ResourcePolicyArray) ToResourcePolicyArrayOutput() ResourcePolicyArrayOutput {
+	return i.ToResourcePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyArray) ToResourcePolicyArrayOutputWithContext(ctx context.Context) ResourcePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyArrayOutput)
+}
+
+// ResourcePolicyMapInput is an input type that accepts ResourcePolicyMap and ResourcePolicyMapOutput values.
+// You can construct a concrete instance of `ResourcePolicyMapInput` via:
+//
+//          ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
+type ResourcePolicyMapInput interface {
+	pulumi.Input
+
+	ToResourcePolicyMapOutput() ResourcePolicyMapOutput
+	ToResourcePolicyMapOutputWithContext(context.Context) ResourcePolicyMapOutput
+}
+
+type ResourcePolicyMap map[string]ResourcePolicyInput
+
+func (ResourcePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourcePolicy)(nil))
+}
+
+func (i ResourcePolicyMap) ToResourcePolicyMapOutput() ResourcePolicyMapOutput {
+	return i.ToResourcePolicyMapOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyMap) ToResourcePolicyMapOutputWithContext(ctx context.Context) ResourcePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyMapOutput)
+}
+
 type ResourcePolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -225,6 +304,75 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ResourcePolicyOutput) ToResourcePolicyPtrOutput() ResourcePolicyPtrOutput {
+	return o.ToResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ResourcePolicyOutput) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
+	return o.ApplyT(func(v ResourcePolicy) *ResourcePolicy {
+		return &v
+	}).(ResourcePolicyPtrOutput)
+}
+
+type ResourcePolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicy)(nil))
+}
+
+func (o ResourcePolicyPtrOutput) ToResourcePolicyPtrOutput() ResourcePolicyPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyPtrOutput) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
+	return o
+}
+
+type ResourcePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourcePolicy)(nil))
+}
+
+func (o ResourcePolicyArrayOutput) ToResourcePolicyArrayOutput() ResourcePolicyArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyArrayOutput) ToResourcePolicyArrayOutputWithContext(ctx context.Context) ResourcePolicyArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyArrayOutput) Index(i pulumi.IntInput) ResourcePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourcePolicy {
+		return vs[0].([]ResourcePolicy)[vs[1].(int)]
+	}).(ResourcePolicyOutput)
+}
+
+type ResourcePolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourcePolicy)(nil))
+}
+
+func (o ResourcePolicyMapOutput) ToResourcePolicyMapOutput() ResourcePolicyMapOutput {
+	return o
+}
+
+func (o ResourcePolicyMapOutput) ToResourcePolicyMapOutputWithContext(ctx context.Context) ResourcePolicyMapOutput {
+	return o
+}
+
+func (o ResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) ResourcePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourcePolicy {
+		return vs[0].(map[string]ResourcePolicy)[vs[1].(string)]
+	}).(ResourcePolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourcePolicyOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyArrayOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyMapOutput{})
 }

@@ -192,6 +192,85 @@ func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationOutput)
 }
 
+func (i *DistributionConfiguration) ToDistributionConfigurationPtrOutput() DistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *DistributionConfiguration) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationPtrOutput)
+}
+
+type DistributionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationPtrOutput() DistributionConfigurationPtrOutput
+	ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput
+}
+
+type distributionConfigurationPtrType DistributionConfigurationArgs
+
+func (*distributionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfiguration)(nil))
+}
+
+func (i *distributionConfigurationPtrType) ToDistributionConfigurationPtrOutput() DistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationPtrType) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationPtrOutput)
+}
+
+// DistributionConfigurationArrayInput is an input type that accepts DistributionConfigurationArray and DistributionConfigurationArrayOutput values.
+// You can construct a concrete instance of `DistributionConfigurationArrayInput` via:
+//
+//          DistributionConfigurationArray{ DistributionConfigurationArgs{...} }
+type DistributionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationArrayOutput() DistributionConfigurationArrayOutput
+	ToDistributionConfigurationArrayOutputWithContext(context.Context) DistributionConfigurationArrayOutput
+}
+
+type DistributionConfigurationArray []DistributionConfigurationInput
+
+func (DistributionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DistributionConfiguration)(nil))
+}
+
+func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutput() DistributionConfigurationArrayOutput {
+	return i.ToDistributionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationArrayOutput)
+}
+
+// DistributionConfigurationMapInput is an input type that accepts DistributionConfigurationMap and DistributionConfigurationMapOutput values.
+// You can construct a concrete instance of `DistributionConfigurationMapInput` via:
+//
+//          DistributionConfigurationMap{ "key": DistributionConfigurationArgs{...} }
+type DistributionConfigurationMapInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationMapOutput() DistributionConfigurationMapOutput
+	ToDistributionConfigurationMapOutputWithContext(context.Context) DistributionConfigurationMapOutput
+}
+
+type DistributionConfigurationMap map[string]DistributionConfigurationInput
+
+func (DistributionConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DistributionConfiguration)(nil))
+}
+
+func (i DistributionConfigurationMap) ToDistributionConfigurationMapOutput() DistributionConfigurationMapOutput {
+	return i.ToDistributionConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationMap) ToDistributionConfigurationMapOutputWithContext(ctx context.Context) DistributionConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationMapOutput)
+}
+
 type DistributionConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -208,6 +287,75 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 	return o
 }
 
+func (o DistributionConfigurationOutput) ToDistributionConfigurationPtrOutput() DistributionConfigurationPtrOutput {
+	return o.ToDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationOutput) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfiguration) *DistributionConfiguration {
+		return &v
+	}).(DistributionConfigurationPtrOutput)
+}
+
+type DistributionConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DistributionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfiguration)(nil))
+}
+
+func (o DistributionConfigurationPtrOutput) ToDistributionConfigurationPtrOutput() DistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationPtrOutput) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
+	return o
+}
+
+type DistributionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfiguration)(nil))
+}
+
+func (o DistributionConfigurationArrayOutput) ToDistributionConfigurationArrayOutput() DistributionConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationArrayOutput) ToDistributionConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfiguration {
+		return vs[0].([]DistributionConfiguration)[vs[1].(int)]
+	}).(DistributionConfigurationOutput)
+}
+
+type DistributionConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DistributionConfiguration)(nil))
+}
+
+func (o DistributionConfigurationMapOutput) ToDistributionConfigurationMapOutput() DistributionConfigurationMapOutput {
+	return o
+}
+
+func (o DistributionConfigurationMapOutput) ToDistributionConfigurationMapOutputWithContext(ctx context.Context) DistributionConfigurationMapOutput {
+	return o
+}
+
+func (o DistributionConfigurationMapOutput) MapIndex(k pulumi.StringInput) DistributionConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DistributionConfiguration {
+		return vs[0].(map[string]DistributionConfiguration)[vs[1].(string)]
+	}).(DistributionConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationMapOutput{})
 }

@@ -213,6 +213,85 @@ func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) Ra
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
 }
 
+func (i *RateBasedRule) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
+	return i.ToRateBasedRulePtrOutputWithContext(context.Background())
+}
+
+func (i *RateBasedRule) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePtrOutput)
+}
+
+type RateBasedRulePtrInput interface {
+	pulumi.Input
+
+	ToRateBasedRulePtrOutput() RateBasedRulePtrOutput
+	ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput
+}
+
+type rateBasedRulePtrType RateBasedRuleArgs
+
+func (*rateBasedRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RateBasedRule)(nil))
+}
+
+func (i *rateBasedRulePtrType) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
+	return i.ToRateBasedRulePtrOutputWithContext(context.Background())
+}
+
+func (i *rateBasedRulePtrType) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePtrOutput)
+}
+
+// RateBasedRuleArrayInput is an input type that accepts RateBasedRuleArray and RateBasedRuleArrayOutput values.
+// You can construct a concrete instance of `RateBasedRuleArrayInput` via:
+//
+//          RateBasedRuleArray{ RateBasedRuleArgs{...} }
+type RateBasedRuleArrayInput interface {
+	pulumi.Input
+
+	ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutput
+	ToRateBasedRuleArrayOutputWithContext(context.Context) RateBasedRuleArrayOutput
+}
+
+type RateBasedRuleArray []RateBasedRuleInput
+
+func (RateBasedRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RateBasedRule)(nil))
+}
+
+func (i RateBasedRuleArray) ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutput {
+	return i.ToRateBasedRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RateBasedRuleArray) ToRateBasedRuleArrayOutputWithContext(ctx context.Context) RateBasedRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleArrayOutput)
+}
+
+// RateBasedRuleMapInput is an input type that accepts RateBasedRuleMap and RateBasedRuleMapOutput values.
+// You can construct a concrete instance of `RateBasedRuleMapInput` via:
+//
+//          RateBasedRuleMap{ "key": RateBasedRuleArgs{...} }
+type RateBasedRuleMapInput interface {
+	pulumi.Input
+
+	ToRateBasedRuleMapOutput() RateBasedRuleMapOutput
+	ToRateBasedRuleMapOutputWithContext(context.Context) RateBasedRuleMapOutput
+}
+
+type RateBasedRuleMap map[string]RateBasedRuleInput
+
+func (RateBasedRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RateBasedRule)(nil))
+}
+
+func (i RateBasedRuleMap) ToRateBasedRuleMapOutput() RateBasedRuleMapOutput {
+	return i.ToRateBasedRuleMapOutputWithContext(context.Background())
+}
+
+func (i RateBasedRuleMap) ToRateBasedRuleMapOutputWithContext(ctx context.Context) RateBasedRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleMapOutput)
+}
+
 type RateBasedRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -229,6 +308,75 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RateBasedRuleOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
+	return o.ToRateBasedRulePtrOutputWithContext(context.Background())
+}
+
+func (o RateBasedRuleOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
+	return o.ApplyT(func(v RateBasedRule) *RateBasedRule {
+		return &v
+	}).(RateBasedRulePtrOutput)
+}
+
+type RateBasedRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RateBasedRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RateBasedRule)(nil))
+}
+
+func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
+	return o
+}
+
+func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
+	return o
+}
+
+type RateBasedRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RateBasedRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RateBasedRule)(nil))
+}
+
+func (o RateBasedRuleArrayOutput) ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutput {
+	return o
+}
+
+func (o RateBasedRuleArrayOutput) ToRateBasedRuleArrayOutputWithContext(ctx context.Context) RateBasedRuleArrayOutput {
+	return o
+}
+
+func (o RateBasedRuleArrayOutput) Index(i pulumi.IntInput) RateBasedRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RateBasedRule {
+		return vs[0].([]RateBasedRule)[vs[1].(int)]
+	}).(RateBasedRuleOutput)
+}
+
+type RateBasedRuleMapOutput struct{ *pulumi.OutputState }
+
+func (RateBasedRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RateBasedRule)(nil))
+}
+
+func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutput() RateBasedRuleMapOutput {
+	return o
+}
+
+func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutputWithContext(ctx context.Context) RateBasedRuleMapOutput {
+	return o
+}
+
+func (o RateBasedRuleMapOutput) MapIndex(k pulumi.StringInput) RateBasedRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RateBasedRule {
+		return vs[0].(map[string]RateBasedRule)[vs[1].(string)]
+	}).(RateBasedRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RateBasedRuleOutput{})
+	pulumi.RegisterOutputType(RateBasedRulePtrOutput{})
+	pulumi.RegisterOutputType(RateBasedRuleArrayOutput{})
+	pulumi.RegisterOutputType(RateBasedRuleMapOutput{})
 }

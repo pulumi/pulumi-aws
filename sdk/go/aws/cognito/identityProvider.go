@@ -207,6 +207,85 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
 }
 
+func (i *IdentityProvider) ToIdentityProviderPtrOutput() IdentityProviderPtrOutput {
+	return i.ToIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityProvider) ToIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderPtrOutput)
+}
+
+type IdentityProviderPtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderPtrOutput() IdentityProviderPtrOutput
+	ToIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityProviderPtrOutput
+}
+
+type identityProviderPtrType IdentityProviderArgs
+
+func (*identityProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProvider)(nil))
+}
+
+func (i *identityProviderPtrType) ToIdentityProviderPtrOutput() IdentityProviderPtrOutput {
+	return i.ToIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *identityProviderPtrType) ToIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderPtrOutput)
+}
+
+// IdentityProviderArrayInput is an input type that accepts IdentityProviderArray and IdentityProviderArrayOutput values.
+// You can construct a concrete instance of `IdentityProviderArrayInput` via:
+//
+//          IdentityProviderArray{ IdentityProviderArgs{...} }
+type IdentityProviderArrayInput interface {
+	pulumi.Input
+
+	ToIdentityProviderArrayOutput() IdentityProviderArrayOutput
+	ToIdentityProviderArrayOutputWithContext(context.Context) IdentityProviderArrayOutput
+}
+
+type IdentityProviderArray []IdentityProviderInput
+
+func (IdentityProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityProvider)(nil))
+}
+
+func (i IdentityProviderArray) ToIdentityProviderArrayOutput() IdentityProviderArrayOutput {
+	return i.ToIdentityProviderArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderArray) ToIdentityProviderArrayOutputWithContext(ctx context.Context) IdentityProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderArrayOutput)
+}
+
+// IdentityProviderMapInput is an input type that accepts IdentityProviderMap and IdentityProviderMapOutput values.
+// You can construct a concrete instance of `IdentityProviderMapInput` via:
+//
+//          IdentityProviderMap{ "key": IdentityProviderArgs{...} }
+type IdentityProviderMapInput interface {
+	pulumi.Input
+
+	ToIdentityProviderMapOutput() IdentityProviderMapOutput
+	ToIdentityProviderMapOutputWithContext(context.Context) IdentityProviderMapOutput
+}
+
+type IdentityProviderMap map[string]IdentityProviderInput
+
+func (IdentityProviderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityProvider)(nil))
+}
+
+func (i IdentityProviderMap) ToIdentityProviderMapOutput() IdentityProviderMapOutput {
+	return i.ToIdentityProviderMapOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderMap) ToIdentityProviderMapOutputWithContext(ctx context.Context) IdentityProviderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMapOutput)
+}
+
 type IdentityProviderOutput struct {
 	*pulumi.OutputState
 }
@@ -223,6 +302,75 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 	return o
 }
 
+func (o IdentityProviderOutput) ToIdentityProviderPtrOutput() IdentityProviderPtrOutput {
+	return o.ToIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderOutput) ToIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityProviderPtrOutput {
+	return o.ApplyT(func(v IdentityProvider) *IdentityProvider {
+		return &v
+	}).(IdentityProviderPtrOutput)
+}
+
+type IdentityProviderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProvider)(nil))
+}
+
+func (o IdentityProviderPtrOutput) ToIdentityProviderPtrOutput() IdentityProviderPtrOutput {
+	return o
+}
+
+func (o IdentityProviderPtrOutput) ToIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityProviderPtrOutput {
+	return o
+}
+
+type IdentityProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProvider)(nil))
+}
+
+func (o IdentityProviderArrayOutput) ToIdentityProviderArrayOutput() IdentityProviderArrayOutput {
+	return o
+}
+
+func (o IdentityProviderArrayOutput) ToIdentityProviderArrayOutputWithContext(ctx context.Context) IdentityProviderArrayOutput {
+	return o
+}
+
+func (o IdentityProviderArrayOutput) Index(i pulumi.IntInput) IdentityProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProvider {
+		return vs[0].([]IdentityProvider)[vs[1].(int)]
+	}).(IdentityProviderOutput)
+}
+
+type IdentityProviderMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProvider)(nil))
+}
+
+func (o IdentityProviderMapOutput) ToIdentityProviderMapOutput() IdentityProviderMapOutput {
+	return o
+}
+
+func (o IdentityProviderMapOutput) ToIdentityProviderMapOutputWithContext(ctx context.Context) IdentityProviderMapOutput {
+	return o
+}
+
+func (o IdentityProviderMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProvider {
+		return vs[0].(map[string]IdentityProvider)[vs[1].(string)]
+	}).(IdentityProviderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityProviderOutput{})
+	pulumi.RegisterOutputType(IdentityProviderPtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderArrayOutput{})
+	pulumi.RegisterOutputType(IdentityProviderMapOutput{})
 }

@@ -305,6 +305,85 @@ func (i *StaticWebLayer) ToStaticWebLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerOutput)
 }
 
+func (i *StaticWebLayer) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
+	return i.ToStaticWebLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *StaticWebLayer) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerPtrOutput)
+}
+
+type StaticWebLayerPtrInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput
+	ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput
+}
+
+type staticWebLayerPtrType StaticWebLayerArgs
+
+func (*staticWebLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayer)(nil))
+}
+
+func (i *staticWebLayerPtrType) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
+	return i.ToStaticWebLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *staticWebLayerPtrType) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerPtrOutput)
+}
+
+// StaticWebLayerArrayInput is an input type that accepts StaticWebLayerArray and StaticWebLayerArrayOutput values.
+// You can construct a concrete instance of `StaticWebLayerArrayInput` via:
+//
+//          StaticWebLayerArray{ StaticWebLayerArgs{...} }
+type StaticWebLayerArrayInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerArrayOutput() StaticWebLayerArrayOutput
+	ToStaticWebLayerArrayOutputWithContext(context.Context) StaticWebLayerArrayOutput
+}
+
+type StaticWebLayerArray []StaticWebLayerInput
+
+func (StaticWebLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StaticWebLayer)(nil))
+}
+
+func (i StaticWebLayerArray) ToStaticWebLayerArrayOutput() StaticWebLayerArrayOutput {
+	return i.ToStaticWebLayerArrayOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerArray) ToStaticWebLayerArrayOutputWithContext(ctx context.Context) StaticWebLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerArrayOutput)
+}
+
+// StaticWebLayerMapInput is an input type that accepts StaticWebLayerMap and StaticWebLayerMapOutput values.
+// You can construct a concrete instance of `StaticWebLayerMapInput` via:
+//
+//          StaticWebLayerMap{ "key": StaticWebLayerArgs{...} }
+type StaticWebLayerMapInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerMapOutput() StaticWebLayerMapOutput
+	ToStaticWebLayerMapOutputWithContext(context.Context) StaticWebLayerMapOutput
+}
+
+type StaticWebLayerMap map[string]StaticWebLayerInput
+
+func (StaticWebLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StaticWebLayer)(nil))
+}
+
+func (i StaticWebLayerMap) ToStaticWebLayerMapOutput() StaticWebLayerMapOutput {
+	return i.ToStaticWebLayerMapOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerMap) ToStaticWebLayerMapOutputWithContext(ctx context.Context) StaticWebLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerMapOutput)
+}
+
 type StaticWebLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -321,6 +400,75 @@ func (o StaticWebLayerOutput) ToStaticWebLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
+	return o.ToStaticWebLayerPtrOutputWithContext(context.Background())
+}
+
+func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
+	return o.ApplyT(func(v StaticWebLayer) *StaticWebLayer {
+		return &v
+	}).(StaticWebLayerPtrOutput)
+}
+
+type StaticWebLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StaticWebLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayer)(nil))
+}
+
+func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
+	return o
+}
+
+type StaticWebLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticWebLayer)(nil))
+}
+
+func (o StaticWebLayerArrayOutput) ToStaticWebLayerArrayOutput() StaticWebLayerArrayOutput {
+	return o
+}
+
+func (o StaticWebLayerArrayOutput) ToStaticWebLayerArrayOutputWithContext(ctx context.Context) StaticWebLayerArrayOutput {
+	return o
+}
+
+func (o StaticWebLayerArrayOutput) Index(i pulumi.IntInput) StaticWebLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticWebLayer {
+		return vs[0].([]StaticWebLayer)[vs[1].(int)]
+	}).(StaticWebLayerOutput)
+}
+
+type StaticWebLayerMapOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StaticWebLayer)(nil))
+}
+
+func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutput() StaticWebLayerMapOutput {
+	return o
+}
+
+func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutputWithContext(ctx context.Context) StaticWebLayerMapOutput {
+	return o
+}
+
+func (o StaticWebLayerMapOutput) MapIndex(k pulumi.StringInput) StaticWebLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StaticWebLayer {
+		return vs[0].(map[string]StaticWebLayer)[vs[1].(string)]
+	}).(StaticWebLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticWebLayerOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerPtrOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerArrayOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerMapOutput{})
 }

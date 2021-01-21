@@ -366,6 +366,85 @@ func (i *HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) Hapr
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerOutput)
 }
 
+func (i *HaproxyLayer) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
+	return i.ToHaproxyLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *HaproxyLayer) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerPtrOutput)
+}
+
+type HaproxyLayerPtrInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput
+	ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput
+}
+
+type haproxyLayerPtrType HaproxyLayerArgs
+
+func (*haproxyLayerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayer)(nil))
+}
+
+func (i *haproxyLayerPtrType) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
+	return i.ToHaproxyLayerPtrOutputWithContext(context.Background())
+}
+
+func (i *haproxyLayerPtrType) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerPtrOutput)
+}
+
+// HaproxyLayerArrayInput is an input type that accepts HaproxyLayerArray and HaproxyLayerArrayOutput values.
+// You can construct a concrete instance of `HaproxyLayerArrayInput` via:
+//
+//          HaproxyLayerArray{ HaproxyLayerArgs{...} }
+type HaproxyLayerArrayInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput
+	ToHaproxyLayerArrayOutputWithContext(context.Context) HaproxyLayerArrayOutput
+}
+
+type HaproxyLayerArray []HaproxyLayerInput
+
+func (HaproxyLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HaproxyLayer)(nil))
+}
+
+func (i HaproxyLayerArray) ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput {
+	return i.ToHaproxyLayerArrayOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerArray) ToHaproxyLayerArrayOutputWithContext(ctx context.Context) HaproxyLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerArrayOutput)
+}
+
+// HaproxyLayerMapInput is an input type that accepts HaproxyLayerMap and HaproxyLayerMapOutput values.
+// You can construct a concrete instance of `HaproxyLayerMapInput` via:
+//
+//          HaproxyLayerMap{ "key": HaproxyLayerArgs{...} }
+type HaproxyLayerMapInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerMapOutput() HaproxyLayerMapOutput
+	ToHaproxyLayerMapOutputWithContext(context.Context) HaproxyLayerMapOutput
+}
+
+type HaproxyLayerMap map[string]HaproxyLayerInput
+
+func (HaproxyLayerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HaproxyLayer)(nil))
+}
+
+func (i HaproxyLayerMap) ToHaproxyLayerMapOutput() HaproxyLayerMapOutput {
+	return i.ToHaproxyLayerMapOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerMap) ToHaproxyLayerMapOutputWithContext(ctx context.Context) HaproxyLayerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerMapOutput)
+}
+
 type HaproxyLayerOutput struct {
 	*pulumi.OutputState
 }
@@ -382,6 +461,75 @@ func (o HaproxyLayerOutput) ToHaproxyLayerOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o HaproxyLayerOutput) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
+	return o.ToHaproxyLayerPtrOutputWithContext(context.Background())
+}
+
+func (o HaproxyLayerOutput) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
+	return o.ApplyT(func(v HaproxyLayer) *HaproxyLayer {
+		return &v
+	}).(HaproxyLayerPtrOutput)
+}
+
+type HaproxyLayerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HaproxyLayerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayer)(nil))
+}
+
+func (o HaproxyLayerPtrOutput) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerPtrOutput) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
+	return o
+}
+
+type HaproxyLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HaproxyLayer)(nil))
+}
+
+func (o HaproxyLayerArrayOutput) ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput {
+	return o
+}
+
+func (o HaproxyLayerArrayOutput) ToHaproxyLayerArrayOutputWithContext(ctx context.Context) HaproxyLayerArrayOutput {
+	return o
+}
+
+func (o HaproxyLayerArrayOutput) Index(i pulumi.IntInput) HaproxyLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayer {
+		return vs[0].([]HaproxyLayer)[vs[1].(int)]
+	}).(HaproxyLayerOutput)
+}
+
+type HaproxyLayerMapOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HaproxyLayer)(nil))
+}
+
+func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutput() HaproxyLayerMapOutput {
+	return o
+}
+
+func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutputWithContext(ctx context.Context) HaproxyLayerMapOutput {
+	return o
+}
+
+func (o HaproxyLayerMapOutput) MapIndex(k pulumi.StringInput) HaproxyLayerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HaproxyLayer {
+		return vs[0].(map[string]HaproxyLayer)[vs[1].(string)]
+	}).(HaproxyLayerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HaproxyLayerOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerPtrOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerArrayOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerMapOutput{})
 }

@@ -151,6 +151,85 @@ func (i *OrganizationalUnit) ToOrganizationalUnitOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitOutput)
 }
 
+func (i *OrganizationalUnit) ToOrganizationalUnitPtrOutput() OrganizationalUnitPtrOutput {
+	return i.ToOrganizationalUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *OrganizationalUnit) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitPtrOutput)
+}
+
+type OrganizationalUnitPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitPtrOutput() OrganizationalUnitPtrOutput
+	ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput
+}
+
+type organizationalUnitPtrType OrganizationalUnitArgs
+
+func (*organizationalUnitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationalUnit)(nil))
+}
+
+func (i *organizationalUnitPtrType) ToOrganizationalUnitPtrOutput() OrganizationalUnitPtrOutput {
+	return i.ToOrganizationalUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationalUnitPtrType) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitPtrOutput)
+}
+
+// OrganizationalUnitArrayInput is an input type that accepts OrganizationalUnitArray and OrganizationalUnitArrayOutput values.
+// You can construct a concrete instance of `OrganizationalUnitArrayInput` via:
+//
+//          OrganizationalUnitArray{ OrganizationalUnitArgs{...} }
+type OrganizationalUnitArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitArrayOutput() OrganizationalUnitArrayOutput
+	ToOrganizationalUnitArrayOutputWithContext(context.Context) OrganizationalUnitArrayOutput
+}
+
+type OrganizationalUnitArray []OrganizationalUnitInput
+
+func (OrganizationalUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OrganizationalUnit)(nil))
+}
+
+func (i OrganizationalUnitArray) ToOrganizationalUnitArrayOutput() OrganizationalUnitArrayOutput {
+	return i.ToOrganizationalUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationalUnitArray) ToOrganizationalUnitArrayOutputWithContext(ctx context.Context) OrganizationalUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitArrayOutput)
+}
+
+// OrganizationalUnitMapInput is an input type that accepts OrganizationalUnitMap and OrganizationalUnitMapOutput values.
+// You can construct a concrete instance of `OrganizationalUnitMapInput` via:
+//
+//          OrganizationalUnitMap{ "key": OrganizationalUnitArgs{...} }
+type OrganizationalUnitMapInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitMapOutput() OrganizationalUnitMapOutput
+	ToOrganizationalUnitMapOutputWithContext(context.Context) OrganizationalUnitMapOutput
+}
+
+type OrganizationalUnitMap map[string]OrganizationalUnitInput
+
+func (OrganizationalUnitMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OrganizationalUnit)(nil))
+}
+
+func (i OrganizationalUnitMap) ToOrganizationalUnitMapOutput() OrganizationalUnitMapOutput {
+	return i.ToOrganizationalUnitMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationalUnitMap) ToOrganizationalUnitMapOutputWithContext(ctx context.Context) OrganizationalUnitMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitMapOutput)
+}
+
 type OrganizationalUnitOutput struct {
 	*pulumi.OutputState
 }
@@ -167,6 +246,75 @@ func (o OrganizationalUnitOutput) ToOrganizationalUnitOutputWithContext(ctx cont
 	return o
 }
 
+func (o OrganizationalUnitOutput) ToOrganizationalUnitPtrOutput() OrganizationalUnitPtrOutput {
+	return o.ToOrganizationalUnitPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationalUnitOutput) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
+	return o.ApplyT(func(v OrganizationalUnit) *OrganizationalUnit {
+		return &v
+	}).(OrganizationalUnitPtrOutput)
+}
+
+type OrganizationalUnitPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationalUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationalUnit)(nil))
+}
+
+func (o OrganizationalUnitPtrOutput) ToOrganizationalUnitPtrOutput() OrganizationalUnitPtrOutput {
+	return o
+}
+
+func (o OrganizationalUnitPtrOutput) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
+	return o
+}
+
+type OrganizationalUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationalUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationalUnit)(nil))
+}
+
+func (o OrganizationalUnitArrayOutput) ToOrganizationalUnitArrayOutput() OrganizationalUnitArrayOutput {
+	return o
+}
+
+func (o OrganizationalUnitArrayOutput) ToOrganizationalUnitArrayOutputWithContext(ctx context.Context) OrganizationalUnitArrayOutput {
+	return o
+}
+
+func (o OrganizationalUnitArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationalUnit {
+		return vs[0].([]OrganizationalUnit)[vs[1].(int)]
+	}).(OrganizationalUnitOutput)
+}
+
+type OrganizationalUnitMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationalUnitMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OrganizationalUnit)(nil))
+}
+
+func (o OrganizationalUnitMapOutput) ToOrganizationalUnitMapOutput() OrganizationalUnitMapOutput {
+	return o
+}
+
+func (o OrganizationalUnitMapOutput) ToOrganizationalUnitMapOutputWithContext(ctx context.Context) OrganizationalUnitMapOutput {
+	return o
+}
+
+func (o OrganizationalUnitMapOutput) MapIndex(k pulumi.StringInput) OrganizationalUnitOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationalUnit {
+		return vs[0].(map[string]OrganizationalUnit)[vs[1].(string)]
+	}).(OrganizationalUnitOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationalUnitOutput{})
+	pulumi.RegisterOutputType(OrganizationalUnitPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationalUnitArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationalUnitMapOutput{})
 }

@@ -183,6 +183,85 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
 }
 
+func (i *StateMachine) ToStateMachinePtrOutput() StateMachinePtrOutput {
+	return i.ToStateMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *StateMachine) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachinePtrOutput)
+}
+
+type StateMachinePtrInput interface {
+	pulumi.Input
+
+	ToStateMachinePtrOutput() StateMachinePtrOutput
+	ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput
+}
+
+type stateMachinePtrType StateMachineArgs
+
+func (*stateMachinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachine)(nil))
+}
+
+func (i *stateMachinePtrType) ToStateMachinePtrOutput() StateMachinePtrOutput {
+	return i.ToStateMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *stateMachinePtrType) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachinePtrOutput)
+}
+
+// StateMachineArrayInput is an input type that accepts StateMachineArray and StateMachineArrayOutput values.
+// You can construct a concrete instance of `StateMachineArrayInput` via:
+//
+//          StateMachineArray{ StateMachineArgs{...} }
+type StateMachineArrayInput interface {
+	pulumi.Input
+
+	ToStateMachineArrayOutput() StateMachineArrayOutput
+	ToStateMachineArrayOutputWithContext(context.Context) StateMachineArrayOutput
+}
+
+type StateMachineArray []StateMachineInput
+
+func (StateMachineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StateMachine)(nil))
+}
+
+func (i StateMachineArray) ToStateMachineArrayOutput() StateMachineArrayOutput {
+	return i.ToStateMachineArrayOutputWithContext(context.Background())
+}
+
+func (i StateMachineArray) ToStateMachineArrayOutputWithContext(ctx context.Context) StateMachineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineArrayOutput)
+}
+
+// StateMachineMapInput is an input type that accepts StateMachineMap and StateMachineMapOutput values.
+// You can construct a concrete instance of `StateMachineMapInput` via:
+//
+//          StateMachineMap{ "key": StateMachineArgs{...} }
+type StateMachineMapInput interface {
+	pulumi.Input
+
+	ToStateMachineMapOutput() StateMachineMapOutput
+	ToStateMachineMapOutputWithContext(context.Context) StateMachineMapOutput
+}
+
+type StateMachineMap map[string]StateMachineInput
+
+func (StateMachineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StateMachine)(nil))
+}
+
+func (i StateMachineMap) ToStateMachineMapOutput() StateMachineMapOutput {
+	return i.ToStateMachineMapOutputWithContext(context.Background())
+}
+
+func (i StateMachineMap) ToStateMachineMapOutputWithContext(ctx context.Context) StateMachineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineMapOutput)
+}
+
 type StateMachineOutput struct {
 	*pulumi.OutputState
 }
@@ -199,6 +278,75 @@ func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o StateMachineOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
+	return o.ToStateMachinePtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
+	return o.ApplyT(func(v StateMachine) *StateMachine {
+		return &v
+	}).(StateMachinePtrOutput)
+}
+
+type StateMachinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StateMachinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachine)(nil))
+}
+
+func (o StateMachinePtrOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
+	return o
+}
+
+func (o StateMachinePtrOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
+	return o
+}
+
+type StateMachineArrayOutput struct{ *pulumi.OutputState }
+
+func (StateMachineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StateMachine)(nil))
+}
+
+func (o StateMachineArrayOutput) ToStateMachineArrayOutput() StateMachineArrayOutput {
+	return o
+}
+
+func (o StateMachineArrayOutput) ToStateMachineArrayOutputWithContext(ctx context.Context) StateMachineArrayOutput {
+	return o
+}
+
+func (o StateMachineArrayOutput) Index(i pulumi.IntInput) StateMachineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StateMachine {
+		return vs[0].([]StateMachine)[vs[1].(int)]
+	}).(StateMachineOutput)
+}
+
+type StateMachineMapOutput struct{ *pulumi.OutputState }
+
+func (StateMachineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StateMachine)(nil))
+}
+
+func (o StateMachineMapOutput) ToStateMachineMapOutput() StateMachineMapOutput {
+	return o
+}
+
+func (o StateMachineMapOutput) ToStateMachineMapOutputWithContext(ctx context.Context) StateMachineMapOutput {
+	return o
+}
+
+func (o StateMachineMapOutput) MapIndex(k pulumi.StringInput) StateMachineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StateMachine {
+		return vs[0].(map[string]StateMachine)[vs[1].(string)]
+	}).(StateMachineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StateMachineOutput{})
+	pulumi.RegisterOutputType(StateMachinePtrOutput{})
+	pulumi.RegisterOutputType(StateMachineArrayOutput{})
+	pulumi.RegisterOutputType(StateMachineMapOutput{})
 }

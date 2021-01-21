@@ -148,6 +148,85 @@ func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueOutput)
 }
 
+func (i *GameSessionQueue) ToGameSessionQueuePtrOutput() GameSessionQueuePtrOutput {
+	return i.ToGameSessionQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *GameSessionQueue) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePtrOutput)
+}
+
+type GameSessionQueuePtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePtrOutput() GameSessionQueuePtrOutput
+	ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput
+}
+
+type gameSessionQueuePtrType GameSessionQueueArgs
+
+func (*gameSessionQueuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueue)(nil))
+}
+
+func (i *gameSessionQueuePtrType) ToGameSessionQueuePtrOutput() GameSessionQueuePtrOutput {
+	return i.ToGameSessionQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *gameSessionQueuePtrType) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePtrOutput)
+}
+
+// GameSessionQueueArrayInput is an input type that accepts GameSessionQueueArray and GameSessionQueueArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueueArrayInput` via:
+//
+//          GameSessionQueueArray{ GameSessionQueueArgs{...} }
+type GameSessionQueueArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueArrayOutput() GameSessionQueueArrayOutput
+	ToGameSessionQueueArrayOutputWithContext(context.Context) GameSessionQueueArrayOutput
+}
+
+type GameSessionQueueArray []GameSessionQueueInput
+
+func (GameSessionQueueArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GameSessionQueue)(nil))
+}
+
+func (i GameSessionQueueArray) ToGameSessionQueueArrayOutput() GameSessionQueueArrayOutput {
+	return i.ToGameSessionQueueArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueArray) ToGameSessionQueueArrayOutputWithContext(ctx context.Context) GameSessionQueueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueArrayOutput)
+}
+
+// GameSessionQueueMapInput is an input type that accepts GameSessionQueueMap and GameSessionQueueMapOutput values.
+// You can construct a concrete instance of `GameSessionQueueMapInput` via:
+//
+//          GameSessionQueueMap{ "key": GameSessionQueueArgs{...} }
+type GameSessionQueueMapInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueMapOutput() GameSessionQueueMapOutput
+	ToGameSessionQueueMapOutputWithContext(context.Context) GameSessionQueueMapOutput
+}
+
+type GameSessionQueueMap map[string]GameSessionQueueInput
+
+func (GameSessionQueueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GameSessionQueue)(nil))
+}
+
+func (i GameSessionQueueMap) ToGameSessionQueueMapOutput() GameSessionQueueMapOutput {
+	return i.ToGameSessionQueueMapOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueMap) ToGameSessionQueueMapOutputWithContext(ctx context.Context) GameSessionQueueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueMapOutput)
+}
+
 type GameSessionQueueOutput struct {
 	*pulumi.OutputState
 }
@@ -164,6 +243,75 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 	return o
 }
 
+func (o GameSessionQueueOutput) ToGameSessionQueuePtrOutput() GameSessionQueuePtrOutput {
+	return o.ToGameSessionQueuePtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueOutput) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
+	return o.ApplyT(func(v GameSessionQueue) *GameSessionQueue {
+		return &v
+	}).(GameSessionQueuePtrOutput)
+}
+
+type GameSessionQueuePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GameSessionQueuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueue)(nil))
+}
+
+func (o GameSessionQueuePtrOutput) ToGameSessionQueuePtrOutput() GameSessionQueuePtrOutput {
+	return o
+}
+
+func (o GameSessionQueuePtrOutput) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
+	return o
+}
+
+type GameSessionQueueArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueue)(nil))
+}
+
+func (o GameSessionQueueArrayOutput) ToGameSessionQueueArrayOutput() GameSessionQueueArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueArrayOutput) ToGameSessionQueueArrayOutputWithContext(ctx context.Context) GameSessionQueueArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueArrayOutput) Index(i pulumi.IntInput) GameSessionQueueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueue {
+		return vs[0].([]GameSessionQueue)[vs[1].(int)]
+	}).(GameSessionQueueOutput)
+}
+
+type GameSessionQueueMapOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GameSessionQueue)(nil))
+}
+
+func (o GameSessionQueueMapOutput) ToGameSessionQueueMapOutput() GameSessionQueueMapOutput {
+	return o
+}
+
+func (o GameSessionQueueMapOutput) ToGameSessionQueueMapOutputWithContext(ctx context.Context) GameSessionQueueMapOutput {
+	return o
+}
+
+func (o GameSessionQueueMapOutput) MapIndex(k pulumi.StringInput) GameSessionQueueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GameSessionQueue {
+		return vs[0].(map[string]GameSessionQueue)[vs[1].(string)]
+	}).(GameSessionQueueOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GameSessionQueueOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueArrayOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueMapOutput{})
 }

@@ -189,6 +189,85 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
 }
 
+func (i *LifecyclePolicy) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
+	return i.ToLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *LifecyclePolicy) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPtrOutput)
+}
+
+type LifecyclePolicyPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput
+	ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput
+}
+
+type lifecyclePolicyPtrType LifecyclePolicyArgs
+
+func (*lifecyclePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicy)(nil))
+}
+
+func (i *lifecyclePolicyPtrType) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
+	return i.ToLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPtrType) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPtrOutput)
+}
+
+// LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyArrayInput` via:
+//
+//          LifecyclePolicyArray{ LifecyclePolicyArgs{...} }
+type LifecyclePolicyArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyArrayOutput() LifecyclePolicyArrayOutput
+	ToLifecyclePolicyArrayOutputWithContext(context.Context) LifecyclePolicyArrayOutput
+}
+
+type LifecyclePolicyArray []LifecyclePolicyInput
+
+func (LifecyclePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LifecyclePolicy)(nil))
+}
+
+func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutput() LifecyclePolicyArrayOutput {
+	return i.ToLifecyclePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx context.Context) LifecyclePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArrayOutput)
+}
+
+// LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
+// You can construct a concrete instance of `LifecyclePolicyMapInput` via:
+//
+//          LifecyclePolicyMap{ "key": LifecyclePolicyArgs{...} }
+type LifecyclePolicyMapInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyMapOutput() LifecyclePolicyMapOutput
+	ToLifecyclePolicyMapOutputWithContext(context.Context) LifecyclePolicyMapOutput
+}
+
+type LifecyclePolicyMap map[string]LifecyclePolicyInput
+
+func (LifecyclePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LifecyclePolicy)(nil))
+}
+
+func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutput() LifecyclePolicyMapOutput {
+	return i.ToLifecyclePolicyMapOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Context) LifecyclePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyMapOutput)
+}
+
 type LifecyclePolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -205,6 +284,75 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
+	return o.ToLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicy) *LifecyclePolicy {
+		return &v
+	}).(LifecyclePolicyPtrOutput)
+}
+
+type LifecyclePolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LifecyclePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicy)(nil))
+}
+
+func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
+	return o
+}
+
+type LifecyclePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicy)(nil))
+}
+
+func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutput() LifecyclePolicyArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutputWithContext(ctx context.Context) LifecyclePolicyArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicy {
+		return vs[0].([]LifecyclePolicy)[vs[1].(int)]
+	}).(LifecyclePolicyOutput)
+}
+
+type LifecyclePolicyMapOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LifecyclePolicy)(nil))
+}
+
+func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutput() LifecyclePolicyMapOutput {
+	return o
+}
+
+func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutputWithContext(ctx context.Context) LifecyclePolicyMapOutput {
+	return o
+}
+
+func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LifecyclePolicy {
+		return vs[0].(map[string]LifecyclePolicy)[vs[1].(string)]
+	}).(LifecyclePolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyMapOutput{})
 }

@@ -217,6 +217,85 @@ func (i *Activation) ToActivationOutputWithContext(ctx context.Context) Activati
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationOutput)
 }
 
+func (i *Activation) ToActivationPtrOutput() ActivationPtrOutput {
+	return i.ToActivationPtrOutputWithContext(context.Background())
+}
+
+func (i *Activation) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivationPtrOutput)
+}
+
+type ActivationPtrInput interface {
+	pulumi.Input
+
+	ToActivationPtrOutput() ActivationPtrOutput
+	ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput
+}
+
+type activationPtrType ActivationArgs
+
+func (*activationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Activation)(nil))
+}
+
+func (i *activationPtrType) ToActivationPtrOutput() ActivationPtrOutput {
+	return i.ToActivationPtrOutputWithContext(context.Background())
+}
+
+func (i *activationPtrType) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivationPtrOutput)
+}
+
+// ActivationArrayInput is an input type that accepts ActivationArray and ActivationArrayOutput values.
+// You can construct a concrete instance of `ActivationArrayInput` via:
+//
+//          ActivationArray{ ActivationArgs{...} }
+type ActivationArrayInput interface {
+	pulumi.Input
+
+	ToActivationArrayOutput() ActivationArrayOutput
+	ToActivationArrayOutputWithContext(context.Context) ActivationArrayOutput
+}
+
+type ActivationArray []ActivationInput
+
+func (ActivationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Activation)(nil))
+}
+
+func (i ActivationArray) ToActivationArrayOutput() ActivationArrayOutput {
+	return i.ToActivationArrayOutputWithContext(context.Background())
+}
+
+func (i ActivationArray) ToActivationArrayOutputWithContext(ctx context.Context) ActivationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivationArrayOutput)
+}
+
+// ActivationMapInput is an input type that accepts ActivationMap and ActivationMapOutput values.
+// You can construct a concrete instance of `ActivationMapInput` via:
+//
+//          ActivationMap{ "key": ActivationArgs{...} }
+type ActivationMapInput interface {
+	pulumi.Input
+
+	ToActivationMapOutput() ActivationMapOutput
+	ToActivationMapOutputWithContext(context.Context) ActivationMapOutput
+}
+
+type ActivationMap map[string]ActivationInput
+
+func (ActivationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Activation)(nil))
+}
+
+func (i ActivationMap) ToActivationMapOutput() ActivationMapOutput {
+	return i.ToActivationMapOutputWithContext(context.Background())
+}
+
+func (i ActivationMap) ToActivationMapOutputWithContext(ctx context.Context) ActivationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivationMapOutput)
+}
+
 type ActivationOutput struct {
 	*pulumi.OutputState
 }
@@ -233,6 +312,75 @@ func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) Act
 	return o
 }
 
+func (o ActivationOutput) ToActivationPtrOutput() ActivationPtrOutput {
+	return o.ToActivationPtrOutputWithContext(context.Background())
+}
+
+func (o ActivationOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
+	return o.ApplyT(func(v Activation) *Activation {
+		return &v
+	}).(ActivationPtrOutput)
+}
+
+type ActivationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActivationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Activation)(nil))
+}
+
+func (o ActivationPtrOutput) ToActivationPtrOutput() ActivationPtrOutput {
+	return o
+}
+
+func (o ActivationPtrOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
+	return o
+}
+
+type ActivationArrayOutput struct{ *pulumi.OutputState }
+
+func (ActivationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Activation)(nil))
+}
+
+func (o ActivationArrayOutput) ToActivationArrayOutput() ActivationArrayOutput {
+	return o
+}
+
+func (o ActivationArrayOutput) ToActivationArrayOutputWithContext(ctx context.Context) ActivationArrayOutput {
+	return o
+}
+
+func (o ActivationArrayOutput) Index(i pulumi.IntInput) ActivationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Activation {
+		return vs[0].([]Activation)[vs[1].(int)]
+	}).(ActivationOutput)
+}
+
+type ActivationMapOutput struct{ *pulumi.OutputState }
+
+func (ActivationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Activation)(nil))
+}
+
+func (o ActivationMapOutput) ToActivationMapOutput() ActivationMapOutput {
+	return o
+}
+
+func (o ActivationMapOutput) ToActivationMapOutputWithContext(ctx context.Context) ActivationMapOutput {
+	return o
+}
+
+func (o ActivationMapOutput) MapIndex(k pulumi.StringInput) ActivationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Activation {
+		return vs[0].(map[string]Activation)[vs[1].(string)]
+	}).(ActivationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActivationOutput{})
+	pulumi.RegisterOutputType(ActivationPtrOutput{})
+	pulumi.RegisterOutputType(ActivationArrayOutput{})
+	pulumi.RegisterOutputType(ActivationMapOutput{})
 }

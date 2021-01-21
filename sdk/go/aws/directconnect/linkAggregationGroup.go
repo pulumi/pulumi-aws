@@ -194,6 +194,85 @@ func (i *LinkAggregationGroup) ToLinkAggregationGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupOutput)
 }
 
+func (i *LinkAggregationGroup) ToLinkAggregationGroupPtrOutput() LinkAggregationGroupPtrOutput {
+	return i.ToLinkAggregationGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *LinkAggregationGroup) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupPtrOutput)
+}
+
+type LinkAggregationGroupPtrInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupPtrOutput() LinkAggregationGroupPtrOutput
+	ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput
+}
+
+type linkAggregationGroupPtrType LinkAggregationGroupArgs
+
+func (*linkAggregationGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkAggregationGroup)(nil))
+}
+
+func (i *linkAggregationGroupPtrType) ToLinkAggregationGroupPtrOutput() LinkAggregationGroupPtrOutput {
+	return i.ToLinkAggregationGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *linkAggregationGroupPtrType) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupPtrOutput)
+}
+
+// LinkAggregationGroupArrayInput is an input type that accepts LinkAggregationGroupArray and LinkAggregationGroupArrayOutput values.
+// You can construct a concrete instance of `LinkAggregationGroupArrayInput` via:
+//
+//          LinkAggregationGroupArray{ LinkAggregationGroupArgs{...} }
+type LinkAggregationGroupArrayInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupArrayOutput() LinkAggregationGroupArrayOutput
+	ToLinkAggregationGroupArrayOutputWithContext(context.Context) LinkAggregationGroupArrayOutput
+}
+
+type LinkAggregationGroupArray []LinkAggregationGroupInput
+
+func (LinkAggregationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkAggregationGroup)(nil))
+}
+
+func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutput() LinkAggregationGroupArrayOutput {
+	return i.ToLinkAggregationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutputWithContext(ctx context.Context) LinkAggregationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupArrayOutput)
+}
+
+// LinkAggregationGroupMapInput is an input type that accepts LinkAggregationGroupMap and LinkAggregationGroupMapOutput values.
+// You can construct a concrete instance of `LinkAggregationGroupMapInput` via:
+//
+//          LinkAggregationGroupMap{ "key": LinkAggregationGroupArgs{...} }
+type LinkAggregationGroupMapInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupMapOutput() LinkAggregationGroupMapOutput
+	ToLinkAggregationGroupMapOutputWithContext(context.Context) LinkAggregationGroupMapOutput
+}
+
+type LinkAggregationGroupMap map[string]LinkAggregationGroupInput
+
+func (LinkAggregationGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkAggregationGroup)(nil))
+}
+
+func (i LinkAggregationGroupMap) ToLinkAggregationGroupMapOutput() LinkAggregationGroupMapOutput {
+	return i.ToLinkAggregationGroupMapOutputWithContext(context.Background())
+}
+
+func (i LinkAggregationGroupMap) ToLinkAggregationGroupMapOutputWithContext(ctx context.Context) LinkAggregationGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupMapOutput)
+}
+
 type LinkAggregationGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutputWithContext(ctx 
 	return o
 }
 
+func (o LinkAggregationGroupOutput) ToLinkAggregationGroupPtrOutput() LinkAggregationGroupPtrOutput {
+	return o.ToLinkAggregationGroupPtrOutputWithContext(context.Background())
+}
+
+func (o LinkAggregationGroupOutput) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
+	return o.ApplyT(func(v LinkAggregationGroup) *LinkAggregationGroup {
+		return &v
+	}).(LinkAggregationGroupPtrOutput)
+}
+
+type LinkAggregationGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkAggregationGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkAggregationGroup)(nil))
+}
+
+func (o LinkAggregationGroupPtrOutput) ToLinkAggregationGroupPtrOutput() LinkAggregationGroupPtrOutput {
+	return o
+}
+
+func (o LinkAggregationGroupPtrOutput) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
+	return o
+}
+
+type LinkAggregationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkAggregationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkAggregationGroup)(nil))
+}
+
+func (o LinkAggregationGroupArrayOutput) ToLinkAggregationGroupArrayOutput() LinkAggregationGroupArrayOutput {
+	return o
+}
+
+func (o LinkAggregationGroupArrayOutput) ToLinkAggregationGroupArrayOutputWithContext(ctx context.Context) LinkAggregationGroupArrayOutput {
+	return o
+}
+
+func (o LinkAggregationGroupArrayOutput) Index(i pulumi.IntInput) LinkAggregationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkAggregationGroup {
+		return vs[0].([]LinkAggregationGroup)[vs[1].(int)]
+	}).(LinkAggregationGroupOutput)
+}
+
+type LinkAggregationGroupMapOutput struct{ *pulumi.OutputState }
+
+func (LinkAggregationGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkAggregationGroup)(nil))
+}
+
+func (o LinkAggregationGroupMapOutput) ToLinkAggregationGroupMapOutput() LinkAggregationGroupMapOutput {
+	return o
+}
+
+func (o LinkAggregationGroupMapOutput) ToLinkAggregationGroupMapOutputWithContext(ctx context.Context) LinkAggregationGroupMapOutput {
+	return o
+}
+
+func (o LinkAggregationGroupMapOutput) MapIndex(k pulumi.StringInput) LinkAggregationGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkAggregationGroup {
+		return vs[0].(map[string]LinkAggregationGroup)[vs[1].(string)]
+	}).(LinkAggregationGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkAggregationGroupOutput{})
+	pulumi.RegisterOutputType(LinkAggregationGroupPtrOutput{})
+	pulumi.RegisterOutputType(LinkAggregationGroupArrayOutput{})
+	pulumi.RegisterOutputType(LinkAggregationGroupMapOutput{})
 }

@@ -178,6 +178,85 @@ func (i *S3Location) ToS3LocationOutputWithContext(ctx context.Context) S3Locati
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationOutput)
 }
 
+func (i *S3Location) ToS3LocationPtrOutput() S3LocationPtrOutput {
+	return i.ToS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *S3Location) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3LocationPtrOutput)
+}
+
+type S3LocationPtrInput interface {
+	pulumi.Input
+
+	ToS3LocationPtrOutput() S3LocationPtrOutput
+	ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput
+}
+
+type s3locationPtrType S3LocationArgs
+
+func (*s3locationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3Location)(nil))
+}
+
+func (i *s3locationPtrType) ToS3LocationPtrOutput() S3LocationPtrOutput {
+	return i.ToS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *s3locationPtrType) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3LocationPtrOutput)
+}
+
+// S3LocationArrayInput is an input type that accepts S3LocationArray and S3LocationArrayOutput values.
+// You can construct a concrete instance of `S3LocationArrayInput` via:
+//
+//          S3LocationArray{ S3LocationArgs{...} }
+type S3LocationArrayInput interface {
+	pulumi.Input
+
+	ToS3LocationArrayOutput() S3LocationArrayOutput
+	ToS3LocationArrayOutputWithContext(context.Context) S3LocationArrayOutput
+}
+
+type S3LocationArray []S3LocationInput
+
+func (S3LocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*S3Location)(nil))
+}
+
+func (i S3LocationArray) ToS3LocationArrayOutput() S3LocationArrayOutput {
+	return i.ToS3LocationArrayOutputWithContext(context.Background())
+}
+
+func (i S3LocationArray) ToS3LocationArrayOutputWithContext(ctx context.Context) S3LocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3LocationArrayOutput)
+}
+
+// S3LocationMapInput is an input type that accepts S3LocationMap and S3LocationMapOutput values.
+// You can construct a concrete instance of `S3LocationMapInput` via:
+//
+//          S3LocationMap{ "key": S3LocationArgs{...} }
+type S3LocationMapInput interface {
+	pulumi.Input
+
+	ToS3LocationMapOutput() S3LocationMapOutput
+	ToS3LocationMapOutputWithContext(context.Context) S3LocationMapOutput
+}
+
+type S3LocationMap map[string]S3LocationInput
+
+func (S3LocationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*S3Location)(nil))
+}
+
+func (i S3LocationMap) ToS3LocationMapOutput() S3LocationMapOutput {
+	return i.ToS3LocationMapOutputWithContext(context.Background())
+}
+
+func (i S3LocationMap) ToS3LocationMapOutputWithContext(ctx context.Context) S3LocationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3LocationMapOutput)
+}
+
 type S3LocationOutput struct {
 	*pulumi.OutputState
 }
@@ -194,6 +273,75 @@ func (o S3LocationOutput) ToS3LocationOutputWithContext(ctx context.Context) S3L
 	return o
 }
 
+func (o S3LocationOutput) ToS3LocationPtrOutput() S3LocationPtrOutput {
+	return o.ToS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o S3LocationOutput) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
+	return o.ApplyT(func(v S3Location) *S3Location {
+		return &v
+	}).(S3LocationPtrOutput)
+}
+
+type S3LocationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (S3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3Location)(nil))
+}
+
+func (o S3LocationPtrOutput) ToS3LocationPtrOutput() S3LocationPtrOutput {
+	return o
+}
+
+func (o S3LocationPtrOutput) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
+	return o
+}
+
+type S3LocationArrayOutput struct{ *pulumi.OutputState }
+
+func (S3LocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]S3Location)(nil))
+}
+
+func (o S3LocationArrayOutput) ToS3LocationArrayOutput() S3LocationArrayOutput {
+	return o
+}
+
+func (o S3LocationArrayOutput) ToS3LocationArrayOutputWithContext(ctx context.Context) S3LocationArrayOutput {
+	return o
+}
+
+func (o S3LocationArrayOutput) Index(i pulumi.IntInput) S3LocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) S3Location {
+		return vs[0].([]S3Location)[vs[1].(int)]
+	}).(S3LocationOutput)
+}
+
+type S3LocationMapOutput struct{ *pulumi.OutputState }
+
+func (S3LocationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]S3Location)(nil))
+}
+
+func (o S3LocationMapOutput) ToS3LocationMapOutput() S3LocationMapOutput {
+	return o
+}
+
+func (o S3LocationMapOutput) ToS3LocationMapOutputWithContext(ctx context.Context) S3LocationMapOutput {
+	return o
+}
+
+func (o S3LocationMapOutput) MapIndex(k pulumi.StringInput) S3LocationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) S3Location {
+		return vs[0].(map[string]S3Location)[vs[1].(string)]
+	}).(S3LocationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(S3LocationOutput{})
+	pulumi.RegisterOutputType(S3LocationPtrOutput{})
+	pulumi.RegisterOutputType(S3LocationArrayOutput{})
+	pulumi.RegisterOutputType(S3LocationMapOutput{})
 }

@@ -288,6 +288,85 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
+func (i *Webhook) ToWebhookPtrOutput() WebhookPtrOutput {
+	return i.ToWebhookPtrOutputWithContext(context.Background())
+}
+
+func (i *Webhook) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPtrOutput)
+}
+
+type WebhookPtrInput interface {
+	pulumi.Input
+
+	ToWebhookPtrOutput() WebhookPtrOutput
+	ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput
+}
+
+type webhookPtrType WebhookArgs
+
+func (*webhookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Webhook)(nil))
+}
+
+func (i *webhookPtrType) ToWebhookPtrOutput() WebhookPtrOutput {
+	return i.ToWebhookPtrOutputWithContext(context.Background())
+}
+
+func (i *webhookPtrType) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPtrOutput)
+}
+
+// WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
+// You can construct a concrete instance of `WebhookArrayInput` via:
+//
+//          WebhookArray{ WebhookArgs{...} }
+type WebhookArrayInput interface {
+	pulumi.Input
+
+	ToWebhookArrayOutput() WebhookArrayOutput
+	ToWebhookArrayOutputWithContext(context.Context) WebhookArrayOutput
+}
+
+type WebhookArray []WebhookInput
+
+func (WebhookArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Webhook)(nil))
+}
+
+func (i WebhookArray) ToWebhookArrayOutput() WebhookArrayOutput {
+	return i.ToWebhookArrayOutputWithContext(context.Background())
+}
+
+func (i WebhookArray) ToWebhookArrayOutputWithContext(ctx context.Context) WebhookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookArrayOutput)
+}
+
+// WebhookMapInput is an input type that accepts WebhookMap and WebhookMapOutput values.
+// You can construct a concrete instance of `WebhookMapInput` via:
+//
+//          WebhookMap{ "key": WebhookArgs{...} }
+type WebhookMapInput interface {
+	pulumi.Input
+
+	ToWebhookMapOutput() WebhookMapOutput
+	ToWebhookMapOutputWithContext(context.Context) WebhookMapOutput
+}
+
+type WebhookMap map[string]WebhookInput
+
+func (WebhookMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Webhook)(nil))
+}
+
+func (i WebhookMap) ToWebhookMapOutput() WebhookMapOutput {
+	return i.ToWebhookMapOutputWithContext(context.Background())
+}
+
+func (i WebhookMap) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookMapOutput)
+}
+
 type WebhookOutput struct {
 	*pulumi.OutputState
 }
@@ -304,6 +383,75 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
+func (o WebhookOutput) ToWebhookPtrOutput() WebhookPtrOutput {
+	return o.ToWebhookPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
+	return o.ApplyT(func(v Webhook) *Webhook {
+		return &v
+	}).(WebhookPtrOutput)
+}
+
+type WebhookPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebhookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Webhook)(nil))
+}
+
+func (o WebhookPtrOutput) ToWebhookPtrOutput() WebhookPtrOutput {
+	return o
+}
+
+func (o WebhookPtrOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
+	return o
+}
+
+type WebhookArrayOutput struct{ *pulumi.OutputState }
+
+func (WebhookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Webhook)(nil))
+}
+
+func (o WebhookArrayOutput) ToWebhookArrayOutput() WebhookArrayOutput {
+	return o
+}
+
+func (o WebhookArrayOutput) ToWebhookArrayOutputWithContext(ctx context.Context) WebhookArrayOutput {
+	return o
+}
+
+func (o WebhookArrayOutput) Index(i pulumi.IntInput) WebhookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Webhook {
+		return vs[0].([]Webhook)[vs[1].(int)]
+	}).(WebhookOutput)
+}
+
+type WebhookMapOutput struct{ *pulumi.OutputState }
+
+func (WebhookMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Webhook)(nil))
+}
+
+func (o WebhookMapOutput) ToWebhookMapOutput() WebhookMapOutput {
+	return o
+}
+
+func (o WebhookMapOutput) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMapOutput {
+	return o
+}
+
+func (o WebhookMapOutput) MapIndex(k pulumi.StringInput) WebhookOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Webhook {
+		return vs[0].(map[string]Webhook)[vs[1].(string)]
+	}).(WebhookOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebhookOutput{})
+	pulumi.RegisterOutputType(WebhookPtrOutput{})
+	pulumi.RegisterOutputType(WebhookArrayOutput{})
+	pulumi.RegisterOutputType(WebhookMapOutput{})
 }

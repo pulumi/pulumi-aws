@@ -186,6 +186,85 @@ func (i *Hsm) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmOutput)
 }
 
+func (i *Hsm) ToHsmPtrOutput() HsmPtrOutput {
+	return i.ToHsmPtrOutputWithContext(context.Background())
+}
+
+func (i *Hsm) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HsmPtrOutput)
+}
+
+type HsmPtrInput interface {
+	pulumi.Input
+
+	ToHsmPtrOutput() HsmPtrOutput
+	ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput
+}
+
+type hsmPtrType HsmArgs
+
+func (*hsmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Hsm)(nil))
+}
+
+func (i *hsmPtrType) ToHsmPtrOutput() HsmPtrOutput {
+	return i.ToHsmPtrOutputWithContext(context.Background())
+}
+
+func (i *hsmPtrType) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HsmPtrOutput)
+}
+
+// HsmArrayInput is an input type that accepts HsmArray and HsmArrayOutput values.
+// You can construct a concrete instance of `HsmArrayInput` via:
+//
+//          HsmArray{ HsmArgs{...} }
+type HsmArrayInput interface {
+	pulumi.Input
+
+	ToHsmArrayOutput() HsmArrayOutput
+	ToHsmArrayOutputWithContext(context.Context) HsmArrayOutput
+}
+
+type HsmArray []HsmInput
+
+func (HsmArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Hsm)(nil))
+}
+
+func (i HsmArray) ToHsmArrayOutput() HsmArrayOutput {
+	return i.ToHsmArrayOutputWithContext(context.Background())
+}
+
+func (i HsmArray) ToHsmArrayOutputWithContext(ctx context.Context) HsmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HsmArrayOutput)
+}
+
+// HsmMapInput is an input type that accepts HsmMap and HsmMapOutput values.
+// You can construct a concrete instance of `HsmMapInput` via:
+//
+//          HsmMap{ "key": HsmArgs{...} }
+type HsmMapInput interface {
+	pulumi.Input
+
+	ToHsmMapOutput() HsmMapOutput
+	ToHsmMapOutputWithContext(context.Context) HsmMapOutput
+}
+
+type HsmMap map[string]HsmInput
+
+func (HsmMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Hsm)(nil))
+}
+
+func (i HsmMap) ToHsmMapOutput() HsmMapOutput {
+	return i.ToHsmMapOutputWithContext(context.Background())
+}
+
+func (i HsmMap) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HsmMapOutput)
+}
+
 type HsmOutput struct {
 	*pulumi.OutputState
 }
@@ -202,6 +281,75 @@ func (o HsmOutput) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return o
 }
 
+func (o HsmOutput) ToHsmPtrOutput() HsmPtrOutput {
+	return o.ToHsmPtrOutputWithContext(context.Background())
+}
+
+func (o HsmOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
+	return o.ApplyT(func(v Hsm) *Hsm {
+		return &v
+	}).(HsmPtrOutput)
+}
+
+type HsmPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HsmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Hsm)(nil))
+}
+
+func (o HsmPtrOutput) ToHsmPtrOutput() HsmPtrOutput {
+	return o
+}
+
+func (o HsmPtrOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
+	return o
+}
+
+type HsmArrayOutput struct{ *pulumi.OutputState }
+
+func (HsmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Hsm)(nil))
+}
+
+func (o HsmArrayOutput) ToHsmArrayOutput() HsmArrayOutput {
+	return o
+}
+
+func (o HsmArrayOutput) ToHsmArrayOutputWithContext(ctx context.Context) HsmArrayOutput {
+	return o
+}
+
+func (o HsmArrayOutput) Index(i pulumi.IntInput) HsmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Hsm {
+		return vs[0].([]Hsm)[vs[1].(int)]
+	}).(HsmOutput)
+}
+
+type HsmMapOutput struct{ *pulumi.OutputState }
+
+func (HsmMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Hsm)(nil))
+}
+
+func (o HsmMapOutput) ToHsmMapOutput() HsmMapOutput {
+	return o
+}
+
+func (o HsmMapOutput) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
+	return o
+}
+
+func (o HsmMapOutput) MapIndex(k pulumi.StringInput) HsmOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Hsm {
+		return vs[0].(map[string]Hsm)[vs[1].(string)]
+	}).(HsmOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HsmOutput{})
+	pulumi.RegisterOutputType(HsmPtrOutput{})
+	pulumi.RegisterOutputType(HsmArrayOutput{})
+	pulumi.RegisterOutputType(HsmMapOutput{})
 }

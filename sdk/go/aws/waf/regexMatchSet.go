@@ -159,6 +159,85 @@ func (i *RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetOutput)
 }
 
+func (i *RegexMatchSet) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput {
+	return i.ToRegexMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *RegexMatchSet) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetPtrOutput)
+}
+
+type RegexMatchSetPtrInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput
+	ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput
+}
+
+type regexMatchSetPtrType RegexMatchSetArgs
+
+func (*regexMatchSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegexMatchSet)(nil))
+}
+
+func (i *regexMatchSetPtrType) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput {
+	return i.ToRegexMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (i *regexMatchSetPtrType) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetPtrOutput)
+}
+
+// RegexMatchSetArrayInput is an input type that accepts RegexMatchSetArray and RegexMatchSetArrayOutput values.
+// You can construct a concrete instance of `RegexMatchSetArrayInput` via:
+//
+//          RegexMatchSetArray{ RegexMatchSetArgs{...} }
+type RegexMatchSetArrayInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetArrayOutput() RegexMatchSetArrayOutput
+	ToRegexMatchSetArrayOutputWithContext(context.Context) RegexMatchSetArrayOutput
+}
+
+type RegexMatchSetArray []RegexMatchSetInput
+
+func (RegexMatchSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RegexMatchSet)(nil))
+}
+
+func (i RegexMatchSetArray) ToRegexMatchSetArrayOutput() RegexMatchSetArrayOutput {
+	return i.ToRegexMatchSetArrayOutputWithContext(context.Background())
+}
+
+func (i RegexMatchSetArray) ToRegexMatchSetArrayOutputWithContext(ctx context.Context) RegexMatchSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetArrayOutput)
+}
+
+// RegexMatchSetMapInput is an input type that accepts RegexMatchSetMap and RegexMatchSetMapOutput values.
+// You can construct a concrete instance of `RegexMatchSetMapInput` via:
+//
+//          RegexMatchSetMap{ "key": RegexMatchSetArgs{...} }
+type RegexMatchSetMapInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetMapOutput() RegexMatchSetMapOutput
+	ToRegexMatchSetMapOutputWithContext(context.Context) RegexMatchSetMapOutput
+}
+
+type RegexMatchSetMap map[string]RegexMatchSetInput
+
+func (RegexMatchSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RegexMatchSet)(nil))
+}
+
+func (i RegexMatchSetMap) ToRegexMatchSetMapOutput() RegexMatchSetMapOutput {
+	return i.ToRegexMatchSetMapOutputWithContext(context.Background())
+}
+
+func (i RegexMatchSetMap) ToRegexMatchSetMapOutputWithContext(ctx context.Context) RegexMatchSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetMapOutput)
+}
+
 type RegexMatchSetOutput struct {
 	*pulumi.OutputState
 }
@@ -175,6 +254,75 @@ func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RegexMatchSetOutput) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput {
+	return o.ToRegexMatchSetPtrOutputWithContext(context.Background())
+}
+
+func (o RegexMatchSetOutput) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
+	return o.ApplyT(func(v RegexMatchSet) *RegexMatchSet {
+		return &v
+	}).(RegexMatchSetPtrOutput)
+}
+
+type RegexMatchSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegexMatchSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegexMatchSet)(nil))
+}
+
+func (o RegexMatchSetPtrOutput) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput {
+	return o
+}
+
+func (o RegexMatchSetPtrOutput) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
+	return o
+}
+
+type RegexMatchSetArrayOutput struct{ *pulumi.OutputState }
+
+func (RegexMatchSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegexMatchSet)(nil))
+}
+
+func (o RegexMatchSetArrayOutput) ToRegexMatchSetArrayOutput() RegexMatchSetArrayOutput {
+	return o
+}
+
+func (o RegexMatchSetArrayOutput) ToRegexMatchSetArrayOutputWithContext(ctx context.Context) RegexMatchSetArrayOutput {
+	return o
+}
+
+func (o RegexMatchSetArrayOutput) Index(i pulumi.IntInput) RegexMatchSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegexMatchSet {
+		return vs[0].([]RegexMatchSet)[vs[1].(int)]
+	}).(RegexMatchSetOutput)
+}
+
+type RegexMatchSetMapOutput struct{ *pulumi.OutputState }
+
+func (RegexMatchSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RegexMatchSet)(nil))
+}
+
+func (o RegexMatchSetMapOutput) ToRegexMatchSetMapOutput() RegexMatchSetMapOutput {
+	return o
+}
+
+func (o RegexMatchSetMapOutput) ToRegexMatchSetMapOutputWithContext(ctx context.Context) RegexMatchSetMapOutput {
+	return o
+}
+
+func (o RegexMatchSetMapOutput) MapIndex(k pulumi.StringInput) RegexMatchSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegexMatchSet {
+		return vs[0].(map[string]RegexMatchSet)[vs[1].(string)]
+	}).(RegexMatchSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegexMatchSetOutput{})
+	pulumi.RegisterOutputType(RegexMatchSetPtrOutput{})
+	pulumi.RegisterOutputType(RegexMatchSetArrayOutput{})
+	pulumi.RegisterOutputType(RegexMatchSetMapOutput{})
 }

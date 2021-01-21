@@ -147,6 +147,85 @@ func (i *StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionOutput)
 }
 
+func (i *StandardsSubscription) ToStandardsSubscriptionPtrOutput() StandardsSubscriptionPtrOutput {
+	return i.ToStandardsSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *StandardsSubscription) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionPtrOutput)
+}
+
+type StandardsSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToStandardsSubscriptionPtrOutput() StandardsSubscriptionPtrOutput
+	ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput
+}
+
+type standardsSubscriptionPtrType StandardsSubscriptionArgs
+
+func (*standardsSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardsSubscription)(nil))
+}
+
+func (i *standardsSubscriptionPtrType) ToStandardsSubscriptionPtrOutput() StandardsSubscriptionPtrOutput {
+	return i.ToStandardsSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *standardsSubscriptionPtrType) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionPtrOutput)
+}
+
+// StandardsSubscriptionArrayInput is an input type that accepts StandardsSubscriptionArray and StandardsSubscriptionArrayOutput values.
+// You can construct a concrete instance of `StandardsSubscriptionArrayInput` via:
+//
+//          StandardsSubscriptionArray{ StandardsSubscriptionArgs{...} }
+type StandardsSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToStandardsSubscriptionArrayOutput() StandardsSubscriptionArrayOutput
+	ToStandardsSubscriptionArrayOutputWithContext(context.Context) StandardsSubscriptionArrayOutput
+}
+
+type StandardsSubscriptionArray []StandardsSubscriptionInput
+
+func (StandardsSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StandardsSubscription)(nil))
+}
+
+func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutput() StandardsSubscriptionArrayOutput {
+	return i.ToStandardsSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutputWithContext(ctx context.Context) StandardsSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionArrayOutput)
+}
+
+// StandardsSubscriptionMapInput is an input type that accepts StandardsSubscriptionMap and StandardsSubscriptionMapOutput values.
+// You can construct a concrete instance of `StandardsSubscriptionMapInput` via:
+//
+//          StandardsSubscriptionMap{ "key": StandardsSubscriptionArgs{...} }
+type StandardsSubscriptionMapInput interface {
+	pulumi.Input
+
+	ToStandardsSubscriptionMapOutput() StandardsSubscriptionMapOutput
+	ToStandardsSubscriptionMapOutputWithContext(context.Context) StandardsSubscriptionMapOutput
+}
+
+type StandardsSubscriptionMap map[string]StandardsSubscriptionInput
+
+func (StandardsSubscriptionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StandardsSubscription)(nil))
+}
+
+func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutput() StandardsSubscriptionMapOutput {
+	return i.ToStandardsSubscriptionMapOutputWithContext(context.Background())
+}
+
+func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutputWithContext(ctx context.Context) StandardsSubscriptionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionMapOutput)
+}
+
 type StandardsSubscriptionOutput struct {
 	*pulumi.OutputState
 }
@@ -163,6 +242,75 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ct
 	return o
 }
 
+func (o StandardsSubscriptionOutput) ToStandardsSubscriptionPtrOutput() StandardsSubscriptionPtrOutput {
+	return o.ToStandardsSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o StandardsSubscriptionOutput) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
+	return o.ApplyT(func(v StandardsSubscription) *StandardsSubscription {
+		return &v
+	}).(StandardsSubscriptionPtrOutput)
+}
+
+type StandardsSubscriptionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StandardsSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardsSubscription)(nil))
+}
+
+func (o StandardsSubscriptionPtrOutput) ToStandardsSubscriptionPtrOutput() StandardsSubscriptionPtrOutput {
+	return o
+}
+
+func (o StandardsSubscriptionPtrOutput) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
+	return o
+}
+
+type StandardsSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardsSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardsSubscription)(nil))
+}
+
+func (o StandardsSubscriptionArrayOutput) ToStandardsSubscriptionArrayOutput() StandardsSubscriptionArrayOutput {
+	return o
+}
+
+func (o StandardsSubscriptionArrayOutput) ToStandardsSubscriptionArrayOutputWithContext(ctx context.Context) StandardsSubscriptionArrayOutput {
+	return o
+}
+
+func (o StandardsSubscriptionArrayOutput) Index(i pulumi.IntInput) StandardsSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardsSubscription {
+		return vs[0].([]StandardsSubscription)[vs[1].(int)]
+	}).(StandardsSubscriptionOutput)
+}
+
+type StandardsSubscriptionMapOutput struct{ *pulumi.OutputState }
+
+func (StandardsSubscriptionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StandardsSubscription)(nil))
+}
+
+func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutput() StandardsSubscriptionMapOutput {
+	return o
+}
+
+func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutputWithContext(ctx context.Context) StandardsSubscriptionMapOutput {
+	return o
+}
+
+func (o StandardsSubscriptionMapOutput) MapIndex(k pulumi.StringInput) StandardsSubscriptionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StandardsSubscription {
+		return vs[0].(map[string]StandardsSubscription)[vs[1].(string)]
+	}).(StandardsSubscriptionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StandardsSubscriptionOutput{})
+	pulumi.RegisterOutputType(StandardsSubscriptionPtrOutput{})
+	pulumi.RegisterOutputType(StandardsSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(StandardsSubscriptionMapOutput{})
 }

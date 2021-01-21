@@ -195,6 +195,85 @@ func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) Accele
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorOutput)
 }
 
+func (i *Accelerator) ToAcceleratorPtrOutput() AcceleratorPtrOutput {
+	return i.ToAcceleratorPtrOutputWithContext(context.Background())
+}
+
+func (i *Accelerator) ToAcceleratorPtrOutputWithContext(ctx context.Context) AcceleratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorPtrOutput)
+}
+
+type AcceleratorPtrInput interface {
+	pulumi.Input
+
+	ToAcceleratorPtrOutput() AcceleratorPtrOutput
+	ToAcceleratorPtrOutputWithContext(ctx context.Context) AcceleratorPtrOutput
+}
+
+type acceleratorPtrType AcceleratorArgs
+
+func (*acceleratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Accelerator)(nil))
+}
+
+func (i *acceleratorPtrType) ToAcceleratorPtrOutput() AcceleratorPtrOutput {
+	return i.ToAcceleratorPtrOutputWithContext(context.Background())
+}
+
+func (i *acceleratorPtrType) ToAcceleratorPtrOutputWithContext(ctx context.Context) AcceleratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorPtrOutput)
+}
+
+// AcceleratorArrayInput is an input type that accepts AcceleratorArray and AcceleratorArrayOutput values.
+// You can construct a concrete instance of `AcceleratorArrayInput` via:
+//
+//          AcceleratorArray{ AcceleratorArgs{...} }
+type AcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToAcceleratorArrayOutput() AcceleratorArrayOutput
+	ToAcceleratorArrayOutputWithContext(context.Context) AcceleratorArrayOutput
+}
+
+type AcceleratorArray []AcceleratorInput
+
+func (AcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Accelerator)(nil))
+}
+
+func (i AcceleratorArray) ToAcceleratorArrayOutput() AcceleratorArrayOutput {
+	return i.ToAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i AcceleratorArray) ToAcceleratorArrayOutputWithContext(ctx context.Context) AcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorArrayOutput)
+}
+
+// AcceleratorMapInput is an input type that accepts AcceleratorMap and AcceleratorMapOutput values.
+// You can construct a concrete instance of `AcceleratorMapInput` via:
+//
+//          AcceleratorMap{ "key": AcceleratorArgs{...} }
+type AcceleratorMapInput interface {
+	pulumi.Input
+
+	ToAcceleratorMapOutput() AcceleratorMapOutput
+	ToAcceleratorMapOutputWithContext(context.Context) AcceleratorMapOutput
+}
+
+type AcceleratorMap map[string]AcceleratorInput
+
+func (AcceleratorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Accelerator)(nil))
+}
+
+func (i AcceleratorMap) ToAcceleratorMapOutput() AcceleratorMapOutput {
+	return i.ToAcceleratorMapOutputWithContext(context.Background())
+}
+
+func (i AcceleratorMap) ToAcceleratorMapOutputWithContext(ctx context.Context) AcceleratorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorMapOutput)
+}
+
 type AcceleratorOutput struct {
 	*pulumi.OutputState
 }
@@ -211,6 +290,75 @@ func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AcceleratorOutput) ToAcceleratorPtrOutput() AcceleratorPtrOutput {
+	return o.ToAcceleratorPtrOutputWithContext(context.Background())
+}
+
+func (o AcceleratorOutput) ToAcceleratorPtrOutputWithContext(ctx context.Context) AcceleratorPtrOutput {
+	return o.ApplyT(func(v Accelerator) *Accelerator {
+		return &v
+	}).(AcceleratorPtrOutput)
+}
+
+type AcceleratorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AcceleratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Accelerator)(nil))
+}
+
+func (o AcceleratorPtrOutput) ToAcceleratorPtrOutput() AcceleratorPtrOutput {
+	return o
+}
+
+func (o AcceleratorPtrOutput) ToAcceleratorPtrOutputWithContext(ctx context.Context) AcceleratorPtrOutput {
+	return o
+}
+
+type AcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (AcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Accelerator)(nil))
+}
+
+func (o AcceleratorArrayOutput) ToAcceleratorArrayOutput() AcceleratorArrayOutput {
+	return o
+}
+
+func (o AcceleratorArrayOutput) ToAcceleratorArrayOutputWithContext(ctx context.Context) AcceleratorArrayOutput {
+	return o
+}
+
+func (o AcceleratorArrayOutput) Index(i pulumi.IntInput) AcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Accelerator {
+		return vs[0].([]Accelerator)[vs[1].(int)]
+	}).(AcceleratorOutput)
+}
+
+type AcceleratorMapOutput struct{ *pulumi.OutputState }
+
+func (AcceleratorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Accelerator)(nil))
+}
+
+func (o AcceleratorMapOutput) ToAcceleratorMapOutput() AcceleratorMapOutput {
+	return o
+}
+
+func (o AcceleratorMapOutput) ToAcceleratorMapOutputWithContext(ctx context.Context) AcceleratorMapOutput {
+	return o
+}
+
+func (o AcceleratorMapOutput) MapIndex(k pulumi.StringInput) AcceleratorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Accelerator {
+		return vs[0].(map[string]Accelerator)[vs[1].(string)]
+	}).(AcceleratorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AcceleratorOutput{})
+	pulumi.RegisterOutputType(AcceleratorPtrOutput{})
+	pulumi.RegisterOutputType(AcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(AcceleratorMapOutput{})
 }

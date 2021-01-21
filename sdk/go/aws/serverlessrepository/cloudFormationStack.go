@@ -207,6 +207,85 @@ func (i *CloudFormationStack) ToCloudFormationStackOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackOutput)
 }
 
+func (i *CloudFormationStack) ToCloudFormationStackPtrOutput() CloudFormationStackPtrOutput {
+	return i.ToCloudFormationStackPtrOutputWithContext(context.Background())
+}
+
+func (i *CloudFormationStack) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackPtrOutput)
+}
+
+type CloudFormationStackPtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationStackPtrOutput() CloudFormationStackPtrOutput
+	ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput
+}
+
+type cloudFormationStackPtrType CloudFormationStackArgs
+
+func (*cloudFormationStackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationStack)(nil))
+}
+
+func (i *cloudFormationStackPtrType) ToCloudFormationStackPtrOutput() CloudFormationStackPtrOutput {
+	return i.ToCloudFormationStackPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudFormationStackPtrType) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackPtrOutput)
+}
+
+// CloudFormationStackArrayInput is an input type that accepts CloudFormationStackArray and CloudFormationStackArrayOutput values.
+// You can construct a concrete instance of `CloudFormationStackArrayInput` via:
+//
+//          CloudFormationStackArray{ CloudFormationStackArgs{...} }
+type CloudFormationStackArrayInput interface {
+	pulumi.Input
+
+	ToCloudFormationStackArrayOutput() CloudFormationStackArrayOutput
+	ToCloudFormationStackArrayOutputWithContext(context.Context) CloudFormationStackArrayOutput
+}
+
+type CloudFormationStackArray []CloudFormationStackInput
+
+func (CloudFormationStackArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CloudFormationStack)(nil))
+}
+
+func (i CloudFormationStackArray) ToCloudFormationStackArrayOutput() CloudFormationStackArrayOutput {
+	return i.ToCloudFormationStackArrayOutputWithContext(context.Background())
+}
+
+func (i CloudFormationStackArray) ToCloudFormationStackArrayOutputWithContext(ctx context.Context) CloudFormationStackArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackArrayOutput)
+}
+
+// CloudFormationStackMapInput is an input type that accepts CloudFormationStackMap and CloudFormationStackMapOutput values.
+// You can construct a concrete instance of `CloudFormationStackMapInput` via:
+//
+//          CloudFormationStackMap{ "key": CloudFormationStackArgs{...} }
+type CloudFormationStackMapInput interface {
+	pulumi.Input
+
+	ToCloudFormationStackMapOutput() CloudFormationStackMapOutput
+	ToCloudFormationStackMapOutputWithContext(context.Context) CloudFormationStackMapOutput
+}
+
+type CloudFormationStackMap map[string]CloudFormationStackInput
+
+func (CloudFormationStackMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CloudFormationStack)(nil))
+}
+
+func (i CloudFormationStackMap) ToCloudFormationStackMapOutput() CloudFormationStackMapOutput {
+	return i.ToCloudFormationStackMapOutputWithContext(context.Background())
+}
+
+func (i CloudFormationStackMap) ToCloudFormationStackMapOutputWithContext(ctx context.Context) CloudFormationStackMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackMapOutput)
+}
+
 type CloudFormationStackOutput struct {
 	*pulumi.OutputState
 }
@@ -223,6 +302,75 @@ func (o CloudFormationStackOutput) ToCloudFormationStackOutputWithContext(ctx co
 	return o
 }
 
+func (o CloudFormationStackOutput) ToCloudFormationStackPtrOutput() CloudFormationStackPtrOutput {
+	return o.ToCloudFormationStackPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationStackOutput) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
+	return o.ApplyT(func(v CloudFormationStack) *CloudFormationStack {
+		return &v
+	}).(CloudFormationStackPtrOutput)
+}
+
+type CloudFormationStackPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudFormationStackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationStack)(nil))
+}
+
+func (o CloudFormationStackPtrOutput) ToCloudFormationStackPtrOutput() CloudFormationStackPtrOutput {
+	return o
+}
+
+func (o CloudFormationStackPtrOutput) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
+	return o
+}
+
+type CloudFormationStackArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationStackArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudFormationStack)(nil))
+}
+
+func (o CloudFormationStackArrayOutput) ToCloudFormationStackArrayOutput() CloudFormationStackArrayOutput {
+	return o
+}
+
+func (o CloudFormationStackArrayOutput) ToCloudFormationStackArrayOutputWithContext(ctx context.Context) CloudFormationStackArrayOutput {
+	return o
+}
+
+func (o CloudFormationStackArrayOutput) Index(i pulumi.IntInput) CloudFormationStackOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationStack {
+		return vs[0].([]CloudFormationStack)[vs[1].(int)]
+	}).(CloudFormationStackOutput)
+}
+
+type CloudFormationStackMapOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationStackMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CloudFormationStack)(nil))
+}
+
+func (o CloudFormationStackMapOutput) ToCloudFormationStackMapOutput() CloudFormationStackMapOutput {
+	return o
+}
+
+func (o CloudFormationStackMapOutput) ToCloudFormationStackMapOutputWithContext(ctx context.Context) CloudFormationStackMapOutput {
+	return o
+}
+
+func (o CloudFormationStackMapOutput) MapIndex(k pulumi.StringInput) CloudFormationStackOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CloudFormationStack {
+		return vs[0].(map[string]CloudFormationStack)[vs[1].(string)]
+	}).(CloudFormationStackOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudFormationStackOutput{})
+	pulumi.RegisterOutputType(CloudFormationStackPtrOutput{})
+	pulumi.RegisterOutputType(CloudFormationStackArrayOutput{})
+	pulumi.RegisterOutputType(CloudFormationStackMapOutput{})
 }

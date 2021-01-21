@@ -175,6 +175,85 @@ func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionO
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
 }
 
+func (i *Partition) ToPartitionPtrOutput() PartitionPtrOutput {
+	return i.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i *Partition) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
+}
+
+type PartitionPtrInput interface {
+	pulumi.Input
+
+	ToPartitionPtrOutput() PartitionPtrOutput
+	ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput
+}
+
+type partitionPtrType PartitionArgs
+
+func (*partitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Partition)(nil))
+}
+
+func (i *partitionPtrType) ToPartitionPtrOutput() PartitionPtrOutput {
+	return i.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionPtrType) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
+}
+
+// PartitionArrayInput is an input type that accepts PartitionArray and PartitionArrayOutput values.
+// You can construct a concrete instance of `PartitionArrayInput` via:
+//
+//          PartitionArray{ PartitionArgs{...} }
+type PartitionArrayInput interface {
+	pulumi.Input
+
+	ToPartitionArrayOutput() PartitionArrayOutput
+	ToPartitionArrayOutputWithContext(context.Context) PartitionArrayOutput
+}
+
+type PartitionArray []PartitionInput
+
+func (PartitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Partition)(nil))
+}
+
+func (i PartitionArray) ToPartitionArrayOutput() PartitionArrayOutput {
+	return i.ToPartitionArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionArray) ToPartitionArrayOutputWithContext(ctx context.Context) PartitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionArrayOutput)
+}
+
+// PartitionMapInput is an input type that accepts PartitionMap and PartitionMapOutput values.
+// You can construct a concrete instance of `PartitionMapInput` via:
+//
+//          PartitionMap{ "key": PartitionArgs{...} }
+type PartitionMapInput interface {
+	pulumi.Input
+
+	ToPartitionMapOutput() PartitionMapOutput
+	ToPartitionMapOutputWithContext(context.Context) PartitionMapOutput
+}
+
+type PartitionMap map[string]PartitionInput
+
+func (PartitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Partition)(nil))
+}
+
+func (i PartitionMap) ToPartitionMapOutput() PartitionMapOutput {
+	return i.ToPartitionMapOutputWithContext(context.Background())
+}
+
+func (i PartitionMap) ToPartitionMapOutputWithContext(ctx context.Context) PartitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionMapOutput)
+}
+
 type PartitionOutput struct {
 	*pulumi.OutputState
 }
@@ -191,6 +270,75 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 	return o
 }
 
+func (o PartitionOutput) ToPartitionPtrOutput() PartitionPtrOutput {
+	return o.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return o.ApplyT(func(v Partition) *Partition {
+		return &v
+	}).(PartitionPtrOutput)
+}
+
+type PartitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PartitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Partition)(nil))
+}
+
+func (o PartitionPtrOutput) ToPartitionPtrOutput() PartitionPtrOutput {
+	return o
+}
+
+func (o PartitionPtrOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return o
+}
+
+type PartitionArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Partition)(nil))
+}
+
+func (o PartitionArrayOutput) ToPartitionArrayOutput() PartitionArrayOutput {
+	return o
+}
+
+func (o PartitionArrayOutput) ToPartitionArrayOutputWithContext(ctx context.Context) PartitionArrayOutput {
+	return o
+}
+
+func (o PartitionArrayOutput) Index(i pulumi.IntInput) PartitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Partition {
+		return vs[0].([]Partition)[vs[1].(int)]
+	}).(PartitionOutput)
+}
+
+type PartitionMapOutput struct{ *pulumi.OutputState }
+
+func (PartitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Partition)(nil))
+}
+
+func (o PartitionMapOutput) ToPartitionMapOutput() PartitionMapOutput {
+	return o
+}
+
+func (o PartitionMapOutput) ToPartitionMapOutputWithContext(ctx context.Context) PartitionMapOutput {
+	return o
+}
+
+func (o PartitionMapOutput) MapIndex(k pulumi.StringInput) PartitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Partition {
+		return vs[0].(map[string]Partition)[vs[1].(string)]
+	}).(PartitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartitionOutput{})
+	pulumi.RegisterOutputType(PartitionPtrOutput{})
+	pulumi.RegisterOutputType(PartitionArrayOutput{})
+	pulumi.RegisterOutputType(PartitionMapOutput{})
 }

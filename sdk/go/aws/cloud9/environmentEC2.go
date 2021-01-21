@@ -193,6 +193,85 @@ func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2Output)
 }
 
+func (i *EnvironmentEC2) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
+	return i.ToEnvironmentEC2PtrOutputWithContext(context.Background())
+}
+
+func (i *EnvironmentEC2) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2PtrOutput)
+}
+
+type EnvironmentEC2PtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput
+	ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput
+}
+
+type environmentEC2PtrType EnvironmentEC2Args
+
+func (*environmentEC2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentEC2)(nil))
+}
+
+func (i *environmentEC2PtrType) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
+	return i.ToEnvironmentEC2PtrOutputWithContext(context.Background())
+}
+
+func (i *environmentEC2PtrType) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2PtrOutput)
+}
+
+// EnvironmentEC2ArrayInput is an input type that accepts EnvironmentEC2Array and EnvironmentEC2ArrayOutput values.
+// You can construct a concrete instance of `EnvironmentEC2ArrayInput` via:
+//
+//          EnvironmentEC2Array{ EnvironmentEC2Args{...} }
+type EnvironmentEC2ArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOutput
+	ToEnvironmentEC2ArrayOutputWithContext(context.Context) EnvironmentEC2ArrayOutput
+}
+
+type EnvironmentEC2Array []EnvironmentEC2Input
+
+func (EnvironmentEC2Array) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EnvironmentEC2)(nil))
+}
+
+func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOutput {
+	return i.ToEnvironmentEC2ArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutputWithContext(ctx context.Context) EnvironmentEC2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2ArrayOutput)
+}
+
+// EnvironmentEC2MapInput is an input type that accepts EnvironmentEC2Map and EnvironmentEC2MapOutput values.
+// You can construct a concrete instance of `EnvironmentEC2MapInput` via:
+//
+//          EnvironmentEC2Map{ "key": EnvironmentEC2Args{...} }
+type EnvironmentEC2MapInput interface {
+	pulumi.Input
+
+	ToEnvironmentEC2MapOutput() EnvironmentEC2MapOutput
+	ToEnvironmentEC2MapOutputWithContext(context.Context) EnvironmentEC2MapOutput
+}
+
+type EnvironmentEC2Map map[string]EnvironmentEC2Input
+
+func (EnvironmentEC2Map) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EnvironmentEC2)(nil))
+}
+
+func (i EnvironmentEC2Map) ToEnvironmentEC2MapOutput() EnvironmentEC2MapOutput {
+	return i.ToEnvironmentEC2MapOutputWithContext(context.Background())
+}
+
+func (i EnvironmentEC2Map) ToEnvironmentEC2MapOutputWithContext(ctx context.Context) EnvironmentEC2MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2MapOutput)
+}
+
 type EnvironmentEC2Output struct {
 	*pulumi.OutputState
 }
@@ -209,6 +288,75 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EnvironmentEC2Output) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
+	return o.ToEnvironmentEC2PtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEC2Output) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
+	return o.ApplyT(func(v EnvironmentEC2) *EnvironmentEC2 {
+		return &v
+	}).(EnvironmentEC2PtrOutput)
+}
+
+type EnvironmentEC2PtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnvironmentEC2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentEC2)(nil))
+}
+
+func (o EnvironmentEC2PtrOutput) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
+	return o
+}
+
+func (o EnvironmentEC2PtrOutput) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
+	return o
+}
+
+type EnvironmentEC2ArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEC2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentEC2)(nil))
+}
+
+func (o EnvironmentEC2ArrayOutput) ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOutput {
+	return o
+}
+
+func (o EnvironmentEC2ArrayOutput) ToEnvironmentEC2ArrayOutputWithContext(ctx context.Context) EnvironmentEC2ArrayOutput {
+	return o
+}
+
+func (o EnvironmentEC2ArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEC2 {
+		return vs[0].([]EnvironmentEC2)[vs[1].(int)]
+	}).(EnvironmentEC2Output)
+}
+
+type EnvironmentEC2MapOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEC2MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EnvironmentEC2)(nil))
+}
+
+func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutput() EnvironmentEC2MapOutput {
+	return o
+}
+
+func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutputWithContext(ctx context.Context) EnvironmentEC2MapOutput {
+	return o
+}
+
+func (o EnvironmentEC2MapOutput) MapIndex(k pulumi.StringInput) EnvironmentEC2Output {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EnvironmentEC2 {
+		return vs[0].(map[string]EnvironmentEC2)[vs[1].(string)]
+	}).(EnvironmentEC2Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentEC2Output{})
+	pulumi.RegisterOutputType(EnvironmentEC2PtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentEC2ArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentEC2MapOutput{})
 }

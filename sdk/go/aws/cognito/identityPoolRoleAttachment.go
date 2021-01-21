@@ -198,6 +198,85 @@ func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
 }
 
+func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
+	return i.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentPtrOutput)
+}
+
+type IdentityPoolRoleAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput
+	ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput
+}
+
+type identityPoolRoleAttachmentPtrType IdentityPoolRoleAttachmentArgs
+
+func (*identityPoolRoleAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil))
+}
+
+func (i *identityPoolRoleAttachmentPtrType) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
+	return i.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPoolRoleAttachmentPtrType) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentPtrOutput)
+}
+
+// IdentityPoolRoleAttachmentArrayInput is an input type that accepts IdentityPoolRoleAttachmentArray and IdentityPoolRoleAttachmentArrayOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentArrayInput` via:
+//
+//          IdentityPoolRoleAttachmentArray{ IdentityPoolRoleAttachmentArgs{...} }
+type IdentityPoolRoleAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentArrayOutput() IdentityPoolRoleAttachmentArrayOutput
+	ToIdentityPoolRoleAttachmentArrayOutputWithContext(context.Context) IdentityPoolRoleAttachmentArrayOutput
+}
+
+type IdentityPoolRoleAttachmentArray []IdentityPoolRoleAttachmentInput
+
+func (IdentityPoolRoleAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityPoolRoleAttachment)(nil))
+}
+
+func (i IdentityPoolRoleAttachmentArray) ToIdentityPoolRoleAttachmentArrayOutput() IdentityPoolRoleAttachmentArrayOutput {
+	return i.ToIdentityPoolRoleAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentArray) ToIdentityPoolRoleAttachmentArrayOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentArrayOutput)
+}
+
+// IdentityPoolRoleAttachmentMapInput is an input type that accepts IdentityPoolRoleAttachmentMap and IdentityPoolRoleAttachmentMapOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentMapInput` via:
+//
+//          IdentityPoolRoleAttachmentMap{ "key": IdentityPoolRoleAttachmentArgs{...} }
+type IdentityPoolRoleAttachmentMapInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentMapOutput() IdentityPoolRoleAttachmentMapOutput
+	ToIdentityPoolRoleAttachmentMapOutputWithContext(context.Context) IdentityPoolRoleAttachmentMapOutput
+}
+
+type IdentityPoolRoleAttachmentMap map[string]IdentityPoolRoleAttachmentInput
+
+func (IdentityPoolRoleAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityPoolRoleAttachment)(nil))
+}
+
+func (i IdentityPoolRoleAttachmentMap) ToIdentityPoolRoleAttachmentMapOutput() IdentityPoolRoleAttachmentMapOutput {
+	return i.ToIdentityPoolRoleAttachmentMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentMap) ToIdentityPoolRoleAttachmentMapOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentMapOutput)
+}
+
 type IdentityPoolRoleAttachmentOutput struct {
 	*pulumi.OutputState
 }
@@ -214,6 +293,75 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
+	return o.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachment) *IdentityPoolRoleAttachment {
+		return &v
+	}).(IdentityPoolRoleAttachmentPtrOutput)
+}
+
+type IdentityPoolRoleAttachmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPoolRoleAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil))
+}
+
+func (o IdentityPoolRoleAttachmentPtrOutput) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentPtrOutput) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
+	return o
+}
+
+type IdentityPoolRoleAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityPoolRoleAttachment)(nil))
+}
+
+func (o IdentityPoolRoleAttachmentArrayOutput) ToIdentityPoolRoleAttachmentArrayOutput() IdentityPoolRoleAttachmentArrayOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentArrayOutput) ToIdentityPoolRoleAttachmentArrayOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentArrayOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentArrayOutput) Index(i pulumi.IntInput) IdentityPoolRoleAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachment {
+		return vs[0].([]IdentityPoolRoleAttachment)[vs[1].(int)]
+	}).(IdentityPoolRoleAttachmentOutput)
+}
+
+type IdentityPoolRoleAttachmentMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityPoolRoleAttachment)(nil))
+}
+
+func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutput() IdentityPoolRoleAttachmentMapOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMapOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolRoleAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachment {
+		return vs[0].(map[string]IdentityPoolRoleAttachment)[vs[1].(string)]
+	}).(IdentityPoolRoleAttachmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentMapOutput{})
 }

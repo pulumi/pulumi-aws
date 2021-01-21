@@ -193,6 +193,85 @@ func (i *ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaOutput)
 }
 
+func (i *ServiceQuota) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
+	return i.ToServiceQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceQuota) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaPtrOutput)
+}
+
+type ServiceQuotaPtrInput interface {
+	pulumi.Input
+
+	ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput
+	ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput
+}
+
+type serviceQuotaPtrType ServiceQuotaArgs
+
+func (*serviceQuotaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceQuota)(nil))
+}
+
+func (i *serviceQuotaPtrType) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
+	return i.ToServiceQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceQuotaPtrType) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaPtrOutput)
+}
+
+// ServiceQuotaArrayInput is an input type that accepts ServiceQuotaArray and ServiceQuotaArrayOutput values.
+// You can construct a concrete instance of `ServiceQuotaArrayInput` via:
+//
+//          ServiceQuotaArray{ ServiceQuotaArgs{...} }
+type ServiceQuotaArrayInput interface {
+	pulumi.Input
+
+	ToServiceQuotaArrayOutput() ServiceQuotaArrayOutput
+	ToServiceQuotaArrayOutputWithContext(context.Context) ServiceQuotaArrayOutput
+}
+
+type ServiceQuotaArray []ServiceQuotaInput
+
+func (ServiceQuotaArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceQuota)(nil))
+}
+
+func (i ServiceQuotaArray) ToServiceQuotaArrayOutput() ServiceQuotaArrayOutput {
+	return i.ToServiceQuotaArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceQuotaArray) ToServiceQuotaArrayOutputWithContext(ctx context.Context) ServiceQuotaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaArrayOutput)
+}
+
+// ServiceQuotaMapInput is an input type that accepts ServiceQuotaMap and ServiceQuotaMapOutput values.
+// You can construct a concrete instance of `ServiceQuotaMapInput` via:
+//
+//          ServiceQuotaMap{ "key": ServiceQuotaArgs{...} }
+type ServiceQuotaMapInput interface {
+	pulumi.Input
+
+	ToServiceQuotaMapOutput() ServiceQuotaMapOutput
+	ToServiceQuotaMapOutputWithContext(context.Context) ServiceQuotaMapOutput
+}
+
+type ServiceQuotaMap map[string]ServiceQuotaInput
+
+func (ServiceQuotaMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceQuota)(nil))
+}
+
+func (i ServiceQuotaMap) ToServiceQuotaMapOutput() ServiceQuotaMapOutput {
+	return i.ToServiceQuotaMapOutputWithContext(context.Background())
+}
+
+func (i ServiceQuotaMap) ToServiceQuotaMapOutputWithContext(ctx context.Context) ServiceQuotaMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaMapOutput)
+}
+
 type ServiceQuotaOutput struct {
 	*pulumi.OutputState
 }
@@ -209,6 +288,75 @@ func (o ServiceQuotaOutput) ToServiceQuotaOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceQuotaOutput) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
+	return o.ToServiceQuotaPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceQuotaOutput) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
+	return o.ApplyT(func(v ServiceQuota) *ServiceQuota {
+		return &v
+	}).(ServiceQuotaPtrOutput)
+}
+
+type ServiceQuotaPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceQuotaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceQuota)(nil))
+}
+
+func (o ServiceQuotaPtrOutput) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
+	return o
+}
+
+func (o ServiceQuotaPtrOutput) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
+	return o
+}
+
+type ServiceQuotaArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceQuotaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceQuota)(nil))
+}
+
+func (o ServiceQuotaArrayOutput) ToServiceQuotaArrayOutput() ServiceQuotaArrayOutput {
+	return o
+}
+
+func (o ServiceQuotaArrayOutput) ToServiceQuotaArrayOutputWithContext(ctx context.Context) ServiceQuotaArrayOutput {
+	return o
+}
+
+func (o ServiceQuotaArrayOutput) Index(i pulumi.IntInput) ServiceQuotaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceQuota {
+		return vs[0].([]ServiceQuota)[vs[1].(int)]
+	}).(ServiceQuotaOutput)
+}
+
+type ServiceQuotaMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceQuotaMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceQuota)(nil))
+}
+
+func (o ServiceQuotaMapOutput) ToServiceQuotaMapOutput() ServiceQuotaMapOutput {
+	return o
+}
+
+func (o ServiceQuotaMapOutput) ToServiceQuotaMapOutputWithContext(ctx context.Context) ServiceQuotaMapOutput {
+	return o
+}
+
+func (o ServiceQuotaMapOutput) MapIndex(k pulumi.StringInput) ServiceQuotaOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceQuota {
+		return vs[0].(map[string]ServiceQuota)[vs[1].(string)]
+	}).(ServiceQuotaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceQuotaOutput{})
+	pulumi.RegisterOutputType(ServiceQuotaPtrOutput{})
+	pulumi.RegisterOutputType(ServiceQuotaArrayOutput{})
+	pulumi.RegisterOutputType(ServiceQuotaMapOutput{})
 }

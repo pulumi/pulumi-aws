@@ -150,6 +150,85 @@ func (i *InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayOutput)
 }
 
+func (i *InternetGateway) ToInternetGatewayPtrOutput() InternetGatewayPtrOutput {
+	return i.ToInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *InternetGateway) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayPtrOutput)
+}
+
+type InternetGatewayPtrInput interface {
+	pulumi.Input
+
+	ToInternetGatewayPtrOutput() InternetGatewayPtrOutput
+	ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput
+}
+
+type internetGatewayPtrType InternetGatewayArgs
+
+func (*internetGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InternetGateway)(nil))
+}
+
+func (i *internetGatewayPtrType) ToInternetGatewayPtrOutput() InternetGatewayPtrOutput {
+	return i.ToInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *internetGatewayPtrType) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayPtrOutput)
+}
+
+// InternetGatewayArrayInput is an input type that accepts InternetGatewayArray and InternetGatewayArrayOutput values.
+// You can construct a concrete instance of `InternetGatewayArrayInput` via:
+//
+//          InternetGatewayArray{ InternetGatewayArgs{...} }
+type InternetGatewayArrayInput interface {
+	pulumi.Input
+
+	ToInternetGatewayArrayOutput() InternetGatewayArrayOutput
+	ToInternetGatewayArrayOutputWithContext(context.Context) InternetGatewayArrayOutput
+}
+
+type InternetGatewayArray []InternetGatewayInput
+
+func (InternetGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InternetGateway)(nil))
+}
+
+func (i InternetGatewayArray) ToInternetGatewayArrayOutput() InternetGatewayArrayOutput {
+	return i.ToInternetGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i InternetGatewayArray) ToInternetGatewayArrayOutputWithContext(ctx context.Context) InternetGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayArrayOutput)
+}
+
+// InternetGatewayMapInput is an input type that accepts InternetGatewayMap and InternetGatewayMapOutput values.
+// You can construct a concrete instance of `InternetGatewayMapInput` via:
+//
+//          InternetGatewayMap{ "key": InternetGatewayArgs{...} }
+type InternetGatewayMapInput interface {
+	pulumi.Input
+
+	ToInternetGatewayMapOutput() InternetGatewayMapOutput
+	ToInternetGatewayMapOutputWithContext(context.Context) InternetGatewayMapOutput
+}
+
+type InternetGatewayMap map[string]InternetGatewayInput
+
+func (InternetGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InternetGateway)(nil))
+}
+
+func (i InternetGatewayMap) ToInternetGatewayMapOutput() InternetGatewayMapOutput {
+	return i.ToInternetGatewayMapOutputWithContext(context.Background())
+}
+
+func (i InternetGatewayMap) ToInternetGatewayMapOutputWithContext(ctx context.Context) InternetGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayMapOutput)
+}
+
 type InternetGatewayOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InternetGatewayOutput) ToInternetGatewayPtrOutput() InternetGatewayPtrOutput {
+	return o.ToInternetGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o InternetGatewayOutput) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
+	return o.ApplyT(func(v InternetGateway) *InternetGateway {
+		return &v
+	}).(InternetGatewayPtrOutput)
+}
+
+type InternetGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InternetGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InternetGateway)(nil))
+}
+
+func (o InternetGatewayPtrOutput) ToInternetGatewayPtrOutput() InternetGatewayPtrOutput {
+	return o
+}
+
+func (o InternetGatewayPtrOutput) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
+	return o
+}
+
+type InternetGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (InternetGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InternetGateway)(nil))
+}
+
+func (o InternetGatewayArrayOutput) ToInternetGatewayArrayOutput() InternetGatewayArrayOutput {
+	return o
+}
+
+func (o InternetGatewayArrayOutput) ToInternetGatewayArrayOutputWithContext(ctx context.Context) InternetGatewayArrayOutput {
+	return o
+}
+
+func (o InternetGatewayArrayOutput) Index(i pulumi.IntInput) InternetGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InternetGateway {
+		return vs[0].([]InternetGateway)[vs[1].(int)]
+	}).(InternetGatewayOutput)
+}
+
+type InternetGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (InternetGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InternetGateway)(nil))
+}
+
+func (o InternetGatewayMapOutput) ToInternetGatewayMapOutput() InternetGatewayMapOutput {
+	return o
+}
+
+func (o InternetGatewayMapOutput) ToInternetGatewayMapOutputWithContext(ctx context.Context) InternetGatewayMapOutput {
+	return o
+}
+
+func (o InternetGatewayMapOutput) MapIndex(k pulumi.StringInput) InternetGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InternetGateway {
+		return vs[0].(map[string]InternetGateway)[vs[1].(string)]
+	}).(InternetGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InternetGatewayOutput{})
+	pulumi.RegisterOutputType(InternetGatewayPtrOutput{})
+	pulumi.RegisterOutputType(InternetGatewayArrayOutput{})
+	pulumi.RegisterOutputType(InternetGatewayMapOutput{})
 }

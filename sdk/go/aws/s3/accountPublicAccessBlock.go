@@ -195,6 +195,85 @@ func (i *AccountPublicAccessBlock) ToAccountPublicAccessBlockOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockOutput)
 }
 
+func (i *AccountPublicAccessBlock) ToAccountPublicAccessBlockPtrOutput() AccountPublicAccessBlockPtrOutput {
+	return i.ToAccountPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *AccountPublicAccessBlock) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockPtrOutput)
+}
+
+type AccountPublicAccessBlockPtrInput interface {
+	pulumi.Input
+
+	ToAccountPublicAccessBlockPtrOutput() AccountPublicAccessBlockPtrOutput
+	ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput
+}
+
+type accountPublicAccessBlockPtrType AccountPublicAccessBlockArgs
+
+func (*accountPublicAccessBlockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPublicAccessBlock)(nil))
+}
+
+func (i *accountPublicAccessBlockPtrType) ToAccountPublicAccessBlockPtrOutput() AccountPublicAccessBlockPtrOutput {
+	return i.ToAccountPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *accountPublicAccessBlockPtrType) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockPtrOutput)
+}
+
+// AccountPublicAccessBlockArrayInput is an input type that accepts AccountPublicAccessBlockArray and AccountPublicAccessBlockArrayOutput values.
+// You can construct a concrete instance of `AccountPublicAccessBlockArrayInput` via:
+//
+//          AccountPublicAccessBlockArray{ AccountPublicAccessBlockArgs{...} }
+type AccountPublicAccessBlockArrayInput interface {
+	pulumi.Input
+
+	ToAccountPublicAccessBlockArrayOutput() AccountPublicAccessBlockArrayOutput
+	ToAccountPublicAccessBlockArrayOutputWithContext(context.Context) AccountPublicAccessBlockArrayOutput
+}
+
+type AccountPublicAccessBlockArray []AccountPublicAccessBlockInput
+
+func (AccountPublicAccessBlockArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AccountPublicAccessBlock)(nil))
+}
+
+func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutput() AccountPublicAccessBlockArrayOutput {
+	return i.ToAccountPublicAccessBlockArrayOutputWithContext(context.Background())
+}
+
+func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutputWithContext(ctx context.Context) AccountPublicAccessBlockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockArrayOutput)
+}
+
+// AccountPublicAccessBlockMapInput is an input type that accepts AccountPublicAccessBlockMap and AccountPublicAccessBlockMapOutput values.
+// You can construct a concrete instance of `AccountPublicAccessBlockMapInput` via:
+//
+//          AccountPublicAccessBlockMap{ "key": AccountPublicAccessBlockArgs{...} }
+type AccountPublicAccessBlockMapInput interface {
+	pulumi.Input
+
+	ToAccountPublicAccessBlockMapOutput() AccountPublicAccessBlockMapOutput
+	ToAccountPublicAccessBlockMapOutputWithContext(context.Context) AccountPublicAccessBlockMapOutput
+}
+
+type AccountPublicAccessBlockMap map[string]AccountPublicAccessBlockInput
+
+func (AccountPublicAccessBlockMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AccountPublicAccessBlock)(nil))
+}
+
+func (i AccountPublicAccessBlockMap) ToAccountPublicAccessBlockMapOutput() AccountPublicAccessBlockMapOutput {
+	return i.ToAccountPublicAccessBlockMapOutputWithContext(context.Background())
+}
+
+func (i AccountPublicAccessBlockMap) ToAccountPublicAccessBlockMapOutputWithContext(ctx context.Context) AccountPublicAccessBlockMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockMapOutput)
+}
+
 type AccountPublicAccessBlockOutput struct {
 	*pulumi.OutputState
 }
@@ -211,6 +290,75 @@ func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutputWithCont
 	return o
 }
 
+func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockPtrOutput() AccountPublicAccessBlockPtrOutput {
+	return o.ToAccountPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
+	return o.ApplyT(func(v AccountPublicAccessBlock) *AccountPublicAccessBlock {
+		return &v
+	}).(AccountPublicAccessBlockPtrOutput)
+}
+
+type AccountPublicAccessBlockPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountPublicAccessBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPublicAccessBlock)(nil))
+}
+
+func (o AccountPublicAccessBlockPtrOutput) ToAccountPublicAccessBlockPtrOutput() AccountPublicAccessBlockPtrOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockPtrOutput) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
+	return o
+}
+
+type AccountPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountPublicAccessBlockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountPublicAccessBlock)(nil))
+}
+
+func (o AccountPublicAccessBlockArrayOutput) ToAccountPublicAccessBlockArrayOutput() AccountPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockArrayOutput) ToAccountPublicAccessBlockArrayOutputWithContext(ctx context.Context) AccountPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) AccountPublicAccessBlockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountPublicAccessBlock {
+		return vs[0].([]AccountPublicAccessBlock)[vs[1].(int)]
+	}).(AccountPublicAccessBlockOutput)
+}
+
+type AccountPublicAccessBlockMapOutput struct{ *pulumi.OutputState }
+
+func (AccountPublicAccessBlockMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AccountPublicAccessBlock)(nil))
+}
+
+func (o AccountPublicAccessBlockMapOutput) ToAccountPublicAccessBlockMapOutput() AccountPublicAccessBlockMapOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockMapOutput) ToAccountPublicAccessBlockMapOutputWithContext(ctx context.Context) AccountPublicAccessBlockMapOutput {
+	return o
+}
+
+func (o AccountPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) AccountPublicAccessBlockOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountPublicAccessBlock {
+		return vs[0].(map[string]AccountPublicAccessBlock)[vs[1].(string)]
+	}).(AccountPublicAccessBlockOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountPublicAccessBlockOutput{})
+	pulumi.RegisterOutputType(AccountPublicAccessBlockPtrOutput{})
+	pulumi.RegisterOutputType(AccountPublicAccessBlockArrayOutput{})
+	pulumi.RegisterOutputType(AccountPublicAccessBlockMapOutput{})
 }

@@ -117,6 +117,85 @@ func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
 }
 
+func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return i.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
+}
+
+type BucketLifecycleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput
+	ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput
+}
+
+type bucketLifecycleConfigurationPtrType BucketLifecycleConfigurationArgs
+
+func (*bucketLifecycleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfiguration)(nil))
+}
+
+func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return i.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
+}
+
+// BucketLifecycleConfigurationArrayInput is an input type that accepts BucketLifecycleConfigurationArray and BucketLifecycleConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationArrayInput` via:
+//
+//          BucketLifecycleConfigurationArray{ BucketLifecycleConfigurationArgs{...} }
+type BucketLifecycleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationArrayOutput() BucketLifecycleConfigurationArrayOutput
+	ToBucketLifecycleConfigurationArrayOutputWithContext(context.Context) BucketLifecycleConfigurationArrayOutput
+}
+
+type BucketLifecycleConfigurationArray []BucketLifecycleConfigurationInput
+
+func (BucketLifecycleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BucketLifecycleConfiguration)(nil))
+}
+
+func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOutput() BucketLifecycleConfigurationArrayOutput {
+	return i.ToBucketLifecycleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationArrayOutput)
+}
+
+// BucketLifecycleConfigurationMapInput is an input type that accepts BucketLifecycleConfigurationMap and BucketLifecycleConfigurationMapOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationMapInput` via:
+//
+//          BucketLifecycleConfigurationMap{ "key": BucketLifecycleConfigurationArgs{...} }
+type BucketLifecycleConfigurationMapInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationMapOutput() BucketLifecycleConfigurationMapOutput
+	ToBucketLifecycleConfigurationMapOutputWithContext(context.Context) BucketLifecycleConfigurationMapOutput
+}
+
+type BucketLifecycleConfigurationMap map[string]BucketLifecycleConfigurationInput
+
+func (BucketLifecycleConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BucketLifecycleConfiguration)(nil))
+}
+
+func (i BucketLifecycleConfigurationMap) ToBucketLifecycleConfigurationMapOutput() BucketLifecycleConfigurationMapOutput {
+	return i.ToBucketLifecycleConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i BucketLifecycleConfigurationMap) ToBucketLifecycleConfigurationMapOutputWithContext(ctx context.Context) BucketLifecycleConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationMapOutput)
+}
+
 type BucketLifecycleConfigurationOutput struct {
 	*pulumi.OutputState
 }
@@ -133,6 +212,75 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput
 	return o
 }
 
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return o.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfiguration) *BucketLifecycleConfiguration {
+		return &v
+	}).(BucketLifecycleConfigurationPtrOutput)
+}
+
+type BucketLifecycleConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfiguration)(nil))
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+type BucketLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfiguration)(nil))
+}
+
+func (o BucketLifecycleConfigurationArrayOutput) ToBucketLifecycleConfigurationArrayOutput() BucketLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationArrayOutput) ToBucketLifecycleConfigurationArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfiguration {
+		return vs[0].([]BucketLifecycleConfiguration)[vs[1].(int)]
+	}).(BucketLifecycleConfigurationOutput)
+}
+
+type BucketLifecycleConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BucketLifecycleConfiguration)(nil))
+}
+
+func (o BucketLifecycleConfigurationMapOutput) ToBucketLifecycleConfigurationMapOutput() BucketLifecycleConfigurationMapOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationMapOutput) ToBucketLifecycleConfigurationMapOutputWithContext(ctx context.Context) BucketLifecycleConfigurationMapOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationMapOutput) MapIndex(k pulumi.StringInput) BucketLifecycleConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketLifecycleConfiguration {
+		return vs[0].(map[string]BucketLifecycleConfiguration)[vs[1].(string)]
+	}).(BucketLifecycleConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationMapOutput{})
 }

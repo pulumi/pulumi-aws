@@ -183,6 +183,85 @@ func (i *PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationOutput)
 }
 
+func (i *PrincipalAssociation) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
+	return i.ToPrincipalAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *PrincipalAssociation) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationPtrOutput)
+}
+
+type PrincipalAssociationPtrInput interface {
+	pulumi.Input
+
+	ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput
+	ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput
+}
+
+type principalAssociationPtrType PrincipalAssociationArgs
+
+func (*principalAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalAssociation)(nil))
+}
+
+func (i *principalAssociationPtrType) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
+	return i.ToPrincipalAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *principalAssociationPtrType) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationPtrOutput)
+}
+
+// PrincipalAssociationArrayInput is an input type that accepts PrincipalAssociationArray and PrincipalAssociationArrayOutput values.
+// You can construct a concrete instance of `PrincipalAssociationArrayInput` via:
+//
+//          PrincipalAssociationArray{ PrincipalAssociationArgs{...} }
+type PrincipalAssociationArrayInput interface {
+	pulumi.Input
+
+	ToPrincipalAssociationArrayOutput() PrincipalAssociationArrayOutput
+	ToPrincipalAssociationArrayOutputWithContext(context.Context) PrincipalAssociationArrayOutput
+}
+
+type PrincipalAssociationArray []PrincipalAssociationInput
+
+func (PrincipalAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PrincipalAssociation)(nil))
+}
+
+func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutput() PrincipalAssociationArrayOutput {
+	return i.ToPrincipalAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutputWithContext(ctx context.Context) PrincipalAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationArrayOutput)
+}
+
+// PrincipalAssociationMapInput is an input type that accepts PrincipalAssociationMap and PrincipalAssociationMapOutput values.
+// You can construct a concrete instance of `PrincipalAssociationMapInput` via:
+//
+//          PrincipalAssociationMap{ "key": PrincipalAssociationArgs{...} }
+type PrincipalAssociationMapInput interface {
+	pulumi.Input
+
+	ToPrincipalAssociationMapOutput() PrincipalAssociationMapOutput
+	ToPrincipalAssociationMapOutputWithContext(context.Context) PrincipalAssociationMapOutput
+}
+
+type PrincipalAssociationMap map[string]PrincipalAssociationInput
+
+func (PrincipalAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PrincipalAssociation)(nil))
+}
+
+func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutput() PrincipalAssociationMapOutput {
+	return i.ToPrincipalAssociationMapOutputWithContext(context.Background())
+}
+
+func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutputWithContext(ctx context.Context) PrincipalAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationMapOutput)
+}
+
 type PrincipalAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -199,6 +278,75 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationOutputWithContext(ctx 
 	return o
 }
 
+func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
+	return o.ToPrincipalAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
+	return o.ApplyT(func(v PrincipalAssociation) *PrincipalAssociation {
+		return &v
+	}).(PrincipalAssociationPtrOutput)
+}
+
+type PrincipalAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrincipalAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalAssociation)(nil))
+}
+
+func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
+	return o
+}
+
+func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
+	return o
+}
+
+type PrincipalAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (PrincipalAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalAssociation)(nil))
+}
+
+func (o PrincipalAssociationArrayOutput) ToPrincipalAssociationArrayOutput() PrincipalAssociationArrayOutput {
+	return o
+}
+
+func (o PrincipalAssociationArrayOutput) ToPrincipalAssociationArrayOutputWithContext(ctx context.Context) PrincipalAssociationArrayOutput {
+	return o
+}
+
+func (o PrincipalAssociationArrayOutput) Index(i pulumi.IntInput) PrincipalAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalAssociation {
+		return vs[0].([]PrincipalAssociation)[vs[1].(int)]
+	}).(PrincipalAssociationOutput)
+}
+
+type PrincipalAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (PrincipalAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PrincipalAssociation)(nil))
+}
+
+func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutput() PrincipalAssociationMapOutput {
+	return o
+}
+
+func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutputWithContext(ctx context.Context) PrincipalAssociationMapOutput {
+	return o
+}
+
+func (o PrincipalAssociationMapOutput) MapIndex(k pulumi.StringInput) PrincipalAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrincipalAssociation {
+		return vs[0].(map[string]PrincipalAssociation)[vs[1].(string)]
+	}).(PrincipalAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrincipalAssociationOutput{})
+	pulumi.RegisterOutputType(PrincipalAssociationPtrOutput{})
+	pulumi.RegisterOutputType(PrincipalAssociationArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalAssociationMapOutput{})
 }

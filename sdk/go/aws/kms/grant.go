@@ -248,6 +248,85 @@ func (i *Grant) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrantOutput)
 }
 
+func (i *Grant) ToGrantPtrOutput() GrantPtrOutput {
+	return i.ToGrantPtrOutputWithContext(context.Background())
+}
+
+func (i *Grant) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPtrOutput)
+}
+
+type GrantPtrInput interface {
+	pulumi.Input
+
+	ToGrantPtrOutput() GrantPtrOutput
+	ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput
+}
+
+type grantPtrType GrantArgs
+
+func (*grantPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Grant)(nil))
+}
+
+func (i *grantPtrType) ToGrantPtrOutput() GrantPtrOutput {
+	return i.ToGrantPtrOutputWithContext(context.Background())
+}
+
+func (i *grantPtrType) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPtrOutput)
+}
+
+// GrantArrayInput is an input type that accepts GrantArray and GrantArrayOutput values.
+// You can construct a concrete instance of `GrantArrayInput` via:
+//
+//          GrantArray{ GrantArgs{...} }
+type GrantArrayInput interface {
+	pulumi.Input
+
+	ToGrantArrayOutput() GrantArrayOutput
+	ToGrantArrayOutputWithContext(context.Context) GrantArrayOutput
+}
+
+type GrantArray []GrantInput
+
+func (GrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Grant)(nil))
+}
+
+func (i GrantArray) ToGrantArrayOutput() GrantArrayOutput {
+	return i.ToGrantArrayOutputWithContext(context.Background())
+}
+
+func (i GrantArray) ToGrantArrayOutputWithContext(ctx context.Context) GrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantArrayOutput)
+}
+
+// GrantMapInput is an input type that accepts GrantMap and GrantMapOutput values.
+// You can construct a concrete instance of `GrantMapInput` via:
+//
+//          GrantMap{ "key": GrantArgs{...} }
+type GrantMapInput interface {
+	pulumi.Input
+
+	ToGrantMapOutput() GrantMapOutput
+	ToGrantMapOutputWithContext(context.Context) GrantMapOutput
+}
+
+type GrantMap map[string]GrantInput
+
+func (GrantMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Grant)(nil))
+}
+
+func (i GrantMap) ToGrantMapOutput() GrantMapOutput {
+	return i.ToGrantMapOutputWithContext(context.Background())
+}
+
+func (i GrantMap) ToGrantMapOutputWithContext(ctx context.Context) GrantMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantMapOutput)
+}
+
 type GrantOutput struct {
 	*pulumi.OutputState
 }
@@ -264,6 +343,75 @@ func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return o
 }
 
+func (o GrantOutput) ToGrantPtrOutput() GrantPtrOutput {
+	return o.ToGrantPtrOutputWithContext(context.Background())
+}
+
+func (o GrantOutput) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
+	return o.ApplyT(func(v Grant) *Grant {
+		return &v
+	}).(GrantPtrOutput)
+}
+
+type GrantPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GrantPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Grant)(nil))
+}
+
+func (o GrantPtrOutput) ToGrantPtrOutput() GrantPtrOutput {
+	return o
+}
+
+func (o GrantPtrOutput) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
+	return o
+}
+
+type GrantArrayOutput struct{ *pulumi.OutputState }
+
+func (GrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Grant)(nil))
+}
+
+func (o GrantArrayOutput) ToGrantArrayOutput() GrantArrayOutput {
+	return o
+}
+
+func (o GrantArrayOutput) ToGrantArrayOutputWithContext(ctx context.Context) GrantArrayOutput {
+	return o
+}
+
+func (o GrantArrayOutput) Index(i pulumi.IntInput) GrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Grant {
+		return vs[0].([]Grant)[vs[1].(int)]
+	}).(GrantOutput)
+}
+
+type GrantMapOutput struct{ *pulumi.OutputState }
+
+func (GrantMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Grant)(nil))
+}
+
+func (o GrantMapOutput) ToGrantMapOutput() GrantMapOutput {
+	return o
+}
+
+func (o GrantMapOutput) ToGrantMapOutputWithContext(ctx context.Context) GrantMapOutput {
+	return o
+}
+
+func (o GrantMapOutput) MapIndex(k pulumi.StringInput) GrantOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Grant {
+		return vs[0].(map[string]Grant)[vs[1].(string)]
+	}).(GrantOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GrantOutput{})
+	pulumi.RegisterOutputType(GrantPtrOutput{})
+	pulumi.RegisterOutputType(GrantArrayOutput{})
+	pulumi.RegisterOutputType(GrantMapOutput{})
 }

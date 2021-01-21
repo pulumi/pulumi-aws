@@ -162,6 +162,85 @@ func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) Orga
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
 }
 
+func (i *Organization) ToOrganizationPtrOutput() OrganizationPtrOutput {
+	return i.ToOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *Organization) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationPtrOutput)
+}
+
+type OrganizationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationPtrOutput() OrganizationPtrOutput
+	ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput
+}
+
+type organizationPtrType OrganizationArgs
+
+func (*organizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Organization)(nil))
+}
+
+func (i *organizationPtrType) ToOrganizationPtrOutput() OrganizationPtrOutput {
+	return i.ToOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationPtrType) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationPtrOutput)
+}
+
+// OrganizationArrayInput is an input type that accepts OrganizationArray and OrganizationArrayOutput values.
+// You can construct a concrete instance of `OrganizationArrayInput` via:
+//
+//          OrganizationArray{ OrganizationArgs{...} }
+type OrganizationArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationArrayOutput() OrganizationArrayOutput
+	ToOrganizationArrayOutputWithContext(context.Context) OrganizationArrayOutput
+}
+
+type OrganizationArray []OrganizationInput
+
+func (OrganizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Organization)(nil))
+}
+
+func (i OrganizationArray) ToOrganizationArrayOutput() OrganizationArrayOutput {
+	return i.ToOrganizationArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationArray) ToOrganizationArrayOutputWithContext(ctx context.Context) OrganizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationArrayOutput)
+}
+
+// OrganizationMapInput is an input type that accepts OrganizationMap and OrganizationMapOutput values.
+// You can construct a concrete instance of `OrganizationMapInput` via:
+//
+//          OrganizationMap{ "key": OrganizationArgs{...} }
+type OrganizationMapInput interface {
+	pulumi.Input
+
+	ToOrganizationMapOutput() OrganizationMapOutput
+	ToOrganizationMapOutputWithContext(context.Context) OrganizationMapOutput
+}
+
+type OrganizationMap map[string]OrganizationInput
+
+func (OrganizationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Organization)(nil))
+}
+
+func (i OrganizationMap) ToOrganizationMapOutput() OrganizationMapOutput {
+	return i.ToOrganizationMapOutputWithContext(context.Background())
+}
+
+func (i OrganizationMap) ToOrganizationMapOutputWithContext(ctx context.Context) OrganizationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationMapOutput)
+}
+
 type OrganizationOutput struct {
 	*pulumi.OutputState
 }
@@ -178,6 +257,75 @@ func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o OrganizationOutput) ToOrganizationPtrOutput() OrganizationPtrOutput {
+	return o.ToOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationOutput) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
+	return o.ApplyT(func(v Organization) *Organization {
+		return &v
+	}).(OrganizationPtrOutput)
+}
+
+type OrganizationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Organization)(nil))
+}
+
+func (o OrganizationPtrOutput) ToOrganizationPtrOutput() OrganizationPtrOutput {
+	return o
+}
+
+func (o OrganizationPtrOutput) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
+	return o
+}
+
+type OrganizationArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Organization)(nil))
+}
+
+func (o OrganizationArrayOutput) ToOrganizationArrayOutput() OrganizationArrayOutput {
+	return o
+}
+
+func (o OrganizationArrayOutput) ToOrganizationArrayOutputWithContext(ctx context.Context) OrganizationArrayOutput {
+	return o
+}
+
+func (o OrganizationArrayOutput) Index(i pulumi.IntInput) OrganizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Organization {
+		return vs[0].([]Organization)[vs[1].(int)]
+	}).(OrganizationOutput)
+}
+
+type OrganizationMapOutput struct{ *pulumi.OutputState }
+
+func (OrganizationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Organization)(nil))
+}
+
+func (o OrganizationMapOutput) ToOrganizationMapOutput() OrganizationMapOutput {
+	return o
+}
+
+func (o OrganizationMapOutput) ToOrganizationMapOutputWithContext(ctx context.Context) OrganizationMapOutput {
+	return o
+}
+
+func (o OrganizationMapOutput) MapIndex(k pulumi.StringInput) OrganizationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Organization {
+		return vs[0].(map[string]Organization)[vs[1].(string)]
+	}).(OrganizationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationOutput{})
+	pulumi.RegisterOutputType(OrganizationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationMapOutput{})
 }

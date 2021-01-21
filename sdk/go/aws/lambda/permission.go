@@ -254,6 +254,85 @@ func (i *Permission) ToPermissionOutputWithContext(ctx context.Context) Permissi
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
 }
 
+func (i *Permission) ToPermissionPtrOutput() PermissionPtrOutput {
+	return i.ToPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *Permission) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionPtrOutput)
+}
+
+type PermissionPtrInput interface {
+	pulumi.Input
+
+	ToPermissionPtrOutput() PermissionPtrOutput
+	ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput
+}
+
+type permissionPtrType PermissionArgs
+
+func (*permissionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Permission)(nil))
+}
+
+func (i *permissionPtrType) ToPermissionPtrOutput() PermissionPtrOutput {
+	return i.ToPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionPtrType) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionPtrOutput)
+}
+
+// PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
+// You can construct a concrete instance of `PermissionArrayInput` via:
+//
+//          PermissionArray{ PermissionArgs{...} }
+type PermissionArrayInput interface {
+	pulumi.Input
+
+	ToPermissionArrayOutput() PermissionArrayOutput
+	ToPermissionArrayOutputWithContext(context.Context) PermissionArrayOutput
+}
+
+type PermissionArray []PermissionInput
+
+func (PermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Permission)(nil))
+}
+
+func (i PermissionArray) ToPermissionArrayOutput() PermissionArrayOutput {
+	return i.ToPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
+}
+
+// PermissionMapInput is an input type that accepts PermissionMap and PermissionMapOutput values.
+// You can construct a concrete instance of `PermissionMapInput` via:
+//
+//          PermissionMap{ "key": PermissionArgs{...} }
+type PermissionMapInput interface {
+	pulumi.Input
+
+	ToPermissionMapOutput() PermissionMapOutput
+	ToPermissionMapOutputWithContext(context.Context) PermissionMapOutput
+}
+
+type PermissionMap map[string]PermissionInput
+
+func (PermissionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Permission)(nil))
+}
+
+func (i PermissionMap) ToPermissionMapOutput() PermissionMapOutput {
+	return i.ToPermissionMapOutputWithContext(context.Background())
+}
+
+func (i PermissionMap) ToPermissionMapOutputWithContext(ctx context.Context) PermissionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionMapOutput)
+}
+
 type PermissionOutput struct {
 	*pulumi.OutputState
 }
@@ -270,6 +349,75 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
+func (o PermissionOutput) ToPermissionPtrOutput() PermissionPtrOutput {
+	return o.ToPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
+	return o.ApplyT(func(v Permission) *Permission {
+		return &v
+	}).(PermissionPtrOutput)
+}
+
+type PermissionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Permission)(nil))
+}
+
+func (o PermissionPtrOutput) ToPermissionPtrOutput() PermissionPtrOutput {
+	return o
+}
+
+func (o PermissionPtrOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
+	return o
+}
+
+type PermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Permission)(nil))
+}
+
+func (o PermissionArrayOutput) ToPermissionArrayOutput() PermissionArrayOutput {
+	return o
+}
+
+func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
+	return o
+}
+
+func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Permission {
+		return vs[0].([]Permission)[vs[1].(int)]
+	}).(PermissionOutput)
+}
+
+type PermissionMapOutput struct{ *pulumi.OutputState }
+
+func (PermissionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Permission)(nil))
+}
+
+func (o PermissionMapOutput) ToPermissionMapOutput() PermissionMapOutput {
+	return o
+}
+
+func (o PermissionMapOutput) ToPermissionMapOutputWithContext(ctx context.Context) PermissionMapOutput {
+	return o
+}
+
+func (o PermissionMapOutput) MapIndex(k pulumi.StringInput) PermissionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Permission {
+		return vs[0].(map[string]Permission)[vs[1].(string)]
+	}).(PermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PermissionOutput{})
+	pulumi.RegisterOutputType(PermissionPtrOutput{})
+	pulumi.RegisterOutputType(PermissionArrayOutput{})
+	pulumi.RegisterOutputType(PermissionMapOutput{})
 }

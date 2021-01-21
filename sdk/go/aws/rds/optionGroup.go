@@ -233,6 +233,85 @@ func (i *OptionGroup) ToOptionGroupOutputWithContext(ctx context.Context) Option
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOutput)
 }
 
+func (i *OptionGroup) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
+	return i.ToOptionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *OptionGroup) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupPtrOutput)
+}
+
+type OptionGroupPtrInput interface {
+	pulumi.Input
+
+	ToOptionGroupPtrOutput() OptionGroupPtrOutput
+	ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput
+}
+
+type optionGroupPtrType OptionGroupArgs
+
+func (*optionGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionGroup)(nil))
+}
+
+func (i *optionGroupPtrType) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
+	return i.ToOptionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *optionGroupPtrType) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupPtrOutput)
+}
+
+// OptionGroupArrayInput is an input type that accepts OptionGroupArray and OptionGroupArrayOutput values.
+// You can construct a concrete instance of `OptionGroupArrayInput` via:
+//
+//          OptionGroupArray{ OptionGroupArgs{...} }
+type OptionGroupArrayInput interface {
+	pulumi.Input
+
+	ToOptionGroupArrayOutput() OptionGroupArrayOutput
+	ToOptionGroupArrayOutputWithContext(context.Context) OptionGroupArrayOutput
+}
+
+type OptionGroupArray []OptionGroupInput
+
+func (OptionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OptionGroup)(nil))
+}
+
+func (i OptionGroupArray) ToOptionGroupArrayOutput() OptionGroupArrayOutput {
+	return i.ToOptionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i OptionGroupArray) ToOptionGroupArrayOutputWithContext(ctx context.Context) OptionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupArrayOutput)
+}
+
+// OptionGroupMapInput is an input type that accepts OptionGroupMap and OptionGroupMapOutput values.
+// You can construct a concrete instance of `OptionGroupMapInput` via:
+//
+//          OptionGroupMap{ "key": OptionGroupArgs{...} }
+type OptionGroupMapInput interface {
+	pulumi.Input
+
+	ToOptionGroupMapOutput() OptionGroupMapOutput
+	ToOptionGroupMapOutputWithContext(context.Context) OptionGroupMapOutput
+}
+
+type OptionGroupMap map[string]OptionGroupInput
+
+func (OptionGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OptionGroup)(nil))
+}
+
+func (i OptionGroupMap) ToOptionGroupMapOutput() OptionGroupMapOutput {
+	return i.ToOptionGroupMapOutputWithContext(context.Background())
+}
+
+func (i OptionGroupMap) ToOptionGroupMapOutputWithContext(ctx context.Context) OptionGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupMapOutput)
+}
+
 type OptionGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -249,6 +328,75 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
+func (o OptionGroupOutput) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
+	return o.ToOptionGroupPtrOutputWithContext(context.Background())
+}
+
+func (o OptionGroupOutput) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
+	return o.ApplyT(func(v OptionGroup) *OptionGroup {
+		return &v
+	}).(OptionGroupPtrOutput)
+}
+
+type OptionGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OptionGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionGroup)(nil))
+}
+
+func (o OptionGroupPtrOutput) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
+	return o
+}
+
+func (o OptionGroupPtrOutput) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
+	return o
+}
+
+type OptionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptionGroup)(nil))
+}
+
+func (o OptionGroupArrayOutput) ToOptionGroupArrayOutput() OptionGroupArrayOutput {
+	return o
+}
+
+func (o OptionGroupArrayOutput) ToOptionGroupArrayOutputWithContext(ctx context.Context) OptionGroupArrayOutput {
+	return o
+}
+
+func (o OptionGroupArrayOutput) Index(i pulumi.IntInput) OptionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptionGroup {
+		return vs[0].([]OptionGroup)[vs[1].(int)]
+	}).(OptionGroupOutput)
+}
+
+type OptionGroupMapOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OptionGroup)(nil))
+}
+
+func (o OptionGroupMapOutput) ToOptionGroupMapOutput() OptionGroupMapOutput {
+	return o
+}
+
+func (o OptionGroupMapOutput) ToOptionGroupMapOutputWithContext(ctx context.Context) OptionGroupMapOutput {
+	return o
+}
+
+func (o OptionGroupMapOutput) MapIndex(k pulumi.StringInput) OptionGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OptionGroup {
+		return vs[0].(map[string]OptionGroup)[vs[1].(string)]
+	}).(OptionGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OptionGroupOutput{})
+	pulumi.RegisterOutputType(OptionGroupPtrOutput{})
+	pulumi.RegisterOutputType(OptionGroupArrayOutput{})
+	pulumi.RegisterOutputType(OptionGroupMapOutput{})
 }

@@ -129,6 +129,85 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
 }
 
+func (i *ConfigurationSet) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
+	return i.ToConfigurationSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationSet) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetPtrOutput)
+}
+
+type ConfigurationSetPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput
+	ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput
+}
+
+type configurationSetPtrType ConfigurationSetArgs
+
+func (*configurationSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSet)(nil))
+}
+
+func (i *configurationSetPtrType) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
+	return i.ToConfigurationSetPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetPtrType) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetPtrOutput)
+}
+
+// ConfigurationSetArrayInput is an input type that accepts ConfigurationSetArray and ConfigurationSetArrayOutput values.
+// You can construct a concrete instance of `ConfigurationSetArrayInput` via:
+//
+//          ConfigurationSetArray{ ConfigurationSetArgs{...} }
+type ConfigurationSetArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationSetArrayOutput() ConfigurationSetArrayOutput
+	ToConfigurationSetArrayOutputWithContext(context.Context) ConfigurationSetArrayOutput
+}
+
+type ConfigurationSetArray []ConfigurationSetInput
+
+func (ConfigurationSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConfigurationSet)(nil))
+}
+
+func (i ConfigurationSetArray) ToConfigurationSetArrayOutput() ConfigurationSetArrayOutput {
+	return i.ToConfigurationSetArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetArray) ToConfigurationSetArrayOutputWithContext(ctx context.Context) ConfigurationSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArrayOutput)
+}
+
+// ConfigurationSetMapInput is an input type that accepts ConfigurationSetMap and ConfigurationSetMapOutput values.
+// You can construct a concrete instance of `ConfigurationSetMapInput` via:
+//
+//          ConfigurationSetMap{ "key": ConfigurationSetArgs{...} }
+type ConfigurationSetMapInput interface {
+	pulumi.Input
+
+	ToConfigurationSetMapOutput() ConfigurationSetMapOutput
+	ToConfigurationSetMapOutputWithContext(context.Context) ConfigurationSetMapOutput
+}
+
+type ConfigurationSetMap map[string]ConfigurationSetInput
+
+func (ConfigurationSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConfigurationSet)(nil))
+}
+
+func (i ConfigurationSetMap) ToConfigurationSetMapOutput() ConfigurationSetMapOutput {
+	return i.ToConfigurationSetMapOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetMap) ToConfigurationSetMapOutputWithContext(ctx context.Context) ConfigurationSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetMapOutput)
+}
+
 type ConfigurationSetOutput struct {
 	*pulumi.OutputState
 }
@@ -145,6 +224,75 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConfigurationSetOutput) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
+	return o.ToConfigurationSetPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetOutput) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
+	return o.ApplyT(func(v ConfigurationSet) *ConfigurationSet {
+		return &v
+	}).(ConfigurationSetPtrOutput)
+}
+
+type ConfigurationSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSet)(nil))
+}
+
+func (o ConfigurationSetPtrOutput) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetPtrOutput) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
+	return o
+}
+
+type ConfigurationSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationSet)(nil))
+}
+
+func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutput() ConfigurationSetArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutputWithContext(ctx context.Context) ConfigurationSetArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetArrayOutput) Index(i pulumi.IntInput) ConfigurationSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSet {
+		return vs[0].([]ConfigurationSet)[vs[1].(int)]
+	}).(ConfigurationSetOutput)
+}
+
+type ConfigurationSetMapOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationSet)(nil))
+}
+
+func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutput() ConfigurationSetMapOutput {
+	return o
+}
+
+func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutputWithContext(ctx context.Context) ConfigurationSetMapOutput {
+	return o
+}
+
+func (o ConfigurationSetMapOutput) MapIndex(k pulumi.StringInput) ConfigurationSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationSet {
+		return vs[0].(map[string]ConfigurationSet)[vs[1].(string)]
+	}).(ConfigurationSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationSetOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetMapOutput{})
 }

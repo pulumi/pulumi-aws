@@ -200,6 +200,85 @@ func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
 }
 
+func (i *BotAlias) ToBotAliasPtrOutput() BotAliasPtrOutput {
+	return i.ToBotAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *BotAlias) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasPtrOutput)
+}
+
+type BotAliasPtrInput interface {
+	pulumi.Input
+
+	ToBotAliasPtrOutput() BotAliasPtrOutput
+	ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput
+}
+
+type botAliasPtrType BotAliasArgs
+
+func (*botAliasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAlias)(nil))
+}
+
+func (i *botAliasPtrType) ToBotAliasPtrOutput() BotAliasPtrOutput {
+	return i.ToBotAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *botAliasPtrType) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasPtrOutput)
+}
+
+// BotAliasArrayInput is an input type that accepts BotAliasArray and BotAliasArrayOutput values.
+// You can construct a concrete instance of `BotAliasArrayInput` via:
+//
+//          BotAliasArray{ BotAliasArgs{...} }
+type BotAliasArrayInput interface {
+	pulumi.Input
+
+	ToBotAliasArrayOutput() BotAliasArrayOutput
+	ToBotAliasArrayOutputWithContext(context.Context) BotAliasArrayOutput
+}
+
+type BotAliasArray []BotAliasInput
+
+func (BotAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BotAlias)(nil))
+}
+
+func (i BotAliasArray) ToBotAliasArrayOutput() BotAliasArrayOutput {
+	return i.ToBotAliasArrayOutputWithContext(context.Background())
+}
+
+func (i BotAliasArray) ToBotAliasArrayOutputWithContext(ctx context.Context) BotAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasArrayOutput)
+}
+
+// BotAliasMapInput is an input type that accepts BotAliasMap and BotAliasMapOutput values.
+// You can construct a concrete instance of `BotAliasMapInput` via:
+//
+//          BotAliasMap{ "key": BotAliasArgs{...} }
+type BotAliasMapInput interface {
+	pulumi.Input
+
+	ToBotAliasMapOutput() BotAliasMapOutput
+	ToBotAliasMapOutputWithContext(context.Context) BotAliasMapOutput
+}
+
+type BotAliasMap map[string]BotAliasInput
+
+func (BotAliasMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BotAlias)(nil))
+}
+
+func (i BotAliasMap) ToBotAliasMapOutput() BotAliasMapOutput {
+	return i.ToBotAliasMapOutputWithContext(context.Background())
+}
+
+func (i BotAliasMap) ToBotAliasMapOutputWithContext(ctx context.Context) BotAliasMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasMapOutput)
+}
+
 type BotAliasOutput struct {
 	*pulumi.OutputState
 }
@@ -216,6 +295,75 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 	return o
 }
 
+func (o BotAliasOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
+	return o.ToBotAliasPtrOutputWithContext(context.Background())
+}
+
+func (o BotAliasOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
+	return o.ApplyT(func(v BotAlias) *BotAlias {
+		return &v
+	}).(BotAliasPtrOutput)
+}
+
+type BotAliasPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BotAliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAlias)(nil))
+}
+
+func (o BotAliasPtrOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
+	return o
+}
+
+func (o BotAliasPtrOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
+	return o
+}
+
+type BotAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (BotAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAlias)(nil))
+}
+
+func (o BotAliasArrayOutput) ToBotAliasArrayOutput() BotAliasArrayOutput {
+	return o
+}
+
+func (o BotAliasArrayOutput) ToBotAliasArrayOutputWithContext(ctx context.Context) BotAliasArrayOutput {
+	return o
+}
+
+func (o BotAliasArrayOutput) Index(i pulumi.IntInput) BotAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAlias {
+		return vs[0].([]BotAlias)[vs[1].(int)]
+	}).(BotAliasOutput)
+}
+
+type BotAliasMapOutput struct{ *pulumi.OutputState }
+
+func (BotAliasMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BotAlias)(nil))
+}
+
+func (o BotAliasMapOutput) ToBotAliasMapOutput() BotAliasMapOutput {
+	return o
+}
+
+func (o BotAliasMapOutput) ToBotAliasMapOutputWithContext(ctx context.Context) BotAliasMapOutput {
+	return o
+}
+
+func (o BotAliasMapOutput) MapIndex(k pulumi.StringInput) BotAliasOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BotAlias {
+		return vs[0].(map[string]BotAlias)[vs[1].(string)]
+	}).(BotAliasOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BotAliasOutput{})
+	pulumi.RegisterOutputType(BotAliasPtrOutput{})
+	pulumi.RegisterOutputType(BotAliasArrayOutput{})
+	pulumi.RegisterOutputType(BotAliasMapOutput{})
 }

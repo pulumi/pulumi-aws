@@ -284,6 +284,85 @@ func (i *Target) ToTargetOutputWithContext(ctx context.Context) TargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOutput)
 }
 
+func (i *Target) ToTargetPtrOutput() TargetPtrOutput {
+	return i.ToTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *Target) ToTargetPtrOutputWithContext(ctx context.Context) TargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPtrOutput)
+}
+
+type TargetPtrInput interface {
+	pulumi.Input
+
+	ToTargetPtrOutput() TargetPtrOutput
+	ToTargetPtrOutputWithContext(ctx context.Context) TargetPtrOutput
+}
+
+type targetPtrType TargetArgs
+
+func (*targetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Target)(nil))
+}
+
+func (i *targetPtrType) ToTargetPtrOutput() TargetPtrOutput {
+	return i.ToTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *targetPtrType) ToTargetPtrOutputWithContext(ctx context.Context) TargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPtrOutput)
+}
+
+// TargetArrayInput is an input type that accepts TargetArray and TargetArrayOutput values.
+// You can construct a concrete instance of `TargetArrayInput` via:
+//
+//          TargetArray{ TargetArgs{...} }
+type TargetArrayInput interface {
+	pulumi.Input
+
+	ToTargetArrayOutput() TargetArrayOutput
+	ToTargetArrayOutputWithContext(context.Context) TargetArrayOutput
+}
+
+type TargetArray []TargetInput
+
+func (TargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Target)(nil))
+}
+
+func (i TargetArray) ToTargetArrayOutput() TargetArrayOutput {
+	return i.ToTargetArrayOutputWithContext(context.Background())
+}
+
+func (i TargetArray) ToTargetArrayOutputWithContext(ctx context.Context) TargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetArrayOutput)
+}
+
+// TargetMapInput is an input type that accepts TargetMap and TargetMapOutput values.
+// You can construct a concrete instance of `TargetMapInput` via:
+//
+//          TargetMap{ "key": TargetArgs{...} }
+type TargetMapInput interface {
+	pulumi.Input
+
+	ToTargetMapOutput() TargetMapOutput
+	ToTargetMapOutputWithContext(context.Context) TargetMapOutput
+}
+
+type TargetMap map[string]TargetInput
+
+func (TargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Target)(nil))
+}
+
+func (i TargetMap) ToTargetMapOutput() TargetMapOutput {
+	return i.ToTargetMapOutputWithContext(context.Background())
+}
+
+func (i TargetMap) ToTargetMapOutputWithContext(ctx context.Context) TargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetMapOutput)
+}
+
 type TargetOutput struct {
 	*pulumi.OutputState
 }
@@ -300,6 +379,75 @@ func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutpu
 	return o
 }
 
+func (o TargetOutput) ToTargetPtrOutput() TargetPtrOutput {
+	return o.ToTargetPtrOutputWithContext(context.Background())
+}
+
+func (o TargetOutput) ToTargetPtrOutputWithContext(ctx context.Context) TargetPtrOutput {
+	return o.ApplyT(func(v Target) *Target {
+		return &v
+	}).(TargetPtrOutput)
+}
+
+type TargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Target)(nil))
+}
+
+func (o TargetPtrOutput) ToTargetPtrOutput() TargetPtrOutput {
+	return o
+}
+
+func (o TargetPtrOutput) ToTargetPtrOutputWithContext(ctx context.Context) TargetPtrOutput {
+	return o
+}
+
+type TargetArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Target)(nil))
+}
+
+func (o TargetArrayOutput) ToTargetArrayOutput() TargetArrayOutput {
+	return o
+}
+
+func (o TargetArrayOutput) ToTargetArrayOutputWithContext(ctx context.Context) TargetArrayOutput {
+	return o
+}
+
+func (o TargetArrayOutput) Index(i pulumi.IntInput) TargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Target {
+		return vs[0].([]Target)[vs[1].(int)]
+	}).(TargetOutput)
+}
+
+type TargetMapOutput struct{ *pulumi.OutputState }
+
+func (TargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Target)(nil))
+}
+
+func (o TargetMapOutput) ToTargetMapOutput() TargetMapOutput {
+	return o
+}
+
+func (o TargetMapOutput) ToTargetMapOutputWithContext(ctx context.Context) TargetMapOutput {
+	return o
+}
+
+func (o TargetMapOutput) MapIndex(k pulumi.StringInput) TargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Target {
+		return vs[0].(map[string]Target)[vs[1].(string)]
+	}).(TargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TargetOutput{})
+	pulumi.RegisterOutputType(TargetPtrOutput{})
+	pulumi.RegisterOutputType(TargetArrayOutput{})
+	pulumi.RegisterOutputType(TargetMapOutput{})
 }

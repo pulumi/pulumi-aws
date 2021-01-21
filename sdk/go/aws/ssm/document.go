@@ -320,6 +320,85 @@ func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
 }
 
+func (i *Document) ToDocumentPtrOutput() DocumentPtrOutput {
+	return i.ToDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *Document) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentPtrOutput)
+}
+
+type DocumentPtrInput interface {
+	pulumi.Input
+
+	ToDocumentPtrOutput() DocumentPtrOutput
+	ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput
+}
+
+type documentPtrType DocumentArgs
+
+func (*documentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Document)(nil))
+}
+
+func (i *documentPtrType) ToDocumentPtrOutput() DocumentPtrOutput {
+	return i.ToDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *documentPtrType) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentPtrOutput)
+}
+
+// DocumentArrayInput is an input type that accepts DocumentArray and DocumentArrayOutput values.
+// You can construct a concrete instance of `DocumentArrayInput` via:
+//
+//          DocumentArray{ DocumentArgs{...} }
+type DocumentArrayInput interface {
+	pulumi.Input
+
+	ToDocumentArrayOutput() DocumentArrayOutput
+	ToDocumentArrayOutputWithContext(context.Context) DocumentArrayOutput
+}
+
+type DocumentArray []DocumentInput
+
+func (DocumentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Document)(nil))
+}
+
+func (i DocumentArray) ToDocumentArrayOutput() DocumentArrayOutput {
+	return i.ToDocumentArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentArray) ToDocumentArrayOutputWithContext(ctx context.Context) DocumentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentArrayOutput)
+}
+
+// DocumentMapInput is an input type that accepts DocumentMap and DocumentMapOutput values.
+// You can construct a concrete instance of `DocumentMapInput` via:
+//
+//          DocumentMap{ "key": DocumentArgs{...} }
+type DocumentMapInput interface {
+	pulumi.Input
+
+	ToDocumentMapOutput() DocumentMapOutput
+	ToDocumentMapOutputWithContext(context.Context) DocumentMapOutput
+}
+
+type DocumentMap map[string]DocumentInput
+
+func (DocumentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Document)(nil))
+}
+
+func (i DocumentMap) ToDocumentMapOutput() DocumentMapOutput {
+	return i.ToDocumentMapOutputWithContext(context.Background())
+}
+
+func (i DocumentMap) ToDocumentMapOutputWithContext(ctx context.Context) DocumentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentMapOutput)
+}
+
 type DocumentOutput struct {
 	*pulumi.OutputState
 }
@@ -336,6 +415,75 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
+func (o DocumentOutput) ToDocumentPtrOutput() DocumentPtrOutput {
+	return o.ToDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
+	return o.ApplyT(func(v Document) *Document {
+		return &v
+	}).(DocumentPtrOutput)
+}
+
+type DocumentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Document)(nil))
+}
+
+func (o DocumentPtrOutput) ToDocumentPtrOutput() DocumentPtrOutput {
+	return o
+}
+
+func (o DocumentPtrOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
+	return o
+}
+
+type DocumentArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Document)(nil))
+}
+
+func (o DocumentArrayOutput) ToDocumentArrayOutput() DocumentArrayOutput {
+	return o
+}
+
+func (o DocumentArrayOutput) ToDocumentArrayOutputWithContext(ctx context.Context) DocumentArrayOutput {
+	return o
+}
+
+func (o DocumentArrayOutput) Index(i pulumi.IntInput) DocumentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Document {
+		return vs[0].([]Document)[vs[1].(int)]
+	}).(DocumentOutput)
+}
+
+type DocumentMapOutput struct{ *pulumi.OutputState }
+
+func (DocumentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Document)(nil))
+}
+
+func (o DocumentMapOutput) ToDocumentMapOutput() DocumentMapOutput {
+	return o
+}
+
+func (o DocumentMapOutput) ToDocumentMapOutputWithContext(ctx context.Context) DocumentMapOutput {
+	return o
+}
+
+func (o DocumentMapOutput) MapIndex(k pulumi.StringInput) DocumentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Document {
+		return vs[0].(map[string]Document)[vs[1].(string)]
+	}).(DocumentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DocumentOutput{})
+	pulumi.RegisterOutputType(DocumentPtrOutput{})
+	pulumi.RegisterOutputType(DocumentArrayOutput{})
+	pulumi.RegisterOutputType(DocumentMapOutput{})
 }

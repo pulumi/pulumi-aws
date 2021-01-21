@@ -183,6 +183,85 @@ func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
 }
 
+func (i *CompositeAlarm) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
+	return i.ToCompositeAlarmPtrOutputWithContext(context.Background())
+}
+
+func (i *CompositeAlarm) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmPtrOutput)
+}
+
+type CompositeAlarmPtrInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput
+	ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput
+}
+
+type compositeAlarmPtrType CompositeAlarmArgs
+
+func (*compositeAlarmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarm)(nil))
+}
+
+func (i *compositeAlarmPtrType) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
+	return i.ToCompositeAlarmPtrOutputWithContext(context.Background())
+}
+
+func (i *compositeAlarmPtrType) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmPtrOutput)
+}
+
+// CompositeAlarmArrayInput is an input type that accepts CompositeAlarmArray and CompositeAlarmArrayOutput values.
+// You can construct a concrete instance of `CompositeAlarmArrayInput` via:
+//
+//          CompositeAlarmArray{ CompositeAlarmArgs{...} }
+type CompositeAlarmArrayInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmArrayOutput() CompositeAlarmArrayOutput
+	ToCompositeAlarmArrayOutputWithContext(context.Context) CompositeAlarmArrayOutput
+}
+
+type CompositeAlarmArray []CompositeAlarmInput
+
+func (CompositeAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CompositeAlarm)(nil))
+}
+
+func (i CompositeAlarmArray) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOutput {
+	return i.ToCompositeAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmArray) ToCompositeAlarmArrayOutputWithContext(ctx context.Context) CompositeAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmArrayOutput)
+}
+
+// CompositeAlarmMapInput is an input type that accepts CompositeAlarmMap and CompositeAlarmMapOutput values.
+// You can construct a concrete instance of `CompositeAlarmMapInput` via:
+//
+//          CompositeAlarmMap{ "key": CompositeAlarmArgs{...} }
+type CompositeAlarmMapInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmMapOutput() CompositeAlarmMapOutput
+	ToCompositeAlarmMapOutputWithContext(context.Context) CompositeAlarmMapOutput
+}
+
+type CompositeAlarmMap map[string]CompositeAlarmInput
+
+func (CompositeAlarmMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CompositeAlarm)(nil))
+}
+
+func (i CompositeAlarmMap) ToCompositeAlarmMapOutput() CompositeAlarmMapOutput {
+	return i.ToCompositeAlarmMapOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmMap) ToCompositeAlarmMapOutputWithContext(ctx context.Context) CompositeAlarmMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmMapOutput)
+}
+
 type CompositeAlarmOutput struct {
 	*pulumi.OutputState
 }
@@ -199,6 +278,75 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
+	return o.ToCompositeAlarmPtrOutputWithContext(context.Background())
+}
+
+func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
+	return o.ApplyT(func(v CompositeAlarm) *CompositeAlarm {
+		return &v
+	}).(CompositeAlarmPtrOutput)
+}
+
+type CompositeAlarmPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CompositeAlarmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarm)(nil))
+}
+
+func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
+	return o
+}
+
+type CompositeAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositeAlarm)(nil))
+}
+
+func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOutput {
+	return o
+}
+
+func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutputWithContext(ctx context.Context) CompositeAlarmArrayOutput {
+	return o
+}
+
+func (o CompositeAlarmArrayOutput) Index(i pulumi.IntInput) CompositeAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositeAlarm {
+		return vs[0].([]CompositeAlarm)[vs[1].(int)]
+	}).(CompositeAlarmOutput)
+}
+
+type CompositeAlarmMapOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CompositeAlarm)(nil))
+}
+
+func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutput() CompositeAlarmMapOutput {
+	return o
+}
+
+func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutputWithContext(ctx context.Context) CompositeAlarmMapOutput {
+	return o
+}
+
+func (o CompositeAlarmMapOutput) MapIndex(k pulumi.StringInput) CompositeAlarmOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CompositeAlarm {
+		return vs[0].(map[string]CompositeAlarm)[vs[1].(string)]
+	}).(CompositeAlarmOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CompositeAlarmOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmPtrOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmArrayOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmMapOutput{})
 }

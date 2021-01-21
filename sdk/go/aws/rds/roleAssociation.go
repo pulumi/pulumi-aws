@@ -162,6 +162,85 @@ func (i *RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationOutput)
 }
 
+func (i *RoleAssociation) ToRoleAssociationPtrOutput() RoleAssociationPtrOutput {
+	return i.ToRoleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *RoleAssociation) ToRoleAssociationPtrOutputWithContext(ctx context.Context) RoleAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationPtrOutput)
+}
+
+type RoleAssociationPtrInput interface {
+	pulumi.Input
+
+	ToRoleAssociationPtrOutput() RoleAssociationPtrOutput
+	ToRoleAssociationPtrOutputWithContext(ctx context.Context) RoleAssociationPtrOutput
+}
+
+type roleAssociationPtrType RoleAssociationArgs
+
+func (*roleAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssociation)(nil))
+}
+
+func (i *roleAssociationPtrType) ToRoleAssociationPtrOutput() RoleAssociationPtrOutput {
+	return i.ToRoleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *roleAssociationPtrType) ToRoleAssociationPtrOutputWithContext(ctx context.Context) RoleAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationPtrOutput)
+}
+
+// RoleAssociationArrayInput is an input type that accepts RoleAssociationArray and RoleAssociationArrayOutput values.
+// You can construct a concrete instance of `RoleAssociationArrayInput` via:
+//
+//          RoleAssociationArray{ RoleAssociationArgs{...} }
+type RoleAssociationArrayInput interface {
+	pulumi.Input
+
+	ToRoleAssociationArrayOutput() RoleAssociationArrayOutput
+	ToRoleAssociationArrayOutputWithContext(context.Context) RoleAssociationArrayOutput
+}
+
+type RoleAssociationArray []RoleAssociationInput
+
+func (RoleAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RoleAssociation)(nil))
+}
+
+func (i RoleAssociationArray) ToRoleAssociationArrayOutput() RoleAssociationArrayOutput {
+	return i.ToRoleAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i RoleAssociationArray) ToRoleAssociationArrayOutputWithContext(ctx context.Context) RoleAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationArrayOutput)
+}
+
+// RoleAssociationMapInput is an input type that accepts RoleAssociationMap and RoleAssociationMapOutput values.
+// You can construct a concrete instance of `RoleAssociationMapInput` via:
+//
+//          RoleAssociationMap{ "key": RoleAssociationArgs{...} }
+type RoleAssociationMapInput interface {
+	pulumi.Input
+
+	ToRoleAssociationMapOutput() RoleAssociationMapOutput
+	ToRoleAssociationMapOutputWithContext(context.Context) RoleAssociationMapOutput
+}
+
+type RoleAssociationMap map[string]RoleAssociationInput
+
+func (RoleAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RoleAssociation)(nil))
+}
+
+func (i RoleAssociationMap) ToRoleAssociationMapOutput() RoleAssociationMapOutput {
+	return i.ToRoleAssociationMapOutputWithContext(context.Background())
+}
+
+func (i RoleAssociationMap) ToRoleAssociationMapOutputWithContext(ctx context.Context) RoleAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationMapOutput)
+}
+
 type RoleAssociationOutput struct {
 	*pulumi.OutputState
 }
@@ -178,6 +257,75 @@ func (o RoleAssociationOutput) ToRoleAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RoleAssociationOutput) ToRoleAssociationPtrOutput() RoleAssociationPtrOutput {
+	return o.ToRoleAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o RoleAssociationOutput) ToRoleAssociationPtrOutputWithContext(ctx context.Context) RoleAssociationPtrOutput {
+	return o.ApplyT(func(v RoleAssociation) *RoleAssociation {
+		return &v
+	}).(RoleAssociationPtrOutput)
+}
+
+type RoleAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RoleAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssociation)(nil))
+}
+
+func (o RoleAssociationPtrOutput) ToRoleAssociationPtrOutput() RoleAssociationPtrOutput {
+	return o
+}
+
+func (o RoleAssociationPtrOutput) ToRoleAssociationPtrOutputWithContext(ctx context.Context) RoleAssociationPtrOutput {
+	return o
+}
+
+type RoleAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleAssociation)(nil))
+}
+
+func (o RoleAssociationArrayOutput) ToRoleAssociationArrayOutput() RoleAssociationArrayOutput {
+	return o
+}
+
+func (o RoleAssociationArrayOutput) ToRoleAssociationArrayOutputWithContext(ctx context.Context) RoleAssociationArrayOutput {
+	return o
+}
+
+func (o RoleAssociationArrayOutput) Index(i pulumi.IntInput) RoleAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleAssociation {
+		return vs[0].([]RoleAssociation)[vs[1].(int)]
+	}).(RoleAssociationOutput)
+}
+
+type RoleAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (RoleAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RoleAssociation)(nil))
+}
+
+func (o RoleAssociationMapOutput) ToRoleAssociationMapOutput() RoleAssociationMapOutput {
+	return o
+}
+
+func (o RoleAssociationMapOutput) ToRoleAssociationMapOutputWithContext(ctx context.Context) RoleAssociationMapOutput {
+	return o
+}
+
+func (o RoleAssociationMapOutput) MapIndex(k pulumi.StringInput) RoleAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleAssociation {
+		return vs[0].(map[string]RoleAssociation)[vs[1].(string)]
+	}).(RoleAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssociationOutput{})
+	pulumi.RegisterOutputType(RoleAssociationPtrOutput{})
+	pulumi.RegisterOutputType(RoleAssociationArrayOutput{})
+	pulumi.RegisterOutputType(RoleAssociationMapOutput{})
 }

@@ -249,6 +249,85 @@ func (i *FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSyst
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOutput)
 }
 
+func (i *FileSystem) ToFileSystemPtrOutput() FileSystemPtrOutput {
+	return i.ToFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *FileSystem) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPtrOutput)
+}
+
+type FileSystemPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemPtrOutput() FileSystemPtrOutput
+	ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput
+}
+
+type fileSystemPtrType FileSystemArgs
+
+func (*fileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystem)(nil))
+}
+
+func (i *fileSystemPtrType) ToFileSystemPtrOutput() FileSystemPtrOutput {
+	return i.ToFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemPtrType) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPtrOutput)
+}
+
+// FileSystemArrayInput is an input type that accepts FileSystemArray and FileSystemArrayOutput values.
+// You can construct a concrete instance of `FileSystemArrayInput` via:
+//
+//          FileSystemArray{ FileSystemArgs{...} }
+type FileSystemArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemArrayOutput() FileSystemArrayOutput
+	ToFileSystemArrayOutputWithContext(context.Context) FileSystemArrayOutput
+}
+
+type FileSystemArray []FileSystemInput
+
+func (FileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FileSystem)(nil))
+}
+
+func (i FileSystemArray) ToFileSystemArrayOutput() FileSystemArrayOutput {
+	return i.ToFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemArray) ToFileSystemArrayOutputWithContext(ctx context.Context) FileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemArrayOutput)
+}
+
+// FileSystemMapInput is an input type that accepts FileSystemMap and FileSystemMapOutput values.
+// You can construct a concrete instance of `FileSystemMapInput` via:
+//
+//          FileSystemMap{ "key": FileSystemArgs{...} }
+type FileSystemMapInput interface {
+	pulumi.Input
+
+	ToFileSystemMapOutput() FileSystemMapOutput
+	ToFileSystemMapOutputWithContext(context.Context) FileSystemMapOutput
+}
+
+type FileSystemMap map[string]FileSystemInput
+
+func (FileSystemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FileSystem)(nil))
+}
+
+func (i FileSystemMap) ToFileSystemMapOutput() FileSystemMapOutput {
+	return i.ToFileSystemMapOutputWithContext(context.Background())
+}
+
+func (i FileSystemMap) ToFileSystemMapOutputWithContext(ctx context.Context) FileSystemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemMapOutput)
+}
+
 type FileSystemOutput struct {
 	*pulumi.OutputState
 }
@@ -265,6 +344,75 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
+func (o FileSystemOutput) ToFileSystemPtrOutput() FileSystemPtrOutput {
+	return o.ToFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemOutput) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
+	return o.ApplyT(func(v FileSystem) *FileSystem {
+		return &v
+	}).(FileSystemPtrOutput)
+}
+
+type FileSystemPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystem)(nil))
+}
+
+func (o FileSystemPtrOutput) ToFileSystemPtrOutput() FileSystemPtrOutput {
+	return o
+}
+
+func (o FileSystemPtrOutput) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
+	return o
+}
+
+type FileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystem)(nil))
+}
+
+func (o FileSystemArrayOutput) ToFileSystemArrayOutput() FileSystemArrayOutput {
+	return o
+}
+
+func (o FileSystemArrayOutput) ToFileSystemArrayOutputWithContext(ctx context.Context) FileSystemArrayOutput {
+	return o
+}
+
+func (o FileSystemArrayOutput) Index(i pulumi.IntInput) FileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystem {
+		return vs[0].([]FileSystem)[vs[1].(int)]
+	}).(FileSystemOutput)
+}
+
+type FileSystemMapOutput struct{ *pulumi.OutputState }
+
+func (FileSystemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FileSystem)(nil))
+}
+
+func (o FileSystemMapOutput) ToFileSystemMapOutput() FileSystemMapOutput {
+	return o
+}
+
+func (o FileSystemMapOutput) ToFileSystemMapOutputWithContext(ctx context.Context) FileSystemMapOutput {
+	return o
+}
+
+func (o FileSystemMapOutput) MapIndex(k pulumi.StringInput) FileSystemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FileSystem {
+		return vs[0].(map[string]FileSystem)[vs[1].(string)]
+	}).(FileSystemOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileSystemOutput{})
+	pulumi.RegisterOutputType(FileSystemPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemArrayOutput{})
+	pulumi.RegisterOutputType(FileSystemMapOutput{})
 }
