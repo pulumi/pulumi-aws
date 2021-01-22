@@ -149,9 +149,12 @@ function createFunctionFromEventHandler(
     name: string, handler: StreamEventHandler, opts?: pulumi.CustomResourceOptions): lambda.Function {
 
     if (handler instanceof Function) {
+
+
         return new lambda.CallbackFunction(name, {
             callback: handler,
-            policies: [iam.ManagedPolicy.AWSLambdaFullAccess, iam.ManagedPolicy.AWSLambdaKinesisExecutionRole]
+            policies: [iam.ManagedPolicy.AWSLambdaKinesisExecutionRole],
+            includeDeprecatedLambdaFullAccessPolicy: true,
         } , opts);
     }
     else {

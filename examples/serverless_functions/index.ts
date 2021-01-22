@@ -18,7 +18,6 @@ function getContentType() {
 }
 
 const testFunc = new aws.serverless.Function("f", {
-  policies: [aws.iam.ManagedPolicies.AWSLambdaFullAccess],
   includePaths: ['./Pulumi.yaml'],
 }, async (ev, ctx, cb) => {
   // These variables exist only to ensure that capturing modules doesn't cause any problems.

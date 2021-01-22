@@ -2,7 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add external reference support for Go SDK
+* Upgrade to Pulumi v2.18.0
+  * This introduces package/module registration for Go SDK.
+* Update auto-naming rules for RDS Cluster `clusterIdentifier` to follow specifications.
+* Add support for `LambdaFullAccess` as a replacement for `AWSLambdaFullAccess` IAM policy.
+* Add support for `LambdaReadOnlyAccess` as a replacement for `AWSLambdaReadOnlyAccess` IAM policy.
+* Update `aws.lambda.CallbackFunction` to accept a new parameter `includeDeprecatedLambdaFullAccessPolicy`. If this parameter
+  is set or if no iam.Policies are set to the CallbackFunction then we will create an IAM Policy that replicates
+  the now deprecated `AWSLambdaFullAccess` policy. This is needed to allow `aws.sqs.QueueEventSubscription` and 
+  `aws.kinesis.StreamEventSubscription` continue to work
 
 ---
 

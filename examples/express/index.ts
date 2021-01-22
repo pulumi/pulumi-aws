@@ -12,7 +12,6 @@ const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
   "mylambda", {
-    policies: [aws.iam.ManagedPolicies.AWSLambdaFullAccess],
     factoryFunc: () => {
       const app = express();
       app.use(middleware.eventContext());

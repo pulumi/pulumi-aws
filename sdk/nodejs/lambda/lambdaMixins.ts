@@ -216,6 +216,29 @@ export interface CallbackFunctionArgs<E, R> extends BaseCallbackFunctionArgs {
      * will call into each time the Lambda is invoked.
      */
     callbackFactory?: CallbackFactory<E, R>;
+
+    /**
+     * This specifies if the serverless function requires full access to AWS services. This access level would
+     * be similar to the (now deprecated) AWSLambdaFullAccess policy. This would create a copy of that AWS IAM Policy
+     * that would include access to the following services:
+     * - cloudformation
+     * - cloudwatch
+     * - cognito-identity
+     * - cognito-sync
+     * - dynambodb
+     * - ec2
+     * - events
+     * - iam
+     * - iot
+     * - kinesis
+     * - lambda
+     * - logs
+     * - s3
+     * - sns
+     * - sqs
+     * - xray
+     */
+    includeDeprecatedLambdaFullAccessPolicy?: boolean;
 };
 
 /**
@@ -254,6 +277,10 @@ export function createFunctionFromEventHandler<E, R>(
  * dependencies) into a form that can be used by AWS Lambda.  See
  * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
  * details on this process.
+ * If no IAM Role is specified, CallbackFunction will automatically create an IAM Policy that replicates
+ * the now-deprecated AWSLambdaFullAccess managed policy. We do this to avoid breaking existing users who have
+ * come to rely on that set of permissions. In the next major version, we will remove this functionality and
+ * rely on the  `AWSLambda_FullAccess` managed policy.
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
     public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts: pulumi.CustomResourceOptions = {}) {
@@ -279,19 +306,29 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                 assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
             }, opts);
 
-            if (!args.policies) {
-                // Provides wide access to "serverless" services (Dynamo, S3, etc.)
-                args.policies = [iam.ManagedPolicy.AWSLambdaFullAccess];
+            if (!args.policies || args.includeDeprecatedLambdaFullAccessPolicy) {
+                // we are going to create a copy of the "arn:aws:iam::aws:policy/AWSLambdaFullAccess" policy to ensure
+                // our mixins continue to work as expected
+                const lambdaFullAccessCopy = new iam.Policy(`${name}-LambdaFullAccess`, {
+                    policy: awsLambdaFullAccessPolicy,
+                }, opts)
+
+                const lambdaFullAccessCopyAttachment = new iam.RolePolicyAttachment("lambdaFullAccessCopyAttachment", {
+                    role: role,
+                    policyArn: lambdaFullAccessCopy.arn,
+                }, opts)
             }
 
-            for (const policy of args.policies) {
-                // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
-                // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-                // structural identity by using a name that includes the role name and policyArn.
-                const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
-                    role: role,
-                    policyArn: policy,
-                }, opts);
+            if (args.policies) {
+                for (const policy of args.policies) {
+                    // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
+                    // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+                    // structural identity by using a name that includes the role name and policyArn.
+                    const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
+                        role: role,
+                        policyArn: policy,
+                    }, opts);
+                }
             }
         }
 
@@ -367,6 +404,68 @@ async function computeCodePaths(
     }
 
     return codePaths;
+}
+
+const awsLambdaFullAccessPolicy: iam.PolicyDocument = {
+        Version: "2012-10-17",
+        Statement: [{
+            Effect: "Allow",
+            Action: [
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStackResources",
+                "cloudwatch:*",
+                "cognito-identity:ListIdentityPools",
+                "cognito-sync:GetCognitoEvents",
+                "cognito-sync:SetCognitoEvents",
+                "dynamodb:*",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "events:*",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListRolePolicies",
+                "iam:ListRoles",
+                "iam:PassRole",
+                "iot:AttachPrincipalPolicy",
+                "iot:AttachThingPrincipal",
+                "iot:CreateKeysAndCertificate",
+                "iot:CreatePolicy",
+                "iot:CreateThing",
+                "iot:CreateTopicRule",
+                "iot:DescribeEndpoint",
+                "iot:GetTopicRule",
+                "iot:ListPolicies",
+                "iot:ListThings",
+                "iot:ListTopicRules",
+                "iot:ReplaceTopicRule",
+                "kinesis:DescribeStream",
+                "kinesis:ListStreams",
+                "kinesis:PutRecord",
+                "kms:ListAliases",
+                "lambda:*",
+                "logs:*",
+                "s3:*",
+                "sns:ListSubscriptions",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics",
+                "sns:Publish",
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sqs:ListQueues",
+                "sqs:SendMessage",
+                "tag:GetResources",
+                "xray:PutTelemetryRecords",
+                "xray:PutTraceSegments",
+            ],
+            Resource: "*",
+        }],
 }
 
 const lambdaRolePolicy = {
