@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.25.0 (2021-01-22)
 * Update to v3.25.0 of the AWS Terraform Provider
 * Restrict the length of `aws.lb.TargetGroup` name to be 32 characters as per AWS API restriction.
 * Upgrade to Pulumi v2.18.0
@@ -13,8 +18,6 @@ CHANGELOG
   is set or if no iam.Policies are set to the CallbackFunction Pulumi will create an IAM Policy that replicates
   the now deprecated `AWSLambdaFullAccess` policy. This is needed to allow `aws.sqs.QueueEventSubscription` and 
   `aws.kinesis.StreamEventSubscription` to continue to function.
-
----
 
 ## 3.24.0 (2021-01-19)
 * Update to v3.24.1 of the AWS Terraform Provider
