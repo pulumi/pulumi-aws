@@ -457,7 +457,7 @@ class RuleGroupRuleGroup(dict):
                  rule_variables: Optional['outputs.RuleGroupRuleGroupRuleVariables'] = None):
         """
         :param 'RuleGroupRuleGroupRulesSourceArgs' rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-        :param 'RuleGroupRuleGroupRuleVariablesArgs' rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+        :param 'RuleGroupRuleGroupRuleVariablesArgs' rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         """
         pulumi.set(__self__, "rules_source", rules_source)
         if rule_variables is not None:
@@ -475,7 +475,7 @@ class RuleGroupRuleGroup(dict):
     @pulumi.getter(name="ruleVariables")
     def rule_variables(self) -> Optional['outputs.RuleGroupRuleGroupRuleVariables']:
         """
-        A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+        A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         """
         return pulumi.get(self, "rule_variables")
 

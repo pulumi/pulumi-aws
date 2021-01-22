@@ -1419,7 +1419,7 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
 }
 
 type RuleGroupRuleGroup struct {
-	// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables *RuleGroupRuleGroupRuleVariables `pulumi:"ruleVariables"`
 	// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
 	RulesSource RuleGroupRuleGroupRulesSource `pulumi:"rulesSource"`
@@ -1437,7 +1437,7 @@ type RuleGroupRuleGroupInput interface {
 }
 
 type RuleGroupRuleGroupArgs struct {
-	// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables RuleGroupRuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
 	// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
 	RulesSource RuleGroupRuleGroupRulesSourceInput `pulumi:"rulesSource"`
@@ -1520,7 +1520,7 @@ func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx c
 	}).(RuleGroupRuleGroupPtrOutput)
 }
 
-// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 func (o RuleGroupRuleGroupOutput) RuleVariables() RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleGroupRuleVariablesPtrOutput)
 }
@@ -1548,7 +1548,7 @@ func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroup) RuleGroupRuleGroup { return *v }).(RuleGroupRuleGroupOutput)
 }
 
-// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 func (o RuleGroupRuleGroupPtrOutput) RuleVariables() RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRuleGroupRuleVariables {
 		if v == nil {

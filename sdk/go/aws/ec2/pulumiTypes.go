@@ -25,12 +25,13 @@ type AmiCopyEbsBlockDevice struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -60,12 +61,13 @@ type AmiCopyEbsBlockDeviceArgs struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -149,6 +151,11 @@ func (o AmiCopyEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+func (o AmiCopyEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // The size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
@@ -156,8 +163,7 @@ func (o AmiCopyEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1", "io2" or "gp2".
+// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiCopyEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -306,12 +312,13 @@ type AmiEbsBlockDevice struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -341,12 +348,13 @@ type AmiEbsBlockDeviceArgs struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -430,6 +438,11 @@ func (o AmiEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+func (o AmiEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // The size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
@@ -437,8 +450,7 @@ func (o AmiEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1", "io2" or "gp2".
+// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -587,12 +599,13 @@ type AmiFromInstanceEbsBlockDevice struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -622,12 +635,13 @@ type AmiFromInstanceEbsBlockDeviceArgs struct {
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1", "io2" or "gp2".
+	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -711,6 +725,11 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+func (o AmiFromInstanceEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // The size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
@@ -718,8 +737,7 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1", "io2" or "gp2".
+// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

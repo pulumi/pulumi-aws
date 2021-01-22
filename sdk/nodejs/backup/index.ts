@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getPlan";
 export * from "./getSelection";
 export * from "./getVault";
+export * from "./globalSettings";
 export * from "./plan";
 export * from "./regionSettings";
 export * from "./selection";
@@ -16,6 +17,7 @@ export * from "./vaultNotifications";
 export * from "./vaultPolicy";
 
 // Import resources to register:
+import { GlobalSettings } from "./globalSettings";
 import { Plan } from "./plan";
 import { RegionSettings } from "./regionSettings";
 import { Selection } from "./selection";
@@ -27,6 +29,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:backup/globalSettings:GlobalSettings":
+                return new GlobalSettings(name, <any>undefined, { urn })
             case "aws:backup/plan:Plan":
                 return new Plan(name, <any>undefined, { urn })
             case "aws:backup/regionSettings:RegionSettings":
@@ -44,6 +48,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "backup/globalSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/plan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/regionSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/selection", _module)

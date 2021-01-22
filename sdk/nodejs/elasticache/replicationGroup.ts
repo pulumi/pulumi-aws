@@ -7,8 +7,10 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Replication Group resource.
- * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
- * `aws.elasticache.Cluster` resource.
+ *
+ * For working with a [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html) or a
+ * [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
+ * see the `aws.elasticache.Cluster` resource.
  *
  * > **Note:** When you change an attribute, such as `engineVersion`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
@@ -17,6 +19,11 @@ import * as utilities from "../utilities";
  * `applyImmediately` flag to instruct the service to apply the change
  * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
+ * See the AWS Documentation on
+ * [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
+ * for more information.
+ *
+ * > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
  *
  * > **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
  *
@@ -137,6 +144,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
+     * The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether to enable encryption at rest.
      */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -241,9 +252,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly securityGroupNames!: pulumi.Output<string[]>;
     /**
-     * A single-element string list containing an
-     * Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-     * Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+     * A list of
+     * Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      */
     public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
     /**
@@ -289,6 +299,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ReplicationGroupState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             inputs["authToken"] = state ? state.authToken : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
@@ -354,6 +365,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["clusterEnabled"] = undefined /*out*/;
             inputs["configurationEndpointAddress"] = undefined /*out*/;
             inputs["memberClusters"] = undefined /*out*/;
@@ -379,6 +391,10 @@ export interface ReplicationGroupState {
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Whether to enable encryption at rest.
      */
@@ -484,9 +500,8 @@ export interface ReplicationGroupState {
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A single-element string list containing an
-     * Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-     * Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+     * A list of
+     * Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      */
     readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -613,9 +628,8 @@ export interface ReplicationGroupArgs {
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A single-element string list containing an
-     * Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-     * Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+     * A list of
+     * Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      */
     readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

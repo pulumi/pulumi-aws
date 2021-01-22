@@ -342,7 +342,7 @@ class RestApiEndpointConfiguration(dict):
                  vpc_endpoint_ids: Optional[Sequence[str]] = None):
         """
         :param str types: A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
-        :param Sequence[str] vpc_endpoint_ids: A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        :param Sequence[str] vpc_endpoint_ids: Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         pulumi.set(__self__, "types", types)
         if vpc_endpoint_ids is not None:
@@ -360,7 +360,7 @@ class RestApiEndpointConfiguration(dict):
     @pulumi.getter(name="vpcEndpointIds")
     def vpc_endpoint_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "vpc_endpoint_ids")
 

@@ -144,6 +144,7 @@ class AmiCopyEbsBlockDeviceArgs:
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -156,11 +157,11 @@ class AmiCopyEbsBlockDeviceArgs:
         :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
+        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1", "io2" or "gp2".
+        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -172,6 +173,8 @@ class AmiCopyEbsBlockDeviceArgs:
             pulumi.set(__self__, "iops", iops)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -242,6 +245,18 @@ class AmiCopyEbsBlockDeviceArgs:
         pulumi.set(self, "snapshot_id", value)
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
@@ -259,8 +274,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1", "io2" or "gp2".
+        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -318,6 +332,7 @@ class AmiEbsBlockDeviceArgs:
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -330,11 +345,11 @@ class AmiEbsBlockDeviceArgs:
         :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
+        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1", "io2" or "gp2".
+        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -345,6 +360,8 @@ class AmiEbsBlockDeviceArgs:
             pulumi.set(__self__, "iops", iops)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -415,6 +432,18 @@ class AmiEbsBlockDeviceArgs:
         pulumi.set(self, "snapshot_id", value)
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
@@ -432,8 +461,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1", "io2" or "gp2".
+        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -489,6 +517,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -501,11 +530,11 @@ class AmiFromInstanceEbsBlockDeviceArgs:
         :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
+        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1", "io2" or "gp2".
+        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -517,6 +546,8 @@ class AmiFromInstanceEbsBlockDeviceArgs:
             pulumi.set(__self__, "iops", iops)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -587,6 +618,18 @@ class AmiFromInstanceEbsBlockDeviceArgs:
         pulumi.set(self, "snapshot_id", value)
 
     @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
@@ -604,8 +647,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1", "io2" or "gp2".
+        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 

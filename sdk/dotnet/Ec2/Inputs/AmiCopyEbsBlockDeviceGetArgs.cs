@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
+        /// The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// </summary>
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
+        /// <summary>
         /// The size of created volumes in GiB.
         /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         /// as the selected snapshot.
@@ -55,8 +61,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The type of EBS volume to create. Can be one of "standard" (the
-        /// default), "io1", "io2" or "gp2".
+        /// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

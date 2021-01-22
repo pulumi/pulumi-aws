@@ -118,6 +118,10 @@ export interface GetVolumeResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * The throughput that the volume supports, in MiB/s.
+     */
+    readonly throughput: number;
+    /**
      * The volume ID (e.g. vol-59fcb34e).
      */
     readonly volumeId: string;

@@ -21,7 +21,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetVolumeResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if throughput and not isinstance(throughput, int):
+            raise TypeError("Expected argument 'throughput' to be a int")
+        pulumi.set(__self__, "throughput", throughput)
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
         pulumi.set(__self__, "volume_id", volume_id)
@@ -167,6 +170,14 @@ class GetVolumeResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter
+    def throughput(self) -> int:
+        """
+        The throughput that the volume supports, in MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
@@ -202,6 +213,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             size=self.size,
             snapshot_id=self.snapshot_id,
             tags=self.tags,
+            throughput=self.throughput,
             volume_id=self.volume_id,
             volume_type=self.volume_type)
 
@@ -265,5 +277,6 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
         size=__ret__.size,
         snapshot_id=__ret__.snapshot_id,
         tags=__ret__.tags,
+        throughput=__ret__.throughput,
         volume_id=__ret__.volume_id,
         volume_type=__ret__.volume_type)

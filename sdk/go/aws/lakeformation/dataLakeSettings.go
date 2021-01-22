@@ -18,7 +18,7 @@ import (
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 
-	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins pulumi.StringArrayOutput `pulumi:"admins"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
@@ -59,7 +59,7 @@ func GetDataLakeSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataLakeSettings resources.
 type dataLakeSettingsState struct {
-	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins []string `pulumi:"admins"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -72,7 +72,7 @@ type dataLakeSettingsState struct {
 }
 
 type DataLakeSettingsState struct {
-	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput
@@ -89,7 +89,7 @@ func (DataLakeSettingsState) ElementType() reflect.Type {
 }
 
 type dataLakeSettingsArgs struct {
-	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins []string `pulumi:"admins"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -103,7 +103,7 @@ type dataLakeSettingsArgs struct {
 
 // The set of arguments for constructing a DataLakeSettings resource.
 type DataLakeSettingsArgs struct {
-	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput

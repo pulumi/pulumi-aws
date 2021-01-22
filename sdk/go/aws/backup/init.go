@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:backup/globalSettings:GlobalSettings":
+		r, err = NewGlobalSettings(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:backup/plan:Plan":
 		r, err = NewPlan(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:backup/regionSettings:RegionSettings":
@@ -45,6 +47,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/globalSettings",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"backup/plan",

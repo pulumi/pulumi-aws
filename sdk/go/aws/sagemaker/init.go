@@ -29,14 +29,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
 		r, err = NewEndpointConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:sagemaker/featureGroup:FeatureGroup":
+		r, err = NewFeatureGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/image:Image":
 		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:sagemaker/imageVersion:ImageVersion":
+		r, err = NewImageVersion(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/model:Model":
 		r, err = NewModel(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/notebookInstance:NotebookInstance":
 		r, err = NewNotebookInstance(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
 		r, err = NewNotebookInstanceLifecycleConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:sagemaker/userProfile:UserProfile":
+		r, err = NewUserProfile(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -71,7 +77,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"sagemaker/featureGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"sagemaker/image",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/imageVersion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -87,6 +103,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/notebookInstanceLifecycleConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/userProfile",
 		&module{version},
 	)
 }

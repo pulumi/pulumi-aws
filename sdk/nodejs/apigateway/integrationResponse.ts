@@ -121,7 +121,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly restApi!: pulumi.Output<string>;
     /**
      * Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
@@ -216,7 +216,7 @@ export interface IntegrationResponseState {
     readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
@@ -258,7 +258,7 @@ export interface IntegrationResponseArgs {
     readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */

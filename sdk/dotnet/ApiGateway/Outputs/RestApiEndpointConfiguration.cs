@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly string Types;
         /// <summary>
-        /// A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        /// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         public readonly ImmutableArray<string> VpcEndpointIds;
 

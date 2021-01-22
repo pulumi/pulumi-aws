@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *         "AWS": "*"
  *       },
  *       "Action": "execute-api:Invoke",
- *       "Resource": "${testRestApi.arn}",
+ *       "Resource": "${testRestApi.executionArn}",
  *       "Condition": {
  *         "IpAddress": {
  *           "aws:SourceIp": "123.123.123.123/32"

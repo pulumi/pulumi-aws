@@ -2203,6 +2203,893 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 	}).(EndpointConfigurationProductionVariantOutput)
 }
 
+type FeatureGroupFeatureDefinition struct {
+	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
+	FeatureName *string `pulumi:"featureName"`
+	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+	FeatureType *string `pulumi:"featureType"`
+}
+
+// FeatureGroupFeatureDefinitionInput is an input type that accepts FeatureGroupFeatureDefinitionArgs and FeatureGroupFeatureDefinitionOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionInput` via:
+//
+//          FeatureGroupFeatureDefinitionArgs{...}
+type FeatureGroupFeatureDefinitionInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput
+	ToFeatureGroupFeatureDefinitionOutputWithContext(context.Context) FeatureGroupFeatureDefinitionOutput
+}
+
+type FeatureGroupFeatureDefinitionArgs struct {
+	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
+	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+	FeatureType pulumi.StringPtrInput `pulumi:"featureType"`
+}
+
+func (FeatureGroupFeatureDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionArgs) ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput {
+	return i.ToFeatureGroupFeatureDefinitionOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionArgs) ToFeatureGroupFeatureDefinitionOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionOutput)
+}
+
+// FeatureGroupFeatureDefinitionArrayInput is an input type that accepts FeatureGroupFeatureDefinitionArray and FeatureGroupFeatureDefinitionArrayOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionArrayInput` via:
+//
+//          FeatureGroupFeatureDefinitionArray{ FeatureGroupFeatureDefinitionArgs{...} }
+type FeatureGroupFeatureDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput
+	ToFeatureGroupFeatureDefinitionArrayOutputWithContext(context.Context) FeatureGroupFeatureDefinitionArrayOutput
+}
+
+type FeatureGroupFeatureDefinitionArray []FeatureGroupFeatureDefinitionInput
+
+func (FeatureGroupFeatureDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionArray) ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput {
+	return i.ToFeatureGroupFeatureDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionArray) ToFeatureGroupFeatureDefinitionArrayOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionArrayOutput)
+}
+
+type FeatureGroupFeatureDefinitionOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionOutput {
+	return o
+}
+
+// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
+func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
+}
+
+// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+func (o FeatureGroupFeatureDefinitionOutput) FeatureType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.FeatureType }).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) ToFeatureGroupFeatureDefinitionArrayOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionArrayOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) FeatureGroupFeatureDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupFeatureDefinition {
+		return vs[0].([]FeatureGroupFeatureDefinition)[vs[1].(int)]
+	}).(FeatureGroupFeatureDefinitionOutput)
+}
+
+type FeatureGroupOfflineStoreConfig struct {
+	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+	DataCatalogConfig *FeatureGroupOfflineStoreConfigDataCatalogConfig `pulumi:"dataCatalogConfig"`
+	// Set to `true` to turn Online Store On.
+	DisableGlueTableCreation *bool `pulumi:"disableGlueTableCreation"`
+	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfig `pulumi:"s3StorageConfig"`
+}
+
+// FeatureGroupOfflineStoreConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigArgs and FeatureGroupOfflineStoreConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigInput` via:
+//
+//          FeatureGroupOfflineStoreConfigArgs{...}
+type FeatureGroupOfflineStoreConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigOutput() FeatureGroupOfflineStoreConfigOutput
+	ToFeatureGroupOfflineStoreConfigOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigOutput
+}
+
+type FeatureGroupOfflineStoreConfigArgs struct {
+	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+	DataCatalogConfig FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
+	// Set to `true` to turn Online Store On.
+	DisableGlueTableCreation pulumi.BoolPtrInput `pulumi:"disableGlueTableCreation"`
+	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfigInput `pulumi:"s3StorageConfig"`
+}
+
+func (FeatureGroupOfflineStoreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOfflineStoreConfigArgs) ToFeatureGroupOfflineStoreConfigOutput() FeatureGroupOfflineStoreConfigOutput {
+	return i.ToFeatureGroupOfflineStoreConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigArgs) ToFeatureGroupOfflineStoreConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigOutput)
+}
+
+func (i FeatureGroupOfflineStoreConfigArgs) ToFeatureGroupOfflineStoreConfigPtrOutput() FeatureGroupOfflineStoreConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigArgs) ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigOutput).ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOfflineStoreConfigPtrInput is an input type that accepts FeatureGroupOfflineStoreConfigArgs, FeatureGroupOfflineStoreConfigPtr and FeatureGroupOfflineStoreConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigPtrInput` via:
+//
+//          FeatureGroupOfflineStoreConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOfflineStoreConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigPtrOutput() FeatureGroupOfflineStoreConfigPtrOutput
+	ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigPtrOutput
+}
+
+type featureGroupOfflineStoreConfigPtrType FeatureGroupOfflineStoreConfigArgs
+
+func FeatureGroupOfflineStoreConfigPtr(v *FeatureGroupOfflineStoreConfigArgs) FeatureGroupOfflineStoreConfigPtrInput {
+	return (*featureGroupOfflineStoreConfigPtrType)(v)
+}
+
+func (*featureGroupOfflineStoreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOfflineStoreConfigPtrType) ToFeatureGroupOfflineStoreConfigPtrOutput() FeatureGroupOfflineStoreConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOfflineStoreConfigPtrType) ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigOutput() FeatureGroupOfflineStoreConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigPtrOutput() FeatureGroupOfflineStoreConfigPtrOutput {
+	return o.ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfig {
+		return &v
+	}).(FeatureGroupOfflineStoreConfigPtrOutput)
+}
+
+// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+func (o FeatureGroupOfflineStoreConfigOutput) DataCatalogConfig() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
+		return v.DataCatalogConfig
+	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
+}
+
+// Set to `true` to turn Online Store On.
+func (o FeatureGroupOfflineStoreConfigOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *bool { return v.DisableGlueTableCreation }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+func (o FeatureGroupOfflineStoreConfigOutput) S3StorageConfig() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) FeatureGroupOfflineStoreConfigS3StorageConfig {
+		return v.S3StorageConfig
+	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
+}
+
+type FeatureGroupOfflineStoreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigPtrOutput) ToFeatureGroupOfflineStoreConfigPtrOutput() FeatureGroupOfflineStoreConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigPtrOutput) ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) FeatureGroupOfflineStoreConfig { return *v }).(FeatureGroupOfflineStoreConfigOutput)
+}
+
+// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+func (o FeatureGroupOfflineStoreConfigPtrOutput) DataCatalogConfig() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DataCatalogConfig
+	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
+}
+
+// Set to `true` to turn Online Store On.
+func (o FeatureGroupOfflineStoreConfigPtrOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableGlueTableCreation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+func (o FeatureGroupOfflineStoreConfigPtrOutput) S3StorageConfig() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigS3StorageConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.S3StorageConfig
+	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigDataCatalogConfig struct {
+	// The name of the Glue table catalog.
+	Catalog *string `pulumi:"catalog"`
+	// The name of the Glue table database.
+	Database *string `pulumi:"database"`
+	// The name of the Glue table.
+	TableName *string `pulumi:"tableName"`
+}
+
+// FeatureGroupOfflineStoreConfigDataCatalogConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigDataCatalogConfigArgs and FeatureGroupOfflineStoreConfigDataCatalogConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigDataCatalogConfigInput` via:
+//
+//          FeatureGroupOfflineStoreConfigDataCatalogConfigArgs{...}
+type FeatureGroupOfflineStoreConfigDataCatalogConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigOutput
+	ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigOutput
+}
+
+type FeatureGroupOfflineStoreConfigDataCatalogConfigArgs struct {
+	// The name of the Glue table catalog.
+	Catalog pulumi.StringPtrInput `pulumi:"catalog"`
+	// The name of the Glue table database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// The name of the Glue table.
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+}
+
+func (FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfigDataCatalogConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
+	return i.ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput)
+}
+
+func (i FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput).ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput is an input type that accepts FeatureGroupOfflineStoreConfigDataCatalogConfigArgs, FeatureGroupOfflineStoreConfigDataCatalogConfigPtr and FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput` via:
+//
+//          FeatureGroupOfflineStoreConfigDataCatalogConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput
+	ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput
+}
+
+type featureGroupOfflineStoreConfigDataCatalogConfigPtrType FeatureGroupOfflineStoreConfigDataCatalogConfigArgs
+
+func FeatureGroupOfflineStoreConfigDataCatalogConfigPtr(v *FeatureGroupOfflineStoreConfigDataCatalogConfigArgs) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput {
+	return (*featureGroupOfflineStoreConfigDataCatalogConfigPtrType)(v)
+}
+
+func (*featureGroupOfflineStoreConfigDataCatalogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfigDataCatalogConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOfflineStoreConfigDataCatalogConfigPtrType) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOfflineStoreConfigDataCatalogConfigPtrType) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigDataCatalogConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfigDataCatalogConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o.ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
+		return &v
+	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
+}
+
+// The name of the Glue table catalog.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.Catalog }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Glue table database.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Glue table.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfigDataCatalogConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) FeatureGroupOfflineStoreConfigDataCatalogConfig {
+		return *v
+	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput)
+}
+
+// The name of the Glue table catalog.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Catalog
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Glue table database.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Glue table.
+func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigS3StorageConfig struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The S3 URI, or location in Amazon S3, of OfflineStore.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// FeatureGroupOfflineStoreConfigS3StorageConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigS3StorageConfigArgs and FeatureGroupOfflineStoreConfigS3StorageConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigS3StorageConfigInput` via:
+//
+//          FeatureGroupOfflineStoreConfigS3StorageConfigArgs{...}
+type FeatureGroupOfflineStoreConfigS3StorageConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigS3StorageConfigOutput() FeatureGroupOfflineStoreConfigS3StorageConfigOutput
+	ToFeatureGroupOfflineStoreConfigS3StorageConfigOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigOutput
+}
+
+type FeatureGroupOfflineStoreConfigS3StorageConfigArgs struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The S3 URI, or location in Amazon S3, of OfflineStore.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfigS3StorageConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ToFeatureGroupOfflineStoreConfigS3StorageConfigOutput() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return i.ToFeatureGroupOfflineStoreConfigS3StorageConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ToFeatureGroupOfflineStoreConfigS3StorageConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
+}
+
+func (i FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput).ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOfflineStoreConfigS3StorageConfigPtrInput is an input type that accepts FeatureGroupOfflineStoreConfigS3StorageConfigArgs, FeatureGroupOfflineStoreConfigS3StorageConfigPtr and FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOfflineStoreConfigS3StorageConfigPtrInput` via:
+//
+//          FeatureGroupOfflineStoreConfigS3StorageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOfflineStoreConfigS3StorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput
+	ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput
+}
+
+type featureGroupOfflineStoreConfigS3StorageConfigPtrType FeatureGroupOfflineStoreConfigS3StorageConfigArgs
+
+func FeatureGroupOfflineStoreConfigS3StorageConfigPtr(v *FeatureGroupOfflineStoreConfigS3StorageConfigArgs) FeatureGroupOfflineStoreConfigS3StorageConfigPtrInput {
+	return (*featureGroupOfflineStoreConfigS3StorageConfigPtrType)(v)
+}
+
+func (*featureGroupOfflineStoreConfigS3StorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfigS3StorageConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOfflineStoreConfigS3StorageConfigPtrType) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return i.ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOfflineStoreConfigS3StorageConfigPtrType) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
+}
+
+type FeatureGroupOfflineStoreConfigS3StorageConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOfflineStoreConfigS3StorageConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigOutput() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return o.ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *FeatureGroupOfflineStoreConfigS3StorageConfig {
+		return &v
+	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
+}
+
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The S3 URI, or location in Amazon S3, of OfflineStore.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOfflineStoreConfigS3StorageConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) FeatureGroupOfflineStoreConfigS3StorageConfig {
+		return *v
+	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
+}
+
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 URI, or location in Amazon S3, of OfflineStore.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfig struct {
+	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+	EnableOnlineStore *bool `pulumi:"enableOnlineStore"`
+	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+	SecurityConfig *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
+}
+
+// FeatureGroupOnlineStoreConfigInput is an input type that accepts FeatureGroupOnlineStoreConfigArgs and FeatureGroupOnlineStoreConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigInput` via:
+//
+//          FeatureGroupOnlineStoreConfigArgs{...}
+type FeatureGroupOnlineStoreConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigOutput() FeatureGroupOnlineStoreConfigOutput
+	ToFeatureGroupOnlineStoreConfigOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigOutput
+}
+
+type FeatureGroupOnlineStoreConfigArgs struct {
+	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+	EnableOnlineStore pulumi.BoolPtrInput `pulumi:"enableOnlineStore"`
+	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+	SecurityConfig FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
+}
+
+func (FeatureGroupOnlineStoreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOnlineStoreConfigArgs) ToFeatureGroupOnlineStoreConfigOutput() FeatureGroupOnlineStoreConfigOutput {
+	return i.ToFeatureGroupOnlineStoreConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigArgs) ToFeatureGroupOnlineStoreConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigOutput)
+}
+
+func (i FeatureGroupOnlineStoreConfigArgs) ToFeatureGroupOnlineStoreConfigPtrOutput() FeatureGroupOnlineStoreConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigArgs) ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigOutput).ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOnlineStoreConfigPtrInput is an input type that accepts FeatureGroupOnlineStoreConfigArgs, FeatureGroupOnlineStoreConfigPtr and FeatureGroupOnlineStoreConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigPtrInput` via:
+//
+//          FeatureGroupOnlineStoreConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOnlineStoreConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigPtrOutput() FeatureGroupOnlineStoreConfigPtrOutput
+	ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigPtrOutput
+}
+
+type featureGroupOnlineStoreConfigPtrType FeatureGroupOnlineStoreConfigArgs
+
+func FeatureGroupOnlineStoreConfigPtr(v *FeatureGroupOnlineStoreConfigArgs) FeatureGroupOnlineStoreConfigPtrInput {
+	return (*featureGroupOnlineStoreConfigPtrType)(v)
+}
+
+func (*featureGroupOnlineStoreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOnlineStoreConfigPtrType) ToFeatureGroupOnlineStoreConfigPtrOutput() FeatureGroupOnlineStoreConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOnlineStoreConfigPtrType) ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigOutput() FeatureGroupOnlineStoreConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrOutput() FeatureGroupOnlineStoreConfigPtrOutput {
+	return o.ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfig {
+		return &v
+	}).(FeatureGroupOnlineStoreConfigPtrOutput)
+}
+
+// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+func (o FeatureGroupOnlineStoreConfigOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *bool { return v.EnableOnlineStore }).(pulumi.BoolPtrOutput)
+}
+
+// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+func (o FeatureGroupOnlineStoreConfigOutput) SecurityConfig() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
+		return v.SecurityConfig
+	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigPtrOutput) ToFeatureGroupOnlineStoreConfigPtrOutput() FeatureGroupOnlineStoreConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigPtrOutput) ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigPtrOutput) Elem() FeatureGroupOnlineStoreConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) FeatureGroupOnlineStoreConfig { return *v }).(FeatureGroupOnlineStoreConfigOutput)
+}
+
+// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+func (o FeatureGroupOnlineStoreConfigPtrOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableOnlineStore
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+func (o FeatureGroupOnlineStoreConfigPtrOutput) SecurityConfig() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityConfig
+	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigSecurityConfig struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// FeatureGroupOnlineStoreConfigSecurityConfigInput is an input type that accepts FeatureGroupOnlineStoreConfigSecurityConfigArgs and FeatureGroupOnlineStoreConfigSecurityConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigSecurityConfigInput` via:
+//
+//          FeatureGroupOnlineStoreConfigSecurityConfigArgs{...}
+type FeatureGroupOnlineStoreConfigSecurityConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigSecurityConfigOutput() FeatureGroupOnlineStoreConfigSecurityConfigOutput
+	ToFeatureGroupOnlineStoreConfigSecurityConfigOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigSecurityConfigOutput
+}
+
+type FeatureGroupOnlineStoreConfigSecurityConfigArgs struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (FeatureGroupOnlineStoreConfigSecurityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfigSecurityConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOnlineStoreConfigSecurityConfigArgs) ToFeatureGroupOnlineStoreConfigSecurityConfigOutput() FeatureGroupOnlineStoreConfigSecurityConfigOutput {
+	return i.ToFeatureGroupOnlineStoreConfigSecurityConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigSecurityConfigArgs) ToFeatureGroupOnlineStoreConfigSecurityConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigSecurityConfigOutput)
+}
+
+func (i FeatureGroupOnlineStoreConfigSecurityConfigArgs) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutput() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigSecurityConfigArgs) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigSecurityConfigOutput).ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOnlineStoreConfigSecurityConfigPtrInput is an input type that accepts FeatureGroupOnlineStoreConfigSecurityConfigArgs, FeatureGroupOnlineStoreConfigSecurityConfigPtr and FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigSecurityConfigPtrInput` via:
+//
+//          FeatureGroupOnlineStoreConfigSecurityConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOnlineStoreConfigSecurityConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutput() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput
+	ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput
+}
+
+type featureGroupOnlineStoreConfigSecurityConfigPtrType FeatureGroupOnlineStoreConfigSecurityConfigArgs
+
+func FeatureGroupOnlineStoreConfigSecurityConfigPtr(v *FeatureGroupOnlineStoreConfigSecurityConfigArgs) FeatureGroupOnlineStoreConfigSecurityConfigPtrInput {
+	return (*featureGroupOnlineStoreConfigSecurityConfigPtrType)(v)
+}
+
+func (*featureGroupOnlineStoreConfigSecurityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfigSecurityConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOnlineStoreConfigSecurityConfigPtrType) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutput() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOnlineStoreConfigSecurityConfigPtrType) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigSecurityConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigSecurityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfigSecurityConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigOutput() FeatureGroupOnlineStoreConfigSecurityConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutput() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o.ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigSecurityConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
+		return &v
+	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
+}
+
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigSecurityConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfigSecurityConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutput() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) Elem() FeatureGroupOnlineStoreConfigSecurityConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigSecurityConfig) FeatureGroupOnlineStoreConfigSecurityConfig {
+		return *v
+	}).(FeatureGroupOnlineStoreConfigSecurityConfigOutput)
+}
+
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigSecurityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModelContainer struct {
 	// The DNS host name for the container.
 	ContainerHostname *string `pulumi:"containerHostname"`
@@ -2981,6 +3868,1416 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type UserProfileUserSettings struct {
+	// The execution role ARN for the user.
+	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	JupyterServerAppSettings *UserProfileUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	KernelGatewayAppSettings *UserProfileUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// The security groups.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings *UserProfileUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings *UserProfileUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
+}
+
+// UserProfileUserSettingsInput is an input type that accepts UserProfileUserSettingsArgs and UserProfileUserSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsInput` via:
+//
+//          UserProfileUserSettingsArgs{...}
+type UserProfileUserSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput
+	ToUserProfileUserSettingsOutputWithContext(context.Context) UserProfileUserSettingsOutput
+}
+
+type UserProfileUserSettingsArgs struct {
+	// The execution role ARN for the user.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	JupyterServerAppSettings UserProfileUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	KernelGatewayAppSettings UserProfileUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// The security groups.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings UserProfileUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings UserProfileUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
+}
+
+func (UserProfileUserSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput {
+	return i.ToUserProfileUserSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsOutput)
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsOutput).ToUserProfileUserSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsPtrInput is an input type that accepts UserProfileUserSettingsArgs, UserProfileUserSettingsPtr and UserProfileUserSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput
+	ToUserProfileUserSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsPtrOutput
+}
+
+type userProfileUserSettingsPtrType UserProfileUserSettingsArgs
+
+func UserProfileUserSettingsPtr(v *UserProfileUserSettingsArgs) UserProfileUserSettingsPtrInput {
+	return (*userProfileUserSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsPtrType) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsPtrType) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettings {
+		return &v
+	}).(UserProfileUserSettingsPtrOutput)
+}
+
+// The execution role ARN for the user.
+func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
+func (o UserProfileUserSettingsOutput) JupyterServerAppSettings() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsJupyterServerAppSettings {
+		return v.JupyterServerAppSettings
+	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
+func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
+		return v.KernelGatewayAppSettings
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups.
+func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The sharing settings. See Sharing Settings below.
+func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsSharingSettings { return v.SharingSettings }).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+// The TensorBoard app settings. See TensorBoard App Settings below.
+func (o UserProfileUserSettingsOutput) TensorBoardAppSettings() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsTensorBoardAppSettings {
+		return v.TensorBoardAppSettings
+	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsPtrOutput) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsPtrOutput) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) UserProfileUserSettings { return *v }).(UserProfileUserSettingsOutput)
+}
+
+// The execution role ARN for the user.
+func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
+func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
+func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups.
+func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The sharing settings. See Sharing Settings below.
+func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsSharingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SharingSettings
+	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+// The TensorBoard app settings. See TensorBoard App Settings below.
+func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsTensorBoardAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TensorBoardAppSettings
+	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileUserSettingsJupyterServerAppSettingsInput is an input type that accepts UserProfileUserSettingsJupyterServerAppSettingsArgs and UserProfileUserSettingsJupyterServerAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterServerAppSettingsInput` via:
+//
+//          UserProfileUserSettingsJupyterServerAppSettingsArgs{...}
+type UserProfileUserSettingsJupyterServerAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterServerAppSettingsOutput() UserProfileUserSettingsJupyterServerAppSettingsOutput
+	ToUserProfileUserSettingsJupyterServerAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsJupyterServerAppSettingsOutput
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileUserSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsArgs) ToUserProfileUserSettingsJupyterServerAppSettingsOutput() UserProfileUserSettingsJupyterServerAppSettingsOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsArgs) ToUserProfileUserSettingsJupyterServerAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsArgs) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsArgs) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsOutput).ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterServerAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsJupyterServerAppSettingsArgs, UserProfileUserSettingsJupyterServerAppSettingsPtr and UserProfileUserSettingsJupyterServerAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterServerAppSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsJupyterServerAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsJupyterServerAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput
+	ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsJupyterServerAppSettingsPtrType UserProfileUserSettingsJupyterServerAppSettingsArgs
+
+func UserProfileUserSettingsJupyterServerAppSettingsPtr(v *UserProfileUserSettingsJupyterServerAppSettingsArgs) UserProfileUserSettingsJupyterServerAppSettingsPtrInput {
+	return (*userProfileUserSettingsJupyterServerAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterServerAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterServerAppSettingsPtrType) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterServerAppSettingsPtrType) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterServerAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUserSettingsJupyterServerAppSettingsOutput() UserProfileUserSettingsJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUserSettingsJupyterServerAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettings {
+		return &v
+	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) Elem() UserProfileUserSettingsJupyterServerAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) UserProfileUserSettingsJupyterServerAppSettings {
+		return *v
+	}).(UserProfileUserSettingsJupyterServerAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput` via:
+//
+//          UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+		return *v
+	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsArgs and UserProfileUserSettingsKernelGatewayAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsArgs{...}
+type UserProfileUserSettingsKernelGatewayAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsOutput() UserProfileUserSettingsKernelGatewayAppSettingsOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsOutput
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsOutput() UserProfileUserSettingsKernelGatewayAppSettingsOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsOutput).ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsArgs, UserProfileUserSettingsKernelGatewayAppSettingsPtr and UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsKernelGatewayAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsKernelGatewayAppSettingsPtrType UserProfileUserSettingsKernelGatewayAppSettingsArgs
+
+func UserProfileUserSettingsKernelGatewayAppSettingsPtr(v *UserProfileUserSettingsKernelGatewayAppSettingsArgs) UserProfileUserSettingsKernelGatewayAppSettingsPtrInput {
+	return (*userProfileUserSettingsKernelGatewayAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsKernelGatewayAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsKernelGatewayAppSettingsPtrType) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsKernelGatewayAppSettingsPtrType) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsOutput() UserProfileUserSettingsKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
+		return &v
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) CustomImages() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
+		return v.CustomImages
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() UserProfileUserSettingsKernelGatewayAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) UserProfileUserSettingsKernelGatewayAppSettings {
+		return *v
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs and UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs{...}
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput)
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray and UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray{ UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs{...} }
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray []UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsKernelGatewayAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
+		return vs[0].([]UserProfileUserSettingsKernelGatewayAppSettingsCustomImage)[vs[1].(int)]
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+		return *v
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsSharingSettings struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// UserProfileUserSettingsSharingSettingsInput is an input type that accepts UserProfileUserSettingsSharingSettingsArgs and UserProfileUserSettingsSharingSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSharingSettingsInput` via:
+//
+//          UserProfileUserSettingsSharingSettingsArgs{...}
+type UserProfileUserSettingsSharingSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSharingSettingsOutput() UserProfileUserSettingsSharingSettingsOutput
+	ToUserProfileUserSettingsSharingSettingsOutputWithContext(context.Context) UserProfileUserSettingsSharingSettingsOutput
+}
+
+type UserProfileUserSettingsSharingSettingsArgs struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (UserProfileUserSettingsSharingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsSharingSettingsArgs) ToUserProfileUserSettingsSharingSettingsOutput() UserProfileUserSettingsSharingSettingsOutput {
+	return i.ToUserProfileUserSettingsSharingSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSharingSettingsArgs) ToUserProfileUserSettingsSharingSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSharingSettingsOutput)
+}
+
+func (i UserProfileUserSettingsSharingSettingsArgs) ToUserProfileUserSettingsSharingSettingsPtrOutput() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSharingSettingsArgs) ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSharingSettingsOutput).ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsSharingSettingsPtrInput is an input type that accepts UserProfileUserSettingsSharingSettingsArgs, UserProfileUserSettingsSharingSettingsPtr and UserProfileUserSettingsSharingSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSharingSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsSharingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsSharingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSharingSettingsPtrOutput() UserProfileUserSettingsSharingSettingsPtrOutput
+	ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsSharingSettingsPtrOutput
+}
+
+type userProfileUserSettingsSharingSettingsPtrType UserProfileUserSettingsSharingSettingsArgs
+
+func UserProfileUserSettingsSharingSettingsPtr(v *UserProfileUserSettingsSharingSettingsArgs) UserProfileUserSettingsSharingSettingsPtrInput {
+	return (*userProfileUserSettingsSharingSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsSharingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsSharingSettingsPtrType) ToUserProfileUserSettingsSharingSettingsPtrOutput() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsSharingSettingsPtrType) ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsSharingSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSharingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsSharingSettingsOutput() UserProfileUserSettingsSharingSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsSharingSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsSharingSettingsPtrOutput() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *UserProfileUserSettingsSharingSettings {
+		return &v
+	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+func (o UserProfileUserSettingsSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+func (o UserProfileUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+func (o UserProfileUserSettingsSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsSharingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSharingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSharingSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) ToUserProfileUserSettingsSharingSettingsPtrOutput() UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) Elem() UserProfileUserSettingsSharingSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) UserProfileUserSettingsSharingSettings { return *v }).(UserProfileUserSettingsSharingSettingsOutput)
+}
+
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotebookOutputOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileUserSettingsTensorBoardAppSettingsInput is an input type that accepts UserProfileUserSettingsTensorBoardAppSettingsArgs and UserProfileUserSettingsTensorBoardAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsTensorBoardAppSettingsInput` via:
+//
+//          UserProfileUserSettingsTensorBoardAppSettingsArgs{...}
+type UserProfileUserSettingsTensorBoardAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsTensorBoardAppSettingsOutput() UserProfileUserSettingsTensorBoardAppSettingsOutput
+	ToUserProfileUserSettingsTensorBoardAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsTensorBoardAppSettingsOutput
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileUserSettingsTensorBoardAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsArgs) ToUserProfileUserSettingsTensorBoardAppSettingsOutput() UserProfileUserSettingsTensorBoardAppSettingsOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsArgs) ToUserProfileUserSettingsTensorBoardAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsArgs) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsArgs) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsOutput).ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsTensorBoardAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsTensorBoardAppSettingsArgs, UserProfileUserSettingsTensorBoardAppSettingsPtr and UserProfileUserSettingsTensorBoardAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsTensorBoardAppSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsTensorBoardAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsTensorBoardAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput
+	ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsTensorBoardAppSettingsPtrType UserProfileUserSettingsTensorBoardAppSettingsArgs
+
+func UserProfileUserSettingsTensorBoardAppSettingsPtr(v *UserProfileUserSettingsTensorBoardAppSettingsArgs) UserProfileUserSettingsTensorBoardAppSettingsPtrInput {
+	return (*userProfileUserSettingsTensorBoardAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsTensorBoardAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsTensorBoardAppSettingsPtrType) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsTensorBoardAppSettingsPtrType) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsTensorBoardAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSettingsTensorBoardAppSettingsOutput() UserProfileUserSettingsTensorBoardAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSettingsTensorBoardAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettings {
+		return &v
+	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsTensorBoardAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) Elem() UserProfileUserSettingsTensorBoardAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettings) UserProfileUserSettingsTensorBoardAppSettings {
+		return *v
+	}).(UserProfileUserSettingsTensorBoardAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput` via:
+//
+//          UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//          UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+		return *v
+	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
@@ -3010,6 +5307,18 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigS3StorageConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
@@ -3020,4 +5329,22 @@ func init() {
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
 }

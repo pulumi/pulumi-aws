@@ -17,13 +17,13 @@ package provider
 import (
 	"errors"
 	"fmt"
-	"github.com/blang/semver"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
 	"unicode"
 
+	"github.com/blang/semver"
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v3/pkg/version"
@@ -607,6 +607,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_backup_vault_notifications": {Tok: awsResource(backupMod, "VaultNotifications")},
 			"aws_backup_vault_policy":        {Tok: awsResource(backupMod, "VaultPolicy")},
 			"aws_backup_region_settings":     {Tok: awsResource(backupMod, "RegionSettings")},
+			"aws_backup_global_settings": {
+				Tok: awsResource(backupMod, "GlobalSettings"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"global_settings": {
+						CSharpName: "GlobalSettingsList",
+					},
+				},
+			},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -919,6 +927,9 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_id": tfbridge.AutoNameTransform("clusterId", 50, func(name string) string {
 						return strings.ToLower(name)
 					}),
+					"snapshot_arns": {
+						MaxItemsOne: boolRef(false),
+					},
 				},
 			},
 			"aws_elasticache_parameter_group": {
@@ -1958,6 +1969,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_code_repository":        {Tok: awsResource(sagemakerMod, "CodeRepository")},
 			"aws_sagemaker_image":                  {Tok: awsResource(sagemakerMod, "Image")},
 			"aws_sagemaker_domain":                 {Tok: awsResource(sagemakerMod, "Domain")},
+			"aws_sagemaker_feature_group":          {Tok: awsResource(sagemakerMod, "FeatureGroup")},
+			"aws_sagemaker_image_version":          {Tok: awsResource(sagemakerMod, "ImageVersion")},
+			"aws_sagemaker_user_profile":           {Tok: awsResource(sagemakerMod, "UserProfile")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -4043,7 +4057,12 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("aws_lb_listener_rule", awsResource(legacyElbv2Mod, "ListenerRule"),
 		awsResource(lbMod, "ListenerRule"), legacyElbv2Mod, lbMod, nil)
 	prov.RenameResourceWithAlias("aws_lb_target_group", awsResource(legacyElbv2Mod, "TargetGroup"),
-		awsResource(lbMod, "TargetGroup"), legacyElbv2Mod, lbMod, nil)
+		awsResource(lbMod, "TargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
+				"name": tfbridge.AutoName("name", 63, "-"),
+			},
+		})
 	prov.RenameResourceWithAlias("aws_lb_target_group_attachment",
 		awsResource(legacyElbv2Mod, "TargetGroupAttachment"), awsResource(lbMod, "TargetGroupAttachment"),
 		legacyElbv2Mod, lbMod, nil)

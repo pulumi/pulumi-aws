@@ -19,7 +19,10 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if auth_token_enabled and not isinstance(auth_token_enabled, bool):
             raise TypeError("Expected argument 'auth_token_enabled' to be a bool")
         pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
@@ -62,6 +65,14 @@ class GetReplicationGroupResult:
         if snapshot_window and not isinstance(snapshot_window, str):
             raise TypeError("Expected argument 'snapshot_window' to be a str")
         pulumi.set(__self__, "snapshot_window", snapshot_window)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authTokenEnabled")
@@ -154,9 +165,6 @@ class GetReplicationGroupResult:
     @property
     @pulumi.getter(name="replicationGroupId")
     def replication_group_id(self) -> str:
-        """
-        The identifier for the replication group.
-        """
         return pulumi.get(self, "replication_group_id")
 
     @property
@@ -182,6 +190,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
         if False:
             yield self
         return GetReplicationGroupResult(
+            arn=self.arn,
             auth_token_enabled=self.auth_token_enabled,
             automatic_failover_enabled=self.automatic_failover_enabled,
             configuration_endpoint_address=self.configuration_endpoint_address,
@@ -224,6 +233,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult).value
 
     return AwaitableGetReplicationGroupResult(
+        arn=__ret__.arn,
         auth_token_enabled=__ret__.auth_token_enabled,
         automatic_failover_enabled=__ret__.automatic_failover_enabled,
         configuration_endpoint_address=__ret__.configuration_endpoint_address,

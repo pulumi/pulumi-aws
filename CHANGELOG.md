@@ -2,6 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Update to v3.25.0 of the AWS Terraform Provider
+* Restrict the length of `aws.lb.TargetGroup` name to be 32 characters as per AWS API restriction.
 * Upgrade to Pulumi v2.18.0
   * This introduces package/module registration for Go SDK.
 * Update auto-naming rules for RDS Cluster `clusterIdentifier` to follow specifications.

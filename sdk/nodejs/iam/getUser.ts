@@ -30,6 +30,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
+        "tags": args.tags,
         "userName": args.userName,
     }, opts);
 }
@@ -38,6 +39,10 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * Map of key-value pairs associated with the user.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * The friendly IAM user name to match.
      */
@@ -64,6 +69,10 @@ export interface GetUserResult {
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
     readonly permissionsBoundary: string;
+    /**
+     * Map of key-value pairs associated with the user.
+     */
+    readonly tags: {[key: string]: string};
     /**
      * The unique ID assigned by AWS for this user.
      */

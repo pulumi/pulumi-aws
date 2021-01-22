@@ -60,6 +60,10 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetReplicationGroupResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// A flag that enables using an AuthToken (password) when issuing Redis commands.
         /// </summary>
         public readonly bool AuthTokenEnabled;
@@ -103,9 +107,6 @@ namespace Pulumi.Aws.ElastiCache
         /// The description of the replication group.
         /// </summary>
         public readonly string ReplicationGroupDescription;
-        /// <summary>
-        /// The identifier for the replication group.
-        /// </summary>
         public readonly string ReplicationGroupId;
         /// <summary>
         /// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
@@ -118,6 +119,8 @@ namespace Pulumi.Aws.ElastiCache
 
         [OutputConstructor]
         private GetReplicationGroupResult(
+            string arn,
+
             bool authTokenEnabled,
 
             bool automaticFailoverEnabled,
@@ -146,6 +149,7 @@ namespace Pulumi.Aws.ElastiCache
 
             string snapshotWindow)
         {
+            Arn = arn;
             AuthTokenEnabled = authTokenEnabled;
             AutomaticFailoverEnabled = automaticFailoverEnabled;
             ConfigurationEndpointAddress = configurationEndpointAddress;

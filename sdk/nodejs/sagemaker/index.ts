@@ -9,21 +9,27 @@ export * from "./codeRepository";
 export * from "./domain";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
+export * from "./featureGroup";
 export * from "./getPrebuiltEcrImage";
 export * from "./image";
+export * from "./imageVersion";
 export * from "./model";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
+export * from "./userProfile";
 
 // Import resources to register:
 import { CodeRepository } from "./codeRepository";
 import { Domain } from "./domain";
 import { Endpoint } from "./endpoint";
 import { EndpointConfiguration } from "./endpointConfiguration";
+import { FeatureGroup } from "./featureGroup";
 import { Image } from "./image";
+import { ImageVersion } from "./imageVersion";
 import { Model } from "./model";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
+import { UserProfile } from "./userProfile";
 
 const _module = {
     version: utilities.getVersion(),
@@ -37,14 +43,20 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
                 return new EndpointConfiguration(name, <any>undefined, { urn })
+            case "aws:sagemaker/featureGroup:FeatureGroup":
+                return new FeatureGroup(name, <any>undefined, { urn })
             case "aws:sagemaker/image:Image":
                 return new Image(name, <any>undefined, { urn })
+            case "aws:sagemaker/imageVersion:ImageVersion":
+                return new ImageVersion(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
                 return new Model(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstance:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
                 return new NotebookInstanceLifecycleConfiguration(name, <any>undefined, { urn })
+            case "aws:sagemaker/userProfile:UserProfile":
+                return new UserProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -54,7 +66,10 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module
 pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)

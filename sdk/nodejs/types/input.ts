@@ -1030,7 +1030,7 @@ export namespace apigateway {
          */
         types: pulumi.Input<string>;
         /**
-         * A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+         * Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          */
         vpcEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6947,14 +6947,17 @@ export namespace ec2 {
          */
         snapshotId?: pulumi.Input<string>;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput?: pulumi.Input<number>;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -6997,14 +7000,17 @@ export namespace ec2 {
          */
         snapshotId?: pulumi.Input<string>;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput?: pulumi.Input<number>;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -7047,14 +7053,17 @@ export namespace ec2 {
          */
         snapshotId?: pulumi.Input<string>;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput?: pulumi.Input<number>;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -9618,12 +9627,12 @@ export namespace elasticache {
     export interface ClusterCacheNode {
         address?: pulumi.Input<string>;
         /**
-         * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
+         * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
          */
         availabilityZone?: pulumi.Input<string>;
         id?: pulumi.Input<string>;
         /**
-         * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
+         * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
          */
         port?: pulumi.Input<number>;
     }
@@ -16740,7 +16749,7 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroup {
         /**
-         * A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+         * A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
          */
         ruleVariables?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRuleVariables>;
         /**
@@ -18834,6 +18843,76 @@ export namespace sagemaker {
         variantName?: pulumi.Input<string>;
     }
 
+    export interface FeatureGroupFeatureDefinition {
+        /**
+         * The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
+         */
+        featureName?: pulumi.Input<string>;
+        /**
+         * The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+         */
+        featureType?: pulumi.Input<string>;
+    }
+
+    export interface FeatureGroupOfflineStoreConfig {
+        /**
+         * The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+         */
+        dataCatalogConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig>;
+        /**
+         * Set to `true` to turn Online Store On.
+         */
+        disableGlueTableCreation?: pulumi.Input<boolean>;
+        /**
+         * The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+         */
+        s3StorageConfig: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfigS3StorageConfig>;
+    }
+
+    export interface FeatureGroupOfflineStoreConfigDataCatalogConfig {
+        /**
+         * The name of the Glue table catalog.
+         */
+        catalog?: pulumi.Input<string>;
+        /**
+         * The name of the Glue table database.
+         */
+        database?: pulumi.Input<string>;
+        /**
+         * The name of the Glue table.
+         */
+        tableName?: pulumi.Input<string>;
+    }
+
+    export interface FeatureGroupOfflineStoreConfigS3StorageConfig {
+        /**
+         * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The S3 URI, or location in Amazon S3, of OfflineStore.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface FeatureGroupOnlineStoreConfig {
+        /**
+         * Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+         */
+        enableOnlineStore?: pulumi.Input<boolean>;
+        /**
+         * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+         */
+        securityConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfigSecurityConfig>;
+    }
+
+    export interface FeatureGroupOnlineStoreConfigSecurityConfig {
+        /**
+         * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
     export interface ModelContainer {
         /**
          * The DNS host name for the container.
@@ -18907,6 +18986,121 @@ export namespace sagemaker {
     export interface ModelVpcConfig {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface UserProfileUserSettings {
+        /**
+         * The execution role ARN for the user.
+         */
+        executionRole: pulumi.Input<string>;
+        /**
+         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         */
+        jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettings>;
+        /**
+         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         */
+        kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettings>;
+        /**
+         * The security groups.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The sharing settings. See Sharing Settings below.
+         */
+        sharingSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsSharingSettings>;
+        /**
+         * The TensorBoard app settings. See TensorBoard App Settings below.
+         */
+        tensorBoardAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettings>;
+    }
+
+    export interface UserProfileUserSettingsJupyterServerAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: pulumi.Input<string>;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsSharingSettings {
+        /**
+         * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+         */
+        notebookOutputOption?: pulumi.Input<string>;
+        /**
+         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: pulumi.Input<string>;
+        /**
+         * When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+         */
+        s3OutputPath?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsTensorBoardAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
     }
 }
 

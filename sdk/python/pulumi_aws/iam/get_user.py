@@ -19,7 +19,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, arn=None, id=None, path=None, permissions_boundary=None, user_id=None, user_name=None):
+    def __init__(__self__, arn=None, id=None, path=None, permissions_boundary=None, tags=None, user_id=None, user_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +32,9 @@ class GetUserResult:
         if permissions_boundary and not isinstance(permissions_boundary, str):
             raise TypeError("Expected argument 'permissions_boundary' to be a str")
         pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")
         pulumi.set(__self__, "user_id", user_id)
@@ -72,6 +75,14 @@ class GetUserResult:
         return pulumi.get(self, "permissions_boundary")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of key-value pairs associated with the user.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
@@ -98,11 +109,13 @@ class AwaitableGetUserResult(GetUserResult):
             id=self.id,
             path=self.path,
             permissions_boundary=self.permissions_boundary,
+            tags=self.tags,
             user_id=self.user_id,
             user_name=self.user_name)
 
 
-def get_user(user_name: Optional[str] = None,
+def get_user(tags: Optional[Mapping[str, str]] = None,
+             user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     This data source can be used to fetch information about a specific
@@ -119,9 +132,11 @@ def get_user(user_name: Optional[str] = None,
     ```
 
 
+    :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
     :param str user_name: The friendly IAM user name to match.
     """
     __args__ = dict()
+    __args__['tags'] = tags
     __args__['userName'] = user_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -134,5 +149,6 @@ def get_user(user_name: Optional[str] = None,
         id=__ret__.id,
         path=__ret__.path,
         permissions_boundary=__ret__.permissions_boundary,
+        tags=__ret__.tags,
         user_id=__ret__.user_id,
         user_name=__ret__.user_name)

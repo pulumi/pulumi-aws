@@ -12,6 +12,73 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides an RDS DB proxy target resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new Aws.Rds.ProxyArgs
+    ///         {
+    ///             DebugLogging = false,
+    ///             EngineFamily = "MYSQL",
+    ///             IdleClientTimeout = 1800,
+    ///             RequireTls = true,
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             VpcSecurityGroupIds = 
+    ///             {
+    ///                 aws_security_group.Example.Id,
+    ///             },
+    ///             VpcSubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             Auths = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.ProxyAuthArgs
+    ///                 {
+    ///                     AuthScheme = "SECRETS",
+    ///                     Description = "example",
+    ///                     IamAuth = "DISABLED",
+    ///                     SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example" },
+    ///                 { "Key", "value" },
+    ///             },
+    ///         });
+    ///         var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new Aws.Rds.ProxyDefaultTargetGroupArgs
+    ///         {
+    ///             DbProxyName = exampleProxy.Name,
+    ///             ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
+    ///             {
+    ///                 ConnectionBorrowTimeout = 120,
+    ///                 InitQuery = "SET x=1, y=2",
+    ///                 MaxConnectionsPercent = 100,
+    ///                 MaxIdleConnectionsPercent = 50,
+    ///                 SessionPinningFilters = 
+    ///                 {
+    ///                     "EXCLUDE_VARIABLE_SETS",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new Aws.Rds.ProxyTargetArgs
+    ///         {
+    ///             DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///             DbProxyName = exampleProxy.Name,
+    ///             TargetGroupName = exampleProxyDefaultTargetGroup.DbProxyName,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances

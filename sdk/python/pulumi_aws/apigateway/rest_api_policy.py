@@ -35,7 +35,7 @@ class RestApiPolicy(pulumi.CustomResource):
         test_rest_api = aws.apigateway.RestApi("testRestApi")
         test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
             rest_api_id=test_rest_api.id,
-            policy=test_rest_api.arn.apply(lambda arn: f\"\"\"{{
+            policy=test_rest_api.execution_arn.apply(lambda execution_arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -44,7 +44,7 @@ class RestApiPolicy(pulumi.CustomResource):
                 "AWS": "*"
               }},
               "Action": "execute-api:Invoke",
-              "Resource": "{arn}",
+              "Resource": "{execution_arn}",
               "Condition": {{
                 "IpAddress": {{
                   "aws:SourceIp": "123.123.123.123/32"

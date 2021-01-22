@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

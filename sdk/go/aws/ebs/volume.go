@@ -58,7 +58,7 @@ type Volume struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -72,7 +72,9 @@ type Volume struct {
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -114,7 +116,7 @@ type volumeState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -128,7 +130,9 @@ type volumeState struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
+	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
 }
 
@@ -139,7 +143,7 @@ type VolumeState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
-	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
@@ -153,7 +157,9 @@ type VolumeState struct {
 	SnapshotId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	Throughput pulumi.IntPtrInput
+	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
 }
 
@@ -166,7 +172,7 @@ type volumeArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -180,7 +186,9 @@ type volumeArgs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	Throughput *int `pulumi:"throughput"`
+	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
 }
 
@@ -190,7 +198,7 @@ type VolumeArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
-	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
@@ -204,7 +212,9 @@ type VolumeArgs struct {
 	SnapshotId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	Throughput pulumi.IntPtrInput
+	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
 }
 

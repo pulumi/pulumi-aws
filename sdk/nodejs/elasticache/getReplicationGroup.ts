@@ -47,6 +47,10 @@ export interface GetReplicationGroupArgs {
  */
 export interface GetReplicationGroupResult {
     /**
+     * The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     */
+    readonly arn: string;
+    /**
      * A flag that enables using an AuthToken (password) when issuing Redis commands.
      */
     readonly authTokenEnabled: boolean;
@@ -90,9 +94,6 @@ export interface GetReplicationGroupResult {
      * The description of the replication group.
      */
     readonly replicationGroupDescription: string;
-    /**
-     * The identifier for the replication group.
-     */
     readonly replicationGroupId: string;
     /**
      * The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.

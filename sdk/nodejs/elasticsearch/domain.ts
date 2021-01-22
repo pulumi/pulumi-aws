@@ -222,6 +222,9 @@ export class Domain extends pulumi.CustomResource {
      * Cluster configuration of the domain, see below.
      */
     public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
+    /**
+     * Options for authenticating Kibana with Cognito. See below.
+     */
     public readonly cognitoOptions!: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
     /**
      * Domain endpoint HTTP(S) related options. See below.
@@ -369,6 +372,9 @@ export interface DomainState {
      * Cluster configuration of the domain, see below.
      */
     readonly clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
+    /**
+     * Options for authenticating Kibana with Cognito. See below.
+     */
     readonly cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
     /**
      * Domain endpoint HTTP(S) related options. See below.
@@ -449,6 +455,9 @@ export interface DomainArgs {
      * Cluster configuration of the domain, see below.
      */
     readonly clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
+    /**
+     * Options for authenticating Kibana with Cognito. See below.
+     */
     readonly cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
     /**
      * Domain endpoint HTTP(S) related options. See below.

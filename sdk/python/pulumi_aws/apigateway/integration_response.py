@@ -91,7 +91,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map specifying the templates used to transform the integration response body
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] selection_pattern: Specifies the regular expression pattern used to choose
-               an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+               an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
                If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
                For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         :param pulumi.Input[str] status_code: The HTTP status code
@@ -162,7 +162,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map specifying the templates used to transform the integration response body
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] selection_pattern: Specifies the regular expression pattern used to choose
-               an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+               an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
                If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
                For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         :param pulumi.Input[str] status_code: The HTTP status code
@@ -235,7 +235,7 @@ class IntegrationResponse(pulumi.CustomResource):
     def selection_pattern(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the regular expression pattern used to choose
-        an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+        an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
         If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
         For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         """

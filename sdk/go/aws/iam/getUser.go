@@ -44,6 +44,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
+	// Map of key-value pairs associated with the user.
+	Tags map[string]string `pulumi:"tags"`
 	// The friendly IAM user name to match.
 	UserName string `pulumi:"userName"`
 }
@@ -58,6 +60,8 @@ type LookupUserResult struct {
 	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary string `pulumi:"permissionsBoundary"`
+	// Map of key-value pairs associated with the user.
+	Tags map[string]string `pulumi:"tags"`
 	// The unique ID assigned by AWS for this user.
 	UserId string `pulumi:"userId"`
 	// The name associated to this User

@@ -38,14 +38,17 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
+        /// The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// </summary>
+        public readonly int? Throughput;
+        /// <summary>
         /// The size of created volumes in GiB.
         /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of EBS volume to create. Can be one of "standard" (the
-        /// default), "io1", "io2" or "gp2".
+        /// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         /// </summary>
         public readonly string? VolumeType;
 
@@ -61,6 +64,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? snapshotId,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
@@ -70,6 +75,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Encrypted = encrypted;
             Iops = iops;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }
