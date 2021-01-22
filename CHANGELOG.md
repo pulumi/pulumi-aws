@@ -8,9 +8,9 @@ CHANGELOG
 * Add support for `LambdaFullAccess` as a replacement for `AWSLambdaFullAccess` IAM policy.
 * Add support for `LambdaReadOnlyAccess` as a replacement for `AWSLambdaReadOnlyAccess` IAM policy.
 * Update `aws.lambda.CallbackFunction` to accept a new parameter `includeDeprecatedLambdaFullAccessPolicy`. If this parameter
-  is set or if no iam.Policies are set to the CallbackFunction then we will create an IAM Policy that replicates
+  is set or if no iam.Policies are set to the CallbackFunction Pulumi will create an IAM Policy that replicates
   the now deprecated `AWSLambdaFullAccess` policy. This is needed to allow `aws.sqs.QueueEventSubscription` and 
-  `aws.kinesis.StreamEventSubscription` continue to work
+  `aws.kinesis.StreamEventSubscription` to continue to function.
 
 ---
 
