@@ -187,7 +187,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 2 release --rm-dist
+        args: -p 2 release --rm-dist --timeout 60m0s
         version: latest
   publish_sdk:
     name: publish_sdk
