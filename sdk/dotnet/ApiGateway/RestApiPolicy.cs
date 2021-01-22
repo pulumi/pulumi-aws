@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new Aws.ApiGateway.RestApiPolicyArgs
     ///         {
     ///             RestApiId = testRestApi.Id,
-    ///             Policy = testRestApi.Arn.Apply(arn =&gt; @$"{{
+    ///             Policy = testRestApi.ExecutionArn.Apply(executionArn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         ""AWS"": ""*""
     ///       }},
     ///       ""Action"": ""execute-api:Invoke"",
-    ///       ""Resource"": ""{arn}"",
+    ///       ""Resource"": ""{executionArn}"",
     ///       ""Condition"": {{
     ///         ""IpAddress"": {{
     ///           ""aws:SourceIp"": ""123.123.123.123/32""

@@ -136,14 +136,18 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly cpuCount!: pulumi.Output<number>;
     /**
      * The timestamp when the instance was created.
-     * * `availabilityZone`
-     * * `blueprintId`
-     * * `bundleId`
-     * * `keyPairName`
-     * * `userData`
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+     *
+     * @deprecated use `ipv6_addresses` attribute instead
+     */
     public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    /**
+     * List of IPv6 addresses for the Lightsail instance.
+     */
+    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
     public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
     /**
      * The name of your key pair. Created in the
@@ -186,6 +190,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["cpuCount"] = state ? state.cpuCount : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["ipv6Address"] = state ? state.ipv6Address : undefined;
+            inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["isStaticIp"] = state ? state.isStaticIp : undefined;
             inputs["keyPairName"] = state ? state.keyPairName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -217,6 +222,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["cpuCount"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["ipv6Address"] = undefined /*out*/;
+            inputs["ipv6Addresses"] = undefined /*out*/;
             inputs["isStaticIp"] = undefined /*out*/;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["publicIpAddress"] = undefined /*out*/;
@@ -258,14 +264,18 @@ export interface InstanceState {
     readonly cpuCount?: pulumi.Input<number>;
     /**
      * The timestamp when the instance was created.
-     * * `availabilityZone`
-     * * `blueprintId`
-     * * `bundleId`
-     * * `keyPairName`
-     * * `userData`
      */
     readonly createdAt?: pulumi.Input<string>;
+    /**
+     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+     *
+     * @deprecated use `ipv6_addresses` attribute instead
+     */
     readonly ipv6Address?: pulumi.Input<string>;
+    /**
+     * List of IPv6 addresses for the Lightsail instance.
+     */
+    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     readonly isStaticIp?: pulumi.Input<boolean>;
     /**
      * The name of your key pair. Created in the

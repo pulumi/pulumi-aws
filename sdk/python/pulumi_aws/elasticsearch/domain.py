@@ -203,6 +203,7 @@ class Domain(pulumi.CustomResource):
                domain on every apply.
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Cluster configuration of the domain, see below.
+        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Options for authenticating Kibana with Cognito. See below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
@@ -294,6 +295,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the domain.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Cluster configuration of the domain, see below.
+        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Options for authenticating Kibana with Cognito. See below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -381,6 +383,9 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> pulumi.Output[Optional['outputs.DomainCognitoOptions']]:
+        """
+        Options for authenticating Kibana with Cognito. See below.
+        """
         return pulumi.get(self, "cognito_options")
 
     @property

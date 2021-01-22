@@ -67,10 +67,10 @@ namespace Pulumi.Aws.ApiGateway
     public partial class RestApi : Pulumi.CustomResource
     {
         /// <summary>
-        /// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+        /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("apiKeySource")]
-        public Output<string?> ApiKeySource { get; private set; } = null!;
+        public Output<string> ApiKeySource { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        /// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("binaryMediaTypes")]
         public Output<ImmutableArray<string>> BinaryMediaTypes { get; private set; } = null!;
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
@@ -97,19 +97,19 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the REST API
+        /// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("disableExecuteApiEndpoint")]
-        public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
+        public Output<bool> DisableExecuteApiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+        /// Configuration block defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Output("endpointConfiguration")]
         public Output<Outputs.RestApiEndpointConfiguration> EndpointConfiguration { get; private set; } = null!;
@@ -123,13 +123,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+        /// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("minimumCompressionSize")]
         public Output<int?> MinimumCompressionSize { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the REST API
+        /// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class RestApiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+        /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("apiKeySource")]
         public Input<string>? ApiKeySource { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _binaryMediaTypes;
 
         /// <summary>
-        /// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        /// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         public InputList<string> BinaryMediaTypes
         {
@@ -223,37 +223,37 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// The description of the REST API
+        /// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+        /// Configuration block defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.RestApiEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 
         /// <summary>
-        /// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+        /// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("minimumCompressionSize")]
         public Input<int>? MinimumCompressionSize { get; set; }
 
         /// <summary>
-        /// The name of the REST API
+        /// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class RestApiState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+        /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("apiKeySource")]
         public Input<string>? ApiKeySource { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _binaryMediaTypes;
 
         /// <summary>
-        /// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        /// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         public InputList<string> BinaryMediaTypes
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
@@ -332,19 +332,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The description of the REST API
+        /// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`.
+        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+        /// Configuration block defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.RestApiEndpointConfigurationGetArgs>? EndpointConfiguration { get; set; }
@@ -358,13 +358,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+        /// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("minimumCompressionSize")]
         public Input<int>? MinimumCompressionSize { get; set; }
 
         /// <summary>
-        /// The name of the REST API
+        /// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

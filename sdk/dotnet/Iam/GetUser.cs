@@ -46,6 +46,18 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs associated with the user.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The friendly IAM user name to match.
         /// </summary>
@@ -78,6 +90,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PermissionsBoundary;
         /// <summary>
+        /// Map of key-value pairs associated with the user.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The unique ID assigned by AWS for this user.
         /// </summary>
         public readonly string UserId;
@@ -96,6 +112,8 @@ namespace Pulumi.Aws.Iam
 
             string permissionsBoundary,
 
+            ImmutableDictionary<string, string> tags,
+
             string userId,
 
             string userName)
@@ -104,6 +122,7 @@ namespace Pulumi.Aws.Iam
             Id = id;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
+            Tags = tags;
             UserId = userId;
             UserName = userName;
         }

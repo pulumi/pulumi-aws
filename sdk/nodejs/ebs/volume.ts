@@ -73,7 +73,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     public readonly iops!: pulumi.Output<number>;
     /**
@@ -101,7 +101,11 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     */
+    public readonly throughput!: pulumi.Output<number>;
+    /**
+     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -127,6 +131,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["size"] = state ? state.size : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["throughput"] = state ? state.throughput : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
@@ -142,6 +147,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["size"] = args ? args.size : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["throughput"] = args ? args.throughput : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -173,7 +179,7 @@ export interface VolumeState {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -201,7 +207,11 @@ export interface VolumeState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     */
+    readonly throughput?: pulumi.Input<number>;
+    /**
+     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -219,7 +229,7 @@ export interface VolumeArgs {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -247,7 +257,11 @@ export interface VolumeArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     */
+    readonly throughput?: pulumi.Input<number>;
+    /**
+     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
     readonly type?: pulumi.Input<string>;
 }

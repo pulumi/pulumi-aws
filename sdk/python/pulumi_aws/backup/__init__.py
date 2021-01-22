@@ -6,6 +6,7 @@
 from .get_plan import *
 from .get_selection import *
 from .get_vault import *
+from .global_settings import *
 from .plan import *
 from .region_settings import *
 from .selection import *
@@ -27,7 +28,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:backup/plan:Plan":
+            if typ == "aws:backup/globalSettings:GlobalSettings":
+                return GlobalSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:backup/plan:Plan":
                 return Plan(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:backup/regionSettings:RegionSettings":
                 return RegionSettings(name, pulumi.ResourceOptions(urn=urn))
@@ -44,6 +47,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "backup/globalSettings", _module_instance)
     pulumi.runtime.register_resource_module("aws", "backup/plan", _module_instance)
     pulumi.runtime.register_resource_module("aws", "backup/regionSettings", _module_instance)
     pulumi.runtime.register_resource_module("aws", "backup/selection", _module_instance)

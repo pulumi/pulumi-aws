@@ -1138,9 +1138,9 @@ export namespace apigateway {
          */
         types: string;
         /**
-         * A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+         * Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          */
-        vpcEndpointIds?: string[];
+        vpcEndpointIds: string[];
     }
 
     export interface StageAccessLogSettings {
@@ -7410,14 +7410,17 @@ export namespace ec2 {
          */
         snapshotId: string;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput: number;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize: number;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType: string;
     }
@@ -7460,14 +7463,17 @@ export namespace ec2 {
          */
         snapshotId?: string;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput: number;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize: number;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType?: string;
     }
@@ -7510,14 +7516,17 @@ export namespace ec2 {
          */
         snapshotId: string;
         /**
+         * The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+         */
+        throughput: number;
+        /**
          * The size of created volumes in GiB.
          * If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
          * as the selected snapshot.
          */
         volumeSize: number;
         /**
-         * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1", "io2" or "gp2".
+         * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          */
         volumeType: string;
     }
@@ -10682,12 +10691,12 @@ export namespace elasticache {
     export interface ClusterCacheNode {
         address: string;
         /**
-         * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
+         * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
          */
         availabilityZone: string;
         id: string;
         /**
-         * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
+         * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
          */
         port: number;
     }
@@ -18469,7 +18478,7 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroup {
         /**
-         * A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+         * A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
          */
         ruleVariables?: outputs.networkfirewall.RuleGroupRuleGroupRuleVariables;
         /**
@@ -20651,6 +20660,76 @@ export namespace sagemaker {
         variantName: string;
     }
 
+    export interface FeatureGroupFeatureDefinition {
+        /**
+         * The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
+         */
+        featureName?: string;
+        /**
+         * The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+         */
+        featureType?: string;
+    }
+
+    export interface FeatureGroupOfflineStoreConfig {
+        /**
+         * The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+         */
+        dataCatalogConfig: outputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig;
+        /**
+         * Set to `true` to turn Online Store On.
+         */
+        disableGlueTableCreation?: boolean;
+        /**
+         * The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+         */
+        s3StorageConfig: outputs.sagemaker.FeatureGroupOfflineStoreConfigS3StorageConfig;
+    }
+
+    export interface FeatureGroupOfflineStoreConfigDataCatalogConfig {
+        /**
+         * The name of the Glue table catalog.
+         */
+        catalog: string;
+        /**
+         * The name of the Glue table database.
+         */
+        database: string;
+        /**
+         * The name of the Glue table.
+         */
+        tableName: string;
+    }
+
+    export interface FeatureGroupOfflineStoreConfigS3StorageConfig {
+        /**
+         * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         */
+        kmsKeyId?: string;
+        /**
+         * The S3 URI, or location in Amazon S3, of OfflineStore.
+         */
+        s3Uri: string;
+    }
+
+    export interface FeatureGroupOnlineStoreConfig {
+        /**
+         * Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+         */
+        enableOnlineStore?: boolean;
+        /**
+         * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+         */
+        securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreConfigSecurityConfig;
+    }
+
+    export interface FeatureGroupOnlineStoreConfigSecurityConfig {
+        /**
+         * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         */
+        kmsKeyId?: string;
+    }
+
     export interface ModelContainer {
         /**
          * The DNS host name for the container.
@@ -20724,6 +20803,121 @@ export namespace sagemaker {
     export interface ModelVpcConfig {
         securityGroupIds: string[];
         subnets: string[];
+    }
+
+    export interface UserProfileUserSettings {
+        /**
+         * The execution role ARN for the user.
+         */
+        executionRole: string;
+        /**
+         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         */
+        jupyterServerAppSettings?: outputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettings;
+        /**
+         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         */
+        kernelGatewayAppSettings?: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettings;
+        /**
+         * The security groups.
+         */
+        securityGroups?: string[];
+        /**
+         * The sharing settings. See Sharing Settings below.
+         */
+        sharingSettings?: outputs.sagemaker.UserProfileUserSettingsSharingSettings;
+        /**
+         * The TensorBoard app settings. See TensorBoard App Settings below.
+         */
+        tensorBoardAppSettings?: outputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettings;
+    }
+
+    export interface UserProfileUserSettingsJupyterServerAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
+    }
+
+    export interface UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
+    }
+
+    export interface UserProfileUserSettingsSharingSettings {
+        /**
+         * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
+         */
+        notebookOutputOption?: string;
+        /**
+         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: string;
+        /**
+         * When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+         */
+        s3OutputPath?: string;
+    }
+
+    export interface UserProfileUserSettingsTensorBoardAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
+    }
+
+    export interface UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: string;
     }
 }
 

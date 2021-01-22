@@ -293,6 +293,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Output("clusterConfig")]
         public Output<Outputs.DomainClusterConfig> ClusterConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Options for authenticating Kibana with Cognito. See below.
+        /// </summary>
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
@@ -455,6 +458,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Input("clusterConfig")]
         public Input<Inputs.DomainClusterConfigArgs>? ClusterConfig { get; set; }
 
+        /// <summary>
+        /// Options for authenticating Kibana with Cognito. See below.
+        /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
 
@@ -576,6 +582,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Input("clusterConfig")]
         public Input<Inputs.DomainClusterConfigGetArgs>? ClusterConfig { get; set; }
 
+        /// <summary>
+        /// Options for authenticating Kibana with Cognito. See below.
+        /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
 

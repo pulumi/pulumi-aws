@@ -23,8 +23,8 @@ class ClusterCacheNode(dict):
                  id: Optional[str] = None,
                  port: Optional[int] = None):
         """
-        :param str availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
-        :param int port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param str availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+        :param int port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -44,7 +44,7 @@ class ClusterCacheNode(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
-        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -57,7 +57,7 @@ class ClusterCacheNode(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "port")
 

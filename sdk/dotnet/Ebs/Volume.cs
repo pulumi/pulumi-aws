@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ebs
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
@@ -110,7 +110,13 @@ namespace Pulumi.Aws.Ebs
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// </summary>
+        [Output("throughput")]
+        public Output<int> Throughput { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -174,7 +180,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -222,7 +228,13 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// </summary>
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
+        /// <summary>
+        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -253,7 +265,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -301,7 +313,13 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
+        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// </summary>
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
+        /// <summary>
+        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

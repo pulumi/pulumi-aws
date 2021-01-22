@@ -154,6 +154,7 @@ class Instance(pulumi.CustomResource):
             __props__['cpu_count'] = None
             __props__['created_at'] = None
             __props__['ipv6_address'] = None
+            __props__['ipv6_addresses'] = None
             __props__['is_static_ip'] = None
             __props__['private_ip_address'] = None
             __props__['public_ip_address'] = None
@@ -176,6 +177,7 @@ class Instance(pulumi.CustomResource):
             cpu_count: Optional[pulumi.Input[int]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             ipv6_address: Optional[pulumi.Input[str]] = None,
+            ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_static_ip: Optional[pulumi.Input[bool]] = None,
             key_pair_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -198,11 +200,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
-               * `availability_zone`
-               * `blueprint_id`
-               * `bundle_id`
-               * `key_pair_name`
-               * `user_data`
+        :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
@@ -220,6 +219,7 @@ class Instance(pulumi.CustomResource):
         __props__["cpu_count"] = cpu_count
         __props__["created_at"] = created_at
         __props__["ipv6_address"] = ipv6_address
+        __props__["ipv6_addresses"] = ipv6_addresses
         __props__["is_static_ip"] = is_static_ip
         __props__["key_pair_name"] = key_pair_name
         __props__["name"] = name
@@ -274,18 +274,24 @@ class Instance(pulumi.CustomResource):
     def created_at(self) -> pulumi.Output[str]:
         """
         The timestamp when the instance was created.
-        * `availability_zone`
-        * `blueprint_id`
-        * `bundle_id`
-        * `key_pair_name`
-        * `user_data`
         """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> pulumi.Output[str]:
+        """
+        (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        """
         return pulumi.get(self, "ipv6_address")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of IPv6 addresses for the Lightsail instance.
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="isStaticIp")

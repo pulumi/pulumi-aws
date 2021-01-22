@@ -48,6 +48,8 @@ type LookupReplicationGroupArgs struct {
 
 // A collection of values returned by getReplicationGroup.
 type LookupReplicationGroupResult struct {
+	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+	Arn string `pulumi:"arn"`
 	// A flag that enables using an AuthToken (password) when issuing Redis commands.
 	AuthTokenEnabled bool `pulumi:"authTokenEnabled"`
 	// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
@@ -70,8 +72,7 @@ type LookupReplicationGroupResult struct {
 	ReaderEndpointAddress string `pulumi:"readerEndpointAddress"`
 	// The description of the replication group.
 	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
-	// The identifier for the replication group.
-	ReplicationGroupId string `pulumi:"replicationGroupId"`
+	ReplicationGroupId          string `pulumi:"replicationGroupId"`
 	// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
 	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).

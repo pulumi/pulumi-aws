@@ -112,7 +112,7 @@ type IntegrationResponse struct {
 	// The ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Specifies the regular expression pattern used to choose
-	// an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 	// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrOutput `pulumi:"selectionPattern"`
@@ -175,7 +175,7 @@ type integrationResponseState struct {
 	// The ID of the associated REST API
 	RestApi *string `pulumi:"restApi"`
 	// Specifies the regular expression pattern used to choose
-	// an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 	// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
@@ -198,7 +198,7 @@ type IntegrationResponseState struct {
 	// The ID of the associated REST API
 	RestApi pulumi.StringPtrInput
 	// Specifies the regular expression pattern used to choose
-	// an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 	// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type integrationResponseArgs struct {
 	// The ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Specifies the regular expression pattern used to choose
-	// an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 	// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
@@ -249,7 +249,7 @@ type IntegrationResponseArgs struct {
 	// The ID of the associated REST API
 	RestApi pulumi.Input
 	// Specifies the regular expression pattern used to choose
-	// an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 	// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput

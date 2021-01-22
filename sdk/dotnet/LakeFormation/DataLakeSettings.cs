@@ -88,7 +88,7 @@ namespace Pulumi.Aws.LakeFormation
     public partial class DataLakeSettings : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
         [Output("admins")]
         public Output<ImmutableArray<string>> Admins { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<string>? _admins;
 
         /// <summary>
-        /// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
         public InputList<string> Admins
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<string>? _admins;
 
         /// <summary>
-        /// List of ARNs of AWS Lake Formation principals (IAM users or roles).
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
         public InputList<string> Admins
         {

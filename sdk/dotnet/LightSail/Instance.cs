@@ -135,17 +135,21 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// The timestamp when the instance was created.
-        /// * `availability_zone`
-        /// * `blueprint_id`
-        /// * `bundle_id`
-        /// * `key_pair_name`
-        /// * `user_data`
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        /// </summary>
         [Output("ipv6Address")]
         public Output<string> Ipv6Address { get; private set; } = null!;
+
+        /// <summary>
+        /// List of IPv6 addresses for the Lightsail instance.
+        /// </summary>
+        [Output("ipv6Addresses")]
+        public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
 
         [Output("isStaticIp")]
         public Output<bool> IsStaticIp { get; private set; } = null!;
@@ -320,17 +324,27 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// The timestamp when the instance was created.
-        /// * `availability_zone`
-        /// * `blueprint_id`
-        /// * `bundle_id`
-        /// * `key_pair_name`
-        /// * `user_data`
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        /// </summary>
         [Input("ipv6Address")]
         public Input<string>? Ipv6Address { get; set; }
+
+        [Input("ipv6Addresses")]
+        private InputList<string>? _ipv6Addresses;
+
+        /// <summary>
+        /// List of IPv6 addresses for the Lightsail instance.
+        /// </summary>
+        public InputList<string> Ipv6Addresses
+        {
+            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
+            set => _ipv6Addresses = value;
+        }
 
         [Input("isStaticIp")]
         public Input<bool>? IsStaticIp { get; set; }

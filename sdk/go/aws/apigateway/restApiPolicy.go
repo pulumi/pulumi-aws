@@ -36,8 +36,8 @@ import (
 // 		}
 // 		_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
 // 			RestApiId: testRestApi.ID(),
-// 			Policy: testRestApi.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"execute-api:Invoke\",\n", "      \"Resource\": \"", arn, "\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\n", "          \"aws:SourceIp\": \"123.123.123.123/32\"\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 			Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"execute-api:Invoke\",\n", "      \"Resource\": \"", executionArn, "\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\n", "          \"aws:SourceIp\": \"123.123.123.123/32\"\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

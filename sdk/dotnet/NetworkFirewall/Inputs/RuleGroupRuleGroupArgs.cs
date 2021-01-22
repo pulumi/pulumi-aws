@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+        /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         /// </summary>
         [Input("ruleVariables")]
         public Input<Inputs.RuleGroupRuleGroupRuleVariablesArgs>? RuleVariables { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroup
     {
         /// <summary>
-        /// A configuration block that defines additional settings available to use in the rules defined in the rule group. See Rule Variables below for details.
+        /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRuleVariables? RuleVariables;
         /// <summary>

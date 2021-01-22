@@ -10,16 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
-    /// Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
+    /// Provides an ElastiCache Cluster resource, which manages either a
+    /// [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html), a
+    /// [single-node Redis instance](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html), or a
+    /// [read replica in a Redis (Cluster Mode Enabled) replication group].
+    /// 
     /// For working with Redis (Cluster Mode Enabled) replication groups, see the
     /// `aws.elasticache.ReplicationGroup` resource.
     /// 
-    /// &gt; **Note:** When you change an attribute, such as `node_type`, by default
+    /// &gt; **Note:** When you change an attribute, such as `num_cache_nodes`, by default
     /// it is applied in the next maintenance window. Because of this, this provider may report
     /// a difference in its planning phase because the actual modification has not yet taken
     /// place. You can use the `apply_immediately` flag to instruct the service to apply the
     /// change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
-    /// See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
+    /// See the AWS Documentation on Modifying an ElastiCache Cache Cluster for
+    /// [ElastiCache for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Clusters.Modify.html) or
+    /// [ElastiCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
+    /// for more information.
+    /// 
+    /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
     /// 
     /// ## Example Usage
     /// ### Memcached Cluster
@@ -103,16 +112,18 @@ namespace Pulumi.Aws.ElastiCache
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-        /// (Available since v0.6.0)
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the created ElastiCache Cluster.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -125,7 +136,6 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and `availability_zone`.
-        /// Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
         [Output("cacheNodes")]
         public Output<ImmutableArray<Outputs.ClusterCacheNode>> CacheNodes { get; private set; } = null!;
@@ -138,7 +148,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Group identifier. ElastiCache converts
-        /// this name to lowercase
+        /// this name to lowercase. Changing this value will re-create the resource.
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -150,8 +160,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster.
-        /// Valid values for this parameter are `memcached` or `redis`
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -180,8 +189,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-        /// supported node types
+        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+        /// supported node types. For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -196,7 +205,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The initial number of cache nodes that the
-        /// cache cluster will have. For Redis, this value must be 1. For Memcache, this
+        /// cache cluster will have. For Redis, this value must be 1. For Memcached, this
         /// value must be between 1 and 20. If this number is reduced on subsequent runs,
         /// the highest numbered nodes will be removed.
         /// </summary>
@@ -211,7 +220,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
@@ -229,29 +238,25 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more VPC security groups associated
-        /// with the cache cluster
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group
-        /// names to associate with this cache cluster
+        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// A single-element string list containing an
-        /// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-        /// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+        /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
         [Output("snapshotArns")]
         public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         /// </summary>
         [Output("snapshotName")]
         public Output<string?> SnapshotName { get; private set; } = null!;
@@ -274,8 +279,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> SnapshotWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the subnet group to be used
-        /// for the cache cluster.
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
@@ -336,13 +340,12 @@ namespace Pulumi.Aws.ElastiCache
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-        /// (Available since v0.6.0)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -355,14 +358,13 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Group identifier. ElastiCache converts
-        /// this name to lowercase
+        /// this name to lowercase. Changing this value will re-create the resource.
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster.
-        /// Valid values for this parameter are `memcached` or `redis`
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -391,8 +393,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-        /// supported node types
+        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+        /// supported node types. For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -407,7 +409,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The initial number of cache nodes that the
-        /// cache cluster will have. For Redis, this value must be 1. For Memcache, this
+        /// cache cluster will have. For Redis, this value must be 1. For Memcached, this
         /// value must be between 1 and 20. If this number is reduced on subsequent runs,
         /// the highest numbered nodes will be removed.
         /// </summary>
@@ -422,7 +424,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -449,8 +451,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// One or more VPC security groups associated
-        /// with the cache cluster
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -462,8 +463,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// List of security group
-        /// names to associate with this cache cluster
+        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -475,9 +475,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A single-element string list containing an
-        /// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-        /// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+        /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -486,7 +484,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
@@ -509,8 +507,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// Name of the subnet group to be used
-        /// for the cache cluster.
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
@@ -538,16 +535,18 @@ namespace Pulumi.Aws.ElastiCache
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-        /// (Available since v0.6.0)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
+        /// <summary>
+        /// The ARN of the created ElastiCache Cluster.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -563,7 +562,6 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and `availability_zone`.
-        /// Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
         public InputList<Inputs.ClusterCacheNodeGetArgs> CacheNodes
         {
@@ -579,7 +577,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Group identifier. ElastiCache converts
-        /// this name to lowercase
+        /// this name to lowercase. Changing this value will re-create the resource.
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
@@ -591,8 +589,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ConfigurationEndpoint { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster.
-        /// Valid values for this parameter are `memcached` or `redis`
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -621,8 +618,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-        /// supported node types
+        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+        /// supported node types. For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -637,7 +634,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The initial number of cache nodes that the
-        /// cache cluster will have. For Redis, this value must be 1. For Memcache, this
+        /// cache cluster will have. For Redis, this value must be 1. For Memcached, this
         /// value must be between 1 and 20. If this number is reduced on subsequent runs,
         /// the highest numbered nodes will be removed.
         /// </summary>
@@ -652,7 +649,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -679,8 +676,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// One or more VPC security groups associated
-        /// with the cache cluster
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -692,8 +688,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// List of security group
-        /// names to associate with this cache cluster
+        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -705,9 +700,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A single-element string list containing an
-        /// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-        /// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+        /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -716,7 +709,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
@@ -739,8 +732,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// Name of the subnet group to be used
-        /// for the cache cluster.
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }

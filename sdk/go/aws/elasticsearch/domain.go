@@ -149,7 +149,8 @@ type Domain struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig  DomainClusterConfigOutput     `pulumi:"clusterConfig"`
+	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
+	// Options for authenticating Kibana with Cognito. See below.
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
@@ -222,7 +223,8 @@ type domainState struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
+	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
+	// Options for authenticating Kibana with Cognito. See below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
@@ -267,7 +269,8 @@ type DomainState struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringPtrInput
 	// Cluster configuration of the domain, see below.
-	ClusterConfig  DomainClusterConfigPtrInput
+	ClusterConfig DomainClusterConfigPtrInput
+	// Options for authenticating Kibana with Cognito. See below.
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
@@ -314,7 +317,8 @@ type domainArgs struct {
 	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
+	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
+	// Options for authenticating Kibana with Cognito. See below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
@@ -350,7 +354,8 @@ type DomainArgs struct {
 	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// Cluster configuration of the domain, see below.
-	ClusterConfig  DomainClusterConfigPtrInput
+	ClusterConfig DomainClusterConfigPtrInput
+	// Options for authenticating Kibana with Cognito. See below.
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput

@@ -12,10 +12,10 @@ import (
 
 type ClusterCacheNode struct {
 	Address *string `pulumi:"address"`
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
-	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
+	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
 }
 
@@ -32,10 +32,10 @@ type ClusterCacheNodeInput interface {
 
 type ClusterCacheNodeArgs struct {
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
-	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
+	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -94,7 +94,7 @@ func (o ClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
+// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -103,7 +103,7 @@ func (o ClusterCacheNodeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
+// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }

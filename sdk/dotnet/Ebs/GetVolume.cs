@@ -153,6 +153,10 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The throughput that the volume supports, in MiB/s.
+        /// </summary>
+        public readonly int Throughput;
+        /// <summary>
         /// The volume ID (e.g. vol-59fcb34e).
         /// </summary>
         public readonly string VolumeId;
@@ -189,6 +193,8 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableDictionary<string, string> tags,
 
+            int throughput,
+
             string volumeId,
 
             string volumeType)
@@ -206,6 +212,7 @@ namespace Pulumi.Aws.Ebs
             Size = size;
             SnapshotId = snapshotId;
             Tags = tags;
+            Throughput = throughput;
             VolumeId = volumeId;
             VolumeType = volumeType;
         }

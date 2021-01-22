@@ -118,14 +118,14 @@ type Instance struct {
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	CpuCount pulumi.IntOutput    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
-	// * `availabilityZone`
-	// * `blueprintId`
-	// * `bundleId`
-	// * `keyPairName`
-	// * `userData`
-	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+	//
+	// Deprecated: use `ipv6_addresses` attribute instead
 	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
-	IsStaticIp  pulumi.BoolOutput   `pulumi:"isStaticIp"`
+	// List of IPv6 addresses for the Lightsail instance.
+	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
+	IsStaticIp    pulumi.BoolOutput        `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
@@ -190,14 +190,14 @@ type instanceState struct {
 	BundleId *string `pulumi:"bundleId"`
 	CpuCount *int    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
-	// * `availabilityZone`
-	// * `blueprintId`
-	// * `bundleId`
-	// * `keyPairName`
-	// * `userData`
-	CreatedAt   *string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+	//
+	// Deprecated: use `ipv6_addresses` attribute instead
 	Ipv6Address *string `pulumi:"ipv6Address"`
-	IsStaticIp  *bool   `pulumi:"isStaticIp"`
+	// List of IPv6 addresses for the Lightsail instance.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	IsStaticIp    *bool    `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
@@ -225,14 +225,14 @@ type InstanceState struct {
 	BundleId pulumi.StringPtrInput
 	CpuCount pulumi.IntPtrInput
 	// The timestamp when the instance was created.
-	// * `availabilityZone`
-	// * `blueprintId`
-	// * `bundleId`
-	// * `keyPairName`
-	// * `userData`
-	CreatedAt   pulumi.StringPtrInput
+	CreatedAt pulumi.StringPtrInput
+	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+	//
+	// Deprecated: use `ipv6_addresses` attribute instead
 	Ipv6Address pulumi.StringPtrInput
-	IsStaticIp  pulumi.BoolPtrInput
+	// List of IPv6 addresses for the Lightsail instance.
+	Ipv6Addresses pulumi.StringArrayInput
+	IsStaticIp    pulumi.BoolPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrInput

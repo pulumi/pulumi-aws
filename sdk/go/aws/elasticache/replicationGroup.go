@@ -12,8 +12,10 @@ import (
 )
 
 // Provides an ElastiCache Replication Group resource.
-// For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-// `elasticache.Cluster` resource.
+//
+// For working with a [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html) or a
+// [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
+// see the `elasticache.Cluster` resource.
 //
 // > **Note:** When you change an attribute, such as `engineVersion`, by
 // default the ElastiCache API applies it in the next maintenance window. Because
@@ -22,6 +24,11 @@ import (
 // `applyImmediately` flag to instruct the service to apply the change
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
+// See the AWS Documentation on
+// [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
+// for more information.
+//
+// > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
 //
 // > **Note:** Be aware of the terminology collision around "cluster" for `elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
 //
@@ -155,6 +162,8 @@ type ReplicationGroup struct {
 
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to enable encryption at rest.
 	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
@@ -209,9 +218,8 @@ type ReplicationGroup struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
-	// A single-element string list containing an
-	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	// A list of
+	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
@@ -266,6 +274,8 @@ func GetReplicationGroup(ctx *pulumi.Context,
 type replicationGroupState struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
+	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+	Arn *string `pulumi:"arn"`
 	// Whether to enable encryption at rest.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
@@ -320,9 +330,8 @@ type replicationGroupState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// A single-element string list containing an
-	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	// A list of
+	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
@@ -346,6 +355,8 @@ type replicationGroupState struct {
 type ReplicationGroupState struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+	Arn pulumi.StringPtrInput
 	// Whether to enable encryption at rest.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
@@ -400,9 +411,8 @@ type ReplicationGroupState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayInput
-	// A single-element string list containing an
-	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	// A list of
+	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
@@ -474,9 +484,8 @@ type replicationGroupArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// A single-element string list containing an
-	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	// A list of
+	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
@@ -545,9 +554,8 @@ type ReplicationGroupArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayInput
-	// A single-element string list containing an
-	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	// A list of
+	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput

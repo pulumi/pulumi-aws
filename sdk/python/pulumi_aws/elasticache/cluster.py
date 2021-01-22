@@ -44,16 +44,25 @@ class Cluster(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
+        Provides an ElastiCache Cluster resource, which manages either a
+        [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html), a
+        [single-node Redis instance](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html), or a
+        [read replica in a Redis (Cluster Mode Enabled) replication group].
+
         For working with Redis (Cluster Mode Enabled) replication groups, see the
         `elasticache.ReplicationGroup` resource.
 
-        > **Note:** When you change an attribute, such as `node_type`, by default
+        > **Note:** When you change an attribute, such as `num_cache_nodes`, by default
         it is applied in the next maintenance window. Because of this, this provider may report
         a difference in its planning phase because the actual modification has not yet taken
         place. You can use the `apply_immediately` flag to instruct the service to apply the
         change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
-        See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
+        See the AWS Documentation on Modifying an ElastiCache Cache Cluster for
+        [ElastiCache for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Clusters.Modify.html) or
+        [ElastiCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
+        for more information.
+
+        > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
         ### Memcached Cluster
@@ -107,13 +116,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-               (Available since v0.6.0)
-        :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts
-               this name to lowercase
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster.
-               Valid values for this parameter are `memcached` or `redis`
+               this name to lowercase. Changing this value will re-create the resource.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation center for supported versions
@@ -122,28 +129,24 @@ class Cluster(pulumi.CustomResource):
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
-               [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-               supported node types
+               [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+               supported node types. For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the
-               cache cluster will have. For Redis, this value must be 1. For Memcache, this
+               cache cluster will have. For Redis, this value must be 1. For Memcached, this
                value must be between 1 and 20. If this number is reduced on subsequent runs,
                the highest numbered nodes will be removed.
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this cache cluster
-        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
-               with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group
-               names to associate with this cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
-               Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-               Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
@@ -151,8 +154,7 @@ class Cluster(pulumi.CustomResource):
                Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
-               for the cache cluster.
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
         """
         if __name__ is not None:
@@ -246,17 +248,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-               (Available since v0.6.0)
-        :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        :param pulumi.Input[str] arn: The ARN of the created ElastiCache Cluster.
+        :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
-               Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         :param pulumi.Input[str] cluster_address: (Memcached only) The DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts
-               this name to lowercase
+               this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) The configuration endpoint to allow host discovery.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster.
-               Valid values for this parameter are `memcached` or `redis`
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation center for supported versions
@@ -265,28 +265,24 @@ class Cluster(pulumi.CustomResource):
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
-               [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-               supported node types
+               [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+               supported node types. For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the
-               cache cluster will have. For Redis, this value must be 1. For Memcache, this
+               cache cluster will have. For Redis, this value must be 1. For Memcached, this
                value must be between 1 and 20. If this number is reduced on subsequent runs,
                the highest numbered nodes will be removed.
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this cache cluster
-        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
-               with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group
-               names to associate with this cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
-               Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-               Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
@@ -294,8 +290,7 @@ class Cluster(pulumi.CustomResource):
                Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
-               for the cache cluster.
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -338,20 +333,22 @@ class Cluster(pulumi.CustomResource):
         Specifies whether any database modifications
         are applied immediately, or during the next maintenance window. Default is
         `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
-        (Available since v0.6.0)
         """
         return pulumi.get(self, "apply_immediately")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the created ElastiCache Cluster.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -368,7 +365,6 @@ class Cluster(pulumi.CustomResource):
     def cache_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterCacheNode']]:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
-        Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         """
         return pulumi.get(self, "cache_nodes")
 
@@ -385,7 +381,7 @@ class Cluster(pulumi.CustomResource):
     def cluster_id(self) -> pulumi.Output[str]:
         """
         Group identifier. ElastiCache converts
-        this name to lowercase
+        this name to lowercase. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -401,8 +397,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        Name of the cache engine to be used for this cache cluster.
-        Valid values for this parameter are `memcached` or `redis`
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         """
         return pulumi.get(self, "engine")
 
@@ -439,8 +434,8 @@ class Cluster(pulumi.CustomResource):
     def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes. See
-        [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
-        supported node types
+        [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
+        supported node types. For Memcached, changing this value will re-create the resource.
         """
         return pulumi.get(self, "node_type")
 
@@ -459,7 +454,7 @@ class Cluster(pulumi.CustomResource):
     def num_cache_nodes(self) -> pulumi.Output[int]:
         """
         The initial number of cache nodes that the
-        cache cluster will have. For Redis, this value must be 1. For Memcache, this
+        cache cluster will have. For Redis, this value must be 1. For Memcached, this
         value must be between 1 and 20. If this number is reduced on subsequent runs,
         the highest numbered nodes will be removed.
         """
@@ -478,7 +473,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[int]:
         """
-        The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "port")
 
@@ -502,8 +497,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        One or more VPC security groups associated
-        with the cache cluster
+        One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -511,8 +505,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of security group
-        names to associate with this cache cluster
+        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "security_group_names")
 
@@ -520,9 +513,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A single-element string list containing an
-        Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-        Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+        A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         """
         return pulumi.get(self, "snapshot_arns")
 
@@ -530,7 +521,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+        The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -559,8 +550,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the subnet group to be used
-        for the cache cluster.
+        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "subnet_group_name")
 

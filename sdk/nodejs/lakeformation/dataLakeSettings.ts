@@ -77,7 +77,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
     }
 
     /**
-     * List of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
     public readonly admins!: pulumi.Output<string[]>;
     /**
@@ -138,7 +138,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
  */
 export interface DataLakeSettingsState {
     /**
-     * List of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
     readonly admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -164,7 +164,7 @@ export interface DataLakeSettingsState {
  */
 export interface DataLakeSettingsArgs {
     /**
-     * List of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
     readonly admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**

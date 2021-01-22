@@ -95,6 +95,8 @@ type LookupVolumeResult struct {
 	SnapshotId string `pulumi:"snapshotId"`
 	// A map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The throughput that the volume supports, in MiB/s.
+	Throughput int `pulumi:"throughput"`
 	// The volume ID (e.g. vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The type of EBS volume.
