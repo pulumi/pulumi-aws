@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `aws.lambda.CallbackFunction` creates a unique IamPolicyAttachment resource on each usage of `includeDeprecatedLambdaFullAccessPolicy`
 
 ---
 
