@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure `aws.lambda.CallbackFunction` creates a unique IamPolicyAttachment resource on each usage of `includeDeprecatedLambdaFullAccessPolicy`
+_(none)_
 
 ---
+
+## 3.25.1 (2021-01-23)
+* Ensure `aws.lambda.CallbackFunction` creates a unique IamPolicyAttachment resource on each usage of `includeDeprecatedLambdaFullAccessPolicy`
 
 ## 3.25.0 (2021-01-22)
 * Update to v3.25.0 of the AWS Terraform Provider
