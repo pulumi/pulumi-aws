@@ -313,7 +313,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                     policy: awsLambdaFullAccessPolicy,
                 }, opts)
 
-                const lambdaFullAccessCopyAttachment = new iam.RolePolicyAttachment("lambdaFullAccessCopyAttachment", {
+                const lambdaFullAccessCopyAttachment = new iam.RolePolicyAttachment(`${name}-lambdaFullAccessCopyAttachment`, {
                     role: role,
                     policyArn: lambdaFullAccessCopy.arn,
                 }, opts)
