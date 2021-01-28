@@ -19,11 +19,11 @@ const role = new aws.iam.Role("demo-role", {
 
 const lambdaFullAccessCopyAttachment = new aws.iam.RolePolicyAttachment("lambdaFullAccessCopyAttachment", {
     role: role,
-    policyArn: aws.iam.ManagedPolicy.LambdaFullAccess,
+    policyArn: aws.iam.ManagedPolicy.AWSLambdaExecute,
 }, providerOpts)
 const ecsFullAccess = new aws.iam.RolePolicyAttachment("ecsFullAccess", {
     role: role.name,
-    policyArn: aws.iam.ManagedPolicies.AmazonEC2ContainerServiceFullAccess
+    policyArn: aws.iam.ManagedPolicy.AmazonECSFullAccess,
 }, providerOpts);
 
 const func = new aws.lambda.Function("demo-func", {
