@@ -23,7 +23,6 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/blang/semver"
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v3/pkg/version"
@@ -264,7 +263,6 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(aws.Provider())
-	versionString := getVersionString()
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "aws",
@@ -3986,7 +3984,7 @@ func Provider() tfbridge.ProviderInfo {
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", awsPkg),
-				versionString,
+				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				awsPkg,
 			),
@@ -4150,18 +4148,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
 
 	return prov
-}
-
-func getVersionString() string {
-	var versionString string
-	sver, err := semver.ParseTolerant(version.Version)
-	if err != nil {
-		panic(err)
-	}
-	if sver.Major > 0 {
-		versionString = fmt.Sprintf("v%d", sver.Major)
-	}
-	return versionString
 }
 
 func transformWithRandomString(n int) string {
