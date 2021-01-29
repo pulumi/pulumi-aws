@@ -17,11 +17,19 @@ namespace Pulumi.Aws.S3.Outputs
         /// A single object for setting server-side encryption by default. (documented below)
         /// </summary>
         public readonly Outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault ApplyServerSideEncryptionByDefault;
+        /// <summary>
+        /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        /// </summary>
+        public readonly bool? BucketKeyEnabled;
 
         [OutputConstructor]
-        private BucketServerSideEncryptionConfigurationRule(Outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault)
+        private BucketServerSideEncryptionConfigurationRule(
+            Outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault,
+
+            bool? bucketKeyEnabled)
         {
             ApplyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
+            BucketKeyEnabled = bucketKeyEnabled;
         }
     }
 }

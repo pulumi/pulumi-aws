@@ -119,6 +119,10 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
+     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     */
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     public readonly cacheControl!: pulumi.Output<string | undefined>;
@@ -218,6 +222,7 @@ export class BucketObject extends pulumi.CustomResource {
             const state = argsOrState as BucketObjectState | undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
+            inputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             inputs["cacheControl"] = state ? state.cacheControl : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["contentBase64"] = state ? state.contentBase64 : undefined;
@@ -246,6 +251,7 @@ export class BucketObject extends pulumi.CustomResource {
             }
             inputs["acl"] = args ? args.acl : undefined;
             inputs["bucket"] = args ? args.bucket : undefined;
+            inputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
             inputs["cacheControl"] = args ? args.cacheControl : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["contentBase64"] = args ? args.contentBase64 : undefined;
@@ -291,6 +297,10 @@ export interface BucketObjectState {
      * The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     readonly bucket?: pulumi.Input<string | Bucket>;
+    /**
+     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     */
+    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -390,6 +400,10 @@ export interface BucketObjectArgs {
      * The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     readonly bucket: pulumi.Input<string | Bucket>;
+    /**
+     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     */
+    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
