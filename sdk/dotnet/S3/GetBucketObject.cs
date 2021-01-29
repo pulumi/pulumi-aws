@@ -96,6 +96,12 @@ namespace Pulumi.Aws.S3
         public string Bucket { get; set; } = null!;
 
         /// <summary>
+        /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        /// </summary>
+        [Input("bucketKeyEnabled")]
+        public bool? BucketKeyEnabled { get; set; }
+
+        /// <summary>
         /// The full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
@@ -136,6 +142,10 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Body;
         public readonly string Bucket;
+        /// <summary>
+        /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        /// </summary>
+        public readonly bool? BucketKeyEnabled;
         /// <summary>
         /// Specifies caching behavior along the request/reply chain.
         /// </summary>
@@ -229,6 +239,8 @@ namespace Pulumi.Aws.S3
 
             string bucket,
 
+            bool? bucketKeyEnabled,
+
             string cacheControl,
 
             string contentDisposition,
@@ -277,6 +289,7 @@ namespace Pulumi.Aws.S3
         {
             Body = body;
             Bucket = bucket;
+            BucketKeyEnabled = bucketKeyEnabled;
             CacheControl = cacheControl;
             ContentDisposition = contentDisposition;
             ContentEncoding = contentEncoding;

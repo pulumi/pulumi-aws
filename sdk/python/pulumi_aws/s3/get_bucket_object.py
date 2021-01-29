@@ -19,13 +19,16 @@ class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, bucket=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_key_enabled and not isinstance(bucket_key_enabled, bool):
+            raise TypeError("Expected argument 'bucket_key_enabled' to be a bool")
+        pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
         if cache_control and not isinstance(cache_control, str):
             raise TypeError("Expected argument 'cache_control' to be a str")
         pulumi.set(__self__, "cache_control", cache_control)
@@ -108,6 +111,14 @@ class GetBucketObjectResult:
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[bool]:
+        """
+        (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        return pulumi.get(self, "bucket_key_enabled")
 
     @property
     @pulumi.getter(name="cacheControl")
@@ -296,6 +307,7 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
         return GetBucketObjectResult(
             body=self.body,
             bucket=self.bucket,
+            bucket_key_enabled=self.bucket_key_enabled,
             cache_control=self.cache_control,
             content_disposition=self.content_disposition,
             content_encoding=self.content_encoding,
@@ -322,6 +334,7 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
 
 
 def get_bucket_object(bucket: Optional[str] = None,
+                      bucket_key_enabled: Optional[bool] = None,
                       key: Optional[str] = None,
                       range: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
@@ -372,12 +385,14 @@ def get_bucket_object(bucket: Optional[str] = None,
 
 
     :param str bucket: The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param bool bucket_key_enabled: (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
     :param str key: The full path to the object inside the bucket
     :param Mapping[str, str] tags: A map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['bucketKeyEnabled'] = bucket_key_enabled
     __args__['key'] = key
     __args__['range'] = range
     __args__['tags'] = tags
@@ -391,6 +406,7 @@ def get_bucket_object(bucket: Optional[str] = None,
     return AwaitableGetBucketObjectResult(
         body=__ret__.body,
         bucket=__ret__.bucket,
+        bucket_key_enabled=__ret__.bucket_key_enabled,
         cache_control=__ret__.cache_control,
         content_disposition=__ret__.content_disposition,
         content_encoding=__ret__.content_encoding,

@@ -1670,11 +1670,15 @@ class BucketServerSideEncryptionConfigurationArgs:
 @pulumi.input_type
 class BucketServerSideEncryptionConfigurationRuleArgs:
     def __init__(__self__, *,
-                 apply_server_side_encryption_by_default: pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']):
+                 apply_server_side_encryption_by_default: pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'],
+                 bucket_key_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
+        :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if bucket_key_enabled is not None:
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
     @property
     @pulumi.getter(name="applyServerSideEncryptionByDefault")
@@ -1687,6 +1691,18 @@ class BucketServerSideEncryptionConfigurationRuleArgs:
     @apply_server_side_encryption_by_default.setter
     def apply_server_side_encryption_by_default(self, value: pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']):
         pulumi.set(self, "apply_server_side_encryption_by_default", value)
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        return pulumi.get(self, "bucket_key_enabled")
+
+    @bucket_key_enabled.setter
+    def bucket_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bucket_key_enabled", value)
 
 
 @pulumi.input_type

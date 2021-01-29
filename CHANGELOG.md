@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for [bucket keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) on `aws.s3.Bucket`, `aws.s3.BucketObject`  
+  and `aws.s3.getBucketObject`.
 
 ---
 

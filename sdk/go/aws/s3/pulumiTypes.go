@@ -4415,6 +4415,8 @@ func (o BucketServerSideEncryptionConfigurationPtrOutput) Rule() BucketServerSid
 type BucketServerSideEncryptionConfigurationRule struct {
 	// A single object for setting server-side encryption by default. (documented below)
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
 
 // BucketServerSideEncryptionConfigurationRuleInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleArgs and BucketServerSideEncryptionConfigurationRuleOutput values.
@@ -4431,6 +4433,8 @@ type BucketServerSideEncryptionConfigurationRuleInput interface {
 type BucketServerSideEncryptionConfigurationRuleArgs struct {
 	// A single object for setting server-side encryption by default. (documented below)
 	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput `pulumi:"applyServerSideEncryptionByDefault"`
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
 
 func (BucketServerSideEncryptionConfigurationRuleArgs) ElementType() reflect.Type {
@@ -4517,6 +4521,11 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryp
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
+// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+func (o BucketServerSideEncryptionConfigurationRuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type BucketServerSideEncryptionConfigurationRulePtrOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationRulePtrOutput) ElementType() reflect.Type {
@@ -4545,6 +4554,16 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ApplyServerSideEnc
 		}
 		return &v.ApplyServerSideEncryptionByDefault
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+func (o BucketServerSideEncryptionConfigurationRulePtrOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BucketKeyEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault struct {

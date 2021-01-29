@@ -1412,11 +1412,15 @@ class BucketServerSideEncryptionConfiguration(dict):
 @pulumi.output_type
 class BucketServerSideEncryptionConfigurationRule(dict):
     def __init__(__self__, *,
-                 apply_server_side_encryption_by_default: 'outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault'):
+                 apply_server_side_encryption_by_default: 'outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault',
+                 bucket_key_enabled: Optional[bool] = None):
         """
         :param 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
+        :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        if bucket_key_enabled is not None:
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
     @property
     @pulumi.getter(name="applyServerSideEncryptionByDefault")
@@ -1425,6 +1429,14 @@ class BucketServerSideEncryptionConfigurationRule(dict):
         A single object for setting server-side encryption by default. (documented below)
         """
         return pulumi.get(self, "apply_server_side_encryption_by_default")
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[bool]:
+        """
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        return pulumi.get(self, "bucket_key_enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

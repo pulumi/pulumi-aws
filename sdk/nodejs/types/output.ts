@@ -20463,6 +20463,10 @@ export namespace s3 {
          * A single object for setting server-side encryption by default. (documented below)
          */
         applyServerSideEncryptionByDefault: outputs.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
+        /**
+         * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+         */
+        bucketKeyEnabled?: boolean;
     }
 
     export interface BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
