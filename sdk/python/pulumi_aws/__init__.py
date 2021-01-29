@@ -29,6 +29,7 @@ from . import (
     acm,
     acmpca,
     alb,
+    amp,
     apigateway,
     apigatewayv2,
     appautoscaling,

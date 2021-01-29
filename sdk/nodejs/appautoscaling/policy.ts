@@ -104,6 +104,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### MSK / Kafka Autoscaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mskTarget = new aws.appautoscaling.Target("mskTarget", {
+ *     serviceNamespace: "kafka",
+ *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ *     resourceId: aws_msk_cluster.example.arn,
+ *     minCapacity: 1,
+ *     maxCapacity: 8,
+ * });
+ * const targets = new aws.appautoscaling.Policy("targets", {
+ *     serviceNamespace: mskTarget.serviceNamespace,
+ *     scalableDimension: mskTarget.scalableDimension,
+ *     resourceId: mskTarget.resourceId,
+ *     policyType: "TargetTrackingScaling",
+ *     targetTrackingScalingPolicyConfiguration: {
+ *         predefinedMetricSpecification: {
+ *             predefinedMetricType: "KafkaBrokerStorageUtilization",
+ *         },
+ *         targetValue: 55,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

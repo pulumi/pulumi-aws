@@ -237,7 +237,7 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 type ReplicationGroupClusterMode struct {
 	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 	NumNodeGroups int `pulumi:"numNodeGroups"`
-	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
 }
 
@@ -255,7 +255,7 @@ type ReplicationGroupClusterModeInput interface {
 type ReplicationGroupClusterModeArgs struct {
 	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 	NumNodeGroups pulumi.IntInput `pulumi:"numNodeGroups"`
-	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntInput `pulumi:"replicasPerNodeGroup"`
 }
 
@@ -341,7 +341,7 @@ func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
 
-// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
 }
@@ -374,7 +374,7 @@ func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {

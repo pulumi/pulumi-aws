@@ -70,7 +70,7 @@ export class Api extends pulumi.CustomResource {
     }
 
     /**
-     * The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
     public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export class Api extends pulumi.CustomResource {
  */
 export interface ApiState {
     /**
-     * The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
     readonly apiEndpoint?: pulumi.Input<string>;
     /**

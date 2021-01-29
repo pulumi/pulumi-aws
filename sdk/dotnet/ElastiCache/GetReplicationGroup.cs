@@ -64,7 +64,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A flag that enables using an AuthToken (password) when issuing Redis commands.
+        /// Specifies whether an AuthToken (password) is enabled.
         /// </summary>
         public readonly bool AuthTokenEnabled;
         /// <summary>
@@ -83,6 +83,10 @@ namespace Pulumi.Aws.ElastiCache
         /// The identifiers of all the nodes that are part of this replication group.
         /// </summary>
         public readonly ImmutableArray<string> MemberClusters;
+        /// <summary>
+        /// Specifies whether Multi-AZ Support is enabled for the replication group.
+        /// </summary>
+        public readonly bool MultiAzEnabled;
         /// <summary>
         /// The cluster node type.
         /// </summary>
@@ -131,6 +135,8 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> memberClusters,
 
+            bool multiAzEnabled,
+
             string nodeType,
 
             int numberCacheClusters,
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.ElastiCache
             ConfigurationEndpointAddress = configurationEndpointAddress;
             Id = id;
             MemberClusters = memberClusters;
+            MultiAzEnabled = multiAzEnabled;
             NodeType = nodeType;
             NumberCacheClusters = numberCacheClusters;
             Port = port;

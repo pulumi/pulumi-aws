@@ -4766,6 +4766,7 @@ type GetListenerDefaultAction struct {
 	AuthenticateCognitos []GetListenerDefaultActionAuthenticateCognito `pulumi:"authenticateCognitos"`
 	AuthenticateOidcs    []GetListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidcs"`
 	FixedResponses       []GetListenerDefaultActionFixedResponse       `pulumi:"fixedResponses"`
+	Forwards             []GetListenerDefaultActionForward             `pulumi:"forwards"`
 	Order                int                                           `pulumi:"order"`
 	Redirects            []GetListenerDefaultActionRedirect            `pulumi:"redirects"`
 	TargetGroupArn       string                                        `pulumi:"targetGroupArn"`
@@ -4787,6 +4788,7 @@ type GetListenerDefaultActionArgs struct {
 	AuthenticateCognitos GetListenerDefaultActionAuthenticateCognitoArrayInput `pulumi:"authenticateCognitos"`
 	AuthenticateOidcs    GetListenerDefaultActionAuthenticateOidcArrayInput    `pulumi:"authenticateOidcs"`
 	FixedResponses       GetListenerDefaultActionFixedResponseArrayInput       `pulumi:"fixedResponses"`
+	Forwards             GetListenerDefaultActionForwardArrayInput             `pulumi:"forwards"`
 	Order                pulumi.IntInput                                       `pulumi:"order"`
 	Redirects            GetListenerDefaultActionRedirectArrayInput            `pulumi:"redirects"`
 	TargetGroupArn       pulumi.StringInput                                    `pulumi:"targetGroupArn"`
@@ -4858,6 +4860,10 @@ func (o GetListenerDefaultActionOutput) AuthenticateOidcs() GetListenerDefaultAc
 
 func (o GetListenerDefaultActionOutput) FixedResponses() GetListenerDefaultActionFixedResponseArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionFixedResponse { return v.FixedResponses }).(GetListenerDefaultActionFixedResponseArrayOutput)
+}
+
+func (o GetListenerDefaultActionOutput) Forwards() GetListenerDefaultActionForwardArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionForward { return v.Forwards }).(GetListenerDefaultActionForwardArrayOutput)
 }
 
 func (o GetListenerDefaultActionOutput) Order() pulumi.IntOutput {
@@ -5294,6 +5300,313 @@ func (o GetListenerDefaultActionFixedResponseArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionFixedResponse {
 		return vs[0].([]GetListenerDefaultActionFixedResponse)[vs[1].(int)]
 	}).(GetListenerDefaultActionFixedResponseOutput)
+}
+
+type GetListenerDefaultActionForward struct {
+	Stickinesses []GetListenerDefaultActionForwardStickiness  `pulumi:"stickinesses"`
+	TargetGroups []GetListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// GetListenerDefaultActionForwardInput is an input type that accepts GetListenerDefaultActionForwardArgs and GetListenerDefaultActionForwardOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardInput` via:
+//
+//          GetListenerDefaultActionForwardArgs{...}
+type GetListenerDefaultActionForwardInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput
+	ToGetListenerDefaultActionForwardOutputWithContext(context.Context) GetListenerDefaultActionForwardOutput
+}
+
+type GetListenerDefaultActionForwardArgs struct {
+	Stickinesses GetListenerDefaultActionForwardStickinessArrayInput  `pulumi:"stickinesses"`
+	TargetGroups GetListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (GetListenerDefaultActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput {
+	return i.ToGetListenerDefaultActionForwardOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardOutput)
+}
+
+// GetListenerDefaultActionForwardArrayInput is an input type that accepts GetListenerDefaultActionForwardArray and GetListenerDefaultActionForwardArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardArrayInput` via:
+//
+//          GetListenerDefaultActionForwardArray{ GetListenerDefaultActionForwardArgs{...} }
+type GetListenerDefaultActionForwardArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput
+	ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardArrayOutput
+}
+
+type GetListenerDefaultActionForwardArray []GetListenerDefaultActionForwardInput
+
+func (GetListenerDefaultActionForwardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput {
+	return i.ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardArrayOutput)
+}
+
+type GetListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardOutput) Stickinesses() GetListenerDefaultActionForwardStickinessArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForward) []GetListenerDefaultActionForwardStickiness {
+		return v.Stickinesses
+	}).(GetListenerDefaultActionForwardStickinessArrayOutput)
+}
+
+func (o GetListenerDefaultActionForwardOutput) TargetGroups() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForward) []GetListenerDefaultActionForwardTargetGroup {
+		return v.TargetGroups
+	}).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerDefaultActionForwardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionForward {
+		return vs[0].([]GetListenerDefaultActionForward)[vs[1].(int)]
+	}).(GetListenerDefaultActionForwardOutput)
+}
+
+type GetListenerDefaultActionForwardStickiness struct {
+	Duration int  `pulumi:"duration"`
+	Enabled  bool `pulumi:"enabled"`
+}
+
+// GetListenerDefaultActionForwardStickinessInput is an input type that accepts GetListenerDefaultActionForwardStickinessArgs and GetListenerDefaultActionForwardStickinessOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardStickinessInput` via:
+//
+//          GetListenerDefaultActionForwardStickinessArgs{...}
+type GetListenerDefaultActionForwardStickinessInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardStickinessOutput() GetListenerDefaultActionForwardStickinessOutput
+	ToGetListenerDefaultActionForwardStickinessOutputWithContext(context.Context) GetListenerDefaultActionForwardStickinessOutput
+}
+
+type GetListenerDefaultActionForwardStickinessArgs struct {
+	Duration pulumi.IntInput  `pulumi:"duration"`
+	Enabled  pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetListenerDefaultActionForwardStickinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardStickinessArgs) ToGetListenerDefaultActionForwardStickinessOutput() GetListenerDefaultActionForwardStickinessOutput {
+	return i.ToGetListenerDefaultActionForwardStickinessOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardStickinessArgs) ToGetListenerDefaultActionForwardStickinessOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardStickinessOutput)
+}
+
+// GetListenerDefaultActionForwardStickinessArrayInput is an input type that accepts GetListenerDefaultActionForwardStickinessArray and GetListenerDefaultActionForwardStickinessArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardStickinessArrayInput` via:
+//
+//          GetListenerDefaultActionForwardStickinessArray{ GetListenerDefaultActionForwardStickinessArgs{...} }
+type GetListenerDefaultActionForwardStickinessArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardStickinessArrayOutput() GetListenerDefaultActionForwardStickinessArrayOutput
+	ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardStickinessArrayOutput
+}
+
+type GetListenerDefaultActionForwardStickinessArray []GetListenerDefaultActionForwardStickinessInput
+
+func (GetListenerDefaultActionForwardStickinessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardStickinessArray) ToGetListenerDefaultActionForwardStickinessArrayOutput() GetListenerDefaultActionForwardStickinessArrayOutput {
+	return i.ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardStickinessArray) ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardStickinessArrayOutput)
+}
+
+type GetListenerDefaultActionForwardStickinessOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardStickinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardStickinessOutput) ToGetListenerDefaultActionForwardStickinessOutput() GetListenerDefaultActionForwardStickinessOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardStickinessOutput) ToGetListenerDefaultActionForwardStickinessOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+func (o GetListenerDefaultActionForwardStickinessOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardStickiness) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetListenerDefaultActionForwardStickinessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardStickinessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardStickinessArrayOutput) ToGetListenerDefaultActionForwardStickinessArrayOutput() GetListenerDefaultActionForwardStickinessArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardStickinessArrayOutput) ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardStickinessArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardStickinessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionForwardStickiness {
+		return vs[0].([]GetListenerDefaultActionForwardStickiness)[vs[1].(int)]
+	}).(GetListenerDefaultActionForwardStickinessOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroup struct {
+	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+	Arn    string `pulumi:"arn"`
+	Weight int    `pulumi:"weight"`
+}
+
+// GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupInput` via:
+//
+//          GetListenerDefaultActionForwardTargetGroupArgs{...}
+type GetListenerDefaultActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput
+	ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupOutput
+}
+
+type GetListenerDefaultActionForwardTargetGroupArgs struct {
+	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+	Arn    pulumi.StringInput `pulumi:"arn"`
+	Weight pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput {
+	return i.ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupOutput)
+}
+
+// GetListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArray and GetListenerDefaultActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupArrayInput` via:
+//
+//          GetListenerDefaultActionForwardTargetGroupArray{ GetListenerDefaultActionForwardTargetGroupArgs{...} }
+type GetListenerDefaultActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput
+	ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput
+}
+
+type GetListenerDefaultActionForwardTargetGroupArray []GetListenerDefaultActionForwardTargetGroupInput
+
+func (GetListenerDefaultActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return i.ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionForwardTargetGroup {
+		return vs[0].([]GetListenerDefaultActionForwardTargetGroup)[vs[1].(int)]
+	}).(GetListenerDefaultActionForwardTargetGroupOutput)
 }
 
 type GetListenerDefaultActionRedirect struct {
@@ -5817,6 +6130,12 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionAuthenticateOidcArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionFixedResponseOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionFixedResponseArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardStickinessOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardStickinessArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})

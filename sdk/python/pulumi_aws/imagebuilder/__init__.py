@@ -7,9 +7,11 @@ from .component import *
 from .distribution_configuration import *
 from .get_component import *
 from .get_distribution_configuration import *
+from .get_image import *
 from .get_image_pipeline import *
 from .get_image_recipe import *
 from .get_infrastructure_configuration import *
+from .image import *
 from .image_pipeline import *
 from .image_recipe import *
 from .infrastructure_configuration import *
@@ -32,6 +34,8 @@ def _register_module():
                 return Component(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
                 return DistributionConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:imagebuilder/image:Image":
+                return Image(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:imagebuilder/imagePipeline:ImagePipeline":
                 return ImagePipeline(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:imagebuilder/imageRecipe:ImageRecipe":
@@ -45,6 +49,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "imagebuilder/component", _module_instance)
     pulumi.runtime.register_resource_module("aws", "imagebuilder/distributionConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "imagebuilder/image", _module_instance)
     pulumi.runtime.register_resource_module("aws", "imagebuilder/imagePipeline", _module_instance)
     pulumi.runtime.register_resource_module("aws", "imagebuilder/imageRecipe", _module_instance)
     pulumi.runtime.register_resource_module("aws", "imagebuilder/infrastructureConfiguration", _module_instance)

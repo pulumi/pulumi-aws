@@ -161,6 +161,7 @@ export interface ProviderEndpoint {
     elastictranscoder?: string;
     elb?: string;
     emr?: string;
+    emrcontainers?: string;
     es?: string;
     firehose?: string;
     fms?: string;
@@ -401,6 +402,7 @@ export namespace alb {
         authenticateCognitos: outputs.alb.GetListenerDefaultActionAuthenticateCognito[];
         authenticateOidcs: outputs.alb.GetListenerDefaultActionAuthenticateOidc[];
         fixedResponses: outputs.alb.GetListenerDefaultActionFixedResponse[];
+        forwards: outputs.alb.GetListenerDefaultActionForward[];
         order: number;
         redirects: outputs.alb.GetListenerDefaultActionRedirect[];
         targetGroupArn: string;
@@ -436,6 +438,24 @@ export namespace alb {
         contentType: string;
         messageBody: string;
         statusCode: string;
+    }
+
+    export interface GetListenerDefaultActionForward {
+        stickinesses: outputs.alb.GetListenerDefaultActionForwardStickiness[];
+        targetGroups: outputs.alb.GetListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface GetListenerDefaultActionForwardStickiness {
+        duration: number;
+        enabled: boolean;
+    }
+
+    export interface GetListenerDefaultActionForwardTargetGroup {
+        /**
+         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         */
+        arn: string;
+        weight: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
@@ -1481,6 +1501,7 @@ export namespace applicationloadbalancing {
         authenticateCognitos: outputs.applicationloadbalancing.GetListenerDefaultActionAuthenticateCognito[];
         authenticateOidcs: outputs.applicationloadbalancing.GetListenerDefaultActionAuthenticateOidc[];
         fixedResponses: outputs.applicationloadbalancing.GetListenerDefaultActionFixedResponse[];
+        forwards: outputs.applicationloadbalancing.GetListenerDefaultActionForward[];
         order: number;
         redirects: outputs.applicationloadbalancing.GetListenerDefaultActionRedirect[];
         targetGroupArn: string;
@@ -1516,6 +1537,24 @@ export namespace applicationloadbalancing {
         contentType: string;
         messageBody: string;
         statusCode: string;
+    }
+
+    export interface GetListenerDefaultActionForward {
+        stickinesses: outputs.applicationloadbalancing.GetListenerDefaultActionForwardStickiness[];
+        targetGroups: outputs.applicationloadbalancing.GetListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface GetListenerDefaultActionForwardStickiness {
+        duration: number;
+        enabled: boolean;
+    }
+
+    export interface GetListenerDefaultActionForwardTargetGroup {
+        /**
+         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         */
+        arn: string;
+        weight: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
@@ -6718,6 +6757,7 @@ export namespace config {
         elastictranscoder?: string;
         elb?: string;
         emr?: string;
+        emrcontainers?: string;
         es?: string;
         firehose?: string;
         fms?: string;
@@ -8721,6 +8761,13 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetVpcPeeringConnectionCidrBlockSet {
+        /**
+         * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+         */
+        cidrBlock: string;
+    }
+
     export interface GetVpcPeeringConnectionFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -8732,6 +8779,13 @@ export namespace ec2 {
          * A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetVpcPeeringConnectionPeerCidrBlockSet {
+        /**
+         * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+         */
+        cidrBlock: string;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
@@ -9008,7 +9062,7 @@ export namespace ec2 {
          */
         snapshotId?: string;
         /**
-         * The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
          */
         throughput: number;
         /**
@@ -10732,7 +10786,7 @@ export namespace elasticache {
          */
         numNodeGroups: number;
         /**
-         * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+         * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
          */
         replicasPerNodeGroup: number;
     }
@@ -10927,6 +10981,7 @@ export namespace elasticloadbalancingv2 {
         authenticateCognitos: outputs.elasticloadbalancingv2.GetListenerDefaultActionAuthenticateCognito[];
         authenticateOidcs: outputs.elasticloadbalancingv2.GetListenerDefaultActionAuthenticateOidc[];
         fixedResponses: outputs.elasticloadbalancingv2.GetListenerDefaultActionFixedResponse[];
+        forwards: outputs.elasticloadbalancingv2.GetListenerDefaultActionForward[];
         order: number;
         redirects: outputs.elasticloadbalancingv2.GetListenerDefaultActionRedirect[];
         targetGroupArn: string;
@@ -10962,6 +11017,24 @@ export namespace elasticloadbalancingv2 {
         contentType: string;
         messageBody: string;
         statusCode: string;
+    }
+
+    export interface GetListenerDefaultActionForward {
+        stickinesses: outputs.elasticloadbalancingv2.GetListenerDefaultActionForwardStickiness[];
+        targetGroups: outputs.elasticloadbalancingv2.GetListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface GetListenerDefaultActionForwardStickiness {
+        duration: number;
+        enabled: boolean;
+    }
+
+    export interface GetListenerDefaultActionForwardTargetGroup {
+        /**
+         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         */
+        arn: string;
+        weight: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
@@ -14064,6 +14137,47 @@ export namespace imagebuilder {
         userIds: string[];
     }
 
+    export interface GetImageImageTestsConfiguration {
+        /**
+         * Whether image tests are enabled.
+         */
+        imageTestsEnabled: boolean;
+        /**
+         * Number of minutes before image tests time out.
+         */
+        timeoutMinutes: number;
+    }
+
+    export interface GetImageOutputResource {
+        /**
+         * Set of objects with each Amazon Machine Image (AMI) created.
+         */
+        amis: outputs.imagebuilder.GetImageOutputResourceAmi[];
+    }
+
+    export interface GetImageOutputResourceAmi {
+        /**
+         * Account identifier of the AMI.
+         */
+        accountId: string;
+        /**
+         * Description of the AMI.
+         */
+        description: string;
+        /**
+         * Identifier of the AMI.
+         */
+        image: string;
+        /**
+         * Name of the AMI.
+         */
+        name: string;
+        /**
+         * Region of the AMI.
+         */
+        region: string;
+    }
+
     export interface GetImagePipelineImageTestsConfiguration {
         /**
          * Whether image tests are enabled.
@@ -14159,6 +14273,47 @@ export namespace imagebuilder {
          * Key prefix for S3 Bucket logging.
          */
         s3KeyPrefix: string;
+    }
+
+    export interface ImageImageTestsConfiguration {
+        /**
+         * Whether image tests are enabled. Defaults to `true`.
+         */
+        imageTestsEnabled?: boolean;
+        /**
+         * Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+         */
+        timeoutMinutes?: number;
+    }
+
+    export interface ImageOutputResource {
+        /**
+         * Set of objects with each Amazon Machine Image (AMI) created.
+         */
+        amis: outputs.imagebuilder.ImageOutputResourceAmi[];
+    }
+
+    export interface ImageOutputResourceAmi {
+        /**
+         * Account identifier of the AMI.
+         */
+        accountId: string;
+        /**
+         * Description of the AMI.
+         */
+        description: string;
+        /**
+         * Identifier of the AMI.
+         */
+        image: string;
+        /**
+         * Name of the AMI.
+         */
+        name: string;
+        /**
+         * Region of the AMI.
+         */
+        region: string;
     }
 
     export interface ImagePipelineImageTestsConfiguration {
@@ -16936,6 +17091,7 @@ export namespace lb {
         authenticateCognitos: outputs.lb.GetListenerDefaultActionAuthenticateCognito[];
         authenticateOidcs: outputs.lb.GetListenerDefaultActionAuthenticateOidc[];
         fixedResponses: outputs.lb.GetListenerDefaultActionFixedResponse[];
+        forwards: outputs.lb.GetListenerDefaultActionForward[];
         order: number;
         redirects: outputs.lb.GetListenerDefaultActionRedirect[];
         targetGroupArn: string;
@@ -16971,6 +17127,24 @@ export namespace lb {
         contentType: string;
         messageBody: string;
         statusCode: string;
+    }
+
+    export interface GetListenerDefaultActionForward {
+        stickinesses: outputs.lb.GetListenerDefaultActionForwardStickiness[];
+        targetGroups: outputs.lb.GetListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface GetListenerDefaultActionForwardStickiness {
+        duration: number;
+        enabled: boolean;
+    }
+
+    export interface GetListenerDefaultActionForwardTargetGroup {
+        /**
+         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         */
+        arn: string;
+        weight: number;
     }
 
     export interface GetListenerDefaultActionRedirect {
@@ -20467,9 +20641,55 @@ export namespace s3outposts {
 }
 
 export namespace sagemaker {
+    export interface AppImageConfigKernelGatewayImageConfig {
+        /**
+         * The URL where the Git repository is located. See File System Config details below.
+         */
+        fileSystemConfig?: outputs.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfig;
+        /**
+         * The default branch for the Git repository. See Kernel Spec details below.
+         */
+        kernelSpec: outputs.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpec;
+    }
+
+    export interface AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+        /**
+         * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         */
+        defaultGid?: number;
+        /**
+         * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         */
+        defaultUid?: number;
+        /**
+         * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         */
+        mountPath?: string;
+    }
+
+    export interface AppImageConfigKernelGatewayImageConfigKernelSpec {
+        /**
+         * The display name of the kernel.
+         */
+        displayName?: string;
+        /**
+         * The name of the kernel.
+         */
+        name: string;
+    }
+
     export interface CodeRepositoryGitConfig {
+        /**
+         * The default branch for the Git repository.
+         */
         branch?: string;
+        /**
+         * The URL where the Git repository is located.
+         */
         repositoryUrl: string;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+         */
         secretArn?: string;
     }
 
@@ -21006,7 +21226,7 @@ export namespace ses {
          */
         dimensionName: string;
         /**
-         * The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+         * The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
          */
         valueSource: string;
     }
@@ -21478,7 +21698,7 @@ export namespace ssm {
          */
         enableNonSecurity?: boolean;
         /**
-         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          */
         patchFilters: outputs.ssm.PatchBaselineApprovalRulePatchFilter[];
     }

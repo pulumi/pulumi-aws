@@ -119,6 +119,30 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        ### MSK / Kafka Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        msk_target = aws.appautoscaling.Target("mskTarget",
+            service_namespace="kafka",
+            scalable_dimension="kafka:broker-storage:VolumeSize",
+            resource_id=aws_msk_cluster["example"]["arn"],
+            min_capacity=1,
+            max_capacity=8)
+        targets = aws.appautoscaling.Policy("targets",
+            service_namespace=msk_target.service_namespace,
+            scalable_dimension=msk_target.scalable_dimension,
+            resource_id=msk_target.resource_id,
+            policy_type="TargetTrackingScaling",
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+                    predefined_metric_type="KafkaBrokerStorageUtilization",
+                ),
+                target_value=55,
+            ))
+        ```
 
         ## Import
 

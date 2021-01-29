@@ -59,7 +59,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
  */
 export interface GetVpcPeeringConnectionArgs {
     /**
-     * The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     readonly cidrBlock?: string;
     /**
@@ -75,7 +75,7 @@ export interface GetVpcPeeringConnectionArgs {
      */
     readonly ownerId?: string;
     /**
-     * The CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     readonly peerCidrBlock?: string;
     /**
@@ -118,11 +118,22 @@ export interface GetVpcPeeringConnectionResult {
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter: {[key: string]: boolean};
+    /**
+     * A CIDR block associated to the VPC of the specific VPC Peering Connection.
+     */
     readonly cidrBlock: string;
+    /**
+     * List of objects with CIDR blocks of the requester VPC.
+     */
+    readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
     readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
     readonly id: string;
     readonly ownerId: string;
     readonly peerCidrBlock: string;
+    /**
+     * List of objects with CIDR blocks of the accepter VPC.
+     */
+    readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
     readonly peerOwnerId: string;
     readonly peerRegion: string;
     readonly peerVpcId: string;

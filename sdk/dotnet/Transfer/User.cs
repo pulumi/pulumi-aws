@@ -67,6 +67,15 @@ namespace Pulumi.Aws.Transfer
     ///             ServerId = fooServer.Id,
     ///             UserName = "tftestuser",
     ///             Role = fooRole.Arn,
+    ///             HomeDirectoryType = "LOGICAL",
+    ///             HomeDirectoryMappings = 
+    ///             {
+    ///                 new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
+    ///                 {
+    ///                     Entry = "/test.pdf",
+    ///                     Target = "/bucket3/test-path/tftestuser.pdf",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

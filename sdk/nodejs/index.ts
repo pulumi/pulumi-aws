@@ -35,6 +35,7 @@ import * as accessanalyzer from "./accessanalyzer";
 import * as acm from "./acm";
 import * as acmpca from "./acmpca";
 import * as alb from "./alb";
+import * as amp from "./amp";
 import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
@@ -167,6 +168,7 @@ export {
     acm,
     acmpca,
     alb,
+    amp,
     apigateway,
     apigatewayv2,
     appautoscaling,

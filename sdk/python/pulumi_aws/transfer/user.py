@@ -72,7 +72,12 @@ class User(pulumi.CustomResource):
         foo_user = aws.transfer.User("fooUser",
             server_id=foo_server.id,
             user_name="tftestuser",
-            role=foo_role.arn)
+            role=foo_role.arn,
+            home_directory_type="LOGICAL",
+            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
+                entry="/test.pdf",
+                target="/bucket3/test-path/tftestuser.pdf",
+            )])
         ```
 
         ## Import

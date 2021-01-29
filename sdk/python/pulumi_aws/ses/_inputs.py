@@ -30,7 +30,7 @@ class EventDestinationCloudwatchDestinationArgs:
         """
         :param pulumi.Input[str] default_value: The default value for the event
         :param pulumi.Input[str] dimension_name: The name for the dimension
-        :param pulumi.Input[str] value_source: The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+        :param pulumi.Input[str] value_source: The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
         """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "dimension_name", dimension_name)
@@ -64,7 +64,7 @@ class EventDestinationCloudwatchDestinationArgs:
     @pulumi.getter(name="valueSource")
     def value_source(self) -> pulumi.Input[str]:
         """
-        The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+        The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
         """
         return pulumi.get(self, "value_source")
 

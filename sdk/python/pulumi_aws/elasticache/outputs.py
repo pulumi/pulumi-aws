@@ -104,7 +104,7 @@ class ReplicationGroupClusterMode(dict):
                  replicas_per_node_group: int):
         """
         :param int num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param int replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+        :param int replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         pulumi.set(__self__, "num_node_groups", num_node_groups)
         pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
@@ -121,7 +121,7 @@ class ReplicationGroupClusterMode(dict):
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> int:
         """
-        Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+        Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         return pulumi.get(self, "replicas_per_node_group")
 

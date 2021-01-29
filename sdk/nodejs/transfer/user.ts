@@ -52,6 +52,11 @@ import * as utilities from "../utilities";
  *     serverId: fooServer.id,
  *     userName: "tftestuser",
  *     role: fooRole.arn,
+ *     homeDirectoryType: "LOGICAL",
+ *     homeDirectoryMappings: [{
+ *         entry: "/test.pdf",
+ *         target: "/bucket3/test-path/tftestuser.pdf",
+ *     }],
  * });
  * ```
  *

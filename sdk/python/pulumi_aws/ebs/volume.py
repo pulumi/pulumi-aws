@@ -46,7 +46,7 @@ class Volume(pulumi.CustomResource):
             })
         ```
 
-        > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
+        > **NOTE**: At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 
         ## Import
 

@@ -44,6 +44,7 @@ const (
 	acmMod                   = "Acm"                   // AWS Certificate Manager
 	acmpcaMod                = "Acmpca"                // AWS Private Certificate Authority
 	accessAnalyzerMod        = "AccessAnalyzer"        // Access Analyzer
+	ampMod                   = "Amp"                   // Amp
 	appsyncMod               = "AppSync"               // AppSync
 	appmeshMod               = "AppMesh"               // AppMesh
 	apigatewayMod            = "ApiGateway"            // API Gateway
@@ -1970,6 +1971,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_feature_group":          {Tok: awsResource(sagemakerMod, "FeatureGroup")},
 			"aws_sagemaker_image_version":          {Tok: awsResource(sagemakerMod, "ImageVersion")},
 			"aws_sagemaker_user_profile":           {Tok: awsResource(sagemakerMod, "UserProfile")},
+			"aws_sagemaker_app_image_config":       {Tok: awsResource(sagemakerMod, "AppImageConfig")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2369,6 +2371,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Imagebuilder
+			"aws_imagebuilder_image":          {Tok: awsResource(imageBuilderMod, "Image")},
 			"aws_imagebuilder_component":      {Tok: awsResource(imageBuilderMod, "Component")},
 			"aws_imagebuilder_image_pipeline": {Tok: awsResource(imageBuilderMod, "ImagePipeline")},
 			"aws_imagebuilder_image_recipe":   {Tok: awsResource(imageBuilderMod, "ImageRecipe")},
@@ -2437,6 +2440,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
 			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
 			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
+
+			// AMP (Managed Prometheus)
+			"aws_prometheus_workspace": {Tok: awsResource(ampMod, "Workspace")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -3821,6 +3827,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_imagebuilder_image_pipeline": {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
 			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
+			"aws_imagebuilder_image":          {Tok: awsDataSource(imageBuilderMod, "getImage")},
 			//signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},

@@ -180,7 +180,7 @@ type ReplicationGroup struct {
 	ClusterMode ReplicationGroupClusterModeOutput `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
-	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -194,6 +194,8 @@ type ReplicationGroup struct {
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
+	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
@@ -292,7 +294,7 @@ type replicationGroupState struct {
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
-	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -306,6 +308,8 @@ type replicationGroupState struct {
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
+	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType *string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
@@ -373,7 +377,7 @@ type ReplicationGroupState struct {
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringPtrInput
-	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
@@ -387,6 +391,8 @@ type ReplicationGroupState struct {
 	MaintenanceWindow pulumi.StringPtrInput
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayInput
+	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	MultiAzEnabled pulumi.BoolPtrInput
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType pulumi.StringPtrInput
 	// An Amazon Resource Name (ARN) of an
@@ -452,7 +458,7 @@ type replicationGroupArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
-	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -464,6 +470,8 @@ type replicationGroupArgs struct {
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
+	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType *string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
@@ -522,7 +530,7 @@ type ReplicationGroupArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
-	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
@@ -534,6 +542,8 @@ type ReplicationGroupArgs struct {
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
+	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	MultiAzEnabled pulumi.BoolPtrInput
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType pulumi.StringPtrInput
 	// An Amazon Resource Name (ARN) of an

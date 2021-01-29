@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
 		r, err = NewDistributionConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:imagebuilder/image:Image":
+		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:imagebuilder/imagePipeline:ImagePipeline":
 		r, err = NewImagePipeline(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:imagebuilder/imageRecipe:ImageRecipe":
@@ -51,6 +53,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"imagebuilder/distributionConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"imagebuilder/image",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

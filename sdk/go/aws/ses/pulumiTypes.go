@@ -15,7 +15,7 @@ type EventDestinationCloudwatchDestination struct {
 	DefaultValue string `pulumi:"defaultValue"`
 	// The name for the dimension
 	DimensionName string `pulumi:"dimensionName"`
-	// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+	// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
 	ValueSource string `pulumi:"valueSource"`
 }
 
@@ -35,7 +35,7 @@ type EventDestinationCloudwatchDestinationArgs struct {
 	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
 	// The name for the dimension
 	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+	// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
 	ValueSource pulumi.StringInput `pulumi:"valueSource"`
 }
 
@@ -100,7 +100,7 @@ func (o EventDestinationCloudwatchDestinationOutput) DimensionName() pulumi.Stri
 	return o.ApplyT(func(v EventDestinationCloudwatchDestination) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
-// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
 func (o EventDestinationCloudwatchDestinationOutput) ValueSource() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationCloudwatchDestination) string { return v.ValueSource }).(pulumi.StringOutput)
 }

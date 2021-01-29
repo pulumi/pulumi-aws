@@ -71,6 +71,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Elastictranscoder;
         public readonly string? Elb;
         public readonly string? Emr;
+        public readonly string? Emrcontainers;
         public readonly string? Es;
         public readonly string? Firehose;
         public readonly string? Fms;
@@ -281,6 +282,8 @@ namespace Pulumi.Aws.Outputs
             string? elb,
 
             string? emr,
+
+            string? emrcontainers,
 
             string? es,
 
@@ -524,6 +527,7 @@ namespace Pulumi.Aws.Outputs
             Elastictranscoder = elastictranscoder;
             Elb = elb;
             Emr = emr;
+            Emrcontainers = emrcontainers;
             Es = es;
             Firehose = firehose;
             Fms = fms;

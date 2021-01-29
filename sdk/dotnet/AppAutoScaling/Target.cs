@@ -103,6 +103,28 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
+    /// ### MSK / Kafka Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             MaxCapacity = 8,
+    ///             MinCapacity = 1,
+    ///             ResourceId = aws_msk_cluster.Example.Arn,
+    ///             ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///             ServiceNamespace = "kafka",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

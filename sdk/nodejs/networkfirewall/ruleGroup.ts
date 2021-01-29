@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * Provides an AWS Network Firewall Rule Group Resource
  *
  * ## Example Usage
- * ### Stateful Inspection
+ * ### Stateful Inspection for denying access to a domain
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,7 +33,47 @@ import * as utilities from "../utilities";
  *     type: "STATEFUL",
  * });
  * ```
- * ### Stateful Inspection compatible with intrusion detection systems like Snort or Suricata
+ * ### Stateful Inspection for permitting packets from a source IP address
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ips = [
+ *     "1.1.1.1/32",
+ *     "1.0.0.1/32",
+ * ];
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 50,
+ *     description: "Permits http traffic from source",
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             dynamic: [{
+ *                 forEach: ips,
+ *                 content: [{
+ *                     action: "PASS",
+ *                     header: [{
+ *                         destination: "ANY",
+ *                         destinationPort: "ANY",
+ *                         protocol: "HTTP",
+ *                         direction: "ANY",
+ *                         sourcePort: "ANY",
+ *                         source: stateful_rule.value,
+ *                     }],
+ *                     ruleOption: [{
+ *                         keyword: "sid:1",
+ *                     }],
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         Name: "permit HTTP from source",
+ *     },
+ * });
+ * ```
+ * ### Stateful Inspection for blocking packets from going to an intended destination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

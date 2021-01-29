@@ -4861,7 +4861,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
@@ -4895,7 +4895,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
@@ -5009,7 +5009,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -5096,7 +5096,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -20765,6 +20765,103 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 	}).(GetVpcFilterOutput)
 }
 
+type GetVpcPeeringConnectionCidrBlockSet struct {
+	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	CidrBlock string `pulumi:"cidrBlock"`
+}
+
+// GetVpcPeeringConnectionCidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionCidrBlockSetArgs and GetVpcPeeringConnectionCidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionCidrBlockSetInput` via:
+//
+//          GetVpcPeeringConnectionCidrBlockSetArgs{...}
+type GetVpcPeeringConnectionCidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionCidrBlockSetOutput() GetVpcPeeringConnectionCidrBlockSetOutput
+	ToGetVpcPeeringConnectionCidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionCidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionCidrBlockSetArgs struct {
+	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+}
+
+func (GetVpcPeeringConnectionCidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionCidrBlockSetArgs) ToGetVpcPeeringConnectionCidrBlockSetOutput() GetVpcPeeringConnectionCidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionCidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionCidrBlockSetArgs) ToGetVpcPeeringConnectionCidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionCidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionCidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionCidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionCidrBlockSetArray and GetVpcPeeringConnectionCidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionCidrBlockSetArrayInput` via:
+//
+//          GetVpcPeeringConnectionCidrBlockSetArray{ GetVpcPeeringConnectionCidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionCidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionCidrBlockSetArrayOutput() GetVpcPeeringConnectionCidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionCidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionCidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionCidrBlockSetArray []GetVpcPeeringConnectionCidrBlockSetInput
+
+func (GetVpcPeeringConnectionCidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionCidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionCidrBlockSetArray) ToGetVpcPeeringConnectionCidrBlockSetArrayOutput() GetVpcPeeringConnectionCidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionCidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionCidrBlockSetArray) ToGetVpcPeeringConnectionCidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionCidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionCidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionCidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionCidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionCidrBlockSetOutput) ToGetVpcPeeringConnectionCidrBlockSetOutput() GetVpcPeeringConnectionCidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionCidrBlockSetOutput) ToGetVpcPeeringConnectionCidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionCidrBlockSetOutput {
+	return o
+}
+
+// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+func (o GetVpcPeeringConnectionCidrBlockSetOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionCidrBlockSet) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionCidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionCidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionCidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionCidrBlockSetArrayOutput) ToGetVpcPeeringConnectionCidrBlockSetArrayOutput() GetVpcPeeringConnectionCidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionCidrBlockSetArrayOutput) ToGetVpcPeeringConnectionCidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionCidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionCidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionCidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionCidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionCidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionCidrBlockSetOutput)
+}
+
 type GetVpcPeeringConnectionFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
@@ -20875,6 +20972,103 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionFilter {
 		return vs[0].([]GetVpcPeeringConnectionFilter)[vs[1].(int)]
 	}).(GetVpcPeeringConnectionFilterOutput)
+}
+
+type GetVpcPeeringConnectionPeerCidrBlockSet struct {
+	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	CidrBlock string `pulumi:"cidrBlock"`
+}
+
+// GetVpcPeeringConnectionPeerCidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionPeerCidrBlockSetArgs and GetVpcPeeringConnectionPeerCidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerCidrBlockSetInput` via:
+//
+//          GetVpcPeeringConnectionPeerCidrBlockSetArgs{...}
+type GetVpcPeeringConnectionPeerCidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerCidrBlockSetOutput() GetVpcPeeringConnectionPeerCidrBlockSetOutput
+	ToGetVpcPeeringConnectionPeerCidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionPeerCidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionPeerCidrBlockSetArgs struct {
+	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+}
+
+func (GetVpcPeeringConnectionPeerCidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerCidrBlockSetArgs) ToGetVpcPeeringConnectionPeerCidrBlockSetOutput() GetVpcPeeringConnectionPeerCidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionPeerCidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerCidrBlockSetArgs) ToGetVpcPeeringConnectionPeerCidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerCidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerCidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionPeerCidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionPeerCidrBlockSetArray and GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerCidrBlockSetArrayInput` via:
+//
+//          GetVpcPeeringConnectionPeerCidrBlockSetArray{ GetVpcPeeringConnectionPeerCidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionPeerCidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionPeerCidrBlockSetArray []GetVpcPeeringConnectionPeerCidrBlockSetInput
+
+func (GetVpcPeeringConnectionPeerCidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerCidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerCidrBlockSetArray) ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerCidrBlockSetArray) ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionPeerCidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerCidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerCidrBlockSetOutput) ToGetVpcPeeringConnectionPeerCidrBlockSetOutput() GetVpcPeeringConnectionPeerCidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerCidrBlockSetOutput) ToGetVpcPeeringConnectionPeerCidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerCidrBlockSetOutput {
+	return o
+}
+
+// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+func (o GetVpcPeeringConnectionPeerCidrBlockSetOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionPeerCidrBlockSet) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerCidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerCidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionPeerCidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionPeerCidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionPeerCidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionPeerCidrBlockSetOutput)
 }
 
 type GetVpcPeeringConnectionsFilter struct {
@@ -21517,8 +21711,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         private InputList<Inputs.PatchBaselineApprovalRulePatchFilterGetArgs>? _patchFilters;
 
         /// <summary>
-        /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+        /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
         /// </summary>
         public InputList<Inputs.PatchBaselineApprovalRulePatchFilterGetArgs> PatchFilters
         {

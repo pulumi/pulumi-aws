@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Rule Group Resource
     /// 
     /// ## Example Usage
-    /// ### Stateful Inspection
+    /// ### Stateful Inspection for denying access to a domain
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -55,7 +55,75 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// }
     /// ```
-    /// ### Stateful Inspection compatible with intrusion detection systems like Snort or Suricata
+    /// ### Stateful Inspection for permitting packets from a source IP address
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ips = 
+    ///         {
+    ///             "1.1.1.1/32",
+    ///             "1.0.0.1/32",
+    ///         };
+    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
+    ///         {
+    ///             Capacity = 50,
+    ///             Description = "Permits http traffic from source",
+    ///             Type = "STATEFUL",
+    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             {
+    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///                 {
+    ///                     Dynamic = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "forEach", ips },
+    ///                             { "content", 
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "action", "PASS" },
+    ///                                     { "header", 
+    ///                                     {
+    ///                                         
+    ///                                         {
+    ///                                             { "destination", "ANY" },
+    ///                                             { "destinationPort", "ANY" },
+    ///                                             { "protocol", "HTTP" },
+    ///                                             { "direction", "ANY" },
+    ///                                             { "sourcePort", "ANY" },
+    ///                                             { "source", stateful_rule.Value },
+    ///                                         },
+    ///                                     } },
+    ///                                     { "ruleOption", 
+    ///                                     {
+    ///                                         
+    ///                                         {
+    ///                                             { "keyword", "sid:1" },
+    ///                                         },
+    ///                                     } },
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "permit HTTP from source" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Stateful Inspection for blocking packets from going to an intended destination
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrading pulumi-terraform-bridge to v2.18.0
+* Update to v3.26.0 of the AWS Terraform Provider
+* Upgrading pulumi-terraform-bridge to v2.18.1
 
 ---
 

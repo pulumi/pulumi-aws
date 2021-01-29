@@ -5,6 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Sagemaker Code Repository resource.
+ *
+ * ## Example Usage
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.CodeRepository("example", {
+ *     codeRepositoryName: "example",
+ *     gitConfig: {
+ *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
+ *     },
+ * });
+ * ```
+ * ### Example with Secret
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
+ * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
+ *     secretId: exampleSecret.id,
+ *     secretString: JSON.stringify({
+ *         username: "example",
+ *         password: "example",
+ *     }),
+ * });
+ * const exampleCodeRepository = new aws.sagemaker.CodeRepository("exampleCodeRepository", {
+ *     codeRepositoryName: "example",
+ *     gitConfig: {
+ *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
+ *         secretArn: exampleSecret.arn,
+ *     },
+ * }, {
+ *     dependsOn: [exampleSecretVersion],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Sagemaker Code Repositories can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+ * ```
+ */
 export class CodeRepository extends pulumi.CustomResource {
     /**
      * Get an existing CodeRepository resource's state with the given name, ID, and optional extra
@@ -33,8 +83,17 @@ export class CodeRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === CodeRepository.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the Code Repository (must be unique).
+     */
     public readonly codeRepositoryName!: pulumi.Output<string>;
+    /**
+     * Specifies details about the repository. see Git Config details below.
+     */
     public readonly gitConfig!: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
 
     /**
@@ -79,8 +138,17 @@ export class CodeRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CodeRepository resources.
  */
 export interface CodeRepositoryState {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The name of the Code Repository (must be unique).
+     */
     readonly codeRepositoryName?: pulumi.Input<string>;
+    /**
+     * Specifies details about the repository. see Git Config details below.
+     */
     readonly gitConfig?: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
 }
 
@@ -88,6 +156,12 @@ export interface CodeRepositoryState {
  * The set of arguments for constructing a CodeRepository resource.
  */
 export interface CodeRepositoryArgs {
+    /**
+     * The name of the Code Repository (must be unique).
+     */
     readonly codeRepositoryName: pulumi.Input<string>;
+    /**
+     * Specifies details about the repository. see Git Config details below.
+     */
     readonly gitConfig: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
 }

@@ -186,6 +186,9 @@ namespace Pulumi.Aws.Inputs
         [Input("emr")]
         public Input<string>? Emr { get; set; }
 
+        [Input("emrcontainers")]
+        public Input<string>? Emrcontainers { get; set; }
+
         [Input("es")]
         public Input<string>? Es { get; set; }
 

@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcPeeringConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+        /// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         /// </summary>
         [Input("cidrBlock")]
         public string? CidrBlock { get; set; }
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2
         public string? OwnerId { get; set; }
 
         /// <summary>
-        /// The CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+        /// The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
         /// </summary>
         [Input("peerCidrBlock")]
         public string? PeerCidrBlock { get; set; }
@@ -157,11 +157,22 @@ namespace Pulumi.Aws.Ec2
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Accepter;
+        /// <summary>
+        /// A CIDR block associated to the VPC of the specific VPC Peering Connection.
+        /// </summary>
         public readonly string CidrBlock;
+        /// <summary>
+        /// List of objects with CIDR blocks of the requester VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
+        /// <summary>
+        /// List of objects with CIDR blocks of the accepter VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
         public readonly string PeerOwnerId;
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
@@ -181,6 +192,8 @@ namespace Pulumi.Aws.Ec2
 
             string cidrBlock,
 
+            ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> cidrBlockSets,
+
             ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> filters,
 
             string id,
@@ -188,6 +201,8 @@ namespace Pulumi.Aws.Ec2
             string ownerId,
 
             string peerCidrBlock,
+
+            ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> peerCidrBlockSets,
 
             string peerOwnerId,
 
@@ -207,10 +222,12 @@ namespace Pulumi.Aws.Ec2
         {
             Accepter = accepter;
             CidrBlock = cidrBlock;
+            CidrBlockSets = cidrBlockSets;
             Filters = filters;
             Id = id;
             OwnerId = ownerId;
             PeerCidrBlock = peerCidrBlock;
+            PeerCidrBlockSets = peerCidrBlockSets;
             PeerOwnerId = peerOwnerId;
             PeerRegion = peerRegion;
             PeerVpcId = peerVpcId;

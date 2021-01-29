@@ -9,15 +9,102 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
+    /// <summary>
+    /// Provides a Sagemaker Code Repository resource.
+    /// 
+    /// ## Example Usage
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Sagemaker.CodeRepository("example", new Aws.Sagemaker.CodeRepositoryArgs
+    ///         {
+    ///             CodeRepositoryName = "example",
+    ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///             {
+    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example with Secret
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new Aws.SecretsManager.SecretArgs
+    ///         {
+    ///         });
+    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
+    ///         {
+    ///             SecretId = exampleSecret.Id,
+    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "username", "example" },
+    ///                 { "password", "example" },
+    ///             }),
+    ///         });
+    ///         var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new Aws.Sagemaker.CodeRepositoryArgs
+    ///         {
+    ///             CodeRepositoryName = "example",
+    ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///             {
+    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///                 SecretArn = exampleSecret.Arn,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleSecretVersion,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Sagemaker Code Repositories can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sagemaker/codeRepository:CodeRepository")]
     public partial class CodeRepository : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Code Repository (must be unique).
+        /// </summary>
         [Output("codeRepositoryName")]
         public Output<string> CodeRepositoryName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies details about the repository. see Git Config details below.
+        /// </summary>
         [Output("gitConfig")]
         public Output<Outputs.CodeRepositoryGitConfig> GitConfig { get; private set; } = null!;
 
@@ -67,9 +154,15 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class CodeRepositoryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Code Repository (must be unique).
+        /// </summary>
         [Input("codeRepositoryName", required: true)]
         public Input<string> CodeRepositoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies details about the repository. see Git Config details below.
+        /// </summary>
         [Input("gitConfig", required: true)]
         public Input<Inputs.CodeRepositoryGitConfigArgs> GitConfig { get; set; } = null!;
 
@@ -80,12 +173,21 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class CodeRepositoryState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the Code Repository (must be unique).
+        /// </summary>
         [Input("codeRepositoryName")]
         public Input<string>? CodeRepositoryName { get; set; }
 
+        /// <summary>
+        /// Specifies details about the repository. see Git Config details below.
+        /// </summary>
         [Input("gitConfig")]
         public Input<Inputs.CodeRepositoryGitConfigGetArgs>? GitConfig { get; set; }
 
