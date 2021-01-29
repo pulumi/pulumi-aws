@@ -9,9 +9,11 @@ export * from "./component";
 export * from "./distributionConfiguration";
 export * from "./getComponent";
 export * from "./getDistributionConfiguration";
+export * from "./getImage";
 export * from "./getImagePipeline";
 export * from "./getImageRecipe";
 export * from "./getInfrastructureConfiguration";
+export * from "./image";
 export * from "./imagePipeline";
 export * from "./imageRecipe";
 export * from "./infrastructureConfiguration";
@@ -19,6 +21,7 @@ export * from "./infrastructureConfiguration";
 // Import resources to register:
 import { Component } from "./component";
 import { DistributionConfiguration } from "./distributionConfiguration";
+import { Image } from "./image";
 import { ImagePipeline } from "./imagePipeline";
 import { ImageRecipe } from "./imageRecipe";
 import { InfrastructureConfiguration } from "./infrastructureConfiguration";
@@ -31,6 +34,8 @@ const _module = {
                 return new Component(name, <any>undefined, { urn })
             case "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
                 return new DistributionConfiguration(name, <any>undefined, { urn })
+            case "aws:imagebuilder/image:Image":
+                return new Image(name, <any>undefined, { urn })
             case "aws:imagebuilder/imagePipeline:ImagePipeline":
                 return new ImagePipeline(name, <any>undefined, { urn })
             case "aws:imagebuilder/imageRecipe:ImageRecipe":
@@ -44,6 +49,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/component", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/distributionConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "imagebuilder/image", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/imagePipeline", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/imageRecipe", _module)
 pulumi.runtime.registerResourceModule("aws", "imagebuilder/infrastructureConfiguration", _module)

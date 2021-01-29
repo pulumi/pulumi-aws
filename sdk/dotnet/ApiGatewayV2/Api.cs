@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class Api : Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+        /// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         [Output("apiEndpoint")]
         public Output<string> ApiEndpoint { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class ApiState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+        /// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         [Input("apiEndpoint")]
         public Input<string>? ApiEndpoint { get; set; }

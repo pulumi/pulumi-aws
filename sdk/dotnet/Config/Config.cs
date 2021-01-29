@@ -167,6 +167,7 @@ namespace Pulumi.Aws
                 public string? Elastictranscoder { get; set; } = null!;
                 public string? Elb { get; set; } = null!;
                 public string? Emr { get; set; } = null!;
+                public string? Emrcontainers { get; set; } = null!;
                 public string? Es { get; set; } = null!;
                 public string? Firehose { get; set; } = null!;
                 public string? Fms { get; set; } = null!;

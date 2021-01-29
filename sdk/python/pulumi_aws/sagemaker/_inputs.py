@@ -9,6 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'AppImageConfigKernelGatewayImageConfigArgs',
+    'AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs',
+    'AppImageConfigKernelGatewayImageConfigKernelSpecArgs',
     'CodeRepositoryGitConfigArgs',
     'DomainDefaultUserSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsArgs',
@@ -46,11 +49,147 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AppImageConfigKernelGatewayImageConfigArgs:
+    def __init__(__self__, *,
+                 kernel_spec: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'],
+                 file_system_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']] = None):
+        """
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'] kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs'] file_system_config: The URL where the Git repository is located. See File System Config details below.
+        """
+        pulumi.set(__self__, "kernel_spec", kernel_spec)
+        if file_system_config is not None:
+            pulumi.set(__self__, "file_system_config", file_system_config)
+
+    @property
+    @pulumi.getter(name="kernelSpec")
+    def kernel_spec(self) -> pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']:
+        """
+        The default branch for the Git repository. See Kernel Spec details below.
+        """
+        return pulumi.get(self, "kernel_spec")
+
+    @kernel_spec.setter
+    def kernel_spec(self, value: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']):
+        pulumi.set(self, "kernel_spec", value)
+
+    @property
+    @pulumi.getter(name="fileSystemConfig")
+    def file_system_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']]:
+        """
+        The URL where the Git repository is located. See File System Config details below.
+        """
+        return pulumi.get(self, "file_system_config")
+
+    @file_system_config.setter
+    def file_system_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']]):
+        pulumi.set(self, "file_system_config", value)
+
+
+@pulumi.input_type
+class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 default_gid: Optional[pulumi.Input[int]] = None,
+                 default_uid: Optional[pulumi.Input[int]] = None,
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] default_gid: The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        :param pulumi.Input[int] default_uid: The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        :param pulumi.Input[str] mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+        """
+        if default_gid is not None:
+            pulumi.set(__self__, "default_gid", default_gid)
+        if default_uid is not None:
+            pulumi.set(__self__, "default_uid", default_uid)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="defaultGid")
+    def default_gid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+        """
+        return pulumi.get(self, "default_gid")
+
+    @default_gid.setter
+    def default_gid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_gid", value)
+
+    @property
+    @pulumi.getter(name="defaultUid")
+    def default_uid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+        """
+        return pulumi.get(self, "default_uid")
+
+    @default_uid.setter
+    def default_uid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_uid", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class AppImageConfigKernelGatewayImageConfigKernelSpecArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the kernel.
+        :param pulumi.Input[str] display_name: The display name of the kernel.
+        """
+        pulumi.set(__self__, "name", name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the kernel.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the kernel.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+
+@pulumi.input_type
 class CodeRepositoryGitConfigArgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[str],
                  branch: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] repository_url: The URL where the Git repository is located.
+        :param pulumi.Input[str] branch: The default branch for the Git repository.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+        """
         pulumi.set(__self__, "repository_url", repository_url)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -60,6 +199,9 @@ class CodeRepositoryGitConfigArgs:
     @property
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> pulumi.Input[str]:
+        """
+        The URL where the Git repository is located.
+        """
         return pulumi.get(self, "repository_url")
 
     @repository_url.setter
@@ -69,6 +211,9 @@ class CodeRepositoryGitConfigArgs:
     @property
     @pulumi.getter
     def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default branch for the Git repository.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -78,6 +223,9 @@ class CodeRepositoryGitConfigArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter

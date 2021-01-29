@@ -147,6 +147,7 @@ class Endpoints(dict):
                  elastictranscoder: Optional[str] = None,
                  elb: Optional[str] = None,
                  emr: Optional[str] = None,
+                 emrcontainers: Optional[str] = None,
                  es: Optional[str] = None,
                  firehose: Optional[str] = None,
                  fms: Optional[str] = None,
@@ -355,6 +356,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "elb", elb)
         if emr is not None:
             pulumi.set(__self__, "emr", emr)
+        if emrcontainers is not None:
+            pulumi.set(__self__, "emrcontainers", emrcontainers)
         if es is not None:
             pulumi.set(__self__, "es", es)
         if firehose is not None:
@@ -829,6 +832,11 @@ class Endpoints(dict):
     @pulumi.getter
     def emr(self) -> Optional[str]:
         return pulumi.get(self, "emr")
+
+    @property
+    @pulumi.getter
+    def emrcontainers(self) -> Optional[str]:
+        return pulumi.get(self, "emrcontainers")
 
     @property
     @pulumi.getter

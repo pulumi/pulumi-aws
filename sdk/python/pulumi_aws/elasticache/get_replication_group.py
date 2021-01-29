@@ -19,7 +19,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, multi_az_enabled=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetReplicationGroupResult:
         if member_clusters and not isinstance(member_clusters, list):
             raise TypeError("Expected argument 'member_clusters' to be a list")
         pulumi.set(__self__, "member_clusters", member_clusters)
+        if multi_az_enabled and not isinstance(multi_az_enabled, bool):
+            raise TypeError("Expected argument 'multi_az_enabled' to be a bool")
+        pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -78,7 +81,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="authTokenEnabled")
     def auth_token_enabled(self) -> bool:
         """
-        A flag that enables using an AuthToken (password) when issuing Redis commands.
+        Specifies whether an AuthToken (password) is enabled.
         """
         return pulumi.get(self, "auth_token_enabled")
 
@@ -113,6 +116,14 @@ class GetReplicationGroupResult:
         The identifiers of all the nodes that are part of this replication group.
         """
         return pulumi.get(self, "member_clusters")
+
+    @property
+    @pulumi.getter(name="multiAzEnabled")
+    def multi_az_enabled(self) -> bool:
+        """
+        Specifies whether Multi-AZ Support is enabled for the replication group.
+        """
+        return pulumi.get(self, "multi_az_enabled")
 
     @property
     @pulumi.getter(name="nodeType")
@@ -196,6 +207,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             configuration_endpoint_address=self.configuration_endpoint_address,
             id=self.id,
             member_clusters=self.member_clusters,
+            multi_az_enabled=self.multi_az_enabled,
             node_type=self.node_type,
             number_cache_clusters=self.number_cache_clusters,
             port=self.port,
@@ -239,6 +251,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         configuration_endpoint_address=__ret__.configuration_endpoint_address,
         id=__ret__.id,
         member_clusters=__ret__.member_clusters,
+        multi_az_enabled=__ret__.multi_az_enabled,
         node_type=__ret__.node_type,
         number_cache_clusters=__ret__.number_cache_clusters,
         port=__ret__.port,

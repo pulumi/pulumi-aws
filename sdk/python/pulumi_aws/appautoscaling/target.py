@@ -82,6 +82,19 @@ class Target(pulumi.CustomResource):
             scalable_dimension="rds:cluster:ReadReplicaCount",
             service_namespace="rds")
         ```
+        ### MSK / Kafka Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        msk_target = aws.appautoscaling.Target("mskTarget",
+            max_capacity=8,
+            min_capacity=1,
+            resource_id=aws_msk_cluster["example"]["arn"],
+            scalable_dimension="kafka:broker-storage:VolumeSize",
+            service_namespace="kafka")
+        ```
 
         ## Import
 

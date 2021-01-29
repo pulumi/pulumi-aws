@@ -51,7 +51,7 @@ export interface GetReplicationGroupResult {
      */
     readonly arn: string;
     /**
-     * A flag that enables using an AuthToken (password) when issuing Redis commands.
+     * Specifies whether an AuthToken (password) is enabled.
      */
     readonly authTokenEnabled: boolean;
     /**
@@ -70,6 +70,10 @@ export interface GetReplicationGroupResult {
      * The identifiers of all the nodes that are part of this replication group.
      */
     readonly memberClusters: string[];
+    /**
+     * Specifies whether Multi-AZ Support is enabled for the replication group.
+     */
+    readonly multiAzEnabled: boolean;
     /**
      * The cluster node type.
      */

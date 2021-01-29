@@ -23,9 +23,56 @@ class CodeRepository(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a CodeRepository resource with the given unique name, props, and options.
+        Provides a Sagemaker Code Repository resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.CodeRepository("example",
+            code_repository_name="example",
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+                repository_url="https://github.com/hashicorp/terraform-provider-aws.git",
+            ))
+        ```
+        ### Example with Secret
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_secret = aws.secretsmanager.Secret("exampleSecret")
+        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+            secret_id=example_secret.id,
+            secret_string=json.dumps({
+                "username": "example",
+                "password": "example",
+            }))
+        example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
+            code_repository_name="example",
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+                repository_url="https://github.com/hashicorp/terraform-provider-aws.git",
+                secret_arn=example_secret.arn,
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+        ```
+
+        ## Import
+
+        Sagemaker Code Repositories can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
+        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,6 +118,9 @@ class CodeRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
+        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -84,16 +134,25 @@ class CodeRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="codeRepositoryName")
     def code_repository_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Code Repository (must be unique).
+        """
         return pulumi.get(self, "code_repository_name")
 
     @property
     @pulumi.getter(name="gitConfig")
     def git_config(self) -> pulumi.Output['outputs.CodeRepositoryGitConfig']:
+        """
+        Specifies details about the repository. see Git Config details below.
+        """
         return pulumi.get(self, "git_config")
 
     def translate_output_property(self, prop):

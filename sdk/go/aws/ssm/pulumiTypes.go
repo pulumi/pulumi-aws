@@ -2084,7 +2084,7 @@ type PatchBaselineApprovalRule struct {
 	ComplianceLevel *string `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
 	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
-	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
 	PatchFilters []PatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
 }
 
@@ -2106,7 +2106,7 @@ type PatchBaselineApprovalRuleArgs struct {
 	ComplianceLevel pulumi.StringPtrInput `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
 	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
-	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
 	PatchFilters PatchBaselineApprovalRulePatchFilterArrayInput `pulumi:"patchFilters"`
 }
 
@@ -2176,7 +2176,7 @@ func (o PatchBaselineApprovalRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v PatchBaselineApprovalRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
-// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
 func (o PatchBaselineApprovalRuleOutput) PatchFilters() PatchBaselineApprovalRulePatchFilterArrayOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) []PatchBaselineApprovalRulePatchFilter { return v.PatchFilters }).(PatchBaselineApprovalRulePatchFilterArrayOutput)
 }

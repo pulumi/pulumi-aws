@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ses.Inputs
         public Input<string> DimensionName { get; set; } = null!;
 
         /// <summary>
-        /// The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+        /// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
         /// </summary>
         [Input("valueSource", required: true)]
         public Input<string> ValueSource { get; set; } = null!;

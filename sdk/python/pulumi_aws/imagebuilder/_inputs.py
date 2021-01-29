@@ -12,6 +12,9 @@ __all__ = [
     'DistributionConfigurationDistributionArgs',
     'DistributionConfigurationDistributionAmiDistributionConfigurationArgs',
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs',
+    'ImageImageTestsConfigurationArgs',
+    'ImageOutputResourceArgs',
+    'ImageOutputResourceAmiArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeBlockDeviceMappingArgs',
@@ -215,6 +218,155 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
     @user_ids.setter
     def user_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_ids", value)
+
+
+@pulumi.input_type
+class ImageImageTestsConfigurationArgs:
+    def __init__(__self__, *,
+                 image_tests_enabled: Optional[pulumi.Input[bool]] = None,
+                 timeout_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
+        :param pulumi.Input[int] timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        if image_tests_enabled is not None:
+            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether image tests are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @image_tests_enabled.setter
+    def image_tests_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_tests_enabled", value)
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+
+@pulumi.input_type
+class ImageOutputResourceArgs:
+    def __init__(__self__, *,
+                 amis: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]]:
+        """
+        Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        return pulumi.get(self, "amis")
+
+    @amis.setter
+    def amis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]]):
+        pulumi.set(self, "amis", value)
+
+
+@pulumi.input_type
+class ImageOutputResourceAmiArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] account_id: Account identifier of the AMI.
+        :param pulumi.Input[str] description: Description of the AMI.
+        :param pulumi.Input[str] image: Identifier of the AMI.
+        :param pulumi.Input[str] name: Name of the AMI.
+        :param pulumi.Input[str] region: Region of the AMI.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account identifier of the AMI.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the AMI.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region of the AMI.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type

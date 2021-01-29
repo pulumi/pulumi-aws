@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -248,6 +248,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("memberClusters")]
         public Output<ImmutableArray<string>> MemberClusters { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// </summary>
+        [Output("multiAzEnabled")]
+        public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the node group.
@@ -460,7 +466,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ReplicationGroupClusterModeArgs>? ClusterMode { get; set; }
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -490,6 +496,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// </summary>
+        [Input("multiAzEnabled")]
+        public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the node group.
@@ -693,7 +705,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ConfigurationEndpointAddress { get; set; }
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -735,6 +747,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _memberClusters ?? (_memberClusters = new InputList<string>());
             set => _memberClusters = value;
         }
+
+        /// <summary>
+        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// </summary>
+        [Input("multiAzEnabled")]
+        public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the node group.

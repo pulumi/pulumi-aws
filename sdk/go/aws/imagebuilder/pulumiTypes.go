@@ -519,6 +519,386 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(pulumi.StringArrayOutput)
 }
 
+type ImageImageTestsConfiguration struct {
+	// Whether image tests are enabled. Defaults to `true`.
+	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// ImageImageTestsConfigurationInput is an input type that accepts ImageImageTestsConfigurationArgs and ImageImageTestsConfigurationOutput values.
+// You can construct a concrete instance of `ImageImageTestsConfigurationInput` via:
+//
+//          ImageImageTestsConfigurationArgs{...}
+type ImageImageTestsConfigurationInput interface {
+	pulumi.Input
+
+	ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput
+	ToImageImageTestsConfigurationOutputWithContext(context.Context) ImageImageTestsConfigurationOutput
+}
+
+type ImageImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled. Defaults to `true`.
+	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (ImageImageTestsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput {
+	return i.ToImageImageTestsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationOutputWithContext(ctx context.Context) ImageImageTestsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationOutput)
+}
+
+func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
+	return i.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationOutput).ToImageImageTestsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageImageTestsConfigurationPtrInput is an input type that accepts ImageImageTestsConfigurationArgs, ImageImageTestsConfigurationPtr and ImageImageTestsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageImageTestsConfigurationPtrInput` via:
+//
+//          ImageImageTestsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageImageTestsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput
+	ToImageImageTestsConfigurationPtrOutputWithContext(context.Context) ImageImageTestsConfigurationPtrOutput
+}
+
+type imageImageTestsConfigurationPtrType ImageImageTestsConfigurationArgs
+
+func ImageImageTestsConfigurationPtr(v *ImageImageTestsConfigurationArgs) ImageImageTestsConfigurationPtrInput {
+	return (*imageImageTestsConfigurationPtrType)(v)
+}
+
+func (*imageImageTestsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
+	return i.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationPtrOutput)
+}
+
+type ImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageImageTestsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationOutputWithContext(ctx context.Context) ImageImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
+	return o.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
+	return o.ApplyT(func(v ImageImageTestsConfiguration) *ImageImageTestsConfiguration {
+		return &v
+	}).(ImageImageTestsConfigurationPtrOutput)
+}
+
+// Whether image tests are enabled. Defaults to `true`.
+func (o ImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+func (o ImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ImageImageTestsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageImageTestsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurationOutput {
+	return o.ApplyT(func(v *ImageImageTestsConfiguration) ImageImageTestsConfiguration { return *v }).(ImageImageTestsConfigurationOutput)
+}
+
+// Whether image tests are enabled. Defaults to `true`.
+func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageImageTestsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageTestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageImageTestsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ImageOutputResource struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
+	Amis []ImageOutputResourceAmi `pulumi:"amis"`
+}
+
+// ImageOutputResourceInput is an input type that accepts ImageOutputResourceArgs and ImageOutputResourceOutput values.
+// You can construct a concrete instance of `ImageOutputResourceInput` via:
+//
+//          ImageOutputResourceArgs{...}
+type ImageOutputResourceInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceOutput() ImageOutputResourceOutput
+	ToImageOutputResourceOutputWithContext(context.Context) ImageOutputResourceOutput
+}
+
+type ImageOutputResourceArgs struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
+	Amis ImageOutputResourceAmiArrayInput `pulumi:"amis"`
+}
+
+func (ImageOutputResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResource)(nil)).Elem()
+}
+
+func (i ImageOutputResourceArgs) ToImageOutputResourceOutput() ImageOutputResourceOutput {
+	return i.ToImageOutputResourceOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceArgs) ToImageOutputResourceOutputWithContext(ctx context.Context) ImageOutputResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceOutput)
+}
+
+// ImageOutputResourceArrayInput is an input type that accepts ImageOutputResourceArray and ImageOutputResourceArrayOutput values.
+// You can construct a concrete instance of `ImageOutputResourceArrayInput` via:
+//
+//          ImageOutputResourceArray{ ImageOutputResourceArgs{...} }
+type ImageOutputResourceArrayInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceArrayOutput() ImageOutputResourceArrayOutput
+	ToImageOutputResourceArrayOutputWithContext(context.Context) ImageOutputResourceArrayOutput
+}
+
+type ImageOutputResourceArray []ImageOutputResourceInput
+
+func (ImageOutputResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResource)(nil)).Elem()
+}
+
+func (i ImageOutputResourceArray) ToImageOutputResourceArrayOutput() ImageOutputResourceArrayOutput {
+	return i.ToImageOutputResourceArrayOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceArray) ToImageOutputResourceArrayOutputWithContext(ctx context.Context) ImageOutputResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceArrayOutput)
+}
+
+type ImageOutputResourceOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResource)(nil)).Elem()
+}
+
+func (o ImageOutputResourceOutput) ToImageOutputResourceOutput() ImageOutputResourceOutput {
+	return o
+}
+
+func (o ImageOutputResourceOutput) ToImageOutputResourceOutputWithContext(ctx context.Context) ImageOutputResourceOutput {
+	return o
+}
+
+// Set of objects with each Amazon Machine Image (AMI) created.
+func (o ImageOutputResourceOutput) Amis() ImageOutputResourceAmiArrayOutput {
+	return o.ApplyT(func(v ImageOutputResource) []ImageOutputResourceAmi { return v.Amis }).(ImageOutputResourceAmiArrayOutput)
+}
+
+type ImageOutputResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResource)(nil)).Elem()
+}
+
+func (o ImageOutputResourceArrayOutput) ToImageOutputResourceArrayOutput() ImageOutputResourceArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceArrayOutput) ToImageOutputResourceArrayOutputWithContext(ctx context.Context) ImageOutputResourceArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageOutputResource {
+		return vs[0].([]ImageOutputResource)[vs[1].(int)]
+	}).(ImageOutputResourceOutput)
+}
+
+type ImageOutputResourceAmi struct {
+	// Account identifier of the AMI.
+	AccountId *string `pulumi:"accountId"`
+	// Description of the AMI.
+	Description *string `pulumi:"description"`
+	// Identifier of the AMI.
+	Image *string `pulumi:"image"`
+	// Name of the AMI.
+	Name *string `pulumi:"name"`
+	// Region of the AMI.
+	Region *string `pulumi:"region"`
+}
+
+// ImageOutputResourceAmiInput is an input type that accepts ImageOutputResourceAmiArgs and ImageOutputResourceAmiOutput values.
+// You can construct a concrete instance of `ImageOutputResourceAmiInput` via:
+//
+//          ImageOutputResourceAmiArgs{...}
+type ImageOutputResourceAmiInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceAmiOutput() ImageOutputResourceAmiOutput
+	ToImageOutputResourceAmiOutputWithContext(context.Context) ImageOutputResourceAmiOutput
+}
+
+type ImageOutputResourceAmiArgs struct {
+	// Account identifier of the AMI.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Description of the AMI.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Identifier of the AMI.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Name of the AMI.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region of the AMI.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (ImageOutputResourceAmiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutput() ImageOutputResourceAmiOutput {
+	return i.ToImageOutputResourceAmiOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutputWithContext(ctx context.Context) ImageOutputResourceAmiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiOutput)
+}
+
+// ImageOutputResourceAmiArrayInput is an input type that accepts ImageOutputResourceAmiArray and ImageOutputResourceAmiArrayOutput values.
+// You can construct a concrete instance of `ImageOutputResourceAmiArrayInput` via:
+//
+//          ImageOutputResourceAmiArray{ ImageOutputResourceAmiArgs{...} }
+type ImageOutputResourceAmiArrayInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceAmiArrayOutput() ImageOutputResourceAmiArrayOutput
+	ToImageOutputResourceAmiArrayOutputWithContext(context.Context) ImageOutputResourceAmiArrayOutput
+}
+
+type ImageOutputResourceAmiArray []ImageOutputResourceAmiInput
+
+func (ImageOutputResourceAmiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (i ImageOutputResourceAmiArray) ToImageOutputResourceAmiArrayOutput() ImageOutputResourceAmiArrayOutput {
+	return i.ToImageOutputResourceAmiArrayOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceAmiArray) ToImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) ImageOutputResourceAmiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiArrayOutput)
+}
+
+type ImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceAmiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (o ImageOutputResourceAmiOutput) ToImageOutputResourceAmiOutput() ImageOutputResourceAmiOutput {
+	return o
+}
+
+func (o ImageOutputResourceAmiOutput) ToImageOutputResourceAmiOutputWithContext(ctx context.Context) ImageOutputResourceAmiOutput {
+	return o
+}
+
+// Account identifier of the AMI.
+func (o ImageOutputResourceAmiOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Description of the AMI.
+func (o ImageOutputResourceAmiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the AMI.
+func (o ImageOutputResourceAmiOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Name of the AMI.
+func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Region of the AMI.
+func (o ImageOutputResourceAmiOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ImageOutputResourceAmiArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceAmiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (o ImageOutputResourceAmiArrayOutput) ToImageOutputResourceAmiArrayOutput() ImageOutputResourceAmiArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceAmiArrayOutput) ToImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) ImageOutputResourceAmiArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceAmiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageOutputResourceAmi {
+		return vs[0].([]ImageOutputResourceAmi)[vs[1].(int)]
+	}).(ImageOutputResourceAmiOutput)
+}
+
 type ImagePipelineImageTestsConfiguration struct {
 	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
@@ -1943,6 +2323,342 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	}).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
+type GetImageImageTestsConfiguration struct {
+	// Whether image tests are enabled.
+	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes int `pulumi:"timeoutMinutes"`
+}
+
+// GetImageImageTestsConfigurationInput is an input type that accepts GetImageImageTestsConfigurationArgs and GetImageImageTestsConfigurationOutput values.
+// You can construct a concrete instance of `GetImageImageTestsConfigurationInput` via:
+//
+//          GetImageImageTestsConfigurationArgs{...}
+type GetImageImageTestsConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImageImageTestsConfigurationOutput() GetImageImageTestsConfigurationOutput
+	ToGetImageImageTestsConfigurationOutputWithContext(context.Context) GetImageImageTestsConfigurationOutput
+}
+
+type GetImageImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled.
+	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
+}
+
+func (GetImageImageTestsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOutput() GetImageImageTestsConfigurationOutput {
+	return i.ToGetImageImageTestsConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationOutput)
+}
+
+// GetImageImageTestsConfigurationArrayInput is an input type that accepts GetImageImageTestsConfigurationArray and GetImageImageTestsConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImageImageTestsConfigurationArrayInput` via:
+//
+//          GetImageImageTestsConfigurationArray{ GetImageImageTestsConfigurationArgs{...} }
+type GetImageImageTestsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImageImageTestsConfigurationArrayOutput() GetImageImageTestsConfigurationArrayOutput
+	ToGetImageImageTestsConfigurationArrayOutputWithContext(context.Context) GetImageImageTestsConfigurationArrayOutput
+}
+
+type GetImageImageTestsConfigurationArray []GetImageImageTestsConfigurationInput
+
+func (GetImageImageTestsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i GetImageImageTestsConfigurationArray) ToGetImageImageTestsConfigurationArrayOutput() GetImageImageTestsConfigurationArrayOutput {
+	return i.ToGetImageImageTestsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageImageTestsConfigurationArray) ToGetImageImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationArrayOutput)
+}
+
+type GetImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImageImageTestsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o GetImageImageTestsConfigurationOutput) ToGetImageImageTestsConfigurationOutput() GetImageImageTestsConfigurationOutput {
+	return o
+}
+
+func (o GetImageImageTestsConfigurationOutput) ToGetImageImageTestsConfigurationOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationOutput {
+	return o
+}
+
+// Whether image tests are enabled.
+func (o GetImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageImageTestsConfiguration) bool { return v.ImageTestsEnabled }).(pulumi.BoolOutput)
+}
+
+// Number of minutes before image tests time out.
+func (o GetImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageImageTestsConfiguration) int { return v.TimeoutMinutes }).(pulumi.IntOutput)
+}
+
+type GetImageImageTestsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageImageTestsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o GetImageImageTestsConfigurationArrayOutput) ToGetImageImageTestsConfigurationArrayOutput() GetImageImageTestsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImageImageTestsConfigurationArrayOutput) ToGetImageImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) GetImageImageTestsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageImageTestsConfiguration {
+		return vs[0].([]GetImageImageTestsConfiguration)[vs[1].(int)]
+	}).(GetImageImageTestsConfigurationOutput)
+}
+
+type GetImageOutputResource struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
+	Amis []GetImageOutputResourceAmi `pulumi:"amis"`
+}
+
+// GetImageOutputResourceInput is an input type that accepts GetImageOutputResourceArgs and GetImageOutputResourceOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceInput` via:
+//
+//          GetImageOutputResourceArgs{...}
+type GetImageOutputResourceInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceOutput() GetImageOutputResourceOutput
+	ToGetImageOutputResourceOutputWithContext(context.Context) GetImageOutputResourceOutput
+}
+
+type GetImageOutputResourceArgs struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
+	Amis GetImageOutputResourceAmiArrayInput `pulumi:"amis"`
+}
+
+func (GetImageOutputResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResource)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutput() GetImageOutputResourceOutput {
+	return i.ToGetImageOutputResourceOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutputWithContext(ctx context.Context) GetImageOutputResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceOutput)
+}
+
+// GetImageOutputResourceArrayInput is an input type that accepts GetImageOutputResourceArray and GetImageOutputResourceArrayOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceArrayInput` via:
+//
+//          GetImageOutputResourceArray{ GetImageOutputResourceArgs{...} }
+type GetImageOutputResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceArrayOutput() GetImageOutputResourceArrayOutput
+	ToGetImageOutputResourceArrayOutputWithContext(context.Context) GetImageOutputResourceArrayOutput
+}
+
+type GetImageOutputResourceArray []GetImageOutputResourceInput
+
+func (GetImageOutputResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResource)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceArray) ToGetImageOutputResourceArrayOutput() GetImageOutputResourceArrayOutput {
+	return i.ToGetImageOutputResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceArray) ToGetImageOutputResourceArrayOutputWithContext(ctx context.Context) GetImageOutputResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceArrayOutput)
+}
+
+type GetImageOutputResourceOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResource)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutput() GetImageOutputResourceOutput {
+	return o
+}
+
+func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutputWithContext(ctx context.Context) GetImageOutputResourceOutput {
+	return o
+}
+
+// Set of objects with each Amazon Machine Image (AMI) created.
+func (o GetImageOutputResourceOutput) Amis() GetImageOutputResourceAmiArrayOutput {
+	return o.ApplyT(func(v GetImageOutputResource) []GetImageOutputResourceAmi { return v.Amis }).(GetImageOutputResourceAmiArrayOutput)
+}
+
+type GetImageOutputResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResource)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceArrayOutput) ToGetImageOutputResourceArrayOutput() GetImageOutputResourceArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceArrayOutput) ToGetImageOutputResourceArrayOutputWithContext(ctx context.Context) GetImageOutputResourceArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOutputResource {
+		return vs[0].([]GetImageOutputResource)[vs[1].(int)]
+	}).(GetImageOutputResourceOutput)
+}
+
+type GetImageOutputResourceAmi struct {
+	// Account identifier of the AMI.
+	AccountId string `pulumi:"accountId"`
+	// Description of the AMI.
+	Description string `pulumi:"description"`
+	// Identifier of the AMI.
+	Image string `pulumi:"image"`
+	// Name of the AMI.
+	Name string `pulumi:"name"`
+	// Region of the AMI.
+	Region string `pulumi:"region"`
+}
+
+// GetImageOutputResourceAmiInput is an input type that accepts GetImageOutputResourceAmiArgs and GetImageOutputResourceAmiOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceAmiInput` via:
+//
+//          GetImageOutputResourceAmiArgs{...}
+type GetImageOutputResourceAmiInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceAmiOutput() GetImageOutputResourceAmiOutput
+	ToGetImageOutputResourceAmiOutputWithContext(context.Context) GetImageOutputResourceAmiOutput
+}
+
+type GetImageOutputResourceAmiArgs struct {
+	// Account identifier of the AMI.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Description of the AMI.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Identifier of the AMI.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Name of the AMI.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the AMI.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetImageOutputResourceAmiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutput() GetImageOutputResourceAmiOutput {
+	return i.ToGetImageOutputResourceAmiOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutputWithContext(ctx context.Context) GetImageOutputResourceAmiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiOutput)
+}
+
+// GetImageOutputResourceAmiArrayInput is an input type that accepts GetImageOutputResourceAmiArray and GetImageOutputResourceAmiArrayOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceAmiArrayInput` via:
+//
+//          GetImageOutputResourceAmiArray{ GetImageOutputResourceAmiArgs{...} }
+type GetImageOutputResourceAmiArrayInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceAmiArrayOutput() GetImageOutputResourceAmiArrayOutput
+	ToGetImageOutputResourceAmiArrayOutputWithContext(context.Context) GetImageOutputResourceAmiArrayOutput
+}
+
+type GetImageOutputResourceAmiArray []GetImageOutputResourceAmiInput
+
+func (GetImageOutputResourceAmiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceAmiArray) ToGetImageOutputResourceAmiArrayOutput() GetImageOutputResourceAmiArrayOutput {
+	return i.ToGetImageOutputResourceAmiArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceAmiArray) ToGetImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) GetImageOutputResourceAmiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiArrayOutput)
+}
+
+type GetImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceAmiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceAmiOutput) ToGetImageOutputResourceAmiOutput() GetImageOutputResourceAmiOutput {
+	return o
+}
+
+func (o GetImageOutputResourceAmiOutput) ToGetImageOutputResourceAmiOutputWithContext(ctx context.Context) GetImageOutputResourceAmiOutput {
+	return o
+}
+
+// Account identifier of the AMI.
+func (o GetImageOutputResourceAmiOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Description of the AMI.
+func (o GetImageOutputResourceAmiOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Identifier of the AMI.
+func (o GetImageOutputResourceAmiOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// Name of the AMI.
+func (o GetImageOutputResourceAmiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region of the AMI.
+func (o GetImageOutputResourceAmiOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetImageOutputResourceAmiArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceAmiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResourceAmi)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceAmiArrayOutput) ToGetImageOutputResourceAmiArrayOutput() GetImageOutputResourceAmiArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceAmiArrayOutput) ToGetImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) GetImageOutputResourceAmiArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceAmiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOutputResourceAmi {
+		return vs[0].([]GetImageOutputResourceAmi)[vs[1].(int)]
+	}).(GetImageOutputResourceAmiOutput)
+}
+
 type GetImagePipelineImageTestsConfiguration struct {
 	// Whether image tests are enabled.
 	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
@@ -2739,6 +3455,12 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput{})
+	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceArrayOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceAmiOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -2759,6 +3481,12 @@ func init() {
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetImageImageTestsConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImageImageTestsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceAmiOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})

@@ -21,13 +21,16 @@ class GetVpcPeeringConnectionResult:
     """
     A collection of values returned by getVpcPeeringConnection.
     """
-    def __init__(__self__, accepter=None, cidr_block=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, status=None, tags=None, vpc_id=None):
+    def __init__(__self__, accepter=None, cidr_block=None, cidr_block_sets=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_cidr_block_sets=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, status=None, tags=None, vpc_id=None):
         if accepter and not isinstance(accepter, dict):
             raise TypeError("Expected argument 'accepter' to be a dict")
         pulumi.set(__self__, "accepter", accepter)
         if cidr_block and not isinstance(cidr_block, str):
             raise TypeError("Expected argument 'cidr_block' to be a str")
         pulumi.set(__self__, "cidr_block", cidr_block)
+        if cidr_block_sets and not isinstance(cidr_block_sets, list):
+            raise TypeError("Expected argument 'cidr_block_sets' to be a list")
+        pulumi.set(__self__, "cidr_block_sets", cidr_block_sets)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -40,6 +43,9 @@ class GetVpcPeeringConnectionResult:
         if peer_cidr_block and not isinstance(peer_cidr_block, str):
             raise TypeError("Expected argument 'peer_cidr_block' to be a str")
         pulumi.set(__self__, "peer_cidr_block", peer_cidr_block)
+        if peer_cidr_block_sets and not isinstance(peer_cidr_block_sets, list):
+            raise TypeError("Expected argument 'peer_cidr_block_sets' to be a list")
+        pulumi.set(__self__, "peer_cidr_block_sets", peer_cidr_block_sets)
         if peer_owner_id and not isinstance(peer_owner_id, str):
             raise TypeError("Expected argument 'peer_owner_id' to be a str")
         pulumi.set(__self__, "peer_owner_id", peer_owner_id)
@@ -77,7 +83,18 @@ class GetVpcPeeringConnectionResult:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
+        """
+        A CIDR block associated to the VPC of the specific VPC Peering Connection.
+        """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="cidrBlockSets")
+    def cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionCidrBlockSetResult']:
+        """
+        List of objects with CIDR blocks of the requester VPC.
+        """
+        return pulumi.get(self, "cidr_block_sets")
 
     @property
     @pulumi.getter
@@ -98,6 +115,14 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter(name="peerCidrBlock")
     def peer_cidr_block(self) -> str:
         return pulumi.get(self, "peer_cidr_block")
+
+    @property
+    @pulumi.getter(name="peerCidrBlockSets")
+    def peer_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult']:
+        """
+        List of objects with CIDR blocks of the accepter VPC.
+        """
+        return pulumi.get(self, "peer_cidr_block_sets")
 
     @property
     @pulumi.getter(name="peerOwnerId")
@@ -152,10 +177,12 @@ class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
         return GetVpcPeeringConnectionResult(
             accepter=self.accepter,
             cidr_block=self.cidr_block,
+            cidr_block_sets=self.cidr_block_sets,
             filters=self.filters,
             id=self.id,
             owner_id=self.owner_id,
             peer_cidr_block=self.peer_cidr_block,
+            peer_cidr_block_sets=self.peer_cidr_block_sets,
             peer_owner_id=self.peer_owner_id,
             peer_region=self.peer_region,
             peer_vpc_id=self.peer_vpc_id,
@@ -201,11 +228,11 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     ```
 
 
-    :param str cidr_block: The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Peering Connection to retrieve.
     :param str owner_id: The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_cidr_block: The CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_cidr_block: The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param str peer_owner_id: The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param str peer_region: The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
@@ -237,10 +264,12 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     return AwaitableGetVpcPeeringConnectionResult(
         accepter=__ret__.accepter,
         cidr_block=__ret__.cidr_block,
+        cidr_block_sets=__ret__.cidr_block_sets,
         filters=__ret__.filters,
         id=__ret__.id,
         owner_id=__ret__.owner_id,
         peer_cidr_block=__ret__.peer_cidr_block,
+        peer_cidr_block_sets=__ret__.peer_cidr_block_sets,
         peer_owner_id=__ret__.peer_owner_id,
         peer_region=__ret__.peer_region,
         peer_vpc_id=__ret__.peer_vpc_id,

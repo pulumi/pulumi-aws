@@ -180,7 +180,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string>;
     /**
-     * The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+     * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -205,6 +205,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The identifiers of all the nodes that are part of this replication group.
      */
     public /*out*/ readonly memberClusters!: pulumi.Output<string[]>;
+    /**
+     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+     */
+    public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The compute and memory capacity of the nodes in the node group.
      */
@@ -314,6 +318,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["memberClusters"] = state ? state.memberClusters : undefined;
+            inputs["multiAzEnabled"] = state ? state.multiAzEnabled : undefined;
             inputs["nodeType"] = state ? state.nodeType : undefined;
             inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
             inputs["numberCacheClusters"] = state ? state.numberCacheClusters : undefined;
@@ -349,6 +354,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            inputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
             inputs["nodeType"] = args ? args.nodeType : undefined;
             inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             inputs["numberCacheClusters"] = args ? args.numberCacheClusters : undefined;
@@ -428,7 +434,7 @@ export interface ReplicationGroupState {
      */
     readonly configurationEndpointAddress?: pulumi.Input<string>;
     /**
-     * The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+     * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
     readonly engine?: pulumi.Input<string>;
     /**
@@ -453,6 +459,10 @@ export interface ReplicationGroupState {
      * The identifiers of all the nodes that are part of this replication group.
      */
     readonly memberClusters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+     */
+    readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
      * The compute and memory capacity of the nodes in the node group.
      */
@@ -568,7 +578,7 @@ export interface ReplicationGroupArgs {
      */
     readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
-     * The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+     * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
     readonly engine?: pulumi.Input<string>;
     /**
@@ -589,6 +599,10 @@ export interface ReplicationGroupArgs {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+     */
+    readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
      * The compute and memory capacity of the nodes in the node group.
      */

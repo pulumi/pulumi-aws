@@ -50,7 +50,7 @@ type LookupReplicationGroupArgs struct {
 type LookupReplicationGroupResult struct {
 	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
 	Arn string `pulumi:"arn"`
-	// A flag that enables using an AuthToken (password) when issuing Redis commands.
+	// Specifies whether an AuthToken (password) is enabled.
 	AuthTokenEnabled bool `pulumi:"authTokenEnabled"`
 	// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
 	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
@@ -60,6 +60,8 @@ type LookupReplicationGroupResult struct {
 	Id string `pulumi:"id"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
+	// Specifies whether Multi-AZ Support is enabled for the replication group.
+	MultiAzEnabled bool `pulumi:"multiAzEnabled"`
 	// The cluster node type.
 	NodeType string `pulumi:"nodeType"`
 	// The number of cache clusters that the replication group has.

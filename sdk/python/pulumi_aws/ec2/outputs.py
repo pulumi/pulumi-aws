@@ -163,7 +163,9 @@ __all__ = [
     'GetVpcEndpointFilterResult',
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
+    'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
+    'GetVpcPeeringConnectionPeerCidrBlockSetResult',
     'GetVpcPeeringConnectionsFilterResult',
     'GetVpcsFilterResult',
     'GetVpnGatewayFilterResult',
@@ -2282,7 +2284,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         :param str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param str snapshot_id: The Snapshot ID to mount.
-        :param int throughput: The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+        :param int throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
         :param int volume_size: The size of the volume in gigabytes.
         :param str volume_type: The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
@@ -2351,7 +2353,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @pulumi.getter
     def throughput(self) -> Optional[int]:
         """
-        The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+        The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
         """
         return pulumi.get(self, "throughput")
 
@@ -7905,6 +7907,24 @@ class GetVpcFilterResult(dict):
 
 
 @pulumi.output_type
+class GetVpcPeeringConnectionCidrBlockSetResult(dict):
+    def __init__(__self__, *,
+                 cidr_block: str):
+        """
+        :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> str:
+        """
+        The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+        """
+        return pulumi.get(self, "cidr_block")
+
+
+@pulumi.output_type
 class GetVpcPeeringConnectionFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -7935,6 +7955,24 @@ class GetVpcPeeringConnectionFilterResult(dict):
         A VPC Peering Connection will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
+    def __init__(__self__, *,
+                 cidr_block: str):
+        """
+        :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> str:
+        """
+        The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+        """
+        return pulumi.get(self, "cidr_block")
 
 
 @pulumi.output_type

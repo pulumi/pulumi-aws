@@ -66,6 +66,20 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "rds",
  * });
  * ```
+ * ### MSK / Kafka Autoscaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mskTarget = new aws.appautoscaling.Target("msk_target", {
+ *     maxCapacity: 8,
+ *     minCapacity: 1,
+ *     resourceId: aws_msk_cluster_example.arn,
+ *     scalableDimension: "kafka:broker-storage:VolumeSize",
+ *     serviceNamespace: "kafka",
+ * });
+ * ```
  *
  * ## Import
  *

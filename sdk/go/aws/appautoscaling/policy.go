@@ -170,6 +170,47 @@ import (
 // 	})
 // }
 // ```
+// ### MSK / Kafka Autoscaling
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appautoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mskTarget, err := appautoscaling.NewTarget(ctx, "mskTarget", &appautoscaling.TargetArgs{
+// 			ServiceNamespace:  pulumi.String("kafka"),
+// 			ScalableDimension: pulumi.String("kafka:broker-storage:VolumeSize"),
+// 			ResourceId:        pulumi.Any(aws_msk_cluster.Example.Arn),
+// 			MinCapacity:       pulumi.Int(1),
+// 			MaxCapacity:       pulumi.Int(8),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appautoscaling.NewPolicy(ctx, "targets", &appautoscaling.PolicyArgs{
+// 			ServiceNamespace:  mskTarget.ServiceNamespace,
+// 			ScalableDimension: mskTarget.ScalableDimension,
+// 			ResourceId:        mskTarget.ResourceId,
+// 			PolicyType:        pulumi.String("TargetTrackingScaling"),
+// 			TargetTrackingScalingPolicyConfiguration: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs{
+// 				PredefinedMetricSpecification: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{
+// 					PredefinedMetricType: pulumi.String("KafkaBrokerStorageUtilization"),
+// 				},
+// 				TargetValue: pulumi.Float64(55),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

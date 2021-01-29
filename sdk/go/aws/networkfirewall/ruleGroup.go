@@ -14,7 +14,7 @@ import (
 // Provides an AWS Network Firewall Rule Group Resource
 //
 // ## Example Usage
-// ### Stateful Inspection
+// ### Stateful Inspection for denying access to a domain
 //
 // ```go
 // package main
@@ -54,7 +54,74 @@ import (
 // 	})
 // }
 // ```
-// ### Stateful Inspection compatible with intrusion detection systems like Snort or Suricata
+// ### Stateful Inspection for permitting packets from a source IP address
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/networkfirewall"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ips := []string{
+// 			"1.1.1.1/32",
+// 			"1.0.0.1/32",
+// 		}
+// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+// 			Capacity:    pulumi.Int(50),
+// 			Description: pulumi.String("Permits http traffic from source"),
+// 			Type:        pulumi.String("STATEFUL"),
+// 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+// 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+// 					Dynamic: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"forEach": toPulumiStringArray(ips),
+// 							"content": pulumi.MapArray{
+// 								pulumi.Map{
+// 									"action": pulumi.String("PASS"),
+// 									"header": pulumi.MapArray{
+// 										pulumi.Map{
+// 											"destination":     pulumi.String("ANY"),
+// 											"destinationPort": pulumi.String("ANY"),
+// 											"protocol":        pulumi.String("HTTP"),
+// 											"direction":       pulumi.String("ANY"),
+// 											"sourcePort":      pulumi.String("ANY"),
+// 											"source":          pulumi.Any(stateful_rule.Value),
+// 										},
+// 									},
+// 									"ruleOption": pulumi.StringMapArray{
+// 										pulumi.StringMap{
+// 											"keyword": pulumi.String("sid:1"),
+// 										},
+// 									},
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("permit HTTP from source"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// func toPulumiStringArray(arr []string) pulumi.StringArray {
+// 	var pulumiArr pulumi.StringArray
+// 	for _, v := range arr {
+// 		pulumiArr = append(pulumiArr, pulumi.String(v))
+// 	}
+// 	return pulumiArr
+// }
+// ```
+// ### Stateful Inspection for blocking packets from going to an intended destination
 //
 // ```go
 // package main

@@ -185,6 +185,7 @@ class ProviderEndpointArgs:
                  elastictranscoder: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  emr: Optional[pulumi.Input[str]] = None,
+                 emrcontainers: Optional[pulumi.Input[str]] = None,
                  es: Optional[pulumi.Input[str]] = None,
                  firehose: Optional[pulumi.Input[str]] = None,
                  fms: Optional[pulumi.Input[str]] = None,
@@ -393,6 +394,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "elb", elb)
         if emr is not None:
             pulumi.set(__self__, "emr", emr)
+        if emrcontainers is not None:
+            pulumi.set(__self__, "emrcontainers", emrcontainers)
         if es is not None:
             pulumi.set(__self__, "es", es)
         if firehose is not None:
@@ -1099,6 +1102,15 @@ class ProviderEndpointArgs:
     @emr.setter
     def emr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "emr", value)
+
+    @property
+    @pulumi.getter
+    def emrcontainers(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "emrcontainers")
+
+    @emrcontainers.setter
+    def emrcontainers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "emrcontainers", value)
 
     @property
     @pulumi.getter

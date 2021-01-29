@@ -152,6 +152,43 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
+    /// ### MSK / Kafka Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             ServiceNamespace = "kafka",
+    ///             ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///             ResourceId = aws_msk_cluster.Example.Arn,
+    ///             MinCapacity = 1,
+    ///             MaxCapacity = 8,
+    ///         });
+    ///         var targets = new Aws.AppAutoScaling.Policy("targets", new Aws.AppAutoScaling.PolicyArgs
+    ///         {
+    ///             ServiceNamespace = mskTarget.ServiceNamespace,
+    ///             ScalableDimension = mskTarget.ScalableDimension,
+    ///             ResourceId = mskTarget.ResourceId,
+    ///             PolicyType = "TargetTrackingScaling",
+    ///             TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
+    ///             {
+    ///                 PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
+    ///                 {
+    ///                     PredefinedMetricType = "KafkaBrokerStorageUtilization",
+    ///                 },
+    ///                 TargetValue = 55,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

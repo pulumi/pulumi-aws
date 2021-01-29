@@ -300,6 +300,7 @@ type ProviderEndpoint struct {
 	Elastictranscoder        *string `pulumi:"elastictranscoder"`
 	Elb                      *string `pulumi:"elb"`
 	Emr                      *string `pulumi:"emr"`
+	Emrcontainers            *string `pulumi:"emrcontainers"`
 	Es                       *string `pulumi:"es"`
 	Firehose                 *string `pulumi:"firehose"`
 	Fms                      *string `pulumi:"fms"`
@@ -464,6 +465,7 @@ type ProviderEndpointArgs struct {
 	Elastictranscoder        pulumi.StringPtrInput `pulumi:"elastictranscoder"`
 	Elb                      pulumi.StringPtrInput `pulumi:"elb"`
 	Emr                      pulumi.StringPtrInput `pulumi:"emr"`
+	Emrcontainers            pulumi.StringPtrInput `pulumi:"emrcontainers"`
 	Es                       pulumi.StringPtrInput `pulumi:"es"`
 	Firehose                 pulumi.StringPtrInput `pulumi:"firehose"`
 	Fms                      pulumi.StringPtrInput `pulumi:"fms"`
@@ -839,6 +841,10 @@ func (o ProviderEndpointOutput) Elb() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Emr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Emr }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Emrcontainers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Emrcontainers }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Es() pulumi.StringPtrOutput {

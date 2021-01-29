@@ -41,6 +41,9 @@ __all__ = [
     'GetListenerDefaultActionAuthenticateCognitoResult',
     'GetListenerDefaultActionAuthenticateOidcResult',
     'GetListenerDefaultActionFixedResponseResult',
+    'GetListenerDefaultActionForwardResult',
+    'GetListenerDefaultActionForwardStickinessResult',
+    'GetListenerDefaultActionForwardTargetGroupResult',
     'GetListenerDefaultActionRedirectResult',
     'GetLoadBalancerAccessLogsResult',
     'GetLoadBalancerSubnetMappingResult',
@@ -1668,6 +1671,7 @@ class GetListenerDefaultActionResult(dict):
                  authenticate_cognitos: Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult'],
                  authenticate_oidcs: Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult'],
                  fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
+                 forwards: Sequence['outputs.GetListenerDefaultActionForwardResult'],
                  order: int,
                  redirects: Sequence['outputs.GetListenerDefaultActionRedirectResult'],
                  target_group_arn: str,
@@ -1675,6 +1679,7 @@ class GetListenerDefaultActionResult(dict):
         pulumi.set(__self__, "authenticate_cognitos", authenticate_cognitos)
         pulumi.set(__self__, "authenticate_oidcs", authenticate_oidcs)
         pulumi.set(__self__, "fixed_responses", fixed_responses)
+        pulumi.set(__self__, "forwards", forwards)
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "redirects", redirects)
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -1694,6 +1699,11 @@ class GetListenerDefaultActionResult(dict):
     @pulumi.getter(name="fixedResponses")
     def fixed_responses(self) -> Sequence['outputs.GetListenerDefaultActionFixedResponseResult']:
         return pulumi.get(self, "fixed_responses")
+
+    @property
+    @pulumi.getter
+    def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
+        return pulumi.get(self, "forwards")
 
     @property
     @pulumi.getter
@@ -1883,6 +1893,69 @@ class GetListenerDefaultActionFixedResponseResult(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionForwardResult(dict):
+    def __init__(__self__, *,
+                 stickinesses: Sequence['outputs.GetListenerDefaultActionForwardStickinessResult'],
+                 target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
+        pulumi.set(__self__, "stickinesses", stickinesses)
+        pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter
+    def stickinesses(self) -> Sequence['outputs.GetListenerDefaultActionForwardStickinessResult']:
+        return pulumi.get(self, "stickinesses")
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']:
+        return pulumi.get(self, "target_groups")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionForwardStickinessResult(dict):
+    def __init__(__self__, *,
+                 duration: int,
+                 enabled: bool):
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> int:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionForwardTargetGroupResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 weight: int):
+        """
+        :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

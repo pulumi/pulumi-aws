@@ -10,10 +10,490 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AppImageConfigKernelGatewayImageConfig struct {
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig *AppImageConfigKernelGatewayImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
+	// The default branch for the Git repository. See Kernel Spec details below.
+	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpec `pulumi:"kernelSpec"`
+}
+
+// AppImageConfigKernelGatewayImageConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs and AppImageConfigKernelGatewayImageConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigArgs{...}
+type AppImageConfigKernelGatewayImageConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput
+	ToAppImageConfigKernelGatewayImageConfigOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigOutput
+}
+
+type AppImageConfigKernelGatewayImageConfigArgs struct {
+	// The URL where the Git repository is located. See File System Config details below.
+	FileSystemConfig AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
+	// The default branch for the Git repository. See Kernel Spec details below.
+	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpecInput `pulumi:"kernelSpec"`
+}
+
+func (AppImageConfigKernelGatewayImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigOutput)
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigOutput).ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigKernelGatewayImageConfigPtrInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs, AppImageConfigKernelGatewayImageConfigPtr and AppImageConfigKernelGatewayImageConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigPtrInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AppImageConfigKernelGatewayImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput
+	ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput
+}
+
+type appImageConfigKernelGatewayImageConfigPtrType AppImageConfigKernelGatewayImageConfigArgs
+
+func AppImageConfigKernelGatewayImageConfigPtr(v *AppImageConfigKernelGatewayImageConfigArgs) AppImageConfigKernelGatewayImageConfigPtrInput {
+	return (*appImageConfigKernelGatewayImageConfigPtrType)(v)
+}
+
+func (*appImageConfigKernelGatewayImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigKernelGatewayImageConfigPtrType) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigKernelGatewayImageConfigPtrType) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfig {
+		return &v
+	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigKernelGatewayImageConfigOutput) FileSystemConfig() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+		return v.FileSystemConfig
+	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
+}
+
+// The default branch for the Git repository. See Kernel Spec details below.
+func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfigKernelSpec {
+		return v.KernelSpec
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfig { return *v }).(AppImageConfigKernelGatewayImageConfigOutput)
+}
+
+// The URL where the Git repository is located. See File System Config details below.
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemConfig
+	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
+}
+
+// The default branch for the Git repository. See Kernel Spec details below.
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigKernelSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.KernelSpec
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigFileSystemConfig struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid *int `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid *int `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	MountPath *string `pulumi:"mountPath"`
+}
+
+// AppImageConfigKernelGatewayImageConfigFileSystemConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs and AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigFileSystemConfigInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{...}
+type AppImageConfigKernelGatewayImageConfigFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput
+	ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput
+}
+
+type AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs struct {
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+}
+
+func (AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput)
+}
+
+func (i AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput).ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput is an input type that accepts AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs, AppImageConfigKernelGatewayImageConfigFileSystemConfigPtr and AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput
+	ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput
+}
+
+type appImageConfigKernelGatewayImageConfigFileSystemConfigPtrType AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs
+
+func AppImageConfigKernelGatewayImageConfigFileSystemConfigPtr(v *AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput {
+	return (*appImageConfigKernelGatewayImageConfigFileSystemConfigPtrType)(v)
+}
+
+func (*appImageConfigKernelGatewayImageConfigFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigKernelGatewayImageConfigFileSystemConfigPtrType) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigKernelGatewayImageConfigFileSystemConfigPtrType) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o.ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+		return &v
+	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+		return *v
+	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput)
+}
+
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultUid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigKernelSpec struct {
+	// The display name of the kernel.
+	DisplayName *string `pulumi:"displayName"`
+	// The name of the kernel.
+	Name string `pulumi:"name"`
+}
+
+// AppImageConfigKernelGatewayImageConfigKernelSpecInput is an input type that accepts AppImageConfigKernelGatewayImageConfigKernelSpecArgs and AppImageConfigKernelGatewayImageConfigKernelSpecOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigKernelSpecInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigKernelSpecArgs{...}
+type AppImageConfigKernelGatewayImageConfigKernelSpecInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecOutput() AppImageConfigKernelGatewayImageConfigKernelSpecOutput
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecOutput
+}
+
+type AppImageConfigKernelGatewayImageConfigKernelSpecArgs struct {
+	// The display name of the kernel.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The name of the kernel.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecOutput() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
+}
+
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput).ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput is an input type that accepts AppImageConfigKernelGatewayImageConfigKernelSpecArgs, AppImageConfigKernelGatewayImageConfigKernelSpecPtr and AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigKernelSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput
+}
+
+type appImageConfigKernelGatewayImageConfigKernelSpecPtrType AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+
+func AppImageConfigKernelGatewayImageConfigKernelSpecPtr(v *AppImageConfigKernelGatewayImageConfigKernelSpecArgs) AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput {
+	return (*appImageConfigKernelGatewayImageConfigKernelSpecPtrType)(v)
+}
+
+func (*appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (i *appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigKernelSpecOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecOutput() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return o.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) *AppImageConfigKernelGatewayImageConfigKernelSpec {
+		return &v
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
+}
+
+// The display name of the kernel.
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the kernel.
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) AppImageConfigKernelGatewayImageConfigKernelSpec {
+		return *v
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
+}
+
+// The display name of the kernel.
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the kernel.
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type CodeRepositoryGitConfig struct {
-	Branch        *string `pulumi:"branch"`
-	RepositoryUrl string  `pulumi:"repositoryUrl"`
-	SecretArn     *string `pulumi:"secretArn"`
+	// The default branch for the Git repository.
+	Branch *string `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	SecretArn *string `pulumi:"secretArn"`
 }
 
 // CodeRepositoryGitConfigInput is an input type that accepts CodeRepositoryGitConfigArgs and CodeRepositoryGitConfigOutput values.
@@ -28,9 +508,12 @@ type CodeRepositoryGitConfigInput interface {
 }
 
 type CodeRepositoryGitConfigArgs struct {
-	Branch        pulumi.StringPtrInput `pulumi:"branch"`
-	RepositoryUrl pulumi.StringInput    `pulumi:"repositoryUrl"`
-	SecretArn     pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The default branch for the Git repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
 func (CodeRepositoryGitConfigArgs) ElementType() reflect.Type {
@@ -109,14 +592,18 @@ func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithCon
 		return &v
 	}).(CodeRepositoryGitConfigPtrOutput)
 }
+
+// The default branch for the Git repository.
 func (o CodeRepositoryGitConfigOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// The URL where the Git repository is located.
 func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -139,6 +626,7 @@ func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig { return *v }).(CodeRepositoryGitConfigOutput)
 }
 
+// The default branch for the Git repository.
 func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -148,6 +636,7 @@ func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL where the Git repository is located.
 func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -157,6 +646,7 @@ func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -5279,6 +5769,12 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})

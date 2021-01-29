@@ -31,7 +31,7 @@ class RuleGroup(pulumi.CustomResource):
         Provides an AWS Network Firewall Rule Group Resource
 
         ## Example Usage
-        ### Stateful Inspection
+        ### Stateful Inspection for denying access to a domain
 
         ```python
         import pulumi
@@ -54,7 +54,46 @@ class RuleGroup(pulumi.CustomResource):
             },
             type="STATEFUL")
         ```
-        ### Stateful Inspection compatible with intrusion detection systems like Snort or Suricata
+        ### Stateful Inspection for permitting packets from a source IP address
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ips = [
+            "1.1.1.1/32",
+            "1.0.0.1/32",
+        ]
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=50,
+            description="Permits http traffic from source",
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    dynamic=[{
+                        "forEach": ips,
+                        "content": [{
+                            "action": "PASS",
+                            "header": [{
+                                "destination": "ANY",
+                                "destinationPort": "ANY",
+                                "protocol": "HTTP",
+                                "direction": "ANY",
+                                "sourcePort": "ANY",
+                                "source": stateful_rule["value"],
+                            }],
+                            "ruleOption": [{
+                                "keyword": "sid:1",
+                            }],
+                        }],
+                    }],
+                ),
+            ),
+            tags={
+                "Name": "permit HTTP from source",
+            })
+        ```
+        ### Stateful Inspection for blocking packets from going to an intended destination
 
         ```python
         import pulumi

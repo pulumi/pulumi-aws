@@ -149,6 +149,7 @@ export interface ProviderEndpoint {
     elastictranscoder?: pulumi.Input<string>;
     elb?: pulumi.Input<string>;
     emr?: pulumi.Input<string>;
+    emrcontainers?: pulumi.Input<string>;
     es?: pulumi.Input<string>;
     firehose?: pulumi.Input<string>;
     fms?: pulumi.Input<string>;
@@ -8071,7 +8072,7 @@ export namespace ec2 {
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
+         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
          */
         throughput?: pulumi.Input<number>;
         /**
@@ -9654,7 +9655,7 @@ export namespace elasticache {
          */
         numNodeGroups: pulumi.Input<number>;
         /**
-         * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+         * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
          */
         replicasPerNodeGroup: pulumi.Input<number>;
     }
@@ -12607,6 +12608,47 @@ export namespace imagebuilder {
          * Set of AWS Account identifiers to assign.
          */
         userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ImageImageTestsConfiguration {
+        /**
+         * Whether image tests are enabled. Defaults to `true`.
+         */
+        imageTestsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+         */
+        timeoutMinutes?: pulumi.Input<number>;
+    }
+
+    export interface ImageOutputResource {
+        /**
+         * Set of objects with each Amazon Machine Image (AMI) created.
+         */
+        amis?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResourceAmi>[]>;
+    }
+
+    export interface ImageOutputResourceAmi {
+        /**
+         * Account identifier of the AMI.
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * Description of the AMI.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Identifier of the AMI.
+         */
+        image?: pulumi.Input<string>;
+        /**
+         * Name of the AMI.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Region of the AMI.
+         */
+        region?: pulumi.Input<string>;
     }
 
     export interface ImagePipelineImageTestsConfiguration {
@@ -18650,9 +18692,55 @@ export namespace s3outposts {
 }
 
 export namespace sagemaker {
+    export interface AppImageConfigKernelGatewayImageConfig {
+        /**
+         * The URL where the Git repository is located. See File System Config details below.
+         */
+        fileSystemConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfig>;
+        /**
+         * The default branch for the Git repository. See Kernel Spec details below.
+         */
+        kernelSpec: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpec>;
+    }
+
+    export interface AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+        /**
+         * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         */
+        defaultGid?: pulumi.Input<number>;
+        /**
+         * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         */
+        defaultUid?: pulumi.Input<number>;
+        /**
+         * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         */
+        mountPath?: pulumi.Input<string>;
+    }
+
+    export interface AppImageConfigKernelGatewayImageConfigKernelSpec {
+        /**
+         * The display name of the kernel.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The name of the kernel.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface CodeRepositoryGitConfig {
+        /**
+         * The default branch for the Git repository.
+         */
         branch?: pulumi.Input<string>;
+        /**
+         * The URL where the Git repository is located.
+         */
         repositoryUrl: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+         */
         secretArn?: pulumi.Input<string>;
     }
 
@@ -19181,7 +19269,7 @@ export namespace ses {
          */
         dimensionName: pulumi.Input<string>;
         /**
-         * The source for the value. It can be either `"messageTag"` or `"emailHeader"`
+         * The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
          */
         valueSource: pulumi.Input<string>;
     }
@@ -19617,7 +19705,7 @@ export namespace ssm {
          */
         enableNonSecurity?: pulumi.Input<boolean>;
         /**
-         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          */
         patchFilters: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRulePatchFilter>[]>;
     }

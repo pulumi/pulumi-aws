@@ -22,14 +22,9 @@ namespace Pulumi.Aws.CodeArtifact
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "domain key",
-    ///         });
-    ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
+    ///         var example = new Aws.CodeArtifact.Domain("example", new Aws.CodeArtifact.DomainArgs
     ///         {
     ///             Domain = "example",
-    ///             EncryptionKey = exampleKey.Arn,
     ///         });
     ///     }
     /// 
@@ -72,7 +67,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
@@ -148,10 +143,10 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
-        [Input("encryptionKey", required: true)]
-        public Input<string> EncryptionKey { get; set; } = null!;
+        [Input("encryptionKey")]
+        public Input<string>? EncryptionKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -197,7 +192,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }

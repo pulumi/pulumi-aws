@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionAuthenticateCognitoResult> AuthenticateCognitos;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionAuthenticateOidcResult> AuthenticateOidcs;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionFixedResponseResult> FixedResponses;
+        public readonly ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> Forwards;
         public readonly int Order;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> Redirects;
         public readonly string TargetGroupArn;
@@ -29,6 +30,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
 
             ImmutableArray<Outputs.GetListenerDefaultActionFixedResponseResult> fixedResponses,
 
+            ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> forwards,
+
             int order,
 
             ImmutableArray<Outputs.GetListenerDefaultActionRedirectResult> redirects,
@@ -40,6 +43,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
             AuthenticateCognitos = authenticateCognitos;
             AuthenticateOidcs = authenticateOidcs;
             FixedResponses = fixedResponses;
+            Forwards = forwards;
             Order = order;
             Redirects = redirects;
             TargetGroupArn = targetGroupArn;

@@ -13,6 +13,9 @@ __all__ = [
     'DistributionConfigurationDistribution',
     'DistributionConfigurationDistributionAmiDistributionConfiguration',
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
+    'ImageImageTestsConfiguration',
+    'ImageOutputResource',
+    'ImageOutputResourceAmi',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelineSchedule',
     'ImageRecipeBlockDeviceMapping',
@@ -23,6 +26,9 @@ __all__ = [
     'GetDistributionConfigurationDistributionResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
+    'GetImageImageTestsConfigurationResult',
+    'GetImageOutputResourceResult',
+    'GetImageOutputResourceAmiResult',
     'GetImagePipelineImageTestsConfigurationResult',
     'GetImagePipelineScheduleResult',
     'GetImageRecipeBlockDeviceMappingResult',
@@ -188,6 +194,132 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         Set of AWS Account identifiers to assign.
         """
         return pulumi.get(self, "user_ids")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageImageTestsConfiguration(dict):
+    def __init__(__self__, *,
+                 image_tests_enabled: Optional[bool] = None,
+                 timeout_minutes: Optional[int] = None):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
+        :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        if image_tests_enabled is not None:
+            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> Optional[bool]:
+        """
+        Whether image tests are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[int]:
+        """
+        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageOutputResource(dict):
+    def __init__(__self__, *,
+                 amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None):
+        """
+        :param Sequence['ImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[Sequence['outputs.ImageOutputResourceAmi']]:
+        """
+        Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        return pulumi.get(self, "amis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageOutputResourceAmi(dict):
+    def __init__(__self__, *,
+                 account_id: Optional[str] = None,
+                 description: Optional[str] = None,
+                 image: Optional[str] = None,
+                 name: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        :param str account_id: Account identifier of the AMI.
+        :param str description: Description of the AMI.
+        :param str image: Identifier of the AMI.
+        :param str name: Name of the AMI.
+        :param str region: Region of the AMI.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        Account identifier of the AMI.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        Identifier of the AMI.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the AMI.
+        """
+        return pulumi.get(self, "region")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -627,6 +759,115 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
         Set of AWS Account identifiers.
         """
         return pulumi.get(self, "user_ids")
+
+
+@pulumi.output_type
+class GetImageImageTestsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 image_tests_enabled: bool,
+                 timeout_minutes: int):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled.
+        :param int timeout_minutes: Number of minutes before image tests time out.
+        """
+        pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> bool:
+        """
+        Whether image tests are enabled.
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> int:
+        """
+        Number of minutes before image tests time out.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class GetImageOutputResourceResult(dict):
+    def __init__(__self__, *,
+                 amis: Sequence['outputs.GetImageOutputResourceAmiResult']):
+        """
+        :param Sequence['GetImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        pulumi.set(__self__, "amis", amis)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Sequence['outputs.GetImageOutputResourceAmiResult']:
+        """
+        Set of objects with each Amazon Machine Image (AMI) created.
+        """
+        return pulumi.get(self, "amis")
+
+
+@pulumi.output_type
+class GetImageOutputResourceAmiResult(dict):
+    def __init__(__self__, *,
+                 account_id: str,
+                 description: str,
+                 image: str,
+                 name: str,
+                 region: str):
+        """
+        :param str account_id: Account identifier of the AMI.
+        :param str description: Description of the AMI.
+        :param str image: Identifier of the AMI.
+        :param str name: Name of the AMI.
+        :param str region: Region of the AMI.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        Account identifier of the AMI.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        Identifier of the AMI.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region of the AMI.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

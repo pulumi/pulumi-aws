@@ -13,10 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
+ * const example = new aws.codeartifact.Domain("example", {
  *     domain: "example",
- *     encryptionKey: exampleKey.arn,
  * });
  * ```
  *
@@ -73,7 +71,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
     public readonly encryptionKey!: pulumi.Output<string>;
     /**
@@ -113,9 +111,6 @@ export class Domain extends pulumi.CustomResource {
             const args = argsOrState as DomainArgs | undefined;
             if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
-            }
-            if ((!args || args.encryptionKey === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'encryptionKey'");
             }
             inputs["domain"] = args ? args.domain : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
@@ -158,7 +153,7 @@ export interface DomainState {
      */
     readonly domain?: pulumi.Input<string>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
     readonly encryptionKey?: pulumi.Input<string>;
     /**
@@ -184,9 +179,9 @@ export interface DomainArgs {
      */
     readonly domain: pulumi.Input<string>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
-    readonly encryptionKey: pulumi.Input<string>;
+    readonly encryptionKey?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

@@ -49,9 +49,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = transfer.NewUser(ctx, "fooUser", &transfer.UserArgs{
-// 			ServerId: fooServer.ID(),
-// 			UserName: pulumi.String("tftestuser"),
-// 			Role:     fooRole.Arn,
+// 			ServerId:          fooServer.ID(),
+// 			UserName:          pulumi.String("tftestuser"),
+// 			Role:              fooRole.Arn,
+// 			HomeDirectoryType: pulumi.String("LOGICAL"),
+// 			HomeDirectoryMappings: transfer.UserHomeDirectoryMappingArray{
+// 				&transfer.UserHomeDirectoryMappingArgs{
+// 					Entry:  pulumi.String("/test.pdf"),
+// 					Target: pulumi.String("/bucket3/test-path/tftestuser.pdf"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

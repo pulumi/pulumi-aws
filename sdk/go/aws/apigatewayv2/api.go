@@ -74,7 +74,7 @@ import (
 type Api struct {
 	pulumi.CustomResourceState
 
-	// The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+	// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
 	ApiEndpoint pulumi.StringOutput `pulumi:"apiEndpoint"`
 	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -149,7 +149,7 @@ func GetApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Api resources.
 type apiState struct {
-	// The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+	// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
 	ApiEndpoint *string `pulumi:"apiEndpoint"`
 	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -193,7 +193,7 @@ type apiState struct {
 }
 
 type ApiState struct {
-	// The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
+	// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
 	ApiEndpoint pulumi.StringPtrInput
 	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
