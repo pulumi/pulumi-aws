@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for [bucket keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) on `aws.s3.Bucket`, `aws.s3.BucketObject`  
-  and `aws.s3.getBucketObject`.
+_(none)_
 
 ---
+
+## 3.26.1 (2021-01-29)
+* Add support for [bucket keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) on `aws.s3.Bucket`, `aws.s3.BucketObject`  
+  and `aws.s3.getBucketObject`.
 
 ## 3.26.0 (2021-01-29)
 * Update to v3.26.0 of the AWS Terraform Provider
