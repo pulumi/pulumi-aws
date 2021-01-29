@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.26.0 of the AWS Terraform Provider
-* Upgrading pulumi-terraform-bridge to v2.18.1
+_(none)_
 
 ---
+
+## 3.26.0 (2021-01-29)
+* Update to v3.26.0 of the AWS Terraform Provider
+* Upgrading pulumi-terraform-bridge to v2.18.1
 
 ## 3.25.1 (2021-01-23)
 * Ensure `aws.lambda.CallbackFunction` creates a unique IamPolicyAttachment resource on each usage of `includeDeprecatedLambdaFullAccessPolicy`
