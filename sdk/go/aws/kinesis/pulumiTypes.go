@@ -2201,7 +2201,7 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) Inde
 	}).(AnalyticsApplicationInputsStartingPositionConfigurationOutput)
 }
 
-type AnalyticsApplicationOutput struct {
+type AnalyticsApplicationOutputType struct {
 	// The ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
 	// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
@@ -2218,18 +2218,18 @@ type AnalyticsApplicationOutput struct {
 	Schema AnalyticsApplicationOutputSchema `pulumi:"schema"`
 }
 
-// AnalyticsApplicationOutputInput is an input type that accepts AnalyticsApplicationOutputArgs and AnalyticsApplicationOutputOutput values.
-// You can construct a concrete instance of `AnalyticsApplicationOutputInput` via:
+// AnalyticsApplicationOutputTypeInput is an input type that accepts AnalyticsApplicationOutputTypeArgs and AnalyticsApplicationOutputTypeOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputTypeInput` via:
 //
-//          AnalyticsApplicationOutputArgs{...}
-type AnalyticsApplicationOutputInput interface {
+//          AnalyticsApplicationOutputTypeArgs{...}
+type AnalyticsApplicationOutputTypeInput interface {
 	pulumi.Input
 
-	ToAnalyticsApplicationOutputOutput() AnalyticsApplicationOutputOutput
-	ToAnalyticsApplicationOutputOutputWithContext(context.Context) AnalyticsApplicationOutputOutput
+	ToAnalyticsApplicationOutputTypeOutput() AnalyticsApplicationOutputTypeOutput
+	ToAnalyticsApplicationOutputTypeOutputWithContext(context.Context) AnalyticsApplicationOutputTypeOutput
 }
 
-type AnalyticsApplicationOutputArgs struct {
+type AnalyticsApplicationOutputTypeArgs struct {
 	// The ARN of the Kinesis Analytics Application.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
@@ -2246,109 +2246,111 @@ type AnalyticsApplicationOutputArgs struct {
 	Schema AnalyticsApplicationOutputSchemaInput `pulumi:"schema"`
 }
 
-func (AnalyticsApplicationOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsApplicationOutput)(nil)).Elem()
+func (AnalyticsApplicationOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsApplicationOutputType)(nil)).Elem()
 }
 
-func (i AnalyticsApplicationOutputArgs) ToAnalyticsApplicationOutputOutput() AnalyticsApplicationOutputOutput {
-	return i.ToAnalyticsApplicationOutputOutputWithContext(context.Background())
+func (i AnalyticsApplicationOutputTypeArgs) ToAnalyticsApplicationOutputTypeOutput() AnalyticsApplicationOutputTypeOutput {
+	return i.ToAnalyticsApplicationOutputTypeOutputWithContext(context.Background())
 }
 
-func (i AnalyticsApplicationOutputArgs) ToAnalyticsApplicationOutputOutputWithContext(ctx context.Context) AnalyticsApplicationOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputOutput)
+func (i AnalyticsApplicationOutputTypeArgs) ToAnalyticsApplicationOutputTypeOutputWithContext(ctx context.Context) AnalyticsApplicationOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputTypeOutput)
 }
 
-// AnalyticsApplicationOutputArrayInput is an input type that accepts AnalyticsApplicationOutputArray and AnalyticsApplicationOutputArrayOutput values.
-// You can construct a concrete instance of `AnalyticsApplicationOutputArrayInput` via:
+// AnalyticsApplicationOutputTypeArrayInput is an input type that accepts AnalyticsApplicationOutputTypeArray and AnalyticsApplicationOutputTypeArrayOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputTypeArrayInput` via:
 //
-//          AnalyticsApplicationOutputArray{ AnalyticsApplicationOutputArgs{...} }
-type AnalyticsApplicationOutputArrayInput interface {
+//          AnalyticsApplicationOutputTypeArray{ AnalyticsApplicationOutputTypeArgs{...} }
+type AnalyticsApplicationOutputTypeArrayInput interface {
 	pulumi.Input
 
-	ToAnalyticsApplicationOutputArrayOutput() AnalyticsApplicationOutputArrayOutput
-	ToAnalyticsApplicationOutputArrayOutputWithContext(context.Context) AnalyticsApplicationOutputArrayOutput
+	ToAnalyticsApplicationOutputTypeArrayOutput() AnalyticsApplicationOutputTypeArrayOutput
+	ToAnalyticsApplicationOutputTypeArrayOutputWithContext(context.Context) AnalyticsApplicationOutputTypeArrayOutput
 }
 
-type AnalyticsApplicationOutputArray []AnalyticsApplicationOutputInput
+type AnalyticsApplicationOutputTypeArray []AnalyticsApplicationOutputTypeInput
 
-func (AnalyticsApplicationOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyticsApplicationOutput)(nil)).Elem()
+func (AnalyticsApplicationOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsApplicationOutputType)(nil)).Elem()
 }
 
-func (i AnalyticsApplicationOutputArray) ToAnalyticsApplicationOutputArrayOutput() AnalyticsApplicationOutputArrayOutput {
-	return i.ToAnalyticsApplicationOutputArrayOutputWithContext(context.Background())
+func (i AnalyticsApplicationOutputTypeArray) ToAnalyticsApplicationOutputTypeArrayOutput() AnalyticsApplicationOutputTypeArrayOutput {
+	return i.ToAnalyticsApplicationOutputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i AnalyticsApplicationOutputArray) ToAnalyticsApplicationOutputArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputArrayOutput)
+func (i AnalyticsApplicationOutputTypeArray) ToAnalyticsApplicationOutputTypeArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputTypeArrayOutput)
 }
 
-type AnalyticsApplicationOutputOutput struct{ *pulumi.OutputState }
+type AnalyticsApplicationOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (AnalyticsApplicationOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsApplicationOutput)(nil)).Elem()
+func (AnalyticsApplicationOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsApplicationOutputType)(nil)).Elem()
 }
 
-func (o AnalyticsApplicationOutputOutput) ToAnalyticsApplicationOutputOutput() AnalyticsApplicationOutputOutput {
+func (o AnalyticsApplicationOutputTypeOutput) ToAnalyticsApplicationOutputTypeOutput() AnalyticsApplicationOutputTypeOutput {
 	return o
 }
 
-func (o AnalyticsApplicationOutputOutput) ToAnalyticsApplicationOutputOutputWithContext(ctx context.Context) AnalyticsApplicationOutputOutput {
+func (o AnalyticsApplicationOutputTypeOutput) ToAnalyticsApplicationOutputTypeOutputWithContext(ctx context.Context) AnalyticsApplicationOutputTypeOutput {
 	return o
 }
 
 // The ARN of the Kinesis Analytics Application.
-func (o AnalyticsApplicationOutputOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o AnalyticsApplicationOutputTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
 // See Kinesis Firehose below for more details.
-func (o AnalyticsApplicationOutputOutput) KinesisFirehose() AnalyticsApplicationOutputKinesisFirehosePtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) *AnalyticsApplicationOutputKinesisFirehose {
+func (o AnalyticsApplicationOutputTypeOutput) KinesisFirehose() AnalyticsApplicationOutputKinesisFirehosePtrOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputKinesisFirehose {
 		return v.KinesisFirehose
 	}).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
 
 // The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
 // See Kinesis Stream below for more details.
-func (o AnalyticsApplicationOutputOutput) KinesisStream() AnalyticsApplicationOutputKinesisStreamPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) *AnalyticsApplicationOutputKinesisStream { return v.KinesisStream }).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
+func (o AnalyticsApplicationOutputTypeOutput) KinesisStream() AnalyticsApplicationOutputKinesisStreamPtrOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputKinesisStream {
+		return v.KinesisStream
+	}).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
 
 // The Lambda function destination. See Lambda below for more details.
-func (o AnalyticsApplicationOutputOutput) Lambda() AnalyticsApplicationOutputLambdaPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) *AnalyticsApplicationOutputLambda { return v.Lambda }).(AnalyticsApplicationOutputLambdaPtrOutput)
+func (o AnalyticsApplicationOutputTypeOutput) Lambda() AnalyticsApplicationOutputLambdaPtrOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputLambda { return v.Lambda }).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
 
 // The Name of the in-application stream.
-func (o AnalyticsApplicationOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) string { return v.Name }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The Schema format of the data written to the destination. See Destination Schema below for more details.
-func (o AnalyticsApplicationOutputOutput) Schema() AnalyticsApplicationOutputSchemaOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutput) AnalyticsApplicationOutputSchema { return v.Schema }).(AnalyticsApplicationOutputSchemaOutput)
+func (o AnalyticsApplicationOutputTypeOutput) Schema() AnalyticsApplicationOutputSchemaOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputType) AnalyticsApplicationOutputSchema { return v.Schema }).(AnalyticsApplicationOutputSchemaOutput)
 }
 
-type AnalyticsApplicationOutputArrayOutput struct{ *pulumi.OutputState }
+type AnalyticsApplicationOutputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (AnalyticsApplicationOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyticsApplicationOutput)(nil)).Elem()
+func (AnalyticsApplicationOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsApplicationOutputType)(nil)).Elem()
 }
 
-func (o AnalyticsApplicationOutputArrayOutput) ToAnalyticsApplicationOutputArrayOutput() AnalyticsApplicationOutputArrayOutput {
+func (o AnalyticsApplicationOutputTypeArrayOutput) ToAnalyticsApplicationOutputTypeArrayOutput() AnalyticsApplicationOutputTypeArrayOutput {
 	return o
 }
 
-func (o AnalyticsApplicationOutputArrayOutput) ToAnalyticsApplicationOutputArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputArrayOutput {
+func (o AnalyticsApplicationOutputTypeArrayOutput) ToAnalyticsApplicationOutputTypeArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputTypeArrayOutput {
 	return o
 }
 
-func (o AnalyticsApplicationOutputArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsApplicationOutput {
-		return vs[0].([]AnalyticsApplicationOutput)[vs[1].(int)]
-	}).(AnalyticsApplicationOutputOutput)
+func (o AnalyticsApplicationOutputTypeArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsApplicationOutputType {
+		return vs[0].([]AnalyticsApplicationOutputType)[vs[1].(int)]
+	}).(AnalyticsApplicationOutputTypeOutput)
 }
 
 type AnalyticsApplicationOutputKinesisFirehose struct {
@@ -12628,8 +12630,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationInputsStartingPositionConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(AnalyticsApplicationOutputOutput{})
-	pulumi.RegisterOutputType(AnalyticsApplicationOutputArrayOutput{})
+	pulumi.RegisterOutputType(AnalyticsApplicationOutputTypeOutput{})
+	pulumi.RegisterOutputType(AnalyticsApplicationOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationOutputKinesisFirehoseOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationOutputKinesisFirehosePtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationOutputKinesisStreamOutput{})
