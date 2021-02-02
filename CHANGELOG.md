@@ -2,7 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* [1335](https://github.com/pulumi/pulumi-aws/pull/1335).  
+  Add fixes to Go SDK to address compilation issues due to colliding names.  
+  **Note** - this is a breaking change for existing Go programs which use `kinesis.AnalyticsApplicationOutput`.
+  This type and its variants (`*Args`, `*Output`, `*ArrayOutput` etc.) have been renamed to `kinesis.AnalyticsApplicationOutputType<Variant>`.  
+  This change is necessary to resolve a name collision which was introduced in 3.13.0 causing compilation breaks.  
+  Users upgrading to this or newer version would have to rename their use of the above types.  
+  This should not result in any resource recreation. 
 
 ---
 

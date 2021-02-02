@@ -102,7 +102,7 @@ type AnalyticsApplication struct {
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs AnalyticsApplicationOutputArrayOutput `pulumi:"outputs"`
+	Outputs AnalyticsApplicationOutputTypeArrayOutput `pulumi:"outputs"`
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrOutput `pulumi:"referenceDataSources"`
@@ -161,7 +161,7 @@ type analyticsApplicationState struct {
 	// Name of the Kinesis Analytics Application.
 	Name *string `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs []AnalyticsApplicationOutput `pulumi:"outputs"`
+	Outputs []AnalyticsApplicationOutputType `pulumi:"outputs"`
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
@@ -192,7 +192,7 @@ type AnalyticsApplicationState struct {
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringPtrInput
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs AnalyticsApplicationOutputArrayInput
+	Outputs AnalyticsApplicationOutputTypeArrayInput
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
@@ -221,7 +221,7 @@ type analyticsApplicationArgs struct {
 	// Name of the Kinesis Analytics Application.
 	Name *string `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs []AnalyticsApplicationOutput `pulumi:"outputs"`
+	Outputs []AnalyticsApplicationOutputType `pulumi:"outputs"`
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
@@ -243,7 +243,7 @@ type AnalyticsApplicationArgs struct {
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringPtrInput
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs AnalyticsApplicationOutputArrayInput
+	Outputs AnalyticsApplicationOutputTypeArrayInput
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
