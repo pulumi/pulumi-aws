@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.27.0 (2021-02-04)
 * [1335](https://github.com/pulumi/pulumi-aws/pull/1335).  
   Add fixes to Go SDK to address compilation issues due to colliding names.  
   **Note** - this is a breaking change for existing Go programs which use `kinesis.AnalyticsApplicationOutput`.
@@ -11,8 +16,6 @@ CHANGELOG
   This should not result in any resource recreation. 
 * [1343](https://github.com/pulumi/pulumi-aws/pull/1343).
    Added references to allow Lambdas to support NodeJS 14
-
----
 
 ## 3.26.1 (2021-01-29)
 * Add support for [bucket keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) on `aws.s3.Bucket`, `aws.s3.BucketObject`  
