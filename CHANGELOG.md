@@ -9,6 +9,8 @@ CHANGELOG
   This change is necessary to resolve a name collision which was introduced in 3.13.0 causing compilation breaks.  
   Users upgrading to this or newer version would have to rename their use of the above types.  
   This should not result in any resource recreation. 
+* [1343](https://github.com/pulumi/pulumi-aws/pull/1343).
+   Added references to allow Lambdas to support NodeJS 14
 
 ---
 

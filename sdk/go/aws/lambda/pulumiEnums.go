@@ -24,6 +24,7 @@ const (
 	RuntimeRuby2d7       = Runtime("ruby2.7")
 	RuntimeNodeJS10dX    = Runtime("nodejs10.x")
 	RuntimeNodeJS12dX    = Runtime("nodejs12.x")
+	RuntimeNodeJS14dX    = Runtime("nodejs14.x")
 	RuntimePython2d7     = Runtime("python2.7")
 	RuntimePython3d6     = Runtime("python3.6")
 	RuntimePython3d7     = Runtime("python3.7")
