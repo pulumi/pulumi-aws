@@ -23,6 +23,7 @@ class Runtime(str, Enum):
     RUBY2D7 = "ruby2.7"
     NODE_JS10D_X = "nodejs10.x"
     NODE_JS12D_X = "nodejs12.x"
+    NODE_JS14D_X = "nodejs14.x"
     PYTHON2D7 = "python2.7"
     PYTHON3D6 = "python3.6"
     PYTHON3D7 = "python3.7"

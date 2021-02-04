@@ -3290,6 +3290,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "ruby2.7", Name: "Ruby2d7"},
 					{Value: "nodejs10.x", Name: "NodeJS10dX"},
 					{Value: "nodejs12.x", Name: "NodeJS12dX"},
+					{Value: "nodejs14.x", Name: "NodeJS14dX"},
 					{Value: "python2.7", Name: "Python2d7"},
 					{Value: "python3.6", Name: "Python3d6"},
 					{Value: "python3.7", Name: "Python3d7"},
