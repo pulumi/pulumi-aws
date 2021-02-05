@@ -129,6 +129,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
+     * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+     */
+    public readonly protocolVersion!: pulumi.Output<string>;
+    /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */
     public readonly proxyProtocolV2!: pulumi.Output<boolean | undefined>;
@@ -183,6 +187,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
+            inputs["protocolVersion"] = state ? state.protocolVersion : undefined;
             inputs["proxyProtocolV2"] = state ? state.proxyProtocolV2 : undefined;
             inputs["slowStart"] = state ? state.slowStart : undefined;
             inputs["stickiness"] = state ? state.stickiness : undefined;
@@ -199,6 +204,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
+            inputs["protocolVersion"] = args ? args.protocolVersion : undefined;
             inputs["proxyProtocolV2"] = args ? args.proxyProtocolV2 : undefined;
             inputs["slowStart"] = args ? args.slowStart : undefined;
             inputs["stickiness"] = args ? args.stickiness : undefined;
@@ -263,6 +269,10 @@ export interface TargetGroupState {
      * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
+    /**
+     * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+     */
+    readonly protocolVersion?: pulumi.Input<string>;
     /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */
@@ -330,6 +340,10 @@ export interface TargetGroupArgs {
      * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
+    /**
+     * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+     */
+    readonly protocolVersion?: pulumi.Input<string>;
     /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */

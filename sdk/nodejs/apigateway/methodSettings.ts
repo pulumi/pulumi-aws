@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 import {RestApi} from "./index";
 
 /**
- * Provides an API Gateway Method Settings, e.g. logging or monitoring.
- *
  * ## Import
  *
  * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
@@ -47,7 +45,7 @@ export class MethodSettings extends pulumi.CustomResource {
     }
 
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     public readonly methodPath!: pulumi.Output<string>;
     /**
@@ -114,7 +112,7 @@ export class MethodSettings extends pulumi.CustomResource {
  */
 export interface MethodSettingsState {
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     readonly methodPath?: pulumi.Input<string>;
     /**
@@ -136,7 +134,7 @@ export interface MethodSettingsState {
  */
 export interface MethodSettingsArgs {
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     readonly methodPath: pulumi.Input<string>;
     /**

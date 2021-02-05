@@ -7,6 +7,8 @@ from .activity import *
 from .get_activity import *
 from .get_state_machine import *
 from .state_machine import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi

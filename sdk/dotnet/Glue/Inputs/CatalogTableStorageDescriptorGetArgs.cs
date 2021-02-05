@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
+        /// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        /// </summary>
+        [Input("schemaReference")]
+        public Input<Inputs.CatalogTableStorageDescriptorSchemaReferenceGetArgs>? SchemaReference { get; set; }
+
+        /// <summary>
         /// Serialization/deserialization (SerDe) information.
         /// </summary>
         [Input("serDeInfo")]

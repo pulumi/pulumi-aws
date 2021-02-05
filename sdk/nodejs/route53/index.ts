@@ -12,6 +12,7 @@ export * from "./getResolverRule";
 export * from "./getResolverRules";
 export * from "./getZone";
 export * from "./healthCheck";
+export * from "./keySigningKey";
 export * from "./queryLog";
 export * from "./record";
 export * from "./recordType";
@@ -31,6 +32,7 @@ export * from "../types/enums/route53";
 // Import resources to register:
 import { DelegationSet } from "./delegationSet";
 import { HealthCheck } from "./healthCheck";
+import { KeySigningKey } from "./keySigningKey";
 import { QueryLog } from "./queryLog";
 import { Record } from "./record";
 import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
@@ -51,6 +53,8 @@ const _module = {
                 return new DelegationSet(name, <any>undefined, { urn })
             case "aws:route53/healthCheck:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
+            case "aws:route53/keySigningKey:KeySigningKey":
+                return new KeySigningKey(name, <any>undefined, { urn })
             case "aws:route53/queryLog:QueryLog":
                 return new QueryLog(name, <any>undefined, { urn })
             case "aws:route53/record:Record":
@@ -80,6 +84,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "route53/delegationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/healthCheck", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/keySigningKey", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)

@@ -53,39 +53,40 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        foo = aws.s3.Bucket("foo",
-            force_destroy=True,
-            policy=f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Sid": "AWSCloudTrailAclCheck",
-                    "Effect": "Allow",
-                    "Principal": {{
-                      "Service": "cloudtrail.amazonaws.com"
-                    }},
-                    "Action": "s3:GetBucketAcl",
-                    "Resource": "arn:aws:s3:::tf-test-trail"
-                }},
-                {{
-                    "Sid": "AWSCloudTrailWrite",
-                    "Effect": "Allow",
-                    "Principal": {{
-                      "Service": "cloudtrail.amazonaws.com"
-                    }},
-                    "Action": "s3:PutObject",
-                    "Resource": "arn:aws:s3:::tf-test-trail/prefix/AWSLogs/{current.account_id}/*",
-                    "Condition": {{
-                        "StringEquals": {{
-                            "s3:x-amz-acl": "bucket-owner-full-control"
-                        }}
-                    }}
-                }}
-            ]
-        }}
-        \"\"\")
+        bucket = aws.s3.Bucket("bucket")
+        bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
+            bucket=bucket.id,
+            policy=pulumi.Output.all(bucket.id, bucket.id).apply(lambda bucketId, bucketId1: f\"\"\"  {{
+              "Version": "2012-10-17",
+              "Statement": [
+                  {{
+                      "Sid": "AWSCloudTrailAclCheck",
+                      "Effect": "Allow",
+                      "Principal": {{
+                        "Service": "cloudtrail.amazonaws.com"
+                      }},
+                      "Action": "s3:GetBucketAcl",
+                      "Resource": "arn:aws:s3:::{bucket_id}"
+                  }},
+                  {{
+                      "Sid": "AWSCloudTrailWrite",
+                      "Effect": "Allow",
+                      "Principal": {{
+                        "Service": "cloudtrail.amazonaws.com"
+                      }},
+                      "Action": "s3:PutObject",
+                      "Resource": "arn:aws:s3:::{bucket_id1}/prefix/AWSLogs/{current.account_id}/*",
+                      "Condition": {{
+                          "StringEquals": {{
+                              "s3:x-amz-acl": "bucket-owner-full-control"
+                          }}
+                      }}
+                  }}
+              ]
+          }}
+        \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=foo.id,
+            s3_bucket_name=bucket.id,
             s3_key_prefix="prefix",
             include_global_service_events=False)
         ```
@@ -144,8 +145,43 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_partition()
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_trail = aws.cloudtrail.Trail("exampleTrail", cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
+        test_role = aws.iam.Role("testRole", assume_role_policy=f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {{
+                "Service": "cloudtrail.{current.dns_suffix}"
+              }},
+              "Action": "sts:AssumeRole"
+            }}
+          ]
+        }}
+        \"\"\")
+        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
+            role=test_role.id,
+            policy=f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Sid": "AWSCloudTrailCreateLogStream",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": "{aws_cloudwatch_log_group["test"]["arn"]}:*"
+            }}
+          ]
+        }}
+        \"\"\")
+        # ... other configuration ...
+        example_trail = aws.cloudtrail.Trail("exampleTrail",
+            cloud_watch_logs_role_arn=test_role.arn,
+            cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
         # CloudTrail requires the Log Stream wildcard
         ```
 

@@ -18,6 +18,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
+        /// <summary>
+        /// An ipv6 address within the subnet to assign to the internet-facing load balancer.
+        /// </summary>
+        [Input("ipv6Address")]
+        public Input<string>? Ipv6Address { get; set; }
+
         [Input("outpostId")]
         public Input<string>? OutpostId { get; set; }
 

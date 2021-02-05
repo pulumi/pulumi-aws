@@ -98,11 +98,15 @@ type Subnet struct {
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
+	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
@@ -164,11 +168,15 @@ type subnetState struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
 	CidrBlock *string `pulumi:"cidrBlock"`
+	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId *string `pulumi:"ipv6CidrBlockAssociationId"`
+	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
@@ -196,11 +204,15 @@ type SubnetState struct {
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The CIDR block for the subnet.
 	CidrBlock pulumi.StringPtrInput
+	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringPtrInput
+	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
@@ -230,9 +242,13 @@ type subnetArgs struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
 	CidrBlock string `pulumi:"cidrBlock"`
+	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
@@ -257,9 +273,13 @@ type SubnetArgs struct {
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The CIDR block for the subnet.
 	CidrBlock pulumi.StringInput
+	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock pulumi.StringPtrInput
+	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.

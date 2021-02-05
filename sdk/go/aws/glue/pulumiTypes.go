@@ -254,6 +254,8 @@ type CatalogTableStorageDescriptor struct {
 	OutputFormat *string `pulumi:"outputFormat"`
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+	SchemaReference *CatalogTableStorageDescriptorSchemaReference `pulumi:"schemaReference"`
 	// Serialization/deserialization (SerDe) information.
 	SerDeInfo *CatalogTableStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
 	// Information about values that appear very frequently in a column (skewed values).
@@ -292,6 +294,8 @@ type CatalogTableStorageDescriptorArgs struct {
 	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
 	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+	SchemaReference CatalogTableStorageDescriptorSchemaReferencePtrInput `pulumi:"schemaReference"`
 	// Serialization/deserialization (SerDe) information.
 	SerDeInfo CatalogTableStorageDescriptorSerDeInfoPtrInput `pulumi:"serDeInfo"`
 	// Information about values that appear very frequently in a column (skewed values).
@@ -419,6 +423,13 @@ func (o CatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+func (o CatalogTableStorageDescriptorOutput) SchemaReference() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSchemaReference {
+		return v.SchemaReference
+	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
+}
+
 // Serialization/deserialization (SerDe) information.
 func (o CatalogTableStorageDescriptorOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
@@ -535,6 +546,16 @@ func (o CatalogTableStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOut
 		}
 		return v.Parameters
 	}).(pulumi.StringMapOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+func (o CatalogTableStorageDescriptorPtrOutput) SchemaReference() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
 }
 
 // Serialization/deserialization (SerDe) information.
@@ -699,6 +720,350 @@ func (o CatalogTableStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableStorageDescriptorColumn {
 		return vs[0].([]CatalogTableStorageDescriptorColumn)[vs[1].(int)]
 	}).(CatalogTableStorageDescriptorColumnOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReference struct {
+	// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+	SchemaId *CatalogTableStorageDescriptorSchemaReferenceSchemaId `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber int `pulumi:"schemaVersionNumber"`
+}
+
+// CatalogTableStorageDescriptorSchemaReferenceInput is an input type that accepts CatalogTableStorageDescriptorSchemaReferenceArgs and CatalogTableStorageDescriptorSchemaReferenceOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSchemaReferenceInput` via:
+//
+//          CatalogTableStorageDescriptorSchemaReferenceArgs{...}
+type CatalogTableStorageDescriptorSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSchemaReferenceOutput() CatalogTableStorageDescriptorSchemaReferenceOutput
+	ToCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(context.Context) CatalogTableStorageDescriptorSchemaReferenceOutput
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceArgs struct {
+	// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+	SchemaId CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber pulumi.IntInput `pulumi:"schemaVersionNumber"`
+}
+
+func (CatalogTableStorageDescriptorSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceArgs) ToCatalogTableStorageDescriptorSchemaReferenceOutput() CatalogTableStorageDescriptorSchemaReferenceOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceArgs) ToCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferenceOutput)
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceArgs) ToCatalogTableStorageDescriptorSchemaReferencePtrOutput() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceArgs) ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferenceOutput).ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// CatalogTableStorageDescriptorSchemaReferencePtrInput is an input type that accepts CatalogTableStorageDescriptorSchemaReferenceArgs, CatalogTableStorageDescriptorSchemaReferencePtr and CatalogTableStorageDescriptorSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSchemaReferencePtrInput` via:
+//
+//          CatalogTableStorageDescriptorSchemaReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type CatalogTableStorageDescriptorSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSchemaReferencePtrOutput() CatalogTableStorageDescriptorSchemaReferencePtrOutput
+	ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput
+}
+
+type catalogTableStorageDescriptorSchemaReferencePtrType CatalogTableStorageDescriptorSchemaReferenceArgs
+
+func CatalogTableStorageDescriptorSchemaReferencePtr(v *CatalogTableStorageDescriptorSchemaReferenceArgs) CatalogTableStorageDescriptorSchemaReferencePtrInput {
+	return (*catalogTableStorageDescriptorSchemaReferencePtrType)(v)
+}
+
+func (*catalogTableStorageDescriptorSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (i *catalogTableStorageDescriptorSchemaReferencePtrType) ToCatalogTableStorageDescriptorSchemaReferencePtrOutput() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableStorageDescriptorSchemaReferencePtrType) ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableStorageDescriptorSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorageDescriptorSchemaReferenceOutput() CatalogTableStorageDescriptorSchemaReferenceOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorageDescriptorSchemaReferencePtrOutput() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o.ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReference {
+		return &v
+	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaId() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		return v.SchemaId
+	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) int { return v.SchemaVersionNumber }).(pulumi.IntOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableStorageDescriptorSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) ToCatalogTableStorageDescriptorSchemaReferencePtrOutput() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) Elem() CatalogTableStorageDescriptorSchemaReferenceOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) CatalogTableStorageDescriptorSchemaReference {
+		return *v
+	}).(CatalogTableStorageDescriptorSchemaReferenceOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaId() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceSchemaId struct {
+	// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+	RegistryName *string `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	SchemaArn *string `pulumi:"schemaArn"`
+	// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// CatalogTableStorageDescriptorSchemaReferenceSchemaIdInput is an input type that accepts CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs and CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSchemaReferenceSchemaIdInput` via:
+//
+//          CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs{...}
+type CatalogTableStorageDescriptorSchemaReferenceSchemaIdInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput
+	ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs struct {
+	// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(context.Background())
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput).ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx)
+}
+
+// CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput is an input type that accepts CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs, CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtr and CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput` via:
+//
+//          CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs{...}
+//
+//  or:
+//
+//          nil
+type CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput
+	ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput
+}
+
+type catalogTableStorageDescriptorSchemaReferenceSchemaIdPtrType CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs
+
+func CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtr(v *CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput {
+	return (*catalogTableStorageDescriptorSchemaReferenceSchemaIdPtrType)(v)
+}
+
+func (*catalogTableStorageDescriptorSchemaReferenceSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (i *catalogTableStorageDescriptorSchemaReferenceSchemaIdPtrType) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return i.ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableStorageDescriptorSchemaReferenceSchemaIdPtrType) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o.ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		return &v
+	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
+}
+
+// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) Elem() CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		return *v
+	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
+}
+
+// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
 }
 
 type CatalogTableStorageDescriptorSerDeInfo struct {
@@ -6993,6 +7358,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorColumnOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorColumnArrayOutput{})
+	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSchemaReferencePtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput{})
+	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSerDeInfoOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSerDeInfoPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSkewedInfoOutput{})

@@ -64,6 +64,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// whether the object has been updated. Defaults to 0 seconds.
         /// </summary>
         public readonly int? MinTtl;
+        public readonly string? OriginRequestPolicyId;
         /// <summary>
         /// The pattern (for example, `images/*.jpg)` that
         /// specifies which requests you want this cache behavior to apply to.
@@ -114,6 +115,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             int? minTtl,
 
+            string? originRequestPolicyId,
+
             string pathPattern,
 
             bool? smoothStreaming,
@@ -133,6 +136,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTtl = maxTtl;
             MinTtl = minTtl;
+            OriginRequestPolicyId = originRequestPolicyId;
             PathPattern = pathPattern;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;

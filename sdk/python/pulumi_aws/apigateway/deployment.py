@@ -25,51 +25,25 @@ class Deployment(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides an API Gateway REST Deployment.
+        Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
 
-        > **Note:** This resource depends on having at least one `apigateway.Integration` created in the REST API, which
-        itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add
-        implicit resource references via the `triggers` argument or explicit resource references using the
-        [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
+        To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
+
+        * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
+        * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
+
+        !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
 
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
-            rest_api=my_demo_api.id,
-            parent_id=my_demo_api.root_resource_id,
-            path_part="test")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method=my_demo_method.http_method,
-            type="MOCK")
-        my_demo_deployment = aws.apigateway.Deployment("myDemoDeployment",
-            rest_api=my_demo_api.id,
-            stage_name="test",
-            variables={
-                "answer": "42",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[my_demo_integration]))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the deployment
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] stage_description: The description of the stage
-        :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines variables for the stage
+        :param pulumi.Input[str] description: Description of the deployment
+        :param pulumi.Input[str] rest_api: REST API identifier.
+        :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,17 +100,17 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_date: The creation date of the deployment
-        :param pulumi.Input[str] description: The description of the deployment
+        :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] stage_description: The description of the stage
-        :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines variables for the stage
+        :param pulumi.Input[str] rest_api: REST API identifier.
+        :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -165,7 +139,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the deployment
+        Description of the deployment
         """
         return pulumi.get(self, "description")
 
@@ -192,7 +166,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The ID of the associated REST API
+        REST API identifier.
         """
         return pulumi.get(self, "rest_api")
 
@@ -200,7 +174,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="stageDescription")
     def stage_description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the stage
+        Description to set on the stage managed by the `stage_name` argument.
         """
         return pulumi.get(self, "stage_description")
 
@@ -208,7 +182,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
         """
         return pulumi.get(self, "stage_name")
 
@@ -216,7 +190,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         return pulumi.get(self, "triggers")
 
@@ -224,7 +198,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map that defines variables for the stage
+        Map to set on the stage managed by the `stage_name` argument.
         """
         return pulumi.get(self, "variables")
 

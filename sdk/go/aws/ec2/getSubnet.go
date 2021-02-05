@@ -98,17 +98,22 @@ type LookupSubnetArgs struct {
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
 	// The ARN of the subnet.
-	Arn                         string            `pulumi:"arn"`
-	AssignIpv6AddressOnCreation bool              `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone            string            `pulumi:"availabilityZone"`
-	AvailabilityZoneId          string            `pulumi:"availabilityZoneId"`
-	CidrBlock                   string            `pulumi:"cidrBlock"`
-	DefaultForAz                bool              `pulumi:"defaultForAz"`
-	Filters                     []GetSubnetFilter `pulumi:"filters"`
-	Id                          string            `pulumi:"id"`
-	Ipv6CidrBlock               string            `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId  string            `pulumi:"ipv6CidrBlockAssociationId"`
-	MapPublicIpOnLaunch         bool              `pulumi:"mapPublicIpOnLaunch"`
+	Arn                         string `pulumi:"arn"`
+	AssignIpv6AddressOnCreation bool   `pulumi:"assignIpv6AddressOnCreation"`
+	AvailabilityZone            string `pulumi:"availabilityZone"`
+	AvailabilityZoneId          string `pulumi:"availabilityZoneId"`
+	CidrBlock                   string `pulumi:"cidrBlock"`
+	// Identifier of customer owned IPv4 address pool.
+	CustomerOwnedIpv4Pool      string            `pulumi:"customerOwnedIpv4Pool"`
+	DefaultForAz               bool              `pulumi:"defaultForAz"`
+	Filters                    []GetSubnetFilter `pulumi:"filters"`
+	Id                         string            `pulumi:"id"`
+	Ipv6CidrBlock              string            `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId string            `pulumi:"ipv6CidrBlockAssociationId"`
+	// Whether customer owned IP addresses are assigned on network interface creation.
+	MapCustomerOwnedIpOnLaunch bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	// Whether public IP addresses are assigned on instance launch.
+	MapPublicIpOnLaunch bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.

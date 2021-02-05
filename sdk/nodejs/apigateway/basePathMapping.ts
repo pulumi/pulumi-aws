@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 import {RestApi} from "./index";
 
 /**
- * Connects a custom domain name registered via `aws.apigateway.DomainName`
- * with a deployed API so that its methods can be called via the
- * custom domain name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: aws_api_gateway_rest_api.MyDemoAPI.id,
- *     stageName: "live",
- * });
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     domainName: "example.com",
- *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- * });
- * const test = new aws.apigateway.BasePathMapping("test", {
- *     restApi: aws_api_gateway_rest_api.MyDemoAPI.id,
- *     stageName: exampleDeployment.stageName,
- *     domainName: exampleDomainName.domainName,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g. For empty `base_path` (e.g. root path (`/`))

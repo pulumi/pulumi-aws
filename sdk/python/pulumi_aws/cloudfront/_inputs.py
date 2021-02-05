@@ -31,6 +31,12 @@ __all__ = [
     'DistributionTrustedSignerArgs',
     'DistributionTrustedSignerItemArgs',
     'DistributionViewerCertificateArgs',
+    'OriginRequestPolicyCookiesConfigArgs',
+    'OriginRequestPolicyCookiesConfigCookiesArgs',
+    'OriginRequestPolicyHeadersConfigArgs',
+    'OriginRequestPolicyHeadersConfigHeadersArgs',
+    'OriginRequestPolicyQueryStringsConfigArgs',
+    'OriginRequestPolicyQueryStringsConfigQueryStringsArgs',
 ]
 
 @pulumi.input_type
@@ -127,6 +133,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
+                 origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -184,6 +191,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "max_ttl", max_ttl)
         if min_ttl is not None:
             pulumi.set(__self__, "min_ttl", min_ttl)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_signers is not None:
@@ -340,6 +349,15 @@ class DistributionDefaultCacheBehaviorArgs:
     @min_ttl.setter
     def min_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_ttl", value)
+
+    @property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @origin_request_policy_id.setter
+    def origin_request_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_request_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -632,6 +650,7 @@ class DistributionOrderedCacheBehaviorArgs:
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
+                 origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -692,6 +711,8 @@ class DistributionOrderedCacheBehaviorArgs:
             pulumi.set(__self__, "max_ttl", max_ttl)
         if min_ttl is not None:
             pulumi.set(__self__, "min_ttl", min_ttl)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_signers is not None:
@@ -861,6 +882,15 @@ class DistributionOrderedCacheBehaviorArgs:
     @min_ttl.setter
     def min_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_ttl", value)
+
+    @property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @origin_request_policy_id.setter
+    def origin_request_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_request_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -1704,5 +1734,141 @@ class DistributionViewerCertificateArgs:
     @ssl_support_method.setter
     def ssl_support_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_support_method", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyCookiesConfigArgs:
+    def __init__(__self__, *,
+                 cookie_behavior: pulumi.Input[str],
+                 cookies: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgs']] = None):
+        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+
+    @property
+    @pulumi.getter(name="cookieBehavior")
+    def cookie_behavior(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cookie_behavior")
+
+    @cookie_behavior.setter
+    def cookie_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cookie_behavior", value)
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgs']]:
+        return pulumi.get(self, "cookies")
+
+    @cookies.setter
+    def cookies(self, value: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgs']]):
+        pulumi.set(self, "cookies", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyCookiesConfigCookiesArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyHeadersConfigArgs:
+    def __init__(__self__, *,
+                 header_behavior: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgs']] = None):
+        if header_behavior is not None:
+            pulumi.set(__self__, "header_behavior", header_behavior)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter(name="headerBehavior")
+    def header_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "header_behavior")
+
+    @header_behavior.setter
+    def header_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_behavior", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgs']]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyHeadersConfigHeadersArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyQueryStringsConfigArgs:
+    def __init__(__self__, *,
+                 query_string_behavior: pulumi.Input[str],
+                 query_strings: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgs']] = None):
+        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        if query_strings is not None:
+            pulumi.set(__self__, "query_strings", query_strings)
+
+    @property
+    @pulumi.getter(name="queryStringBehavior")
+    def query_string_behavior(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query_string_behavior")
+
+    @query_string_behavior.setter
+    def query_string_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query_string_behavior", value)
+
+    @property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgs']]:
+        return pulumi.get(self, "query_strings")
+
+    @query_strings.setter
+    def query_strings(self, value: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgs']]):
+        pulumi.set(self, "query_strings", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyQueryStringsConfigQueryStringsArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
 
 

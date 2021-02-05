@@ -64,11 +64,13 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * The CIDR block for the subnet.
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR block.
      */
     public /*out*/ readonly ipv6CidrBlock!: pulumi.Output<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
+    public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
@@ -106,8 +108,10 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
+            inputs["mapCustomerOwnedIpOnLaunch"] = state ? state.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -119,6 +123,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'availabilityZone'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            inputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -154,11 +160,13 @@ export interface DefaultSubnetState {
      * The CIDR block for the subnet.
      */
     readonly cidrBlock?: pulumi.Input<string>;
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block.
      */
     readonly ipv6CidrBlock?: pulumi.Input<string>;
     readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
@@ -185,6 +193,8 @@ export interface DefaultSubnetState {
  */
 export interface DefaultSubnetArgs {
     readonly availabilityZone: pulumi.Input<string>;
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned

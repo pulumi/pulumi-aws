@@ -109,7 +109,7 @@ export class EventRule extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */

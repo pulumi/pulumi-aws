@@ -7,12 +7,15 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./distribution";
 export * from "./getDistribution";
+export * from "./getOriginRequestPolicy";
 export * from "./originAccessIdentity";
+export * from "./originRequestPolicy";
 export * from "./publicKey";
 
 // Import resources to register:
 import { Distribution } from "./distribution";
 import { OriginAccessIdentity } from "./originAccessIdentity";
+import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
 
 const _module = {
@@ -23,6 +26,8 @@ const _module = {
                 return new Distribution(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
                 return new OriginAccessIdentity(name, <any>undefined, { urn })
+            case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
+                return new OriginRequestPolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/publicKey:PublicKey":
                 return new PublicKey(name, <any>undefined, { urn })
             default:
@@ -32,4 +37,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudfront/distribution", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)

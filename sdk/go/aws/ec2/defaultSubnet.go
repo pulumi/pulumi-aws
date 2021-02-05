@@ -53,10 +53,12 @@ type DefaultSubnet struct {
 	AvailabilityZone            pulumi.StringOutput `pulumi:"availabilityZone"`
 	AvailabilityZoneId          pulumi.StringOutput `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+	CidrBlock             pulumi.StringOutput    `pulumi:"cidrBlock"`
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// The IPv6 CIDR block.
-	Ipv6CidrBlock              pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6CidrBlock              pulumi.StringOutput  `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId pulumi.StringOutput  `pulumi:"ipv6CidrBlockAssociationId"`
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
@@ -107,10 +109,12 @@ type defaultSubnetState struct {
 	AvailabilityZone            *string `pulumi:"availabilityZone"`
 	AvailabilityZoneId          *string `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
-	CidrBlock *string `pulumi:"cidrBlock"`
+	CidrBlock             *string `pulumi:"cidrBlock"`
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock              *string `pulumi:"ipv6CidrBlock"`
 	Ipv6CidrBlockAssociationId *string `pulumi:"ipv6CidrBlockAssociationId"`
+	MapCustomerOwnedIpOnLaunch *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
@@ -130,10 +134,12 @@ type DefaultSubnetState struct {
 	AvailabilityZone            pulumi.StringPtrInput
 	AvailabilityZoneId          pulumi.StringPtrInput
 	// The CIDR block for the subnet.
-	CidrBlock pulumi.StringPtrInput
+	CidrBlock             pulumi.StringPtrInput
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock              pulumi.StringPtrInput
 	Ipv6CidrBlockAssociationId pulumi.StringPtrInput
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
@@ -152,7 +158,9 @@ func (DefaultSubnetState) ElementType() reflect.Type {
 }
 
 type defaultSubnetArgs struct {
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone           string  `pulumi:"availabilityZone"`
+	CustomerOwnedIpv4Pool      *string `pulumi:"customerOwnedIpv4Pool"`
+	MapCustomerOwnedIpOnLaunch *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
@@ -164,7 +172,9 @@ type defaultSubnetArgs struct {
 
 // The set of arguments for constructing a DefaultSubnet resource.
 type DefaultSubnetArgs struct {
-	AvailabilityZone pulumi.StringInput
+	AvailabilityZone           pulumi.StringInput
+	CustomerOwnedIpv4Pool      pulumi.StringPtrInput
+	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.

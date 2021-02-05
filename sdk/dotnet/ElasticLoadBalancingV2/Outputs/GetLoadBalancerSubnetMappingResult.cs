@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     public sealed class GetLoadBalancerSubnetMappingResult
     {
         public readonly string AllocationId;
+        public readonly string Ipv6Address;
         public readonly string OutpostId;
         public readonly string PrivateIpv4Address;
         public readonly string SubnetId;
@@ -22,6 +23,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         private GetLoadBalancerSubnetMappingResult(
             string allocationId,
 
+            string ipv6Address,
+
             string outpostId,
 
             string privateIpv4Address,
@@ -29,6 +32,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
             string subnetId)
         {
             AllocationId = allocationId;
+            Ipv6Address = ipv6Address;
             OutpostId = outpostId;
             PrivateIpv4Address = privateIpv4Address;
             SubnetId = subnetId;

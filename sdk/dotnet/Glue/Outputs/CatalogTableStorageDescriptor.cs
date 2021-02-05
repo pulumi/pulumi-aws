@@ -46,6 +46,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
+        /// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        /// </summary>
+        public readonly Outputs.CatalogTableStorageDescriptorSchemaReference? SchemaReference;
+        /// <summary>
         /// Serialization/deserialization (SerDe) information.
         /// </summary>
         public readonly Outputs.CatalogTableStorageDescriptorSerDeInfo? SerDeInfo;
@@ -80,6 +84,8 @@ namespace Pulumi.Aws.Glue.Outputs
 
             ImmutableDictionary<string, string>? parameters,
 
+            Outputs.CatalogTableStorageDescriptorSchemaReference? schemaReference,
+
             Outputs.CatalogTableStorageDescriptorSerDeInfo? serDeInfo,
 
             Outputs.CatalogTableStorageDescriptorSkewedInfo? skewedInfo,
@@ -96,6 +102,7 @@ namespace Pulumi.Aws.Glue.Outputs
             NumberOfBuckets = numberOfBuckets;
             OutputFormat = outputFormat;
             Parameters = parameters;
+            SchemaReference = schemaReference;
             SerDeInfo = serDeInfo;
             SkewedInfo = skewedInfo;
             SortColumns = sortColumns;

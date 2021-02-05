@@ -63,6 +63,9 @@ namespace Pulumi.Aws.Ec2
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
+
         /// <summary>
         /// The IPv6 CIDR block.
         /// </summary>
@@ -71,6 +74,9 @@ namespace Pulumi.Aws.Ec2
 
         [Output("ipv6CidrBlockAssociationId")]
         public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+
+        [Output("mapCustomerOwnedIpOnLaunch")]
+        public Output<bool?> MapCustomerOwnedIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// Specify true to indicate
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.Ec2
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
+
         /// <summary>
         /// Specify true to indicate
         /// that instances launched into the subnet should be assigned
@@ -198,6 +210,9 @@ namespace Pulumi.Aws.Ec2
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
         /// <summary>
         /// The IPv6 CIDR block.
         /// </summary>
@@ -206,6 +221,9 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ipv6CidrBlockAssociationId")]
         public Input<string>? Ipv6CidrBlockAssociationId { get; set; }
+
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
         /// <summary>
         /// Specify true to indicate

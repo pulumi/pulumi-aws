@@ -22,7 +22,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetTargetGroupResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if protocol_version and not isinstance(protocol_version, str):
+            raise TypeError("Expected argument 'protocol_version' to be a str")
+        pulumi.set(__self__, "protocol_version", protocol_version)
         if proxy_protocol_v2 and not isinstance(proxy_protocol_v2, bool):
             raise TypeError("Expected argument 'proxy_protocol_v2' to be a bool")
         pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
@@ -126,6 +129,11 @@ class GetTargetGroupResult:
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> str:
+        return pulumi.get(self, "protocol_version")
+
+    @property
     @pulumi.getter(name="proxyProtocolV2")
     def proxy_protocol_v2(self) -> bool:
         return pulumi.get(self, "proxy_protocol_v2")
@@ -172,6 +180,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             name=self.name,
             port=self.port,
             protocol=self.protocol,
+            protocol_version=self.protocol_version,
             proxy_protocol_v2=self.proxy_protocol_v2,
             slow_start=self.slow_start,
             stickiness=self.stickiness,
@@ -236,6 +245,7 @@ def get_target_group(arn: Optional[str] = None,
         name=__ret__.name,
         port=__ret__.port,
         protocol=__ret__.protocol,
+        protocol_version=__ret__.protocol_version,
         proxy_protocol_v2=__ret__.proxy_protocol_v2,
         slow_start=__ret__.slow_start,
         stickiness=__ret__.stickiness,

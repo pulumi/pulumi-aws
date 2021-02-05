@@ -855,6 +855,10 @@ export namespace alb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: pulumi.Input<string>;
         outpostId?: pulumi.Input<string>;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -1839,6 +1843,10 @@ export namespace applicationloadbalancing {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: pulumi.Input<string>;
         outpostId?: pulumi.Input<string>;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -4587,6 +4595,7 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: pulumi.Input<number>;
+        originRequestPolicyId?: pulumi.Input<string>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -4742,6 +4751,7 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: pulumi.Input<number>;
+        originRequestPolicyId?: pulumi.Input<string>;
         /**
          * The pattern (for example, `images/*.jpg)` that
          * specifies which requests you want this cache behavior to apply to.
@@ -5016,6 +5026,33 @@ export namespace cloudfront {
          */
         minimumProtocolVersion?: pulumi.Input<string>;
         sslSupportMethod?: pulumi.Input<string>;
+    }
+
+    export interface OriginRequestPolicyCookiesConfig {
+        cookieBehavior: pulumi.Input<string>;
+        cookies?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyCookiesConfigCookies>;
+    }
+
+    export interface OriginRequestPolicyCookiesConfigCookies {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OriginRequestPolicyHeadersConfig {
+        headerBehavior?: pulumi.Input<string>;
+        headers?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyHeadersConfigHeaders>;
+    }
+
+    export interface OriginRequestPolicyHeadersConfigHeaders {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OriginRequestPolicyQueryStringsConfig {
+        queryStringBehavior: pulumi.Input<string>;
+        queryStrings?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyQueryStringsConfigQueryStrings>;
+    }
+
+    export interface OriginRequestPolicyQueryStringsConfigQueryStrings {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -10274,6 +10311,10 @@ export namespace elasticloadbalancingv2 {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: pulumi.Input<string>;
         outpostId?: pulumi.Input<string>;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -11748,6 +11789,10 @@ export namespace glue {
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+         */
+        schemaReference?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSchemaReference>;
+        /**
          * Serialization/deserialization (SerDe) information.
          */
         serDeInfo?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSerDeInfo>;
@@ -11782,6 +11827,36 @@ export namespace glue {
          * The datatype of data in the Column.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface CatalogTableStorageDescriptorSchemaReference {
+        /**
+         * A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+         */
+        schemaId?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSchemaReferenceSchemaId>;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+         */
+        schemaVersionId?: pulumi.Input<string>;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber: pulumi.Input<number>;
+    }
+
+    export interface CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+        /**
+         * The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+         */
+        registryName?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         */
+        schemaArn?: pulumi.Input<string>;
+        /**
+         * The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         */
+        schemaName?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSerDeInfo {
@@ -15830,6 +15905,10 @@ export namespace lb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: pulumi.Input<string>;
         outpostId?: pulumi.Input<string>;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -19419,6 +19498,23 @@ export namespace ses {
          * The ARN of an SNS topic to notify
          */
         topicArn?: pulumi.Input<string>;
+    }
+}
+
+export namespace sfn {
+    export interface StateMachineLoggingConfiguration {
+        /**
+         * Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+         */
+        includeExecutionData?: pulumi.Input<boolean>;
+        /**
+         * Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+         */
+        level?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+         */
+        logDestination?: pulumi.Input<string>;
     }
 }
 

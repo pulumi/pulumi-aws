@@ -160,7 +160,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
         /// </summary>
         [Output("integrationType")]
         public Output<string> IntegrationType { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
         /// </summary>
         [Input("integrationType", required: true)]
         public Input<string> IntegrationType { get; set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
         /// </summary>
         [Input("integrationType")]
         public Input<string>? IntegrationType { get; set; }

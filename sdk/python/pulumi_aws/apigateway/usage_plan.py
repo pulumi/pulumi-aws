@@ -30,44 +30,6 @@ class UsagePlan(pulumi.CustomResource):
         """
         Provides an API Gateway Usage Plan.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        myapi = aws.apigateway.RestApi("myapi")
-        # ...
-        dev = aws.apigateway.Deployment("dev",
-            rest_api=myapi.id,
-            stage_name="dev")
-        prod = aws.apigateway.Deployment("prod",
-            rest_api=myapi.id,
-            stage_name="prod")
-        my_usage_plan = aws.apigateway.UsagePlan("myUsagePlan",
-            description="my description",
-            product_code="MYCODE",
-            api_stages=[
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=myapi.id,
-                    stage=dev.stage_name,
-                ),
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=myapi.id,
-                    stage=prod.stage_name,
-                ),
-            ],
-            quota_settings=aws.apigateway.UsagePlanQuotaSettingsArgs(
-                limit=20,
-                offset=2,
-                period="WEEK",
-            ),
-            throttle_settings=aws.apigateway.UsagePlanThrottleSettingsArgs(
-                burst_limit=5,
-                rate_limit=10,
-            ))
-        ```
-
         ## Import
 
         AWS API Gateway Usage Plan can be imported using the `id`, e.g.

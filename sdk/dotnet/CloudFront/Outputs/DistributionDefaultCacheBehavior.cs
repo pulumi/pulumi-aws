@@ -64,6 +64,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// whether the object has been updated. Defaults to 0 seconds.
         /// </summary>
         public readonly int? MinTtl;
+        public readonly string? OriginRequestPolicyId;
         /// <summary>
         /// Indicates whether you want to distribute
         /// media files in Microsoft Smooth Streaming format using the origin that is
@@ -109,6 +110,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             int? minTtl,
 
+            string? originRequestPolicyId,
+
             bool? smoothStreaming,
 
             string targetOriginId,
@@ -126,6 +129,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTtl = maxTtl;
             MinTtl = minTtl;
+            OriginRequestPolicyId = originRequestPolicyId;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;
             TrustedSigners = trustedSigners;

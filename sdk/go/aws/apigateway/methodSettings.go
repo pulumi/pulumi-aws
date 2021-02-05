@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an API Gateway Method Settings, e.g. logging or monitoring.
-//
 // ## Import
 //
 // `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
@@ -23,7 +21,7 @@ import (
 type MethodSettings struct {
 	pulumi.CustomResourceState
 
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringOutput `pulumi:"methodPath"`
 	// The ID of the REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -74,7 +72,7 @@ func GetMethodSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MethodSettings resources.
 type methodSettingsState struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath *string `pulumi:"methodPath"`
 	// The ID of the REST API
 	RestApi *string `pulumi:"restApi"`
@@ -85,7 +83,7 @@ type methodSettingsState struct {
 }
 
 type MethodSettingsState struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringPtrInput
 	// The ID of the REST API
 	RestApi pulumi.StringPtrInput
@@ -100,7 +98,7 @@ func (MethodSettingsState) ElementType() reflect.Type {
 }
 
 type methodSettingsArgs struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath string `pulumi:"methodPath"`
 	// The ID of the REST API
 	RestApi interface{} `pulumi:"restApi"`
@@ -112,7 +110,7 @@ type methodSettingsArgs struct {
 
 // The set of arguments for constructing a MethodSettings resource.
 type MethodSettingsArgs struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringInput
 	// The ID of the REST API
 	RestApi pulumi.Input

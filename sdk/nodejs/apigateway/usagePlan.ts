@@ -8,47 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway Usage Plan.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myapi = new aws.apigateway.RestApi("myapi", {});
- * // ...
- * const dev = new aws.apigateway.Deployment("dev", {
- *     restApi: myapi.id,
- *     stageName: "dev",
- * });
- * const prod = new aws.apigateway.Deployment("prod", {
- *     restApi: myapi.id,
- *     stageName: "prod",
- * });
- * const myUsagePlan = new aws.apigateway.UsagePlan("myUsagePlan", {
- *     description: "my description",
- *     productCode: "MYCODE",
- *     apiStages: [
- *         {
- *             apiId: myapi.id,
- *             stage: dev.stageName,
- *         },
- *         {
- *             apiId: myapi.id,
- *             stage: prod.stageName,
- *         },
- *     ],
- *     quotaSettings: {
- *         limit: 20,
- *         offset: 2,
- *         period: "WEEK",
- *     },
- *     throttleSettings: {
- *         burstLimit: 5,
- *         rateLimit: 10,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * AWS API Gateway Usage Plan can be imported using the `id`, e.g.

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }
 
+        [Input("originRequestPolicyId")]
+        public Input<string>? OriginRequestPolicyId { get; set; }
+
         /// <summary>
         /// The pattern (for example, `images/*.jpg)` that
         /// specifies which requests you want this cache behavior to apply to.

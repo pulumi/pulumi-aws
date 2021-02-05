@@ -91,7 +91,7 @@ type SecurityGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The owner ID.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Instruct this provider to revoke all of the

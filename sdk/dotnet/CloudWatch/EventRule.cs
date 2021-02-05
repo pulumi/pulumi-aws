@@ -132,7 +132,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.

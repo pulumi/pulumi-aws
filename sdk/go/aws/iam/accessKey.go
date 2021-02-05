@@ -80,27 +80,31 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// IAM Access Keys can be imported using the identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+// ```
+//
+//  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, and `ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 type AccessKey struct {
 	pulumi.CustomResourceState
 
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+	CreateDate      pulumi.StringOutput `pulumi:"createDate"`
 	EncryptedSecret pulumi.StringOutput `pulumi:"encryptedSecret"`
-	// The fingerprint of the PGP key used to encrypt
-	// the secret
+	// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
 	// Either a base-64 encoded PGP public key, or a
 	// keybase username in the form `keybase:some_person_that_exists`, for use
 	// in the `encryptedSecret` output attribute.
 	PgpKey pulumi.StringPtrOutput `pulumi:"pgpKey"`
-	// The secret access key. Note that this will be written
-	// to the state file. If you use this, please protect your backend state file
-	// judiciously. Alternatively, you may supply a `pgpKey` instead, which will
-	// prevent the secret from being stored in plaintext, at the cost of preventing
-	// the use of the secret key in automation.
+	// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret pulumi.StringOutput `pulumi:"secret"`
-	// The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented Sigv4 conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
 	SesSmtpPasswordV4 pulumi.StringOutput `pulumi:"sesSmtpPasswordV4"`
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
@@ -141,24 +145,18 @@ func GetAccessKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessKey resources.
 type accessKeyState struct {
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+	CreateDate      *string `pulumi:"createDate"`
 	EncryptedSecret *string `pulumi:"encryptedSecret"`
-	// The fingerprint of the PGP key used to encrypt
-	// the secret
+	// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
 	// Either a base-64 encoded PGP public key, or a
 	// keybase username in the form `keybase:some_person_that_exists`, for use
 	// in the `encryptedSecret` output attribute.
 	PgpKey *string `pulumi:"pgpKey"`
-	// The secret access key. Note that this will be written
-	// to the state file. If you use this, please protect your backend state file
-	// judiciously. Alternatively, you may supply a `pgpKey` instead, which will
-	// prevent the secret from being stored in plaintext, at the cost of preventing
-	// the use of the secret key in automation.
+	// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret *string `pulumi:"secret"`
-	// The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented Sigv4 conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
 	SesSmtpPasswordV4 *string `pulumi:"sesSmtpPasswordV4"`
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
@@ -168,24 +166,18 @@ type accessKeyState struct {
 }
 
 type AccessKeyState struct {
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+	CreateDate      pulumi.StringPtrInput
 	EncryptedSecret pulumi.StringPtrInput
-	// The fingerprint of the PGP key used to encrypt
-	// the secret
+	// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringPtrInput
 	// Either a base-64 encoded PGP public key, or a
 	// keybase username in the form `keybase:some_person_that_exists`, for use
 	// in the `encryptedSecret` output attribute.
 	PgpKey pulumi.StringPtrInput
-	// The secret access key. Note that this will be written
-	// to the state file. If you use this, please protect your backend state file
-	// judiciously. Alternatively, you may supply a `pgpKey` instead, which will
-	// prevent the secret from being stored in plaintext, at the cost of preventing
-	// the use of the secret key in automation.
+	// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret pulumi.StringPtrInput
-	// The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented Sigv4 conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
 	SesSmtpPasswordV4 pulumi.StringPtrInput
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.

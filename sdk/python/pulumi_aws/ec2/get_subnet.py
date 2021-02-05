@@ -21,7 +21,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetSubnetResult:
         if cidr_block and not isinstance(cidr_block, str):
             raise TypeError("Expected argument 'cidr_block' to be a str")
         pulumi.set(__self__, "cidr_block", cidr_block)
+        if customer_owned_ipv4_pool and not isinstance(customer_owned_ipv4_pool, str):
+            raise TypeError("Expected argument 'customer_owned_ipv4_pool' to be a str")
+        pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if default_for_az and not isinstance(default_for_az, bool):
             raise TypeError("Expected argument 'default_for_az' to be a bool")
         pulumi.set(__self__, "default_for_az", default_for_az)
@@ -52,6 +55,9 @@ class GetSubnetResult:
         if ipv6_cidr_block_association_id and not isinstance(ipv6_cidr_block_association_id, str):
             raise TypeError("Expected argument 'ipv6_cidr_block_association_id' to be a str")
         pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+        if map_customer_owned_ip_on_launch and not isinstance(map_customer_owned_ip_on_launch, bool):
+            raise TypeError("Expected argument 'map_customer_owned_ip_on_launch' to be a bool")
+        pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError("Expected argument 'map_public_ip_on_launch' to be a bool")
         pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
@@ -100,6 +106,14 @@ class GetSubnetResult:
         return pulumi.get(self, "cidr_block")
 
     @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> str:
+        """
+        Identifier of customer owned IPv4 address pool.
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @property
     @pulumi.getter(name="defaultForAz")
     def default_for_az(self) -> bool:
         return pulumi.get(self, "default_for_az")
@@ -125,8 +139,19 @@ class GetSubnetResult:
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @property
+    @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
+    def map_customer_owned_ip_on_launch(self) -> bool:
+        """
+        Whether customer owned IP addresses are assigned on network interface creation.
+        """
+        return pulumi.get(self, "map_customer_owned_ip_on_launch")
+
+    @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> bool:
+        """
+        Whether public IP addresses are assigned on instance launch.
+        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @property
@@ -172,11 +197,13 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             availability_zone=self.availability_zone,
             availability_zone_id=self.availability_zone_id,
             cidr_block=self.cidr_block,
+            customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             default_for_az=self.default_for_az,
             filters=self.filters,
             id=self.id,
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_block_association_id=self.ipv6_cidr_block_association_id,
+            map_customer_owned_ip_on_launch=self.map_customer_owned_ip_on_launch,
             map_public_ip_on_launch=self.map_public_ip_on_launch,
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
@@ -264,11 +291,13 @@ def get_subnet(availability_zone: Optional[str] = None,
         availability_zone=__ret__.availability_zone,
         availability_zone_id=__ret__.availability_zone_id,
         cidr_block=__ret__.cidr_block,
+        customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         default_for_az=__ret__.default_for_az,
         filters=__ret__.filters,
         id=__ret__.id,
         ipv6_cidr_block=__ret__.ipv6_cidr_block,
         ipv6_cidr_block_association_id=__ret__.ipv6_cidr_block_association_id,
+        map_customer_owned_ip_on_launch=__ret__.map_customer_owned_ip_on_launch,
         map_public_ip_on_launch=__ret__.map_public_ip_on_launch,
         outpost_arn=__ret__.outpost_arn,
         owner_id=__ret__.owner_id,

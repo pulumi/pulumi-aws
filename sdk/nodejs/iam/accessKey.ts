@@ -45,6 +45,16 @@ import * as utilities from "../utilities";
  * const testAccessKey = new aws.iam.AccessKey("testAccessKey", {user: testUser.name});
  * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
+ *
+ * ## Import
+ *
+ * IAM Access Keys can be imported using the identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+ * ```
+ *
+ *  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, and `ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**
@@ -74,10 +84,13 @@ export class AccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessKey.__pulumiType;
     }
 
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+     */
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
     public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
     /**
-     * The fingerprint of the PGP key used to encrypt
-     * the secret
+     * The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
@@ -87,18 +100,11 @@ export class AccessKey extends pulumi.CustomResource {
      */
     public readonly pgpKey!: pulumi.Output<string | undefined>;
     /**
-     * The secret access key. Note that this will be written
-     * to the state file. If you use this, please protect your backend state file
-     * judiciously. Alternatively, you may supply a `pgpKey` instead, which will
-     * prevent the secret from being stored in plaintext, at the cost of preventing
-     * the use of the secret key in automation.
+     * The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
     /**
-     * The secret access key converted into an SES SMTP
-     * password by applying [AWS's documented Sigv4 conversion
-     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-     * As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+     * The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      */
     public /*out*/ readonly sesSmtpPasswordV4!: pulumi.Output<string>;
     /**
@@ -123,6 +129,7 @@ export class AccessKey extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AccessKeyState | undefined;
+            inputs["createDate"] = state ? state.createDate : undefined;
             inputs["encryptedSecret"] = state ? state.encryptedSecret : undefined;
             inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
             inputs["pgpKey"] = state ? state.pgpKey : undefined;
@@ -138,6 +145,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["pgpKey"] = args ? args.pgpKey : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["user"] = args ? args.user : undefined;
+            inputs["createDate"] = undefined /*out*/;
             inputs["encryptedSecret"] = undefined /*out*/;
             inputs["keyFingerprint"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
@@ -158,10 +166,13 @@ export class AccessKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessKey resources.
  */
 export interface AccessKeyState {
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+     */
+    readonly createDate?: pulumi.Input<string>;
     readonly encryptedSecret?: pulumi.Input<string>;
     /**
-     * The fingerprint of the PGP key used to encrypt
-     * the secret
+     * The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      */
     readonly keyFingerprint?: pulumi.Input<string>;
     /**
@@ -171,18 +182,11 @@ export interface AccessKeyState {
      */
     readonly pgpKey?: pulumi.Input<string>;
     /**
-     * The secret access key. Note that this will be written
-     * to the state file. If you use this, please protect your backend state file
-     * judiciously. Alternatively, you may supply a `pgpKey` instead, which will
-     * prevent the secret from being stored in plaintext, at the cost of preventing
-     * the use of the secret key in automation.
+     * The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      */
     readonly secret?: pulumi.Input<string>;
     /**
-     * The secret access key converted into an SES SMTP
-     * password by applying [AWS's documented Sigv4 conversion
-     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-     * As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+     * The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      */
     readonly sesSmtpPasswordV4?: pulumi.Input<string>;
     /**

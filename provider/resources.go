@@ -647,6 +647,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_distribution":           {Tok: awsResource(cloudfrontMod, "Distribution")},
 			"aws_cloudfront_public_key":             {Tok: awsResource(cloudfrontMod, "PublicKey")},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
+			"aws_cloudfront_origin_request_policy":  {Tok: awsResource(cloudfrontMod, "OriginRequestPolicy")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -1189,7 +1190,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route": {
 				Tok: awsResource(ec2TransitGatewayMod, "Route"),
 			},
-			"aws_ec2_transit_gateway_route_table": {Tok: awsResource(ec2TransitGatewayMod, "RouteTable")},
+			"aws_ec2_transit_gateway_route_table":           {Tok: awsResource(ec2TransitGatewayMod, "RouteTable")},
+			"aws_ec2_transit_gateway_prefix_list_reference": {Tok: awsResource(ec2TransitGatewayMod, "PrefixListReference")},
 			"aws_ec2_transit_gateway_route_table_association": {
 				Tok: awsResource(ec2TransitGatewayMod, "RouteTableAssociation"),
 			},
@@ -1332,7 +1334,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
 			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
 			// Glacier
-			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
+			"aws_glacier_vault": {
+				Tok: awsResource(glacierMod, "Vault"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"notification": {
+						Name:        "notifications",
+						MaxItemsOne: boolRef(false),
+					},
+				},
+			},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator":    {Tok: awsResource(globalacceleratorMod, "Accelerator")},
@@ -1955,6 +1965,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_route53_health_check":              {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_key_signing_key":           {Tok: awsResource(route53Mod, "KeySigningKey")},
 			"aws_route53_resolver_dnssec_config":    {Tok: awsResource(route53Mod, "ResolverDnsSecConfig")},
 			"aws_route53_resolver_query_log_config": {Tok: awsResource(route53Mod, "ResolverQueryLogConfig")},
 			"aws_route53_resolver_query_log_config_association": {
@@ -3791,7 +3802,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
 			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
 			// Cloudfront
-			"aws_cloudfront_distribution": {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
+			"aws_cloudfront_distribution":          {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
+			"aws_cloudfront_origin_request_policy": {Tok: awsDataSource(cloudfrontMod, "getOriginRequestPolicy")},
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},

@@ -182,7 +182,8 @@ type DistributionDefaultCacheBehavior struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl *int `pulumi:"minTtl"`
+	MinTtl                *int    `pulumi:"minTtl"`
+	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -245,7 +246,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
+	MinTtl                pulumi.IntPtrInput    `pulumi:"minTtl"`
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -405,6 +407,10 @@ func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
+func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether you want to distribute
 // media files in Microsoft Smooth Streaming format using the origin that is
 // associated with this cache behavior.
@@ -554,6 +560,15 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.IntPtrOutput 
 		}
 		return v.MinTtl
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginRequestPolicyId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether you want to distribute
@@ -1331,7 +1346,8 @@ type DistributionOrderedCacheBehavior struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl *int `pulumi:"minTtl"`
+	MinTtl                *int    `pulumi:"minTtl"`
+	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern string `pulumi:"pathPattern"`
@@ -1397,7 +1413,8 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
+	MinTtl                pulumi.IntPtrInput    `pulumi:"minTtl"`
+	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
@@ -1532,6 +1549,10 @@ func (o DistributionOrderedCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
 // whether the object has been updated. Defaults to 0 seconds.
 func (o DistributionOrderedCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionOrderedCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // The pattern (for example, `images/*.jpg)` that
@@ -3567,6 +3588,1399 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type OriginRequestPolicyCookiesConfig struct {
+	CookieBehavior string                                   `pulumi:"cookieBehavior"`
+	Cookies        *OriginRequestPolicyCookiesConfigCookies `pulumi:"cookies"`
+}
+
+// OriginRequestPolicyCookiesConfigInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs and OriginRequestPolicyCookiesConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigInput` via:
+//
+//          OriginRequestPolicyCookiesConfigArgs{...}
+type OriginRequestPolicyCookiesConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput
+	ToOriginRequestPolicyCookiesConfigOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigOutput
+}
+
+type OriginRequestPolicyCookiesConfigArgs struct {
+	CookieBehavior pulumi.StringInput                              `pulumi:"cookieBehavior"`
+	Cookies        OriginRequestPolicyCookiesConfigCookiesPtrInput `pulumi:"cookies"`
+}
+
+func (OriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput {
+	return i.ToOriginRequestPolicyCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput).ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyCookiesConfigPtrInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs, OriginRequestPolicyCookiesConfigPtr and OriginRequestPolicyCookiesConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigPtrInput` via:
+//
+//          OriginRequestPolicyCookiesConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyCookiesConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput
+	ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigPtrOutput
+}
+
+type originRequestPolicyCookiesConfigPtrType OriginRequestPolicyCookiesConfigArgs
+
+func OriginRequestPolicyCookiesConfigPtr(v *OriginRequestPolicyCookiesConfigArgs) OriginRequestPolicyCookiesConfigPtrInput {
+	return (*originRequestPolicyCookiesConfigPtrType)(v)
+}
+
+func (*originRequestPolicyCookiesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+type OriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigOutput() OriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfig {
+		return &v
+	}).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigOutput) Cookies() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfigCookies { return v.Cookies }).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
+}
+
+type OriginRequestPolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCookiesConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig { return *v }).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfigCookies {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
+}
+
+type OriginRequestPolicyCookiesConfigCookies struct {
+	Items []string `pulumi:"items"`
+}
+
+// OriginRequestPolicyCookiesConfigCookiesInput is an input type that accepts OriginRequestPolicyCookiesConfigCookiesArgs and OriginRequestPolicyCookiesConfigCookiesOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigCookiesInput` via:
+//
+//          OriginRequestPolicyCookiesConfigCookiesArgs{...}
+type OriginRequestPolicyCookiesConfigCookiesInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigCookiesOutput() OriginRequestPolicyCookiesConfigCookiesOutput
+	ToOriginRequestPolicyCookiesConfigCookiesOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigCookiesOutput
+}
+
+type OriginRequestPolicyCookiesConfigCookiesArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (OriginRequestPolicyCookiesConfigCookiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfigCookies)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyCookiesConfigCookiesArgs) ToOriginRequestPolicyCookiesConfigCookiesOutput() OriginRequestPolicyCookiesConfigCookiesOutput {
+	return i.ToOriginRequestPolicyCookiesConfigCookiesOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigCookiesArgs) ToOriginRequestPolicyCookiesConfigCookiesOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigCookiesOutput)
+}
+
+func (i OriginRequestPolicyCookiesConfigCookiesArgs) ToOriginRequestPolicyCookiesConfigCookiesPtrOutput() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyCookiesConfigCookiesArgs) ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigCookiesOutput).ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyCookiesConfigCookiesPtrInput is an input type that accepts OriginRequestPolicyCookiesConfigCookiesArgs, OriginRequestPolicyCookiesConfigCookiesPtr and OriginRequestPolicyCookiesConfigCookiesPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigCookiesPtrInput` via:
+//
+//          OriginRequestPolicyCookiesConfigCookiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyCookiesConfigCookiesPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyCookiesConfigCookiesPtrOutput() OriginRequestPolicyCookiesConfigCookiesPtrOutput
+	ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput
+}
+
+type originRequestPolicyCookiesConfigCookiesPtrType OriginRequestPolicyCookiesConfigCookiesArgs
+
+func OriginRequestPolicyCookiesConfigCookiesPtr(v *OriginRequestPolicyCookiesConfigCookiesArgs) OriginRequestPolicyCookiesConfigCookiesPtrInput {
+	return (*originRequestPolicyCookiesConfigCookiesPtrType)(v)
+}
+
+func (*originRequestPolicyCookiesConfigCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfigCookies)(nil)).Elem()
+}
+
+func (i *originRequestPolicyCookiesConfigCookiesPtrType) ToOriginRequestPolicyCookiesConfigCookiesPtrOutput() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return i.ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyCookiesConfigCookiesPtrType) ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
+}
+
+type OriginRequestPolicyCookiesConfigCookiesOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigCookiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyCookiesConfigCookies)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCookiesConfigCookiesOutput() OriginRequestPolicyCookiesConfigCookiesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCookiesConfigCookiesOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCookiesConfigCookiesPtrOutput() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o.ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfigCookies) *OriginRequestPolicyCookiesConfigCookies {
+		return &v
+	}).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
+}
+func (o OriginRequestPolicyCookiesConfigCookiesOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyCookiesConfigCookies) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyCookiesConfigCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfigCookies)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) ToOriginRequestPolicyCookiesConfigCookiesPtrOutput() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) Elem() OriginRequestPolicyCookiesConfigCookiesOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfigCookies) OriginRequestPolicyCookiesConfigCookies { return *v }).(OriginRequestPolicyCookiesConfigCookiesOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfigCookies) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyHeadersConfig struct {
+	HeaderBehavior *string                                  `pulumi:"headerBehavior"`
+	Headers        *OriginRequestPolicyHeadersConfigHeaders `pulumi:"headers"`
+}
+
+// OriginRequestPolicyHeadersConfigInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs and OriginRequestPolicyHeadersConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigInput` via:
+//
+//          OriginRequestPolicyHeadersConfigArgs{...}
+type OriginRequestPolicyHeadersConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput
+	ToOriginRequestPolicyHeadersConfigOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigOutput
+}
+
+type OriginRequestPolicyHeadersConfigArgs struct {
+	HeaderBehavior pulumi.StringPtrInput                           `pulumi:"headerBehavior"`
+	Headers        OriginRequestPolicyHeadersConfigHeadersPtrInput `pulumi:"headers"`
+}
+
+func (OriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput {
+	return i.ToOriginRequestPolicyHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput).ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyHeadersConfigPtrInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs, OriginRequestPolicyHeadersConfigPtr and OriginRequestPolicyHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigPtrInput` via:
+//
+//          OriginRequestPolicyHeadersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput
+	ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigPtrOutput
+}
+
+type originRequestPolicyHeadersConfigPtrType OriginRequestPolicyHeadersConfigArgs
+
+func OriginRequestPolicyHeadersConfigPtr(v *OriginRequestPolicyHeadersConfigArgs) OriginRequestPolicyHeadersConfigPtrInput {
+	return (*originRequestPolicyHeadersConfigPtrType)(v)
+}
+
+func (*originRequestPolicyHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+type OriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigOutput() OriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfig {
+		return &v
+	}).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *string { return v.HeaderBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigOutput) Headers() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfigHeaders { return v.Headers }).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
+}
+
+type OriginRequestPolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHeadersConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig { return *v }).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfigHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
+}
+
+type OriginRequestPolicyHeadersConfigHeaders struct {
+	Items []string `pulumi:"items"`
+}
+
+// OriginRequestPolicyHeadersConfigHeadersInput is an input type that accepts OriginRequestPolicyHeadersConfigHeadersArgs and OriginRequestPolicyHeadersConfigHeadersOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigHeadersInput` via:
+//
+//          OriginRequestPolicyHeadersConfigHeadersArgs{...}
+type OriginRequestPolicyHeadersConfigHeadersInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigHeadersOutput() OriginRequestPolicyHeadersConfigHeadersOutput
+	ToOriginRequestPolicyHeadersConfigHeadersOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigHeadersOutput
+}
+
+type OriginRequestPolicyHeadersConfigHeadersArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (OriginRequestPolicyHeadersConfigHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyHeadersConfigHeadersArgs) ToOriginRequestPolicyHeadersConfigHeadersOutput() OriginRequestPolicyHeadersConfigHeadersOutput {
+	return i.ToOriginRequestPolicyHeadersConfigHeadersOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigHeadersArgs) ToOriginRequestPolicyHeadersConfigHeadersOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigHeadersOutput)
+}
+
+func (i OriginRequestPolicyHeadersConfigHeadersArgs) ToOriginRequestPolicyHeadersConfigHeadersPtrOutput() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyHeadersConfigHeadersArgs) ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigHeadersOutput).ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyHeadersConfigHeadersPtrInput is an input type that accepts OriginRequestPolicyHeadersConfigHeadersArgs, OriginRequestPolicyHeadersConfigHeadersPtr and OriginRequestPolicyHeadersConfigHeadersPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigHeadersPtrInput` via:
+//
+//          OriginRequestPolicyHeadersConfigHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyHeadersConfigHeadersPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyHeadersConfigHeadersPtrOutput() OriginRequestPolicyHeadersConfigHeadersPtrOutput
+	ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput
+}
+
+type originRequestPolicyHeadersConfigHeadersPtrType OriginRequestPolicyHeadersConfigHeadersArgs
+
+func OriginRequestPolicyHeadersConfigHeadersPtr(v *OriginRequestPolicyHeadersConfigHeadersArgs) OriginRequestPolicyHeadersConfigHeadersPtrInput {
+	return (*originRequestPolicyHeadersConfigHeadersPtrType)(v)
+}
+
+func (*originRequestPolicyHeadersConfigHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (i *originRequestPolicyHeadersConfigHeadersPtrType) ToOriginRequestPolicyHeadersConfigHeadersPtrOutput() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return i.ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyHeadersConfigHeadersPtrType) ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
+}
+
+type OriginRequestPolicyHeadersConfigHeadersOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHeadersConfigHeadersOutput() OriginRequestPolicyHeadersConfigHeadersOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHeadersConfigHeadersOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHeadersConfigHeadersPtrOutput() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o.ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfigHeaders) *OriginRequestPolicyHeadersConfigHeaders {
+		return &v
+	}).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
+}
+func (o OriginRequestPolicyHeadersConfigHeadersOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyHeadersConfigHeaders) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyHeadersConfigHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) ToOriginRequestPolicyHeadersConfigHeadersPtrOutput() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) Elem() OriginRequestPolicyHeadersConfigHeadersOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfigHeaders) OriginRequestPolicyHeadersConfigHeaders { return *v }).(OriginRequestPolicyHeadersConfigHeadersOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfigHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfig struct {
+	QueryStringBehavior string                                             `pulumi:"queryStringBehavior"`
+	QueryStrings        *OriginRequestPolicyQueryStringsConfigQueryStrings `pulumi:"queryStrings"`
+}
+
+// OriginRequestPolicyQueryStringsConfigInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs and OriginRequestPolicyQueryStringsConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigArgs{...}
+type OriginRequestPolicyQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput
+	ToOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigOutput
+}
+
+type OriginRequestPolicyQueryStringsConfigArgs struct {
+	QueryStringBehavior pulumi.StringInput                                        `pulumi:"queryStringBehavior"`
+	QueryStrings        OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput `pulumi:"queryStrings"`
+}
+
+func (OriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput).ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyQueryStringsConfigPtrInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs, OriginRequestPolicyQueryStringsConfigPtr and OriginRequestPolicyQueryStringsConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigPtrInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyQueryStringsConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput
+	ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput
+}
+
+type originRequestPolicyQueryStringsConfigPtrType OriginRequestPolicyQueryStringsConfigArgs
+
+func OriginRequestPolicyQueryStringsConfigPtr(v *OriginRequestPolicyQueryStringsConfigArgs) OriginRequestPolicyQueryStringsConfigPtrInput {
+	return (*originRequestPolicyQueryStringsConfigPtrType)(v)
+}
+
+func (*originRequestPolicyQueryStringsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigOutput() OriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfig {
+		return &v
+	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfigQueryStrings {
+		return v.QueryStrings
+	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig { return *v }).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfigQueryStrings {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigQueryStrings struct {
+	Items []string `pulumi:"items"`
+}
+
+// OriginRequestPolicyQueryStringsConfigQueryStringsInput is an input type that accepts OriginRequestPolicyQueryStringsConfigQueryStringsArgs and OriginRequestPolicyQueryStringsConfigQueryStringsOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigQueryStringsInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigQueryStringsArgs{...}
+type OriginRequestPolicyQueryStringsConfigQueryStringsInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigQueryStringsOutput() OriginRequestPolicyQueryStringsConfigQueryStringsOutput
+	ToOriginRequestPolicyQueryStringsConfigQueryStringsOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsOutput
+}
+
+type OriginRequestPolicyQueryStringsConfigQueryStringsArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (OriginRequestPolicyQueryStringsConfigQueryStringsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyQueryStringsConfigQueryStringsArgs) ToOriginRequestPolicyQueryStringsConfigQueryStringsOutput() OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigQueryStringsOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigQueryStringsArgs) ToOriginRequestPolicyQueryStringsConfigQueryStringsOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigQueryStringsOutput)
+}
+
+func (i OriginRequestPolicyQueryStringsConfigQueryStringsArgs) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyQueryStringsConfigQueryStringsArgs) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigQueryStringsOutput).ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput is an input type that accepts OriginRequestPolicyQueryStringsConfigQueryStringsArgs, OriginRequestPolicyQueryStringsConfigQueryStringsPtr and OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput` via:
+//
+//          OriginRequestPolicyQueryStringsConfigQueryStringsArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput
+	ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput
+}
+
+type originRequestPolicyQueryStringsConfigQueryStringsPtrType OriginRequestPolicyQueryStringsConfigQueryStringsArgs
+
+func OriginRequestPolicyQueryStringsConfigQueryStringsPtr(v *OriginRequestPolicyQueryStringsConfigQueryStringsArgs) OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput {
+	return (*originRequestPolicyQueryStringsConfigQueryStringsPtrType)(v)
+}
+
+func (*originRequestPolicyQueryStringsConfigQueryStringsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (i *originRequestPolicyQueryStringsConfigQueryStringsPtrType) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return i.ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyQueryStringsConfigQueryStringsPtrType) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigQueryStringsOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsOutput() OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o.ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfigQueryStrings) *OriginRequestPolicyQueryStringsConfigQueryStrings {
+		return &v
+	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
+}
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfigQueryStrings) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfigQueryStrings) OriginRequestPolicyQueryStringsConfigQueryStrings {
+		return *v
+	}).(OriginRequestPolicyQueryStringsConfigQueryStringsOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfigQueryStrings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfig struct {
+	CookieBehavior string                                      `pulumi:"cookieBehavior"`
+	Cookies        []GetOriginRequestPolicyCookiesConfigCookie `pulumi:"cookies"`
+}
+
+// GetOriginRequestPolicyCookiesConfigInput is an input type that accepts GetOriginRequestPolicyCookiesConfigArgs and GetOriginRequestPolicyCookiesConfigOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigInput` via:
+//
+//          GetOriginRequestPolicyCookiesConfigArgs{...}
+type GetOriginRequestPolicyCookiesConfigInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyCookiesConfigOutput() GetOriginRequestPolicyCookiesConfigOutput
+	ToGetOriginRequestPolicyCookiesConfigOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigOutput
+}
+
+type GetOriginRequestPolicyCookiesConfigArgs struct {
+	CookieBehavior pulumi.StringInput                                  `pulumi:"cookieBehavior"`
+	Cookies        GetOriginRequestPolicyCookiesConfigCookieArrayInput `pulumi:"cookies"`
+}
+
+func (GetOriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyCookiesConfigArgs) ToGetOriginRequestPolicyCookiesConfigOutput() GetOriginRequestPolicyCookiesConfigOutput {
+	return i.ToGetOriginRequestPolicyCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyCookiesConfigArgs) ToGetOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigOutput)
+}
+
+// GetOriginRequestPolicyCookiesConfigArrayInput is an input type that accepts GetOriginRequestPolicyCookiesConfigArray and GetOriginRequestPolicyCookiesConfigArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigArrayInput` via:
+//
+//          GetOriginRequestPolicyCookiesConfigArray{ GetOriginRequestPolicyCookiesConfigArgs{...} }
+type GetOriginRequestPolicyCookiesConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyCookiesConfigArrayOutput() GetOriginRequestPolicyCookiesConfigArrayOutput
+	ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigArrayOutput
+}
+
+type GetOriginRequestPolicyCookiesConfigArray []GetOriginRequestPolicyCookiesConfigInput
+
+func (GetOriginRequestPolicyCookiesConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyCookiesConfigArray) ToGetOriginRequestPolicyCookiesConfigArrayOutput() GetOriginRequestPolicyCookiesConfigArrayOutput {
+	return i.ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyCookiesConfigArray) ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigArrayOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyCookiesConfigOutput) ToGetOriginRequestPolicyCookiesConfigOutput() GetOriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigOutput) ToGetOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
+}
+
+func (o GetOriginRequestPolicyCookiesConfigOutput) Cookies() GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyCookiesConfig) []GetOriginRequestPolicyCookiesConfigCookie {
+		return v.Cookies
+	}).(GetOriginRequestPolicyCookiesConfigCookieArrayOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyCookiesConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyCookiesConfigArrayOutput) ToGetOriginRequestPolicyCookiesConfigArrayOutput() GetOriginRequestPolicyCookiesConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigArrayOutput) ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyCookiesConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyCookiesConfig {
+		return vs[0].([]GetOriginRequestPolicyCookiesConfig)[vs[1].(int)]
+	}).(GetOriginRequestPolicyCookiesConfigOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfigCookie struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetOriginRequestPolicyCookiesConfigCookieInput is an input type that accepts GetOriginRequestPolicyCookiesConfigCookieArgs and GetOriginRequestPolicyCookiesConfigCookieOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigCookieInput` via:
+//
+//          GetOriginRequestPolicyCookiesConfigCookieArgs{...}
+type GetOriginRequestPolicyCookiesConfigCookieInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyCookiesConfigCookieOutput() GetOriginRequestPolicyCookiesConfigCookieOutput
+	ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigCookieOutput
+}
+
+type GetOriginRequestPolicyCookiesConfigCookieArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetOriginRequestPolicyCookiesConfigCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyCookiesConfigCookieArgs) ToGetOriginRequestPolicyCookiesConfigCookieOutput() GetOriginRequestPolicyCookiesConfigCookieOutput {
+	return i.ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyCookiesConfigCookieArgs) ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigCookieOutput)
+}
+
+// GetOriginRequestPolicyCookiesConfigCookieArrayInput is an input type that accepts GetOriginRequestPolicyCookiesConfigCookieArray and GetOriginRequestPolicyCookiesConfigCookieArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigCookieArrayInput` via:
+//
+//          GetOriginRequestPolicyCookiesConfigCookieArray{ GetOriginRequestPolicyCookiesConfigCookieArgs{...} }
+type GetOriginRequestPolicyCookiesConfigCookieArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyCookiesConfigCookieArrayOutput() GetOriginRequestPolicyCookiesConfigCookieArrayOutput
+	ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigCookieArrayOutput
+}
+
+type GetOriginRequestPolicyCookiesConfigCookieArray []GetOriginRequestPolicyCookiesConfigCookieInput
+
+func (GetOriginRequestPolicyCookiesConfigCookieArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyCookiesConfigCookieArray) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutput() GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
+	return i.ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyCookiesConfigCookieArray) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigCookieArrayOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfigCookieOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyCookiesConfigCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieOutput) ToGetOriginRequestPolicyCookiesConfigCookieOutput() GetOriginRequestPolicyCookiesConfigCookieOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieOutput) ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyCookiesConfigCookie) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type GetOriginRequestPolicyCookiesConfigCookieArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyCookiesConfigCookieArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieArrayOutput) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutput() GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieArrayOutput) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyCookiesConfigCookieArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyCookiesConfigCookieOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyCookiesConfigCookie {
+		return vs[0].([]GetOriginRequestPolicyCookiesConfigCookie)[vs[1].(int)]
+	}).(GetOriginRequestPolicyCookiesConfigCookieOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfig struct {
+	HeaderBehavior string                                      `pulumi:"headerBehavior"`
+	Headers        []GetOriginRequestPolicyHeadersConfigHeader `pulumi:"headers"`
+}
+
+// GetOriginRequestPolicyHeadersConfigInput is an input type that accepts GetOriginRequestPolicyHeadersConfigArgs and GetOriginRequestPolicyHeadersConfigOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigInput` via:
+//
+//          GetOriginRequestPolicyHeadersConfigArgs{...}
+type GetOriginRequestPolicyHeadersConfigInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyHeadersConfigOutput() GetOriginRequestPolicyHeadersConfigOutput
+	ToGetOriginRequestPolicyHeadersConfigOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigOutput
+}
+
+type GetOriginRequestPolicyHeadersConfigArgs struct {
+	HeaderBehavior pulumi.StringInput                                  `pulumi:"headerBehavior"`
+	Headers        GetOriginRequestPolicyHeadersConfigHeaderArrayInput `pulumi:"headers"`
+}
+
+func (GetOriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyHeadersConfigArgs) ToGetOriginRequestPolicyHeadersConfigOutput() GetOriginRequestPolicyHeadersConfigOutput {
+	return i.ToGetOriginRequestPolicyHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyHeadersConfigArgs) ToGetOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigOutput)
+}
+
+// GetOriginRequestPolicyHeadersConfigArrayInput is an input type that accepts GetOriginRequestPolicyHeadersConfigArray and GetOriginRequestPolicyHeadersConfigArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigArrayInput` via:
+//
+//          GetOriginRequestPolicyHeadersConfigArray{ GetOriginRequestPolicyHeadersConfigArgs{...} }
+type GetOriginRequestPolicyHeadersConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyHeadersConfigArrayOutput() GetOriginRequestPolicyHeadersConfigArrayOutput
+	ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigArrayOutput
+}
+
+type GetOriginRequestPolicyHeadersConfigArray []GetOriginRequestPolicyHeadersConfigInput
+
+func (GetOriginRequestPolicyHeadersConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyHeadersConfigArray) ToGetOriginRequestPolicyHeadersConfigArrayOutput() GetOriginRequestPolicyHeadersConfigArrayOutput {
+	return i.ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyHeadersConfigArray) ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigArrayOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyHeadersConfigOutput) ToGetOriginRequestPolicyHeadersConfigOutput() GetOriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigOutput) ToGetOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
+}
+
+func (o GetOriginRequestPolicyHeadersConfigOutput) Headers() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyHeadersConfig) []GetOriginRequestPolicyHeadersConfigHeader {
+		return v.Headers
+	}).(GetOriginRequestPolicyHeadersConfigHeaderArrayOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyHeadersConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyHeadersConfigArrayOutput) ToGetOriginRequestPolicyHeadersConfigArrayOutput() GetOriginRequestPolicyHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigArrayOutput) ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyHeadersConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyHeadersConfig {
+		return vs[0].([]GetOriginRequestPolicyHeadersConfig)[vs[1].(int)]
+	}).(GetOriginRequestPolicyHeadersConfigOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfigHeader struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetOriginRequestPolicyHeadersConfigHeaderInput is an input type that accepts GetOriginRequestPolicyHeadersConfigHeaderArgs and GetOriginRequestPolicyHeadersConfigHeaderOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigHeaderInput` via:
+//
+//          GetOriginRequestPolicyHeadersConfigHeaderArgs{...}
+type GetOriginRequestPolicyHeadersConfigHeaderInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyHeadersConfigHeaderOutput() GetOriginRequestPolicyHeadersConfigHeaderOutput
+	ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigHeaderOutput
+}
+
+type GetOriginRequestPolicyHeadersConfigHeaderArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetOriginRequestPolicyHeadersConfigHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyHeadersConfigHeaderArgs) ToGetOriginRequestPolicyHeadersConfigHeaderOutput() GetOriginRequestPolicyHeadersConfigHeaderOutput {
+	return i.ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyHeadersConfigHeaderArgs) ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigHeaderOutput)
+}
+
+// GetOriginRequestPolicyHeadersConfigHeaderArrayInput is an input type that accepts GetOriginRequestPolicyHeadersConfigHeaderArray and GetOriginRequestPolicyHeadersConfigHeaderArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigHeaderArrayInput` via:
+//
+//          GetOriginRequestPolicyHeadersConfigHeaderArray{ GetOriginRequestPolicyHeadersConfigHeaderArgs{...} }
+type GetOriginRequestPolicyHeadersConfigHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutput() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput
+	ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigHeaderArrayOutput
+}
+
+type GetOriginRequestPolicyHeadersConfigHeaderArray []GetOriginRequestPolicyHeadersConfigHeaderInput
+
+func (GetOriginRequestPolicyHeadersConfigHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyHeadersConfigHeaderArray) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutput() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
+	return i.ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyHeadersConfigHeaderArray) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigHeaderArrayOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfigHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyHeadersConfigHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderOutput) ToGetOriginRequestPolicyHeadersConfigHeaderOutput() GetOriginRequestPolicyHeadersConfigHeaderOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderOutput) ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyHeadersConfigHeader) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type GetOriginRequestPolicyHeadersConfigHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyHeadersConfigHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderArrayOutput) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutput() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderArrayOutput) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyHeadersConfigHeaderArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyHeadersConfigHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyHeadersConfigHeader {
+		return vs[0].([]GetOriginRequestPolicyHeadersConfigHeader)[vs[1].(int)]
+	}).(GetOriginRequestPolicyHeadersConfigHeaderOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfig struct {
+	QueryStringBehavior string                                                `pulumi:"queryStringBehavior"`
+	QueryStrings        []GetOriginRequestPolicyQueryStringsConfigQueryString `pulumi:"queryStrings"`
+}
+
+// GetOriginRequestPolicyQueryStringsConfigInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigArgs and GetOriginRequestPolicyQueryStringsConfigOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigInput` via:
+//
+//          GetOriginRequestPolicyQueryStringsConfigArgs{...}
+type GetOriginRequestPolicyQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyQueryStringsConfigOutput() GetOriginRequestPolicyQueryStringsConfigOutput
+	ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigOutput
+}
+
+type GetOriginRequestPolicyQueryStringsConfigArgs struct {
+	QueryStringBehavior pulumi.StringInput                                            `pulumi:"queryStringBehavior"`
+	QueryStrings        GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
+}
+
+func (GetOriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigArgs) ToGetOriginRequestPolicyQueryStringsConfigOutput() GetOriginRequestPolicyQueryStringsConfigOutput {
+	return i.ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigArgs) ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigOutput)
+}
+
+// GetOriginRequestPolicyQueryStringsConfigArrayInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigArray and GetOriginRequestPolicyQueryStringsConfigArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigArrayInput` via:
+//
+//          GetOriginRequestPolicyQueryStringsConfigArray{ GetOriginRequestPolicyQueryStringsConfigArgs{...} }
+type GetOriginRequestPolicyQueryStringsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyQueryStringsConfigArrayOutput() GetOriginRequestPolicyQueryStringsConfigArrayOutput
+	ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigArrayOutput
+}
+
+type GetOriginRequestPolicyQueryStringsConfigArray []GetOriginRequestPolicyQueryStringsConfigInput
+
+func (GetOriginRequestPolicyQueryStringsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigArray) ToGetOriginRequestPolicyQueryStringsConfigArrayOutput() GetOriginRequestPolicyQueryStringsConfigArrayOutput {
+	return i.ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigArray) ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigArrayOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigOutput) ToGetOriginRequestPolicyQueryStringsConfigOutput() GetOriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigOutput) ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigOutput) QueryStrings() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyQueryStringsConfig) []GetOriginRequestPolicyQueryStringsConfigQueryString {
+		return v.QueryStrings
+	}).(GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyQueryStringsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigArrayOutput) ToGetOriginRequestPolicyQueryStringsConfigArrayOutput() GetOriginRequestPolicyQueryStringsConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigArrayOutput) ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyQueryStringsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyQueryStringsConfig {
+		return vs[0].([]GetOriginRequestPolicyQueryStringsConfig)[vs[1].(int)]
+	}).(GetOriginRequestPolicyQueryStringsConfigOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfigQueryString struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetOriginRequestPolicyQueryStringsConfigQueryStringInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigQueryStringArgs and GetOriginRequestPolicyQueryStringsConfigQueryStringOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigQueryStringInput` via:
+//
+//          GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{...}
+type GetOriginRequestPolicyQueryStringsConfigQueryStringInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringOutput
+	ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput
+}
+
+type GetOriginRequestPolicyQueryStringsConfigQueryStringArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
+	return i.ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput)
+}
+
+// GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigQueryStringArray and GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput values.
+// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput` via:
+//
+//          GetOriginRequestPolicyQueryStringsConfigQueryStringArray{ GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{...} }
+type GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput interface {
+	pulumi.Input
+
+	ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput
+	ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput
+}
+
+type GetOriginRequestPolicyQueryStringsConfigQueryStringArray []GetOriginRequestPolicyQueryStringsConfigQueryStringInput
+
+func (GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
+	return i.ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfigQueryStringOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyQueryStringsConfigQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringOutput) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringOutput) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOriginRequestPolicyQueryStringsConfigQueryString) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+type GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
+	return o
+}
+
+func (o GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) Index(i pulumi.IntInput) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOriginRequestPolicyQueryStringsConfigQueryString {
+		return vs[0].([]GetOriginRequestPolicyQueryStringsConfigQueryString)[vs[1].(int)]
+	}).(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseArrayOutput{})
@@ -3609,4 +5023,28 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigCookiesOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigCookiesPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigHeadersOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigHeadersPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigCookieOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigCookieArrayOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyHeadersConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyHeadersConfigHeaderOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyHeadersConfigHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput{})
+	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput{})
 }
