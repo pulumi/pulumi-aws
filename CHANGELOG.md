@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.27.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 3.28.0 (2021-02-05)
+* Update to v3.27.0 of the AWS Terraform Provider
 
 ## 3.27.0 (2021-02-04)
 * [1335](https://github.com/pulumi/pulumi-aws/pull/1335).  
