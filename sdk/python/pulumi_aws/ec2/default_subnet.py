@@ -16,6 +16,8 @@ class DefaultSubnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -72,6 +74,8 @@ class DefaultSubnet(pulumi.CustomResource):
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__['availability_zone'] = availability_zone
+            __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
+            __props__['map_customer_owned_ip_on_launch'] = map_customer_owned_ip_on_launch
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
             __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
@@ -98,8 +102,10 @@ class DefaultSubnet(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             availability_zone_id: Optional[pulumi.Input[str]] = None,
             cidr_block: Optional[pulumi.Input[str]] = None,
+            customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+            map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -130,8 +136,10 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__["availability_zone"] = availability_zone
         __props__["availability_zone_id"] = availability_zone_id
         __props__["cidr_block"] = cidr_block
+        __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
+        __props__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
         __props__["map_public_ip_on_launch"] = map_public_ip_on_launch
         __props__["outpost_arn"] = outpost_arn
         __props__["owner_id"] = owner_id
@@ -168,6 +176,11 @@ class DefaultSubnet(pulumi.CustomResource):
         return pulumi.get(self, "cidr_block")
 
     @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
         """
@@ -179,6 +192,11 @@ class DefaultSubnet(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
     def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ipv6_cidr_block_association_id")
+
+    @property
+    @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
+    def map_customer_owned_ip_on_launch(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "map_customer_owned_ip_on_launch")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")

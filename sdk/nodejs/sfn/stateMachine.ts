@@ -2,12 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function State Machine resource
  *
  * ## Example Usage
+ * ### Basic (Standard Workflow)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,6 +30,60 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
+ * });
+ * ```
+ * ### Basic (Express Workflow)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ *     type: "EXPRESS",
+ *     definition: `{
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "End": true
+ *     }
+ *   }
+ * }
+ * `,
+ * });
+ * ```
+ * ### Logging
+ *
+ * > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ *     definition: `{
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "End": true
+ *     }
+ *   }
+ * }
+ * `,
+ *     loggingConfiguration: {
+ *         logDestination: aws_cloudwatch_log_group.log_group_for_sfn.arn,
+ *         includeExecutionData: true,
+ *         level: "ERROR",
+ *     },
  * });
  * ```
  *
@@ -80,6 +136,10 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly definition!: pulumi.Output<string>;
     /**
+     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+     */
+    public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
+    /**
      * The name of the state machine.
      */
     public readonly name!: pulumi.Output<string>;
@@ -95,6 +155,10 @@ export class StateMachine extends pulumi.CustomResource {
      * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -111,10 +175,12 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["definition"] = state ? state.definition : undefined;
+            inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
             if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
@@ -124,9 +190,11 @@ export class StateMachine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["definition"] = args ? args.definition : undefined;
+            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -159,6 +227,10 @@ export interface StateMachineState {
      */
     readonly definition?: pulumi.Input<string>;
     /**
+     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+     */
+    readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    /**
      * The name of the state machine.
      */
     readonly name?: pulumi.Input<string>;
@@ -174,6 +246,10 @@ export interface StateMachineState {
      * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     */
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -184,6 +260,10 @@ export interface StateMachineArgs {
      * The Amazon States Language definition of the state machine.
      */
     readonly definition: pulumi.Input<string>;
+    /**
+     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+     */
+    readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine.
      */
@@ -196,4 +276,8 @@ export interface StateMachineArgs {
      * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     */
+    readonly type?: pulumi.Input<string>;
 }

@@ -12,6 +12,7 @@ export * from "./getTransitGateway";
 export * from "./getVpcAttachment";
 export * from "./getVpnAttachment";
 export * from "./peeringAttachment";
+export * from "./prefixListReference";
 export * from "./route";
 export * from "./routeTable";
 export * from "./routeTableAssociation";
@@ -22,6 +23,7 @@ export * from "./vpcAttachmentAccepter";
 
 // Import resources to register:
 import { PeeringAttachment } from "./peeringAttachment";
+import { PrefixListReference } from "./prefixListReference";
 import { Route } from "./route";
 import { RouteTable } from "./routeTable";
 import { RouteTableAssociation } from "./routeTableAssociation";
@@ -36,6 +38,8 @@ const _module = {
         switch (type) {
             case "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
                 return new PeeringAttachment(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
+                return new PrefixListReference(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/route:Route":
                 return new Route(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/routeTable:RouteTable":
@@ -56,6 +60,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/prefixListReference", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/routeTable", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/routeTableAssociation", _module)

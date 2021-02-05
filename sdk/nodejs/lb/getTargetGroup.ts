@@ -77,6 +77,7 @@ export interface GetTargetGroupResult {
     readonly name: string;
     readonly port: number;
     readonly protocol: string;
+    readonly protocolVersion: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
     readonly stickiness: outputs.lb.GetTargetGroupStickiness;

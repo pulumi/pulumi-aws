@@ -122,11 +122,22 @@ export interface GetSubnetResult {
     readonly availabilityZone: string;
     readonly availabilityZoneId: string;
     readonly cidrBlock: string;
+    /**
+     * Identifier of customer owned IPv4 address pool.
+     */
+    readonly customerOwnedIpv4Pool: string;
     readonly defaultForAz: boolean;
     readonly filters?: outputs.ec2.GetSubnetFilter[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
     readonly ipv6CidrBlockAssociationId: string;
+    /**
+     * Whether customer owned IP addresses are assigned on network interface creation.
+     */
+    readonly mapCustomerOwnedIpOnLaunch: boolean;
+    /**
+     * Whether public IP addresses are assigned on instance launch.
+     */
     readonly mapPublicIpOnLaunch: boolean;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.

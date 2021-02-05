@@ -29,6 +29,7 @@ class TargetGroup(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
+                 protocol_version: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
                  slow_start: Optional[pulumi.Input[int]] = None,
                  stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
@@ -96,6 +97,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below.
@@ -134,6 +136,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__['name_prefix'] = name_prefix
             __props__['port'] = port
             __props__['protocol'] = protocol
+            __props__['protocol_version'] = protocol_version
             __props__['proxy_protocol_v2'] = proxy_protocol_v2
             __props__['slow_start'] = slow_start
             __props__['stickiness'] = stickiness
@@ -162,6 +165,7 @@ class TargetGroup(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
+            protocol_version: Optional[pulumi.Input[str]] = None,
             proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
             slow_start: Optional[pulumi.Input[int]] = None,
             stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
@@ -185,6 +189,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below.
@@ -211,6 +216,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__["name_prefix"] = name_prefix
         __props__["port"] = port
         __props__["protocol"] = protocol
+        __props__["protocol_version"] = protocol_version
         __props__["proxy_protocol_v2"] = proxy_protocol_v2
         __props__["slow_start"] = slow_start
         __props__["stickiness"] = stickiness
@@ -298,6 +304,14 @@ class TargetGroup(pulumi.CustomResource):
         The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> pulumi.Output[str]:
+        """
+        Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        """
+        return pulumi.get(self, "protocol_version")
 
     @property
     @pulumi.getter(name="proxyProtocolV2")

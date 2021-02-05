@@ -13,6 +13,8 @@ __all__ = [
     'CatalogTablePartitionKeyArgs',
     'CatalogTableStorageDescriptorArgs',
     'CatalogTableStorageDescriptorColumnArgs',
+    'CatalogTableStorageDescriptorSchemaReferenceArgs',
+    'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs',
     'CatalogTableStorageDescriptorSerDeInfoArgs',
     'CatalogTableStorageDescriptorSkewedInfoArgs',
     'CatalogTableStorageDescriptorSortColumnArgs',
@@ -172,6 +174,7 @@ class CatalogTableStorageDescriptorArgs:
                  number_of_buckets: Optional[pulumi.Input[int]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 schema_reference: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']] = None,
                  ser_de_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs']] = None,
                  skewed_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs']] = None,
                  sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]]] = None,
@@ -185,6 +188,7 @@ class CatalogTableStorageDescriptorArgs:
         :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
         :param pulumi.Input[str] output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs'] schema_reference: An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
         :param pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs'] ser_de_info: Serialization/deserialization (SerDe) information.
         :param pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs'] skewed_info: Information about values that appear very frequently in a column (skewed values).
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
@@ -206,6 +210,8 @@ class CatalogTableStorageDescriptorArgs:
             pulumi.set(__self__, "output_format", output_format)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
         if ser_de_info is not None:
             pulumi.set(__self__, "ser_de_info", ser_de_info)
         if skewed_info is not None:
@@ -310,6 +316,18 @@ class CatalogTableStorageDescriptorArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']]:
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @schema_reference.setter
+    def schema_reference(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']]):
+        pulumi.set(self, "schema_reference", value)
 
     @property
     @pulumi.getter(name="serDeInfo")
@@ -428,6 +446,115 @@ class CatalogTableStorageDescriptorColumnArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class CatalogTableStorageDescriptorSchemaReferenceArgs:
+    def __init__(__self__, *,
+                 schema_version_number: pulumi.Input[int],
+                 schema_id: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']] = None,
+                 schema_version_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] schema_version_number: The version number of the schema.
+        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs'] schema_id: A structure that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See Schema ID below.
+        :param pulumi.Input[str] schema_version_id: The unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+        """
+        pulumi.set(__self__, "schema_version_number", schema_version_number)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+
+    @property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> pulumi.Input[int]:
+        """
+        The version number of the schema.
+        """
+        return pulumi.get(self, "schema_version_number")
+
+    @schema_version_number.setter
+    def schema_version_number(self, value: pulumi.Input[int]):
+        pulumi.set(self, "schema_version_number", value)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']]:
+        """
+        A structure that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See Schema ID below.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @schema_version_id.setter
+    def schema_version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version_id", value)
+
+
+@pulumi.input_type
+class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs:
+    def __init__(__self__, *,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 schema_arn: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] registry_name: The name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+        :param pulumi.Input[str] schema_arn: The Amazon Resource Name (ARN) of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        :param pulumi.Input[str] schema_name: The name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @schema_arn.setter
+    def schema_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_arn", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
 
 @pulumi.input_type

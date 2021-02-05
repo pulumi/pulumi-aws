@@ -156,6 +156,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// </summary>
+        [Output("protocolVersion")]
+        public Output<string> ProtocolVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         /// </summary>
         [Output("proxyProtocolV2")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
+        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// </summary>
+        [Input("protocolVersion")]
+        public Input<string>? ProtocolVersion { get; set; }
+
+        /// <summary>
         /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         /// </summary>
         [Input("proxyProtocolV2")]
@@ -403,6 +415,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// </summary>
+        [Input("protocolVersion")]
+        public Input<string>? ProtocolVersion { get; set; }
 
         /// <summary>
         /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.

@@ -5,7 +5,9 @@
 # Export this package's modules as members:
 from .distribution import *
 from .get_distribution import *
+from .get_origin_request_policy import *
 from .origin_access_identity import *
+from .origin_request_policy import *
 from .public_key import *
 from ._inputs import *
 from . import outputs
@@ -26,6 +28,8 @@ def _register_module():
                 return Distribution(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
                 return OriginAccessIdentity(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
+                return OriginRequestPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudfront/publicKey:PublicKey":
                 return PublicKey(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -35,6 +39,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "cloudfront/distribution", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/originAccessIdentity", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudfront/originRequestPolicy", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/publicKey", _module_instance)
 
 _register_module()

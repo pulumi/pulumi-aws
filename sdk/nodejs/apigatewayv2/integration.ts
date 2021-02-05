@@ -137,7 +137,7 @@ export class Integration extends pulumi.CustomResource {
     public readonly integrationSubtype!: pulumi.Output<string | undefined>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
      */
     public readonly integrationType!: pulumi.Output<string>;
     /**
@@ -291,7 +291,7 @@ export interface IntegrationState {
     readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
      */
     readonly integrationType?: pulumi.Input<string>;
     /**
@@ -372,7 +372,7 @@ export interface IntegrationArgs {
     readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
      */
     readonly integrationType: pulumi.Input<string>;
     /**

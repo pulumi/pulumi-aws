@@ -1773,16 +1773,20 @@ class LoadBalancerSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_address: Optional[pulumi.Input[str]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  private_ipv4_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         :param pulumi.Input[str] allocation_id: The allocation ID of the Elastic IP address.
+        :param pulumi.Input[str] ipv6_address: An ipv6 address within the subnet to assign to the internet-facing load balancer.
         :param pulumi.Input[str] private_ipv4_address: A private ipv4 address within the subnet to assign to the internal-facing load balancer.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if outpost_id is not None:
             pulumi.set(__self__, "outpost_id", outpost_id)
         if private_ipv4_address is not None:
@@ -1811,6 +1815,18 @@ class LoadBalancerSubnetMappingArgs:
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ipv6 address within the subnet to assign to the internet-facing load balancer.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address", value)
 
     @property
     @pulumi.getter(name="outpostId")

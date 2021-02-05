@@ -19,7 +19,9 @@ class Subnet(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -79,8 +81,10 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The AZ for the subnet.
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
         :param pulumi.Input[str] cidr_block: The CIDR block for the subnet.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
                in CIDR notation. The subnet size must use a /64 prefix length.
+        :param pulumi.Input[bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
                that instances launched into the subnet should be assigned
                a public IP address. Default is `false`.
@@ -111,7 +115,9 @@ class Subnet(pulumi.CustomResource):
             if cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_block'")
             __props__['cidr_block'] = cidr_block
+            __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
             __props__['ipv6_cidr_block'] = ipv6_cidr_block
+            __props__['map_customer_owned_ip_on_launch'] = map_customer_owned_ip_on_launch
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
             __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
@@ -136,8 +142,10 @@ class Subnet(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             availability_zone_id: Optional[pulumi.Input[str]] = None,
             cidr_block: Optional[pulumi.Input[str]] = None,
+            customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+            map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -157,9 +165,11 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The AZ for the subnet.
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
         :param pulumi.Input[str] cidr_block: The CIDR block for the subnet.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
                in CIDR notation. The subnet size must use a /64 prefix length.
         :param pulumi.Input[str] ipv6_cidr_block_association_id: The association ID for the IPv6 CIDR block.
+        :param pulumi.Input[bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
                that instances launched into the subnet should be assigned
                a public IP address. Default is `false`.
@@ -177,8 +187,10 @@ class Subnet(pulumi.CustomResource):
         __props__["availability_zone"] = availability_zone
         __props__["availability_zone_id"] = availability_zone_id
         __props__["cidr_block"] = cidr_block
+        __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
+        __props__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
         __props__["map_public_ip_on_launch"] = map_public_ip_on_launch
         __props__["outpost_arn"] = outpost_arn
         __props__["owner_id"] = owner_id
@@ -229,6 +241,14 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "cidr_block")
 
     @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
+        """
+        The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
@@ -244,6 +264,14 @@ class Subnet(pulumi.CustomResource):
         The association ID for the IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_cidr_block_association_id")
+
+    @property
+    @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
+    def map_customer_owned_ip_on_launch(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        """
+        return pulumi.get(self, "map_customer_owned_ip_on_launch")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")

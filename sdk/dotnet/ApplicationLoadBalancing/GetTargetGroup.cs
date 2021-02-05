@@ -97,6 +97,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly string Name;
         public readonly int Port;
         public readonly string Protocol;
+        public readonly string ProtocolVersion;
         public readonly bool ProxyProtocolV2;
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
@@ -126,6 +127,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             string protocol,
 
+            string protocolVersion,
+
             bool proxyProtocolV2,
 
             int slowStart,
@@ -148,6 +151,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             Name = name;
             Port = port;
             Protocol = protocol;
+            ProtocolVersion = protocolVersion;
             ProxyProtocolV2 = proxyProtocolV2;
             SlowStart = slowStart;
             Stickiness = stickiness;

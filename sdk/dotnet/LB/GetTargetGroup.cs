@@ -96,6 +96,7 @@ namespace Pulumi.Aws.LB
         public readonly string Name;
         public readonly int Port;
         public readonly string Protocol;
+        public readonly string ProtocolVersion;
         public readonly bool ProxyProtocolV2;
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
@@ -125,6 +126,8 @@ namespace Pulumi.Aws.LB
 
             string protocol,
 
+            string protocolVersion,
+
             bool proxyProtocolV2,
 
             int slowStart,
@@ -147,6 +150,7 @@ namespace Pulumi.Aws.LB
             Name = name;
             Port = port;
             Protocol = protocol;
+            ProtocolVersion = protocolVersion;
             ProxyProtocolV2 = proxyProtocolV2;
             SlowStart = slowStart;
             Stickiness = stickiness;

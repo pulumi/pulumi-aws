@@ -17,6 +17,10 @@ namespace Pulumi.Aws.LB.Outputs
         /// The allocation ID of the Elastic IP address.
         /// </summary>
         public readonly string? AllocationId;
+        /// <summary>
+        /// An ipv6 address within the subnet to assign to the internet-facing load balancer.
+        /// </summary>
+        public readonly string? Ipv6Address;
         public readonly string? OutpostId;
         /// <summary>
         /// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -31,6 +35,8 @@ namespace Pulumi.Aws.LB.Outputs
         private LoadBalancerSubnetMapping(
             string? allocationId,
 
+            string? ipv6Address,
+
             string? outpostId,
 
             string? privateIpv4Address,
@@ -38,6 +44,7 @@ namespace Pulumi.Aws.LB.Outputs
             string subnetId)
         {
             AllocationId = allocationId;
+            Ipv6Address = ipv6Address;
             OutpostId = outpostId;
             PrivateIpv4Address = privateIpv4Address;
             SubnetId = subnetId;

@@ -12,55 +12,6 @@ import * as utilities from "../utilities";
  * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
  * [2]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html#web_acl_id
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleResource = new aws.apigateway.Resource("exampleResource", {
- *     restApi: exampleRestApi.id,
- *     parentId: exampleRestApi.rootResourceId,
- *     pathPart: "mytestresource",
- * });
- * const exampleMethod = new aws.apigateway.Method("exampleMethod", {
- *     restApi: exampleRestApi.id,
- *     resourceId: exampleResource.id,
- *     httpMethod: "GET",
- *     authorization: "NONE",
- * });
- * const exampleIntegration = new aws.apigateway.Integration("exampleIntegration", {
- *     restApi: exampleRestApi.id,
- *     resourceId: exampleResource.id,
- *     httpMethod: exampleMethod.httpMethod,
- *     type: "MOCK",
- * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {restApi: exampleRestApi.id}, {
- *     dependsOn: [exampleIntegration],
- * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     stageName: "test",
- *     restApi: exampleRestApi.id,
- *     deployment: exampleDeployment.id,
- * });
- * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
- *     scope: "REGIONAL",
- *     defaultAction: {
- *         allow: {},
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
- *     resourceArn: exampleStage.arn,
- *     webAclArn: exampleWebAcl.arn,
- * });
- * ```
- *
  * ## Import
  *
  * WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.

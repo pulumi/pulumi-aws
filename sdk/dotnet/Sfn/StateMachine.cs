@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Sfn
     /// Provides a Step Function State Machine resource
     /// 
     /// ## Example Usage
+    /// ### Basic (Standard Workflow)
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -38,6 +39,77 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Basic (Express Workflow)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...
+    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///             Type = "EXPRESS",
+    ///             Definition = @$"{{
+    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
+    ///   ""StartAt"": ""HelloWorld"",
+    ///   ""States"": {{
+    ///     ""HelloWorld"": {{
+    ///       ""Type"": ""Task"",
+    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""End"": true
+    ///     }}
+    ///   }}
+    /// }}
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Logging
+    /// 
+    /// &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...
+    ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///             Definition = @$"{{
+    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
+    ///   ""StartAt"": ""HelloWorld"",
+    ///   ""States"": {{
+    ///     ""HelloWorld"": {{
+    ///       ""Type"": ""Task"",
+    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""End"": true
+    ///     }}
+    ///   }}
+    /// }}
+    /// ",
+    ///             LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
+    ///             {
+    ///                 LogDestination = aws_cloudwatch_log_group.Log_group_for_sfn.Arn,
+    ///                 IncludeExecutionData = true,
+    ///                 Level = "ERROR",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -74,6 +146,12 @@ namespace Pulumi.Aws.Sfn
         public Output<string> Definition { get; private set; } = null!;
 
         /// <summary>
+        /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
+        [Output("loggingConfiguration")]
+        public Output<Outputs.StateMachineLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the state machine.
         /// </summary>
         [Output("name")]
@@ -96,6 +174,12 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,6 +234,12 @@ namespace Pulumi.Aws.Sfn
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
+        /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the state machine.
         /// </summary>
         [Input("name")]
@@ -172,6 +262,12 @@ namespace Pulumi.Aws.Sfn
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public StateMachineArgs()
         {
@@ -197,6 +293,12 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
+
+        /// <summary>
+        /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.StateMachineLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// The name of the state machine.
@@ -227,6 +329,12 @@ namespace Pulumi.Aws.Sfn
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public StateMachineState()
         {

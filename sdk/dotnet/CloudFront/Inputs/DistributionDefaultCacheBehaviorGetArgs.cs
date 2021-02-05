@@ -99,6 +99,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }
 
+        [Input("originRequestPolicyId")]
+        public Input<string>? OriginRequestPolicyId { get; set; }
+
         /// <summary>
         /// Indicates whether you want to distribute
         /// media files in Microsoft Smooth Streaming format using the origin that is

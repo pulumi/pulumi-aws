@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The owner ID.

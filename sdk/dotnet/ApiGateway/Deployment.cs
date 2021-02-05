@@ -10,66 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
-    /// Provides an API Gateway REST Deployment.
+    /// Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `aws.apigateway.Stage` resource and optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
     /// 
-    /// &gt; **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which
-    /// itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add
-    /// implicit resource references via the `triggers` argument or explicit resource references using the
-    /// [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
+    /// To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
+    /// 
+    /// * For REST APIs that are configured via OpenAPI specification (`aws.apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
+    /// * When the REST API configuration involves other resources (`aws.apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
+    /// 
+    /// !&gt; **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
     /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ParentId = myDemoAPI.RootResourceId,
-    ///             PathPart = "test",
-    ///         });
-    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             Type = "MOCK",
-    ///         });
-    ///         var myDemoDeployment = new Aws.ApiGateway.Deployment("myDemoDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             StageName = "test",
-    ///             Variables = 
-    ///             {
-    ///                 { "answer", "42" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 myDemoIntegration,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/deployment:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
@@ -81,7 +31,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the deployment
+        /// Description of the deployment
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -102,31 +52,31 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// REST API identifier.
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the stage
+        /// Description to set on the stage managed by the `stage_name` argument.
         /// </summary>
         [Output("stageDescription")]
         public Output<string?> StageDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// A map that defines variables for the stage
+        /// Map to set on the stage managed by the `stage_name` argument.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
@@ -178,25 +128,25 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the deployment
+        /// Description of the deployment
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// REST API identifier.
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The description of the stage
+        /// Description to set on the stage managed by the `stage_name` argument.
         /// </summary>
         [Input("stageDescription")]
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -205,7 +155,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -217,7 +167,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// A map that defines variables for the stage
+        /// Map to set on the stage managed by the `stage_name` argument.
         /// </summary>
         public InputMap<string> Variables
         {
@@ -239,7 +189,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The description of the deployment
+        /// Description of the deployment
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -260,19 +210,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? InvokeUrl { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// REST API identifier.
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The description of the stage
+        /// Description to set on the stage managed by the `stage_name` argument.
         /// </summary>
         [Input("stageDescription")]
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -281,7 +231,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -293,7 +243,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// A map that defines variables for the stage
+        /// Map to set on the stage managed by the `stage_name` argument.
         /// </summary>
         public InputMap<string> Variables
         {

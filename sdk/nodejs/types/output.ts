@@ -478,6 +478,7 @@ export namespace alb {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        ipv6Address: string;
         outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
@@ -970,6 +971,10 @@ export namespace alb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: string;
         outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -1577,6 +1582,7 @@ export namespace applicationloadbalancing {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        ipv6Address: string;
         outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
@@ -2069,6 +2075,10 @@ export namespace applicationloadbalancing {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: string;
         outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -4834,6 +4844,7 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: number;
+        originRequestPolicyId?: string;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -4989,6 +5000,7 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: number;
+        originRequestPolicyId?: string;
         /**
          * The pattern (for example, `images/*.jpg)` that
          * specifies which requests you want this cache behavior to apply to.
@@ -5263,6 +5275,60 @@ export namespace cloudfront {
          */
         minimumProtocolVersion?: string;
         sslSupportMethod?: string;
+    }
+
+    export interface GetOriginRequestPolicyCookiesConfig {
+        cookieBehavior: string;
+        cookies: outputs.cloudfront.GetOriginRequestPolicyCookiesConfigCookie[];
+    }
+
+    export interface GetOriginRequestPolicyCookiesConfigCookie {
+        items: string[];
+    }
+
+    export interface GetOriginRequestPolicyHeadersConfig {
+        headerBehavior: string;
+        headers: outputs.cloudfront.GetOriginRequestPolicyHeadersConfigHeader[];
+    }
+
+    export interface GetOriginRequestPolicyHeadersConfigHeader {
+        items: string[];
+    }
+
+    export interface GetOriginRequestPolicyQueryStringsConfig {
+        queryStringBehavior: string;
+        queryStrings: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfigQueryString[];
+    }
+
+    export interface GetOriginRequestPolicyQueryStringsConfigQueryString {
+        items: string[];
+    }
+
+    export interface OriginRequestPolicyCookiesConfig {
+        cookieBehavior: string;
+        cookies?: outputs.cloudfront.OriginRequestPolicyCookiesConfigCookies;
+    }
+
+    export interface OriginRequestPolicyCookiesConfigCookies {
+        items?: string[];
+    }
+
+    export interface OriginRequestPolicyHeadersConfig {
+        headerBehavior?: string;
+        headers?: outputs.cloudfront.OriginRequestPolicyHeadersConfigHeaders;
+    }
+
+    export interface OriginRequestPolicyHeadersConfigHeaders {
+        items?: string[];
+    }
+
+    export interface OriginRequestPolicyQueryStringsConfig {
+        queryStringBehavior: string;
+        queryStrings?: outputs.cloudfront.OriginRequestPolicyQueryStringsConfigQueryStrings;
+    }
+
+    export interface OriginRequestPolicyQueryStringsConfigQueryStrings {
+        items?: string[];
     }
 }
 
@@ -11057,6 +11123,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        ipv6Address: string;
         outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
@@ -11549,6 +11616,10 @@ export namespace elasticloadbalancingv2 {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: string;
         outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -13177,7 +13248,7 @@ export namespace glue {
         /**
          * A list of the Columns in the table.
          */
-        columns?: outputs.glue.CatalogTableStorageDescriptorColumn[];
+        columns: outputs.glue.CatalogTableStorageDescriptorColumn[];
         /**
          * True if the data in the table is compressed, or False if not.
          */
@@ -13202,6 +13273,10 @@ export namespace glue {
          * A map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: {[key: string]: string};
+        /**
+         * An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+         */
+        schemaReference?: outputs.glue.CatalogTableStorageDescriptorSchemaReference;
         /**
          * Serialization/deserialization (SerDe) information.
          */
@@ -13237,6 +13312,36 @@ export namespace glue {
          * The datatype of data in the Column.
          */
         type?: string;
+    }
+
+    export interface CatalogTableStorageDescriptorSchemaReference {
+        /**
+         * A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+         */
+        schemaId?: outputs.glue.CatalogTableStorageDescriptorSchemaReferenceSchemaId;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+         */
+        schemaVersionId?: string;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber: number;
+    }
+
+    export interface CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+        /**
+         * The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+         */
+        registryName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         */
+        schemaArn?: string;
+        /**
+         * The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         */
+        schemaName?: string;
     }
 
     export interface CatalogTableStorageDescriptorSerDeInfo {
@@ -17167,6 +17272,7 @@ export namespace lb {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        ipv6Address: string;
         outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
@@ -17659,6 +17765,10 @@ export namespace lb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * An ipv6 address within the subnet to assign to the internet-facing load balancer.
+         */
+        ipv6Address?: string;
         outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -21376,6 +21486,23 @@ export namespace ses {
          * The ARN of an SNS topic to notify
          */
         topicArn?: string;
+    }
+}
+
+export namespace sfn {
+    export interface StateMachineLoggingConfiguration {
+        /**
+         * Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+         */
+        includeExecutionData?: boolean;
+        /**
+         * Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+         */
+        level?: string;
+        /**
+         * Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+         */
+        logDestination?: string;
     }
 }
 

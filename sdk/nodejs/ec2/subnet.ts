@@ -102,6 +102,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly cidrBlock!: pulumi.Output<string>;
     /**
+     * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
@@ -110,6 +114,10 @@ export class Subnet extends pulumi.CustomResource {
      * The association ID for the IPv6 CIDR block.
      */
     public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
+    /**
+     * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+     */
+    public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
@@ -150,8 +158,10 @@ export class Subnet extends pulumi.CustomResource {
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
+            inputs["mapCustomerOwnedIpOnLaunch"] = state ? state.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -169,7 +179,9 @@ export class Subnet extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            inputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -216,6 +228,10 @@ export interface SubnetState {
      */
     readonly cidrBlock?: pulumi.Input<string>;
     /**
+     * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
@@ -224,6 +240,10 @@ export interface SubnetState {
      * The association ID for the IPv6 CIDR block.
      */
     readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    /**
+     * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+     */
+    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
@@ -271,10 +291,18 @@ export interface SubnetArgs {
      */
     readonly cidrBlock: pulumi.Input<string>;
     /**
+     * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
     readonly ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
+     */
+    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned

@@ -163,11 +163,22 @@ namespace Pulumi.Aws.Ec2
         public readonly string AvailabilityZone;
         public readonly string AvailabilityZoneId;
         public readonly string CidrBlock;
+        /// <summary>
+        /// Identifier of customer owned IPv4 address pool.
+        /// </summary>
+        public readonly string CustomerOwnedIpv4Pool;
         public readonly bool DefaultForAz;
         public readonly ImmutableArray<Outputs.GetSubnetFilterResult> Filters;
         public readonly string Id;
         public readonly string Ipv6CidrBlock;
         public readonly string Ipv6CidrBlockAssociationId;
+        /// <summary>
+        /// Whether customer owned IP addresses are assigned on network interface creation.
+        /// </summary>
+        public readonly bool MapCustomerOwnedIpOnLaunch;
+        /// <summary>
+        /// Whether public IP addresses are assigned on instance launch.
+        /// </summary>
         public readonly bool MapPublicIpOnLaunch;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.
@@ -193,6 +204,8 @@ namespace Pulumi.Aws.Ec2
 
             string cidrBlock,
 
+            string customerOwnedIpv4Pool,
+
             bool defaultForAz,
 
             ImmutableArray<Outputs.GetSubnetFilterResult> filters,
@@ -202,6 +215,8 @@ namespace Pulumi.Aws.Ec2
             string ipv6CidrBlock,
 
             string ipv6CidrBlockAssociationId,
+
+            bool mapCustomerOwnedIpOnLaunch,
 
             bool mapPublicIpOnLaunch,
 
@@ -220,11 +235,13 @@ namespace Pulumi.Aws.Ec2
             AvailabilityZone = availabilityZone;
             AvailabilityZoneId = availabilityZoneId;
             CidrBlock = cidrBlock;
+            CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DefaultForAz = defaultForAz;
             Filters = filters;
             Id = id;
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
+            MapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
             MapPublicIpOnLaunch = mapPublicIpOnLaunch;
             OutpostArn = outpostArn;
             OwnerId = ownerId;

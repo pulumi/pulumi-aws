@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
 		r, err = NewPeeringAttachment(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
+		r, err = NewPrefixListReference(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:ec2transitgateway/route:Route":
 		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:ec2transitgateway/routeTable:RouteTable":
@@ -52,6 +54,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/peeringAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/prefixListReference",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

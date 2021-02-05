@@ -10,6 +10,7 @@ from .get_transit_gateway import *
 from .get_vpc_attachment import *
 from .get_vpn_attachment import *
 from .peering_attachment import *
+from .prefix_list_reference import *
 from .route import *
 from .route_table import *
 from .route_table_association import *
@@ -34,6 +35,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
                 return PeeringAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ec2transitgateway/prefixListReference:PrefixListReference":
+                return PrefixListReference(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2transitgateway/route:Route":
                 return Route(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ec2transitgateway/routeTable:RouteTable":
@@ -54,6 +57,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "ec2transitgateway/peeringAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ec2transitgateway/prefixListReference", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2transitgateway/route", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2transitgateway/routeTable", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ec2transitgateway/routeTableAssociation", _module_instance)

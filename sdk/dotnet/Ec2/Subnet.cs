@@ -110,6 +110,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        /// </summary>
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ipv6CidrBlockAssociationId")]
         public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        /// </summary>
+        [Output("mapCustomerOwnedIpOnLaunch")]
+        public Output<bool?> MapCustomerOwnedIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// Specify true to indicate
@@ -227,11 +239,23 @@ namespace Pulumi.Aws.Ec2
         public Input<string> CidrBlock { get; set; } = null!;
 
         /// <summary>
+        /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        /// </summary>
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
         /// <summary>
         /// Specify true to indicate
@@ -305,6 +329,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
+        /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
@@ -316,6 +346,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlockAssociationId")]
         public Input<string>? Ipv6CidrBlockAssociationId { get; set; }
+
+        /// <summary>
+        /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        /// </summary>
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
         /// <summary>
         /// Specify true to indicate

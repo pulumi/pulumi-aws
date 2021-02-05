@@ -23,40 +23,41 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const foo = new aws.s3.Bucket("foo", {
- *     forceDestroy: true,
- *     policy: current.then(current => `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Sid": "AWSCloudTrailAclCheck",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:GetBucketAcl",
- *             "Resource": "arn:aws:s3:::tf-test-trail"
- *         },
- *         {
- *             "Sid": "AWSCloudTrailWrite",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:PutObject",
- *             "Resource": "arn:aws:s3:::tf-test-trail/prefix/AWSLogs/${current.accountId}/*",
- *             "Condition": {
- *                 "StringEquals": {
- *                     "s3:x-amz-acl": "bucket-owner-full-control"
- *                 }
- *             }
- *         }
- *     ]
- * }
+ * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
+ *     bucket: bucket.id,
+ *     policy: pulumi.all([bucket.id, bucket.id, current]).apply(([bucketId, bucketId1, current]) => `  {
+ *       "Version": "2012-10-17",
+ *       "Statement": [
+ *           {
+ *               "Sid": "AWSCloudTrailAclCheck",
+ *               "Effect": "Allow",
+ *               "Principal": {
+ *                 "Service": "cloudtrail.amazonaws.com"
+ *               },
+ *               "Action": "s3:GetBucketAcl",
+ *               "Resource": "arn:aws:s3:::${bucketId}"
+ *           },
+ *           {
+ *               "Sid": "AWSCloudTrailWrite",
+ *               "Effect": "Allow",
+ *               "Principal": {
+ *                 "Service": "cloudtrail.amazonaws.com"
+ *               },
+ *               "Action": "s3:PutObject",
+ *               "Resource": "arn:aws:s3:::${bucketId1}/prefix/AWSLogs/${current.accountId}/*",
+ *               "Condition": {
+ *                   "StringEquals": {
+ *                       "s3:x-amz-acl": "bucket-owner-full-control"
+ *                   }
+ *               }
+ *           }
+ *       ]
+ *   }
  * `),
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     s3BucketName: foo.id,
+ *     s3BucketName: bucket.id,
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * });
@@ -126,10 +127,46 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleTrail = new aws.cloudtrail.Trail("example", {
+ * const current = aws.getPartition({});
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: current.then(current => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "cloudtrail.${current.dnsSuffix}"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `)});
+ * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ *     role: testRole.id,
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "AWSCloudTrailCreateLogStream",
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents"
+ *       ],
+ *       "Resource": "${aws_cloudwatch_log_group.test.arn}:*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * // ... other configuration ...
+ * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
+ *     cloudWatchLogsRoleArn: testRole.arn,
  *     cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
  * });
+ * // CloudTrail requires the Log Stream wildcard
  * ```
  *
  * ## Import

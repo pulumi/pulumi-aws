@@ -31,42 +31,51 @@ namespace Pulumi.Aws.CloudTrail
     ///     public MyStack()
     ///     {
     ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var foo = new Aws.S3.Bucket("foo", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
     ///         {
-    ///             ForceDestroy = true,
-    ///             Policy = current.Apply(current =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailAclCheck"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:GetBucketAcl"",
-    ///             ""Resource"": ""arn:aws:s3:::tf-test-trail""
-    ///         }},
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailWrite"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:PutObject"",
-    ///             ""Resource"": ""arn:aws:s3:::tf-test-trail/prefix/AWSLogs/{current.AccountId}/*"",
-    ///             ""Condition"": {{
-    ///                 ""StringEquals"": {{
-    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
-    ///                 }}
-    ///             }}
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
+    ///         });
+    ///         var bucketPolicy = new Aws.S3.BucketPolicy("bucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Policy = Output.Tuple(bucket.Id, bucket.Id, current).Apply(values =&gt;
+    ///             {
+    ///                 var bucketId = values.Item1;
+    ///                 var bucketId1 = values.Item2;
+    ///                 var current = values.Item3;
+    ///                 return @$"  {{
+    ///       ""Version"": ""2012-10-17"",
+    ///       ""Statement"": [
+    ///           {{
+    ///               ""Sid"": ""AWSCloudTrailAclCheck"",
+    ///               ""Effect"": ""Allow"",
+    ///               ""Principal"": {{
+    ///                 ""Service"": ""cloudtrail.amazonaws.com""
+    ///               }},
+    ///               ""Action"": ""s3:GetBucketAcl"",
+    ///               ""Resource"": ""arn:aws:s3:::{bucketId}""
+    ///           }},
+    ///           {{
+    ///               ""Sid"": ""AWSCloudTrailWrite"",
+    ///               ""Effect"": ""Allow"",
+    ///               ""Principal"": {{
+    ///                 ""Service"": ""cloudtrail.amazonaws.com""
+    ///               }},
+    ///               ""Action"": ""s3:PutObject"",
+    ///               ""Resource"": ""arn:aws:s3:::{bucketId1}/prefix/AWSLogs/{current.AccountId}/*"",
+    ///               ""Condition"": {{
+    ///                   ""StringEquals"": {{
+    ///                       ""s3:x-amz-acl"": ""bucket-owner-full-control""
+    ///                   }}
+    ///               }}
+    ///           }}
+    ///       ]
+    ///   }}
+    /// ";
+    ///             }),
     ///         });
     ///         var foobar = new Aws.CloudTrail.Trail("foobar", new Aws.CloudTrail.TrailArgs
     ///         {
-    ///             S3BucketName = foo.Id,
+    ///             S3BucketName = bucket.Id,
     ///             S3KeyPrefix = "prefix",
     ///             IncludeGlobalServiceEvents = false,
     ///         });
@@ -199,11 +208,50 @@ namespace Pulumi.Aws.CloudTrail
     /// {
     ///     public MyStack()
     ///     {
+    ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
     ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
     ///         {
     ///         });
+    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = current.Apply(current =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""Service"": ""cloudtrail.{current.DnsSuffix}""
+    ///       }},
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///         var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = testRole.Id,
+    ///             Policy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Sid"": ""AWSCloudTrailCreateLogStream"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Action"": [
+    ///         ""logs:CreateLogStream"",
+    ///         ""logs:PutLogEvents""
+    ///       ],
+    ///       ""Resource"": ""{aws_cloudwatch_log_group.Test.Arn}:*""
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///         });
+    ///         // ... other configuration ...
     ///         var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new Aws.CloudTrail.TrailArgs
     ///         {
+    ///             CloudWatchLogsRoleArn = testRole.Arn,
     ///             CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         });
     ///         // CloudTrail requires the Log Stream wildcard

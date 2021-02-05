@@ -10,58 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an API Gateway REST API.
-//
-// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-// 			Description: pulumi.String("This is my API for demonstration purposes"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Regional Endpoint Type
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
-// 			EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
-// 				Types: pulumi.String("REGIONAL"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.

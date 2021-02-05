@@ -10,51 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
-    /// Provides an API Gateway REST API.
-    /// 
-    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Regional Endpoint Type
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.ApiGateway.RestApi("example", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
-    ///             {
-    ///                 Types = "REGIONAL",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.

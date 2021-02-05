@@ -79,16 +79,31 @@ namespace Pulumi.Aws.Iam
     ///     public Output&lt;string&gt; AwsIamSmtpPasswordV4 { get; set; }
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM Access Keys can be imported using the identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+    /// ```
+    /// 
+    ///  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, and `ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
     /// </summary>
     [AwsResourceType("aws:iam/accessKey:AccessKey")]
     public partial class AccessKey : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        /// </summary>
+        [Output("createDate")]
+        public Output<string> CreateDate { get; private set; } = null!;
+
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The fingerprint of the PGP key used to encrypt
-        /// the secret
+        /// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         /// </summary>
         [Output("keyFingerprint")]
         public Output<string> KeyFingerprint { get; private set; } = null!;
@@ -102,20 +117,13 @@ namespace Pulumi.Aws.Iam
         public Output<string?> PgpKey { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key. Note that this will be written
-        /// to the state file. If you use this, please protect your backend state file
-        /// judiciously. Alternatively, you may supply a `pgp_key` instead, which will
-        /// prevent the secret from being stored in plaintext, at the cost of preventing
-        /// the use of the secret key in automation.
+        /// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented Sigv4 conversion
-        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-        /// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+        /// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         /// </summary>
         [Output("sesSmtpPasswordV4")]
         public Output<string> SesSmtpPasswordV4 { get; private set; } = null!;
@@ -207,12 +215,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccessKeyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        /// </summary>
+        [Input("createDate")]
+        public Input<string>? CreateDate { get; set; }
+
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
         /// <summary>
-        /// The fingerprint of the PGP key used to encrypt
-        /// the secret
+        /// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         /// </summary>
         [Input("keyFingerprint")]
         public Input<string>? KeyFingerprint { get; set; }
@@ -226,20 +239,13 @@ namespace Pulumi.Aws.Iam
         public Input<string>? PgpKey { get; set; }
 
         /// <summary>
-        /// The secret access key. Note that this will be written
-        /// to the state file. If you use this, please protect your backend state file
-        /// judiciously. Alternatively, you may supply a `pgp_key` instead, which will
-        /// prevent the secret from being stored in plaintext, at the cost of preventing
-        /// the use of the secret key in automation.
+        /// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented Sigv4 conversion
-        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-        /// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+        /// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         /// </summary>
         [Input("sesSmtpPasswordV4")]
         public Input<string>? SesSmtpPasswordV4 { get; set; }

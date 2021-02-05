@@ -81,6 +81,7 @@ type LookupTargetGroupResult struct {
 	Name                           string                   `pulumi:"name"`
 	Port                           int                      `pulumi:"port"`
 	Protocol                       string                   `pulumi:"protocol"`
+	ProtocolVersion                string                   `pulumi:"protocolVersion"`
 	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
 	SlowStart                      int                      `pulumi:"slowStart"`
 	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`

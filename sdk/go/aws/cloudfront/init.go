@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDistribution(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
 		r, err = NewOriginAccessIdentity(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
+		r, err = NewOriginRequestPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/publicKey:PublicKey":
 		r, err = NewPublicKey(ctx, name, nil, pulumi.URN_(urn))
 	default:
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/originAccessIdentity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/originRequestPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
