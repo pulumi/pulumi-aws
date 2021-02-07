@@ -285,6 +285,26 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"AWS_PROFILE"},
 				},
 			},
+			"skip_get_ec2_platforms": {
+				Default: &tfbridge.DefaultInfo{
+					Value: true,
+				},
+			},
+			"skip_region_validation": {
+				Default: &tfbridge.DefaultInfo{
+					Value: true,
+				},
+			},
+			"skip_credentials_validation": {
+				Default: &tfbridge.DefaultInfo{
+					Value: true,
+				},
+			},
+			"skip_metadata_api_check": {
+				Default: &tfbridge.DefaultInfo{
+					Value: true,
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{

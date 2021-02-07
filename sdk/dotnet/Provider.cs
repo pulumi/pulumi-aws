@@ -167,6 +167,10 @@ namespace Pulumi.Aws
         {
             Profile = Utilities.GetEnv("AWS_PROFILE");
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            SkipCredentialsValidation = true;
+            SkipGetEc2Platforms = true;
+            SkipMetadataApiCheck = true;
+            SkipRegionValidation = true;
         }
     }
 }

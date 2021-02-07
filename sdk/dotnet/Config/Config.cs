@@ -67,20 +67,20 @@ namespace Pulumi.Aws
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
         /// available/implemented.
         /// </summary>
-        public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation");
+        public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation") ?? true;
 
         /// <summary>
         /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         /// </summary>
-        public static bool? SkipGetEc2Platforms { get; set; } = __config.GetBoolean("skipGetEc2Platforms");
+        public static bool? SkipGetEc2Platforms { get; set; } = __config.GetBoolean("skipGetEc2Platforms") ?? true;
 
-        public static bool? SkipMetadataApiCheck { get; set; } = __config.GetBoolean("skipMetadataApiCheck");
+        public static bool? SkipMetadataApiCheck { get; set; } = __config.GetBoolean("skipMetadataApiCheck") ?? true;
 
         /// <summary>
         /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
         /// not public (yet).
         /// </summary>
-        public static bool? SkipRegionValidation { get; set; } = __config.GetBoolean("skipRegionValidation");
+        public static bool? SkipRegionValidation { get; set; } = __config.GetBoolean("skipRegionValidation") ?? true;
 
         /// <summary>
         /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.

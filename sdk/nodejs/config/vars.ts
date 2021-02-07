@@ -55,17 +55,17 @@ export let sharedCredentialsFile: string | undefined = __config.get("sharedCrede
  * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
  * available/implemented.
  */
-export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation");
+export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation") || true;
 /**
  * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
  */
-export let skipGetEc2Platforms: boolean | undefined = __config.getObject<boolean>("skipGetEc2Platforms");
-export let skipMetadataApiCheck: boolean | undefined = __config.getObject<boolean>("skipMetadataApiCheck");
+export let skipGetEc2Platforms: boolean | undefined = __config.getObject<boolean>("skipGetEc2Platforms") || true;
+export let skipMetadataApiCheck: boolean | undefined = __config.getObject<boolean>("skipMetadataApiCheck") || true;
 /**
  * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
  * not public (yet).
  */
-export let skipRegionValidation: boolean | undefined = __config.getObject<boolean>("skipRegionValidation");
+export let skipRegionValidation: boolean | undefined = __config.getObject<boolean>("skipRegionValidation") || true;
 /**
  * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
  */
