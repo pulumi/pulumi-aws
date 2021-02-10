@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         /// </summary>
         [Output("deploymentType")]
         public Output<string?> DeploymentType { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }

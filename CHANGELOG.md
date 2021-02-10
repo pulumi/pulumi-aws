@@ -7,6 +7,7 @@ CHANGELOG
   * `skipGetEc2Platforms` now defaults to `true`.
   * `skipMetadataApiCheck` now defaults to `true`.
   * `skipRegionValidation` now defaults to `true`.
+* Add support for increasing the `storageCapacity` in `aws.fsx.lustreFileSystem`.
 
 ---
 
