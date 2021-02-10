@@ -91,7 +91,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface LustreFileSystemState {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
     readonly deploymentType?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface LustreFileSystemArgs {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
     readonly deploymentType?: pulumi.Input<string>;
     /**
