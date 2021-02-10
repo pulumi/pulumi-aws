@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.28.1 (2021-02-10)
 * Update Provider defaults:
   * `skipCredentialsValidation` now defaults to `true`.
   * `skipGetEc2Platforms` now defaults to `true`.
   * `skipMetadataApiCheck` now defaults to `true`.
   * `skipRegionValidation` now defaults to `true`.
 * Add support for increasing the `storageCapacity` in `aws.fsx.lustreFileSystem`.
-
----
 
 ## 3.28.0 (2021-02-05)
 * Update to v3.27.0 of the AWS Terraform Provider
