@@ -45,9 +45,6 @@ class Certificate(pulumi.CustomResource):
         Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
         of this provider.
 
-        It's recommended to specify `create_before_destroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block to replace a certificate
-        which is currently in use (eg, by `lb.Listener`).
-
         ## Example Usage
         ### Certificate creation
 
