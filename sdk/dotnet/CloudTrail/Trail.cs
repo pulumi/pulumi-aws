@@ -96,12 +96,19 @@ namespace Pulumi.Aws.CloudTrail
     /// {
     ///     public MyStack()
     ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
     ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
     ///         {
+    ///             S3BucketName = bucket.Id,
+    ///             S3KeyPrefix = "prefix",
     ///             EventSelectors = 
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
+    ///                     ReadWriteType = "All",
+    ///                     IncludeManagementEvents = true,
     ///                     DataResources = 
     ///                     {
     ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -113,8 +120,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                             },
     ///                         },
     ///                     },
-    ///                     IncludeManagementEvents = true,
-    ///                     ReadWriteType = "All",
     ///                 },
     ///             },
     ///         });
@@ -132,12 +137,19 @@ namespace Pulumi.Aws.CloudTrail
     /// {
     ///     public MyStack()
     ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
     ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
     ///         {
+    ///             S3BucketName = bucket.Id,
+    ///             S3KeyPrefix = "prefix",
     ///             EventSelectors = 
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
+    ///                     ReadWriteType = "All",
+    ///                     IncludeManagementEvents = true,
     ///                     DataResources = 
     ///                     {
     ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -149,8 +161,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                             },
     ///                         },
     ///                     },
-    ///                     IncludeManagementEvents = true,
-    ///                     ReadWriteType = "All",
     ///                 },
     ///             },
     ///         });
@@ -174,10 +184,14 @@ namespace Pulumi.Aws.CloudTrail
     ///         }));
     ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
     ///         {
+    ///             S3BucketName = important_bucket.Apply(important_bucket =&gt; important_bucket.Id),
+    ///             S3KeyPrefix = "prefix",
     ///             EventSelectors = 
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
+    ///                     ReadWriteType = "All",
+    ///                     IncludeManagementEvents = true,
     ///                     DataResources = 
     ///                     {
     ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -189,8 +203,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                             },
     ///                         },
     ///                     },
-    ///                     IncludeManagementEvents = true,
-    ///                     ReadWriteType = "All",
     ///                 },
     ///             },
     ///         });
@@ -248,9 +260,13 @@ namespace Pulumi.Aws.CloudTrail
     /// }}
     /// ",
     ///         });
-    ///         // ... other configuration ...
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
     ///         var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new Aws.CloudTrail.TrailArgs
     ///         {
+    ///             S3BucketName = data.Aws_s3_bucket.Important_bucket.Id,
+    ///             S3KeyPrefix = "prefix",
     ///             CloudWatchLogsRoleArn = testRole.Arn,
     ///             CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         });

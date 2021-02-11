@@ -99,14 +99,18 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::Lambda::Function",
-                values=["arn:aws:lambda"],
-            )],
-            include_management_events=True,
-            read_write_type="All",
-        )])
+        bucket = aws.s3.Bucket("bucket")
+        example = aws.cloudtrail.Trail("example",
+            s3_bucket_name=bucket.id,
+            s3_key_prefix="prefix",
+            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+                read_write_type="All",
+                include_management_events=True,
+                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                    type="AWS::Lambda::Function",
+                    values=["arn:aws:lambda"],
+                )],
+            )])
         ```
         ### Logging All S3 Bucket Object Events
 
@@ -114,14 +118,18 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=["arn:aws:s3:::"],
-            )],
-            include_management_events=True,
-            read_write_type="All",
-        )])
+        bucket = aws.s3.Bucket("bucket")
+        example = aws.cloudtrail.Trail("example",
+            s3_bucket_name=bucket.id,
+            s3_key_prefix="prefix",
+            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+                read_write_type="All",
+                include_management_events=True,
+                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                    type="AWS::S3::Object",
+                    values=["arn:aws:s3:::"],
+                )],
+            )])
         ```
         ### Logging Individual S3 Bucket Events
 
@@ -130,14 +138,17 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=[f"{important_bucket.arn}/"],
-            )],
-            include_management_events=True,
-            read_write_type="All",
-        )])
+        example = aws.cloudtrail.Trail("example",
+            s3_bucket_name=important_bucket.id,
+            s3_key_prefix="prefix",
+            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+                read_write_type="All",
+                include_management_events=True,
+                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                    type="AWS::S3::Object",
+                    values=[f"{important_bucket.arn}/"],
+                )],
+            )])
         ```
         ### Sending Events to CloudWatch Logs
 
@@ -178,8 +189,10 @@ class Trail(pulumi.CustomResource):
           ]
         }}
         \"\"\")
-        # ... other configuration ...
+        bucket = aws.s3.Bucket("bucket")
         example_trail = aws.cloudtrail.Trail("exampleTrail",
+            s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
+            s3_key_prefix="prefix",
             cloud_watch_logs_role_arn=test_role.arn,
             cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
         # CloudTrail requires the Log Stream wildcard

@@ -78,14 +78,23 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 			S3BucketName: bucket.ID(),
+// 			S3KeyPrefix:  pulumi.String("prefix"),
 // 			EventSelectors: cloudtrail.TrailEventSelectorArray{
 // 				&cloudtrail.TrailEventSelectorArgs{
+// 					ReadWriteType:           pulumi.String("All"),
+// 					IncludeManagementEvents: pulumi.Bool(true),
 // 					DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 // 						&cloudtrail.TrailEventSelectorDataResourceArgs{
 // 							Type: pulumi.String("AWS::Lambda::Function"),
@@ -94,8 +103,6 @@ import (
 // 							},
 // 						},
 // 					},
-// 					IncludeManagementEvents: pulumi.Bool(true),
-// 					ReadWriteType:           pulumi.String("All"),
 // 				},
 // 			},
 // 		})
@@ -113,14 +120,23 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 			S3BucketName: bucket.ID(),
+// 			S3KeyPrefix:  pulumi.String("prefix"),
 // 			EventSelectors: cloudtrail.TrailEventSelectorArray{
 // 				&cloudtrail.TrailEventSelectorArgs{
+// 					ReadWriteType:           pulumi.String("All"),
+// 					IncludeManagementEvents: pulumi.Bool(true),
 // 					DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 // 						&cloudtrail.TrailEventSelectorDataResourceArgs{
 // 							Type: pulumi.String("AWS::S3::Object"),
@@ -129,8 +145,6 @@ import (
 // 							},
 // 						},
 // 					},
-// 					IncludeManagementEvents: pulumi.Bool(true),
-// 					ReadWriteType:           pulumi.String("All"),
 // 				},
 // 			},
 // 		})
@@ -163,8 +177,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 			S3BucketName: pulumi.String(important_bucket.Id),
+// 			S3KeyPrefix:  pulumi.String("prefix"),
 // 			EventSelectors: cloudtrail.TrailEventSelectorArray{
 // 				&cloudtrail.TrailEventSelectorArgs{
+// 					ReadWriteType:           pulumi.String("All"),
+// 					IncludeManagementEvents: pulumi.Bool(true),
 // 					DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 // 						&cloudtrail.TrailEventSelectorDataResourceArgs{
 // 							Type: pulumi.String("AWS::S3::Object"),
@@ -173,8 +191,6 @@ import (
 // 							},
 // 						},
 // 					},
-// 					IncludeManagementEvents: pulumi.Bool(true),
-// 					ReadWriteType:           pulumi.String("All"),
 // 				},
 // 			},
 // 		})
@@ -197,6 +213,7 @@ import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudtrail"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -223,7 +240,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = s3.NewBucket(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+// 			S3BucketName:          pulumi.Any(data.Aws_s3_bucket.Important - bucket.Id),
+// 			S3KeyPrefix:           pulumi.String("prefix"),
 // 			CloudWatchLogsRoleArn: testRole.Arn,
 // 			CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
 // 				return fmt.Sprintf("%v%v", arn, ":*"), nil
