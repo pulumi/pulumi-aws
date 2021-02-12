@@ -29,37 +29,30 @@ class RolePolicy(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "ec2.amazonaws.com",
+                },
+            }],
+        }))
         test_policy = aws.iam.RolePolicy("testPolicy",
             role=test_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
+                }],
+            }))
         ```
 
         ## Import

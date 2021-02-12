@@ -5,215 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
-/**
- * Generates an IAM policy document in JSON format.
- *
- * This is a data source which can be used to construct a JSON representation of
- * an IAM policy document, for use with resources which expect policy documents,
- * such as the `aws.iam.Policy` resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "1",
- *             actions: [
- *                 "s3:ListAllMyBuckets",
- *                 "s3:GetBucketLocation",
- *             ],
- *             resources: ["arn:aws:s3:::*"],
- *         },
- *         {
- *             actions: ["s3:ListBucket"],
- *             resources: [`arn:aws:s3:::${_var.s3_bucket_name}`],
- *             conditions: [{
- *                 test: "StringLike",
- *                 variable: "s3:prefix",
- *                 values: [
- *                     "",
- *                     "home/",
- *                     "home/&{aws:username}/",
- *                 ],
- *             }],
- *         },
- *         {
- *             actions: ["s3:*"],
- *             resources: [
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}`,
- *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}/*`,
- *             ],
- *         },
- *     ],
- * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
- *     path: "/",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
- * Using this data source to generate policy documents is *optional*. It is also
- * valid to use literal JSON strings within your configuration, or to use the
- * `file` interpolation function to read a raw JSON policy document from a file.
- *
- * ## Context Variable Interpolation
- *
- * The IAM policy document format allows context variables to be interpolated
- * into various strings within a statement. The native IAM policy document format
- * uses `${...}`-style syntax that is in conflict with interpolation
- * syntax, so this data source instead uses `&{...}` syntax for interpolations that
- * should be processed by AWS rather than by this provider.
- *
- * ## Wildcard Principal
- *
- * In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
- * `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
- * Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
- * states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
- * those principals have different behavior for IAM Role Trust Policy. Therefore
- * this provider will normalize the principal field only in above-mentioned case and principals
- * like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
- *
- * ## Example with Multiple Principals
- *
- * Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [
- *             {
- *                 type: "Service",
- *                 identifiers: ["firehose.amazonaws.com"],
- *             },
- *             {
- *                 type: "AWS",
- *                 identifiers: [_var.trusted_role_arn],
- *             },
- *             {
- *                 type: "Federated",
- *                 identifiers: [
- *                     `arn:aws:iam::${_var.account_id}:saml-provider/${_var.provider_name}`,
- *                     "cognito-identity.amazonaws.com",
- *                 ],
- *             },
- *         ],
- *     }],
- * });
- * ```
- *
- * ## Example with Source and Override
- *
- * Showing how you can use `sourceJson` and `overrideJson`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverwrite",
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *         },
- *     ],
- * });
- * const sourceJsonExample = source.then(source => aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
- *     statements: [{
- *         sid: "SidToOverwrite",
- *         actions: ["s3:*"],
- *         resources: [
- *             "arn:aws:s3:::somebucket",
- *             "arn:aws:s3:::somebucket/*",
- *         ],
- *     }],
- * }));
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "SidToOverwrite",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const overrideJsonExample = override.then(override => aws.iam.getPolicyDocument({
- *     overrideJson: override.json,
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             sid: "SidToOverwrite",
- *             actions: ["s3:*"],
- *             resources: [
- *                 "arn:aws:s3:::somebucket",
- *                 "arn:aws:s3:::somebucket/*",
- *             ],
- *         },
- *     ],
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * You can also combine `sourceJson` and `overrideJson` in the same document.
- *
- * ## Example without Statement
- *
- * Use without a `statement`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const source = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *     }],
- * });
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OverridePlaceholder",
- *         actions: ["s3:GetObject"],
- *         resources: ["*"],
- *     }],
- * });
- * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
- *     overrideJson: override.json,
- * }));
- * ```
- *
- * `data.aws_iam_policy_document.politik.json` will evaluate to:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};
     if (!opts) {
@@ -225,8 +16,10 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
     }
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
+        "overridePolicyDocuments": args.overridePolicyDocuments,
         "policyId": args.policyId,
         "sourceJson": args.sourceJson,
+        "sourcePolicyDocuments": args.sourcePolicyDocuments,
         "statements": args.statements,
         "version": args.version,
     }, opts);
@@ -237,30 +30,31 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
  */
 export interface GetPolicyDocumentArgs {
     /**
-     * An IAM policy document to import and override the
-     * current policy document.  Statements with non-blank `sid`s in the override
-     * document will overwrite statements with the same `sid` in the current document.
-     * Statements without an `sid` cannot be overwritten.
+     * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
      */
     readonly overrideJson?: string;
     /**
-     * An ID for the policy document.
+     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `sourceJson` and `sourcePolicyDocuments` arguments.  Non-overriding statements will be added to the exported document.
+     */
+    readonly overridePolicyDocuments?: string[];
+    /**
+     * ID for the policy document.
      */
     readonly policyId?: string;
     /**
-     * An IAM policy document to import as a base for the
-     * current policy document.  Statements with non-blank `sid`s in the current
-     * policy document will overwrite statements with the same `sid` in the source
-     * json.  Statements without an `sid` cannot be overwritten.
+     * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
      */
     readonly sourceJson?: string;
     /**
-     * A nested configuration block (described below)
-     * configuring one *statement* to be included in the policy document.
+     * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` or `sourceJson` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     */
+    readonly sourcePolicyDocuments?: string[];
+    /**
+     * Configuration block for a policy statement. Detailed below.
      */
     readonly statements?: inputs.iam.GetPolicyDocumentStatement[];
     /**
-     * IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+     * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
     readonly version?: string;
 }
@@ -274,12 +68,14 @@ export interface GetPolicyDocumentResult {
      */
     readonly id: string;
     /**
-     * The above arguments serialized as a standard JSON policy document.
+     * Standard JSON policy document rendered based on the arguments above.
      */
     readonly json: string;
     readonly overrideJson?: string;
+    readonly overridePolicyDocuments?: string[];
     readonly policyId?: string;
     readonly sourceJson?: string;
+    readonly sourcePolicyDocuments?: string[];
     readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
     readonly version?: string;
 }

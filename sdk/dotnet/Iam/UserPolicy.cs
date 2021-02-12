@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -29,19 +31,24 @@ namespace Pulumi.Aws.Iam
     ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
     ///         {
     ///             User = lbUser.Name,
-    ///             Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""ec2:Describe*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2012-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", new[]
+    ///                                 {
+    ///                                     "ec2:Describe*",
+    ///                                 }
+    ///                              },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Resource", "*" },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             }),
     ///         });
     ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
     ///         {

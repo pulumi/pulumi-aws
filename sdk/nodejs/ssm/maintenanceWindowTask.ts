@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     maxConcurrency: 2,
  *     maxErrors: 1,
  *     priority: 1,
- *     serviceRoleArn: aws_iam_role.example.arn,
  *     taskArn: "AWS-RestartEC2Instance",
  *     taskType: "AUTOMATION",
  *     windowId: aws_ssm_maintenance_window.example.id,
@@ -48,7 +47,6 @@ import * as utilities from "../utilities";
  *     maxConcurrency: 2,
  *     maxErrors: 1,
  *     priority: 1,
- *     serviceRoleArn: aws_iam_role.example.arn,
  *     taskArn: "AWS-RunShellScript",
  *     taskType: "RUN_COMMAND",
  *     windowId: aws_ssm_maintenance_window.example.id,
@@ -85,7 +83,6 @@ import * as utilities from "../utilities";
  *     maxConcurrency: 2,
  *     maxErrors: 1,
  *     priority: 1,
- *     serviceRoleArn: aws_iam_role.example.arn,
  *     taskArn: aws_sfn_activity.example.id,
  *     taskType: "STEP_FUNCTIONS",
  *     windowId: aws_ssm_maintenance_window.example.id,
@@ -159,13 +156,13 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * The role that should be assumed when executing the task.
+     * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[]>;
+    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
     /**
      * The ARN of the task to execute.
      */
@@ -213,12 +210,6 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             }
             if ((!args || args.maxErrors === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maxErrors'");
-            }
-            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceRoleArn'");
-            }
-            if ((!args || args.targets === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'targets'");
             }
             if ((!args || args.taskArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskArn'");
@@ -277,7 +268,7 @@ export interface MaintenanceWindowTaskState {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * The role that should be assumed when executing the task.
+     * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
@@ -327,13 +318,13 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * The role that should be assumed when executing the task.
+     * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    readonly serviceRoleArn: pulumi.Input<string>;
+    readonly serviceRoleArn?: pulumi.Input<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */

@@ -72,6 +72,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             __props__['description'] = description
             __props__['network_services'] = network_services
             __props__['tags'] = tags
+            __props__['arn'] = None
         super(TrafficMirrorFilter, __self__).__init__(
             'aws:ec2/trafficMirrorFilter:TrafficMirrorFilter',
             resource_name,
@@ -82,6 +83,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrafficMirrorFilter':
@@ -92,6 +94,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the traffic mirror filter.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
@@ -100,10 +103,19 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["network_services"] = network_services
         __props__["tags"] = tags
         return TrafficMirrorFilter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the traffic mirror filter.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

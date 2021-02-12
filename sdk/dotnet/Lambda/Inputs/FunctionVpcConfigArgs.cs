@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs associated with the Lambda function.
+        /// List of security group IDs associated with the Lambda function.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs associated with the Lambda function.
+        /// List of subnet IDs associated with the Lambda function.
         /// </summary>
         public InputList<string> SubnetIds
         {

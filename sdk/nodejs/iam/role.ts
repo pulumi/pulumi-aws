@@ -17,21 +17,18 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("test_role", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
+ * const testRole = new aws.iam.Role("testRole", {
+ *     assumeRolePolicy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "ec2.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
  *     tags: {
  *         "tag-key": "tag-value",
  *     },

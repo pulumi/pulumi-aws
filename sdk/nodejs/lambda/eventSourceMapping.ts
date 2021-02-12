@@ -36,6 +36,19 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
+ * ### Managed Streaming for Kafka (MSK)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_msk_cluster.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     topics: ["Example"],
+ *     startingPosition: "TRIM_HORIZON",
+ * });
+ * ```
  * ### SQS
  *
  * ```typescript

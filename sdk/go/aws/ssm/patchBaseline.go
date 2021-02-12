@@ -197,6 +197,44 @@ import (
 // }
 // ```
 //
+// Advanced usage, specifying alternate patch source repository
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewPatchBaseline(ctx, "al201709", &ssm.PatchBaselineArgs{
+// 			ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
+// 				nil,
+// 			},
+// 			Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),
+// 			OperatingSystem: pulumi.String("AMAZON_LINUX"),
+// 			Sources: ssm.PatchBaselineSourceArray{
+// 				&ssm.PatchBaselineSourceArgs{
+// 					Configuration: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[amzn-main]\n", "name=amzn-main-Base\n", "mirrorlist=http://repo./", "$", "awsregion./", "$", "awsdomain//", "$", "releasever/main/mirror.list\n", "mirrorlist_expire=300\n", "metadata_expire=300\n", "priority=10\n", "failovermethod=priority\n", "fastestmirror_enabled=0\n", "gpgcheck=1\n", "gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga\n", "enabled=1\n", "retries=3\n", "timeout=5\n", "report_instanceid=yes\n", "\n")),
+// 					Name:          pulumi.String("My-AL2017.09"),
+// 					Products: pulumi.StringArray{
+// 						pulumi.String("AmazonLinux2017.09"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // SSM Patch Baselines can be imported by their baseline ID, e.g.
@@ -213,16 +251,24 @@ type PatchBaseline struct {
 	ApprovedPatches pulumi.StringArrayOutput `pulumi:"approvedPatches"`
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ApprovedPatchesComplianceLevel pulumi.StringPtrOutput `pulumi:"approvedPatchesComplianceLevel"`
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput `pulumi:"approvedPatchesEnableNonSecurity"`
+	// The ARN of the patch baseline.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the patch baseline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayOutput `pulumi:"globalFilters"`
-	// The name of the patch baseline.
+	// The name specified to identify the patch source.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
+	// The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+	RejectedPatchesAction pulumi.StringOutput `pulumi:"rejectedPatchesAction"`
+	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+	Sources PatchBaselineSourceArrayOutput `pulumi:"sources"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -262,16 +308,24 @@ type patchBaselineState struct {
 	ApprovedPatches []string `pulumi:"approvedPatches"`
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ApprovedPatchesComplianceLevel *string `pulumi:"approvedPatchesComplianceLevel"`
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
+	// The ARN of the patch baseline.
+	Arn *string `pulumi:"arn"`
 	// The description of the patch baseline.
 	Description *string `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
-	// The name of the patch baseline.
+	// The name specified to identify the patch source.
 	Name *string `pulumi:"name"`
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+	RejectedPatchesAction *string `pulumi:"rejectedPatchesAction"`
+	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+	Sources []PatchBaselineSource `pulumi:"sources"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -283,16 +337,24 @@ type PatchBaselineState struct {
 	ApprovedPatches pulumi.StringArrayInput
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ApprovedPatchesComplianceLevel pulumi.StringPtrInput
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
+	// The ARN of the patch baseline.
+	Arn pulumi.StringPtrInput
 	// The description of the patch baseline.
 	Description pulumi.StringPtrInput
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
-	// The name of the patch baseline.
+	// The name specified to identify the patch source.
 	Name pulumi.StringPtrInput
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
+	// The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+	RejectedPatchesAction pulumi.StringPtrInput
+	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+	Sources PatchBaselineSourceArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -308,16 +370,22 @@ type patchBaselineArgs struct {
 	ApprovedPatches []string `pulumi:"approvedPatches"`
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ApprovedPatchesComplianceLevel *string `pulumi:"approvedPatchesComplianceLevel"`
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
 	// The description of the patch baseline.
 	Description *string `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
-	// The name of the patch baseline.
+	// The name specified to identify the patch source.
 	Name *string `pulumi:"name"`
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+	RejectedPatchesAction *string `pulumi:"rejectedPatchesAction"`
+	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+	Sources []PatchBaselineSource `pulumi:"sources"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -330,16 +398,22 @@ type PatchBaselineArgs struct {
 	ApprovedPatches pulumi.StringArrayInput
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ApprovedPatchesComplianceLevel pulumi.StringPtrInput
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
 	// The description of the patch baseline.
 	Description pulumi.StringPtrInput
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
-	// The name of the patch baseline.
+	// The name specified to identify the patch source.
 	Name pulumi.StringPtrInput
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
+	// The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+	RejectedPatchesAction pulumi.StringPtrInput
+	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+	Sources PatchBaselineSourceArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

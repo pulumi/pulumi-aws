@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Lambda
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -25,20 +27,24 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
     ///         {
-    ///             AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2012-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Sid", "" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "lambda.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             }),
     ///         });
     ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
     ///         {
@@ -68,6 +74,8 @@ namespace Pulumi.Aws.Lambda
     /// ### Usage with SNS
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -80,20 +88,24 @@ namespace Pulumi.Aws.Lambda
     ///         });
     ///         var defaultRole = new Aws.Iam.Role("defaultRole", new Aws.Iam.RoleArgs
     ///         {
-    ///             AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2012-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Sid", "" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "lambda.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             }),
     ///         });
     ///         var func = new Aws.Lambda.Function("func", new Aws.Lambda.FunctionArgs
     ///         {
@@ -139,6 +151,66 @@ namespace Pulumi.Aws.Lambda
     ///             Function = "MyDemoFunction",
     ///             Principal = "apigateway.amazonaws.com",
     ///             SourceArn = myDemoAPI.ExecutionArn.Apply(executionArn =&gt; $"{executionArn}/*/*/*"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Usage with CloudWatch log group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultLogGroup = new Aws.CloudWatch.LogGroup("defaultLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var defaultRole = new Aws.Iam.Role("defaultRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var loggingFunction = new Aws.Lambda.Function("loggingFunction", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lamba_logging.zip"),
+    ///             Handler = "exports.handler",
+    ///             Role = defaultRole.Arn,
+    ///             Runtime = "python2.7",
+    ///         });
+    ///         var loggingPermission = new Aws.Lambda.Permission("loggingPermission", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = loggingFunction.Name,
+    ///             Principal = "logs.eu-west-1.amazonaws.com",
+    ///             SourceArn = defaultLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         });
+    ///         var loggingLogSubscriptionFilter = new Aws.CloudWatch.LogSubscriptionFilter("loggingLogSubscriptionFilter", new Aws.CloudWatch.LogSubscriptionFilterArgs
+    ///         {
+    ///             DestinationArn = loggingFunction.Arn,
+    ///             FilterPattern = "",
+    ///             LogGroup = defaultLogGroup.Name,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 loggingPermission,
+    ///             },
     ///         });
     ///     }
     /// 

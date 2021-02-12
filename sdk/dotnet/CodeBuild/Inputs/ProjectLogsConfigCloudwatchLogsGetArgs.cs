@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectLogsConfigCloudwatchLogsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The group name of the logs in CloudWatch Logs.
+        /// Group name of the logs in CloudWatch Logs.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The stream name of the logs in CloudWatch Logs.
+        /// Stream name of the logs in CloudWatch Logs.
         /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }

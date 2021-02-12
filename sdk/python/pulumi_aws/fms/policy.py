@@ -24,6 +24,7 @@ class Policy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
                  __props__=None,
@@ -82,7 +83,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        :param pulumi.Input[str] resource_type: A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         """
         if __name__ is not None:
@@ -111,8 +113,7 @@ class Policy(pulumi.CustomResource):
             __props__['name'] = name
             __props__['remediation_enabled'] = remediation_enabled
             __props__['resource_tags'] = resource_tags
-            if resource_type_lists is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_type_lists'")
+            __props__['resource_type'] = resource_type
             __props__['resource_type_lists'] = resource_type_lists
             if security_service_policy_data is None and not opts.urn:
                 raise TypeError("Missing required property 'security_service_policy_data'")
@@ -138,6 +139,7 @@ class Policy(pulumi.CustomResource):
             policy_update_token: Optional[pulumi.Input[str]] = None,
             remediation_enabled: Optional[pulumi.Input[bool]] = None,
             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            resource_type: Optional[pulumi.Input[str]] = None,
             resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None) -> 'Policy':
         """
@@ -155,7 +157,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_update_token: A unique identifier for each update to the policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        :param pulumi.Input[str] resource_type: A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -171,6 +174,7 @@ class Policy(pulumi.CustomResource):
         __props__["policy_update_token"] = policy_update_token
         __props__["remediation_enabled"] = remediation_enabled
         __props__["resource_tags"] = resource_tags
+        __props__["resource_type"] = resource_type
         __props__["resource_type_lists"] = resource_type_lists
         __props__["security_service_policy_data"] = security_service_policy_data
         return Policy(resource_name, opts=opts, __props__=__props__)
@@ -245,10 +249,18 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "resource_tags")
 
     @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Output[str]:
+        """
+        A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
     @pulumi.getter(name="resourceTypeLists")
     def resource_type_lists(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         """
         return pulumi.get(self, "resource_type_lists")
 

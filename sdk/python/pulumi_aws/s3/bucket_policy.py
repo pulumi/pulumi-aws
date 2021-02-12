@@ -28,28 +28,31 @@ class BucketPolicy(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
             bucket=bucket.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Id": "MYBUCKETPOLICY",
-          "Statement": [
-            {
-              "Sid": "IPAllow",
-              "Effect": "Deny",
-              "Principal": "*",
-              "Action": "s3:*",
-              "Resource": "arn:aws:s3:::my_tf_test_bucket/*",
-              "Condition": {
-                 "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
-              }
-            }
-          ]
-        }
-        \"\"\")
+            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: json.dumps({
+                "Version": "2012-10-17",
+                "Id": "MYBUCKETPOLICY",
+                "Statement": [{
+                    "Sid": "IPAllow",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Action": "s3:*",
+                    "Resource": [
+                        bucket_arn,
+                        f"{bucket_arn1}/*",
+                    ],
+                    "Condition": {
+                        "IPAddress": {
+                            "aws:SourceIp": "8.8.8.8/32",
+                        },
+                    },
+                }],
+            })))
         ```
 
         ## Import
@@ -63,7 +66,7 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy.
+        :param pulumi.Input[str] policy: The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,7 +111,7 @@ class BucketPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy.
+        :param pulumi.Input[str] policy: The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -130,7 +133,7 @@ class BucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        The text of the policy.
+        The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         """
         return pulumi.get(self, "policy")
 

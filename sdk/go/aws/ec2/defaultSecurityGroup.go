@@ -10,37 +10,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource to manage the default AWS Security Group.
+// Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
 //
-// For EC2 Classic accounts, each region comes with a Default Security Group.
-// Additionally, each VPC created in AWS comes with a Default Security Group that can be managed, but not
-// destroyed. **This is an advanced resource**, and has special caveats to be aware
-// of when using it. Please read this document in its entirety before using this
-// resource.
+// > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
 //
-// The `ec2.DefaultSecurityGroup` behaves differently from normal resources, in that
-// this provider does not _create_ this resource, but instead "adopts" it
-// into management. We can do this because these default security groups cannot be
-// destroyed, and are created with a known set of default ingress/egress rules.
+// For EC2 Classic accounts, each region comes with a default security group. Additionally, each VPC created in AWS comes with a default security group that can be managed but not destroyed.
 //
-// When this provider first adopts the Default Security Group, it **immediately removes all
-// ingress and egress rules in the Security Group**. It then proceeds to create any rules specified in the
-// configuration. This step is required so that only the rules specified in the
-// configuration are created.
+// When the provider first adopts the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
 //
-// This resource treats its inline rules as absolute; only the rules defined
-// inline are created, and any additions/removals external to this resource will
-// result in diff shown. For these reasons, this resource is incompatible with the
-// `ec2.SecurityGroupRule` resource.
+// This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `ec2.SecurityGroupRule` resource.
 //
-// For more information about Default Security Groups, see the AWS Documentation on
-// [Default Security Groups][aws-default-security-groups].
+// For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `ec2.SecurityGroup` resource.
 //
-// ## Basic Example Usage, with default rules
+// ## Example Usage
 //
-// The following config gives the Default Security Group the same rules that AWS
-// provides by default, but pulls the resource under management by this provider. This means that
-// any ingress or egress rules added or changed will be detected as drift.
+// The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
 //
 // ```go
 // package main
@@ -86,11 +70,9 @@ import (
 // 	})
 // }
 // ```
+// ### Example Config To Deny All Egress Traffic, Allowing Ingress
 //
-// ## Example config to deny all Egress traffic, allowing Ingress
-//
-// The following denies all Egress traffic by omitting any `egress` rules, while
-// including the default `ingress` rule to allow all traffic.
+// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
 //
 // ```go
 // package main
@@ -126,40 +108,36 @@ import (
 // 	})
 // }
 // ```
+// ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 //
-// ## Usage
+// Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
 //
-// With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should
-// identical behavior to `ec2.SecurityGroup`. Please consult `AWS_SECURITY_GROUP`
-// for further usage documentation.
+// ## Import
 //
-// ### Removing `ec2.DefaultSecurityGroup` from your configuration
+// Security Groups can be imported using the `security group id`, e.g.
 //
-// Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
-// Group that cannot be deleted. The `ec2.DefaultSecurityGroup` allows you to
-// manage this Security Group, but this provider cannot destroy it. Removing this resource
-// from your configuration will remove it from your statefile and management, but
-// will not destroy the Security Group. All ingress or egress rules will be left as
-// they are at the time of removal. You can resume managing them via the AWS Console.
+// ```sh
+//  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+// ```
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the security group
+	// ARN of the security group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
-	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
-	// The name of the security group
+	// Name of the security group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The owner ID.
+	// Owner ID.
 	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -192,42 +170,42 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.
 type defaultSecurityGroupState struct {
-	// The ARN of the security group
+	// ARN of the security group.
 	Arn *string `pulumi:"arn"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description *string `pulumi:"description"`
-	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
-	// The name of the security group
+	// Name of the security group.
 	Name *string `pulumi:"name"`
-	// The owner ID.
+	// Owner ID.
 	OwnerId             *string `pulumi:"ownerId"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type DefaultSecurityGroupState struct {
-	// The ARN of the security group
+	// ARN of the security group.
 	Arn pulumi.StringPtrInput
-	// Description of this egress rule.
+	// Description of this rule.
 	Description pulumi.StringPtrInput
-	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayInput
-	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayInput
-	// The name of the security group
+	// Name of the security group.
 	Name pulumi.StringPtrInput
-	// The owner ID.
+	// Owner ID.
 	OwnerId             pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -236,27 +214,27 @@ func (DefaultSecurityGroupState) ElementType() reflect.Type {
 }
 
 type defaultSecurityGroupArgs struct {
-	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DefaultSecurityGroup resource.
 type DefaultSecurityGroupArgs struct {
-	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Egress DefaultSecurityGroupEgressArrayInput
-	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block. Detailed below.
 	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringPtrInput
 }
 

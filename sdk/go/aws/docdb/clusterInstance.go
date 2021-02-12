@@ -103,12 +103,19 @@ type ClusterInstance struct {
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r5.large
+	// - db.r5.xlarge
+	// - db.r5.2xlarge
+	// - db.r5.4xlarge
+	// - db.r5.12xlarge
+	// - db.r5.24xlarge
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t3.medium
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -194,12 +201,19 @@ type clusterInstanceState struct {
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r5.large
+	// - db.r5.xlarge
+	// - db.r5.2xlarge
+	// - db.r5.4xlarge
+	// - db.r5.12xlarge
+	// - db.r5.24xlarge
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t3.medium
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -251,12 +265,19 @@ type ClusterInstanceState struct {
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r5.large
+	// - db.r5.xlarge
+	// - db.r5.2xlarge
+	// - db.r5.4xlarge
+	// - db.r5.12xlarge
+	// - db.r5.24xlarge
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t3.medium
 	InstanceClass pulumi.StringPtrInput
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId pulumi.StringPtrInput
@@ -302,12 +323,19 @@ type clusterInstanceArgs struct {
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r5.large
+	// - db.r5.xlarge
+	// - db.r5.2xlarge
+	// - db.r5.4xlarge
+	// - db.r5.12xlarge
+	// - db.r5.24xlarge
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t3.medium
 	InstanceClass string `pulumi:"instanceClass"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -339,12 +367,19 @@ type ClusterInstanceArgs struct {
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r5.large
+	// - db.r5.xlarge
+	// - db.r5.2xlarge
+	// - db.r5.4xlarge
+	// - db.r5.12xlarge
+	// - db.r5.24xlarge
 	// - db.r4.large
 	// - db.r4.xlarge
 	// - db.r4.2xlarge
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t3.medium
 	InstanceClass pulumi.StringInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".

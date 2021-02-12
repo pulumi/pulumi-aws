@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+        /// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         /// </summary>
         public readonly string? StorageClass;
 

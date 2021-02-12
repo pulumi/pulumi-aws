@@ -533,9 +533,9 @@ func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 type ClusterScalingConfiguration struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause *bool `pulumi:"autoPause"`
-	// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity *int `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
@@ -557,9 +557,9 @@ type ClusterScalingConfigurationInput interface {
 type ClusterScalingConfigurationArgs struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
-	// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
@@ -649,12 +649,12 @@ func (o ClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
@@ -697,7 +697,7 @@ func (o ClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -707,7 +707,7 @@ func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {

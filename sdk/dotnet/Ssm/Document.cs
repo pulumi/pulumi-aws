@@ -224,6 +224,12 @@ namespace Pulumi.Aws.Ssm
         [Output("targetType")]
         public Output<string?> TargetType { get; private set; } = null!;
 
+        /// <summary>
+        /// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        /// </summary>
+        [Output("versionName")]
+        public Output<string?> VersionName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Document resource with the given unique name, arguments, and options.
@@ -335,6 +341,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        /// </summary>
+        [Input("versionName")]
+        public Input<string>? VersionName { get; set; }
 
         public DocumentArgs()
         {
@@ -495,6 +507,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        /// </summary>
+        [Input("versionName")]
+        public Input<string>? VersionName { get; set; }
 
         public DocumentState()
         {

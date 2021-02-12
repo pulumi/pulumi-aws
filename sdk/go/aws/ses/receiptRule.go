@@ -68,10 +68,12 @@ type ReceiptRule struct {
 	AddHeaderActions ReceiptRuleAddHeaderActionArrayOutput `pulumi:"addHeaderActions"`
 	// The name of the rule to place this rule after
 	After pulumi.StringPtrOutput `pulumi:"after"`
+	// The SES receipt rule ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of Bounce Action blocks. Documented below.
 	BounceActions ReceiptRuleBounceActionArrayOutput `pulumi:"bounceActions"`
 	// If true, the rule will be enabled
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A list of Lambda Action blocks. Documented below.
 	LambdaActions ReceiptRuleLambdaActionArrayOutput `pulumi:"lambdaActions"`
 	// The name of the rule
@@ -83,7 +85,7 @@ type ReceiptRule struct {
 	// A list of S3 Action blocks. Documented below.
 	S3Actions ReceiptRuleS3ActionArrayOutput `pulumi:"s3Actions"`
 	// If true, incoming emails will be scanned for spam and viruses
-	ScanEnabled pulumi.BoolOutput `pulumi:"scanEnabled"`
+	ScanEnabled pulumi.BoolPtrOutput `pulumi:"scanEnabled"`
 	// A list of SNS Action blocks. Documented below.
 	SnsActions ReceiptRuleSnsActionArrayOutput `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
@@ -130,6 +132,8 @@ type receiptRuleState struct {
 	AddHeaderActions []ReceiptRuleAddHeaderAction `pulumi:"addHeaderActions"`
 	// The name of the rule to place this rule after
 	After *string `pulumi:"after"`
+	// The SES receipt rule ARN.
+	Arn *string `pulumi:"arn"`
 	// A list of Bounce Action blocks. Documented below.
 	BounceActions []ReceiptRuleBounceAction `pulumi:"bounceActions"`
 	// If true, the rule will be enabled
@@ -161,6 +165,8 @@ type ReceiptRuleState struct {
 	AddHeaderActions ReceiptRuleAddHeaderActionArrayInput
 	// The name of the rule to place this rule after
 	After pulumi.StringPtrInput
+	// The SES receipt rule ARN.
+	Arn pulumi.StringPtrInput
 	// A list of Bounce Action blocks. Documented below.
 	BounceActions ReceiptRuleBounceActionArrayInput
 	// If true, the rule will be enabled

@@ -45,7 +45,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             max_concurrency="2",
             max_errors="1",
             priority=1,
-            service_role_arn=aws_iam_role["example"]["arn"],
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
             window_id=aws_ssm_maintenance_window["example"]["id"],
@@ -73,7 +72,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             max_concurrency="2",
             max_errors="1",
             priority=1,
-            service_role_arn=aws_iam_role["example"]["arn"],
             task_arn="AWS-RunShellScript",
             task_type="RUN_COMMAND",
             window_id=aws_ssm_maintenance_window["example"]["id"],
@@ -109,7 +107,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             max_concurrency="2",
             max_errors="1",
             priority=1,
-            service_role_arn=aws_iam_role["example"]["arn"],
             task_arn=aws_sfn_activity["example"]["id"],
             task_type="STEP_FUNCTIONS",
             window_id=aws_ssm_maintenance_window["example"]["id"],
@@ -140,7 +137,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
+        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
@@ -173,11 +170,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             __props__['max_errors'] = max_errors
             __props__['name'] = name
             __props__['priority'] = priority
-            if service_role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'service_role_arn'")
             __props__['service_role_arn'] = service_role_arn
-            if targets is None and not opts.urn:
-                raise TypeError("Missing required property 'targets'")
             __props__['targets'] = targets
             if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
@@ -222,7 +215,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
+        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
@@ -290,13 +283,13 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
         """
-        The role that should be assumed when executing the task.
+        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         """
         return pulumi.get(self, "service_role_arn")
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Sequence['outputs.MaintenanceWindowTaskTarget']]:
+    def targets(self) -> pulumi.Output[Optional[Sequence['outputs.MaintenanceWindowTaskTarget']]]:
         """
         The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         """

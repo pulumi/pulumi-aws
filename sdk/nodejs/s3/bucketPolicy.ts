@@ -19,23 +19,25 @@ import {PolicyDocument} from "../iam";
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
  *     bucket: bucket.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Id": "MYBUCKETPOLICY",
- *   "Statement": [
- *     {
- *       "Sid": "IPAllow",
- *       "Effect": "Deny",
- *       "Principal": "*",
- *       "Action": "s3:*",
- *       "Resource": "arn:aws:s3:::my_tf_test_bucket/*",
- *       "Condition": {
- *          "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
- *       }
- *     }
- *   ]
- * }
- * `,
+ *     policy: pulumi.all([bucket.arn, bucket.arn]).apply(([bucketArn, bucketArn1]) => JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Id: "MYBUCKETPOLICY",
+ *         Statement: [{
+ *             Sid: "IPAllow",
+ *             Effect: "Deny",
+ *             Principal: "*",
+ *             Action: "s3:*",
+ *             Resource: [
+ *                 bucketArn,
+ *                 `${bucketArn1}/*`,
+ *             ],
+ *             Condition: {
+ *                 IPAddress: {
+ *                     "aws:SourceIp": "8.8.8.8/32",
+ *                 },
+ *             },
+ *         }],
+ *     })),
  * });
  * ```
  *
@@ -80,7 +82,7 @@ export class BucketPolicy extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. Note: Bucket policies are limited to 20 KB in size.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -129,7 +131,7 @@ export interface BucketPolicyState {
      */
     readonly bucket?: pulumi.Input<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. Note: Bucket policies are limited to 20 KB in size.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -143,7 +145,7 @@ export interface BucketPolicyArgs {
      */
     readonly bucket: pulumi.Input<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. Note: Bucket policies are limited to 20 KB in size.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

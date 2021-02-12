@@ -36,24 +36,21 @@ class Role(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         test_role = aws.iam.Role("testRole",
-            assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-
-        \"\"\",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com",
+                    },
+                }],
+            }),
             tags={
                 "tag-key": "tag-value",
             })

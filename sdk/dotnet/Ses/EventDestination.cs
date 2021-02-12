@@ -116,6 +116,12 @@ namespace Pulumi.Aws.Ses
     public partial class EventDestination : Pulumi.CustomResource
     {
         /// <summary>
+        /// The SES event destination ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
         [Output("cloudwatchDestinations")]
@@ -264,6 +270,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class EventDestinationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The SES event destination ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("cloudwatchDestinations")]
         private InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs>? _cloudwatchDestinations;
 

@@ -10,6 +10,13 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings',
     'DistributionCustomErrorResponse',
     'DistributionDefaultCacheBehavior',
     'DistributionDefaultCacheBehaviorForwardedValues',
@@ -38,6 +45,15 @@ __all__ = [
     'OriginRequestPolicyHeadersConfigHeaders',
     'OriginRequestPolicyQueryStringsConfig',
     'OriginRequestPolicyQueryStringsConfigQueryStrings',
+    'RealtimeLogConfigEndpoint',
+    'RealtimeLogConfigEndpointKinesisStreamConfig',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult',
+    'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult',
     'GetOriginRequestPolicyCookiesConfigResult',
     'GetOriginRequestPolicyCookiesConfigCookieResult',
     'GetOriginRequestPolicyHeadersConfigResult',
@@ -45,6 +61,191 @@ __all__ = [
     'GetOriginRequestPolicyQueryStringsConfigResult',
     'GetOriginRequestPolicyQueryStringsConfigQueryStringResult',
 ]
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
+    def __init__(__self__, *,
+                 cookies_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig',
+                 headers_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig',
+                 query_strings_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
+                 enable_accept_encoding_brotli: Optional[bool] = None,
+                 enable_accept_encoding_gzip: Optional[bool] = None):
+        """
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs' cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs' headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs' query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param bool enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        :param bool enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        """
+        pulumi.set(__self__, "cookies_config", cookies_config)
+        pulumi.set(__self__, "headers_config", headers_config)
+        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        if enable_accept_encoding_brotli is not None:
+            pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
+        if enable_accept_encoding_gzip is not None:
+            pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
+
+    @property
+    @pulumi.getter(name="cookiesConfig")
+    def cookies_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig':
+        """
+        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        """
+        return pulumi.get(self, "cookies_config")
+
+    @property
+    @pulumi.getter(name="headersConfig")
+    def headers_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig':
+        """
+        Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        """
+        return pulumi.get(self, "headers_config")
+
+    @property
+    @pulumi.getter(name="queryStringsConfig")
+    def query_strings_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig':
+        """
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        """
+        return pulumi.get(self, "query_strings_config")
+
+    @property
+    @pulumi.getter(name="enableAcceptEncodingBrotli")
+    def enable_accept_encoding_brotli(self) -> Optional[bool]:
+        """
+        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        """
+        return pulumi.get(self, "enable_accept_encoding_brotli")
+
+    @property
+    @pulumi.getter(name="enableAcceptEncodingGzip")
+    def enable_accept_encoding_gzip(self) -> Optional[bool]:
+        """
+        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        """
+        return pulumi.get(self, "enable_accept_encoding_gzip")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
+    def __init__(__self__, *,
+                 cookie_behavior: str,
+                 cookies: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies'] = None):
+        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+
+    @property
+    @pulumi.getter(name="cookieBehavior")
+    def cookie_behavior(self) -> str:
+        return pulumi.get(self, "cookie_behavior")
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies']:
+        return pulumi.get(self, "cookies")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence[str]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "items")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
+    def __init__(__self__, *,
+                 header_behavior: Optional[str] = None,
+                 headers: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders'] = None):
+        if header_behavior is not None:
+            pulumi.set(__self__, "header_behavior", header_behavior)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter(name="headerBehavior")
+    def header_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "header_behavior")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders']:
+        return pulumi.get(self, "headers")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence[str]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "items")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict):
+    def __init__(__self__, *,
+                 query_string_behavior: str,
+                 query_strings: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings'] = None):
+        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        if query_strings is not None:
+            pulumi.set(__self__, "query_strings", query_strings)
+
+    @property
+    @pulumi.getter(name="queryStringBehavior")
+    def query_string_behavior(self) -> str:
+        return pulumi.get(self, "query_string_behavior")
+
+    @property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings']:
+        return pulumi.get(self, "query_strings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence[str]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "items")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DistributionCustomErrorResponse(dict):
@@ -118,16 +319,18 @@ class DistributionDefaultCacheBehavior(dict):
     def __init__(__self__, *,
                  allowed_methods: Sequence[str],
                  cached_methods: Sequence[str],
-                 forwarded_values: 'outputs.DistributionDefaultCacheBehaviorForwardedValues',
                  target_origin_id: str,
                  viewer_protocol_policy: str,
+                 cache_policy_id: Optional[str] = None,
                  compress: Optional[bool] = None,
                  default_ttl: Optional[int] = None,
                  field_level_encryption_id: Optional[str] = None,
+                 forwarded_values: Optional['outputs.DistributionDefaultCacheBehaviorForwardedValues'] = None,
                  lambda_function_associations: Optional[Sequence['outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation']] = None,
                  max_ttl: Optional[int] = None,
                  min_ttl: Optional[int] = None,
                  origin_request_policy_id: Optional[str] = None,
+                 realtime_log_config_arn: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
         """
@@ -135,8 +338,6 @@ class DistributionDefaultCacheBehavior(dict):
                processes and forwards to your Amazon S3 bucket or your custom origin.
         :param Sequence[str] cached_methods: Controls whether CloudFront caches the
                response to requests using the specified HTTP methods.
-        :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
-               handles query strings, cookies and headers (maximum one).
         :param str target_origin_id: The value of ID for the origin that you want
                CloudFront to route requests to when a request matches the path pattern
                either for a cache behavior or for the default cache behavior.
@@ -144,24 +345,29 @@ class DistributionDefaultCacheBehavior(dict):
                protocol that users can use to access the files in the origin specified by
                TargetOriginId when a request matches the path pattern in PathPattern. One
                of `allow-all`, `https-only`, or `redirect-to-https`.
+        :param str cache_policy_id: The unique identifier of the cache policy that
+               is attached to the cache behavior.
         :param bool compress: Whether you want CloudFront to automatically
                compress content for web requests that include `Accept-Encoding: gzip` in
                the request header (default: `false`).
         :param int default_ttl: The default amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
-               in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-               1 day.
+               in the absence of an `Cache-Control max-age` or `Expires` header.
         :param str field_level_encryption_id: Field level encryption configuration ID
+        :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
+               handles query strings, cookies and headers (maximum one).
         :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with
                specific actions. Defined below, maximum 4.
         :param int max_ttl: The maximum amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
                to your origin to determine whether the object has been updated. Only
                effective in the presence of `Cache-Control max-age`, `Cache-Control
-               s-maxage`, and `Expires` headers. Defaults to 365 days.
+               s-maxage`, and `Expires` headers.
         :param int min_ttl: The minimum amount of time that you want objects to
                stay in CloudFront caches before CloudFront queries your origin to see
                whether the object has been updated. Defaults to 0 seconds.
+        :param str realtime_log_config_arn: The ARN of the real-time log configuration
+               that is attached to this cache behavior.
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
@@ -170,15 +376,18 @@ class DistributionDefaultCacheBehavior(dict):
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "cached_methods", cached_methods)
-        pulumi.set(__self__, "forwarded_values", forwarded_values)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
         if compress is not None:
             pulumi.set(__self__, "compress", compress)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if field_level_encryption_id is not None:
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if forwarded_values is not None:
+            pulumi.set(__self__, "forwarded_values", forwarded_values)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -187,6 +396,8 @@ class DistributionDefaultCacheBehavior(dict):
             pulumi.set(__self__, "min_ttl", min_ttl)
         if origin_request_policy_id is not None:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_signers is not None:
@@ -211,15 +422,6 @@ class DistributionDefaultCacheBehavior(dict):
         return pulumi.get(self, "cached_methods")
 
     @property
-    @pulumi.getter(name="forwardedValues")
-    def forwarded_values(self) -> 'outputs.DistributionDefaultCacheBehaviorForwardedValues':
-        """
-        The forwarded values configuration that specifies how CloudFront
-        handles query strings, cookies and headers (maximum one).
-        """
-        return pulumi.get(self, "forwarded_values")
-
-    @property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> str:
         """
@@ -241,6 +443,15 @@ class DistributionDefaultCacheBehavior(dict):
         return pulumi.get(self, "viewer_protocol_policy")
 
     @property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the cache policy that
+        is attached to the cache behavior.
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @property
     @pulumi.getter
     def compress(self) -> Optional[bool]:
         """
@@ -256,8 +467,7 @@ class DistributionDefaultCacheBehavior(dict):
         """
         The default amount of time (in seconds) that an
         object is in a CloudFront cache before CloudFront forwards another request
-        in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-        1 day.
+        in the absence of an `Cache-Control max-age` or `Expires` header.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -268,6 +478,15 @@ class DistributionDefaultCacheBehavior(dict):
         Field level encryption configuration ID
         """
         return pulumi.get(self, "field_level_encryption_id")
+
+    @property
+    @pulumi.getter(name="forwardedValues")
+    def forwarded_values(self) -> Optional['outputs.DistributionDefaultCacheBehaviorForwardedValues']:
+        """
+        The forwarded values configuration that specifies how CloudFront
+        handles query strings, cookies and headers (maximum one).
+        """
+        return pulumi.get(self, "forwarded_values")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -286,7 +505,7 @@ class DistributionDefaultCacheBehavior(dict):
         object is in a CloudFront cache before CloudFront forwards another request
         to your origin to determine whether the object has been updated. Only
         effective in the presence of `Cache-Control max-age`, `Cache-Control
-        s-maxage`, and `Expires` headers. Defaults to 365 days.
+        s-maxage`, and `Expires` headers.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -304,6 +523,15 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
         return pulumi.get(self, "origin_request_policy_id")
+
+    @property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[str]:
+        """
+        The ARN of the real-time log configuration
+        that is attached to this cache behavior.
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -545,17 +773,19 @@ class DistributionOrderedCacheBehavior(dict):
     def __init__(__self__, *,
                  allowed_methods: Sequence[str],
                  cached_methods: Sequence[str],
-                 forwarded_values: 'outputs.DistributionOrderedCacheBehaviorForwardedValues',
                  path_pattern: str,
                  target_origin_id: str,
                  viewer_protocol_policy: str,
+                 cache_policy_id: Optional[str] = None,
                  compress: Optional[bool] = None,
                  default_ttl: Optional[int] = None,
                  field_level_encryption_id: Optional[str] = None,
+                 forwarded_values: Optional['outputs.DistributionOrderedCacheBehaviorForwardedValues'] = None,
                  lambda_function_associations: Optional[Sequence['outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation']] = None,
                  max_ttl: Optional[int] = None,
                  min_ttl: Optional[int] = None,
                  origin_request_policy_id: Optional[str] = None,
+                 realtime_log_config_arn: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
         """
@@ -563,8 +793,6 @@ class DistributionOrderedCacheBehavior(dict):
                processes and forwards to your Amazon S3 bucket or your custom origin.
         :param Sequence[str] cached_methods: Controls whether CloudFront caches the
                response to requests using the specified HTTP methods.
-        :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
-               handles query strings, cookies and headers (maximum one).
         :param str path_pattern: The pattern (for example, `images/*.jpg)` that
                specifies which requests you want this cache behavior to apply to.
         :param str target_origin_id: The value of ID for the origin that you want
@@ -574,24 +802,29 @@ class DistributionOrderedCacheBehavior(dict):
                protocol that users can use to access the files in the origin specified by
                TargetOriginId when a request matches the path pattern in PathPattern. One
                of `allow-all`, `https-only`, or `redirect-to-https`.
+        :param str cache_policy_id: The unique identifier of the cache policy that
+               is attached to the cache behavior.
         :param bool compress: Whether you want CloudFront to automatically
                compress content for web requests that include `Accept-Encoding: gzip` in
                the request header (default: `false`).
         :param int default_ttl: The default amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
-               in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-               1 day.
+               in the absence of an `Cache-Control max-age` or `Expires` header.
         :param str field_level_encryption_id: Field level encryption configuration ID
+        :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
+               handles query strings, cookies and headers (maximum one).
         :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with
                specific actions. Defined below, maximum 4.
         :param int max_ttl: The maximum amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
                to your origin to determine whether the object has been updated. Only
                effective in the presence of `Cache-Control max-age`, `Cache-Control
-               s-maxage`, and `Expires` headers. Defaults to 365 days.
+               s-maxage`, and `Expires` headers.
         :param int min_ttl: The minimum amount of time that you want objects to
                stay in CloudFront caches before CloudFront queries your origin to see
                whether the object has been updated. Defaults to 0 seconds.
+        :param str realtime_log_config_arn: The ARN of the real-time log configuration
+               that is attached to this cache behavior.
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
@@ -600,16 +833,19 @@ class DistributionOrderedCacheBehavior(dict):
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "cached_methods", cached_methods)
-        pulumi.set(__self__, "forwarded_values", forwarded_values)
         pulumi.set(__self__, "path_pattern", path_pattern)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
         if compress is not None:
             pulumi.set(__self__, "compress", compress)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if field_level_encryption_id is not None:
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if forwarded_values is not None:
+            pulumi.set(__self__, "forwarded_values", forwarded_values)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -618,6 +854,8 @@ class DistributionOrderedCacheBehavior(dict):
             pulumi.set(__self__, "min_ttl", min_ttl)
         if origin_request_policy_id is not None:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_signers is not None:
@@ -640,15 +878,6 @@ class DistributionOrderedCacheBehavior(dict):
         response to requests using the specified HTTP methods.
         """
         return pulumi.get(self, "cached_methods")
-
-    @property
-    @pulumi.getter(name="forwardedValues")
-    def forwarded_values(self) -> 'outputs.DistributionOrderedCacheBehaviorForwardedValues':
-        """
-        The forwarded values configuration that specifies how CloudFront
-        handles query strings, cookies and headers (maximum one).
-        """
-        return pulumi.get(self, "forwarded_values")
 
     @property
     @pulumi.getter(name="pathPattern")
@@ -681,6 +910,15 @@ class DistributionOrderedCacheBehavior(dict):
         return pulumi.get(self, "viewer_protocol_policy")
 
     @property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the cache policy that
+        is attached to the cache behavior.
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @property
     @pulumi.getter
     def compress(self) -> Optional[bool]:
         """
@@ -696,8 +934,7 @@ class DistributionOrderedCacheBehavior(dict):
         """
         The default amount of time (in seconds) that an
         object is in a CloudFront cache before CloudFront forwards another request
-        in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-        1 day.
+        in the absence of an `Cache-Control max-age` or `Expires` header.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -708,6 +945,15 @@ class DistributionOrderedCacheBehavior(dict):
         Field level encryption configuration ID
         """
         return pulumi.get(self, "field_level_encryption_id")
+
+    @property
+    @pulumi.getter(name="forwardedValues")
+    def forwarded_values(self) -> Optional['outputs.DistributionOrderedCacheBehaviorForwardedValues']:
+        """
+        The forwarded values configuration that specifies how CloudFront
+        handles query strings, cookies and headers (maximum one).
+        """
+        return pulumi.get(self, "forwarded_values")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -726,7 +972,7 @@ class DistributionOrderedCacheBehavior(dict):
         object is in a CloudFront cache before CloudFront forwards another request
         to your origin to determine whether the object has been updated. Only
         effective in the presence of `Cache-Control max-age`, `Cache-Control
-        s-maxage`, and `Expires` headers. Defaults to 365 days.
+        s-maxage`, and `Expires` headers.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -744,6 +990,15 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
         return pulumi.get(self, "origin_request_policy_id")
+
+    @property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[str]:
+        """
+        The ARN of the real-time log configuration
+        that is attached to this cache behavior.
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -1581,6 +1836,227 @@ class OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RealtimeLogConfigEndpoint(dict):
+    def __init__(__self__, *,
+                 kinesis_stream_config: 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig',
+                 stream_type: str):
+        """
+        :param 'RealtimeLogConfigEndpointKinesisStreamConfigArgs' kinesis_stream_config: The Amazon Kinesis data stream configuration.
+        :param str stream_type: The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        """
+        pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
+        pulumi.set(__self__, "stream_type", stream_type)
+
+    @property
+    @pulumi.getter(name="kinesisStreamConfig")
+    def kinesis_stream_config(self) -> 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig':
+        """
+        The Amazon Kinesis data stream configuration.
+        """
+        return pulumi.get(self, "kinesis_stream_config")
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> str:
+        """
+        The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        """
+        return pulumi.get(self, "stream_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
+    def __init__(__self__, *,
+                 role_arn: str,
+                 stream_arn: str):
+        """
+        :param str role_arn: The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+               See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+        :param str stream_arn: The ARN of the Kinesis data stream.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        """
+        The ARN of the Kinesis data stream.
+        """
+        return pulumi.get(self, "stream_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
+    def __init__(__self__, *,
+                 cookies_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult'],
+                 enable_accept_encoding_brotli: bool,
+                 enable_accept_encoding_gzip: bool,
+                 headers_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult'],
+                 query_strings_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult']):
+        """
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_configs: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param bool enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        :param bool enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_configs: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_configs: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        """
+        pulumi.set(__self__, "cookies_configs", cookies_configs)
+        pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
+        pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
+        pulumi.set(__self__, "headers_configs", headers_configs)
+        pulumi.set(__self__, "query_strings_configs", query_strings_configs)
+
+    @property
+    @pulumi.getter(name="cookiesConfigs")
+    def cookies_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult']:
+        """
+        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        """
+        return pulumi.get(self, "cookies_configs")
+
+    @property
+    @pulumi.getter(name="enableAcceptEncodingBrotli")
+    def enable_accept_encoding_brotli(self) -> bool:
+        """
+        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        """
+        return pulumi.get(self, "enable_accept_encoding_brotli")
+
+    @property
+    @pulumi.getter(name="enableAcceptEncodingGzip")
+    def enable_accept_encoding_gzip(self) -> bool:
+        """
+        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        """
+        return pulumi.get(self, "enable_accept_encoding_gzip")
+
+    @property
+    @pulumi.getter(name="headersConfigs")
+    def headers_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult']:
+        """
+        Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        """
+        return pulumi.get(self, "headers_configs")
+
+    @property
+    @pulumi.getter(name="queryStringsConfigs")
+    def query_strings_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult']:
+        """
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        """
+        return pulumi.get(self, "query_strings_configs")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(dict):
+    def __init__(__self__, *,
+                 cookie_behavior: str,
+                 cookies: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']):
+        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        pulumi.set(__self__, "cookies", cookies)
+
+    @property
+    @pulumi.getter(name="cookieBehavior")
+    def cookie_behavior(self) -> str:
+        return pulumi.get(self, "cookie_behavior")
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']:
+        return pulumi.get(self, "cookies")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(dict):
+    def __init__(__self__, *,
+                 header_behavior: str,
+                 headers: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']):
+        pulumi.set(__self__, "header_behavior", header_behavior)
+        pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter(name="headerBehavior")
+    def header_behavior(self) -> str:
+        return pulumi.get(self, "header_behavior")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']:
+        return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult(dict):
+    def __init__(__self__, *,
+                 query_string_behavior: str,
+                 query_strings: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']):
+        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        pulumi.set(__self__, "query_strings", query_strings)
+
+    @property
+    @pulumi.getter(name="queryStringBehavior")
+    def query_string_behavior(self) -> str:
+        return pulumi.get(self, "query_string_behavior")
+
+    @property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']:
+        return pulumi.get(self, "query_strings")
+
+
+@pulumi.output_type
+class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
 
 
 @pulumi.output_type

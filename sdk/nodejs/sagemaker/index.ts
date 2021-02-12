@@ -15,6 +15,7 @@ export * from "./getPrebuiltEcrImage";
 export * from "./image";
 export * from "./imageVersion";
 export * from "./model";
+export * from "./modelPackageGroup";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
 export * from "./userProfile";
@@ -29,6 +30,7 @@ import { FeatureGroup } from "./featureGroup";
 import { Image } from "./image";
 import { ImageVersion } from "./imageVersion";
 import { Model } from "./model";
+import { ModelPackageGroup } from "./modelPackageGroup";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
 import { UserProfile } from "./userProfile";
@@ -55,6 +57,8 @@ const _module = {
                 return new ImageVersion(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
                 return new Model(name, <any>undefined, { urn })
+            case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
+                return new ModelPackageGroup(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstance:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -75,6 +79,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)

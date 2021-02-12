@@ -22,6 +22,8 @@ import (
 type Association struct {
 	pulumi.CustomResourceState
 
+	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
 	// The ID of the SSM association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The descriptive name for the association.
@@ -79,6 +81,8 @@ func GetAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Association resources.
 type associationState struct {
+	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
 	// The ID of the SSM association.
 	AssociationId *string `pulumi:"associationId"`
 	// The descriptive name for the association.
@@ -108,6 +112,8 @@ type associationState struct {
 }
 
 type AssociationState struct {
+	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
 	// The ID of the SSM association.
 	AssociationId pulumi.StringPtrInput
 	// The descriptive name for the association.
@@ -141,6 +147,8 @@ func (AssociationState) ElementType() reflect.Type {
 }
 
 type associationArgs struct {
+	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
 	// The descriptive name for the association.
 	AssociationName *string `pulumi:"associationName"`
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
@@ -169,6 +177,8 @@ type associationArgs struct {
 
 // The set of arguments for constructing a Association resource.
 type AssociationArgs struct {
+	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrInput
 	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.

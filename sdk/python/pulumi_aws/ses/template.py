@@ -75,6 +75,7 @@ class Template(pulumi.CustomResource):
             __props__['name'] = name
             __props__['subject'] = subject
             __props__['text'] = text
+            __props__['arn'] = None
         super(Template, __self__).__init__(
             'aws:ses/template:Template',
             resource_name,
@@ -85,6 +86,7 @@ class Template(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             html: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             subject: Optional[pulumi.Input[str]] = None,
@@ -96,6 +98,7 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the SES template
         :param pulumi.Input[str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[str] subject: The subject line of the email.
@@ -105,11 +108,20 @@ class Template(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["html"] = html
         __props__["name"] = name
         __props__["subject"] = subject
         __props__["text"] = text
         return Template(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the SES template
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

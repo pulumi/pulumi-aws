@@ -2,9 +2,41 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an SES configuration set resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.ConfigurationSet("test", {});
+ * ```
+ * ### Require TLS Connections
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     deliveryOptions: {
+ *         tlsPolicy: "Require",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SES Configuration Sets can be imported using their `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/confgurationSet:ConfgurationSet test some-configuration-set-test
+ * ```
+ *
  * @deprecated aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet
  */
 export class ConfgurationSet extends pulumi.CustomResource {
@@ -36,6 +68,17 @@ export class ConfgurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfgurationSet.__pulumiType;
     }
 
+    /**
+     * SES configuration set ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfgurationSetDeliveryOptions | undefined>;
+    /**
+     * Name of the configuration set.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -53,10 +96,14 @@ export class ConfgurationSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ConfgurationSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
+            inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ConfgurationSetArgs | undefined;
+            inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -73,6 +120,17 @@ export class ConfgurationSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfgurationSet resources.
  */
 export interface ConfgurationSetState {
+    /**
+     * SES configuration set ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
+    /**
+     * Name of the configuration set.
+     */
     readonly name?: pulumi.Input<string>;
 }
 
@@ -80,5 +138,12 @@ export interface ConfgurationSetState {
  * The set of arguments for constructing a ConfgurationSet resource.
  */
 export interface ConfgurationSetArgs {
+    /**
+     * Configuration block. Detailed below.
+     */
+    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
+    /**
+     * Name of the configuration set.
+     */
     readonly name?: pulumi.Input<string>;
 }

@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Ses
     public partial class Template : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the SES template
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Output("html")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class TemplateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the SES template
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>

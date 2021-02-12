@@ -28,7 +28,7 @@ class PipelineContentConfigArgs:
                  storage_class: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
-        :param pulumi.Input[str] storage_class: The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+        :param pulumi.Input[str] storage_class: The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -51,7 +51,7 @@ class PipelineContentConfigArgs:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+        The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         """
         return pulumi.get(self, "storage_class")
 
@@ -67,7 +67,7 @@ class PipelineContentConfigPermissionArgs:
                  grantee: Optional[pulumi.Input[str]] = None,
                  grantee_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accesses: The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accesses: The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         :param pulumi.Input[str] grantee: The AWS user or group that you want to have access to transcoded files and playlists.
         :param pulumi.Input[str] grantee_type: Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
@@ -82,7 +82,7 @@ class PipelineContentConfigPermissionArgs:
     @pulumi.getter
     def accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+        The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         """
         return pulumi.get(self, "accesses")
 
@@ -232,9 +232,9 @@ class PipelineThumbnailConfigPermissionArgs:
                  grantee: Optional[pulumi.Input[str]] = None,
                  grantee_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accesses: The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accesses: The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         :param pulumi.Input[str] grantee: The AWS user or group that you want to have access to thumbnail files.
-        :param pulumi.Input[str] grantee_type: Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        :param pulumi.Input[str] grantee_type: Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
         if accesses is not None:
             pulumi.set(__self__, "accesses", accesses)
@@ -247,7 +247,7 @@ class PipelineThumbnailConfigPermissionArgs:
     @pulumi.getter
     def accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         """
         return pulumi.get(self, "accesses")
 
@@ -271,7 +271,7 @@ class PipelineThumbnailConfigPermissionArgs:
     @pulumi.getter(name="granteeType")
     def grantee_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
         return pulumi.get(self, "grantee_type")
 

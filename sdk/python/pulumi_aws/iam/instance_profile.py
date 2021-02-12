@@ -60,10 +60,10 @@ class InstanceProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the profile.
-        :param pulumi.Input[str] role: The role name to include in the profile.
+        :param pulumi.Input[str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+        :param pulumi.Input[str] role: Name of the role to add to the profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,13 +113,13 @@ class InstanceProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to the instance profile.
-        :param pulumi.Input[str] create_date: The creation timestamp of the instance profile.
-        :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] arn: ARN assigned by AWS to the instance profile.
+        :param pulumi.Input[str] create_date: Creation timestamp of the instance profile.
+        :param pulumi.Input[str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the profile.
-        :param pulumi.Input[str] role: The role name to include in the profile.
-        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
+        :param pulumi.Input[str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+        :param pulumi.Input[str] role: Name of the role to add to the profile.
+        :param pulumi.Input[str] unique_id: [Unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -138,7 +138,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN assigned by AWS to the instance profile.
+        ARN assigned by AWS to the instance profile.
         """
         return pulumi.get(self, "arn")
 
@@ -146,7 +146,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter(name="createDate")
     def create_date(self) -> pulumi.Output[str]:
         """
-        The creation timestamp of the instance profile.
+        Creation timestamp of the instance profile.
         """
         return pulumi.get(self, "create_date")
 
@@ -154,7 +154,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The profile's name. If omitted, this provider will assign a random, unique name.
+        Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         """
         return pulumi.get(self, "name")
 
@@ -170,7 +170,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
         """
-        Path in which to create the profile.
+        Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         """
         return pulumi.get(self, "path")
 
@@ -178,7 +178,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        The role name to include in the profile.
+        Name of the role to add to the profile.
         """
         return pulumi.get(self, "role")
 
@@ -186,7 +186,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[str]:
         """
-        The [unique ID][1] assigned by AWS.
+        [Unique ID][1] assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 

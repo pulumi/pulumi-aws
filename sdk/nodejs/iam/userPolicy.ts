@@ -18,19 +18,14 @@ import {PolicyDocument} from "./index";
  * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
  * const lbRo = new aws.iam.UserPolicy("lbRo", {
  *     user: lbUser.name,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
  * });
  * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
  * ```

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectEnvironmentEnvironmentVariableGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The environment variable's name or key.
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The environment variable's value.
+        /// Environment variable's value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

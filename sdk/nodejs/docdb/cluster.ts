@@ -166,6 +166,9 @@ export class Cluster extends pulumi.CustomResource {
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
@@ -377,6 +380,9 @@ export interface ClusterState {
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     readonly preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
@@ -489,6 +495,9 @@ export interface ClusterArgs {
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
     readonly preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.

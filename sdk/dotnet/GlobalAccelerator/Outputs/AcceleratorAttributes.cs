@@ -14,15 +14,15 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     public sealed class AcceleratorAttributes
     {
         /// <summary>
-        /// Indicates whether flow logs are enabled.
+        /// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
         /// </summary>
         public readonly bool? FlowLogsEnabled;
         /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs.
+        /// The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         /// </summary>
         public readonly string? FlowLogsS3Bucket;
         /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         /// </summary>
         public readonly string? FlowLogsS3Prefix;
 

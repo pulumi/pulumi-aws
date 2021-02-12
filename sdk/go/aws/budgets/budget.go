@@ -194,11 +194,13 @@ type Budget struct {
 
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The ARN of the budget.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
+	// Map of Cost Filters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapOutput `pulumi:"costFilters"`
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
@@ -214,7 +216,7 @@ type Budget struct {
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
@@ -264,11 +266,13 @@ func GetBudget(ctx *pulumi.Context,
 type budgetState struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId *string `pulumi:"accountId"`
+	// The ARN of the budget.
+	Arn *string `pulumi:"arn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
+	// Map of Cost Filters key/value pairs to apply to the budget.
 	CostFilters map[string]string `pulumi:"costFilters"`
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
@@ -284,18 +288,20 @@ type budgetState struct {
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit *string `pulumi:"timeUnit"`
 }
 
 type BudgetState struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId pulumi.StringPtrInput
+	// The ARN of the budget.
+	Arn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
-	// Map of CostFilters key/value pairs to apply to the budget.
+	// Map of Cost Filters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapInput
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
@@ -311,7 +317,7 @@ type BudgetState struct {
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringPtrInput
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringPtrInput
 }
 
@@ -324,9 +330,9 @@ type budgetArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
+	// Map of Cost Filters key/value pairs to apply to the budget.
 	CostFilters map[string]string `pulumi:"costFilters"`
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount string `pulumi:"limitAmount"`
@@ -342,7 +348,7 @@ type budgetArgs struct {
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart string `pulumi:"timePeriodStart"`
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit string `pulumi:"timeUnit"`
 }
 
@@ -352,9 +358,9 @@ type BudgetArgs struct {
 	AccountId pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
-	// Map of CostFilters key/value pairs to apply to the budget.
+	// Map of Cost Filters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapInput
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringInput
@@ -370,7 +376,7 @@ type BudgetArgs struct {
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringInput
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringInput
 }
 

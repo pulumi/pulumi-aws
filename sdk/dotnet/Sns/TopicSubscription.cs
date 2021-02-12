@@ -111,7 +111,6 @@ namespace Pulumi.Aws.Sns
     ///                         "SNS:Subscribe",
     ///                         "SNS:SetTopicAttributes",
     ///                         "SNS:RemovePermission",
-    ///                         "SNS:Receive",
     ///                         "SNS:Publish",
     ///                         "SNS:ListSubscriptionsByTopic",
     ///                         "SNS:GetTopicAttributes",
@@ -349,6 +348,12 @@ namespace Pulumi.Aws.Sns
         public Output<bool?> RawMessageDelivery { get; private set; } = null!;
 
         /// <summary>
+        /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        /// </summary>
+        [Output("redrivePolicy")]
+        public Output<string?> RedrivePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the SNS topic to subscribe to
         /// </summary>
         [Output("topic")]
@@ -443,6 +448,12 @@ namespace Pulumi.Aws.Sns
         public Input<bool>? RawMessageDelivery { get; set; }
 
         /// <summary>
+        /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        /// </summary>
+        [Input("redrivePolicy")]
+        public Input<string>? RedrivePolicy { get; set; }
+
+        /// <summary>
         /// The ARN of the SNS topic to subscribe to
         /// </summary>
         [Input("topic", required: true)]
@@ -502,6 +513,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }
+
+        /// <summary>
+        /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        /// </summary>
+        [Input("redrivePolicy")]
+        public Input<string>? RedrivePolicy { get; set; }
 
         /// <summary>
         /// The ARN of the SNS topic to subscribe to

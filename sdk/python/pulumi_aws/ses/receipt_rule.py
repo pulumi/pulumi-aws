@@ -118,6 +118,7 @@ class ReceiptRule(pulumi.CustomResource):
             __props__['stop_actions'] = stop_actions
             __props__['tls_policy'] = tls_policy
             __props__['workmail_actions'] = workmail_actions
+            __props__['arn'] = None
         super(ReceiptRule, __self__).__init__(
             'aws:ses/receiptRule:ReceiptRule',
             resource_name,
@@ -130,6 +131,7 @@ class ReceiptRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             add_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleAddHeaderActionArgs']]]]] = None,
             after: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             bounce_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleBounceActionArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleLambdaActionArgs']]]]] = None,
@@ -151,6 +153,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleAddHeaderActionArgs']]]] add_header_actions: A list of Add Header Action blocks. Documented below.
         :param pulumi.Input[str] after: The name of the rule to place this rule after
+        :param pulumi.Input[str] arn: The SES receipt rule ARN.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleBounceActionArgs']]]] bounce_actions: A list of Bounce Action blocks. Documented below.
         :param pulumi.Input[bool] enabled: If true, the rule will be enabled
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleLambdaActionArgs']]]] lambda_actions: A list of Lambda Action blocks. Documented below.
@@ -170,6 +173,7 @@ class ReceiptRule(pulumi.CustomResource):
 
         __props__["add_header_actions"] = add_header_actions
         __props__["after"] = after
+        __props__["arn"] = arn
         __props__["bounce_actions"] = bounce_actions
         __props__["enabled"] = enabled
         __props__["lambda_actions"] = lambda_actions
@@ -201,6 +205,14 @@ class ReceiptRule(pulumi.CustomResource):
         return pulumi.get(self, "after")
 
     @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The SES receipt rule ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
     @pulumi.getter(name="bounceActions")
     def bounce_actions(self) -> pulumi.Output[Optional[Sequence['outputs.ReceiptRuleBounceAction']]]:
         """
@@ -210,7 +222,7 @@ class ReceiptRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the rule will be enabled
         """
@@ -258,7 +270,7 @@ class ReceiptRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scanEnabled")
-    def scan_enabled(self) -> pulumi.Output[bool]:
+    def scan_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, incoming emails will be scanned for spam and viruses
         """

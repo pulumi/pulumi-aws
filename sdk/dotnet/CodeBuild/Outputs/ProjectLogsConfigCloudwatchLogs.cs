@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectLogsConfigCloudwatchLogs
     {
         /// <summary>
-        /// The group name of the logs in CloudWatch Logs.
+        /// Group name of the logs in CloudWatch Logs.
         /// </summary>
         public readonly string? GroupName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The stream name of the logs in CloudWatch Logs.
+        /// Stream name of the logs in CloudWatch Logs.
         /// </summary>
         public readonly string? StreamName;
 

@@ -91,6 +91,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
+        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// </summary>
+        [Output("deleteReports")]
+        public Output<bool?> DeleteReports { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         /// </summary>
         [Output("exportConfig")]
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ReportGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// </summary>
+        [Input("deleteReports")]
+        public Input<bool>? DeleteReports { get; set; }
+
+        /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         /// </summary>
         [Input("exportConfig", required: true)]
@@ -208,6 +220,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// </summary>
+        [Input("deleteReports")]
+        public Input<bool>? DeleteReports { get; set; }
 
         /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.

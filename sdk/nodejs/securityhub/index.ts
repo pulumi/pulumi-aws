@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./account";
 export * from "./actionTarget";
 export * from "./member";
+export * from "./organizationAdminAccount";
 export * from "./productSubscription";
 export * from "./standardsSubscription";
 
@@ -15,6 +16,7 @@ export * from "./standardsSubscription";
 import { Account } from "./account";
 import { ActionTarget } from "./actionTarget";
 import { Member } from "./member";
+import { OrganizationAdminAccount } from "./organizationAdminAccount";
 import { ProductSubscription } from "./productSubscription";
 import { StandardsSubscription } from "./standardsSubscription";
 
@@ -28,6 +30,8 @@ const _module = {
                 return new ActionTarget(name, <any>undefined, { urn })
             case "aws:securityhub/member:Member":
                 return new Member(name, <any>undefined, { urn })
+            case "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
+                return new OrganizationAdminAccount(name, <any>undefined, { urn })
             case "aws:securityhub/productSubscription:ProductSubscription":
                 return new ProductSubscription(name, <any>undefined, { urn })
             case "aws:securityhub/standardsSubscription:StandardsSubscription":
@@ -40,5 +44,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "securityhub/account", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/member", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/organizationAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/productSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/standardsSubscription", _module)

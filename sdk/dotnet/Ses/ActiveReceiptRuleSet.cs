@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Ses
     public partial class ActiveReceiptRuleSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The SES receipt rule set ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the rule set
         /// </summary>
         [Output("ruleSetName")]
@@ -99,6 +105,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ActiveReceiptRuleSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The SES receipt rule set ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name of the rule set
         /// </summary>

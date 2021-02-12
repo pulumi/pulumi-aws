@@ -17,6 +17,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -75,6 +76,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,6 +99,7 @@ class Connection(pulumi.CustomResource):
             if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")
             __props__['provider_type'] = provider_type
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['connection_status'] = None
         super(Connection, __self__).__init__(
@@ -112,7 +115,8 @@ class Connection(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             connection_status: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            provider_type: Optional[pulumi.Input[str]] = None) -> 'Connection':
+            provider_type: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -124,6 +128,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -133,6 +138,7 @@ class Connection(pulumi.CustomResource):
         __props__["connection_status"] = connection_status
         __props__["name"] = name
         __props__["provider_type"] = provider_type
+        __props__["tags"] = tags
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -166,6 +172,14 @@ class Connection(pulumi.CustomResource):
         The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
         """
         return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of key-value resource tags to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

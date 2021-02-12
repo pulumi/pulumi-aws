@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .aggregate_authorization import *
 from .configuration_aggregator import *
+from .conformance_pack import *
 from .delivery_channel import *
 from .organization_custom_rule import *
 from .organization_managed_rule import *
@@ -31,6 +32,8 @@ def _register_module():
                 return AggregateAuthorization(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cfg/configurationAggregator:ConfigurationAggregator":
                 return ConfigurationAggregator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cfg/conformancePack:ConformancePack":
+                return ConformancePack(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cfg/deliveryChannel:DeliveryChannel":
                 return DeliveryChannel(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cfg/organizationCustomRule:OrganizationCustomRule":
@@ -52,6 +55,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "cfg/aggregateAuthorization", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cfg/configurationAggregator", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cfg/conformancePack", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cfg/deliveryChannel", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cfg/organizationCustomRule", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cfg/organizationManagedRule", _module_instance)

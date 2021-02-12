@@ -105,6 +105,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tenancy'] = tenancy
             __props__['arn'] = None
+            __props__['owner_id'] = None
         super(CapacityReservation, __self__).__init__(
             'aws:ec2/capacityReservation:CapacityReservation',
             resource_name,
@@ -125,6 +126,7 @@ class CapacityReservation(pulumi.CustomResource):
             instance_match_criteria: Optional[pulumi.Input[str]] = None,
             instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None) -> 'CapacityReservation':
         """
@@ -144,6 +146,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -161,6 +164,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__["instance_match_criteria"] = instance_match_criteria
         __props__["instance_platform"] = instance_platform
         __props__["instance_type"] = instance_type
+        __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         __props__["tenancy"] = tenancy
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
@@ -244,6 +248,14 @@ class CapacityReservation(pulumi.CustomResource):
         The instance type for which to reserve capacity.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS account that owns the Capacity Reservation.
+        """
+        return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter

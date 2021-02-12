@@ -78,9 +78,11 @@ type LookupCustomerGatewayResult struct {
 	// The ARN of the customer gateway.
 	Arn string `pulumi:"arn"`
 	// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn  int                        `pulumi:"bgpAsn"`
-	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
-	Id      string                     `pulumi:"id"`
+	BgpAsn int `pulumi:"bgpAsn"`
+	// (Optional) A name for the customer gateway device.
+	DeviceName string                     `pulumi:"deviceName"`
+	Filters    []GetCustomerGatewayFilter `pulumi:"filters"`
+	Id         string                     `pulumi:"id"`
 	// (Optional) The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Map of key-value pairs assigned to the gateway.

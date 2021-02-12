@@ -62,6 +62,18 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"],
             starting_position="LATEST")
         ```
+        ### Managed Streaming for Kafka (MSK)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_msk_cluster["example"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            topics=["Example"],
+            starting_position="TRIM_HORIZON")
+        ```
         ### SQS
 
         ```python

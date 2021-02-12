@@ -113,7 +113,11 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+     * A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+     */
+    public readonly resourceType!: pulumi.Output<string>;
+    /**
+     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceType`.
      */
     public readonly resourceTypeLists!: pulumi.Output<string[]>;
     /**
@@ -142,15 +146,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
             inputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
             inputs["resourceTags"] = state ? state.resourceTags : undefined;
+            inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
             inputs["securityServicePolicyData"] = state ? state.securityServicePolicyData : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.excludeResourceTags === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'excludeResourceTags'");
-            }
-            if ((!args || args.resourceTypeLists === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceTypeLists'");
             }
             if ((!args || args.securityServicePolicyData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
@@ -162,6 +164,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
             inputs["resourceTags"] = args ? args.resourceTags : undefined;
+            inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
             inputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -216,7 +219,11 @@ export interface PolicyState {
      */
     readonly resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+     * A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+     */
+    readonly resourceType?: pulumi.Input<string>;
+    /**
+     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceType`.
      */
     readonly resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -258,9 +265,13 @@ export interface PolicyArgs {
      */
     readonly resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+     * A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
      */
-    readonly resourceTypeLists: pulumi.Input<pulumi.Input<string>[]>;
+    readonly resourceType?: pulumi.Input<string>;
+    /**
+     * A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceType`.
+     */
+    readonly resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The objects to include in Security Service Policy Data. Documented below.
      */

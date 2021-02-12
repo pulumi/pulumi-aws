@@ -133,7 +133,6 @@ import (
 // 						"SNS:Subscribe",
 // 						"SNS:SetTopicAttributes",
 // 						"SNS:RemovePermission",
-// 						"SNS:Receive",
 // 						"SNS:Publish",
 // 						"SNS:ListSubscriptionsByTopic",
 // 						"SNS:GetTopicAttributes",
@@ -314,6 +313,8 @@ type TopicSubscription struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery pulumi.BoolPtrOutput `pulumi:"rawMessageDelivery"`
+	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
 	// The ARN of the SNS topic to subscribe to
 	Topic pulumi.StringOutput `pulumi:"topic"`
 }
@@ -372,6 +373,8 @@ type topicSubscriptionState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
+	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+	RedrivePolicy *string `pulumi:"redrivePolicy"`
 	// The ARN of the SNS topic to subscribe to
 	Topic *string `pulumi:"topic"`
 }
@@ -393,6 +396,8 @@ type TopicSubscriptionState struct {
 	Protocol pulumi.StringPtrInput
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery pulumi.BoolPtrInput
+	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+	RedrivePolicy pulumi.StringPtrInput
 	// The ARN of the SNS topic to subscribe to
 	Topic pulumi.StringPtrInput
 }
@@ -416,6 +421,8 @@ type topicSubscriptionArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
+	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+	RedrivePolicy *string `pulumi:"redrivePolicy"`
 	// The ARN of the SNS topic to subscribe to
 	Topic interface{} `pulumi:"topic"`
 }
@@ -436,6 +443,8 @@ type TopicSubscriptionArgs struct {
 	Protocol pulumi.StringInput
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery pulumi.BoolPtrInput
+	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+	RedrivePolicy pulumi.StringPtrInput
 	// The ARN of the SNS topic to subscribe to
 	Topic pulumi.Input
 }

@@ -55,6 +55,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__['rule_set_name'] = rule_set_name
+            __props__['arn'] = None
         super(ActiveReceiptRuleSet, __self__).__init__(
             'aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet',
             resource_name,
@@ -65,6 +66,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             rule_set_name: Optional[pulumi.Input[str]] = None) -> 'ActiveReceiptRuleSet':
         """
         Get an existing ActiveReceiptRuleSet resource's state with the given name, id, and optional extra
@@ -73,14 +75,24 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The SES receipt rule set ARN.
         :param pulumi.Input[str] rule_set_name: The name of the rule set
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["rule_set_name"] = rule_set_name
         return ActiveReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The SES receipt rule set ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ruleSetName")

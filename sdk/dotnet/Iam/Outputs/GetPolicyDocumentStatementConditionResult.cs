@@ -14,23 +14,15 @@ namespace Pulumi.Aws.Iam.Outputs
     public sealed class GetPolicyDocumentStatementConditionResult
     {
         /// <summary>
-        /// The name of the
-        /// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-        /// to evaluate.
+        /// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
         /// </summary>
         public readonly string Test;
         /// <summary>
-        /// The values to evaluate the condition against. If multiple
-        /// values are provided, the condition matches if at least one of them applies.
-        /// (That is, the tests are combined with the "OR" boolean operation.)
+        /// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
         /// </summary>
         public readonly ImmutableArray<string> Values;
         /// <summary>
-        /// The name of a
-        /// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-        /// to apply the condition to. Context variables may either be standard AWS
-        /// variables starting with `aws:`, or service-specific variables prefixed with
-        /// the service name.
+        /// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
         /// </summary>
         public readonly string Variable;
 

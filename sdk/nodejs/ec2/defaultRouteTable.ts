@@ -6,39 +6,15 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage a Default VPC Routing Table.
+ * Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
  *
- * Each VPC created in AWS comes with a Default Route Table that can be managed, but not
- * destroyed. **This is an advanced resource**, and has special caveats to be aware
- * of when using it. Please read this document in its entirety before using this
- * resource. It is recommended you **do not** use both `aws.ec2.DefaultRouteTable` to
- * manage the default route table **and** use the `aws.ec2.MainRouteTableAssociation`,
- * due to possible conflict in routes.
+ * > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultRouteTable` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management. **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts.
  *
- * The `aws.ec2.DefaultRouteTable` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead attempts to "adopt" it
- * into management. We can do this because each VPC created has a Default Route
- * Table that cannot be destroyed, and is created with a single route.
+ * Every VPC has a default route table that can be managed but not destroyed. When the provider first adopts a default route table, it **immediately removes all defined routes**. It then proceeds to create any routes specified in the configuration. This step is required so that only the routes specified in the configuration exist in the default route table.
  *
- * When this provider first adopts the Default Route Table, it **immediately removes all
- * defined routes**. It then proceeds to create any routes specified in the
- * configuration. This step is required so that only the routes specified in the
- * configuration present in the Default Route Table.
- *
- * For more information about Route Tables, see the AWS Documentation on
- * [Route Tables][aws-route-tables].
- *
- * For more information about managing normal Route Tables in this provider, see our
- * documentation on [aws.ec2.RouteTable][tf-route-tables].
- *
- * > **NOTE on Route Tables and Routes:** This provider currently
- * provides both a standalone Route resource and a Route Table resource with routes
- * defined in-line. At this time you cannot use a Route Table with in-line routes
- * in conjunction with any Route resources. Doing so will cause
- * a conflict of rule settings and will overwrite routes.
+ * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
  *
  * ## Example Usage
- * ### With Tags
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default VPC Routing tables can be imported using the `vpc_id`, e.g.
+ * Default VPC route tables can be imported using the `vpc_id`, e.g.
  *
  * ```sh
  *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
@@ -92,25 +68,28 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the Default Routing Table.
+     * ID of the default route table.
      */
     public readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
-     * The ID of the AWS account that owns the route table
+     * ID of the AWS account that owns the route table.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A list of virtual gateways for propagation.
+     * List of virtual gateways for propagation.
      */
     public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of route objects. Their keys are documented below.
+     * Configuration block of routes. Detailed below.
      */
     public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * ID of the VPC.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -159,25 +138,28 @@ export class DefaultRouteTable extends pulumi.CustomResource {
  */
 export interface DefaultRouteTableState {
     /**
-     * The ID of the Default Routing Table.
+     * ID of the default route table.
      */
     readonly defaultRouteTableId?: pulumi.Input<string>;
     /**
-     * The ID of the AWS account that owns the route table
+     * ID of the AWS account that owns the route table.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A list of virtual gateways for propagation.
+     * List of virtual gateways for propagation.
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of route objects. Their keys are documented below.
+     * Configuration block of routes. Detailed below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of the VPC.
+     */
     readonly vpcId?: pulumi.Input<string>;
 }
 
@@ -186,19 +168,19 @@ export interface DefaultRouteTableState {
  */
 export interface DefaultRouteTableArgs {
     /**
-     * The ID of the Default Routing Table.
+     * ID of the default route table.
      */
     readonly defaultRouteTableId: pulumi.Input<string>;
     /**
-     * A list of virtual gateways for propagation.
+     * List of virtual gateways for propagation.
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of route objects. Their keys are documented below.
+     * Configuration block of routes. Detailed below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

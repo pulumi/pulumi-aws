@@ -18,7 +18,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
-        /// The types of IP addresses included in this IP set.
+        /// The type of IP addresses included in this IP set.
         /// </summary>
         public readonly string? IpFamily;
 

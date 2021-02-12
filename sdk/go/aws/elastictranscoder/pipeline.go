@@ -55,6 +55,7 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Elastictranscoder pipeline.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
 	AwsKmsKeyArn pulumi.StringPtrOutput `pulumi:"awsKmsKeyArn"`
@@ -113,6 +114,7 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
+	// The ARN of the Elastictranscoder pipeline.
 	Arn *string `pulumi:"arn"`
 	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
 	AwsKmsKeyArn *string `pulumi:"awsKmsKeyArn"`
@@ -137,6 +139,7 @@ type pipelineState struct {
 }
 
 type PipelineState struct {
+	// The ARN of the Elastictranscoder pipeline.
 	Arn pulumi.StringPtrInput
 	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
 	AwsKmsKeyArn pulumi.StringPtrInput

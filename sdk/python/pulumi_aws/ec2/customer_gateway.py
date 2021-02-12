@@ -16,6 +16,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
@@ -76,6 +78,7 @@ class CustomerGateway(pulumi.CustomResource):
             if bgp_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'bgp_asn'")
             __props__['bgp_asn'] = bgp_asn
+            __props__['device_name'] = device_name
             if ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_address'")
             __props__['ip_address'] = ip_address
@@ -96,6 +99,7 @@ class CustomerGateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bgp_asn: Optional[pulumi.Input[str]] = None,
+            device_name: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'CustomerGateway':
@@ -108,6 +112,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the customer gateway.
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
@@ -119,6 +124,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["bgp_asn"] = bgp_asn
+        __props__["device_name"] = device_name
         __props__["ip_address"] = ip_address
         __props__["tags"] = tags
         __props__["type"] = type
@@ -139,6 +145,14 @@ class CustomerGateway(pulumi.CustomResource):
         The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the customer gateway device.
+        """
+        return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter(name="ipAddress")

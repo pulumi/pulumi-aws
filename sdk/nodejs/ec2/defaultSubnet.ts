@@ -5,16 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
- * in the current region.
+ * Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
  *
- * The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead "adopts" it
- * into management.
+ * The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+ *
+ * The `aws.ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
  *
  * ## Example Usage
- *
- * Basic usage with tags:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,6 +23,14 @@ import * as utilities from "../utilities";
  *         Name: "Default subnet for us-west-2a",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Subnets can be imported using the `subnet id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
  * ```
  */
 export class DefaultSubnet extends pulumi.CustomResource {
@@ -56,38 +61,46 @@ export class DefaultSubnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultSubnet.__pulumiType;
     }
 
+    /**
+     * ARN for the subnet.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Whether IPv6 addresses are assigned on creation.
+     * * `availabilityZoneId`- AZ ID of the subnet.
+     */
     public /*out*/ readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean>;
+    /**
+     * AZ for the subnet.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
     public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
     /**
-     * The CIDR block for the subnet.
+     * CIDR block for the subnet.
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block.
      */
     public /*out*/ readonly ipv6CidrBlock!: pulumi.Output<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
     public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
-     * Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address.
+     * Whether instances launched into the subnet should be assigned a public IP address.
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the AWS account that owns the subnet.
+     * ID of the AWS account that owns the subnet.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The VPC ID.
+     * VPC ID.
      */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
@@ -152,38 +165,46 @@ export class DefaultSubnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultSubnet resources.
  */
 export interface DefaultSubnetState {
+    /**
+     * ARN for the subnet.
+     */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * Whether IPv6 addresses are assigned on creation.
+     * * `availabilityZoneId`- AZ ID of the subnet.
+     */
     readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    /**
+     * AZ for the subnet.
+     */
     readonly availabilityZone?: pulumi.Input<string>;
     readonly availabilityZoneId?: pulumi.Input<string>;
     /**
-     * The CIDR block for the subnet.
+     * CIDR block for the subnet.
      */
     readonly cidrBlock?: pulumi.Input<string>;
     readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block.
      */
     readonly ipv6CidrBlock?: pulumi.Input<string>;
     readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
     readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
-     * Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address.
+     * Whether instances launched into the subnet should be assigned a public IP address.
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     readonly outpostArn?: pulumi.Input<string>;
     /**
-     * The ID of the AWS account that owns the subnet.
+     * ID of the AWS account that owns the subnet.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID.
+     * VPC ID.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -192,18 +213,19 @@ export interface DefaultSubnetState {
  * The set of arguments for constructing a DefaultSubnet resource.
  */
 export interface DefaultSubnetArgs {
+    /**
+     * AZ for the subnet.
+     */
     readonly availabilityZone: pulumi.Input<string>;
     readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
-     * Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address.
+     * Whether instances launched into the subnet should be assigned a public IP address.
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     readonly outpostArn?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

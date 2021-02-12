@@ -132,12 +132,19 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
      * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r5.large
+     * - db.r5.xlarge
+     * - db.r5.2xlarge
+     * - db.r5.4xlarge
+     * - db.r5.12xlarge
+     * - db.r5.24xlarge
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t3.medium
      */
     public readonly instanceClass!: pulumi.Output<string>;
     /**
@@ -313,12 +320,19 @@ export interface ClusterInstanceState {
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
      * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r5.large
+     * - db.r5.xlarge
+     * - db.r5.2xlarge
+     * - db.r5.4xlarge
+     * - db.r5.12xlarge
+     * - db.r5.24xlarge
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t3.medium
      */
     readonly instanceClass?: pulumi.Input<string>;
     /**
@@ -397,12 +411,19 @@ export interface ClusterInstanceArgs {
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
      * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r5.large
+     * - db.r5.xlarge
+     * - db.r5.2xlarge
+     * - db.r5.4xlarge
+     * - db.r5.12xlarge
+     * - db.r5.24xlarge
      * - db.r4.large
      * - db.r4.xlarge
      * - db.r4.2xlarge
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t3.medium
      */
     readonly instanceClass: pulumi.Input<string>;
     /**

@@ -130,6 +130,8 @@ type Document struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
+	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
 
 // NewDocument registers a new resource with the given unique name, arguments, and options.
@@ -208,6 +210,8 @@ type documentState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
+	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	VersionName *string `pulumi:"versionName"`
 }
 
 type DocumentState struct {
@@ -252,6 +256,8 @@ type DocumentState struct {
 	Tags pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput
+	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	VersionName pulumi.StringPtrInput
 }
 
 func (DocumentState) ElementType() reflect.Type {
@@ -275,6 +281,8 @@ type documentArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
+	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	VersionName *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a Document resource.
@@ -295,6 +303,8 @@ type DocumentArgs struct {
 	Tags pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput
+	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	VersionName pulumi.StringPtrInput
 }
 
 func (DocumentArgs) ElementType() reflect.Type {

@@ -21,12 +21,14 @@ __all__ = [
     'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs',
     'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs',
     'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs',
     'PatchBaselineApprovalRuleArgs',
     'PatchBaselineApprovalRulePatchFilterArgs',
     'PatchBaselineGlobalFilterArgs',
+    'PatchBaselineSourceArgs',
     'ResourceDataSyncS3DestinationArgs',
 ]
 
@@ -486,9 +488,11 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
 @pulumi.input_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     def __init__(__self__, *,
+                 cloudwatch_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  document_hash: Optional[pulumi.Input[str]] = None,
                  document_hash_type: Optional[pulumi.Input[str]] = None,
+                 document_version: Optional[pulumi.Input[str]] = None,
                  notification_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']] = None,
                  output_s3_bucket: Optional[pulumi.Input[str]] = None,
                  output_s3_key_prefix: Optional[pulumi.Input[str]] = None,
@@ -496,9 +500,11 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs'] cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
         :param pulumi.Input[str] comment: Information about the command(s) to execute.
         :param pulumi.Input[str] document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param pulumi.Input[str] document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+        :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param pulumi.Input[str] output_s3_bucket: The name of the Amazon S3 bucket.
         :param pulumi.Input[str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -506,12 +512,16 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
         :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
         :param pulumi.Input[int] timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
+        if cloudwatch_config is not None:
+            pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if document_hash is not None:
             pulumi.set(__self__, "document_hash", document_hash)
         if document_hash_type is not None:
             pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
         if output_s3_bucket is not None:
@@ -524,6 +534,18 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if timeout_seconds is not None:
             pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfig")
+    def cloudwatch_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]:
+        """
+        Configuration options for sending command output to CloudWatch Logs. Documented below.
+        """
+        return pulumi.get(self, "cloudwatch_config")
+
+    @cloudwatch_config.setter
+    def cloudwatch_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]):
+        pulumi.set(self, "cloudwatch_config", value)
 
     @property
     @pulumi.getter
@@ -560,6 +582,18 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @document_hash_type.setter
     def document_hash_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "document_hash_type", value)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of an Automation document to use during task execution.
+        """
+        return pulumi.get(self, "document_version")
+
+    @document_version.setter
+    def document_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_version", value)
 
     @property
     @pulumi.getter(name="notificationConfig")
@@ -632,6 +666,45 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @timeout_seconds.setter
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs:
+    def __init__(__self__, *,
+                 cloudwatch_log_group_name: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_output_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] cloudwatch_log_group_name: The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+        :param pulumi.Input[bool] cloudwatch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        if cloudwatch_log_group_name is not None:
+            pulumi.set(__self__, "cloudwatch_log_group_name", cloudwatch_log_group_name)
+        if cloudwatch_output_enabled is not None:
+            pulumi.set(__self__, "cloudwatch_output_enabled", cloudwatch_output_enabled)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogGroupName")
+    def cloudwatch_log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+        """
+        return pulumi.get(self, "cloudwatch_log_group_name")
+
+    @cloudwatch_log_group_name.setter
+    def cloudwatch_log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatch_log_group_name", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchOutputEnabled")
+    def cloudwatch_output_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloudwatch_output_enabled")
+
+    @cloudwatch_output_enabled.setter
+    def cloudwatch_output_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloudwatch_output_enabled", value)
 
 
 @pulumi.input_type
@@ -768,34 +841,27 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
 @pulumi.input_type
 class PatchBaselineApprovalRuleArgs:
     def __init__(__self__, *,
-                 approve_after_days: pulumi.Input[int],
                  patch_filters: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]],
+                 approve_after_days: Optional[pulumi.Input[int]] = None,
+                 approve_until_date: Optional[pulumi.Input[str]] = None,
                  compliance_level: Optional[pulumi.Input[str]] = None,
                  enable_non_security: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+        :param pulumi.Input[int] approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+        :param pulumi.Input[str] approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         :param pulumi.Input[str] compliance_level: Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[bool] enable_non_security: Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
         """
-        pulumi.set(__self__, "approve_after_days", approve_after_days)
         pulumi.set(__self__, "patch_filters", patch_filters)
+        if approve_after_days is not None:
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
+        if approve_until_date is not None:
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
         if compliance_level is not None:
             pulumi.set(__self__, "compliance_level", compliance_level)
         if enable_non_security is not None:
             pulumi.set(__self__, "enable_non_security", enable_non_security)
-
-    @property
-    @pulumi.getter(name="approveAfterDays")
-    def approve_after_days(self) -> pulumi.Input[int]:
-        """
-        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        """
-        return pulumi.get(self, "approve_after_days")
-
-    @approve_after_days.setter
-    def approve_after_days(self, value: pulumi.Input[int]):
-        pulumi.set(self, "approve_after_days", value)
 
     @property
     @pulumi.getter(name="patchFilters")
@@ -808,6 +874,30 @@ class PatchBaselineApprovalRuleArgs:
     @patch_filters.setter
     def patch_filters(self, value: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]):
         pulumi.set(self, "patch_filters", value)
+
+    @property
+    @pulumi.getter(name="approveAfterDays")
+    def approve_after_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+        """
+        return pulumi.get(self, "approve_after_days")
+
+    @approve_after_days.setter
+    def approve_after_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "approve_after_days", value)
+
+    @property
+    @pulumi.getter(name="approveUntilDate")
+    def approve_until_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        """
+        return pulumi.get(self, "approve_until_date")
+
+    @approve_until_date.setter
+    def approve_until_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "approve_until_date", value)
 
     @property
     @pulumi.getter(name="complianceLevel")
@@ -886,6 +976,58 @@ class PatchBaselineGlobalFilterArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class PatchBaselineSourceArgs:
+    def __init__(__self__, *,
+                 configuration: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 products: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] configuration: The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        :param pulumi.Input[str] name: The name specified to identify the patch source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] products: The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "products", products)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[str]:
+        """
+        The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name specified to identify the patch source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def products(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        """
+        return pulumi.get(self, "products")
+
+    @products.setter
+    def products(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "products", value)
 
 
 @pulumi.input_type

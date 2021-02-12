@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> BgpAsn { get; private set; } = null!;
 
         /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Output("deviceName")]
+        public Output<string?> DeviceName { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
         /// </summary>
         [Output("ipAddress")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> BgpAsn { get; set; } = null!;
 
         /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
+
+        /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
         /// </summary>
         [Input("ipAddress", required: true)]
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("bgpAsn")]
         public Input<string>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.

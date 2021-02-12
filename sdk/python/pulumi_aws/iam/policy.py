@@ -30,25 +30,20 @@ class Policy(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         policy = aws.iam.Policy("policy",
-            description="My test policy",
             path="/",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-
-        \"\"\")
+            description="My test policy",
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
+                }],
+            }))
         ```
 
         ## Import

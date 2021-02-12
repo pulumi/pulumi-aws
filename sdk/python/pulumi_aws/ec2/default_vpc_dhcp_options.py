@@ -46,6 +46,14 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         })
         ```
 
+        ## Import
+
+        VPC DHCP Options can be imported using the `dhcp options id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.

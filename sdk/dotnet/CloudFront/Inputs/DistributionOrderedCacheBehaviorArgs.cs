@@ -25,6 +25,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
             set => _allowedMethods = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the cache policy that
+        /// is attached to the cache behavior.
+        /// </summary>
+        [Input("cachePolicyId")]
+        public Input<string>? CachePolicyId { get; set; }
+
         [Input("cachedMethods", required: true)]
         private InputList<string>? _cachedMethods;
 
@@ -49,8 +56,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// The default amount of time (in seconds) that an
         /// object is in a CloudFront cache before CloudFront forwards another request
-        /// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-        /// 1 day.
+        /// in the absence of an `Cache-Control max-age` or `Expires` header.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
@@ -65,8 +71,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// The forwarded values configuration that specifies how CloudFront
         /// handles query strings, cookies and headers (maximum one).
         /// </summary>
-        [Input("forwardedValues", required: true)]
-        public Input<Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs> ForwardedValues { get; set; } = null!;
+        [Input("forwardedValues")]
+        public Input<Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs>? ForwardedValues { get; set; }
 
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs>? _lambdaFunctionAssociations;
@@ -86,7 +92,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// object is in a CloudFront cache before CloudFront forwards another request
         /// to your origin to determine whether the object has been updated. Only
         /// effective in the presence of `Cache-Control max-age`, `Cache-Control
-        /// s-maxage`, and `Expires` headers. Defaults to 365 days.
+        /// s-maxage`, and `Expires` headers.
         /// </summary>
         [Input("maxTtl")]
         public Input<int>? MaxTtl { get; set; }
@@ -108,6 +114,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// </summary>
         [Input("pathPattern", required: true)]
         public Input<string> PathPattern { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of the real-time log configuration
+        /// that is attached to this cache behavior.
+        /// </summary>
+        [Input("realtimeLogConfigArn")]
+        public Input<string>? RealtimeLogConfigArn { get; set; }
 
         /// <summary>
         /// Indicates whether you want to distribute

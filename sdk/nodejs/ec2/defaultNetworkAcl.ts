@@ -6,101 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage the default AWS Network ACL. VPC Only.
- *
- * Each VPC created in AWS comes with a Default Network ACL that can be managed, but not
- * destroyed. **This is an advanced resource**, and has special caveats to be aware
- * of when using it. Please read this document in its entirety before using this
- * resource.
- *
- * The `aws.ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead attempts to "adopt" it
- * into management. We can do this because each VPC created has a Default Network
- * ACL that cannot be destroyed, and is created with a known set of default rules.
- *
- * When this provider first adopts the Default Network ACL, it **immediately removes all
- * rules in the ACL**. It then proceeds to create any rules specified in the
- * configuration. This step is required so that only the rules specified in the
- * configuration are created.
- *
- * This resource treats its inline rules as absolute; only the rules defined
- * inline are created, and any additions/removals external to this resource will
- * result in diffs being shown. For these reasons, this resource is incompatible with the
- * `aws.ec2.NetworkAclRule` resource.
- *
- * For more information about Network ACLs, see the AWS Documentation on
- * [Network ACLs][aws-network-acls].
- *
- * ## Basic Example Usage, with default rules
- *
- * The following config gives the Default Network ACL the same rules that AWS
- * includes, but pulls the resource under management by this provider. This means that
- * any ACL rules added or changed will be detected as drift.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- *     ingress: [{
- *         protocol: -1,
- *         ruleNo: 100,
- *         action: "allow",
- *         cidrBlock: mainvpc.cidrBlock,
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
- *     egress: [{
- *         protocol: -1,
- *         ruleNo: 100,
- *         action: "allow",
- *         cidrBlock: "0.0.0.0/0",
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
- * });
- * ```
- *
- * ## Example config to deny all Egress traffic, allowing Ingress
- *
- * The following denies all Egress traffic by omitting any `egress` rules, while
- * including the default `ingress` rule to allow all traffic.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- *     ingress: [{
- *         protocol: -1,
- *         ruleNo: 100,
- *         action: "allow",
- *         cidrBlock: mainvpc.cidrBlock,
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
- * });
- * ```
- *
- * ## Example config to deny all traffic to any Subnet in the Default Network ACL
- *
- * This config denies all traffic in the Default ACL. This can be useful if you
- * want a locked down default to force all resources in the VPC to assign a
- * non-default ACL.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultNetworkAcl("default", {defaultNetworkAclId: mainvpc.defaultNetworkAclId});
- * // no rules defined, deny all traffic in this ACL
- * ```
- *
  * ## Import
  *
  * Default Network ACLs can be imported using the `id`, e.g.
@@ -138,37 +43,35 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Default Network ACL
+     * ARN of the Default Network ACL
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Network ACL ID to manage. This
-     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     public readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
-     * Specifies an egress rule. Parameters defined below.
+     * Configuration block for an egress rule. Detailed below.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.DefaultNetworkAclEgress[] | undefined>;
     /**
-     * Specifies an ingress rule. Parameters defined below.
+     * Configuration block for an ingress rule. Detailed below.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.DefaultNetworkAclIngress[] | undefined>;
     /**
-     * The ID of the AWS account that owns the Default Network ACL
+     * ID of the AWS account that owns the Default Network ACL
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A list of Subnet IDs to apply the ACL to. See the
-     * notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ID of the associated VPC
+     * ID of the associated VPC
      */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
@@ -222,37 +125,35 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
  */
 export interface DefaultNetworkAclState {
     /**
-     * The ARN of the Default Network ACL
+     * ARN of the Default Network ACL
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The Network ACL ID to manage. This
-     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     readonly defaultNetworkAclId?: pulumi.Input<string>;
     /**
-     * Specifies an egress rule. Parameters defined below.
+     * Configuration block for an egress rule. Detailed below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
     /**
-     * Specifies an ingress rule. Parameters defined below.
+     * Configuration block for an ingress rule. Detailed below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
     /**
-     * The ID of the AWS account that owns the Default Network ACL
+     * ID of the AWS account that owns the Default Network ACL
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A list of Subnet IDs to apply the ACL to. See the
-     * notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the associated VPC
+     * ID of the associated VPC
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -262,25 +163,23 @@ export interface DefaultNetworkAclState {
  */
 export interface DefaultNetworkAclArgs {
     /**
-     * The Network ACL ID to manage. This
-     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     readonly defaultNetworkAclId: pulumi.Input<string>;
     /**
-     * Specifies an egress rule. Parameters defined below.
+     * Configuration block for an egress rule. Detailed below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
     /**
-     * Specifies an ingress rule. Parameters defined below.
+     * Configuration block for an ingress rule. Detailed below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
     /**
-     * A list of Subnet IDs to apply the ACL to. See the
-     * notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

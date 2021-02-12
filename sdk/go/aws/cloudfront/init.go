@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:cloudfront/cachePolicy:CachePolicy":
+		r, err = NewCachePolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/distribution:Distribution":
 		r, err = NewDistribution(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
@@ -29,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewOriginRequestPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/publicKey:PublicKey":
 		r, err = NewPublicKey(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig":
+		r, err = NewRealtimeLogConfig(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -41,6 +45,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/cachePolicy",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/distribution",
@@ -59,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/publicKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/realtimeLogConfig",
 		&module{version},
 	)
 }

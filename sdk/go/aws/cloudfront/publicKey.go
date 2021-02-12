@@ -11,6 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// CloudFront Public Key can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+// ```
 type PublicKey struct {
 	pulumi.CustomResourceState
 

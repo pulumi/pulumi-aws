@@ -21,13 +21,16 @@ class GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+    def __init__(__self__, arn=None, bgp_asn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bgp_asn and not isinstance(bgp_asn, int):
             raise TypeError("Expected argument 'bgp_asn' to be a int")
         pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if device_name and not isinstance(device_name, str):
+            raise TypeError("Expected argument 'device_name' to be a str")
+        pulumi.set(__self__, "device_name", device_name)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -59,6 +62,14 @@ class GetCustomerGatewayResult:
         (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        (Optional) A name for the customer gateway device.
+        """
+        return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
         return GetCustomerGatewayResult(
             arn=self.arn,
             bgp_asn=self.bgp_asn,
+            device_name=self.device_name,
             filters=self.filters,
             id=self.id,
             ip_address=self.ip_address,
@@ -155,6 +167,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     return AwaitableGetCustomerGatewayResult(
         arn=__ret__.arn,
         bgp_asn=__ret__.bgp_asn,
+        device_name=__ret__.device_name,
         filters=__ret__.filters,
         id=__ret__.id,
         ip_address=__ret__.ip_address,

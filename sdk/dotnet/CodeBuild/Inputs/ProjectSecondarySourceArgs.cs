@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         private InputList<Inputs.ProjectSecondarySourceAuthArgs>? _auths;
 
         /// <summary>
-        /// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.ProjectSecondarySourceAuthArgs> Auths
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         }
 
         /// <summary>
-        /// The build spec declaration to use for this build project's related builds.
+        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
 
         /// <summary>
-        /// Truncate git history to this many commits.
+        /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         /// </summary>
         [Input("gitCloneDepth")]
         public Input<int>? GitCloneDepth { get; set; }
 
         /// <summary>
-        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("gitSubmodulesConfig")]
         public Input<Inputs.ProjectSecondarySourceGitSubmodulesConfigArgs>? GitSubmodulesConfig { get; set; }
@@ -49,25 +49,25 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? InsecureSsl { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Location of the source code from git or s3.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+        /// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
         /// </summary>
         [Input("sourceIdentifier", required: true)]
         public Input<string> SourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

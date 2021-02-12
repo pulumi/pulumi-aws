@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Ses
         public Output<string?> After { get; private set; } = null!;
 
         /// <summary>
+        /// The SES receipt rule ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Bounce Action blocks. Documented below.
         /// </summary>
         [Output("bounceActions")]
@@ -88,7 +94,7 @@ namespace Pulumi.Aws.Ses
         /// If true, the rule will be enabled
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// A list of Lambda Action blocks. Documented below.
@@ -124,7 +130,7 @@ namespace Pulumi.Aws.Ses
         /// If true, incoming emails will be scanned for spam and viruses
         /// </summary>
         [Output("scanEnabled")]
-        public Output<bool> ScanEnabled { get; private set; } = null!;
+        public Output<bool?> ScanEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A list of SNS Action blocks. Documented below.
@@ -352,6 +358,12 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         [Input("after")]
         public Input<string>? After { get; set; }
+
+        /// <summary>
+        /// The SES receipt rule ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         [Input("bounceActions")]
         private InputList<Inputs.ReceiptRuleBounceActionGetArgs>? _bounceActions;

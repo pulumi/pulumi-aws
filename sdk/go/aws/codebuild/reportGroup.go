@@ -76,6 +76,8 @@ type ReportGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date and time this Report Group was created.
 	Created pulumi.StringOutput `pulumi:"created"`
+	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	DeleteReports pulumi.BoolPtrOutput `pulumi:"deleteReports"`
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 	ExportConfig ReportGroupExportConfigOutput `pulumi:"exportConfig"`
 	// The name of a Report Group.
@@ -125,6 +127,8 @@ type reportGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The date and time this Report Group was created.
 	Created *string `pulumi:"created"`
+	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	DeleteReports *bool `pulumi:"deleteReports"`
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 	ExportConfig *ReportGroupExportConfig `pulumi:"exportConfig"`
 	// The name of a Report Group.
@@ -140,6 +144,8 @@ type ReportGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The date and time this Report Group was created.
 	Created pulumi.StringPtrInput
+	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	DeleteReports pulumi.BoolPtrInput
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 	ExportConfig ReportGroupExportConfigPtrInput
 	// The name of a Report Group.
@@ -155,6 +161,8 @@ func (ReportGroupState) ElementType() reflect.Type {
 }
 
 type reportGroupArgs struct {
+	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	DeleteReports *bool `pulumi:"deleteReports"`
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 	ExportConfig ReportGroupExportConfig `pulumi:"exportConfig"`
 	// The name of a Report Group.
@@ -167,6 +175,8 @@ type reportGroupArgs struct {
 
 // The set of arguments for constructing a ReportGroup resource.
 type ReportGroupArgs struct {
+	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	DeleteReports pulumi.BoolPtrInput
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 	ExportConfig ReportGroupExportConfigInput
 	// The name of a Report Group.

@@ -32,6 +32,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudFront Public Key can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/publicKey:PublicKey")]
     public partial class PublicKey : Pulumi.CustomResource

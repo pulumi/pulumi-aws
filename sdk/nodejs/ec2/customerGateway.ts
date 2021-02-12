@@ -68,6 +68,10 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public readonly bgpAsn!: pulumi.Output<string>;
     /**
+     * A name for the customer gateway device.
+     */
+    public readonly deviceName!: pulumi.Output<string | undefined>;
+    /**
      * The IP address of the gateway's Internet-routable external interface.
      */
     public readonly ipAddress!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             const state = argsOrState as CustomerGatewayState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            inputs["deviceName"] = state ? state.deviceName : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
@@ -110,6 +115,7 @@ export class CustomerGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -139,6 +145,10 @@ export interface CustomerGatewayState {
      */
     readonly bgpAsn?: pulumi.Input<string>;
     /**
+     * A name for the customer gateway device.
+     */
+    readonly deviceName?: pulumi.Input<string>;
+    /**
      * The IP address of the gateway's Internet-routable external interface.
      */
     readonly ipAddress?: pulumi.Input<string>;
@@ -161,6 +171,10 @@ export interface CustomerGatewayArgs {
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: pulumi.Input<string>;
+    /**
+     * A name for the customer gateway device.
+     */
+    readonly deviceName?: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */

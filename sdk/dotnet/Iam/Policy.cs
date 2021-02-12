@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -24,22 +26,26 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Description = "My test policy",
     ///             Path = "/",
-    ///             Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""ec2:Describe*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// 
-    /// ",
+    ///             Description = "My test policy",
+    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2012-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", new[]
+    ///                                 {
+    ///                                     "ec2:Describe*",
+    ///                                 }
+    ///                              },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Resource", "*" },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             }),
     ///         });
     ///     }
     /// 

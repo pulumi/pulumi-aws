@@ -49,6 +49,8 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the SES template
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
 	Html pulumi.StringPtrOutput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
@@ -88,6 +90,8 @@ func GetTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Template resources.
 type templateState struct {
+	// The ARN of the SES template
+	Arn *string `pulumi:"arn"`
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
 	Html *string `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
@@ -99,6 +103,8 @@ type templateState struct {
 }
 
 type TemplateState struct {
+	// The ARN of the SES template
+	Arn pulumi.StringPtrInput
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
 	Html pulumi.StringPtrInput
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.

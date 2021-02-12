@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class FunctionFileSystemConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The path where the function can access the file system, starting with /mnt/.
+        /// Path where the function can access the file system, starting with /mnt/.
         /// </summary>
         [Input("localMountPath", required: true)]
         public Input<string> LocalMountPath { get; set; } = null!;

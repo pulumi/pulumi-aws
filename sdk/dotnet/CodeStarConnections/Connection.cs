@@ -117,6 +117,12 @@ namespace Pulumi.Aws.CodeStarConnections
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Connection resource with the given unique name, arguments, and options.
@@ -175,6 +181,18 @@ namespace Pulumi.Aws.CodeStarConnections
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public ConnectionArgs()
         {
         }
@@ -205,6 +223,18 @@ namespace Pulumi.Aws.CodeStarConnections
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ConnectionState()
         {

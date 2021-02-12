@@ -663,7 +663,7 @@ class BucketLifecycleRuleExpirationArgs:
         """
         :param pulumi.Input[str] date: Specifies the date after which you want the corresponding action to take effect.
         :param pulumi.Input[int] days: Specifies the number of days after object creation when the specific rule action takes effect.
-        :param pulumi.Input[bool] expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
+        :param pulumi.Input[bool] expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         """
         if date is not None:
             pulumi.set(__self__, "date", date)
@@ -700,7 +700,7 @@ class BucketLifecycleRuleExpirationArgs:
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[pulumi.Input[bool]]:
         """
-        On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
+        On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         """
         return pulumi.get(self, "expired_object_delete_marker")
 

@@ -13,7 +13,7 @@ import (
 type PipelineContentConfig struct {
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 	Bucket *string `pulumi:"bucket"`
-	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+	// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -31,7 +31,7 @@ type PipelineContentConfigInput interface {
 type PipelineContentConfigArgs struct {
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+	// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -117,7 +117,7 @@ func (o PipelineContentConfigOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 func (o PipelineContentConfigOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineContentConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -150,7 +150,7 @@ func (o PipelineContentConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 func (o PipelineContentConfigPtrOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineContentConfig) *string {
 		if v == nil {
@@ -161,7 +161,7 @@ func (o PipelineContentConfigPtrOutput) StorageClass() pulumi.StringPtrOutput {
 }
 
 type PipelineContentConfigPermission struct {
-	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 	Accesses []string `pulumi:"accesses"`
 	// The AWS user or group that you want to have access to transcoded files and playlists.
 	Grantee *string `pulumi:"grantee"`
@@ -181,7 +181,7 @@ type PipelineContentConfigPermissionInput interface {
 }
 
 type PipelineContentConfigPermissionArgs struct {
-	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 	Accesses pulumi.StringArrayInput `pulumi:"accesses"`
 	// The AWS user or group that you want to have access to transcoded files and playlists.
 	Grantee pulumi.StringPtrInput `pulumi:"grantee"`
@@ -240,7 +240,7 @@ func (o PipelineContentConfigPermissionOutput) ToPipelineContentConfigPermission
 	return o
 }
 
-// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 func (o PipelineContentConfigPermissionOutput) Accesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineContentConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
 }
@@ -614,11 +614,11 @@ func (o PipelineThumbnailConfigPtrOutput) StorageClass() pulumi.StringPtrOutput 
 }
 
 type PipelineThumbnailConfigPermission struct {
-	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 	Accesses []string `pulumi:"accesses"`
 	// The AWS user or group that you want to have access to thumbnail files.
 	Grantee *string `pulumi:"grantee"`
-	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 	GranteeType *string `pulumi:"granteeType"`
 }
 
@@ -634,11 +634,11 @@ type PipelineThumbnailConfigPermissionInput interface {
 }
 
 type PipelineThumbnailConfigPermissionArgs struct {
-	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 	Accesses pulumi.StringArrayInput `pulumi:"accesses"`
 	// The AWS user or group that you want to have access to thumbnail files.
 	Grantee pulumi.StringPtrInput `pulumi:"grantee"`
-	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 	GranteeType pulumi.StringPtrInput `pulumi:"granteeType"`
 }
 
@@ -693,7 +693,7 @@ func (o PipelineThumbnailConfigPermissionOutput) ToPipelineThumbnailConfigPermis
 	return o
 }
 
-// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
 func (o PipelineThumbnailConfigPermissionOutput) Accesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineThumbnailConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
 }
@@ -703,7 +703,7 @@ func (o PipelineThumbnailConfigPermissionOutput) Grantee() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v PipelineThumbnailConfigPermission) *string { return v.Grantee }).(pulumi.StringPtrOutput)
 }
 
-// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 func (o PipelineThumbnailConfigPermissionOutput) GranteeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineThumbnailConfigPermission) *string { return v.GranteeType }).(pulumi.StringPtrOutput)
 }

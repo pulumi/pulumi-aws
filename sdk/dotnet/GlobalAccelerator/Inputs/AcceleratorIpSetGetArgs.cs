@@ -25,7 +25,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         }
 
         /// <summary>
-        /// The types of IP addresses included in this IP set.
+        /// The type of IP addresses included in this IP set.
         /// </summary>
         [Input("ipFamily")]
         public Input<string>? IpFamily { get; set; }

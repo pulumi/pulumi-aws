@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ConfgurationSet']
 
@@ -19,14 +21,45 @@ class ConfgurationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Create a ConfgurationSet resource with the given unique name, props, and options.
+        Provides an SES configuration set resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test")
+        ```
+        ### Require TLS Connections
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
+            tls_policy="Require",
+        ))
+        ```
+
+        ## Import
+
+        SES Configuration Sets can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/confgurationSet:ConfgurationSet test some-configuration-set-test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[str] name: Name of the configuration set.
         """
         pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")
         if __name__ is not None:
@@ -46,7 +79,9 @@ class ConfgurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['delivery_options'] = delivery_options
             __props__['name'] = name
+            __props__['arn'] = None
         super(ConfgurationSet, __self__).__init__(
             'aws:ses/confgurationSet:ConfgurationSet',
             resource_name,
@@ -57,6 +92,8 @@ class ConfgurationSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ConfgurationSet':
         """
         Get an existing ConfgurationSet resource's state with the given name, id, and optional extra
@@ -65,17 +102,41 @@ class ConfgurationSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: SES configuration set ARN.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[str] name: Name of the configuration set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["arn"] = arn
+        __props__["delivery_options"] = delivery_options
         __props__["name"] = name
         return ConfgurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        SES configuration set ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deliveryOptions")
+    def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfgurationSetDeliveryOptions']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "delivery_options")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the configuration set.
+        """
         return pulumi.get(self, "name")
 
     def translate_output_property(self, prop):

@@ -135,34 +135,23 @@ func (o GetGroupUserArrayOutput) Index(i pulumi.IntInput) GetGroupUserOutput {
 }
 
 type GetPolicyDocumentStatement struct {
-	// A list of actions that this statement either allows
-	// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+	// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
 	Actions []string `pulumi:"actions"`
-	// A nested configuration block (described below)
-	// that defines a further, possibly-service-specific condition that constrains
-	// whether this statement applies.
+	// Configuration block for a condition. Detailed below.
 	Conditions []GetPolicyDocumentStatementCondition `pulumi:"conditions"`
-	// Either "Allow" or "Deny", to specify whether this
-	// statement allows or denies the given actions. The default is "Allow".
+	// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
 	Effect *string `pulumi:"effect"`
-	// A list of actions that this statement does *not*
-	// apply to. Used to apply a policy statement to all actions *except* those
-	// listed.
+	// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
 	NotActions []string `pulumi:"notActions"`
-	// Like `principals` except gives principals that
-	// the statement does *not* apply to.
+	// Like `principals` except these are principals that the statement does *not* apply to.
 	NotPrincipals []GetPolicyDocumentStatementNotPrincipal `pulumi:"notPrincipals"`
-	// A list of resource ARNs that this statement
-	// does *not* apply to. Used to apply a policy statement to all resources
-	// *except* those listed.
+	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
 	NotResources []string `pulumi:"notResources"`
-	// A nested configuration block (described below)
-	// specifying a principal (or principal pattern) to which this statement applies.
+	// Configuration block for principals. Detailed below.
 	Principals []GetPolicyDocumentStatementPrincipal `pulumi:"principals"`
-	// A list of resource ARNs that this statement applies
-	// to. This is required by AWS if used for an IAM policy.
+	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
 	Resources []string `pulumi:"resources"`
-	// An ID for the policy statement.
+	// Sid (statement ID) is an identifier for a policy statement.
 	Sid *string `pulumi:"sid"`
 }
 
@@ -178,34 +167,23 @@ type GetPolicyDocumentStatementInput interface {
 }
 
 type GetPolicyDocumentStatementArgs struct {
-	// A list of actions that this statement either allows
-	// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+	// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// A nested configuration block (described below)
-	// that defines a further, possibly-service-specific condition that constrains
-	// whether this statement applies.
+	// Configuration block for a condition. Detailed below.
 	Conditions GetPolicyDocumentStatementConditionArrayInput `pulumi:"conditions"`
-	// Either "Allow" or "Deny", to specify whether this
-	// statement allows or denies the given actions. The default is "Allow".
+	// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
 	Effect pulumi.StringPtrInput `pulumi:"effect"`
-	// A list of actions that this statement does *not*
-	// apply to. Used to apply a policy statement to all actions *except* those
-	// listed.
+	// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Like `principals` except gives principals that
-	// the statement does *not* apply to.
+	// Like `principals` except these are principals that the statement does *not* apply to.
 	NotPrincipals GetPolicyDocumentStatementNotPrincipalArrayInput `pulumi:"notPrincipals"`
-	// A list of resource ARNs that this statement
-	// does *not* apply to. Used to apply a policy statement to all resources
-	// *except* those listed.
+	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
 	NotResources pulumi.StringArrayInput `pulumi:"notResources"`
-	// A nested configuration block (described below)
-	// specifying a principal (or principal pattern) to which this statement applies.
+	// Configuration block for principals. Detailed below.
 	Principals GetPolicyDocumentStatementPrincipalArrayInput `pulumi:"principals"`
-	// A list of resource ARNs that this statement applies
-	// to. This is required by AWS if used for an IAM policy.
+	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// An ID for the policy statement.
+	// Sid (statement ID) is an identifier for a policy statement.
 	Sid pulumi.StringPtrInput `pulumi:"sid"`
 }
 
@@ -260,58 +238,47 @@ func (o GetPolicyDocumentStatementOutput) ToGetPolicyDocumentStatementOutputWith
 	return o
 }
 
-// A list of actions that this statement either allows
-// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
 func (o GetPolicyDocumentStatementOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// A nested configuration block (described below)
-// that defines a further, possibly-service-specific condition that constrains
-// whether this statement applies.
+// Configuration block for a condition. Detailed below.
 func (o GetPolicyDocumentStatementOutput) Conditions() GetPolicyDocumentStatementConditionArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementCondition { return v.Conditions }).(GetPolicyDocumentStatementConditionArrayOutput)
 }
 
-// Either "Allow" or "Deny", to specify whether this
-// statement allows or denies the given actions. The default is "Allow".
+// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o GetPolicyDocumentStatementOutput) Effect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
-// A list of actions that this statement does *not*
-// apply to. Used to apply a policy statement to all actions *except* those
-// listed.
+// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
 func (o GetPolicyDocumentStatementOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// Like `principals` except gives principals that
-// the statement does *not* apply to.
+// Like `principals` except these are principals that the statement does *not* apply to.
 func (o GetPolicyDocumentStatementOutput) NotPrincipals() GetPolicyDocumentStatementNotPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
-// A list of resource ARNs that this statement
-// does *not* apply to. Used to apply a policy statement to all resources
-// *except* those listed.
+// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
 func (o GetPolicyDocumentStatementOutput) NotResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotResources }).(pulumi.StringArrayOutput)
 }
 
-// A nested configuration block (described below)
-// specifying a principal (or principal pattern) to which this statement applies.
+// Configuration block for principals. Detailed below.
 func (o GetPolicyDocumentStatementOutput) Principals() GetPolicyDocumentStatementPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
-// A list of resource ARNs that this statement applies
-// to. This is required by AWS if used for an IAM policy.
+// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
 func (o GetPolicyDocumentStatementOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// An ID for the policy statement.
+// Sid (statement ID) is an identifier for a policy statement.
 func (o GetPolicyDocumentStatementOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
@@ -337,19 +304,11 @@ func (o GetPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetPolic
 }
 
 type GetPolicyDocumentStatementCondition struct {
-	// The name of the
-	// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-	// to evaluate.
+	// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
 	Test string `pulumi:"test"`
-	// The values to evaluate the condition against. If multiple
-	// values are provided, the condition matches if at least one of them applies.
-	// (That is, the tests are combined with the "OR" boolean operation.)
+	// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
 	Values []string `pulumi:"values"`
-	// The name of a
-	// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-	// to apply the condition to. Context variables may either be standard AWS
-	// variables starting with `aws:`, or service-specific variables prefixed with
-	// the service name.
+	// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
 	Variable string `pulumi:"variable"`
 }
 
@@ -365,19 +324,11 @@ type GetPolicyDocumentStatementConditionInput interface {
 }
 
 type GetPolicyDocumentStatementConditionArgs struct {
-	// The name of the
-	// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-	// to evaluate.
+	// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
 	Test pulumi.StringInput `pulumi:"test"`
-	// The values to evaluate the condition against. If multiple
-	// values are provided, the condition matches if at least one of them applies.
-	// (That is, the tests are combined with the "OR" boolean operation.)
+	// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
 	Values pulumi.StringArrayInput `pulumi:"values"`
-	// The name of a
-	// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-	// to apply the condition to. Context variables may either be standard AWS
-	// variables starting with `aws:`, or service-specific variables prefixed with
-	// the service name.
+	// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
 	Variable pulumi.StringInput `pulumi:"variable"`
 }
 
@@ -432,25 +383,17 @@ func (o GetPolicyDocumentStatementConditionOutput) ToGetPolicyDocumentStatementC
 	return o
 }
 
-// The name of the
-// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-// to evaluate.
+// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
 func (o GetPolicyDocumentStatementConditionOutput) Test() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Test }).(pulumi.StringOutput)
 }
 
-// The values to evaluate the condition against. If multiple
-// values are provided, the condition matches if at least one of them applies.
-// (That is, the tests are combined with the "OR" boolean operation.)
+// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
 func (o GetPolicyDocumentStatementConditionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// The name of a
-// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-// to apply the condition to. Context variables may either be standard AWS
-// variables starting with `aws:`, or service-specific variables prefixed with
-// the service name.
+// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
 func (o GetPolicyDocumentStatementConditionOutput) Variable() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Variable }).(pulumi.StringOutput)
 }
@@ -476,10 +419,9 @@ func (o GetPolicyDocumentStatementConditionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetPolicyDocumentStatementNotPrincipal struct {
-	// List of identifiers for principals. When `type`
-	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 	Type string `pulumi:"type"`
 }
 
@@ -495,10 +437,9 @@ type GetPolicyDocumentStatementNotPrincipalInput interface {
 }
 
 type GetPolicyDocumentStatementNotPrincipalArgs struct {
-	// List of identifiers for principals. When `type`
-	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -553,13 +494,12 @@ func (o GetPolicyDocumentStatementNotPrincipalOutput) ToGetPolicyDocumentStateme
 	return o
 }
 
-// List of identifiers for principals. When `type`
-// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -585,10 +525,9 @@ func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetPolicyDocumentStatementPrincipal struct {
-	// List of identifiers for principals. When `type`
-	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 	Type string `pulumi:"type"`
 }
 
@@ -604,10 +543,9 @@ type GetPolicyDocumentStatementPrincipalInput interface {
 }
 
 type GetPolicyDocumentStatementPrincipalArgs struct {
-	// List of identifiers for principals. When `type`
-	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -662,13 +600,12 @@ func (o GetPolicyDocumentStatementPrincipalOutput) ToGetPolicyDocumentStatementP
 	return o
 }
 
-// List of identifiers for principals. When `type`
-// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }

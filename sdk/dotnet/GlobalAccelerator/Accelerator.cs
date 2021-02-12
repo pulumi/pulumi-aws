@@ -65,7 +65,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The value for the address type must be `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<Inputs.AcceleratorAttributesArgs>? Attributes { get; set; }
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The value for the address type must be `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// The value for the address type must be `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

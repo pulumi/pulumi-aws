@@ -55,8 +55,8 @@ class Accelerator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.
-        :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-        :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
+        :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -115,8 +115,8 @@ class Accelerator(pulumi.CustomResource):
                * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
                route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
                is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-        :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
+        :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorIpSetArgs']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -158,7 +158,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+        Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -171,7 +171,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The value for the address type must be `IPV4`.
+        The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
         """
         return pulumi.get(self, "ip_address_type")
 

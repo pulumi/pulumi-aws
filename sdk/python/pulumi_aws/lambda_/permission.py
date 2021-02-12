@@ -35,22 +35,20 @@ class Permission(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "lambda.amazonaws.com",
+                },
+            }],
+        }))
         test_lambda = aws.lambda_.Function("testLambda",
             code=pulumi.FileArchive("lambdatest.zip"),
             role=iam_for_lambda.arn,
@@ -71,23 +69,21 @@ class Permission(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         default_topic = aws.sns.Topic("defaultTopic")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        default_role = aws.iam.Role("defaultRole", assume_role_policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "lambda.amazonaws.com",
+                },
+            }],
+        }))
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("lambdatest.zip"),
             role=default_role.arn,
@@ -115,6 +111,43 @@ class Permission(pulumi.CustomResource):
             function="MyDemoFunction",
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*/*/*"))
+        ```
+        ## Usage with CloudWatch log group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
+        default_role = aws.iam.Role("defaultRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        logging_function = aws.lambda_.Function("loggingFunction",
+            code=pulumi.FileArchive("lamba_logging.zip"),
+            handler="exports.handler",
+            role=default_role.arn,
+            runtime="python2.7")
+        logging_permission = aws.lambda_.Permission("loggingPermission",
+            action="lambda:InvokeFunction",
+            function=logging_function.name,
+            principal="logs.eu-west-1.amazonaws.com",
+            source_arn=default_log_group.arn.apply(lambda arn: f"{arn}:*"))
+        logging_log_subscription_filter = aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter",
+            destination_arn=logging_function.arn,
+            filter_pattern="",
+            log_group=default_log_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
         ```
 
         ## Import

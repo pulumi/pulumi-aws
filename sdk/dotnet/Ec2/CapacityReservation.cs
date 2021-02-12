@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the AWS account that owns the Capacity Reservation.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -301,6 +307,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceType")]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The ID of the AWS account that owns the Capacity Reservation.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

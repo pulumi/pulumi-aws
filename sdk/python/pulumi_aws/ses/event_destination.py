@@ -132,6 +132,7 @@ class EventDestination(pulumi.CustomResource):
             __props__['matching_types'] = matching_types
             __props__['name'] = name
             __props__['sns_destination'] = sns_destination
+            __props__['arn'] = None
         super(EventDestination, __self__).__init__(
             'aws:ses/eventDestination:EventDestination',
             resource_name,
@@ -142,6 +143,7 @@ class EventDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]]] = None,
             configuration_set_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -156,6 +158,7 @@ class EventDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The SES event destination ARN.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]] cloudwatch_destinations: CloudWatch destination for the events
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set
         :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
@@ -168,6 +171,7 @@ class EventDestination(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["cloudwatch_destinations"] = cloudwatch_destinations
         __props__["configuration_set_name"] = configuration_set_name
         __props__["enabled"] = enabled
@@ -176,6 +180,14 @@ class EventDestination(pulumi.CustomResource):
         __props__["name"] = name
         __props__["sns_destination"] = sns_destination
         return EventDestination(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The SES event destination ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cloudwatchDestinations")

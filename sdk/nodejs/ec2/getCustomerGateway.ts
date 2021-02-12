@@ -78,6 +78,10 @@ export interface GetCustomerGatewayResult {
      * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;
+    /**
+     * (Optional) A name for the customer gateway device.
+     */
+    readonly deviceName: string;
     readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
     readonly id: string;
     /**

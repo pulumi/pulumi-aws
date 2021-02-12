@@ -1338,12 +1338,16 @@ func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) 
 }
 
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
+	// Configuration options for sending command output to CloudWatch Logs. Documented below.
+	CloudwatchConfig *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig `pulumi:"cloudwatchConfig"`
 	// Information about the command(s) to execute.
 	Comment *string `pulumi:"comment"`
 	// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 	DocumentHash *string `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType *string `pulumi:"documentHashType"`
+	// The version of an Automation document to use during task execution.
+	DocumentVersion *string `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -1370,12 +1374,16 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput inte
 }
 
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struct {
+	// Configuration options for sending command output to CloudWatch Logs. Documented below.
+	CloudwatchConfig MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
 	// Information about the command(s) to execute.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 	DocumentHash pulumi.StringPtrInput `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType pulumi.StringPtrInput `pulumi:"documentHashType"`
+	// The version of an Automation document to use during task execution.
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -1467,6 +1475,13 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput)
 }
 
+// Configuration options for sending command output to CloudWatch Logs. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) CloudwatchConfig() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+		return v.CloudwatchConfig
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
+}
+
 // Information about the command(s) to execute.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string { return v.Comment }).(pulumi.StringPtrOutput)
@@ -1483,6 +1498,13 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentHashType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		return v.DocumentHashType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of an Automation document to use during task execution.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
+		return v.DocumentVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1548,6 +1570,16 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 }
 
+// Configuration options for sending command output to CloudWatch Logs. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) CloudwatchConfig() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchConfig
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
+}
+
 // Information about the command(s) to execute.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
@@ -1575,6 +1607,16 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 			return nil
 		}
 		return v.DocumentHashType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of an Automation document to use during task execution.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1636,6 +1678,162 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 		}
 		return v.TimeoutSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig struct {
+	// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+	CloudwatchLogGroupName *string `pulumi:"cloudwatchLogGroupName"`
+	// Enables Systems Manager to send command output to CloudWatch Logs.
+	CloudwatchOutputEnabled *bool `pulumi:"cloudwatchOutputEnabled"`
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs{...}
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs struct {
+	// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+	CloudwatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudwatchLogGroupName"`
+	// Enables Systems Manager to send command output to CloudWatch Logs.
+	CloudwatchOutputEnabled pulumi.BoolPtrInput `pulumi:"cloudwatchOutputEnabled"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput)
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput).ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs, MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtr and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput
+}
+
+type maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs
+
+func MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtr(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrInput {
+	return (*maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType)(v)
+}
+
+func (*maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+		return &v
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
+}
+
+// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) CloudwatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *string {
+		return v.CloudwatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables Systems Manager to send command output to CloudWatch Logs.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) CloudwatchOutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *bool {
+		return v.CloudwatchOutputEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+		return *v
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput)
+}
+
+// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) CloudwatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables Systems Manager to send command output to CloudWatch Logs.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) CloudwatchOutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchOutputEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig struct {
@@ -2078,8 +2276,10 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrO
 }
 
 type PatchBaselineApprovalRule struct {
-	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-	ApproveAfterDays int `pulumi:"approveAfterDays"`
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`
+	ApproveAfterDays *int `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+	ApproveUntilDate *string `pulumi:"approveUntilDate"`
 	// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ComplianceLevel *string `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
@@ -2100,8 +2300,10 @@ type PatchBaselineApprovalRuleInput interface {
 }
 
 type PatchBaselineApprovalRuleArgs struct {
-	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-	ApproveAfterDays pulumi.IntInput `pulumi:"approveAfterDays"`
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`
+	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
 	// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 	ComplianceLevel pulumi.StringPtrInput `pulumi:"complianceLevel"`
 	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
@@ -2161,9 +2363,14 @@ func (o PatchBaselineApprovalRuleOutput) ToPatchBaselineApprovalRuleOutputWithCo
 	return o
 }
 
-// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-func (o PatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v PatchBaselineApprovalRule) int { return v.ApproveAfterDays }).(pulumi.IntOutput)
+// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`
+func (o PatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PatchBaselineApprovalRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
+}
+
+// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+func (o PatchBaselineApprovalRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselineApprovalRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }
 
 // Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
@@ -2401,6 +2608,121 @@ func (o PatchBaselineGlobalFilterArrayOutput) Index(i pulumi.IntInput) PatchBase
 	}).(PatchBaselineGlobalFilterOutput)
 }
 
+type PatchBaselineSource struct {
+	// The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+	Configuration string `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name string `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+	Products []string `pulumi:"products"`
+}
+
+// PatchBaselineSourceInput is an input type that accepts PatchBaselineSourceArgs and PatchBaselineSourceOutput values.
+// You can construct a concrete instance of `PatchBaselineSourceInput` via:
+//
+//          PatchBaselineSourceArgs{...}
+type PatchBaselineSourceInput interface {
+	pulumi.Input
+
+	ToPatchBaselineSourceOutput() PatchBaselineSourceOutput
+	ToPatchBaselineSourceOutputWithContext(context.Context) PatchBaselineSourceOutput
+}
+
+type PatchBaselineSourceArgs struct {
+	// The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+	Configuration pulumi.StringInput `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+	Products pulumi.StringArrayInput `pulumi:"products"`
+}
+
+func (PatchBaselineSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineSource)(nil)).Elem()
+}
+
+func (i PatchBaselineSourceArgs) ToPatchBaselineSourceOutput() PatchBaselineSourceOutput {
+	return i.ToPatchBaselineSourceOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineSourceArgs) ToPatchBaselineSourceOutputWithContext(ctx context.Context) PatchBaselineSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineSourceOutput)
+}
+
+// PatchBaselineSourceArrayInput is an input type that accepts PatchBaselineSourceArray and PatchBaselineSourceArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineSourceArrayInput` via:
+//
+//          PatchBaselineSourceArray{ PatchBaselineSourceArgs{...} }
+type PatchBaselineSourceArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineSourceArrayOutput() PatchBaselineSourceArrayOutput
+	ToPatchBaselineSourceArrayOutputWithContext(context.Context) PatchBaselineSourceArrayOutput
+}
+
+type PatchBaselineSourceArray []PatchBaselineSourceInput
+
+func (PatchBaselineSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineSource)(nil)).Elem()
+}
+
+func (i PatchBaselineSourceArray) ToPatchBaselineSourceArrayOutput() PatchBaselineSourceArrayOutput {
+	return i.ToPatchBaselineSourceArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineSourceArray) ToPatchBaselineSourceArrayOutputWithContext(ctx context.Context) PatchBaselineSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineSourceArrayOutput)
+}
+
+type PatchBaselineSourceOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineSource)(nil)).Elem()
+}
+
+func (o PatchBaselineSourceOutput) ToPatchBaselineSourceOutput() PatchBaselineSourceOutput {
+	return o
+}
+
+func (o PatchBaselineSourceOutput) ToPatchBaselineSourceOutputWithContext(ctx context.Context) PatchBaselineSourceOutput {
+	return o
+}
+
+// The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+func (o PatchBaselineSourceOutput) Configuration() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchBaselineSource) string { return v.Configuration }).(pulumi.StringOutput)
+}
+
+// The name specified to identify the patch source.
+func (o PatchBaselineSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchBaselineSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+func (o PatchBaselineSourceOutput) Products() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PatchBaselineSource) []string { return v.Products }).(pulumi.StringArrayOutput)
+}
+
+type PatchBaselineSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineSource)(nil)).Elem()
+}
+
+func (o PatchBaselineSourceArrayOutput) ToPatchBaselineSourceArrayOutput() PatchBaselineSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselineSourceArrayOutput) ToPatchBaselineSourceArrayOutputWithContext(ctx context.Context) PatchBaselineSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) PatchBaselineSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineSource {
+		return vs[0].([]PatchBaselineSource)[vs[1].(int)]
+	}).(PatchBaselineSourceOutput)
+}
+
 type ResourceDataSyncS3Destination struct {
 	// Name of S3 bucket where the aggregated data is stored.
 	BucketName string `pulumi:"bucketName"`
@@ -2631,6 +2953,8 @@ func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput{})
@@ -2643,6 +2967,8 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselineApprovalRulePatchFilterArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselineGlobalFilterOutput{})
 	pulumi.RegisterOutputType(PatchBaselineGlobalFilterArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselineSourceOutput{})
+	pulumi.RegisterOutputType(PatchBaselineSourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
 }

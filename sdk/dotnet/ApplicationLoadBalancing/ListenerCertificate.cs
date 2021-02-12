@@ -47,6 +47,14 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Listener Certificates can be imported using their id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:applicationloadbalancing/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+    /// ```
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate")]
     [AwsResourceType("aws:applicationloadbalancing/listenerCertificate:ListenerCertificate")]

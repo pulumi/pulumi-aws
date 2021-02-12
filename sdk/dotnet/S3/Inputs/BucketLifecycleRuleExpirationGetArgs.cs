@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
+        /// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         /// </summary>
         [Input("expiredObjectDeleteMarker")]
         public Input<bool>? ExpiredObjectDeleteMarker { get; set; }

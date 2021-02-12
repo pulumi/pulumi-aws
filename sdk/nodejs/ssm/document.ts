@@ -194,6 +194,10 @@ export class Document extends pulumi.CustomResource {
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
+    /**
+     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     */
+    public readonly versionName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -228,6 +232,7 @@ export class Document extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["targetType"] = state ? state.targetType : undefined;
+            inputs["versionName"] = state ? state.versionName : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
             if ((!args || args.content === undefined) && !(opts && opts.urn)) {
@@ -244,6 +249,7 @@ export class Document extends pulumi.CustomResource {
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
+            inputs["versionName"] = args ? args.versionName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
@@ -354,6 +360,10 @@ export interface DocumentState {
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
     readonly targetType?: pulumi.Input<string>;
+    /**
+     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     */
+    readonly versionName?: pulumi.Input<string>;
 }
 
 /**
@@ -392,4 +402,8 @@ export interface DocumentArgs {
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
     readonly targetType?: pulumi.Input<string>;
+    /**
+     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     */
+    readonly versionName?: pulumi.Input<string>;
 }

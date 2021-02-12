@@ -143,10 +143,7 @@ class FunctionDeadLetterConfigArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] target_arn: The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-               option is used, the function's IAM role must be granted suitable access to write to the target object,
-               which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-               which service is targeted.
+        :param pulumi.Input[str] target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
         pulumi.set(__self__, "target_arn", target_arn)
 
@@ -154,10 +151,7 @@ class FunctionDeadLetterConfigArgs:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-        option is used, the function's IAM role must be granted suitable access to write to the target object,
-        which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-        which service is targeted.
+        ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
         return pulumi.get(self, "target_arn")
 
@@ -171,7 +165,7 @@ class FunctionEnvironmentArgs:
     def __init__(__self__, *,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines environment variables for the Lambda function.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map of environment variables that are accessible from the function code during execution.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -180,7 +174,7 @@ class FunctionEnvironmentArgs:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map that defines environment variables for the Lambda function.
+        Map of environment variables that are accessible from the function code during execution.
         """
         return pulumi.get(self, "variables")
 
@@ -278,8 +272,8 @@ class FunctionFileSystemConfigArgs:
                  arn: pulumi.Input[str],
                  local_mount_path: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param pulumi.Input[str] local_mount_path: The path where the function can access the file system, starting with /mnt/.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        :param pulumi.Input[str] local_mount_path: Path where the function can access the file system, starting with /mnt/.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -288,7 +282,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -300,7 +294,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> pulumi.Input[str]:
         """
-        The path where the function can access the file system, starting with /mnt/.
+        Path where the function can access the file system, starting with /mnt/.
         """
         return pulumi.get(self, "local_mount_path")
 
@@ -316,9 +310,9 @@ class FunctionImageConfigArgs:
                  entry_points: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The CMD for the docker image.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_points: The ENTRYPOINT for the docker image.
-        :param pulumi.Input[str] working_directory: The working directory for the docker image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Parameters that you want to pass in with `entry_point`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_points: Entry point to your application, which is typically the location of the runtime executable.
+        :param pulumi.Input[str] working_directory: Working directory.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -331,7 +325,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter
     def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The CMD for the docker image.
+        Parameters that you want to pass in with `entry_point`.
         """
         return pulumi.get(self, "commands")
 
@@ -343,7 +337,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The ENTRYPOINT for the docker image.
+        Entry point to your application, which is typically the location of the runtime executable.
         """
         return pulumi.get(self, "entry_points")
 
@@ -355,7 +349,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        The working directory for the docker image.
+        Working directory.
         """
         return pulumi.get(self, "working_directory")
 
@@ -369,11 +363,7 @@ class FunctionTracingConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] mode: Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-               the request from an upstream service if it contains a tracing header with
-               "sampled=1". If Active, Lambda will respect any tracing header it receives
-               from an upstream service. If no tracing header is received, Lambda will call
-               X-Ray for a tracing decision.
+        :param pulumi.Input[str] mode: Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         """
         pulumi.set(__self__, "mode", mode)
 
@@ -381,11 +371,7 @@ class FunctionTracingConfigArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
         """
-        Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-        the request from an upstream service if it contains a tracing header with
-        "sampled=1". If Active, Lambda will respect any tracing header it receives
-        from an upstream service. If no tracing header is received, Lambda will call
-        X-Ray for a tracing decision.
+        Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         """
         return pulumi.get(self, "mode")
 
@@ -401,8 +387,8 @@ class FunctionVpcConfigArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with the Lambda function.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the Lambda function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs associated with the Lambda function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs associated with the Lambda function.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -413,7 +399,7 @@ class FunctionVpcConfigArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of security group IDs associated with the Lambda function.
+        List of security group IDs associated with the Lambda function.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -425,7 +411,7 @@ class FunctionVpcConfigArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of subnet IDs associated with the Lambda function.
+        List of subnet IDs associated with the Lambda function.
         """
         return pulumi.get(self, "subnet_ids")
 

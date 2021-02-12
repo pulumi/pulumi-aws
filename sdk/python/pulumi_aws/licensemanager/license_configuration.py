@@ -102,6 +102,8 @@ class LicenseConfiguration(pulumi.CustomResource):
             __props__['license_rules'] = license_rules
             __props__['name'] = name
             __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['owner_account_id'] = None
         super(LicenseConfiguration, __self__).__init__(
             'aws:licensemanager/licenseConfiguration:LicenseConfiguration',
             resource_name,
@@ -112,12 +114,14 @@ class LicenseConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             license_count: Optional[pulumi.Input[int]] = None,
             license_count_hard_limit: Optional[pulumi.Input[bool]] = None,
             license_counting_type: Optional[pulumi.Input[str]] = None,
             license_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            owner_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LicenseConfiguration':
         """
         Get an existing LicenseConfiguration resource's state with the given name, id, and optional extra
@@ -126,26 +130,38 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The license configuration ARN.
         :param pulumi.Input[str] description: Description of the license configuration.
         :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
         :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
+        :param pulumi.Input[str] owner_account_id: Account ID of the owner of the license configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["license_count"] = license_count
         __props__["license_count_hard_limit"] = license_count_hard_limit
         __props__["license_counting_type"] = license_counting_type
         __props__["license_rules"] = license_rules
         __props__["name"] = name
+        __props__["owner_account_id"] = owner_account_id
         __props__["tags"] = tags
         return LicenseConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The license configuration ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -194,6 +210,14 @@ class LicenseConfiguration(pulumi.CustomResource):
         Name of the license configuration.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownerAccountId")
+    def owner_account_id(self) -> pulumi.Output[str]:
+        """
+        Account ID of the owner of the license configuration.
+        """
+        return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter

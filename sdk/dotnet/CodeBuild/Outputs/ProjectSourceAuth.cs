@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectSourceAuth
     {
         /// <summary>
-        /// The resource value that applies to the specified authorization type.
+        /// Resource value that applies to the specified authorization type.
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// The authorization type to use. The only valid value is `OAUTH`
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         public readonly string Type;
 

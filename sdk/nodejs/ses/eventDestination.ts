@@ -104,6 +104,10 @@ export class EventDestination extends pulumi.CustomResource {
     }
 
     /**
+     * The SES event destination ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * CloudWatch destination for the events
      */
     public readonly cloudwatchDestinations!: pulumi.Output<outputs.ses.EventDestinationCloudwatchDestination[] | undefined>;
@@ -144,6 +148,7 @@ export class EventDestination extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventDestinationState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
             inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -166,6 +171,7 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["matchingTypes"] = args ? args.matchingTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["snsDestination"] = args ? args.snsDestination : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -182,6 +188,10 @@ export class EventDestination extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventDestination resources.
  */
 export interface EventDestinationState {
+    /**
+     * The SES event destination ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * CloudWatch destination for the events
      */

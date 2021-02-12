@@ -154,6 +154,7 @@ import * as ssm from "./ssm";
 import * as ssoadmin from "./ssoadmin";
 import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
+import * as synthetics from "./synthetics";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as waf from "./waf";
@@ -287,6 +288,7 @@ export {
     ssoadmin,
     storagegateway,
     swf,
+    synthetics,
     transfer,
     types,
     waf,

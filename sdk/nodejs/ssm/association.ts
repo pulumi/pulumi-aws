@@ -57,6 +57,10 @@ export class Association extends pulumi.CustomResource {
     }
 
     /**
+     * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+     */
+    public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the SSM association.
      */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class Association extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AssociationState | undefined;
+            inputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["associationName"] = state ? state.associationName : undefined;
             inputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
@@ -136,6 +141,7 @@ export class Association extends pulumi.CustomResource {
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
+            inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
             inputs["associationName"] = args ? args.associationName : undefined;
             inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
             inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
@@ -165,6 +171,10 @@ export class Association extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Association resources.
  */
 export interface AssociationState {
+    /**
+     * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+     */
+    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * The ID of the SSM association.
      */
@@ -223,6 +233,10 @@ export interface AssociationState {
  * The set of arguments for constructing a Association resource.
  */
 export interface AssociationArgs {
+    /**
+     * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+     */
+    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * The descriptive name for the association.
      */

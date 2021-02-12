@@ -61,19 +61,19 @@ namespace Pulumi.Aws.Iam
     public partial class InstanceProfile : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS to the instance profile.
+        /// ARN assigned by AWS to the instance profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The creation timestamp of the instance profile.
+        /// Creation timestamp of the instance profile.
         /// </summary>
         [Output("createDate")]
         public Output<string> CreateDate { get; private set; } = null!;
 
         /// <summary>
-        /// The profile's name. If omitted, this provider will assign a random, unique name.
+        /// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -85,19 +85,19 @@ namespace Pulumi.Aws.Iam
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Path in which to create the profile.
+        /// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// The role name to include in the profile.
+        /// Name of the role to add to the profile.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The [unique ID][1] assigned by AWS.
+        /// [Unique ID][1] assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Iam
     public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The profile's name. If omitted, this provider will assign a random, unique name.
+        /// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.Iam
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Path in which to create the profile.
+        /// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The role name to include in the profile.
+        /// Name of the role to add to the profile.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -180,19 +180,19 @@ namespace Pulumi.Aws.Iam
     public sealed class InstanceProfileState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS to the instance profile.
+        /// ARN assigned by AWS to the instance profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The creation timestamp of the instance profile.
+        /// Creation timestamp of the instance profile.
         /// </summary>
         [Input("createDate")]
         public Input<string>? CreateDate { get; set; }
 
         /// <summary>
-        /// The profile's name. If omitted, this provider will assign a random, unique name.
+        /// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -204,19 +204,19 @@ namespace Pulumi.Aws.Iam
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Path in which to create the profile.
+        /// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The role name to include in the profile.
+        /// Name of the role to add to the profile.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The [unique ID][1] assigned by AWS.
+        /// [Unique ID][1] assigned by AWS.
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }

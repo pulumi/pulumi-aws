@@ -11,6 +11,7 @@ from .. import _utilities, _tables
 __all__ = [
     'ConfigurationAggregatorAccountAggregationSourceArgs',
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
+    'ConformancePackInputParameterArgs',
     'DeliveryChannelSnapshotDeliveryPropertiesArgs',
     'RecorderRecordingGroupArgs',
     'RemediationConfigurationParameterArgs',
@@ -128,6 +129,43 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
 
 
 @pulumi.input_type
+class ConformancePackInputParameterArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[str],
+                 parameter_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parameter_name: The input key.
+        :param pulumi.Input[str] parameter_value: The input value.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[str]:
+        """
+        The input key.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[str]:
+        """
+        The input value.
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
 class DeliveryChannelSnapshotDeliveryPropertiesArgs:
     def __init__(__self__, *,
                  delivery_frequency: Optional[pulumi.Input[str]] = None):
@@ -159,7 +197,7 @@ class RecorderRecordingGroupArgs:
         """
         :param pulumi.Input[bool] all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
         :param pulumi.Input[bool] include_global_resource_types: Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         if all_supported is not None:
             pulumi.set(__self__, "all_supported", all_supported)
@@ -196,7 +234,7 @@ class RecorderRecordingGroupArgs:
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         return pulumi.get(self, "resource_types")
 
