@@ -14,107 +14,6 @@ import (
 // Provides an SSM Maintenance Window Task resource
 //
 // ## Example Usage
-// ### Run Command Tasks
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-// 			MaxConcurrency: pulumi.String("2"),
-// 			MaxErrors:      pulumi.String("1"),
-// 			Priority:       pulumi.Int(1),
-// 			ServiceRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			TaskArn:        pulumi.String("AWS-RunShellScript"),
-// 			TaskType:       pulumi.String("RUN_COMMAND"),
-// 			WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
-// 			Targets: ssm.MaintenanceWindowTaskTargetArray{
-// 				&ssm.MaintenanceWindowTaskTargetArgs{
-// 					Key: pulumi.String("InstanceIds"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.Any(aws_instance.Example.Id),
-// 					},
-// 				},
-// 			},
-// 			TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-// 				RunCommandParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{
-// 					OutputS3Bucket:    pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 					OutputS3KeyPrefix: pulumi.String("output"),
-// 					ServiceRoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
-// 					TimeoutSeconds:    pulumi.Int(600),
-// 					NotificationConfig: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{
-// 						NotificationArn: pulumi.Any(aws_sns_topic.Example.Arn),
-// 						NotificationEvents: pulumi.StringArray{
-// 							pulumi.String("All"),
-// 						},
-// 						NotificationType: pulumi.String("Command"),
-// 					},
-// 					Parameters: ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray{
-// 						&ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{
-// 							Name: pulumi.String("commands"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("date"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Step Function Tasks
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-// 			MaxConcurrency: pulumi.String("2"),
-// 			MaxErrors:      pulumi.String("1"),
-// 			Priority:       pulumi.Int(1),
-// 			ServiceRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			TaskArn:        pulumi.Any(aws_sfn_activity.Example.Id),
-// 			TaskType:       pulumi.String("STEP_FUNCTIONS"),
-// 			WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
-// 			Targets: ssm.MaintenanceWindowTaskTargetArray{
-// 				&ssm.MaintenanceWindowTaskTargetArgs{
-// 					Key: pulumi.String("InstanceIds"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.Any(aws_instance.Example.Id),
-// 					},
-// 				},
-// 			},
-// 			TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-// 				StepFunctionsParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{
-// 					Input: pulumi.String("{\"key1\":\"value1\"}"),
-// 					Name:  pulumi.String("example"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 //
 // ## Import
 //
@@ -136,7 +35,7 @@ type MaintenanceWindowTask struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The role that should be assumed when executing the task.
+	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayOutput `pulumi:"targets"`
@@ -162,12 +61,6 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	}
 	if args.MaxErrors == nil {
 		return nil, errors.New("invalid value for required argument 'MaxErrors'")
-	}
-	if args.ServiceRoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
-	}
-	if args.Targets == nil {
-		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
 	if args.TaskArn == nil {
 		return nil, errors.New("invalid value for required argument 'TaskArn'")
@@ -210,7 +103,7 @@ type maintenanceWindowTaskState struct {
 	Name *string `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority *int `pulumi:"priority"`
-	// The role that should be assumed when executing the task.
+	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
@@ -235,7 +128,7 @@ type MaintenanceWindowTaskState struct {
 	Name pulumi.StringPtrInput
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrInput
-	// The role that should be assumed when executing the task.
+	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn pulumi.StringPtrInput
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput
@@ -264,8 +157,8 @@ type maintenanceWindowTaskArgs struct {
 	Name *string `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority *int `pulumi:"priority"`
-	// The role that should be assumed when executing the task.
-	ServiceRoleArn string `pulumi:"serviceRoleArn"`
+	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
 	// The ARN of the task to execute.
@@ -290,8 +183,8 @@ type MaintenanceWindowTaskArgs struct {
 	Name pulumi.StringPtrInput
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrInput
-	// The role that should be assumed when executing the task.
-	ServiceRoleArn pulumi.StringInput
+	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+	ServiceRoleArn pulumi.StringPtrInput
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput
 	// The ARN of the task to execute.

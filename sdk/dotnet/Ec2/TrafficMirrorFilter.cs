@@ -50,6 +50,12 @@ namespace Pulumi.Aws.Ec2
     public partial class TrafficMirrorFilter : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the traffic mirror filter.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the filter.
         /// </summary>
         [Output("description")]
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TrafficMirrorFilterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the traffic mirror filter.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A description of the filter.
         /// </summary>

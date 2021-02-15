@@ -14,6 +14,54 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleAmi = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Owners = 
+    ///             {
+    ///                 "amazon",
+    ///             },
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "amzn-ami-vpc-nat*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = exampleAmi.Apply(exampleAmi =&gt; exampleAmi.Id),
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///         var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new Aws.LicenseManager.LicenseConfigurationArgs
+    ///         {
+    ///             LicenseCountingType = "Instance",
+    ///         });
+    ///         var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new Aws.LicenseManager.AssociationArgs
+    ///         {
+    ///             LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
+    ///             ResourceArn = exampleInstance.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.

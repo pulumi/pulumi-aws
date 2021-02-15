@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
-    /// in the current region.
+    /// Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
     /// 
-    /// The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that
-    /// this provider does not _create_ this resource, but instead "adopts" it
-    /// into management.
+    /// The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+    /// 
+    /// The `aws.ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
     /// 
     /// ## Example Usage
-    /// 
-    /// Basic usage with tags:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -41,16 +38,34 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Subnets can be imported using the `subnet id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
     public partial class DefaultSubnet : Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN for the subnet.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether IPv6 addresses are assigned on creation.
+        /// * `availability_zone_id`- AZ ID of the subnet.
+        /// </summary>
         [Output("assignIpv6AddressOnCreation")]
         public Output<bool> AssignIpv6AddressOnCreation { get; private set; } = null!;
 
+        /// <summary>
+        /// AZ for the subnet.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
@@ -58,7 +73,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The CIDR block for the subnet.
+        /// CIDR block for the subnet.
         /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
@@ -67,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block.
         /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
@@ -79,9 +94,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> MapCustomerOwnedIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
-        /// Specify true to indicate
-        /// that instances launched into the subnet should be assigned
-        /// a public IP address.
+        /// Whether instances launched into the subnet should be assigned a public IP address.
         /// </summary>
         [Output("mapPublicIpOnLaunch")]
         public Output<bool> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -90,19 +103,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS account that owns the subnet.
+        /// ID of the AWS account that owns the subnet.
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID.
+        /// VPC ID.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -153,6 +166,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSubnetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AZ for the subnet.
+        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
@@ -163,9 +179,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
         /// <summary>
-        /// Specify true to indicate
-        /// that instances launched into the subnet should be assigned
-        /// a public IP address.
+        /// Whether instances launched into the subnet should be assigned a public IP address.
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
@@ -177,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -192,12 +206,22 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSubnetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN for the subnet.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether IPv6 addresses are assigned on creation.
+        /// * `availability_zone_id`- AZ ID of the subnet.
+        /// </summary>
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
+        /// <summary>
+        /// AZ for the subnet.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
@@ -205,7 +229,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The CIDR block for the subnet.
+        /// CIDR block for the subnet.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -214,7 +238,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
@@ -226,9 +250,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
         /// <summary>
-        /// Specify true to indicate
-        /// that instances launched into the subnet should be assigned
-        /// a public IP address.
+        /// Whether instances launched into the subnet should be assigned a public IP address.
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
@@ -237,7 +259,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The ID of the AWS account that owns the subnet.
+        /// ID of the AWS account that owns the subnet.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
@@ -246,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC ID.
+        /// VPC ID.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

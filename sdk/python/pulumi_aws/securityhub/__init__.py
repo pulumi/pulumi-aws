@@ -6,6 +6,7 @@
 from .account import *
 from .action_target import *
 from .member import *
+from .organization_admin_account import *
 from .product_subscription import *
 from .standards_subscription import *
 
@@ -27,6 +28,8 @@ def _register_module():
                 return ActionTarget(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/member:Member":
                 return Member(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
+                return OrganizationAdminAccount(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/productSubscription:ProductSubscription":
                 return ProductSubscription(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/standardsSubscription:StandardsSubscription":
@@ -39,6 +42,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "securityhub/account", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/actionTarget", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/member", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/organizationAdminAccount", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/productSubscription", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/standardsSubscription", _module_instance)
 

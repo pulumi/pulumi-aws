@@ -146,10 +146,7 @@ class FunctionDeadLetterConfig(dict):
     def __init__(__self__, *,
                  target_arn: str):
         """
-        :param str target_arn: The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-               option is used, the function's IAM role must be granted suitable access to write to the target object,
-               which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-               which service is targeted.
+        :param str target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
         pulumi.set(__self__, "target_arn", target_arn)
 
@@ -157,10 +154,7 @@ class FunctionDeadLetterConfig(dict):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> str:
         """
-        The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-        option is used, the function's IAM role must be granted suitable access to write to the target object,
-        which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-        which service is targeted.
+        ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
         return pulumi.get(self, "target_arn")
 
@@ -173,7 +167,7 @@ class FunctionEnvironment(dict):
     def __init__(__self__, *,
                  variables: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] variables: A map that defines environment variables for the Lambda function.
+        :param Mapping[str, str] variables: Map of environment variables that are accessible from the function code during execution.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -182,7 +176,7 @@ class FunctionEnvironment(dict):
     @pulumi.getter
     def variables(self) -> Optional[Mapping[str, str]]:
         """
-        A map that defines environment variables for the Lambda function.
+        Map of environment variables that are accessible from the function code during execution.
         """
         return pulumi.get(self, "variables")
 
@@ -272,8 +266,8 @@ class FunctionFileSystemConfig(dict):
                  arn: str,
                  local_mount_path: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param str local_mount_path: The path where the function can access the file system, starting with /mnt/.
+        :param str arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        :param str local_mount_path: Path where the function can access the file system, starting with /mnt/.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -282,7 +276,7 @@ class FunctionFileSystemConfig(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+        Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -290,7 +284,7 @@ class FunctionFileSystemConfig(dict):
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> str:
         """
-        The path where the function can access the file system, starting with /mnt/.
+        Path where the function can access the file system, starting with /mnt/.
         """
         return pulumi.get(self, "local_mount_path")
 
@@ -305,9 +299,9 @@ class FunctionImageConfig(dict):
                  entry_points: Optional[Sequence[str]] = None,
                  working_directory: Optional[str] = None):
         """
-        :param Sequence[str] commands: The CMD for the docker image.
-        :param Sequence[str] entry_points: The ENTRYPOINT for the docker image.
-        :param str working_directory: The working directory for the docker image.
+        :param Sequence[str] commands: Parameters that you want to pass in with `entry_point`.
+        :param Sequence[str] entry_points: Entry point to your application, which is typically the location of the runtime executable.
+        :param str working_directory: Working directory.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -320,7 +314,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter
     def commands(self) -> Optional[Sequence[str]]:
         """
-        The CMD for the docker image.
+        Parameters that you want to pass in with `entry_point`.
         """
         return pulumi.get(self, "commands")
 
@@ -328,7 +322,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Optional[Sequence[str]]:
         """
-        The ENTRYPOINT for the docker image.
+        Entry point to your application, which is typically the location of the runtime executable.
         """
         return pulumi.get(self, "entry_points")
 
@@ -336,7 +330,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[str]:
         """
-        The working directory for the docker image.
+        Working directory.
         """
         return pulumi.get(self, "working_directory")
 
@@ -349,11 +343,7 @@ class FunctionTracingConfig(dict):
     def __init__(__self__, *,
                  mode: str):
         """
-        :param str mode: Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-               the request from an upstream service if it contains a tracing header with
-               "sampled=1". If Active, Lambda will respect any tracing header it receives
-               from an upstream service. If no tracing header is received, Lambda will call
-               X-Ray for a tracing decision.
+        :param str mode: Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         """
         pulumi.set(__self__, "mode", mode)
 
@@ -361,11 +351,7 @@ class FunctionTracingConfig(dict):
     @pulumi.getter
     def mode(self) -> str:
         """
-        Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-        the request from an upstream service if it contains a tracing header with
-        "sampled=1". If Active, Lambda will respect any tracing header it receives
-        from an upstream service. If no tracing header is received, Lambda will call
-        X-Ray for a tracing decision.
+        Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         """
         return pulumi.get(self, "mode")
 
@@ -380,8 +366,8 @@ class FunctionVpcConfig(dict):
                  subnet_ids: Sequence[str],
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence[str] security_group_ids: A list of security group IDs associated with the Lambda function.
-        :param Sequence[str] subnet_ids: A list of subnet IDs associated with the Lambda function.
+        :param Sequence[str] security_group_ids: List of security group IDs associated with the Lambda function.
+        :param Sequence[str] subnet_ids: List of subnet IDs associated with the Lambda function.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -392,7 +378,7 @@ class FunctionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        A list of security group IDs associated with the Lambda function.
+        List of security group IDs associated with the Lambda function.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -400,7 +386,7 @@ class FunctionVpcConfig(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        A list of subnet IDs associated with the Lambda function.
+        List of subnet IDs associated with the Lambda function.
         """
         return pulumi.get(self, "subnet_ids")
 

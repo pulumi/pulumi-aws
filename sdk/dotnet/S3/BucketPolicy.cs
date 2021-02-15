@@ -16,6 +16,8 @@ namespace Pulumi.Aws.S3
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -29,23 +31,40 @@ namespace Pulumi.Aws.S3
     ///         var bucketPolicy = new Aws.S3.BucketPolicy("bucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {
     ///             Bucket = bucket.Id,
-    ///             Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""MYBUCKETPOLICY"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": ""IPAllow"",
-    ///       ""Effect"": ""Deny"",
-    ///       ""Principal"": ""*"",
-    ///       ""Action"": ""s3:*"",
-    ///       ""Resource"": ""arn:aws:s3:::my_tf_test_bucket/*"",
-    ///       ""Condition"": {
-    ///          ""IpAddress"": {""aws:SourceIp"": ""8.8.8.8/32""}
-    ///       }
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
+    ///             {
+    ///                 var bucketArn = values.Item1;
+    ///                 var bucketArn1 = values.Item2;
+    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "Version", "2012-10-17" },
+    ///                     { "Id", "MYBUCKETPOLICY" },
+    ///                     { "Statement", new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Sid", "IPAllow" },
+    ///                                 { "Effect", "Deny" },
+    ///                                 { "Principal", "*" },
+    ///                                 { "Action", "s3:*" },
+    ///                                 { "Resource", new[]
+    ///                                     {
+    ///                                         bucketArn,
+    ///                                         $"{bucketArn1}/*",
+    ///                                     }
+    ///                                  },
+    ///                                 { "Condition", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "IPAddress", new Dictionary&lt;string, object?&gt;
+    ///                                     {
+    ///                                         { "aws:SourceIp", "8.8.8.8/32" },
+    ///                                     } },
+    ///                                 } },
+    ///                             },
+    ///                         }
+    ///                      },
+    ///                 });
+    ///             }),
     ///         });
     ///     }
     /// 
@@ -70,7 +89,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The text of the policy.
+        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -128,7 +147,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The text of the policy.
+        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -147,7 +166,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The text of the policy.
+        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

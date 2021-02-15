@@ -69,6 +69,8 @@ type CapacityReservation struct {
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// The ID of the AWS account that owns the Capacity Reservation.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -136,6 +138,8 @@ type capacityReservationState struct {
 	InstancePlatform *string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
+	// The ID of the AWS account that owns the Capacity Reservation.
+	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -163,6 +167,8 @@ type CapacityReservationState struct {
 	InstancePlatform pulumi.StringPtrInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringPtrInput
+	// The ID of the AWS account that owns the Capacity Reservation.
+	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.

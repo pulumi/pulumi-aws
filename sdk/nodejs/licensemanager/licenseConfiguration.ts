@@ -75,6 +75,10 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The license configuration ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Description of the license configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -99,6 +103,10 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Account ID of the owner of the license configuration.
+     */
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,12 +123,14 @@ export class LicenseConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LicenseConfigurationState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["licenseCount"] = state ? state.licenseCount : undefined;
             inputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;
             inputs["licenseCountingType"] = state ? state.licenseCountingType : undefined;
             inputs["licenseRules"] = state ? state.licenseRules : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LicenseConfigurationArgs | undefined;
@@ -134,6 +144,8 @@ export class LicenseConfiguration extends pulumi.CustomResource {
             inputs["licenseRules"] = args ? args.licenseRules : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["ownerAccountId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -150,6 +162,10 @@ export class LicenseConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LicenseConfiguration resources.
  */
 export interface LicenseConfigurationState {
+    /**
+     * The license configuration ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Description of the license configuration.
      */
@@ -174,6 +190,10 @@ export interface LicenseConfigurationState {
      * Name of the license configuration.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Account ID of the owner of the license configuration.
+     */
+    readonly ownerAccountId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

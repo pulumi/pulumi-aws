@@ -26,19 +26,19 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
-    ///             AssumeRolePolicy = @"    {
-    ///       ""Version"": ""2012-10-17"",
-    ///       ""Statement"": [
-    ///         {
-    ///           ""Action"": ""sts:AssumeRole"",
-    ///           ""Principal"": {
-    ///             ""Service"": ""ec2.amazonaws.com""
-    ///           },
-    ///           ""Effect"": ""Allow"",
-    ///           ""Sid"": """"
-    ///         }
-    ///       ]
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""ec2.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
     ///     }
+    ///   ]
+    /// }
     /// ",
     ///         });
     ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs

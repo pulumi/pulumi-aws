@@ -20,6 +20,7 @@ import (
 // package main
 //
 // import (
+// 	"encoding/json"
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
@@ -34,7 +35,37 @@ import (
 // 		}
 // 		_, err = s3.NewBucketPolicy(ctx, "bucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: bucket.ID(),
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"MYBUCKETPOLICY\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"IPAllow\",\n", "      \"Effect\": \"Deny\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"s3:*\",\n", "      \"Resource\": \"arn:aws:s3:::my_tf_test_bucket/*\",\n", "      \"Condition\": {\n", "         \"IpAddress\": {\"aws:SourceIp\": \"8.8.8.8/32\"}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.All(bucket.Arn, bucket.Arn).ApplyT(func(_args []interface{}) (pulumi.String, error) {
+// 				bucketArn := _args[0].(string)
+// 				bucketArn1 := _args[1].(string)
+// 				var _zero pulumi.String
+// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 					"Version": "2012-10-17",
+// 					"Id":      "MYBUCKETPOLICY",
+// 					"Statement": []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"Sid":       "IPAllow",
+// 							"Effect":    "Deny",
+// 							"Principal": "*",
+// 							"Action":    "s3:*",
+// 							"Resource": []string{
+// 								bucketArn,
+// 								fmt.Sprintf("%v%v", bucketArn1, "/*"),
+// 							},
+// 							"Condition": map[string]interface{}{
+// 								"IPAddress": map[string]interface{}{
+// 									"aws:SourceIp": "8.8.8.8/32",
+// 								},
+// 							},
+// 						},
+// 					},
+// 				})
+// 				if err != nil {
+// 					return _zero, err
+// 				}
+// 				json0 := string(tmpJSON0)
+// 				return pulumi.String(json0), nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,7 +87,7 @@ type BucketPolicy struct {
 
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The text of the policy.
+	// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -97,14 +128,14 @@ func GetBucketPolicy(ctx *pulumi.Context,
 type bucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket *string `pulumi:"bucket"`
-	// The text of the policy.
+	// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
 	Policy *string `pulumi:"policy"`
 }
 
 type BucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringPtrInput
-	// The text of the policy.
+	// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.StringPtrInput
 }
 
@@ -115,7 +146,7 @@ func (BucketPolicyState) ElementType() reflect.Type {
 type bucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket string `pulumi:"bucket"`
-	// The text of the policy.
+	// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -123,7 +154,7 @@ type bucketPolicyArgs struct {
 type BucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringInput
-	// The text of the policy.
+	// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.Input
 }
 

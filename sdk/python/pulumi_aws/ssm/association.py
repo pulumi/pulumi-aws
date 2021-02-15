@@ -17,6 +17,7 @@ class Association(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
                  compliance_severity: Optional[pulumi.Input[str]] = None,
@@ -57,6 +58,7 @@ class Association(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
         :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
@@ -87,6 +89,7 @@ class Association(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['apply_only_at_cron_interval'] = apply_only_at_cron_interval
             __props__['association_name'] = association_name
             __props__['automation_target_parameter_name'] = automation_target_parameter_name
             __props__['compliance_severity'] = compliance_severity
@@ -110,6 +113,7 @@ class Association(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
             association_id: Optional[pulumi.Input[str]] = None,
             association_name: Optional[pulumi.Input[str]] = None,
             automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -130,6 +134,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_id: The ID of the SSM association.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
         :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
@@ -148,6 +153,7 @@ class Association(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
         __props__["association_id"] = association_id
         __props__["association_name"] = association_name
         __props__["automation_target_parameter_name"] = automation_target_parameter_name
@@ -162,6 +168,14 @@ class Association(pulumi.CustomResource):
         __props__["schedule_expression"] = schedule_expression
         __props__["targets"] = targets
         return Association(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applyOnlyAtCronInterval")
+    def apply_only_at_cron_interval(self) -> pulumi.Output[Optional[bool]]:
+        """
+        By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        """
+        return pulumi.get(self, "apply_only_at_cron_interval")
 
     @property
     @pulumi.getter(name="associationId")

@@ -72,15 +72,15 @@ export class InstanceProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN assigned by AWS to the instance profile.
+     * ARN assigned by AWS to the instance profile.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The creation timestamp of the instance profile.
+     * Creation timestamp of the instance profile.
      */
     public /*out*/ readonly createDate!: pulumi.Output<string>;
     /**
-     * The profile's name. If omitted, this provider will assign a random, unique name.
+     * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -88,15 +88,15 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * Path in which to create the profile.
+     * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
-     * The role name to include in the profile.
+     * Name of the role to add to the profile.
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The [unique ID][1] assigned by AWS.
+     * [Unique ID][1] assigned by AWS.
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
@@ -145,15 +145,15 @@ export class InstanceProfile extends pulumi.CustomResource {
  */
 export interface InstanceProfileState {
     /**
-     * The ARN assigned by AWS to the instance profile.
+     * ARN assigned by AWS to the instance profile.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The creation timestamp of the instance profile.
+     * Creation timestamp of the instance profile.
      */
     readonly createDate?: pulumi.Input<string>;
     /**
-     * The profile's name. If omitted, this provider will assign a random, unique name.
+     * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -161,15 +161,15 @@ export interface InstanceProfileState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * Path in which to create the profile.
+     * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The role name to include in the profile.
+     * Name of the role to add to the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
     /**
-     * The [unique ID][1] assigned by AWS.
+     * [Unique ID][1] assigned by AWS.
      */
     readonly uniqueId?: pulumi.Input<string>;
 }
@@ -179,7 +179,7 @@ export interface InstanceProfileState {
  */
 export interface InstanceProfileArgs {
     /**
-     * The profile's name. If omitted, this provider will assign a random, unique name.
+     * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -187,11 +187,11 @@ export interface InstanceProfileArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * Path in which to create the profile.
+     * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The role name to include in the profile.
+     * Name of the role to add to the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
 }

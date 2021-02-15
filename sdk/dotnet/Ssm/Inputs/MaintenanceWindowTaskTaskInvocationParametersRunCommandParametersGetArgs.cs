@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration options for sending command output to CloudWatch Logs. Documented below.
+        /// </summary>
+        [Input("cloudwatchConfig")]
+        public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigGetArgs>? CloudwatchConfig { get; set; }
+
+        /// <summary>
         /// Information about the command(s) to execute.
         /// </summary>
         [Input("comment")]
@@ -29,6 +35,12 @@ namespace Pulumi.Aws.Ssm.Inputs
         /// </summary>
         [Input("documentHashType")]
         public Input<string>? DocumentHashType { get; set; }
+
+        /// <summary>
+        /// The version of an Automation document to use during task execution.
+        /// </summary>
+        [Input("documentVersion")]
+        public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
         /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.

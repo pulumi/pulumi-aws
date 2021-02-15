@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// A map that defines environment variables for the Lambda function.
+        /// Map of environment variables that are accessible from the function code during execution.
         /// </summary>
         public InputMap<string> Variables
         {

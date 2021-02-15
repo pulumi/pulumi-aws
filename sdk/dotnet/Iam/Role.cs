@@ -17,6 +17,8 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -26,21 +28,24 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
     ///         {
-    ///             AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""ec2.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// 
-    /// ",
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2012-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Sid", "" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "ec2.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             }),
     ///             Tags = 
     ///             {
     ///                 { "tag-key", "tag-value" },

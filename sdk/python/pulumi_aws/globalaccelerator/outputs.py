@@ -23,9 +23,9 @@ class AcceleratorAttributes(dict):
                  flow_logs_s3_bucket: Optional[str] = None,
                  flow_logs_s3_prefix: Optional[str] = None):
         """
-        :param bool flow_logs_enabled: Indicates whether flow logs are enabled.
-        :param str flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs.
-        :param str flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs.
+        :param bool flow_logs_enabled: Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+        :param str flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        :param str flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         """
         if flow_logs_enabled is not None:
             pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
@@ -38,7 +38,7 @@ class AcceleratorAttributes(dict):
     @pulumi.getter(name="flowLogsEnabled")
     def flow_logs_enabled(self) -> Optional[bool]:
         """
-        Indicates whether flow logs are enabled.
+        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "flow_logs_enabled")
 
@@ -46,7 +46,7 @@ class AcceleratorAttributes(dict):
     @pulumi.getter(name="flowLogsS3Bucket")
     def flow_logs_s3_bucket(self) -> Optional[str]:
         """
-        The name of the Amazon S3 bucket for the flow logs.
+        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         """
         return pulumi.get(self, "flow_logs_s3_bucket")
 
@@ -54,7 +54,7 @@ class AcceleratorAttributes(dict):
     @pulumi.getter(name="flowLogsS3Prefix")
     def flow_logs_s3_prefix(self) -> Optional[str]:
         """
-        The prefix for the location in the Amazon S3 bucket for the flow logs.
+        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         """
         return pulumi.get(self, "flow_logs_s3_prefix")
 
@@ -69,7 +69,7 @@ class AcceleratorIpSet(dict):
                  ip_family: Optional[str] = None):
         """
         :param Sequence[str] ip_addresses: A list of IP addresses in the IP address set.
-        :param str ip_family: The types of IP addresses included in this IP set.
+        :param str ip_family: The type of IP addresses included in this IP set.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -88,7 +88,7 @@ class AcceleratorIpSet(dict):
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> Optional[str]:
         """
-        The types of IP addresses included in this IP set.
+        The type of IP addresses included in this IP set.
         """
         return pulumi.get(self, "ip_family")
 

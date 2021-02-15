@@ -81,55 +81,61 @@ namespace Pulumi.Aws.Ec2
     public partial class TrafficMirrorFilterRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the traffic mirror filter rule.
+        /// ARN of the traffic mirror filter rule.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the traffic mirror filter rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The destination CIDR block to assign to the Traffic Mirror rule.
+        /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Output("destinationPortRange")]
         public Output<Outputs.TrafficMirrorFilterRuleDestinationPortRange?> DestinationPortRange { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
         [Output("protocol")]
         public Output<int?> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Output("ruleAction")]
         public Output<string> RuleAction { get; private set; } = null!;
 
         /// <summary>
-        /// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+        /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
         [Output("ruleNumber")]
         public Output<int> RuleNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The source CIDR block to assign to the Traffic Mirror rule.
+        /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Output("sourceCidrBlock")]
         public Output<string> SourceCidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Output("sourcePortRange")]
         public Output<Outputs.TrafficMirrorFilterRuleSourcePortRange?> SourcePortRange { get; private set; } = null!;
 
         /// <summary>
-        /// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         /// </summary>
         [Output("trafficDirection")]
         public Output<string> TrafficDirection { get; private set; } = null!;
@@ -187,55 +193,55 @@ namespace Pulumi.Aws.Ec2
     public sealed class TrafficMirrorFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the traffic mirror filter rule.
+        /// Description of the traffic mirror filter rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The destination CIDR block to assign to the Traffic Mirror rule.
+        /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
         /// <summary>
-        /// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("destinationPortRange")]
         public Input<Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs>? DestinationPortRange { get; set; }
 
         /// <summary>
-        /// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
         [Input("protocol")]
         public Input<int>? Protocol { get; set; }
 
         /// <summary>
-        /// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;
 
         /// <summary>
-        /// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+        /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
         [Input("ruleNumber", required: true)]
         public Input<int> RuleNumber { get; set; } = null!;
 
         /// <summary>
-        /// The source CIDR block to assign to the Traffic Mirror rule.
+        /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("sourceCidrBlock", required: true)]
         public Input<string> SourceCidrBlock { get; set; } = null!;
 
         /// <summary>
-        /// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("sourcePortRange")]
         public Input<Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs>? SourcePortRange { get; set; }
 
         /// <summary>
-        /// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         /// </summary>
         [Input("trafficDirection", required: true)]
         public Input<string> TrafficDirection { get; set; } = null!;
@@ -254,55 +260,61 @@ namespace Pulumi.Aws.Ec2
     public sealed class TrafficMirrorFilterRuleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the traffic mirror filter rule.
+        /// ARN of the traffic mirror filter rule.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Description of the traffic mirror filter rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The destination CIDR block to assign to the Traffic Mirror rule.
+        /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
         /// <summary>
-        /// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("destinationPortRange")]
         public Input<Inputs.TrafficMirrorFilterRuleDestinationPortRangeGetArgs>? DestinationPortRange { get; set; }
 
         /// <summary>
-        /// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
         [Input("protocol")]
         public Input<int>? Protocol { get; set; }
 
         /// <summary>
-        /// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Input("ruleAction")]
         public Input<string>? RuleAction { get; set; }
 
         /// <summary>
-        /// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+        /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
         [Input("ruleNumber")]
         public Input<int>? RuleNumber { get; set; }
 
         /// <summary>
-        /// The source CIDR block to assign to the Traffic Mirror rule.
+        /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("sourceCidrBlock")]
         public Input<string>? SourceCidrBlock { get; set; }
 
         /// <summary>
-        /// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("sourcePortRange")]
         public Input<Inputs.TrafficMirrorFilterRuleSourcePortRangeGetArgs>? SourcePortRange { get; set; }
 
         /// <summary>
-        /// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         /// </summary>
         [Input("trafficDirection")]
         public Input<string>? TrafficDirection { get; set; }

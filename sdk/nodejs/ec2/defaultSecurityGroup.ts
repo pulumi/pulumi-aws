@@ -6,37 +6,21 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage the default AWS Security Group.
+ * Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
  *
- * For EC2 Classic accounts, each region comes with a Default Security Group.
- * Additionally, each VPC created in AWS comes with a Default Security Group that can be managed, but not
- * destroyed. **This is an advanced resource**, and has special caveats to be aware
- * of when using it. Please read this document in its entirety before using this
- * resource.
+ * > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
  *
- * The `aws.ec2.DefaultSecurityGroup` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead "adopts" it
- * into management. We can do this because these default security groups cannot be
- * destroyed, and are created with a known set of default ingress/egress rules.
+ * For EC2 Classic accounts, each region comes with a default security group. Additionally, each VPC created in AWS comes with a default security group that can be managed but not destroyed.
  *
- * When this provider first adopts the Default Security Group, it **immediately removes all
- * ingress and egress rules in the Security Group**. It then proceeds to create any rules specified in the
- * configuration. This step is required so that only the rules specified in the
- * configuration are created.
+ * When the provider first adopts the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
  *
- * This resource treats its inline rules as absolute; only the rules defined
- * inline are created, and any additions/removals external to this resource will
- * result in diff shown. For these reasons, this resource is incompatible with the
- * `aws.ec2.SecurityGroupRule` resource.
+ * This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `aws.ec2.SecurityGroupRule` resource.
  *
- * For more information about Default Security Groups, see the AWS Documentation on
- * [Default Security Groups][aws-default-security-groups].
+ * For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
  *
- * ## Basic Example Usage, with default rules
+ * ## Example Usage
  *
- * The following config gives the Default Security Group the same rules that AWS
- * provides by default, but pulls the resource under management by this provider. This means that
- * any ingress or egress rules added or changed will be detected as drift.
+ * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -59,11 +43,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Example Config To Deny All Egress Traffic, Allowing Ingress
  *
- * ## Example config to deny all Egress traffic, allowing Ingress
- *
- * The following denies all Egress traffic by omitting any `egress` rules, while
- * including the default `ingress` rule to allow all traffic.
+ * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,21 +62,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
  *
- * ## Usage
+ * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
  *
- * With the exceptions mentioned above, `aws.ec2.DefaultSecurityGroup` should
- * identical behavior to `aws.ec2.SecurityGroup`. Please consult `AWS_SECURITY_GROUP`
- * for further usage documentation.
+ * ## Import
  *
- * ### Removing `aws.ec2.DefaultSecurityGroup` from your configuration
+ * Security Groups can be imported using the `security group id`, e.g.
  *
- * Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
- * Group that cannot be deleted. The `aws.ec2.DefaultSecurityGroup` allows you to
- * manage this Security Group, but this provider cannot destroy it. Removing this resource
- * from your configuration will remove it from your statefile and management, but
- * will not destroy the Security Group. All ingress or egress rules will be left as
- * they are at the time of removal. You can resume managing them via the AWS Console.
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+ * ```
  */
 export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**
@@ -125,36 +103,36 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the security group
+     * ARN of the security group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Description of this egress rule.
+     * Description of this rule.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[]>;
     /**
-     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[]>;
     /**
-     * The name of the security group
+     * Name of the security group.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The owner ID.
+     * Owner ID.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+     * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -207,36 +185,36 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
  */
 export interface DefaultSecurityGroupState {
     /**
-     * The ARN of the security group
+     * ARN of the security group.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Description of this egress rule.
+     * Description of this rule.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     /**
-     * The name of the security group
+     * Name of the security group.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The owner ID.
+     * Owner ID.
      */
     readonly ownerId?: pulumi.Input<string>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+     * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -246,20 +224,20 @@ export interface DefaultSecurityGroupState {
  */
 export interface DefaultSecurityGroupArgs {
     /**
-     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block. Detailed below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
+     * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
     readonly vpcId?: pulumi.Input<string>;
 }

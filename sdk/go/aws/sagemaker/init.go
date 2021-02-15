@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewImageVersion(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/model:Model":
 		r, err = NewModel(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
+		r, err = NewModelPackageGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/notebookInstance:NotebookInstance":
 		r, err = NewNotebookInstance(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -100,6 +102,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/model",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/modelPackageGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

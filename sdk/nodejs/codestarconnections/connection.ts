@@ -100,6 +100,10 @@ export class Connection extends pulumi.CustomResource {
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
      */
     public readonly providerType!: pulumi.Output<string>;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class Connection extends pulumi.CustomResource {
             inputs["connectionStatus"] = state ? state.connectionStatus : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["providerType"] = state ? state.providerType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             if ((!args || args.providerType === undefined) && !(opts && opts.urn)) {
@@ -124,6 +129,7 @@ export class Connection extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["providerType"] = args ? args.providerType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["connectionStatus"] = undefined /*out*/;
         }
@@ -158,6 +164,10 @@ export interface ConnectionState {
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
      */
     readonly providerType?: pulumi.Input<string>;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -172,4 +182,8 @@ export interface ConnectionArgs {
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
      */
     readonly providerType: pulumi.Input<string>;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

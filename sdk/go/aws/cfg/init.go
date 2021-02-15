@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAggregateAuthorization(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cfg/configurationAggregator:ConfigurationAggregator":
 		r, err = NewConfigurationAggregator(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cfg/conformancePack:ConformancePack":
+		r, err = NewConformancePack(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cfg/deliveryChannel:DeliveryChannel":
 		r, err = NewDeliveryChannel(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
@@ -59,6 +61,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cfg/configurationAggregator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cfg/conformancePack",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

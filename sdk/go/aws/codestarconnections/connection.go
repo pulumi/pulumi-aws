@@ -98,6 +98,8 @@ type Connection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -140,6 +142,8 @@ type connectionState struct {
 	Name *string `pulumi:"name"`
 	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
 	ProviderType *string `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConnectionState struct {
@@ -151,6 +155,8 @@ type ConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
 	ProviderType pulumi.StringPtrInput
+	// Map of key-value resource tags to associate with the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type connectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
 	ProviderType string `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -170,6 +178,8 @@ type ConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
 	ProviderType pulumi.StringInput
+	// Map of key-value resource tags to associate with the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

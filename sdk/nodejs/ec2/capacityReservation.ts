@@ -99,6 +99,10 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
+     * The ID of the AWS account that owns the Capacity Reservation.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -129,6 +133,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
             inputs["instancePlatform"] = state ? state.instancePlatform : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tenancy"] = state ? state.tenancy : undefined;
         } else {
@@ -157,6 +162,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -213,6 +219,10 @@ export interface CapacityReservationState {
      * The instance type for which to reserve capacity.
      */
     readonly instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
+    /**
+     * The ID of the AWS account that owns the Capacity Reservation.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

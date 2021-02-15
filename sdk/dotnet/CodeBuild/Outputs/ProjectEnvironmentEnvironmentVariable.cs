@@ -14,15 +14,15 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectEnvironmentEnvironmentVariable
     {
         /// <summary>
-        /// The environment variable's name or key.
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The environment variable's value.
+        /// Environment variable's value.
         /// </summary>
         public readonly string Value;
 

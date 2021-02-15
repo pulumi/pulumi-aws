@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Ssm
     ///             MaxConcurrency = "2",
     ///             MaxErrors = "1",
     ///             Priority = 1,
-    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             TaskArn = "AWS-RestartEC2Instance",
     ///             TaskType = "AUTOMATION",
     ///             WindowId = aws_ssm_maintenance_window.Example.Id,
@@ -81,7 +80,6 @@ namespace Pulumi.Aws.Ssm
     ///             MaxConcurrency = "2",
     ///             MaxErrors = "1",
     ///             Priority = 1,
-    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             TaskArn = "AWS-RunShellScript",
     ///             TaskType = "RUN_COMMAND",
     ///             WindowId = aws_ssm_maintenance_window.Example.Id,
@@ -146,7 +144,6 @@ namespace Pulumi.Aws.Ssm
     ///             MaxConcurrency = "2",
     ///             MaxErrors = "1",
     ///             Priority = 1,
-    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             TaskArn = aws_sfn_activity.Example.Id,
     ///             TaskType = "STEP_FUNCTIONS",
     ///             WindowId = aws_ssm_maintenance_window.Example.Id,
@@ -217,7 +214,7 @@ namespace Pulumi.Aws.Ssm
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The role that should be assumed when executing the task.
+        /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
@@ -329,12 +326,12 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The role that should be assumed when executing the task.
+        /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
-        [Input("serviceRoleArn", required: true)]
-        public Input<string> ServiceRoleArn { get; set; } = null!;
+        [Input("serviceRoleArn")]
+        public Input<string>? ServiceRoleArn { get; set; }
 
-        [Input("targets", required: true)]
+        [Input("targets")]
         private InputList<Inputs.MaintenanceWindowTaskTargetArgs>? _targets;
 
         /// <summary>
@@ -408,7 +405,7 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The role that should be assumed when executing the task.
+        /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }

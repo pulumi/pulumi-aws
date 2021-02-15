@@ -16,8 +16,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _actions;
 
         /// <summary>
-        /// A list of actions that this statement either allows
-        /// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+        /// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
         /// </summary>
         public List<string> Actions
         {
@@ -29,9 +28,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<Inputs.GetPolicyDocumentStatementConditionArgs>? _conditions;
 
         /// <summary>
-        /// A nested configuration block (described below)
-        /// that defines a further, possibly-service-specific condition that constrains
-        /// whether this statement applies.
+        /// Configuration block for a condition. Detailed below.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementConditionArgs> Conditions
         {
@@ -40,8 +37,7 @@ namespace Pulumi.Aws.Iam.Inputs
         }
 
         /// <summary>
-        /// Either "Allow" or "Deny", to specify whether this
-        /// statement allows or denies the given actions. The default is "Allow".
+        /// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("effect")]
         public string? Effect { get; set; }
@@ -50,9 +46,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _notActions;
 
         /// <summary>
-        /// A list of actions that this statement does *not*
-        /// apply to. Used to apply a policy statement to all actions *except* those
-        /// listed.
+        /// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
         /// </summary>
         public List<string> NotActions
         {
@@ -64,8 +58,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs>? _notPrincipals;
 
         /// <summary>
-        /// Like `principals` except gives principals that
-        /// the statement does *not* apply to.
+        /// Like `principals` except these are principals that the statement does *not* apply to.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs> NotPrincipals
         {
@@ -77,9 +70,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _notResources;
 
         /// <summary>
-        /// A list of resource ARNs that this statement
-        /// does *not* apply to. Used to apply a policy statement to all resources
-        /// *except* those listed.
+        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
         /// </summary>
         public List<string> NotResources
         {
@@ -91,8 +82,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<Inputs.GetPolicyDocumentStatementPrincipalArgs>? _principals;
 
         /// <summary>
-        /// A nested configuration block (described below)
-        /// specifying a principal (or principal pattern) to which this statement applies.
+        /// Configuration block for principals. Detailed below.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementPrincipalArgs> Principals
         {
@@ -104,8 +94,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _resources;
 
         /// <summary>
-        /// A list of resource ARNs that this statement applies
-        /// to. This is required by AWS if used for an IAM policy.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
         /// </summary>
         public List<string> Resources
         {
@@ -114,7 +103,7 @@ namespace Pulumi.Aws.Iam.Inputs
         }
 
         /// <summary>
-        /// An ID for the policy statement.
+        /// Sid (statement ID) is an identifier for a policy statement.
         /// </summary>
         [Input("sid")]
         public string? Sid { get; set; }

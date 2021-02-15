@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     encodedKey: fs.readFileSync("public_key.pem"),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudFront Public Key can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+ * ```
  */
 export class PublicKey extends pulumi.CustomResource {
     /**

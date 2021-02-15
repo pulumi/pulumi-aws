@@ -68,6 +68,8 @@ import (
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The license configuration ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the license configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Number of licenses managed by the license configuration.
@@ -80,6 +82,8 @@ type LicenseConfiguration struct {
 	LicenseRules pulumi.StringArrayOutput `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Account ID of the owner of the license configuration.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -116,6 +120,8 @@ func GetLicenseConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LicenseConfiguration resources.
 type licenseConfigurationState struct {
+	// The license configuration ARN.
+	Arn *string `pulumi:"arn"`
 	// Description of the license configuration.
 	Description *string `pulumi:"description"`
 	// Number of licenses managed by the license configuration.
@@ -128,11 +134,15 @@ type licenseConfigurationState struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
+	// Account ID of the owner of the license configuration.
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type LicenseConfigurationState struct {
+	// The license configuration ARN.
+	Arn pulumi.StringPtrInput
 	// Description of the license configuration.
 	Description pulumi.StringPtrInput
 	// Number of licenses managed by the license configuration.
@@ -145,6 +155,8 @@ type LicenseConfigurationState struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
+	// Account ID of the owner of the license configuration.
+	OwnerAccountId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

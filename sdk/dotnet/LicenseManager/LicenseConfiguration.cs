@@ -67,6 +67,12 @@ namespace Pulumi.Aws.LicenseManager
     public partial class LicenseConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// The license configuration ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the license configuration.
         /// </summary>
         [Output("description")]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Account ID of the owner of the license configuration.
+        /// </summary>
+        [Output("ownerAccountId")]
+        public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.
@@ -216,6 +228,12 @@ namespace Pulumi.Aws.LicenseManager
     public sealed class LicenseConfigurationState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The license configuration ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// Description of the license configuration.
         /// </summary>
         [Input("description")]
@@ -256,6 +274,12 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Account ID of the owner of the license configuration.
+        /// </summary>
+        [Input("ownerAccountId")]
+        public Input<string>? OwnerAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

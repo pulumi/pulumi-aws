@@ -54,19 +54,19 @@ import (
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	// The ARN assigned by AWS to the instance profile.
+	// ARN assigned by AWS to the instance profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The creation timestamp of the instance profile.
+	// Creation timestamp of the instance profile.
 	CreateDate pulumi.StringOutput `pulumi:"createDate"`
-	// The profile's name. If omitted, this provider will assign a random, unique name.
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	// Path in which to create the profile.
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The role name to include in the profile.
+	// Name of the role to add to the profile.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The [unique ID][1] assigned by AWS.
+	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
@@ -99,36 +99,36 @@ func GetInstanceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceProfile resources.
 type instanceProfileState struct {
-	// The ARN assigned by AWS to the instance profile.
+	// ARN assigned by AWS to the instance profile.
 	Arn *string `pulumi:"arn"`
-	// The creation timestamp of the instance profile.
+	// Creation timestamp of the instance profile.
 	CreateDate *string `pulumi:"createDate"`
-	// The profile's name. If omitted, this provider will assign a random, unique name.
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Path in which to create the profile.
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path *string `pulumi:"path"`
-	// The role name to include in the profile.
+	// Name of the role to add to the profile.
 	Role *string `pulumi:"role"`
-	// The [unique ID][1] assigned by AWS.
+	// [Unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type InstanceProfileState struct {
-	// The ARN assigned by AWS to the instance profile.
+	// ARN assigned by AWS to the instance profile.
 	Arn pulumi.StringPtrInput
-	// The creation timestamp of the instance profile.
+	// Creation timestamp of the instance profile.
 	CreateDate pulumi.StringPtrInput
-	// The profile's name. If omitted, this provider will assign a random, unique name.
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// Path in which to create the profile.
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path pulumi.StringPtrInput
-	// The role name to include in the profile.
+	// Name of the role to add to the profile.
 	Role pulumi.StringPtrInput
-	// The [unique ID][1] assigned by AWS.
+	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
 
@@ -137,25 +137,25 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	// The profile's name. If omitted, this provider will assign a random, unique name.
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Path in which to create the profile.
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path *string `pulumi:"path"`
-	// The role name to include in the profile.
+	// Name of the role to add to the profile.
 	Role interface{} `pulumi:"role"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	// The profile's name. If omitted, this provider will assign a random, unique name.
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// Path in which to create the profile.
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path pulumi.StringPtrInput
-	// The role name to include in the profile.
+	// Name of the role to add to the profile.
 	Role pulumi.Input
 }
 

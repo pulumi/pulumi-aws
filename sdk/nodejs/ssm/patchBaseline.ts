@@ -140,6 +140,38 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Advanced usage, specifying alternate patch source repository
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const al201709 = new aws.ssm.PatchBaseline("al_2017_09", {
+ *     approvalRules: [{}],
+ *     description: "My patch repository for Amazon Linux 2017.09",
+ *     operatingSystem: "AMAZON_LINUX",
+ *     sources: [{
+ *         configuration: `[amzn-main]
+ * name=amzn-main-Base
+ * mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+ * mirrorlist_expire=300
+ * metadata_expire=300
+ * priority=10
+ * failovermethod=priority
+ * fastestmirror_enabled=0
+ * gpgcheck=1
+ * gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+ * enabled=1
+ * retries=3
+ * timeout=5
+ * report_instanceid=yes
+ * `,
+ *         name: "My-AL2017.09",
+ *         products: ["AmazonLinux2017.09"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * SSM Patch Baselines can be imported by their baseline ID, e.g.
@@ -189,6 +221,14 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly approvedPatchesComplianceLevel!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+     */
+    public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ARN of the patch baseline.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of the patch baseline.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -197,7 +237,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselineGlobalFilter[] | undefined>;
     /**
-     * The name of the patch baseline.
+     * The name specified to identify the patch source.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -208,6 +248,14 @@ export class PatchBaseline extends pulumi.CustomResource {
      * A list of rejected patches.
      */
     public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
+    /**
+     * The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     */
+    public readonly rejectedPatchesAction!: pulumi.Output<string>;
+    /**
+     * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+     */
+    public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselineSource[] | undefined>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -228,23 +276,31 @@ export class PatchBaseline extends pulumi.CustomResource {
             inputs["approvalRules"] = state ? state.approvalRules : undefined;
             inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
             inputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
+            inputs["approvedPatchesEnableNonSecurity"] = state ? state.approvedPatchesEnableNonSecurity : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["globalFilters"] = state ? state.globalFilters : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
+            inputs["rejectedPatchesAction"] = state ? state.rejectedPatchesAction : undefined;
+            inputs["sources"] = state ? state.sources : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PatchBaselineArgs | undefined;
             inputs["approvalRules"] = args ? args.approvalRules : undefined;
             inputs["approvedPatches"] = args ? args.approvedPatches : undefined;
             inputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
+            inputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["globalFilters"] = args ? args.globalFilters : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             inputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
+            inputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
+            inputs["sources"] = args ? args.sources : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -274,6 +330,14 @@ export interface PatchBaselineState {
      */
     readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
     /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+     */
+    readonly approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    /**
+     * The ARN of the patch baseline.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The description of the patch baseline.
      */
     readonly description?: pulumi.Input<string>;
@@ -282,7 +346,7 @@ export interface PatchBaselineState {
      */
     readonly globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
-     * The name of the patch baseline.
+     * The name specified to identify the patch source.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -293,6 +357,14 @@ export interface PatchBaselineState {
      * A list of rejected patches.
      */
     readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     */
+    readonly rejectedPatchesAction?: pulumi.Input<string>;
+    /**
+     * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+     */
+    readonly sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -316,6 +388,10 @@ export interface PatchBaselineArgs {
      */
     readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
     /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+     */
+    readonly approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    /**
      * The description of the patch baseline.
      */
     readonly description?: pulumi.Input<string>;
@@ -324,7 +400,7 @@ export interface PatchBaselineArgs {
      */
     readonly globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
-     * The name of the patch baseline.
+     * The name specified to identify the patch source.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -335,6 +411,14 @@ export interface PatchBaselineArgs {
      * A list of rejected patches.
      */
     readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     */
+    readonly rejectedPatchesAction?: pulumi.Input<string>;
+    /**
+     * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+     */
+    readonly sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
      * A map of tags to assign to the resource.
      */

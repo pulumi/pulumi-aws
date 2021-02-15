@@ -9,10 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
+    /// <summary>
+    /// Provides an SES configuration set resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ses.ConfigurationSet("test", new Aws.Ses.ConfigurationSetArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Require TLS Connections
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ses.ConfigurationSet("test", new Aws.Ses.ConfigurationSetArgs
+    ///         {
+    ///             DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
+    ///             {
+    ///                 TlsPolicy = "Require",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SES Configuration Sets can be imported using their `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/confgurationSet:ConfgurationSet test some-configuration-set-test
+    /// ```
+    /// </summary>
     [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")]
     [AwsResourceType("aws:ses/confgurationSet:ConfgurationSet")]
     public partial class ConfgurationSet : Pulumi.CustomResource
     {
+        /// <summary>
+        /// SES configuration set ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Output("deliveryOptions")]
+        public Output<Outputs.ConfgurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -62,6 +127,15 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ConfgurationSetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("deliveryOptions")]
+        public Input<Inputs.ConfgurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
+
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -72,6 +146,21 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ConfgurationSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// SES configuration set ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("deliveryOptions")]
+        public Input<Inputs.ConfgurationSetDeliveryOptionsGetArgs>? DeliveryOptions { get; set; }
+
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

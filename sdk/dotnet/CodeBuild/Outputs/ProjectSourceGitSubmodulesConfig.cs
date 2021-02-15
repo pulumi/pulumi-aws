@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectSourceGitSubmodulesConfig
     {
         /// <summary>
-        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// Whether to fetch Git submodules for the AWS CodeBuild build project.
         /// </summary>
         public readonly bool FetchSubmodules;
 

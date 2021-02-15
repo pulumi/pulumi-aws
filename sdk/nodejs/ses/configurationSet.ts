@@ -2,10 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an SES configuration set resource
+ * Provides an SES configuration set resource.
  *
  * ## Example Usage
  *
@@ -14,6 +15,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.ConfigurationSet("test", {});
+ * ```
+ * ### Require TLS Connections
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     deliveryOptions: {
+ *         tlsPolicy: "Require",
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -53,7 +66,15 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the configuration set
+     * SES configuration set ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
+    /**
+     * Name of the configuration set.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -69,10 +90,14 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ConfigurationSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
+            inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ConfigurationSetArgs | undefined;
+            inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,7 +117,15 @@ export class ConfigurationSet extends pulumi.CustomResource {
  */
 export interface ConfigurationSetState {
     /**
-     * The name of the configuration set
+     * SES configuration set ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    /**
+     * Name of the configuration set.
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -102,7 +135,11 @@ export interface ConfigurationSetState {
  */
 export interface ConfigurationSetArgs {
     /**
-     * The name of the configuration set
+     * Configuration block. Detailed below.
+     */
+    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    /**
+     * Name of the configuration set.
      */
     readonly name?: pulumi.Input<string>;
 }

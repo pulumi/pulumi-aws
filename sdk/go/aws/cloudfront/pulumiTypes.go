@@ -10,6 +10,1052 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig `pulumi:"cookiesConfig"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingBrotli *bool `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingGzip *bool `pulumi:"enableAcceptEncodingGzip"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig `pulumi:"headersConfig"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	QueryStringsConfig CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig `pulumi:"queryStringsConfig"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput `pulumi:"cookiesConfig"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingBrotli pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingGzip pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingGzip"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput `pulumi:"headersConfig"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	QueryStringsConfig CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput `pulumi:"queryStringsConfig"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
+// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		return v.CookiesConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingBrotli }).(pulumi.BoolPtrOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolPtrOutput)
+}
+
+// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		return v.HeadersConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
+}
+
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		return v.QueryStringsConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAcceptEncodingBrotli
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAcceptEncodingGzip
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
+}
+
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct {
+	CookieBehavior string                                                                   `pulumi:"cookieBehavior"`
+	Cookies        *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies `pulumi:"cookies"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs struct {
+	CookieBehavior pulumi.StringInput                                                              `pulumi:"cookieBehavior"`
+	Cookies        CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput `pulumi:"cookies"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) string {
+		return v.CookieBehavior
+	}).(pulumi.StringOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) Cookies() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+		return v.Cookies
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) Cookies() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies struct {
+	Items []string `pulumi:"items"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig struct {
+	HeaderBehavior *string                                                                  `pulumi:"headerBehavior"`
+	Headers        *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders `pulumi:"headers"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs struct {
+	HeaderBehavior pulumi.StringPtrInput                                                           `pulumi:"headerBehavior"`
+	Headers        CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput `pulumi:"headers"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
+		return v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+		return v.Headers
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders struct {
+	Items []string `pulumi:"items"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig struct {
+	QueryStringBehavior string                                                                             `pulumi:"queryStringBehavior"`
+	QueryStrings        *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings `pulumi:"queryStrings"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs struct {
+	QueryStringBehavior pulumi.StringInput                                                                        `pulumi:"queryStringBehavior"`
+	QueryStrings        CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput `pulumi:"queryStrings"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) string {
+		return v.QueryStringBehavior
+	}).(pulumi.StringOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+		return v.QueryStrings
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings struct {
+	Items []string `pulumi:"items"`
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{...}
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput)
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx)
+}
+
+// CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput values.
+// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput` via:
+//
+//          CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{...}
+//
+//  or:
+//
+//          nil
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput interface {
+	pulumi.Input
+
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput
+	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput
+}
+
+type cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs
+
+func CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput {
+	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrType)(v)
+}
+
+func (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+		return &v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
+}
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+		return *v
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
 type DistributionCustomErrorResponse struct {
 	// The minimum amount of time you want
 	// HTTP error codes to stay in CloudFront caches before CloudFront queries your
@@ -153,6 +1199,9 @@ type DistributionDefaultCacheBehavior struct {
 	// Controls which HTTP methods CloudFront
 	// processes and forwards to your Amazon S3 bucket or your custom origin.
 	AllowedMethods []string `pulumi:"allowedMethods"`
+	// The unique identifier of the cache policy that
+	// is attached to the cache behavior.
+	CachePolicyId *string `pulumi:"cachePolicyId"`
 	// Controls whether CloudFront caches the
 	// response to requests using the specified HTTP methods.
 	CachedMethods []string `pulumi:"cachedMethods"`
@@ -162,14 +1211,13 @@ type DistributionDefaultCacheBehavior struct {
 	Compress *bool `pulumi:"compress"`
 	// The default amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
-	// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-	// 1 day.
+	// in the absence of an `Cache-Control max-age` or `Expires` header.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
-	ForwardedValues DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
+	ForwardedValues *DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
 	// A config block that triggers a lambda function with
 	// specific actions. Defined below, maximum 4.
 	LambdaFunctionAssociations []DistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -177,13 +1225,16 @@ type DistributionDefaultCacheBehavior struct {
 	// object is in a CloudFront cache before CloudFront forwards another request
 	// to your origin to determine whether the object has been updated. Only
 	// effective in the presence of `Cache-Control max-age`, `Cache-Control
-	// s-maxage`, and `Expires` headers. Defaults to 365 days.
+	// s-maxage`, and `Expires` headers.
 	MaxTtl *int `pulumi:"maxTtl"`
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
 	MinTtl                *int    `pulumi:"minTtl"`
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
+	// The ARN of the real-time log configuration
+	// that is attached to this cache behavior.
+	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -217,6 +1268,9 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// Controls which HTTP methods CloudFront
 	// processes and forwards to your Amazon S3 bucket or your custom origin.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// The unique identifier of the cache policy that
+	// is attached to the cache behavior.
+	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
 	// Controls whether CloudFront caches the
 	// response to requests using the specified HTTP methods.
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
@@ -226,14 +1280,13 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
 	// The default amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
-	// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-	// 1 day.
+	// in the absence of an `Cache-Control max-age` or `Expires` header.
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
-	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesInput `pulumi:"forwardedValues"`
+	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A config block that triggers a lambda function with
 	// specific actions. Defined below, maximum 4.
 	LambdaFunctionAssociations DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -241,13 +1294,16 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// object is in a CloudFront cache before CloudFront forwards another request
 	// to your origin to determine whether the object has been updated. Only
 	// effective in the presence of `Cache-Control max-age`, `Cache-Control
-	// s-maxage`, and `Expires` headers. Defaults to 365 days.
+	// s-maxage`, and `Expires` headers.
 	MaxTtl pulumi.IntPtrInput `pulumi:"maxTtl"`
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
 	MinTtl                pulumi.IntPtrInput    `pulumi:"minTtl"`
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
+	// The ARN of the real-time log configuration
+	// that is attached to this cache behavior.
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -349,6 +1405,12 @@ func (o DistributionDefaultCacheBehaviorOutput) AllowedMethods() pulumi.StringAr
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier of the cache policy that
+// is attached to the cache behavior.
+func (o DistributionDefaultCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionDefaultCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
@@ -364,8 +1426,7 @@ func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 
 // The default amount of time (in seconds) that an
 // object is in a CloudFront cache before CloudFront forwards another request
-// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-// 1 day.
+// in the absence of an `Cache-Control max-age` or `Expires` header.
 func (o DistributionDefaultCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
@@ -377,10 +1438,10 @@ func (o DistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.
 
 // The forwarded values configuration that specifies how CloudFront
 // handles query strings, cookies and headers (maximum one).
-func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDefaultCacheBehaviorForwardedValuesOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) DistributionDefaultCacheBehaviorForwardedValues {
+func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDefaultCacheBehaviorForwardedValuesPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorForwardedValues {
 		return v.ForwardedValues
-	}).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
+	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
 // A config block that triggers a lambda function with
@@ -395,7 +1456,7 @@ func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 // object is in a CloudFront cache before CloudFront forwards another request
 // to your origin to determine whether the object has been updated. Only
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
-// s-maxage`, and `Expires` headers. Defaults to 365 days.
+// s-maxage`, and `Expires` headers.
 func (o DistributionDefaultCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
@@ -409,6 +1470,12 @@ func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 
 func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the real-time log configuration
+// that is attached to this cache behavior.
+func (o DistributionDefaultCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether you want to distribute
@@ -468,6 +1535,17 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier of the cache policy that
+// is attached to the cache behavior.
+func (o DistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CachePolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionDefaultCacheBehaviorPtrOutput) CachedMethods() pulumi.StringArrayOutput {
@@ -493,8 +1571,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 
 // The default amount of time (in seconds) that an
 // object is in a CloudFront cache before CloudFront forwards another request
-// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-// 1 day.
+// in the absence of an `Cache-Control max-age` or `Expires` header.
 func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
 		if v == nil {
@@ -521,7 +1598,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 		if v == nil {
 			return nil
 		}
-		return &v.ForwardedValues
+		return v.ForwardedValues
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
@@ -540,7 +1617,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 // object is in a CloudFront cache before CloudFront forwards another request
 // to your origin to determine whether the object has been updated. Only
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
-// s-maxage`, and `Expires` headers. Defaults to 365 days.
+// s-maxage`, and `Expires` headers.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
 		if v == nil {
@@ -568,6 +1645,17 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulum
 			return nil
 		}
 		return v.OriginRequestPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the real-time log configuration
+// that is attached to this cache behavior.
+func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RealtimeLogConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1317,6 +2405,9 @@ type DistributionOrderedCacheBehavior struct {
 	// Controls which HTTP methods CloudFront
 	// processes and forwards to your Amazon S3 bucket or your custom origin.
 	AllowedMethods []string `pulumi:"allowedMethods"`
+	// The unique identifier of the cache policy that
+	// is attached to the cache behavior.
+	CachePolicyId *string `pulumi:"cachePolicyId"`
 	// Controls whether CloudFront caches the
 	// response to requests using the specified HTTP methods.
 	CachedMethods []string `pulumi:"cachedMethods"`
@@ -1326,14 +2417,13 @@ type DistributionOrderedCacheBehavior struct {
 	Compress *bool `pulumi:"compress"`
 	// The default amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
-	// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-	// 1 day.
+	// in the absence of an `Cache-Control max-age` or `Expires` header.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
-	ForwardedValues DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
+	ForwardedValues *DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
 	// A config block that triggers a lambda function with
 	// specific actions. Defined below, maximum 4.
 	LambdaFunctionAssociations []DistributionOrderedCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -1341,7 +2431,7 @@ type DistributionOrderedCacheBehavior struct {
 	// object is in a CloudFront cache before CloudFront forwards another request
 	// to your origin to determine whether the object has been updated. Only
 	// effective in the presence of `Cache-Control max-age`, `Cache-Control
-	// s-maxage`, and `Expires` headers. Defaults to 365 days.
+	// s-maxage`, and `Expires` headers.
 	MaxTtl *int `pulumi:"maxTtl"`
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
@@ -1351,6 +2441,9 @@ type DistributionOrderedCacheBehavior struct {
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern string `pulumi:"pathPattern"`
+	// The ARN of the real-time log configuration
+	// that is attached to this cache behavior.
+	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -1384,6 +2477,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// Controls which HTTP methods CloudFront
 	// processes and forwards to your Amazon S3 bucket or your custom origin.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// The unique identifier of the cache policy that
+	// is attached to the cache behavior.
+	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
 	// Controls whether CloudFront caches the
 	// response to requests using the specified HTTP methods.
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
@@ -1393,14 +2489,13 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
 	// The default amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
-	// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-	// 1 day.
+	// in the absence of an `Cache-Control max-age` or `Expires` header.
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
-	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesInput `pulumi:"forwardedValues"`
+	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A config block that triggers a lambda function with
 	// specific actions. Defined below, maximum 4.
 	LambdaFunctionAssociations DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -1408,7 +2503,7 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// object is in a CloudFront cache before CloudFront forwards another request
 	// to your origin to determine whether the object has been updated. Only
 	// effective in the presence of `Cache-Control max-age`, `Cache-Control
-	// s-maxage`, and `Expires` headers. Defaults to 365 days.
+	// s-maxage`, and `Expires` headers.
 	MaxTtl pulumi.IntPtrInput `pulumi:"maxTtl"`
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
@@ -1418,6 +2513,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
+	// The ARN of the real-time log configuration
+	// that is attached to this cache behavior.
+	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
 	// Indicates whether you want to distribute
 	// media files in Microsoft Smooth Streaming format using the origin that is
 	// associated with this cache behavior.
@@ -1493,6 +2591,12 @@ func (o DistributionOrderedCacheBehaviorOutput) AllowedMethods() pulumi.StringAr
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier of the cache policy that
+// is attached to the cache behavior.
+func (o DistributionOrderedCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
+}
+
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionOrderedCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
@@ -1508,8 +2612,7 @@ func (o DistributionOrderedCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 
 // The default amount of time (in seconds) that an
 // object is in a CloudFront cache before CloudFront forwards another request
-// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-// 1 day.
+// in the absence of an `Cache-Control max-age` or `Expires` header.
 func (o DistributionOrderedCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
@@ -1521,10 +2624,10 @@ func (o DistributionOrderedCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.
 
 // The forwarded values configuration that specifies how CloudFront
 // handles query strings, cookies and headers (maximum one).
-func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOrderedCacheBehaviorForwardedValuesOutput {
-	return o.ApplyT(func(v DistributionOrderedCacheBehavior) DistributionOrderedCacheBehaviorForwardedValues {
+func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *DistributionOrderedCacheBehaviorForwardedValues {
 		return v.ForwardedValues
-	}).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
+	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
 }
 
 // A config block that triggers a lambda function with
@@ -1539,7 +2642,7 @@ func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 // object is in a CloudFront cache before CloudFront forwards another request
 // to your origin to determine whether the object has been updated. Only
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
-// s-maxage`, and `Expires` headers. Defaults to 365 days.
+// s-maxage`, and `Expires` headers.
 func (o DistributionOrderedCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
@@ -1559,6 +2662,12 @@ func (o DistributionOrderedCacheBehaviorOutput) OriginRequestPolicyId() pulumi.S
 // specifies which requests you want this cache behavior to apply to.
 func (o DistributionOrderedCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
+}
+
+// The ARN of the real-time log configuration
+// that is attached to this cache behavior.
+func (o DistributionOrderedCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether you want to distribute
@@ -1668,6 +2777,47 @@ func (i DistributionOrderedCacheBehaviorForwardedValuesArgs) ToDistributionOrder
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
 }
 
+func (i DistributionOrderedCacheBehaviorForwardedValuesArgs) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorForwardedValuesArgs) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesOutput).ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx)
+}
+
+// DistributionOrderedCacheBehaviorForwardedValuesPtrInput is an input type that accepts DistributionOrderedCacheBehaviorForwardedValuesArgs, DistributionOrderedCacheBehaviorForwardedValuesPtr and DistributionOrderedCacheBehaviorForwardedValuesPtrOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorForwardedValuesPtrInput` via:
+//
+//          DistributionOrderedCacheBehaviorForwardedValuesArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionOrderedCacheBehaviorForwardedValuesPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput
+	ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput
+}
+
+type distributionOrderedCacheBehaviorForwardedValuesPtrType DistributionOrderedCacheBehaviorForwardedValuesArgs
+
+func DistributionOrderedCacheBehaviorForwardedValuesPtr(v *DistributionOrderedCacheBehaviorForwardedValuesArgs) DistributionOrderedCacheBehaviorForwardedValuesPtrInput {
+	return (*distributionOrderedCacheBehaviorForwardedValuesPtrType)(v)
+}
+
+func (*distributionOrderedCacheBehaviorForwardedValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorForwardedValues)(nil)).Elem()
+}
+
+func (i *distributionOrderedCacheBehaviorForwardedValuesPtrType) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOrderedCacheBehaviorForwardedValuesPtrType) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
+}
+
 type DistributionOrderedCacheBehaviorForwardedValuesOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorForwardedValuesOutput) ElementType() reflect.Type {
@@ -1680,6 +2830,16 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrd
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesOutput {
 	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return o.ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) *DistributionOrderedCacheBehaviorForwardedValues {
+		return &v
+	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
 }
 
 // The forwarded values cookies
@@ -1709,6 +2869,73 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) QueryString() pul
 // value of `true` for `queryString`, all query string keys are cached.
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
+}
+
+type DistributionOrderedCacheBehaviorForwardedValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorForwardedValues)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) Elem() DistributionOrderedCacheBehaviorForwardedValuesOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) DistributionOrderedCacheBehaviorForwardedValues {
+		return *v
+	}).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
+}
+
+// The forwarded values cookies
+// that specifies how CloudFront handles cookies (maximum one).
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) Cookies() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) *DistributionOrderedCacheBehaviorForwardedValuesCookies {
+		if v == nil {
+			return nil
+		}
+		return &v.Cookies
+	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput)
+}
+
+// Specifies the Headers, if any, that you want
+// CloudFront to vary upon for this cache behavior. Specify `*` to include all
+// headers.
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether you want CloudFront to forward
+// query strings to the origin that is associated with this cache behavior.
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) QueryString() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryString
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When specified, along with a value of
+// `true` for `queryString`, all query strings are forwarded, however only the
+// query string keys listed in this argument are cached. When omitted with a
+// value of `true` for `queryString`, all query string keys are cached.
+func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringCacheKeys
+	}).(pulumi.StringArrayOutput)
 }
 
 type DistributionOrderedCacheBehaviorForwardedValuesCookies struct {
@@ -1758,6 +2985,47 @@ func (i DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
 }
 
+func (i DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput).ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx)
+}
+
+// DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrInput is an input type that accepts DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs, DistributionOrderedCacheBehaviorForwardedValuesCookiesPtr and DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrInput` via:
+//
+//          DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput
+	ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput
+}
+
+type distributionOrderedCacheBehaviorForwardedValuesCookiesPtrType DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+
+func DistributionOrderedCacheBehaviorForwardedValuesCookiesPtr(v *DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrInput {
+	return (*distributionOrderedCacheBehaviorForwardedValuesCookiesPtrType)(v)
+}
+
+func (*distributionOrderedCacheBehaviorForwardedValuesCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorForwardedValuesCookies)(nil)).Elem()
+}
+
+func (i *distributionOrderedCacheBehaviorForwardedValuesCookiesPtrType) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOrderedCacheBehaviorForwardedValuesCookiesPtrType) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput)
+}
+
 type DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ElementType() reflect.Type {
@@ -1770,6 +3038,16 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistribu
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput {
 	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return o.ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValuesCookies) *DistributionOrderedCacheBehaviorForwardedValuesCookies {
+		return &v
+	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput)
 }
 
 // Specifies whether you want CloudFront to forward
@@ -1785,6 +3063,51 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) Forward() 
 // your origin.
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) WhitelistedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValuesCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
+}
+
+type DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorForwardedValuesCookies)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput() DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) Elem() DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValuesCookies) DistributionOrderedCacheBehaviorForwardedValuesCookies {
+		return *v
+	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
+}
+
+// Specifies whether you want CloudFront to forward
+// cookies to the origin that is associated with this cache behavior. You can
+// specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+// subsequent `whitelistedNames`
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) Forward() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValuesCookies) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Forward
+	}).(pulumi.StringPtrOutput)
+}
+
+// If you have specified `whitelist` to
+// `forward`, the whitelisted cookies that you want CloudFront to forward to
+// your origin.
+func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) WhitelistedNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValuesCookies) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WhitelistedNames
+	}).(pulumi.StringArrayOutput)
 }
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociation struct {
@@ -4393,6 +5716,1055 @@ func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) Items() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+type RealtimeLogConfigEndpoint struct {
+	// The Amazon Kinesis data stream configuration.
+	KinesisStreamConfig RealtimeLogConfigEndpointKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
+	// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+	StreamType string `pulumi:"streamType"`
+}
+
+// RealtimeLogConfigEndpointInput is an input type that accepts RealtimeLogConfigEndpointArgs and RealtimeLogConfigEndpointOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndpointInput` via:
+//
+//          RealtimeLogConfigEndpointArgs{...}
+type RealtimeLogConfigEndpointInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndpointOutput() RealtimeLogConfigEndpointOutput
+	ToRealtimeLogConfigEndpointOutputWithContext(context.Context) RealtimeLogConfigEndpointOutput
+}
+
+type RealtimeLogConfigEndpointArgs struct {
+	// The Amazon Kinesis data stream configuration.
+	KinesisStreamConfig RealtimeLogConfigEndpointKinesisStreamConfigInput `pulumi:"kinesisStreamConfig"`
+	// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+	StreamType pulumi.StringInput `pulumi:"streamType"`
+}
+
+func (RealtimeLogConfigEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointOutput() RealtimeLogConfigEndpointOutput {
+	return i.ToRealtimeLogConfigEndpointOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointOutput)
+}
+
+func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
+	return i.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointOutput).ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx)
+}
+
+// RealtimeLogConfigEndpointPtrInput is an input type that accepts RealtimeLogConfigEndpointArgs, RealtimeLogConfigEndpointPtr and RealtimeLogConfigEndpointPtrOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndpointPtrInput` via:
+//
+//          RealtimeLogConfigEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type RealtimeLogConfigEndpointPtrInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput
+	ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Context) RealtimeLogConfigEndpointPtrOutput
+}
+
+type realtimeLogConfigEndpointPtrType RealtimeLogConfigEndpointArgs
+
+func RealtimeLogConfigEndpointPtr(v *RealtimeLogConfigEndpointArgs) RealtimeLogConfigEndpointPtrInput {
+	return (*realtimeLogConfigEndpointPtrType)(v)
+}
+
+func (*realtimeLogConfigEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (i *realtimeLogConfigEndpointPtrType) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
+	return i.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *realtimeLogConfigEndpointPtrType) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointPtrOutput)
+}
+
+type RealtimeLogConfigEndpointOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointOutput() RealtimeLogConfigEndpointOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
+	return o.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpoint {
+		return &v
+	}).(RealtimeLogConfigEndpointPtrOutput)
+}
+
+// The Amazon Kinesis data stream configuration.
+func (o RealtimeLogConfigEndpointOutput) KinesisStreamConfig() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpoint) RealtimeLogConfigEndpointKinesisStreamConfig {
+		return v.KinesisStreamConfig
+	}).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
+}
+
+// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+func (o RealtimeLogConfigEndpointOutput) StreamType() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpoint) string { return v.StreamType }).(pulumi.StringOutput)
+}
+
+type RealtimeLogConfigEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndpointPtrOutput) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointPtrOutput) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointPtrOutput) Elem() RealtimeLogConfigEndpointOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) RealtimeLogConfigEndpoint { return *v }).(RealtimeLogConfigEndpointOutput)
+}
+
+// The Amazon Kinesis data stream configuration.
+func (o RealtimeLogConfigEndpointPtrOutput) KinesisStreamConfig() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpointKinesisStreamConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.KinesisStreamConfig
+	}).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
+}
+
+// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+func (o RealtimeLogConfigEndpointPtrOutput) StreamType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamType
+	}).(pulumi.StringPtrOutput)
+}
+
+type RealtimeLogConfigEndpointKinesisStreamConfig struct {
+	// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+	// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the Kinesis data stream.
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// RealtimeLogConfigEndpointKinesisStreamConfigInput is an input type that accepts RealtimeLogConfigEndpointKinesisStreamConfigArgs and RealtimeLogConfigEndpointKinesisStreamConfigOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndpointKinesisStreamConfigInput` via:
+//
+//          RealtimeLogConfigEndpointKinesisStreamConfigArgs{...}
+type RealtimeLogConfigEndpointKinesisStreamConfigInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndpointKinesisStreamConfigOutput() RealtimeLogConfigEndpointKinesisStreamConfigOutput
+	ToRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(context.Context) RealtimeLogConfigEndpointKinesisStreamConfigOutput
+}
+
+type RealtimeLogConfigEndpointKinesisStreamConfigArgs struct {
+	// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+	// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the Kinesis data stream.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (RealtimeLogConfigEndpointKinesisStreamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigOutput() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return i.ToRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
+}
+
+func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return i.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigOutput).ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx)
+}
+
+// RealtimeLogConfigEndpointKinesisStreamConfigPtrInput is an input type that accepts RealtimeLogConfigEndpointKinesisStreamConfigArgs, RealtimeLogConfigEndpointKinesisStreamConfigPtr and RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput values.
+// You can construct a concrete instance of `RealtimeLogConfigEndpointKinesisStreamConfigPtrInput` via:
+//
+//          RealtimeLogConfigEndpointKinesisStreamConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type RealtimeLogConfigEndpointKinesisStreamConfigPtrInput interface {
+	pulumi.Input
+
+	ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput
+	ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput
+}
+
+type realtimeLogConfigEndpointKinesisStreamConfigPtrType RealtimeLogConfigEndpointKinesisStreamConfigArgs
+
+func RealtimeLogConfigEndpointKinesisStreamConfigPtr(v *RealtimeLogConfigEndpointKinesisStreamConfigArgs) RealtimeLogConfigEndpointKinesisStreamConfigPtrInput {
+	return (*realtimeLogConfigEndpointKinesisStreamConfigPtrType)(v)
+}
+
+func (*realtimeLogConfigEndpointKinesisStreamConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i *realtimeLogConfigEndpointKinesisStreamConfigPtrType) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return i.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *realtimeLogConfigEndpointKinesisStreamConfigPtrType) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
+}
+
+type RealtimeLogConfigEndpointKinesisStreamConfigOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndpointKinesisStreamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigOutput() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return o.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpointKinesisStreamConfig) *RealtimeLogConfigEndpointKinesisStreamConfig {
+		return &v
+	}).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
+}
+
+// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpointKinesisStreamConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the Kinesis data stream.
+func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RealtimeLogConfigEndpointKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
+	return o
+}
+
+func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) Elem() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) RealtimeLogConfigEndpointKinesisStreamConfig {
+		return *v
+	}).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
+}
+
+// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Kinesis data stream.
+func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfigs []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig `pulumi:"cookiesConfigs"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingBrotli bool `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingGzip bool `pulumi:"enableAcceptEncodingGzip"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfigs []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig `pulumi:"headersConfigs"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	QueryStringsConfigs []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig `pulumi:"queryStringsConfigs"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput `pulumi:"cookiesConfigs"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingBrotli pulumi.BoolInput `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	EnableAcceptEncodingGzip pulumi.BoolInput `pulumi:"enableAcceptEncodingGzip"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput `pulumi:"headersConfigs"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	QueryStringsConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput `pulumi:"queryStringsConfigs"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o
+}
+
+// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfigs() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOrigin) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		return v.CookiesConfigs
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOrigin) bool {
+		return v.EnableAcceptEncodingBrotli
+	}).(pulumi.BoolOutput)
+}
+
+// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOrigin) bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolOutput)
+}
+
+// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfigs() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOrigin) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		return v.HeadersConfigs
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput)
+}
+
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfigs() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOrigin) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		return v.QueryStringsConfigs
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct {
+	CookieBehavior string                                                                      `pulumi:"cookieBehavior"`
+	Cookies        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie `pulumi:"cookies"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs struct {
+	CookieBehavior pulumi.StringInput                                                                  `pulumi:"cookieBehavior"`
+	Cookies        GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput `pulumi:"cookies"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) string {
+		return v.CookieBehavior
+	}).(pulumi.StringOutput)
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) Cookies() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie {
+		return v.Cookies
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig struct {
+	HeaderBehavior string                                                                      `pulumi:"headerBehavior"`
+	Headers        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader `pulumi:"headers"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs struct {
+	HeaderBehavior pulumi.StringInput                                                                  `pulumi:"headerBehavior"`
+	Headers        GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput `pulumi:"headers"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) string {
+		return v.HeaderBehavior
+	}).(pulumi.StringOutput)
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) Headers() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader {
+		return v.Headers
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig struct {
+	QueryStringBehavior string                                                                                `pulumi:"queryStringBehavior"`
+	QueryStrings        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString `pulumi:"queryStrings"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs struct {
+	QueryStringBehavior pulumi.StringInput                                                                            `pulumi:"queryStringBehavior"`
+	QueryStrings        GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) string {
+		return v.QueryStringBehavior
+	}).(pulumi.StringOutput)
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStrings() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString {
+		return v.QueryStrings
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString struct {
+	Items []string `pulumi:"items"`
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{...}
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput)
+}
+
+// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput values.
+// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput` via:
+//
+//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{...} }
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput interface {
+	pulumi.Input
+
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput
+	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
+	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString) []string {
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
+	return o
+}
+
+func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput) Index(i pulumi.IntInput) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString {
+		return vs[0].([]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)[vs[1].(int)]
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput)
+}
+
 type GetOriginRequestPolicyCookiesConfig struct {
 	CookieBehavior string                                      `pulumi:"cookieBehavior"`
 	Cookies        []GetOriginRequestPolicyCookiesConfigCookie `pulumi:"cookies"`
@@ -4982,6 +7354,20 @@ func (o GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) Index(i 
 }
 
 func init() {
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})
@@ -4997,7 +7383,9 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOriginOutput{})
@@ -5035,6 +7423,24 @@ func init() {
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndpointOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndpointPtrOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndpointKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput{})
+	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyCookiesConfigCookieOutput{})

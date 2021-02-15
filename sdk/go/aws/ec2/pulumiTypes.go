@@ -874,8 +874,7 @@ func (o AmiFromInstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput)
 type DefaultNetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
-	// The CIDR block to match. This must be a
-	// valid network mask.
+	// The CIDR block to match. This must be a valid network mask.
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// The from port to match.
 	FromPort int `pulumi:"fromPort"`
@@ -885,8 +884,7 @@ type DefaultNetworkAclEgress struct {
 	IcmpType *int `pulumi:"icmpType"`
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The protocol to match. If using the -1 'all'
-	// protocol, you must specify a from and to port of 0.
+	// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 	Protocol string `pulumi:"protocol"`
 	// The rule number. Used for ordering.
 	RuleNo int `pulumi:"ruleNo"`
@@ -908,8 +906,7 @@ type DefaultNetworkAclEgressInput interface {
 type DefaultNetworkAclEgressArgs struct {
 	// The action to take.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The CIDR block to match. This must be a
-	// valid network mask.
+	// The CIDR block to match. This must be a valid network mask.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	// The from port to match.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
@@ -919,8 +916,7 @@ type DefaultNetworkAclEgressArgs struct {
 	IcmpType pulumi.IntPtrInput `pulumi:"icmpType"`
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
-	// The protocol to match. If using the -1 'all'
-	// protocol, you must specify a from and to port of 0.
+	// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The rule number. Used for ordering.
 	RuleNo pulumi.IntInput `pulumi:"ruleNo"`
@@ -984,8 +980,7 @@ func (o DefaultNetworkAclEgressOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultNetworkAclEgress) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The CIDR block to match. This must be a
-// valid network mask.
+// The CIDR block to match. This must be a valid network mask.
 func (o DefaultNetworkAclEgressOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultNetworkAclEgress) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
@@ -1010,8 +1005,7 @@ func (o DefaultNetworkAclEgressOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultNetworkAclEgress) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The protocol to match. If using the -1 'all'
-// protocol, you must specify a from and to port of 0.
+// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 func (o DefaultNetworkAclEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultNetworkAclEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1049,8 +1043,7 @@ func (o DefaultNetworkAclEgressArrayOutput) Index(i pulumi.IntInput) DefaultNetw
 type DefaultNetworkAclIngress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
-	// The CIDR block to match. This must be a
-	// valid network mask.
+	// The CIDR block to match. This must be a valid network mask.
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// The from port to match.
 	FromPort int `pulumi:"fromPort"`
@@ -1060,8 +1053,7 @@ type DefaultNetworkAclIngress struct {
 	IcmpType *int `pulumi:"icmpType"`
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The protocol to match. If using the -1 'all'
-	// protocol, you must specify a from and to port of 0.
+	// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 	Protocol string `pulumi:"protocol"`
 	// The rule number. Used for ordering.
 	RuleNo int `pulumi:"ruleNo"`
@@ -1083,8 +1075,7 @@ type DefaultNetworkAclIngressInput interface {
 type DefaultNetworkAclIngressArgs struct {
 	// The action to take.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The CIDR block to match. This must be a
-	// valid network mask.
+	// The CIDR block to match. This must be a valid network mask.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	// The from port to match.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
@@ -1094,8 +1085,7 @@ type DefaultNetworkAclIngressArgs struct {
 	IcmpType pulumi.IntPtrInput `pulumi:"icmpType"`
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
-	// The protocol to match. If using the -1 'all'
-	// protocol, you must specify a from and to port of 0.
+	// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The rule number. Used for ordering.
 	RuleNo pulumi.IntInput `pulumi:"ruleNo"`
@@ -1159,8 +1149,7 @@ func (o DefaultNetworkAclIngressOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultNetworkAclIngress) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The CIDR block to match. This must be a
-// valid network mask.
+// The CIDR block to match. This must be a valid network mask.
 func (o DefaultNetworkAclIngressOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultNetworkAclIngress) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
@@ -1185,8 +1174,7 @@ func (o DefaultNetworkAclIngressOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultNetworkAclIngress) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The protocol to match. If using the -1 'all'
-// protocol, you must specify a from and to port of 0.
+// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
 func (o DefaultNetworkAclIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultNetworkAclIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1402,21 +1390,21 @@ func (o DefaultRouteTableRouteArrayOutput) Index(i pulumi.IntInput) DefaultRoute
 type DefaultSecurityGroupEgress struct {
 	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of prefix list IDs (for allowing access to VPC endpoints)
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol string `pulumi:"protocol"`
 	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -1434,21 +1422,21 @@ type DefaultSecurityGroupEgressInput interface {
 type DefaultSecurityGroupEgressArgs struct {
 	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of prefix list IDs (for allowing access to VPC endpoints)
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -1508,12 +1496,12 @@ func (o DefaultSecurityGroupEgressOutput) CidrBlocks() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// Description of this egress rule.
+// Description of this rule.
 func (o DefaultSecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The start port (or ICMP type number if protocol is "icmp")
+// Start port (or ICMP type number if protocol is `icmp`)
 func (o DefaultSecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) int { return v.FromPort }).(pulumi.IntOutput)
 }
@@ -1528,7 +1516,7 @@ func (o DefaultSecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutp
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 func (o DefaultSecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1538,12 +1526,12 @@ func (o DefaultSecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOut
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// If true, the security group itself will be added as a source to this egress rule.
+// Whether the security group itself will be added as a source to this egress rule.
 func (o DefaultSecurityGroupEgressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
-// The end range port (or ICMP code if protocol is "icmp").
+// End range port (or ICMP code if protocol is `icmp`).
 func (o DefaultSecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -1571,21 +1559,21 @@ func (o DefaultSecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) DefaultS
 type DefaultSecurityGroupIngress struct {
 	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of prefix list IDs (for allowing access to VPC endpoints)
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol string `pulumi:"protocol"`
 	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -1603,21 +1591,21 @@ type DefaultSecurityGroupIngressInput interface {
 type DefaultSecurityGroupIngressArgs struct {
 	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// Description of this egress rule.
+	// Description of this rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of prefix list IDs (for allowing access to VPC endpoints)
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -1677,12 +1665,12 @@ func (o DefaultSecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// Description of this egress rule.
+// Description of this rule.
 func (o DefaultSecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The start port (or ICMP type number if protocol is "icmp")
+// Start port (or ICMP type number if protocol is `icmp`)
 func (o DefaultSecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) int { return v.FromPort }).(pulumi.IntOutput)
 }
@@ -1697,7 +1685,7 @@ func (o DefaultSecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 func (o DefaultSecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1707,12 +1695,12 @@ func (o DefaultSecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOu
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// If true, the security group itself will be added as a source to this egress rule.
+// Whether the security group itself will be added as a source to this egress rule.
 func (o DefaultSecurityGroupIngressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
-// The end range port (or ICMP code if protocol is "icmp").
+// End range port (or ICMP code if protocol is `icmp`).
 func (o DefaultSecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) int { return v.ToPort }).(pulumi.IntOutput)
 }

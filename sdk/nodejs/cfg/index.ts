@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./aggregateAuthorization";
 export * from "./configurationAggregator";
+export * from "./conformancePack";
 export * from "./deliveryChannel";
 export * from "./organizationCustomRule";
 export * from "./organizationManagedRule";
@@ -18,6 +19,7 @@ export * from "./rule";
 // Import resources to register:
 import { AggregateAuthorization } from "./aggregateAuthorization";
 import { ConfigurationAggregator } from "./configurationAggregator";
+import { ConformancePack } from "./conformancePack";
 import { DeliveryChannel } from "./deliveryChannel";
 import { OrganizationCustomRule } from "./organizationCustomRule";
 import { OrganizationManagedRule } from "./organizationManagedRule";
@@ -34,6 +36,8 @@ const _module = {
                 return new AggregateAuthorization(name, <any>undefined, { urn })
             case "aws:cfg/configurationAggregator:ConfigurationAggregator":
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
+            case "aws:cfg/conformancePack:ConformancePack":
+                return new ConformancePack(name, <any>undefined, { urn })
             case "aws:cfg/deliveryChannel:DeliveryChannel":
                 return new DeliveryChannel(name, <any>undefined, { urn })
             case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
@@ -55,6 +59,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cfg/aggregateAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/configurationAggregator", _module)
+pulumi.runtime.registerResourceModule("aws", "cfg/conformancePack", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/deliveryChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationCustomRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationManagedRule", _module)

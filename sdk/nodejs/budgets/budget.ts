@@ -160,15 +160,19 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * The ARN of the budget.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether this budget tracks monetary cost or usage.
      */
     public readonly budgetType!: pulumi.Output<string>;
     /**
-     * Map of CostFilters key/value pairs to apply to the budget.
+     * Map of Cost Filters key/value pairs to apply to the budget.
      */
     public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
      */
     public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
     /**
@@ -200,7 +204,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly timePeriodStart!: pulumi.Output<string>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */
     public readonly timeUnit!: pulumi.Output<string>;
 
@@ -217,6 +221,7 @@ export class Budget extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as BudgetState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["budgetType"] = state ? state.budgetType : undefined;
             inputs["costFilters"] = state ? state.costFilters : undefined;
             inputs["costTypes"] = state ? state.costTypes : undefined;
@@ -257,6 +262,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
             inputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -278,15 +284,19 @@ export interface BudgetState {
      */
     readonly accountId?: pulumi.Input<string>;
     /**
+     * The ARN of the budget.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Whether this budget tracks monetary cost or usage.
      */
     readonly budgetType?: pulumi.Input<string>;
     /**
-     * Map of CostFilters key/value pairs to apply to the budget.
+     * Map of Cost Filters key/value pairs to apply to the budget.
      */
     readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
      */
     readonly costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
@@ -318,7 +328,7 @@ export interface BudgetState {
      */
     readonly timePeriodStart?: pulumi.Input<string>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */
     readonly timeUnit?: pulumi.Input<string>;
 }
@@ -336,11 +346,11 @@ export interface BudgetArgs {
      */
     readonly budgetType: pulumi.Input<string>;
     /**
-     * Map of CostFilters key/value pairs to apply to the budget.
+     * Map of Cost Filters key/value pairs to apply to the budget.
      */
     readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
      */
     readonly costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
@@ -372,7 +382,7 @@ export interface BudgetArgs {
      */
     readonly timePeriodStart: pulumi.Input<string>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */
     readonly timeUnit: pulumi.Input<string>;
 }

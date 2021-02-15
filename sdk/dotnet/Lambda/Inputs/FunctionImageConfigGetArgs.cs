@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _commands;
 
         /// <summary>
-        /// The CMD for the docker image.
+        /// Parameters that you want to pass in with `entry_point`.
         /// </summary>
         public InputList<string> Commands
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _entryPoints;
 
         /// <summary>
-        /// The ENTRYPOINT for the docker image.
+        /// Entry point to your application, which is typically the location of the runtime executable.
         /// </summary>
         public InputList<string> EntryPoints
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         }
 
         /// <summary>
-        /// The working directory for the docker image.
+        /// Working directory.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

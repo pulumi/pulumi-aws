@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSecondarySourceAuthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource value that applies to the specified authorization type.
+        /// Resource value that applies to the specified authorization type.
         /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The authorization type to use. The only valid value is `OAUTH`
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

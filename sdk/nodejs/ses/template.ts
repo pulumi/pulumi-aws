@@ -58,6 +58,10 @@ export class Template extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the SES template
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
     public readonly html!: pulumi.Output<string | undefined>;
@@ -86,6 +90,7 @@ export class Template extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TemplateState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["html"] = state ? state.html : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subject"] = state ? state.subject : undefined;
@@ -96,6 +101,7 @@ export class Template extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["subject"] = args ? args.subject : undefined;
             inputs["text"] = args ? args.text : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -112,6 +118,10 @@ export class Template extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Template resources.
  */
 export interface TemplateState {
+    /**
+     * The ARN of the SES template
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */

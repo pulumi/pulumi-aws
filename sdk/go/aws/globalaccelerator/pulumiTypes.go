@@ -11,11 +11,11 @@ import (
 )
 
 type AcceleratorAttributes struct {
-	// Indicates whether flow logs are enabled.
+	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs.
+	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -31,11 +31,11 @@ type AcceleratorAttributesInput interface {
 }
 
 type AcceleratorAttributesArgs struct {
-	// Indicates whether flow logs are enabled.
+	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 	FlowLogsEnabled pulumi.BoolPtrInput `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs.
+	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Bucket pulumi.StringPtrInput `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix pulumi.StringPtrInput `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -116,17 +116,17 @@ func (o AcceleratorAttributesOutput) ToAcceleratorAttributesPtrOutputWithContext
 	}).(AcceleratorAttributesPtrOutput)
 }
 
-// Indicates whether flow logs are enabled.
+// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o AcceleratorAttributesOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs.
+// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs.
+// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) AcceleratorAttributes { return *v }).(AcceleratorAttributesOutput)
 }
 
-// Indicates whether flow logs are enabled.
+// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *bool {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs.
+// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *string {
 		if v == nil {
@@ -169,7 +169,7 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs.
+// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *string {
 		if v == nil {
@@ -182,7 +182,7 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutpu
 type AcceleratorIpSet struct {
 	// A list of IP addresses in the IP address set.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// The types of IP addresses included in this IP set.
+	// The type of IP addresses included in this IP set.
 	IpFamily *string `pulumi:"ipFamily"`
 }
 
@@ -200,7 +200,7 @@ type AcceleratorIpSetInput interface {
 type AcceleratorIpSetArgs struct {
 	// A list of IP addresses in the IP address set.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// The types of IP addresses included in this IP set.
+	// The type of IP addresses included in this IP set.
 	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
 }
 
@@ -260,7 +260,7 @@ func (o AcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The types of IP addresses included in this IP set.
+// The type of IP addresses included in this IP set.
 func (o AcceleratorIpSetOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorIpSet) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
 }

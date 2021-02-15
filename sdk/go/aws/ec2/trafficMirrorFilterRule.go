@@ -85,23 +85,25 @@ import (
 type TrafficMirrorFilterRule struct {
 	pulumi.CustomResourceState
 
-	// A description of the traffic mirror filter rule.
+	// ARN of the traffic mirror filter rule.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description of the traffic mirror filter rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The destination CIDR block to assign to the Traffic Mirror rule.
+	// Destination CIDR block to assign to the Traffic Mirror rule.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrOutput `pulumi:"destinationPortRange"`
-	// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrOutput `pulumi:"protocol"`
-	// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
-	// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+	// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber pulumi.IntOutput `pulumi:"ruleNumber"`
-	// The source CIDR block to assign to the Traffic Mirror rule.
+	// Source CIDR block to assign to the Traffic Mirror rule.
 	SourceCidrBlock pulumi.StringOutput `pulumi:"sourceCidrBlock"`
-	// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrOutput `pulumi:"sourcePortRange"`
-	// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
 	TrafficDirection pulumi.StringOutput `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
@@ -154,46 +156,50 @@ func GetTrafficMirrorFilterRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorFilterRule resources.
 type trafficMirrorFilterRuleState struct {
-	// A description of the traffic mirror filter rule.
+	// ARN of the traffic mirror filter rule.
+	Arn *string `pulumi:"arn"`
+	// Description of the traffic mirror filter rule.
 	Description *string `pulumi:"description"`
-	// The destination CIDR block to assign to the Traffic Mirror rule.
+	// Destination CIDR block to assign to the Traffic Mirror rule.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	DestinationPortRange *TrafficMirrorFilterRuleDestinationPortRange `pulumi:"destinationPortRange"`
-	// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol *int `pulumi:"protocol"`
-	// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction *string `pulumi:"ruleAction"`
-	// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+	// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber *int `pulumi:"ruleNumber"`
-	// The source CIDR block to assign to the Traffic Mirror rule.
+	// Source CIDR block to assign to the Traffic Mirror rule.
 	SourceCidrBlock *string `pulumi:"sourceCidrBlock"`
-	// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange *TrafficMirrorFilterRuleSourcePortRange `pulumi:"sourcePortRange"`
-	// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
 	TrafficDirection *string `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
 }
 
 type TrafficMirrorFilterRuleState struct {
-	// A description of the traffic mirror filter rule.
+	// ARN of the traffic mirror filter rule.
+	Arn pulumi.StringPtrInput
+	// Description of the traffic mirror filter rule.
 	Description pulumi.StringPtrInput
-	// The destination CIDR block to assign to the Traffic Mirror rule.
+	// Destination CIDR block to assign to the Traffic Mirror rule.
 	DestinationCidrBlock pulumi.StringPtrInput
-	// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrInput
-	// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrInput
-	// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringPtrInput
-	// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+	// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber pulumi.IntPtrInput
-	// The source CIDR block to assign to the Traffic Mirror rule.
+	// Source CIDR block to assign to the Traffic Mirror rule.
 	SourceCidrBlock pulumi.StringPtrInput
-	// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrInput
-	// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
 	TrafficDirection pulumi.StringPtrInput
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringPtrInput
@@ -204,23 +210,23 @@ func (TrafficMirrorFilterRuleState) ElementType() reflect.Type {
 }
 
 type trafficMirrorFilterRuleArgs struct {
-	// A description of the traffic mirror filter rule.
+	// Description of the traffic mirror filter rule.
 	Description *string `pulumi:"description"`
-	// The destination CIDR block to assign to the Traffic Mirror rule.
+	// Destination CIDR block to assign to the Traffic Mirror rule.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	DestinationPortRange *TrafficMirrorFilterRuleDestinationPortRange `pulumi:"destinationPortRange"`
-	// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol *int `pulumi:"protocol"`
-	// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction string `pulumi:"ruleAction"`
-	// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+	// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber int `pulumi:"ruleNumber"`
-	// The source CIDR block to assign to the Traffic Mirror rule.
+	// Source CIDR block to assign to the Traffic Mirror rule.
 	SourceCidrBlock string `pulumi:"sourceCidrBlock"`
-	// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange *TrafficMirrorFilterRuleSourcePortRange `pulumi:"sourcePortRange"`
-	// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
 	TrafficDirection string `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
@@ -228,23 +234,23 @@ type trafficMirrorFilterRuleArgs struct {
 
 // The set of arguments for constructing a TrafficMirrorFilterRule resource.
 type TrafficMirrorFilterRuleArgs struct {
-	// A description of the traffic mirror filter rule.
+	// Description of the traffic mirror filter rule.
 	Description pulumi.StringPtrInput
-	// The destination CIDR block to assign to the Traffic Mirror rule.
+	// Destination CIDR block to assign to the Traffic Mirror rule.
 	DestinationCidrBlock pulumi.StringInput
-	// The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrInput
-	// The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrInput
-	// The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringInput
-	// The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+	// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
 	RuleNumber pulumi.IntInput
-	// The source CIDR block to assign to the Traffic Mirror rule.
+	// Source CIDR block to assign to the Traffic Mirror rule.
 	SourceCidrBlock pulumi.StringInput
-	// The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrInput
-	// The direction of traffic to be captured. Valid values are `ingress` and `egress`
+	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
 	TrafficDirection pulumi.StringInput
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringInput

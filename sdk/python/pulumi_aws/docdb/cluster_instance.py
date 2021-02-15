@@ -84,12 +84,19 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
                supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r5.large
+               - db.r5.xlarge
+               - db.r5.2xlarge
+               - db.r5.4xlarge
+               - db.r5.12xlarge
+               - db.r5.24xlarge
                - db.r4.large
                - db.r4.xlarge
                - db.r4.2xlarge
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t3.medium
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -195,12 +202,19 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
                supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r5.large
+               - db.r5.xlarge
+               - db.r5.2xlarge
+               - db.r5.4xlarge
+               - db.r5.12xlarge
+               - db.r5.24xlarge
                - db.r4.large
                - db.r4.xlarge
                - db.r4.2xlarge
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t3.medium
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
@@ -351,12 +365,19 @@ class ClusterInstance(pulumi.CustomResource):
         """
         The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
         supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        - db.r5.large
+        - db.r5.xlarge
+        - db.r5.2xlarge
+        - db.r5.4xlarge
+        - db.r5.12xlarge
+        - db.r5.24xlarge
         - db.r4.large
         - db.r4.xlarge
         - db.r4.2xlarge
         - db.r4.4xlarge
         - db.r4.8xlarge
         - db.r4.16xlarge
+        - db.t3.medium
         """
         return pulumi.get(self, "instance_class")
 

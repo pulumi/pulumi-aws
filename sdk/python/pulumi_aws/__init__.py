@@ -147,6 +147,7 @@ from . import (
     ssoadmin,
     storagegateway,
     swf,
+    synthetics,
     transfer,
     waf,
     wafregional,

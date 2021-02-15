@@ -670,10 +670,7 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() 
 }
 
 type FunctionDeadLetterConfig struct {
-	// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-	// option is used, the function's IAM role must be granted suitable access to write to the target object,
-	// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-	// which service is targeted.
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 	TargetArn string `pulumi:"targetArn"`
 }
 
@@ -689,10 +686,7 @@ type FunctionDeadLetterConfigInput interface {
 }
 
 type FunctionDeadLetterConfigArgs struct {
-	// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-	// option is used, the function's IAM role must be granted suitable access to write to the target object,
-	// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-	// which service is targeted.
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
@@ -773,10 +767,7 @@ func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigPtrOutputWithC
 	}).(FunctionDeadLetterConfigPtrOutput)
 }
 
-// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-// option is used, the function's IAM role must be granted suitable access to write to the target object,
-// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-// which service is targeted.
+// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 func (o FunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -799,10 +790,7 @@ func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput
 	return o.ApplyT(func(v *FunctionDeadLetterConfig) FunctionDeadLetterConfig { return *v }).(FunctionDeadLetterConfigOutput)
 }
 
-// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-// option is used, the function's IAM role must be granted suitable access to write to the target object,
-// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-// which service is targeted.
+// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionDeadLetterConfig) *string {
 		if v == nil {
@@ -813,7 +801,7 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type FunctionEnvironment struct {
-	// A map that defines environment variables for the Lambda function.
+	// Map of environment variables that are accessible from the function code during execution.
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -829,7 +817,7 @@ type FunctionEnvironmentInput interface {
 }
 
 type FunctionEnvironmentArgs struct {
-	// A map that defines environment variables for the Lambda function.
+	// Map of environment variables that are accessible from the function code during execution.
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -910,7 +898,7 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 	}).(FunctionEnvironmentPtrOutput)
 }
 
-// A map that defines environment variables for the Lambda function.
+// Map of environment variables that are accessible from the function code during execution.
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -933,7 +921,7 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) FunctionEnvironment { return *v }).(FunctionEnvironmentOutput)
 }
 
-// A map that defines environment variables for the Lambda function.
+// Map of environment variables that are accessible from the function code during execution.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
@@ -1366,9 +1354,9 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destinatio
 }
 
 type FunctionFileSystemConfig struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn string `pulumi:"arn"`
-	// The path where the function can access the file system, starting with /mnt/.
+	// Path where the function can access the file system, starting with /mnt/.
 	LocalMountPath string `pulumi:"localMountPath"`
 }
 
@@ -1384,9 +1372,9 @@ type FunctionFileSystemConfigInput interface {
 }
 
 type FunctionFileSystemConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The path where the function can access the file system, starting with /mnt/.
+	// Path where the function can access the file system, starting with /mnt/.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
 
@@ -1467,12 +1455,12 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithC
 	}).(FunctionFileSystemConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The path where the function can access the file system, starting with /mnt/.
+// Path where the function can access the file system, starting with /mnt/.
 func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
@@ -1495,7 +1483,7 @@ func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput
 	return o.ApplyT(func(v *FunctionFileSystemConfig) FunctionFileSystemConfig { return *v }).(FunctionFileSystemConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
 		if v == nil {
@@ -1505,7 +1493,7 @@ func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path where the function can access the file system, starting with /mnt/.
+// Path where the function can access the file system, starting with /mnt/.
 func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
 		if v == nil {
@@ -1516,11 +1504,11 @@ func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutp
 }
 
 type FunctionImageConfig struct {
-	// The CMD for the docker image.
+	// Parameters that you want to pass in with `entryPoint`.
 	Commands []string `pulumi:"commands"`
-	// The ENTRYPOINT for the docker image.
+	// Entry point to your application, which is typically the location of the runtime executable.
 	EntryPoints []string `pulumi:"entryPoints"`
-	// The working directory for the docker image.
+	// Working directory.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
@@ -1536,11 +1524,11 @@ type FunctionImageConfigInput interface {
 }
 
 type FunctionImageConfigArgs struct {
-	// The CMD for the docker image.
+	// Parameters that you want to pass in with `entryPoint`.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The ENTRYPOINT for the docker image.
+	// Entry point to your application, which is typically the location of the runtime executable.
 	EntryPoints pulumi.StringArrayInput `pulumi:"entryPoints"`
-	// The working directory for the docker image.
+	// Working directory.
 	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
 }
 
@@ -1621,17 +1609,17 @@ func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx
 	}).(FunctionImageConfigPtrOutput)
 }
 
-// The CMD for the docker image.
+// Parameters that you want to pass in with `entryPoint`.
 func (o FunctionImageConfigOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The ENTRYPOINT for the docker image.
+// Entry point to your application, which is typically the location of the runtime executable.
 func (o FunctionImageConfigOutput) EntryPoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.EntryPoints }).(pulumi.StringArrayOutput)
 }
 
-// The working directory for the docker image.
+// Working directory.
 func (o FunctionImageConfigOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionImageConfig) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
@@ -1654,7 +1642,7 @@ func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) FunctionImageConfig { return *v }).(FunctionImageConfigOutput)
 }
 
-// The CMD for the docker image.
+// Parameters that you want to pass in with `entryPoint`.
 func (o FunctionImageConfigPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -1664,7 +1652,7 @@ func (o FunctionImageConfigPtrOutput) Commands() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ENTRYPOINT for the docker image.
+// Entry point to your application, which is typically the location of the runtime executable.
 func (o FunctionImageConfigPtrOutput) EntryPoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -1674,7 +1662,7 @@ func (o FunctionImageConfigPtrOutput) EntryPoints() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The working directory for the docker image.
+// Working directory.
 func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) *string {
 		if v == nil {
@@ -1685,11 +1673,7 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 }
 
 type FunctionTracingConfig struct {
-	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-	// the request from an upstream service if it contains a tracing header with
-	// "sampled=1". If Active, Lambda will respect any tracing header it receives
-	// from an upstream service. If no tracing header is received, Lambda will call
-	// X-Ray for a tracing decision.
+	// Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 	Mode string `pulumi:"mode"`
 }
 
@@ -1705,11 +1689,7 @@ type FunctionTracingConfigInput interface {
 }
 
 type FunctionTracingConfigArgs struct {
-	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-	// the request from an upstream service if it contains a tracing header with
-	// "sampled=1". If Active, Lambda will respect any tracing header it receives
-	// from an upstream service. If no tracing header is received, Lambda will call
-	// X-Ray for a tracing decision.
+	// Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -1790,11 +1770,7 @@ func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutputWithContext
 	}).(FunctionTracingConfigPtrOutput)
 }
 
-// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-// the request from an upstream service if it contains a tracing header with
-// "sampled=1". If Active, Lambda will respect any tracing header it receives
-// from an upstream service. If no tracing header is received, Lambda will call
-// X-Ray for a tracing decision.
+// Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 func (o FunctionTracingConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -1817,11 +1793,7 @@ func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
 	return o.ApplyT(func(v *FunctionTracingConfig) FunctionTracingConfig { return *v }).(FunctionTracingConfigOutput)
 }
 
-// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-// the request from an upstream service if it contains a tracing header with
-// "sampled=1". If Active, Lambda will respect any tracing header it receives
-// from an upstream service. If no tracing header is received, Lambda will call
-// X-Ray for a tracing decision.
+// Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionTracingConfig) *string {
 		if v == nil {
@@ -1832,9 +1804,9 @@ func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type FunctionVpcConfig struct {
-	// A list of security group IDs associated with the Lambda function.
+	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs associated with the Lambda function.
+	// List of subnet IDs associated with the Lambda function.
 	SubnetIds []string `pulumi:"subnetIds"`
 	VpcId     *string  `pulumi:"vpcId"`
 }
@@ -1851,9 +1823,9 @@ type FunctionVpcConfigInput interface {
 }
 
 type FunctionVpcConfigArgs struct {
-	// A list of security group IDs associated with the Lambda function.
+	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs associated with the Lambda function.
+	// List of subnet IDs associated with the Lambda function.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
@@ -1935,12 +1907,12 @@ func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx con
 	}).(FunctionVpcConfigPtrOutput)
 }
 
-// A list of security group IDs associated with the Lambda function.
+// List of security group IDs associated with the Lambda function.
 func (o FunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs associated with the Lambda function.
+// List of subnet IDs associated with the Lambda function.
 func (o FunctionVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1967,7 +1939,7 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) FunctionVpcConfig { return *v }).(FunctionVpcConfigOutput)
 }
 
-// A list of security group IDs associated with the Lambda function.
+// List of security group IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) []string {
 		if v == nil {
@@ -1977,7 +1949,7 @@ func (o FunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs associated with the Lambda function.
+// List of subnet IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) []string {
 		if v == nil {

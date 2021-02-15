@@ -221,6 +221,57 @@ namespace Pulumi.Aws.Ssm
     /// }
     /// ```
     /// 
+    /// Advanced usage, specifying alternate patch source repository
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var al201709 = new Aws.Ssm.PatchBaseline("al201709", new Aws.Ssm.PatchBaselineArgs
+    ///         {
+    ///             ApprovalRules = 
+    ///             {
+    ///                 ,
+    ///             },
+    ///             Description = "My patch repository for Amazon Linux 2017.09",
+    ///             OperatingSystem = "AMAZON_LINUX",
+    ///             Sources = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.PatchBaselineSourceArgs
+    ///                 {
+    ///                     Configuration = @"[amzn-main]
+    /// name=amzn-main-Base
+    /// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+    /// mirrorlist_expire=300
+    /// metadata_expire=300
+    /// priority=10
+    /// failovermethod=priority
+    /// fastestmirror_enabled=0
+    /// gpgcheck=1
+    /// gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+    /// enabled=1
+    /// retries=3
+    /// timeout=5
+    /// report_instanceid=yes
+    /// 
+    /// ",
+    ///                     Name = "My-AL2017.09",
+    ///                     Products = 
+    ///                     {
+    ///                         "AmazonLinux2017.09",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SSM Patch Baselines can be imported by their baseline ID, e.g.
@@ -251,6 +302,18 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> ApprovedPatchesComplianceLevel { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        /// </summary>
+        [Output("approvedPatchesEnableNonSecurity")]
+        public Output<bool?> ApprovedPatchesEnableNonSecurity { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the patch baseline.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the patch baseline.
         /// </summary>
         [Output("description")]
@@ -263,7 +326,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<Outputs.PatchBaselineGlobalFilter>> GlobalFilters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// The name specified to identify the patch source.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -279,6 +342,18 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("rejectedPatches")]
         public Output<ImmutableArray<string>> RejectedPatches { get; private set; } = null!;
+
+        /// <summary>
+        /// The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// </summary>
+        [Output("rejectedPatchesAction")]
+        public Output<string> RejectedPatchesAction { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+        /// </summary>
+        [Output("sources")]
+        public Output<ImmutableArray<Outputs.PatchBaselineSource>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.
@@ -363,6 +438,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ApprovedPatchesComplianceLevel { get; set; }
 
         /// <summary>
+        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        /// </summary>
+        [Input("approvedPatchesEnableNonSecurity")]
+        public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
+
+        /// <summary>
         /// The description of the patch baseline.
         /// </summary>
         [Input("description")]
@@ -381,7 +462,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// The name specified to identify the patch source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -402,6 +483,24 @@ namespace Pulumi.Aws.Ssm
         {
             get => _rejectedPatches ?? (_rejectedPatches = new InputList<string>());
             set => _rejectedPatches = value;
+        }
+
+        /// <summary>
+        /// The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// </summary>
+        [Input("rejectedPatchesAction")]
+        public Input<string>? RejectedPatchesAction { get; set; }
+
+        [Input("sources")]
+        private InputList<Inputs.PatchBaselineSourceArgs>? _sources;
+
+        /// <summary>
+        /// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+        /// </summary>
+        public InputList<Inputs.PatchBaselineSourceArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.PatchBaselineSourceArgs>());
+            set => _sources = value;
         }
 
         [Input("tags")]
@@ -454,6 +553,18 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ApprovedPatchesComplianceLevel { get; set; }
 
         /// <summary>
+        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        /// </summary>
+        [Input("approvedPatchesEnableNonSecurity")]
+        public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
+
+        /// <summary>
+        /// The ARN of the patch baseline.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The description of the patch baseline.
         /// </summary>
         [Input("description")]
@@ -472,7 +583,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name of the patch baseline.
+        /// The name specified to identify the patch source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -493,6 +604,24 @@ namespace Pulumi.Aws.Ssm
         {
             get => _rejectedPatches ?? (_rejectedPatches = new InputList<string>());
             set => _rejectedPatches = value;
+        }
+
+        /// <summary>
+        /// The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// </summary>
+        [Input("rejectedPatchesAction")]
+        public Input<string>? RejectedPatchesAction { get; set; }
+
+        [Input("sources")]
+        private InputList<Inputs.PatchBaselineSourceGetArgs>? _sources;
+
+        /// <summary>
+        /// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+        /// </summary>
+        public InputList<Inputs.PatchBaselineSourceGetArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.PatchBaselineSourceGetArgs>());
+            set => _sources = value;
         }
 
         [Input("tags")]

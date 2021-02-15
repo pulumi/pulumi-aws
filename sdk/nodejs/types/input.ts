@@ -4431,6 +4431,17 @@ export namespace cfg {
         roleArn: pulumi.Input<string>;
     }
 
+    export interface ConformancePackInputParameter {
+        /**
+         * The input key.
+         */
+        parameterName: pulumi.Input<string>;
+        /**
+         * The input value.
+         */
+        parameterValue: pulumi.Input<string>;
+    }
+
     export interface DeliveryChannelSnapshotDeliveryProperties {
         /**
          * - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
@@ -4448,7 +4459,7 @@ export namespace cfg {
          */
         includeGlobalResourceTypes?: pulumi.Input<boolean>;
         /**
-         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4519,6 +4530,56 @@ export namespace cfg {
 }
 
 export namespace cloudfront {
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+        /**
+         * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+         */
+        cookiesConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig>;
+        /**
+         * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         */
+        enableAcceptEncodingBrotli?: pulumi.Input<boolean>;
+        /**
+         * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         */
+        enableAcceptEncodingGzip?: pulumi.Input<boolean>;
+        /**
+         * Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+         */
+        headersConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig>;
+        /**
+         * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+         */
+        queryStringsConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+        cookieBehavior: pulumi.Input<string>;
+        cookies?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+        headerBehavior?: pulumi.Input<string>;
+        headers?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+        queryStringBehavior: pulumi.Input<string>;
+        queryStrings?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings>;
+    }
+
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DistributionCustomErrorResponse {
         /**
          * The minimum amount of time you want
@@ -4550,6 +4611,11 @@ export namespace cloudfront {
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * The unique identifier of the cache policy that
+         * is attached to the cache behavior.
+         */
+        cachePolicyId?: pulumi.Input<string>;
+        /**
          * Controls whether CloudFront caches the
          * response to requests using the specified HTTP methods.
          */
@@ -4563,8 +4629,7 @@ export namespace cloudfront {
         /**
          * The default amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
-         * in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-         * 1 day.
+         * in the absence of an `Cache-Control max-age` or `Expires` header.
          */
         defaultTtl?: pulumi.Input<number>;
         /**
@@ -4575,7 +4640,7 @@ export namespace cloudfront {
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues>;
+        forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues>;
         /**
          * A config block that triggers a lambda function with
          * specific actions. Defined below, maximum 4.
@@ -4586,7 +4651,7 @@ export namespace cloudfront {
          * object is in a CloudFront cache before CloudFront forwards another request
          * to your origin to determine whether the object has been updated. Only
          * effective in the presence of `Cache-Control max-age`, `Cache-Control
-         * s-maxage`, and `Expires` headers. Defaults to 365 days.
+         * s-maxage`, and `Expires` headers.
          */
         maxTtl?: pulumi.Input<number>;
         /**
@@ -4596,6 +4661,11 @@ export namespace cloudfront {
          */
         minTtl?: pulumi.Input<number>;
         originRequestPolicyId?: pulumi.Input<string>;
+        /**
+         * The ARN of the real-time log configuration
+         * that is attached to this cache behavior.
+         */
+        realtimeLogConfigArn?: pulumi.Input<string>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -4706,6 +4776,11 @@ export namespace cloudfront {
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * The unique identifier of the cache policy that
+         * is attached to the cache behavior.
+         */
+        cachePolicyId?: pulumi.Input<string>;
+        /**
          * Controls whether CloudFront caches the
          * response to requests using the specified HTTP methods.
          */
@@ -4719,8 +4794,7 @@ export namespace cloudfront {
         /**
          * The default amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
-         * in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-         * 1 day.
+         * in the absence of an `Cache-Control max-age` or `Expires` header.
          */
         defaultTtl?: pulumi.Input<number>;
         /**
@@ -4731,7 +4805,7 @@ export namespace cloudfront {
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues>;
+        forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues>;
         /**
          * A config block that triggers a lambda function with
          * specific actions. Defined below, maximum 4.
@@ -4742,7 +4816,7 @@ export namespace cloudfront {
          * object is in a CloudFront cache before CloudFront forwards another request
          * to your origin to determine whether the object has been updated. Only
          * effective in the presence of `Cache-Control max-age`, `Cache-Control
-         * s-maxage`, and `Expires` headers. Defaults to 365 days.
+         * s-maxage`, and `Expires` headers.
          */
         maxTtl?: pulumi.Input<number>;
         /**
@@ -4757,6 +4831,11 @@ export namespace cloudfront {
          * specifies which requests you want this cache behavior to apply to.
          */
         pathPattern: pulumi.Input<string>;
+        /**
+         * The ARN of the real-time log configuration
+         * that is attached to this cache behavior.
+         */
+        realtimeLogConfigArn?: pulumi.Input<string>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -5054,6 +5133,29 @@ export namespace cloudfront {
     export interface OriginRequestPolicyQueryStringsConfigQueryStrings {
         items?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface RealtimeLogConfigEndpoint {
+        /**
+         * The Amazon Kinesis data stream configuration.
+         */
+        kinesisStreamConfig: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfig>;
+        /**
+         * The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+         */
+        streamType: pulumi.Input<string>;
+    }
+
+    export interface RealtimeLogConfigEndpointKinesisStreamConfig {
+        /**
+         * The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+         * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The ARN of the Kinesis data stream.
+         */
+        streamArn: pulumi.Input<string>;
+    }
 }
 
 export namespace cloudhsmv2 {
@@ -5309,133 +5411,133 @@ export namespace codeartifact {
 export namespace codebuild {
     export interface ProjectArtifacts {
         /**
-         * The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+         * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
          */
         artifactIdentifier?: pulumi.Input<string>;
         /**
-         * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+         * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
         encryptionDisabled?: pulumi.Input<boolean>;
         /**
-         * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
         name?: pulumi.Input<string>;
         /**
-         * The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+         * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
          */
         namespaceType?: pulumi.Input<string>;
         /**
-         * If set to true, a name specified in the build spec file overrides the artifact name.
+         * Whether a name specified in the build specification overrides the artifact name.
          */
         overrideArtifactName?: pulumi.Input<boolean>;
         /**
-         * The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+         * Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
          */
         packaging?: pulumi.Input<string>;
         /**
-         * If `type` is set to `S3`, this is the path to the output artifact
+         * If `type` is set to `S3`, this is the path to the output artifact.
          */
         path?: pulumi.Input<string>;
         /**
-         * The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectCache {
         /**
-         * The location where the AWS CodeBuild project stores cached resources. For type `S3` the value must be a valid S3 bucket name/prefix.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+         * Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
          */
         modes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, and `S3`. Defaults to `NO_CACHE`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type?: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironment {
         /**
-         * The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+         * ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
          */
         certificate?: pulumi.Input<string>;
         /**
-         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` need to be `BUILD_GENERAL1_LARGE`.
+         * Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
          */
         computeType: pulumi.Input<string>;
         /**
-         * A set of environment variables to make available to builds for this build project.
+         * Configuration block. Detailed below.
          */
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
-         * The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: pulumi.Input<string>;
         /**
-         * The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+         * Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
          */
         imagePullCredentialsType?: pulumi.Input<string>;
         /**
-         * If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+         * Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
          */
         privilegedMode?: pulumi.Input<boolean>;
         /**
-         * Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+         * Configuration block. Detailed below.
          */
         registryCredential?: pulumi.Input<inputs.codebuild.ProjectEnvironmentRegistryCredential>;
         /**
-         * The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER` or `ARM_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentEnvironmentVariable {
         /**
-         * The environment variable's name or key.
+         * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
         name: pulumi.Input<string>;
         /**
-         * The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type?: pulumi.Input<string>;
         /**
-         * The environment variable's value.
+         * Environment variable's value.
          */
         value: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentRegistryCredential {
         /**
-         * The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+         * ARN or name of credentials created using AWS Secrets Manager.
          */
         credential: pulumi.Input<string>;
         /**
-         * The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+         * Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
          */
         credentialProvider: pulumi.Input<string>;
     }
 
     export interface ProjectLogsConfig {
         /**
-         * Configuration for the builds to store logs to CloudWatch
+         * Configuration block. Detailed below.
          */
         cloudwatchLogs?: pulumi.Input<inputs.codebuild.ProjectLogsConfigCloudwatchLogs>;
         /**
-         * Configuration for the builds to store logs to S3.
+         * Configuration block. Detailed below.
          */
         s3Logs?: pulumi.Input<inputs.codebuild.ProjectLogsConfigS3Logs>;
     }
 
     export interface ProjectLogsConfigCloudwatchLogs {
         /**
-         * The group name of the logs in CloudWatch Logs.
+         * Group name of the logs in CloudWatch Logs.
          */
         groupName?: pulumi.Input<string>;
         /**
@@ -5443,80 +5545,80 @@ export namespace codebuild {
          */
         status?: pulumi.Input<string>;
         /**
-         * The stream name of the logs in CloudWatch Logs.
+         * Stream name of the logs in CloudWatch Logs.
          */
         streamName?: pulumi.Input<string>;
     }
 
     export interface ProjectLogsConfigS3Logs {
         /**
-         * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+         * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
         encryptionDisabled?: pulumi.Input<boolean>;
         /**
-         * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+         * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          */
         status?: pulumi.Input<string>;
     }
 
     export interface ProjectSecondaryArtifact {
         /**
-         * The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+         * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
          */
         artifactIdentifier: pulumi.Input<string>;
         /**
-         * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+         * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
         encryptionDisabled?: pulumi.Input<boolean>;
         /**
-         * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
         name?: pulumi.Input<string>;
         /**
-         * The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+         * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
          */
         namespaceType?: pulumi.Input<string>;
         /**
-         * If set to true, a name specified in the build spec file overrides the artifact name.
+         * Whether a name specified in the build specification overrides the artifact name.
          */
         overrideArtifactName?: pulumi.Input<boolean>;
         /**
-         * The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+         * Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
          */
         packaging?: pulumi.Input<string>;
         /**
-         * If `type` is set to `S3`, this is the path to the output artifact
+         * If `type` is set to `S3`, this is the path to the output artifact.
          */
         path?: pulumi.Input<string>;
         /**
-         * The build output artifact's type. The only valid value is `S3`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySource {
         /**
-         * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+         * Configuration block. Detailed below.
          */
         auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceAuth>[]>;
         /**
-         * The build spec declaration to use for this build project's related builds.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: pulumi.Input<string>;
         /**
-         * Truncate git history to this many commits.
+         * Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
          */
         gitCloneDepth?: pulumi.Input<number>;
         /**
-         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
+         * Configuration block. Detailed below.
          */
         gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig>;
         /**
@@ -5524,56 +5626,56 @@ export namespace codebuild {
          */
         insecureSsl?: pulumi.Input<boolean>;
         /**
-         * The location of the source code from git or s3.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: pulumi.Input<boolean>;
         /**
-         * The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+         * Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
          */
         sourceIdentifier: pulumi.Input<string>;
         /**
-         * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySourceAuth {
         /**
-         * The resource value that applies to the specified authorization type.
+         * Resource value that applies to the specified authorization type.
          */
         resource?: pulumi.Input<string>;
         /**
-         * The authorization type to use. The only valid value is `OAUTH`
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySourceGitSubmodulesConfig {
         /**
-         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         * Whether to fetch Git submodules for the AWS CodeBuild build project.
          */
         fetchSubmodules: pulumi.Input<boolean>;
     }
 
     export interface ProjectSource {
         /**
-         * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+         * Configuration block. Detailed below.
          */
         auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSourceAuth>[]>;
         /**
-         * The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: pulumi.Input<string>;
         /**
-         * Truncate git history to this many commits.
+         * Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
          */
         gitCloneDepth?: pulumi.Input<number>;
         /**
-         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
+         * Configuration block. Detailed below.
          */
         gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSourceGitSubmodulesConfig>;
         /**
@@ -5581,48 +5683,48 @@ export namespace codebuild {
          */
         insecureSsl?: pulumi.Input<boolean>;
         /**
-         * The location of the source code from git or s3.
+         * Location of the source code from git or s3.
          */
         location?: pulumi.Input<string>;
         /**
-         * Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: pulumi.Input<boolean>;
         /**
-         * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3` or `NO_SOURCE`.
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSourceAuth {
         /**
-         * The resource value that applies to the specified authorization type.
+         * Resource value that applies to the specified authorization type.
          */
         resource?: pulumi.Input<string>;
         /**
-         * The authorization type to use. The only valid value is `OAUTH`
+         * Authorization type to use. The only valid value is `OAUTH`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSourceGitSubmodulesConfig {
         /**
-         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         * Whether to fetch Git submodules for the AWS CodeBuild build project.
          */
         fetchSubmodules: pulumi.Input<boolean>;
     }
 
     export interface ProjectVpcConfig {
         /**
-         * The security group IDs to assign to running builds.
+         * Security group IDs to assign to running builds.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The subnet IDs within which to run builds.
+         * Subnet IDs within which to run builds.
          */
         subnets: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the VPC within which to run builds.
+         * ID of the VPC within which to run builds.
          */
         vpcId: pulumi.Input<string>;
     }
@@ -7124,8 +7226,7 @@ export namespace ec2 {
          */
         action: pulumi.Input<string>;
         /**
-         * The CIDR block to match. This must be a
-         * valid network mask.
+         * The CIDR block to match. This must be a valid network mask.
          */
         cidrBlock?: pulumi.Input<string>;
         /**
@@ -7145,8 +7246,7 @@ export namespace ec2 {
          */
         ipv6CidrBlock?: pulumi.Input<string>;
         /**
-         * The protocol to match. If using the -1 'all'
-         * protocol, you must specify a from and to port of 0.
+         * The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
          */
         protocol: pulumi.Input<string>;
         /**
@@ -7165,8 +7265,7 @@ export namespace ec2 {
          */
         action: pulumi.Input<string>;
         /**
-         * The CIDR block to match. This must be a
-         * valid network mask.
+         * The CIDR block to match. This must be a valid network mask.
          */
         cidrBlock?: pulumi.Input<string>;
         /**
@@ -7186,8 +7285,7 @@ export namespace ec2 {
          */
         ipv6CidrBlock?: pulumi.Input<string>;
         /**
-         * The protocol to match. If using the -1 'all'
-         * protocol, you must specify a from and to port of 0.
+         * The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
          */
         protocol: pulumi.Input<string>;
         /**
@@ -7249,11 +7347,11 @@ export namespace ec2 {
          */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Description of this egress rule.
+         * Description of this rule.
          */
         description?: pulumi.Input<string>;
         /**
-         * The start port (or ICMP type number if protocol is "icmp")
+         * Start port (or ICMP type number if protocol is `icmp`)
          */
         fromPort: pulumi.Input<number>;
         /**
@@ -7265,7 +7363,7 @@ export namespace ec2 {
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         * Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
          */
         protocol: pulumi.Input<string>;
         /**
@@ -7273,11 +7371,11 @@ export namespace ec2 {
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * If true, the security group itself will be added as a source to this egress rule.
+         * Whether the security group itself will be added as a source to this egress rule.
          */
         self?: pulumi.Input<boolean>;
         /**
-         * The end range port (or ICMP code if protocol is "icmp").
+         * End range port (or ICMP code if protocol is `icmp`).
          */
         toPort: pulumi.Input<number>;
     }
@@ -7288,11 +7386,11 @@ export namespace ec2 {
          */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Description of this egress rule.
+         * Description of this rule.
          */
         description?: pulumi.Input<string>;
         /**
-         * The start port (or ICMP type number if protocol is "icmp")
+         * Start port (or ICMP type number if protocol is `icmp`)
          */
         fromPort: pulumi.Input<number>;
         /**
@@ -7304,7 +7402,7 @@ export namespace ec2 {
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         * Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
          */
         protocol: pulumi.Input<string>;
         /**
@@ -7312,11 +7410,11 @@ export namespace ec2 {
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * If true, the security group itself will be added as a source to this egress rule.
+         * Whether the security group itself will be added as a source to this egress rule.
          */
         self?: pulumi.Input<boolean>;
         /**
-         * The end range port (or ICMP code if protocol is "icmp").
+         * End range port (or ICMP code if protocol is `icmp`).
          */
         toPort: pulumi.Input<number>;
     }
@@ -10574,14 +10672,14 @@ export namespace elastictranscoder {
          */
         bucket?: pulumi.Input<string>;
         /**
-         * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
+         * The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
          */
         storageClass?: pulumi.Input<string>;
     }
 
     export interface PipelineContentConfigPermission {
         /**
-         * The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+         * The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
          */
         accesses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -10626,7 +10724,7 @@ export namespace elastictranscoder {
 
     export interface PipelineThumbnailConfigPermission {
         /**
-         * The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+         * The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
          */
         accesses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -10634,7 +10732,7 @@ export namespace elastictranscoder {
          */
         grantee?: pulumi.Input<string>;
         /**
-         * Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+         * Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
          */
         granteeType?: pulumi.Input<string>;
     }
@@ -11668,15 +11766,15 @@ export namespace glacier {
 export namespace globalaccelerator {
     export interface AcceleratorAttributes {
         /**
-         * Indicates whether flow logs are enabled.
+         * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
          */
         flowLogsEnabled?: pulumi.Input<boolean>;
         /**
-         * The name of the Amazon S3 bucket for the flow logs.
+         * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          */
         flowLogsS3Bucket?: pulumi.Input<string>;
         /**
-         * The prefix for the location in the Amazon S3 bucket for the flow logs.
+         * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          */
         flowLogsS3Prefix?: pulumi.Input<string>;
     }
@@ -11687,7 +11785,7 @@ export namespace globalaccelerator {
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The types of IP addresses included in this IP set.
+         * The type of IP addresses included in this IP set.
          */
         ipFamily?: pulumi.Input<string>;
     }
@@ -12511,97 +12609,76 @@ export namespace guardduty {
 export namespace iam {
     export interface GetPolicyDocumentStatement {
         /**
-         * A list of actions that this statement either allows
-         * or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+         * List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
          */
         actions?: string[];
         /**
-         * A nested configuration block (described below)
-         * that defines a further, possibly-service-specific condition that constrains
-         * whether this statement applies.
+         * Configuration block for a condition. Detailed below.
          */
         conditions?: inputs.iam.GetPolicyDocumentStatementCondition[];
         /**
-         * Either "Allow" or "Deny", to specify whether this
-         * statement allows or denies the given actions. The default is "Allow".
+         * Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
          */
         effect?: string;
         /**
-         * A list of actions that this statement does *not*
-         * apply to. Used to apply a policy statement to all actions *except* those
-         * listed.
+         * List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
          */
         notActions?: string[];
         /**
-         * Like `principals` except gives principals that
-         * the statement does *not* apply to.
+         * Like `principals` except these are principals that the statement does *not* apply to.
          */
         notPrincipals?: inputs.iam.GetPolicyDocumentStatementNotPrincipal[];
         /**
-         * A list of resource ARNs that this statement
-         * does *not* apply to. Used to apply a policy statement to all resources
-         * *except* those listed.
+         * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
          */
         notResources?: string[];
         /**
-         * A nested configuration block (described below)
-         * specifying a principal (or principal pattern) to which this statement applies.
+         * Configuration block for principals. Detailed below.
          */
         principals?: inputs.iam.GetPolicyDocumentStatementPrincipal[];
         /**
-         * A list of resource ARNs that this statement applies
-         * to. This is required by AWS if used for an IAM policy.
+         * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
          */
         resources?: string[];
         /**
-         * An ID for the policy statement.
+         * Sid (statement ID) is an identifier for a policy statement.
          */
         sid?: string;
     }
 
     export interface GetPolicyDocumentStatementCondition {
         /**
-         * The name of the
-         * [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-         * to evaluate.
+         * Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
          */
         test: string;
         /**
-         * The values to evaluate the condition against. If multiple
-         * values are provided, the condition matches if at least one of them applies.
-         * (That is, the tests are combined with the "OR" boolean operation.)
+         * Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
          */
         values: string[];
         /**
-         * The name of a
-         * [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-         * to apply the condition to. Context variables may either be standard AWS
-         * variables starting with `aws:`, or service-specific variables prefixed with
-         * the service name.
+         * Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
          */
         variable: string;
     }
 
     export interface GetPolicyDocumentStatementNotPrincipal {
         /**
-         * List of identifiers for principals. When `type`
-         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
-         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+         * Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
          */
         type: string;
     }
 
     export interface GetPolicyDocumentStatementPrincipal {
         /**
-         * List of identifiers for principals. When `type`
-         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
-         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
+         * Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
          */
         type: string;
     }
@@ -15344,17 +15421,14 @@ export namespace lambda {
 
     export interface FunctionDeadLetterConfig {
         /**
-         * The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-         * option is used, the function's IAM role must be granted suitable access to write to the target object,
-         * which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-         * which service is targeted.
+         * ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
          */
         targetArn: pulumi.Input<string>;
     }
 
     export interface FunctionEnvironment {
         /**
-         * A map that defines environment variables for the Lambda function.
+         * Map of environment variables that are accessible from the function code during execution.
          */
         variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -15386,48 +15460,44 @@ export namespace lambda {
 
     export interface FunctionFileSystemConfig {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
          */
         arn: pulumi.Input<string>;
         /**
-         * The path where the function can access the file system, starting with /mnt/.
+         * Path where the function can access the file system, starting with /mnt/.
          */
         localMountPath: pulumi.Input<string>;
     }
 
     export interface FunctionImageConfig {
         /**
-         * The CMD for the docker image.
+         * Parameters that you want to pass in with `entryPoint`.
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ENTRYPOINT for the docker image.
+         * Entry point to your application, which is typically the location of the runtime executable.
          */
         entryPoints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The working directory for the docker image.
+         * Working directory.
          */
         workingDirectory?: pulumi.Input<string>;
     }
 
     export interface FunctionTracingConfig {
         /**
-         * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-         * the request from an upstream service if it contains a tracing header with
-         * "sampled=1". If Active, Lambda will respect any tracing header it receives
-         * from an upstream service. If no tracing header is received, Lambda will call
-         * X-Ray for a tracing decision.
+         * Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
          */
         mode: pulumi.Input<string>;
     }
 
     export interface FunctionVpcConfig {
         /**
-         * A list of security group IDs associated with the Lambda function.
+         * List of security group IDs associated with the Lambda function.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of subnet IDs associated with the Lambda function.
+         * List of subnet IDs associated with the Lambda function.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         vpcId?: pulumi.Input<string>;
@@ -17780,11 +17850,11 @@ export namespace rds {
          */
         autoPause?: pulumi.Input<boolean>;
         /**
-         * The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+         * The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
          */
         maxCapacity?: pulumi.Input<number>;
         /**
-         * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+         * The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
          */
         minCapacity?: pulumi.Input<number>;
         /**
@@ -18312,7 +18382,7 @@ export namespace s3 {
          */
         days?: pulumi.Input<number>;
         /**
-         * On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
+         * On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
          */
         expiredObjectDeleteMarker?: pulumi.Input<boolean>;
     }
@@ -19342,6 +19412,20 @@ export namespace servicediscovery {
 }
 
 export namespace ses {
+    export interface ConfgurationSetDeliveryOptions {
+        /**
+         * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+         */
+        tlsPolicy?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationSetDeliveryOptions {
+        /**
+         * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+         */
+        tlsPolicy?: pulumi.Input<string>;
+    }
+
     export interface EventDestinationCloudwatchDestination {
         /**
          * The default value for the event
@@ -19717,6 +19801,10 @@ export namespace ssm {
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
         /**
+         * Configuration options for sending command output to CloudWatch Logs. Documented below.
+         */
+        cloudwatchConfig?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig>;
+        /**
          * Information about the command(s) to execute.
          */
         comment?: pulumi.Input<string>;
@@ -19728,6 +19816,10 @@ export namespace ssm {
          * SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
          */
         documentHashType?: pulumi.Input<string>;
+        /**
+         * The version of an Automation document to use during task execution.
+         */
+        documentVersion?: pulumi.Input<string>;
         /**
          * Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
          */
@@ -19752,6 +19844,17 @@ export namespace ssm {
          * If this time is reached and the command has not already started executing, it doesn't run.
          */
         timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+        /**
+         * The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+         */
+        cloudwatchLogGroupName?: pulumi.Input<string>;
+        /**
+         * Enables Systems Manager to send command output to CloudWatch Logs.
+         */
+        cloudwatchOutputEnabled?: pulumi.Input<boolean>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
@@ -19793,9 +19896,13 @@ export namespace ssm {
 
     export interface PatchBaselineApprovalRule {
         /**
-         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`
          */
-        approveAfterDays: pulumi.Input<number>;
+        approveAfterDays?: pulumi.Input<number>;
+        /**
+         * The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+         */
+        approveUntilDate?: pulumi.Input<string>;
         /**
          * Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
          */
@@ -19818,6 +19925,21 @@ export namespace ssm {
     export interface PatchBaselineGlobalFilter {
         key: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PatchBaselineSource {
+        /**
+         * The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+         */
+        configuration: pulumi.Input<string>;
+        /**
+         * The name specified to identify the patch source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+         */
+        products: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResourceDataSyncS3Destination {
@@ -19917,6 +20039,68 @@ export namespace storagegateway {
          * to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
          */
         cacheStaleTimeoutInSeconds?: pulumi.Input<number>;
+    }
+}
+
+export namespace synthetics {
+    export interface CanaryRunConfig {
+        /**
+         * Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
+         */
+        activeTracing?: pulumi.Input<boolean>;
+        /**
+         * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
+         */
+        memoryInMb?: pulumi.Input<number>;
+        /**
+         * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface CanarySchedule {
+        /**
+         * Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
+         */
+        durationInSeconds?: pulumi.Input<number>;
+        /**
+         * Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+         */
+        expression: pulumi.Input<string>;
+    }
+
+    export interface CanaryTimeline {
+        /**
+         * Date and time the canary was created.
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * Date and time the canary was most recently modified.
+         */
+        lastModified?: pulumi.Input<string>;
+        /**
+         * Date and time that the canary's most recent run started.
+         */
+        lastStarted?: pulumi.Input<string>;
+        /**
+         * Date and time that the canary's most recent run ended.
+         */
+        lastStopped?: pulumi.Input<string>;
+    }
+
+    export interface CanaryVpcConfig {
+        /**
+         * IDs of the security groups for this canary.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IDs of the subnets where this canary is to run.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ID of the VPC where this canary is to run.
+         */
+        vpcId?: pulumi.Input<string>;
     }
 }
 

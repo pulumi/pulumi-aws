@@ -19,8 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
+        /// The CIDR block to match. This must be a valid network mask.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -50,8 +49,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Ipv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
+        /// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

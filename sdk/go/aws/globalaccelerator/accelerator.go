@@ -58,10 +58,10 @@ type Accelerator struct {
 	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      pulumi.BoolPtrOutput `pulumi:"enabled"`
 	HostedZoneId pulumi.StringOutput  `pulumi:"hostedZoneId"`
-	// The value for the address type must be `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
@@ -107,10 +107,10 @@ type acceleratorState struct {
 	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName *string `pulumi:"dnsName"`
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      *bool   `pulumi:"enabled"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The value for the address type must be `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
@@ -128,10 +128,10 @@ type AcceleratorState struct {
 	//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
 	//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringPtrInput
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      pulumi.BoolPtrInput
 	HostedZoneId pulumi.StringPtrInput
-	// The value for the address type must be `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
 	IpAddressType pulumi.StringPtrInput
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayInput
@@ -148,9 +148,9 @@ func (AcceleratorState) ElementType() reflect.Type {
 type acceleratorArgs struct {
 	// The attributes of the accelerator. Fields documented below.
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The value for the address type must be `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
@@ -162,9 +162,9 @@ type acceleratorArgs struct {
 type AcceleratorArgs struct {
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrInput
-	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrInput
-	// The value for the address type must be `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
 	IpAddressType pulumi.StringPtrInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput

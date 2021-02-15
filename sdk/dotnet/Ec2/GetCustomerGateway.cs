@@ -113,6 +113,10 @@ namespace Pulumi.Aws.Ec2
         /// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
+        /// <summary>
+        /// (Optional) A name for the customer gateway device.
+        /// </summary>
+        public readonly string DeviceName;
         public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
@@ -134,6 +138,8 @@ namespace Pulumi.Aws.Ec2
 
             int bgpAsn,
 
+            string deviceName,
+
             ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
 
             string id,
@@ -146,6 +152,7 @@ namespace Pulumi.Aws.Ec2
         {
             Arn = arn;
             BgpAsn = bgpAsn;
+            DeviceName = deviceName;
             Filters = filters;
             Id = id;
             IpAddress = ipAddress;

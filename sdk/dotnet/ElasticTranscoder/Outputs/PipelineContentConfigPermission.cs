@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     public sealed class PipelineContentConfigPermission
     {
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         /// </summary>
         public readonly ImmutableArray<string> Accesses;
         /// <summary>

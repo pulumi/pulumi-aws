@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ssm
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// </summary>
+        [Output("applyOnlyAtCronInterval")]
+        public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the SSM association.
         /// </summary>
         [Output("associationId")]
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.Ssm
     public sealed class AssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// </summary>
+        [Input("applyOnlyAtCronInterval")]
+        public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
+
+        /// <summary>
         /// The descriptive name for the association.
         /// </summary>
         [Input("associationName")]
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class AssociationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// </summary>
+        [Input("applyOnlyAtCronInterval")]
+        public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
+
         /// <summary>
         /// The ID of the SSM association.
         /// </summary>

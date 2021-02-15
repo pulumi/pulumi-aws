@@ -25,6 +25,27 @@ class Association(pulumi.CustomResource):
 
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_ami = aws.get_ami(most_recent=True,
+            owners=["amazon"],
+            filters=[aws.GetAmiFilterArgs(
+                name="name",
+                values=["amzn-ami-vpc-nat*"],
+            )])
+        example_instance = aws.ec2.Instance("exampleInstance",
+            ami=example_ami.id,
+            instance_type="t2.micro")
+        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
+        example_association = aws.licensemanager.Association("exampleAssociation",
+            license_configuration_arn=example_license_configuration.arn,
+            resource_arn=example_instance.arn)
+        ```
+
         ## Import
 
         License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.

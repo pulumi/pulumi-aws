@@ -712,12 +712,10 @@ class DefaultNetworkAclEgressArgs:
         """
         :param pulumi.Input[str] action: The action to take.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all'
-               protocol, you must specify a from and to port of 0.
+        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
         :param pulumi.Input[int] to_port: The to port to match.
-        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a
-               valid network mask.
+        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
@@ -764,8 +762,7 @@ class DefaultNetworkAclEgressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The protocol to match. If using the -1 'all'
-        protocol, you must specify a from and to port of 0.
+        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         """
         return pulumi.get(self, "protocol")
 
@@ -801,8 +798,7 @@ class DefaultNetworkAclEgressArgs:
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The CIDR block to match. This must be a
-        valid network mask.
+        The CIDR block to match. This must be a valid network mask.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -862,12 +858,10 @@ class DefaultNetworkAclIngressArgs:
         """
         :param pulumi.Input[str] action: The action to take.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all'
-               protocol, you must specify a from and to port of 0.
+        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
         :param pulumi.Input[int] to_port: The to port to match.
-        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a
-               valid network mask.
+        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
@@ -914,8 +908,7 @@ class DefaultNetworkAclIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The protocol to match. If using the -1 'all'
-        protocol, you must specify a from and to port of 0.
+        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         """
         return pulumi.get(self, "protocol")
 
@@ -951,8 +944,7 @@ class DefaultNetworkAclIngressArgs:
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The CIDR block to match. This must be a
-        valid network mask.
+        The CIDR block to match. This must be a valid network mask.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -1177,15 +1169,15 @@ class DefaultSecurityGroupEgressArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param pulumi.Input[str] protocol: The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[int] to_port: The end range port (or ICMP code if protocol is "icmp").
+        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
-        :param pulumi.Input[str] description: Description of this egress rule.
+        :param pulumi.Input[str] description: Description of this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
-        :param pulumi.Input[bool] self: If true, the security group itself will be added as a source to this egress rule.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1207,7 +1199,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
         """
-        The start port (or ICMP type number if protocol is "icmp")
+        Start port (or ICMP type number if protocol is `icmp`)
         """
         return pulumi.get(self, "from_port")
 
@@ -1219,7 +1211,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
         """
         return pulumi.get(self, "protocol")
 
@@ -1231,7 +1223,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
         """
-        The end range port (or ICMP code if protocol is "icmp").
+        End range port (or ICMP code if protocol is `icmp`).
         """
         return pulumi.get(self, "to_port")
 
@@ -1255,7 +1247,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this egress rule.
+        Description of this rule.
         """
         return pulumi.get(self, "description")
 
@@ -1303,7 +1295,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, the security group itself will be added as a source to this egress rule.
+        Whether the security group itself will be added as a source to this egress rule.
         """
         return pulumi.get(self, "self")
 
@@ -1325,15 +1317,15 @@ class DefaultSecurityGroupIngressArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param pulumi.Input[str] protocol: The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[int] to_port: The end range port (or ICMP code if protocol is "icmp").
+        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
-        :param pulumi.Input[str] description: Description of this egress rule.
+        :param pulumi.Input[str] description: Description of this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
-        :param pulumi.Input[bool] self: If true, the security group itself will be added as a source to this egress rule.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1355,7 +1347,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
         """
-        The start port (or ICMP type number if protocol is "icmp")
+        Start port (or ICMP type number if protocol is `icmp`)
         """
         return pulumi.get(self, "from_port")
 
@@ -1367,7 +1359,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
         """
         return pulumi.get(self, "protocol")
 
@@ -1379,7 +1371,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
         """
-        The end range port (or ICMP code if protocol is "icmp").
+        End range port (or ICMP code if protocol is `icmp`).
         """
         return pulumi.get(self, "to_port")
 
@@ -1403,7 +1395,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this egress rule.
+        Description of this rule.
         """
         return pulumi.get(self, "description")
 
@@ -1451,7 +1443,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, the security group itself will be added as a source to this egress rule.
+        Whether the security group itself will be added as a source to this egress rule.
         """
         return pulumi.get(self, "self")
 

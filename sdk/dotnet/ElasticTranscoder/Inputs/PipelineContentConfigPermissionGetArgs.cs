@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         private InputList<string>? _accesses;
 
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         /// </summary>
         public InputList<string> Accesses
         {

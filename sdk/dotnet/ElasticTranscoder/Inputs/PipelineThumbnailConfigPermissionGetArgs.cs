@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         private InputList<string>? _accesses;
 
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         /// </summary>
         public InputList<string> Accesses
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public Input<string>? Grantee { get; set; }
 
         /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
         [Input("granteeType")]
         public Input<string>? GranteeType { get; set; }

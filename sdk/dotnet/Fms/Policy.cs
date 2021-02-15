@@ -124,7 +124,13 @@ namespace Pulumi.Aws.Fms
         public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        /// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        /// </summary>
+        [Output("resourceType")]
+        public Output<string> ResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         /// </summary>
         [Output("resourceTypeLists")]
         public Output<ImmutableArray<string>> ResourceTypeLists { get; private set; } = null!;
@@ -229,11 +235,17 @@ namespace Pulumi.Aws.Fms
             set => _resourceTags = value;
         }
 
-        [Input("resourceTypeLists", required: true)]
+        /// <summary>
+        /// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        /// </summary>
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
+        [Input("resourceTypeLists")]
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {
@@ -311,11 +323,17 @@ namespace Pulumi.Aws.Fms
             set => _resourceTags = value;
         }
 
+        /// <summary>
+        /// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        /// </summary>
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
         [Input("resourceTypeLists")]
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`.
+        /// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {

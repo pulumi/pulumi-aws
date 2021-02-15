@@ -47,6 +47,10 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     }
 
     /**
+     * The SES receipt rule set ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name of the rule set
      */
     public readonly ruleSetName!: pulumi.Output<string>;
@@ -63,6 +67,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ActiveReceiptRuleSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ActiveReceiptRuleSetArgs | undefined;
@@ -70,6 +75,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -86,6 +92,10 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActiveReceiptRuleSet resources.
  */
 export interface ActiveReceiptRuleSetState {
+    /**
+     * The SES receipt rule set ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the rule set
      */

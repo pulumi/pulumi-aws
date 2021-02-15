@@ -53,6 +53,9 @@ namespace Pulumi.Aws.ElasticTranscoder
     [AwsResourceType("aws:elastictranscoder/pipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Elastictranscoder pipeline.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -241,6 +244,9 @@ namespace Pulumi.Aws.ElasticTranscoder
 
     public sealed class PipelineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Elastictranscoder pipeline.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

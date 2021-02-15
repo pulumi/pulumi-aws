@@ -10,10 +10,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides an SES configuration set resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewConfigurationSet(ctx, "test", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Require TLS Connections
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+// 			DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
+// 				TlsPolicy: pulumi.String("Require"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// SES Configuration Sets can be imported using their `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/confgurationSet:ConfgurationSet test some-configuration-set-test
+// ```
+//
 // Deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet
 type ConfgurationSet struct {
 	pulumi.CustomResourceState
 
+	// SES configuration set ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block. Detailed below.
+	DeliveryOptions ConfgurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
+	// Name of the configuration set.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -46,10 +106,20 @@ func GetConfgurationSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfgurationSet resources.
 type confgurationSetState struct {
+	// SES configuration set ARN.
+	Arn *string `pulumi:"arn"`
+	// Configuration block. Detailed below.
+	DeliveryOptions *ConfgurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// Name of the configuration set.
 	Name *string `pulumi:"name"`
 }
 
 type ConfgurationSetState struct {
+	// SES configuration set ARN.
+	Arn pulumi.StringPtrInput
+	// Configuration block. Detailed below.
+	DeliveryOptions ConfgurationSetDeliveryOptionsPtrInput
+	// Name of the configuration set.
 	Name pulumi.StringPtrInput
 }
 
@@ -58,11 +128,17 @@ func (ConfgurationSetState) ElementType() reflect.Type {
 }
 
 type confgurationSetArgs struct {
+	// Configuration block. Detailed below.
+	DeliveryOptions *ConfgurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// Name of the configuration set.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ConfgurationSet resource.
 type ConfgurationSetArgs struct {
+	// Configuration block. Detailed below.
+	DeliveryOptions ConfgurationSetDeliveryOptionsPtrInput
+	// Name of the configuration set.
 	Name pulumi.StringPtrInput
 }
 

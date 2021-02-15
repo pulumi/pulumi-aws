@@ -10,6 +10,268 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ConfgurationSetDeliveryOptions struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	TlsPolicy *string `pulumi:"tlsPolicy"`
+}
+
+// ConfgurationSetDeliveryOptionsInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs and ConfgurationSetDeliveryOptionsOutput values.
+// You can construct a concrete instance of `ConfgurationSetDeliveryOptionsInput` via:
+//
+//          ConfgurationSetDeliveryOptionsArgs{...}
+type ConfgurationSetDeliveryOptionsInput interface {
+	pulumi.Input
+
+	ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput
+	ToConfgurationSetDeliveryOptionsOutputWithContext(context.Context) ConfgurationSetDeliveryOptionsOutput
+}
+
+type ConfgurationSetDeliveryOptionsArgs struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
+}
+
+func (ConfgurationSetDeliveryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfgurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput {
+	return i.ToConfgurationSetDeliveryOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsOutput)
+}
+
+func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsOutput).ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfgurationSetDeliveryOptionsPtrInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs, ConfgurationSetDeliveryOptionsPtr and ConfgurationSetDeliveryOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfgurationSetDeliveryOptionsPtrInput` via:
+//
+//          ConfgurationSetDeliveryOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfgurationSetDeliveryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput
+	ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Context) ConfgurationSetDeliveryOptionsPtrOutput
+}
+
+type confgurationSetDeliveryOptionsPtrType ConfgurationSetDeliveryOptionsArgs
+
+func ConfgurationSetDeliveryOptionsPtr(v *ConfgurationSetDeliveryOptionsArgs) ConfgurationSetDeliveryOptionsPtrInput {
+	return (*confgurationSetDeliveryOptionsPtrType)(v)
+}
+
+func (*confgurationSetDeliveryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfgurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i *confgurationSetDeliveryOptionsPtrType) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *confgurationSetDeliveryOptionsPtrType) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsPtrOutput)
+}
+
+type ConfgurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfgurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfgurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
+	return o.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
+	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *ConfgurationSetDeliveryOptions {
+		return &v
+	}).(ConfgurationSetDeliveryOptionsPtrOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+func (o ConfgurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
+}
+
+type ConfgurationSetDeliveryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfgurationSetDeliveryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfgurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfgurationSetDeliveryOptionsPtrOutput) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfgurationSetDeliveryOptionsPtrOutput) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfgurationSetDeliveryOptionsPtrOutput) Elem() ConfgurationSetDeliveryOptionsOutput {
+	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) ConfgurationSetDeliveryOptions { return *v }).(ConfgurationSetDeliveryOptionsOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetDeliveryOptions struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	TlsPolicy *string `pulumi:"tlsPolicy"`
+}
+
+// ConfigurationSetDeliveryOptionsInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs and ConfigurationSetDeliveryOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetDeliveryOptionsInput` via:
+//
+//          ConfigurationSetDeliveryOptionsArgs{...}
+type ConfigurationSetDeliveryOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput
+	ToConfigurationSetDeliveryOptionsOutputWithContext(context.Context) ConfigurationSetDeliveryOptionsOutput
+}
+
+type ConfigurationSetDeliveryOptionsArgs struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
+}
+
+func (ConfigurationSetDeliveryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput {
+	return i.ToConfigurationSetDeliveryOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput).ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetDeliveryOptionsPtrInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs, ConfigurationSetDeliveryOptionsPtr and ConfigurationSetDeliveryOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetDeliveryOptionsPtrInput` via:
+//
+//          ConfigurationSetDeliveryOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetDeliveryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput
+	ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Context) ConfigurationSetDeliveryOptionsPtrOutput
+}
+
+type configurationSetDeliveryOptionsPtrType ConfigurationSetDeliveryOptionsArgs
+
+func ConfigurationSetDeliveryOptionsPtr(v *ConfigurationSetDeliveryOptionsArgs) ConfigurationSetDeliveryOptionsPtrInput {
+	return (*configurationSetDeliveryOptionsPtrType)(v)
+}
+
+func (*configurationSetDeliveryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
+type ConfigurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *ConfigurationSetDeliveryOptions {
+		return &v
+	}).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetDeliveryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDeliveryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) ConfigurationSetDeliveryOptions { return *v }).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventDestinationCloudwatchDestination struct {
 	// The default value for the event
 	DefaultValue string `pulumi:"defaultValue"`
@@ -1257,6 +1519,10 @@ func (o ReceiptRuleWorkmailActionArrayOutput) Index(i pulumi.IntInput) ReceiptRu
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsOutput{})
+	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EventDestinationCloudwatchDestinationOutput{})
 	pulumi.RegisterOutputType(EventDestinationCloudwatchDestinationArrayOutput{})
 	pulumi.RegisterOutputType(EventDestinationKinesisDestinationOutput{})

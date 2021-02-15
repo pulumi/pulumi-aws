@@ -73,12 +73,12 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * The value for the address type must be `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -152,12 +152,12 @@ export interface AcceleratorState {
      */
     readonly dnsName?: pulumi.Input<string>;
     /**
-     * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     readonly hostedZoneId?: pulumi.Input<string>;
     /**
-     * The value for the address type must be `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
@@ -183,11 +183,11 @@ export interface AcceleratorArgs {
      */
     readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
     /**
-     * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The value for the address type must be `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**

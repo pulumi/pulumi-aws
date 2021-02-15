@@ -352,6 +352,112 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConformancePackInputParameter struct {
+	// The input key.
+	ParameterName string `pulumi:"parameterName"`
+	// The input value.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// ConformancePackInputParameterInput is an input type that accepts ConformancePackInputParameterArgs and ConformancePackInputParameterOutput values.
+// You can construct a concrete instance of `ConformancePackInputParameterInput` via:
+//
+//          ConformancePackInputParameterArgs{...}
+type ConformancePackInputParameterInput interface {
+	pulumi.Input
+
+	ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput
+	ToConformancePackInputParameterOutputWithContext(context.Context) ConformancePackInputParameterOutput
+}
+
+type ConformancePackInputParameterArgs struct {
+	// The input key.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// The input value.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (ConformancePackInputParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackInputParameter)(nil)).Elem()
+}
+
+func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput {
+	return i.ToConformancePackInputParameterOutputWithContext(context.Background())
+}
+
+func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackInputParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterOutput)
+}
+
+// ConformancePackInputParameterArrayInput is an input type that accepts ConformancePackInputParameterArray and ConformancePackInputParameterArrayOutput values.
+// You can construct a concrete instance of `ConformancePackInputParameterArrayInput` via:
+//
+//          ConformancePackInputParameterArray{ ConformancePackInputParameterArgs{...} }
+type ConformancePackInputParameterArrayInput interface {
+	pulumi.Input
+
+	ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput
+	ToConformancePackInputParameterArrayOutputWithContext(context.Context) ConformancePackInputParameterArrayOutput
+}
+
+type ConformancePackInputParameterArray []ConformancePackInputParameterInput
+
+func (ConformancePackInputParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConformancePackInputParameter)(nil)).Elem()
+}
+
+func (i ConformancePackInputParameterArray) ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput {
+	return i.ToConformancePackInputParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ConformancePackInputParameterArray) ToConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackInputParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterArrayOutput)
+}
+
+type ConformancePackInputParameterOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackInputParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackInputParameter)(nil)).Elem()
+}
+
+func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput {
+	return o
+}
+
+func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackInputParameterOutput {
+	return o
+}
+
+// The input key.
+func (o ConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+// The input value.
+func (o ConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type ConformancePackInputParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackInputParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConformancePackInputParameter)(nil)).Elem()
+}
+
+func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput {
+	return o
+}
+
+func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackInputParameterArrayOutput {
+	return o
+}
+
+func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) ConformancePackInputParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConformancePackInputParameter {
+		return vs[0].([]ConformancePackInputParameter)[vs[1].(int)]
+	}).(ConformancePackInputParameterOutput)
+}
+
 type DeliveryChannelSnapshotDeliveryProperties struct {
 	// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
@@ -490,7 +596,7 @@ type RecorderRecordingGroup struct {
 	AllSupported *bool `pulumi:"allSupported"`
 	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
-	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -510,7 +616,7 @@ type RecorderRecordingGroupArgs struct {
 	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
 	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
-	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
@@ -601,7 +707,7 @@ func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPt
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
 }
 
-// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 func (o RecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -644,7 +750,7 @@ func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
 		if v == nil {
@@ -1246,6 +1352,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
+	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
+	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupOutput{})

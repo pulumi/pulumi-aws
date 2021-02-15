@@ -186,19 +186,25 @@ namespace Pulumi.Aws.Budgets
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the budget.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Output("budgetType")]
         public Output<string> BudgetType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
+        /// Map of Cost Filters key/value pairs to apply to the budget.
         /// </summary>
         [Output("costFilters")]
         public Output<ImmutableDictionary<string, string>> CostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
         /// </summary>
         [Output("costTypes")]
         public Output<Outputs.BudgetCostTypes> CostTypes { get; private set; } = null!;
@@ -246,7 +252,7 @@ namespace Pulumi.Aws.Budgets
         public Output<string> TimePeriodStart { get; private set; } = null!;
 
         /// <summary>
-        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// </summary>
         [Output("timeUnit")]
         public Output<string> TimeUnit { get; private set; } = null!;
@@ -313,7 +319,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _costFilters;
 
         /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
+        /// Map of Cost Filters key/value pairs to apply to the budget.
         /// </summary>
         public InputMap<string> CostFilters
         {
@@ -322,7 +328,7 @@ namespace Pulumi.Aws.Budgets
         }
 
         /// <summary>
-        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesArgs>? CostTypes { get; set; }
@@ -376,7 +382,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string> TimePeriodStart { get; set; } = null!;
 
         /// <summary>
-        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// </summary>
         [Input("timeUnit", required: true)]
         public Input<string> TimeUnit { get; set; } = null!;
@@ -395,6 +401,12 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// The ARN of the budget.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Input("budgetType")]
@@ -404,7 +416,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _costFilters;
 
         /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
+        /// Map of Cost Filters key/value pairs to apply to the budget.
         /// </summary>
         public InputMap<string> CostFilters
         {
@@ -413,7 +425,7 @@ namespace Pulumi.Aws.Budgets
         }
 
         /// <summary>
-        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesGetArgs>? CostTypes { get; set; }
@@ -467,7 +479,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? TimePeriodStart { get; set; }
 
         /// <summary>
-        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }

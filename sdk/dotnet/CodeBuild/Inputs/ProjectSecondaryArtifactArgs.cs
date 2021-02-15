@@ -13,55 +13,55 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSecondaryArtifactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+        /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
         /// </summary>
         [Input("artifactIdentifier", required: true)]
         public Input<string> ArtifactIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+        /// Location of the source code from git or s3.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
         /// </summary>
         [Input("namespaceType")]
         public Input<string>? NamespaceType { get; set; }
 
         /// <summary>
-        /// If set to true, a name specified in the build spec file overrides the artifact name.
+        /// Whether a name specified in the build specification overrides the artifact name.
         /// </summary>
         [Input("overrideArtifactName")]
         public Input<bool>? OverrideArtifactName { get; set; }
 
         /// <summary>
-        /// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+        /// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
         /// </summary>
         [Input("packaging")]
         public Input<string>? Packaging { get; set; }
 
         /// <summary>
-        /// If `type` is set to `S3`, this is the path to the output artifact
+        /// If `type` is set to `S3`, this is the path to the output artifact.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The build output artifact's type. The only valid value is `S3`.
+        /// Authorization type to use. The only valid value is `OAUTH`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

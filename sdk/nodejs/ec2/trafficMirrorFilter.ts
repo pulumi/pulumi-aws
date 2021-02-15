@@ -59,6 +59,10 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the traffic mirror filter.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A description of the filter.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -83,6 +87,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TrafficMirrorFilterState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["networkServices"] = state ? state.networkServices : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -91,6 +96,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["networkServices"] = args ? args.networkServices : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -107,6 +113,10 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficMirrorFilter resources.
  */
 export interface TrafficMirrorFilterState {
+    /**
+     * The ARN of the traffic mirror filter.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A description of the filter.
      */

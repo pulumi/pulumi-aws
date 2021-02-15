@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters
     {
         /// <summary>
+        /// Configuration options for sending command output to CloudWatch Logs. Documented below.
+        /// </summary>
+        public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? CloudwatchConfig;
+        /// <summary>
         /// Information about the command(s) to execute.
         /// </summary>
         public readonly string? Comment;
@@ -25,6 +29,10 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         /// </summary>
         public readonly string? DocumentHashType;
+        /// <summary>
+        /// The version of an Automation document to use during task execution.
+        /// </summary>
+        public readonly string? DocumentVersion;
         /// <summary>
         /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         /// </summary>
@@ -52,11 +60,15 @@ namespace Pulumi.Aws.Ssm.Outputs
 
         [OutputConstructor]
         private MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(
+            Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? cloudwatchConfig,
+
             string? comment,
 
             string? documentHash,
 
             string? documentHashType,
+
+            string? documentVersion,
 
             Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? notificationConfig,
 
@@ -70,9 +82,11 @@ namespace Pulumi.Aws.Ssm.Outputs
 
             int? timeoutSeconds)
         {
+            CloudwatchConfig = cloudwatchConfig;
             Comment = comment;
             DocumentHash = documentHash;
             DocumentHashType = documentHashType;
+            DocumentVersion = documentVersion;
             NotificationConfig = notificationConfig;
             OutputS3Bucket = outputS3Bucket;
             OutputS3KeyPrefix = outputS3KeyPrefix;

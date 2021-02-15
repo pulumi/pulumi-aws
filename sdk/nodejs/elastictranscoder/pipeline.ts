@@ -64,6 +64,9 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * The ARN of the Elastictranscoder pipeline.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -164,6 +167,9 @@ export class Pipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Pipeline resources.
  */
 export interface PipelineState {
+    /**
+     * The ARN of the Elastictranscoder pipeline.
+     */
     readonly arn?: pulumi.Input<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.

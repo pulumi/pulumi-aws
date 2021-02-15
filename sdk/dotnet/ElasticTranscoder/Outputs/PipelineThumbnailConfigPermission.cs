@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     public sealed class PipelineThumbnailConfigPermission
     {
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         /// </summary>
         public readonly ImmutableArray<string> Accesses;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? Grantee;
         /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
         public readonly string? GranteeType;
 

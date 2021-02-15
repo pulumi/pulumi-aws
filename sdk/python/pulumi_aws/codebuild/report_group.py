@@ -17,6 +17,7 @@ class ReportGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_reports: Optional[pulumi.Input[bool]] = None,
                  export_config: Optional[pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -77,6 +78,7 @@ class ReportGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         :param pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
@@ -99,6 +101,7 @@ class ReportGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['delete_reports'] = delete_reports
             if export_config is None and not opts.urn:
                 raise TypeError("Missing required property 'export_config'")
             __props__['export_config'] = export_config
@@ -121,6 +124,7 @@ class ReportGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             created: Optional[pulumi.Input[str]] = None,
+            delete_reports: Optional[pulumi.Input[bool]] = None,
             export_config: Optional[pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -134,6 +138,7 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of Report Group.
         :param pulumi.Input[str] created: The date and time this Report Group was created.
+        :param pulumi.Input[bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         :param pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
@@ -145,6 +150,7 @@ class ReportGroup(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["created"] = created
+        __props__["delete_reports"] = delete_reports
         __props__["export_config"] = export_config
         __props__["name"] = name
         __props__["tags"] = tags
@@ -166,6 +172,14 @@ class ReportGroup(pulumi.CustomResource):
         The date and time this Report Group was created.
         """
         return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="deleteReports")
+    def delete_reports(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        """
+        return pulumi.get(self, "delete_reports")
 
     @property
     @pulumi.getter(name="exportConfig")

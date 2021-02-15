@@ -7,317 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Generates an IAM policy document in JSON format.
-//
-// This is a data source which can be used to construct a JSON representation of
-// an IAM policy document, for use with resources which expect policy documents,
-// such as the `iam.Policy` resource.
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "1",
-// 					Actions: []string{
-// 						"s3:ListAllMyBuckets",
-// 						"s3:GetBucketLocation",
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:s3:::*",
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"s3:ListBucket",
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("%v%v", "arn:aws:s3:::", _var.S3_bucket_name),
-// 					},
-// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
-// 						iam.GetPolicyDocumentStatementCondition{
-// 							Test:     "StringLike",
-// 							Variable: "s3:prefix",
-// 							Values: []string{
-// 								"",
-// 								"home/",
-// 								"home/&{aws:username}/",
-// 							},
-// 						},
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}"),
-// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}/*"),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-// 			Path:   pulumi.String("/"),
-// 			Policy: pulumi.String(examplePolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// Using this data source to generate policy documents is *optional*. It is also
-// valid to use literal JSON strings within your configuration, or to use the
-// `file` interpolation function to read a raw JSON policy document from a file.
-//
-// ## Context Variable Interpolation
-//
-// The IAM policy document format allows context variables to be interpolated
-// into various strings within a statement. The native IAM policy document format
-// uses `${...}`-style syntax that is in conflict with interpolation
-// syntax, so this data source instead uses `&{...}` syntax for interpolations that
-// should be processed by AWS rather than by this provider.
-//
-// ## Wildcard Principal
-//
-// In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
-// `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
-// Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
-// states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
-// those principals have different behavior for IAM Role Trust Policy. Therefore
-// this provider will normalize the principal field only in above-mentioned case and principals
-// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
-//
-// ## Example with Source and Override
-//
-// Showing how you can use `sourceJson` and `overrideJson`
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"ec2:*",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverwrite",
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		opt0 := source.Json
-// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			SourceJson: &opt0,
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverwrite",
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:s3:::somebucket",
-// 						"arn:aws:s3:::somebucket/*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverwrite",
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		opt1 := override.Json
-// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			OverrideJson: &opt1,
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"ec2:*",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverwrite",
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:s3:::somebucket",
-// 						"arn:aws:s3:::somebucket/*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
-// ```
-//
-// `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
-// ```
-//
-// You can also combine `sourceJson` and `overrideJson` in the same document.
-//
-// ## Example without Statement
-//
-// Use without a `statement`:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "OverridePlaceholder",
-// 					Actions: []string{
-// 						"ec2:DescribeAccountAttributes",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: "OverridePlaceholder",
-// 					Actions: []string{
-// 						"s3:GetObject",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		opt0 := source.Json
-// 		opt1 := override.Json
-// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			SourceJson:   &opt0,
-// 			OverrideJson: &opt1,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// `data.aws_iam_policy_document.politik.json` will evaluate to:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
-// ```
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	var rv GetPolicyDocumentResult
 	err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, opts...)
@@ -329,22 +18,19 @@ func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ..
 
 // A collection of arguments for invoking getPolicyDocument.
 type GetPolicyDocumentArgs struct {
-	// An IAM policy document to import and override the
-	// current policy document.  Statements with non-blank `sid`s in the override
-	// document will overwrite statements with the same `sid` in the current document.
-	// Statements without an `sid` cannot be overwritten.
+	// IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
 	OverrideJson *string `pulumi:"overrideJson"`
-	// An ID for the policy document.
+	// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `sourceJson` and `sourcePolicyDocuments` arguments.  Non-overriding statements will be added to the exported document.
+	OverridePolicyDocuments []string `pulumi:"overridePolicyDocuments"`
+	// ID for the policy document.
 	PolicyId *string `pulumi:"policyId"`
-	// An IAM policy document to import as a base for the
-	// current policy document.  Statements with non-blank `sid`s in the current
-	// policy document will overwrite statements with the same `sid` in the source
-	// json.  Statements without an `sid` cannot be overwritten.
+	// IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
 	SourceJson *string `pulumi:"sourceJson"`
-	// A nested configuration block (described below)
-	// configuring one *statement* to be included in the policy document.
+	// List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` or `sourceJson` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+	SourcePolicyDocuments []string `pulumi:"sourcePolicyDocuments"`
+	// Configuration block for a policy statement. Detailed below.
 	Statements []GetPolicyDocumentStatement `pulumi:"statements"`
-	// IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+	// IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
 	Version *string `pulumi:"version"`
 }
 
@@ -352,11 +38,13 @@ type GetPolicyDocumentArgs struct {
 type GetPolicyDocumentResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The above arguments serialized as a standard JSON policy document.
-	Json         string                       `pulumi:"json"`
-	OverrideJson *string                      `pulumi:"overrideJson"`
-	PolicyId     *string                      `pulumi:"policyId"`
-	SourceJson   *string                      `pulumi:"sourceJson"`
-	Statements   []GetPolicyDocumentStatement `pulumi:"statements"`
-	Version      *string                      `pulumi:"version"`
+	// Standard JSON policy document rendered based on the arguments above.
+	Json                    string                       `pulumi:"json"`
+	OverrideJson            *string                      `pulumi:"overrideJson"`
+	OverridePolicyDocuments []string                     `pulumi:"overridePolicyDocuments"`
+	PolicyId                *string                      `pulumi:"policyId"`
+	SourceJson              *string                      `pulumi:"sourceJson"`
+	SourcePolicyDocuments   []string                     `pulumi:"sourcePolicyDocuments"`
+	Statements              []GetPolicyDocumentStatement `pulumi:"statements"`
+	Version                 *string                      `pulumi:"version"`
 }

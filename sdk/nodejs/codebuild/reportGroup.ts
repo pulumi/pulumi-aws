@@ -95,6 +95,10 @@ export class ReportGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
     /**
+     * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+     */
+    public readonly deleteReports!: pulumi.Output<boolean | undefined>;
+    /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
     public readonly exportConfig!: pulumi.Output<outputs.codebuild.ReportGroupExportConfig>;
@@ -125,6 +129,7 @@ export class ReportGroup extends pulumi.CustomResource {
             const state = argsOrState as ReportGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["created"] = state ? state.created : undefined;
+            inputs["deleteReports"] = state ? state.deleteReports : undefined;
             inputs["exportConfig"] = state ? state.exportConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -137,6 +142,7 @@ export class ReportGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["deleteReports"] = args ? args.deleteReports : undefined;
             inputs["exportConfig"] = args ? args.exportConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -168,6 +174,10 @@ export interface ReportGroupState {
      */
     readonly created?: pulumi.Input<string>;
     /**
+     * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+     */
+    readonly deleteReports?: pulumi.Input<boolean>;
+    /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
     readonly exportConfig?: pulumi.Input<inputs.codebuild.ReportGroupExportConfig>;
@@ -189,6 +199,10 @@ export interface ReportGroupState {
  * The set of arguments for constructing a ReportGroup resource.
  */
 export interface ReportGroupArgs {
+    /**
+     * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+     */
+    readonly deleteReports?: pulumi.Input<boolean>;
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */

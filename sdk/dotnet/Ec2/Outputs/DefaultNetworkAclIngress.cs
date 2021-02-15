@@ -18,8 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// The CIDR block to match. This must be a
-        /// valid network mask.
+        /// The CIDR block to match. This must be a valid network mask.
         /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
@@ -39,8 +38,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? Ipv6CidrBlock;
         /// <summary>
-        /// The protocol to match. If using the -1 'all'
-        /// protocol, you must specify a from and to port of 0.
+        /// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         /// </summary>
         public readonly string Protocol;
         /// <summary>

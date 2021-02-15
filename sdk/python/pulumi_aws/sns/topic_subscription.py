@@ -22,6 +22,7 @@ class TopicSubscription(pulumi.CustomResource):
                  filter_policy: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+                 redrive_policy: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -100,7 +101,6 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
                         "SNS:RemovePermission",
-                        "SNS:Receive",
                         "SNS:Publish",
                         "SNS:ListSubscriptionsByTopic",
                         "SNS:GetTopicAttributes",
@@ -206,6 +206,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         :param pulumi.Input[str] protocol: The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         :param pulumi.Input[bool] raw_message_delivery: Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] topic: The ARN of the SNS topic to subscribe to
         """
         if __name__ is not None:
@@ -236,6 +237,7 @@ class TopicSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
             __props__['raw_message_delivery'] = raw_message_delivery
+            __props__['redrive_policy'] = redrive_policy
             if topic is None and not opts.urn:
                 raise TypeError("Missing required property 'topic'")
             __props__['topic'] = topic
@@ -258,6 +260,7 @@ class TopicSubscription(pulumi.CustomResource):
             filter_policy: Optional[pulumi.Input[str]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+            redrive_policy: Optional[pulumi.Input[str]] = None,
             topic: Optional[pulumi.Input[str]] = None) -> 'TopicSubscription':
         """
         Get an existing TopicSubscription resource's state with the given name, id, and optional extra
@@ -274,6 +277,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         :param pulumi.Input[str] protocol: The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         :param pulumi.Input[bool] raw_message_delivery: Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] topic: The ARN of the SNS topic to subscribe to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -288,6 +292,7 @@ class TopicSubscription(pulumi.CustomResource):
         __props__["filter_policy"] = filter_policy
         __props__["protocol"] = protocol
         __props__["raw_message_delivery"] = raw_message_delivery
+        __props__["redrive_policy"] = redrive_policy
         __props__["topic"] = topic
         return TopicSubscription(resource_name, opts=opts, __props__=__props__)
 
@@ -354,6 +359,14 @@ class TopicSubscription(pulumi.CustomResource):
         Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
         """
         return pulumi.get(self, "raw_message_delivery")
+
+    @property
+    @pulumi.getter(name="redrivePolicy")
+    def redrive_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        """
+        return pulumi.get(self, "redrive_policy")
 
     @property
     @pulumi.getter

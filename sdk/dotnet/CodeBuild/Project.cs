@@ -249,13 +249,13 @@ namespace Pulumi.Aws.CodeBuild
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the CodeBuild project.
+        /// ARN of the CodeBuild project.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the project's build output artifacts. Artifact blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("artifacts")]
         public Output<Outputs.ProjectArtifacts> Artifacts { get; private set; } = null!;
@@ -267,97 +267,97 @@ namespace Pulumi.Aws.CodeBuild
         public Output<bool?> BadgeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the build badge when `badge_enabled` is enabled.
+        /// URL of the build badge when `badge_enabled` is enabled.
         /// </summary>
         [Output("badgeUrl")]
         public Output<string> BadgeUrl { get; private set; } = null!;
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Output("buildTimeout")]
         public Output<int?> BuildTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the cache storage for the project. Cache blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("cache")]
         public Output<Outputs.ProjectCache?> Cache { get; private set; } = null!;
 
         /// <summary>
-        /// A short description of the project.
+        /// Short description of the project.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the project's build environment. Environment blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("environment")]
         public Output<Outputs.ProjectEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the builds to store log data to CloudWatch or S3.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("logsConfig")]
         public Output<Outputs.ProjectLogsConfig?> LogsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The projects name.
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Output("queuedTimeout")]
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("secondaryArtifacts")]
         public Output<ImmutableArray<Outputs.ProjectSecondaryArtifact>> SecondaryArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("secondarySources")]
         public Output<ImmutableArray<Outputs.ProjectSecondarySource>> SecondarySources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the project's input source code. Source blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Output("sourceVersion")]
         public Output<string?> SourceVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.ProjectVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the project's build output artifacts. Artifact blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("artifacts", required: true)]
         public Input<Inputs.ProjectArtifactsArgs> Artifacts { get; set; } = null!;
@@ -421,49 +421,49 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? BadgeEnabled { get; set; }
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
 
         /// <summary>
-        /// Information about the cache storage for the project. Cache blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheArgs>? Cache { get; set; }
 
         /// <summary>
-        /// A short description of the project.
+        /// Short description of the project.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// Information about the project's build environment. Environment blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("environment", required: true)]
         public Input<Inputs.ProjectEnvironmentArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for the builds to store log data to CloudWatch or S3.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.ProjectLogsConfigArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// The projects name.
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectSecondaryArtifactArgs>? _secondaryArtifacts;
 
         /// <summary>
-        /// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.ProjectSecondaryArtifactArgs> SecondaryArtifacts
         {
@@ -484,7 +484,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectSecondarySourceArgs>? _secondarySources;
 
         /// <summary>
-        /// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.ProjectSecondarySourceArgs> SecondarySources
         {
@@ -493,19 +493,19 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
 
         /// <summary>
-        /// Information about the project's input source code. Source blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
@@ -514,7 +514,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -523,7 +523,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ProjectVpcConfigArgs>? VpcConfig { get; set; }
@@ -536,13 +536,13 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the CodeBuild project.
+        /// ARN of the CodeBuild project.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Information about the project's build output artifacts. Artifact blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("artifacts")]
         public Input<Inputs.ProjectArtifactsGetArgs>? Artifacts { get; set; }
@@ -554,55 +554,55 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? BadgeEnabled { get; set; }
 
         /// <summary>
-        /// The URL of the build badge when `badge_enabled` is enabled.
+        /// URL of the build badge when `badge_enabled` is enabled.
         /// </summary>
         [Input("badgeUrl")]
         public Input<string>? BadgeUrl { get; set; }
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
 
         /// <summary>
-        /// Information about the cache storage for the project. Cache blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheGetArgs>? Cache { get; set; }
 
         /// <summary>
-        /// A short description of the project.
+        /// Short description of the project.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// Information about the project's build environment. Environment blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("environment")]
         public Input<Inputs.ProjectEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// Configuration for the builds to store log data to CloudWatch or S3.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.ProjectLogsConfigGetArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// The projects name.
+        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
@@ -611,7 +611,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectSecondaryArtifactGetArgs>? _secondaryArtifacts;
 
         /// <summary>
-        /// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.ProjectSecondaryArtifactGetArgs> SecondaryArtifacts
         {
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectSecondarySourceGetArgs>? _secondarySources;
 
         /// <summary>
-        /// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.ProjectSecondarySourceGetArgs> SecondarySources
         {
@@ -632,19 +632,19 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
-        /// Information about the project's input source code. Source blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
@@ -653,7 +653,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+        /// Configuration block. Detailed below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ProjectVpcConfigGetArgs>? VpcConfig { get; set; }

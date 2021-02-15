@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionImageConfig
     {
         /// <summary>
-        /// The CMD for the docker image.
+        /// Parameters that you want to pass in with `entry_point`.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The ENTRYPOINT for the docker image.
+        /// Entry point to your application, which is typically the location of the runtime executable.
         /// </summary>
         public readonly ImmutableArray<string> EntryPoints;
         /// <summary>
-        /// The working directory for the docker image.
+        /// Working directory.
         /// </summary>
         public readonly string? WorkingDirectory;
 

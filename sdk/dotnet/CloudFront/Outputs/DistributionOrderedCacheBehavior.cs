@@ -19,6 +19,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
+        /// The unique identifier of the cache policy that
+        /// is attached to the cache behavior.
+        /// </summary>
+        public readonly string? CachePolicyId;
+        /// <summary>
         /// Controls whether CloudFront caches the
         /// response to requests using the specified HTTP methods.
         /// </summary>
@@ -32,8 +37,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// The default amount of time (in seconds) that an
         /// object is in a CloudFront cache before CloudFront forwards another request
-        /// in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
-        /// 1 day.
+        /// in the absence of an `Cache-Control max-age` or `Expires` header.
         /// </summary>
         public readonly int? DefaultTtl;
         /// <summary>
@@ -44,7 +48,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// The forwarded values configuration that specifies how CloudFront
         /// handles query strings, cookies and headers (maximum one).
         /// </summary>
-        public readonly Outputs.DistributionOrderedCacheBehaviorForwardedValues ForwardedValues;
+        public readonly Outputs.DistributionOrderedCacheBehaviorForwardedValues? ForwardedValues;
         /// <summary>
         /// A config block that triggers a lambda function with
         /// specific actions. Defined below, maximum 4.
@@ -55,7 +59,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// object is in a CloudFront cache before CloudFront forwards another request
         /// to your origin to determine whether the object has been updated. Only
         /// effective in the presence of `Cache-Control max-age`, `Cache-Control
-        /// s-maxage`, and `Expires` headers. Defaults to 365 days.
+        /// s-maxage`, and `Expires` headers.
         /// </summary>
         public readonly int? MaxTtl;
         /// <summary>
@@ -70,6 +74,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// specifies which requests you want this cache behavior to apply to.
         /// </summary>
         public readonly string PathPattern;
+        /// <summary>
+        /// The ARN of the real-time log configuration
+        /// that is attached to this cache behavior.
+        /// </summary>
+        public readonly string? RealtimeLogConfigArn;
         /// <summary>
         /// Indicates whether you want to distribute
         /// media files in Microsoft Smooth Streaming format using the origin that is
@@ -99,6 +108,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
         private DistributionOrderedCacheBehavior(
             ImmutableArray<string> allowedMethods,
 
+            string? cachePolicyId,
+
             ImmutableArray<string> cachedMethods,
 
             bool? compress,
@@ -107,7 +118,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string? fieldLevelEncryptionId,
 
-            Outputs.DistributionOrderedCacheBehaviorForwardedValues forwardedValues,
+            Outputs.DistributionOrderedCacheBehaviorForwardedValues? forwardedValues,
 
             ImmutableArray<Outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations,
 
@@ -119,6 +130,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string pathPattern,
 
+            string? realtimeLogConfigArn,
+
             bool? smoothStreaming,
 
             string targetOriginId,
@@ -128,6 +141,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             string viewerProtocolPolicy)
         {
             AllowedMethods = allowedMethods;
+            CachePolicyId = cachePolicyId;
             CachedMethods = cachedMethods;
             Compress = compress;
             DefaultTtl = defaultTtl;
@@ -138,6 +152,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             MinTtl = minTtl;
             OriginRequestPolicyId = originRequestPolicyId;
             PathPattern = pathPattern;
+            RealtimeLogConfigArn = realtimeLogConfigArn;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;
             TrustedSigners = trustedSigners;

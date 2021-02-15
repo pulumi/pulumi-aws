@@ -51,6 +51,8 @@ import (
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the traffic mirror filter.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the filter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
@@ -88,6 +90,8 @@ func GetTrafficMirrorFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorFilter resources.
 type trafficMirrorFilterState struct {
+	// The ARN of the traffic mirror filter.
+	Arn *string `pulumi:"arn"`
 	// A description of the filter.
 	Description *string `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
@@ -97,6 +101,8 @@ type trafficMirrorFilterState struct {
 }
 
 type TrafficMirrorFilterState struct {
+	// The ARN of the traffic mirror filter.
+	Arn pulumi.StringPtrInput
 	// A description of the filter.
 	Description pulumi.StringPtrInput
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.

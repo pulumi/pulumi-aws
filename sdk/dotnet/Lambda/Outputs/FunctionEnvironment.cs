@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionEnvironment
     {
         /// <summary>
-        /// A map that defines environment variables for the Lambda function.
+        /// Map of environment variables that are accessible from the function code during execution.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Variables;
 

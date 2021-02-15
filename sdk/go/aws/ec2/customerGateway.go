@@ -55,6 +55,8 @@ type CustomerGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
+	// A name for the customer gateway device.
+	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -106,6 +108,8 @@ type customerGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn *string `pulumi:"bgpAsn"`
+	// A name for the customer gateway device.
+	DeviceName *string `pulumi:"deviceName"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -120,6 +124,8 @@ type CustomerGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.StringPtrInput
+	// A name for the customer gateway device.
+	DeviceName pulumi.StringPtrInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringPtrInput
 	// Tags to apply to the gateway.
@@ -136,6 +142,8 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn string `pulumi:"bgpAsn"`
+	// A name for the customer gateway device.
+	DeviceName *string `pulumi:"deviceName"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -149,6 +157,8 @@ type customerGatewayArgs struct {
 type CustomerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.StringInput
+	// A name for the customer gateway device.
+	DeviceName pulumi.StringPtrInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway.

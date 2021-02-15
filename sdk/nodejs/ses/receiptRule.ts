@@ -77,13 +77,17 @@ export class ReceiptRule extends pulumi.CustomResource {
      */
     public readonly after!: pulumi.Output<string | undefined>;
     /**
+     * The SES receipt rule ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A list of Bounce Action blocks. Documented below.
      */
     public readonly bounceActions!: pulumi.Output<outputs.ses.ReceiptRuleBounceAction[] | undefined>;
     /**
      * If true, the rule will be enabled
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of Lambda Action blocks. Documented below.
      */
@@ -107,7 +111,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
-    public readonly scanEnabled!: pulumi.Output<boolean>;
+    public readonly scanEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of SNS Action blocks. Documented below.
      */
@@ -139,6 +143,7 @@ export class ReceiptRule extends pulumi.CustomResource {
             const state = argsOrState as ReceiptRuleState | undefined;
             inputs["addHeaderActions"] = state ? state.addHeaderActions : undefined;
             inputs["after"] = state ? state.after : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["bounceActions"] = state ? state.bounceActions : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["lambdaActions"] = state ? state.lambdaActions : undefined;
@@ -170,6 +175,7 @@ export class ReceiptRule extends pulumi.CustomResource {
             inputs["stopActions"] = args ? args.stopActions : undefined;
             inputs["tlsPolicy"] = args ? args.tlsPolicy : undefined;
             inputs["workmailActions"] = args ? args.workmailActions : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -194,6 +200,10 @@ export interface ReceiptRuleState {
      * The name of the rule to place this rule after
      */
     readonly after?: pulumi.Input<string>;
+    /**
+     * The SES receipt rule ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A list of Bounce Action blocks. Documented below.
      */

@@ -159,6 +159,7 @@ const (
 	ssoAdminMod              = "SsoAdmin"              // SSO Admin
 	storagegatewayMod        = "StorageGateway"        // Storage Gateway
 	swfMod                   = "Swf"                   // Simple Workflow Service (SWF)
+	syntheticsMod            = "Synthetics"            // Synthetics
 	transferMod              = "Transfer"              // Transfer Service
 	wafMod                   = "Waf"                   // Web Application Firewall (WAF)
 	wafV2Mod                 = "WafV2"                 // Web Application Firewall V2 (WAFV2)
@@ -668,6 +669,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_public_key":             {Tok: awsResource(cloudfrontMod, "PublicKey")},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			"aws_cloudfront_origin_request_policy":  {Tok: awsResource(cloudfrontMod, "OriginRequestPolicy")},
+			"aws_cloudfront_cache_policy":           {Tok: awsResource(cloudfrontMod, "CachePolicy")},
+			"aws_cloudfront_realtime_log_config":    {Tok: awsResource(cloudfrontMod, "RealtimeLogConfig")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -806,6 +809,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_organization_custom_rule":      {Tok: awsResource(cfgMod, "OrganizationCustomRule")},
 			"aws_config_organization_managed_rule":     {Tok: awsResource(cfgMod, "OrganizationManagedRule")},
 			"aws_config_remediation_configuration":     {Tok: awsResource(cfgMod, "RemediationConfiguration")},
+			"aws_config_conformance_pack":              {Tok: awsResource(cfgMod, "ConformancePack")},
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
 			// DataSync
@@ -2003,6 +2007,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_image_version":          {Tok: awsResource(sagemakerMod, "ImageVersion")},
 			"aws_sagemaker_user_profile":           {Tok: awsResource(sagemakerMod, "UserProfile")},
 			"aws_sagemaker_app_image_config":       {Tok: awsResource(sagemakerMod, "AppImageConfig")},
+			"aws_sagemaker_model_package_group":    {Tok: awsResource(sagemakerMod, "ModelPackageGroup")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2014,11 +2019,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Service Catalog
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
 			// Security Hub
-			"aws_securityhub_account":                {Tok: awsResource(securityhubMod, "Account")},
-			"aws_securityhub_product_subscription":   {Tok: awsResource(securityhubMod, "ProductSubscription")},
-			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
-			"aws_securityhub_member":                 {Tok: awsResource(securityhubMod, "Member")},
-			"aws_securityhub_action_target":          {Tok: awsResource(securityhubMod, "ActionTarget")},
+			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
+			"aws_securityhub_standards_subscription":     {Tok: awsResource(securityhubMod, "StandardsSubscription")},
+			"aws_securityhub_member":                     {Tok: awsResource(securityhubMod, "Member")},
+			"aws_securityhub_action_target":              {Tok: awsResource(securityhubMod, "ActionTarget")},
+			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -2229,6 +2235,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
+			// Synthetics
+			"aws_synthetics_canary": {Tok: awsResource(syntheticsMod, "Canary")},
 			// Transfer Service
 			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
 			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
@@ -3824,6 +3832,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Cloudfront
 			"aws_cloudfront_distribution":          {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 			"aws_cloudfront_origin_request_policy": {Tok: awsDataSource(cloudfrontMod, "getOriginRequestPolicy")},
+			"aws_cloudfront_cache_policy":          {Tok: awsDataSource(cloudfrontMod, "getCachePolicy")},
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},

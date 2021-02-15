@@ -78,7 +78,6 @@ import {Topic} from "./index";
  *                 "SNS:Subscribe",
  *                 "SNS:SetTopicAttributes",
  *                 "SNS:RemovePermission",
- *                 "SNS:Receive",
  *                 "SNS:Publish",
  *                 "SNS:ListSubscriptionsByTopic",
  *                 "SNS:GetTopicAttributes",
@@ -247,6 +246,10 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
     /**
+     * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+     */
+    public readonly redrivePolicy!: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the SNS topic to subscribe to
      */
     public readonly topic!: pulumi.Output<string>;
@@ -271,6 +274,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["filterPolicy"] = state ? state.filterPolicy : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["rawMessageDelivery"] = state ? state.rawMessageDelivery : undefined;
+            inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
             inputs["topic"] = state ? state.topic : undefined;
         } else {
             const args = argsOrState as TopicSubscriptionArgs | undefined;
@@ -290,6 +294,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["filterPolicy"] = args ? args.filterPolicy : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
+            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
             inputs["topic"] = args ? args.topic : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -341,6 +346,10 @@ export interface TopicSubscriptionState {
      */
     readonly rawMessageDelivery?: pulumi.Input<boolean>;
     /**
+     * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+     */
+    readonly redrivePolicy?: pulumi.Input<string>;
+    /**
      * The ARN of the SNS topic to subscribe to
      */
     readonly topic?: pulumi.Input<string | Topic>;
@@ -378,6 +387,10 @@ export interface TopicSubscriptionArgs {
      * Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
      */
     readonly rawMessageDelivery?: pulumi.Input<boolean>;
+    /**
+     * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+     */
+    readonly redrivePolicy?: pulumi.Input<string>;
     /**
      * The ARN of the SNS topic to subscribe to
      */

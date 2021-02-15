@@ -22,12 +22,14 @@ __all__ = [
     'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter',
     'MaintenanceWindowTaskTaskInvocationParametersLambdaParameters',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig',
     'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter',
     'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters',
     'PatchBaselineApprovalRule',
     'PatchBaselineApprovalRulePatchFilter',
     'PatchBaselineGlobalFilter',
+    'PatchBaselineSource',
     'ResourceDataSyncS3Destination',
 ]
 
@@ -413,9 +415,11 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     def __init__(__self__, *,
+                 cloudwatch_config: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig'] = None,
                  comment: Optional[str] = None,
                  document_hash: Optional[str] = None,
                  document_hash_type: Optional[str] = None,
+                 document_version: Optional[str] = None,
                  notification_config: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig'] = None,
                  output_s3_bucket: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
@@ -423,9 +427,11 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
                  service_role_arn: Optional[str] = None,
                  timeout_seconds: Optional[int] = None):
         """
+        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs' cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
         :param str comment: Information about the command(s) to execute.
         :param str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param str document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+        :param str document_version: The version of an Automation document to use during task execution.
         :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -433,12 +439,16 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param str service_role_arn: The IAM service role to assume during task execution.
         :param int timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
+        if cloudwatch_config is not None:
+            pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if document_hash is not None:
             pulumi.set(__self__, "document_hash", document_hash)
         if document_hash_type is not None:
             pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
         if output_s3_bucket is not None:
@@ -451,6 +461,14 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if timeout_seconds is not None:
             pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfig")
+    def cloudwatch_config(self) -> Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig']:
+        """
+        Configuration options for sending command output to CloudWatch Logs. Documented below.
+        """
+        return pulumi.get(self, "cloudwatch_config")
 
     @property
     @pulumi.getter
@@ -475,6 +493,14 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         """
         return pulumi.get(self, "document_hash_type")
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        """
+        The version of an Automation document to use during task execution.
+        """
+        return pulumi.get(self, "document_version")
 
     @property
     @pulumi.getter(name="notificationConfig")
@@ -523,6 +549,40 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         If this time is reached and the command has not already started executing, it doesn't run.
         """
         return pulumi.get(self, "timeout_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(dict):
+    def __init__(__self__, *,
+                 cloudwatch_log_group_name: Optional[str] = None,
+                 cloudwatch_output_enabled: Optional[bool] = None):
+        """
+        :param str cloudwatch_log_group_name: The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+        :param bool cloudwatch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        if cloudwatch_log_group_name is not None:
+            pulumi.set(__self__, "cloudwatch_log_group_name", cloudwatch_log_group_name)
+        if cloudwatch_output_enabled is not None:
+            pulumi.set(__self__, "cloudwatch_output_enabled", cloudwatch_output_enabled)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogGroupName")
+    def cloudwatch_log_group_name(self) -> Optional[str]:
+        """
+        The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
+        """
+        return pulumi.get(self, "cloudwatch_log_group_name")
+
+    @property
+    @pulumi.getter(name="cloudwatchOutputEnabled")
+    def cloudwatch_output_enabled(self) -> Optional[bool]:
+        """
+        Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloudwatch_output_enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -643,30 +703,27 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict)
 @pulumi.output_type
 class PatchBaselineApprovalRule(dict):
     def __init__(__self__, *,
-                 approve_after_days: int,
                  patch_filters: Sequence['outputs.PatchBaselineApprovalRulePatchFilter'],
+                 approve_after_days: Optional[int] = None,
+                 approve_until_date: Optional[str] = None,
                  compliance_level: Optional[str] = None,
                  enable_non_security: Optional[bool] = None):
         """
-        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
         :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+        :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         :param str compliance_level: Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param bool enable_non_security: Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
         """
-        pulumi.set(__self__, "approve_after_days", approve_after_days)
         pulumi.set(__self__, "patch_filters", patch_filters)
+        if approve_after_days is not None:
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
+        if approve_until_date is not None:
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
         if compliance_level is not None:
             pulumi.set(__self__, "compliance_level", compliance_level)
         if enable_non_security is not None:
             pulumi.set(__self__, "enable_non_security", enable_non_security)
-
-    @property
-    @pulumi.getter(name="approveAfterDays")
-    def approve_after_days(self) -> int:
-        """
-        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        """
-        return pulumi.get(self, "approve_after_days")
 
     @property
     @pulumi.getter(name="patchFilters")
@@ -675,6 +732,22 @@ class PatchBaselineApprovalRule(dict):
         The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
         """
         return pulumi.get(self, "patch_filters")
+
+    @property
+    @pulumi.getter(name="approveAfterDays")
+    def approve_after_days(self) -> Optional[int]:
+        """
+        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+        """
+        return pulumi.get(self, "approve_after_days")
+
+    @property
+    @pulumi.getter(name="approveUntilDate")
+    def approve_until_date(self) -> Optional[str]:
+        """
+        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        """
+        return pulumi.get(self, "approve_until_date")
 
     @property
     @pulumi.getter(name="complianceLevel")
@@ -735,6 +808,49 @@ class PatchBaselineGlobalFilter(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PatchBaselineSource(dict):
+    def __init__(__self__, *,
+                 configuration: str,
+                 name: str,
+                 products: Sequence[str]):
+        """
+        :param str configuration: The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        :param str name: The name specified to identify the patch source.
+        :param Sequence[str] products: The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "products", products)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> str:
+        """
+        The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name specified to identify the patch source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def products(self) -> Sequence[str]:
+        """
+        The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        """
+        return pulumi.get(self, "products")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

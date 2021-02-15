@@ -36,6 +36,14 @@ class PublicKey(pulumi.CustomResource):
             encoded_key=(lambda path: open(path).read())("public_key.pem"))
         ```
 
+        ## Import
+
+        CloudFront Public Key can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment about the public key.
