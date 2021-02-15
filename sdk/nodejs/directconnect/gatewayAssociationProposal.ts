@@ -91,7 +91,8 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     constructor(name: string, args: GatewayAssociationProposalArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayAssociationProposalArgs | GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GatewayAssociationProposalState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
@@ -101,13 +102,13 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationProposalArgs | undefined;
-            if ((!args || args.associatedGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.associatedGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'associatedGatewayId'");
             }
-            if ((!args || args.dxGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            if ((!args || args.dxGatewayOwnerAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dxGatewayOwnerAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayOwnerAccountId'");
             }
             inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
@@ -117,12 +118,8 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["associatedGatewayOwnerAccountId"] = undefined /*out*/;
             inputs["associatedGatewayType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GatewayAssociationProposal.__pulumiType, name, inputs, opts);
     }

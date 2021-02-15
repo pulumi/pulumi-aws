@@ -83,7 +83,8 @@ export class GeoMatchSet extends pulumi.CustomResource {
     constructor(name: string, args?: GeoMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GeoMatchSetArgs | GeoMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GeoMatchSetState | undefined;
             inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -92,12 +93,8 @@ export class GeoMatchSet extends pulumi.CustomResource {
             inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GeoMatchSet.__pulumiType, name, inputs, opts);
     }

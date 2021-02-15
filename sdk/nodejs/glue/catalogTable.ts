@@ -177,7 +177,8 @@ export class CatalogTable extends pulumi.CustomResource {
     constructor(name: string, args: CatalogTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CatalogTableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
@@ -195,7 +196,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
         } else {
             const args = argsOrState as CatalogTableArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;
@@ -213,12 +214,8 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CatalogTable.__pulumiType, name, inputs, opts);
     }

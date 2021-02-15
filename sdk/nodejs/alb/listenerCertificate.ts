@@ -84,30 +84,27 @@ export class ListenerCertificate extends pulumi.CustomResource {
     constructor(name: string, args: ListenerCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ListenerCertificateState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {
             const args = argsOrState as ListenerCertificateArgs | undefined;
-            if ((!args || args.certificateArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }
 }

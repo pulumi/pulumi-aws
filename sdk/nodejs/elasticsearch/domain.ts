@@ -291,7 +291,8 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DomainState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
@@ -334,12 +335,8 @@ export class Domain extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["kibanaEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Domain.__pulumiType, name, inputs, opts);
     }

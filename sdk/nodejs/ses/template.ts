@@ -88,7 +88,8 @@ export class Template extends pulumi.CustomResource {
     constructor(name: string, args?: TemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["html"] = state ? state.html : undefined;
@@ -103,12 +104,8 @@ export class Template extends pulumi.CustomResource {
             inputs["text"] = args ? args.text : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Template.__pulumiType, name, inputs, opts);
     }

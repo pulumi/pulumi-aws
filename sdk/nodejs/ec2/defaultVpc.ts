@@ -145,7 +145,8 @@ export class DefaultVpc extends pulumi.CustomResource {
     constructor(name: string, args?: DefaultVpcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultVpcArgs | DefaultVpcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefaultVpcState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
@@ -184,12 +185,8 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["mainRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DefaultVpc.__pulumiType, name, inputs, opts);
     }

@@ -107,7 +107,8 @@ export class RateBasedRule extends pulumi.CustomResource {
     constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RateBasedRuleArgs | RateBasedRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RateBasedRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
@@ -118,13 +119,13 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RateBasedRuleArgs | undefined;
-            if ((!args || args.metricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.rateKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateKey'");
             }
-            if ((!args || args.rateLimit === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rateLimit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateLimit'");
             }
             inputs["metricName"] = args ? args.metricName : undefined;
@@ -135,12 +136,8 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RateBasedRule.__pulumiType, name, inputs, opts);
     }

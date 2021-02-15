@@ -95,7 +95,8 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, args?: AccountPublicAccessBlockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountPublicAccessBlockArgs | AccountPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountPublicAccessBlockState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
@@ -110,12 +111,8 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
             inputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
             inputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccountPublicAccessBlock.__pulumiType, name, inputs, opts);
     }

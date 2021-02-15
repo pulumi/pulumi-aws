@@ -163,7 +163,8 @@ export class WebAcl extends pulumi.CustomResource {
     constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
@@ -174,10 +175,10 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.metricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -188,12 +189,8 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebAcl.__pulumiType, name, inputs, opts);
     }

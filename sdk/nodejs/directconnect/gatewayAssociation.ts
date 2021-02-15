@@ -144,7 +144,8 @@ export class GatewayAssociation extends pulumi.CustomResource {
     constructor(name: string, args: GatewayAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayAssociationArgs | GatewayAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GatewayAssociationState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
@@ -156,7 +157,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["proposalId"] = state ? state.proposalId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
-            if ((!args || args.dxGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
             inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
@@ -168,12 +169,8 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["dxGatewayAssociationId"] = undefined /*out*/;
             inputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GatewayAssociation.__pulumiType, name, inputs, opts);
     }

@@ -138,7 +138,8 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
@@ -153,10 +154,10 @@ export class Route extends pulumi.CustomResource {
             inputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -171,12 +172,8 @@ export class Route extends pulumi.CustomResource {
             inputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
             inputs["target"] = args ? args.target : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Route.__pulumiType, name, inputs, opts);
     }

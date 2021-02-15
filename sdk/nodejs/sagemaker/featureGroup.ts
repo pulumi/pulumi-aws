@@ -115,7 +115,8 @@ export class FeatureGroup extends pulumi.CustomResource {
     constructor(name: string, args: FeatureGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FeatureGroupArgs | FeatureGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FeatureGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -129,19 +130,19 @@ export class FeatureGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FeatureGroupArgs | undefined;
-            if ((!args || args.eventTimeFeatureName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTimeFeatureName'");
             }
-            if ((!args || args.featureDefinitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.featureDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureDefinitions'");
             }
-            if ((!args || args.featureGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.featureGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureGroupName'");
             }
-            if ((!args || args.recordIdentifierFeatureName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -155,12 +156,8 @@ export class FeatureGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FeatureGroup.__pulumiType, name, inputs, opts);
     }

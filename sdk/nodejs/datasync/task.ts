@@ -85,7 +85,8 @@ export class Task extends pulumi.CustomResource {
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TaskState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
@@ -96,10 +97,10 @@ export class Task extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TaskArgs | undefined;
-            if ((!args || args.destinationLocationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if ((!args || args.sourceLocationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceLocationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
@@ -110,12 +111,8 @@ export class Task extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Task.__pulumiType, name, inputs, opts);
     }

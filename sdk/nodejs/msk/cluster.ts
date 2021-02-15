@@ -228,7 +228,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
@@ -249,13 +250,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.brokerNodeGroupInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if ((!args || args.kafkaVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kafkaVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if ((!args || args.numberOfBrokerNodes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
             inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
@@ -276,12 +277,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["currentVersion"] = undefined /*out*/;
             inputs["zookeeperConnectString"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

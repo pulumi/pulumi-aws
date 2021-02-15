@@ -117,7 +117,8 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
     constructor(name: string, args: OrganizationManagedRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationManagedRuleArgs | OrganizationManagedRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationManagedRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -132,7 +133,7 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
             inputs["tagValueScope"] = state ? state.tagValueScope : undefined;
         } else {
             const args = argsOrState as OrganizationManagedRuleArgs | undefined;
-            if ((!args || args.ruleIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleIdentifier'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -147,12 +148,8 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
             inputs["tagValueScope"] = args ? args.tagValueScope : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationManagedRule.__pulumiType, name, inputs, opts);
     }

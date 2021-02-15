@@ -85,7 +85,8 @@ export class ActionTarget extends pulumi.CustomResource {
     constructor(name: string, args: ActionTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionTargetArgs | ActionTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -93,10 +94,10 @@ export class ActionTarget extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ActionTargetArgs | undefined;
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -104,12 +105,8 @@ export class ActionTarget extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionTarget.__pulumiType, name, inputs, opts);
     }

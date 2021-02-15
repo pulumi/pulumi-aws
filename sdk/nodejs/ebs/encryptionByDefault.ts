@@ -63,19 +63,16 @@ export class EncryptionByDefault extends pulumi.CustomResource {
     constructor(name: string, args?: EncryptionByDefaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EncryptionByDefaultArgs | EncryptionByDefaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EncryptionByDefaultState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as EncryptionByDefaultArgs | undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EncryptionByDefault.__pulumiType, name, inputs, opts);
     }

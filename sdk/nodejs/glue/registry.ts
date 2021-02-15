@@ -81,7 +81,8 @@ export class Registry extends pulumi.CustomResource {
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryArgs | RegistryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RegistryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -89,7 +90,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -97,12 +98,8 @@ export class Registry extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Registry.__pulumiType, name, inputs, opts);
     }

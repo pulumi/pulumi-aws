@@ -105,7 +105,8 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     constructor(name: string, args: UserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserDefinedFunctionArgs | UserDefinedFunctionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserDefinedFunctionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
@@ -118,16 +119,16 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             inputs["resourceUris"] = state ? state.resourceUris : undefined;
         } else {
             const args = argsOrState as UserDefinedFunctionArgs | undefined;
-            if ((!args || args.className === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.className === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'className'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.ownerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ownerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerName'");
             }
-            if ((!args || args.ownerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ownerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerType'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;
@@ -140,12 +141,8 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserDefinedFunction.__pulumiType, name, inputs, opts);
     }

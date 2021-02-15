@@ -136,7 +136,8 @@ export class JobDefinition extends pulumi.CustomResource {
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobDefinitionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerProperties"] = state ? state.containerProperties : undefined;
@@ -149,7 +150,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as JobDefinitionArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["containerProperties"] = args ? args.containerProperties : undefined;
@@ -162,12 +163,8 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(JobDefinition.__pulumiType, name, inputs, opts);
     }

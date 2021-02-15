@@ -70,29 +70,26 @@ export class Trigger extends pulumi.CustomResource {
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TriggerState | undefined;
             inputs["configurationId"] = state ? state.configurationId : undefined;
             inputs["repositoryName"] = state ? state.repositoryName : undefined;
             inputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
-            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            if ((!args || args.triggers === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.triggers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggers'");
             }
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
             inputs["triggers"] = args ? args.triggers : undefined;
             inputs["configurationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Trigger.__pulumiType, name, inputs, opts);
     }

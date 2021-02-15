@@ -93,7 +93,8 @@ export class NfsLocation extends pulumi.CustomResource {
     constructor(name: string, args: NfsLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NfsLocationArgs | NfsLocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NfsLocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
@@ -103,13 +104,13 @@ export class NfsLocation extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as NfsLocationArgs | undefined;
-            if ((!args || args.onPremConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.onPremConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            if ((!args || args.serverHostname === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverHostname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            if ((!args || args.subdirectory === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
             inputs["onPremConfig"] = args ? args.onPremConfig : undefined;
@@ -119,12 +120,8 @@ export class NfsLocation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NfsLocation.__pulumiType, name, inputs, opts);
     }

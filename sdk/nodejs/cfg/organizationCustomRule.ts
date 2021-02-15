@@ -132,7 +132,8 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
     constructor(name: string, args: OrganizationCustomRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationCustomRuleArgs | OrganizationCustomRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationCustomRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -148,10 +149,10 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
             inputs["triggerTypes"] = state ? state.triggerTypes : undefined;
         } else {
             const args = argsOrState as OrganizationCustomRuleArgs | undefined;
-            if ((!args || args.lambdaFunctionArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lambdaFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            if ((!args || args.triggerTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.triggerTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggerTypes'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -167,12 +168,8 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
             inputs["triggerTypes"] = args ? args.triggerTypes : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationCustomRule.__pulumiType, name, inputs, opts);
     }

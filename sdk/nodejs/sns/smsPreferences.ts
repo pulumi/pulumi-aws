@@ -79,7 +79,8 @@ export class SmsPreferences extends pulumi.CustomResource {
     constructor(name: string, args?: SmsPreferencesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmsPreferencesArgs | SmsPreferencesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SmsPreferencesState | undefined;
             inputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
             inputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
@@ -96,12 +97,8 @@ export class SmsPreferences extends pulumi.CustomResource {
             inputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
             inputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SmsPreferences.__pulumiType, name, inputs, opts);
     }

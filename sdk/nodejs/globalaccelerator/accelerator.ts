@@ -104,7 +104,8 @@ export class Accelerator extends pulumi.CustomResource {
     constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AcceleratorArgs | AcceleratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AcceleratorState | undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
@@ -125,12 +126,8 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["ipSets"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Accelerator.__pulumiType, name, inputs, opts);
     }

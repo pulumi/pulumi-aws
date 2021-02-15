@@ -93,7 +93,8 @@ export class UserPolicy extends pulumi.CustomResource {
     constructor(name: string, args: UserPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPolicyArgs | UserPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserPolicyState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -101,10 +102,10 @@ export class UserPolicy extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as UserPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -112,12 +113,8 @@ export class UserPolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["user"] = args ? args.user : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserPolicy.__pulumiType, name, inputs, opts);
     }

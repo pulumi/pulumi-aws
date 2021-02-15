@@ -128,7 +128,8 @@ export class LifecycleHook extends pulumi.CustomResource {
     constructor(name: string, args: LifecycleHookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LifecycleHookArgs | LifecycleHookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LifecycleHookState | undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["defaultResult"] = state ? state.defaultResult : undefined;
@@ -140,10 +141,10 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LifecycleHookArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if ((!args || args.lifecycleTransition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lifecycleTransition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
@@ -155,12 +156,8 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LifecycleHook.__pulumiType, name, inputs, opts);
     }

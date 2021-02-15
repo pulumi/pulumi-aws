@@ -100,29 +100,26 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
     constructor(name: string, args: VpcAssociationAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcAssociationAuthorizationArgs | VpcAssociationAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcAssociationAuthorizationState | undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as VpcAssociationAuthorizationArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if ((!args || args.zoneId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcAssociationAuthorization.__pulumiType, name, inputs, opts);
     }

@@ -78,27 +78,24 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     constructor(name: string, args: VpcIpv4CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv4CidrBlockAssociationArgs | undefined;
-            if ((!args || args.cidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcIpv4CidrBlockAssociation.__pulumiType, name, inputs, opts);
     }

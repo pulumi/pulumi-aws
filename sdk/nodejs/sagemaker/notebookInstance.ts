@@ -156,7 +156,8 @@ export class NotebookInstance extends pulumi.CustomResource {
     constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotebookInstanceArgs | NotebookInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
             inputs["additionalCodeRepositories"] = state ? state.additionalCodeRepositories : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -176,10 +177,10 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as NotebookInstanceArgs | undefined;
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
@@ -199,12 +200,8 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotebookInstance.__pulumiType, name, inputs, opts);
     }

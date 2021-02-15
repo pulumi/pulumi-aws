@@ -99,7 +99,8 @@ export class TableItem extends pulumi.CustomResource {
     constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TableItemState | undefined;
             inputs["hashKey"] = state ? state.hashKey : undefined;
             inputs["item"] = state ? state.item : undefined;
@@ -107,13 +108,13 @@ export class TableItem extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
-            if ((!args || args.hashKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hashKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            if ((!args || args.item === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.item === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'item'");
             }
-            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["hashKey"] = args ? args.hashKey : undefined;
@@ -121,12 +122,8 @@ export class TableItem extends pulumi.CustomResource {
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TableItem.__pulumiType, name, inputs, opts);
     }

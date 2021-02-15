@@ -87,7 +87,8 @@ export class PlacementGroup extends pulumi.CustomResource {
     constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -96,7 +97,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
-            if ((!args || args.strategy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.strategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -105,12 +106,8 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["placementGroupId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PlacementGroup.__pulumiType, name, inputs, opts);
     }

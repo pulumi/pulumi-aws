@@ -100,7 +100,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
@@ -113,13 +114,13 @@ export class User extends pulumi.CustomResource {
             inputs["userRole"] = state ? state.userRole : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.identityType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if ((!args || args.userRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userRole'");
             }
             inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
@@ -132,12 +133,8 @@ export class User extends pulumi.CustomResource {
             inputs["userRole"] = args ? args.userRole : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }

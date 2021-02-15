@@ -137,7 +137,8 @@ export class Classifier extends pulumi.CustomResource {
     constructor(name: string, args?: ClassifierArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClassifierArgs | ClassifierState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClassifierState | undefined;
             inputs["csvClassifier"] = state ? state.csvClassifier : undefined;
             inputs["grokClassifier"] = state ? state.grokClassifier : undefined;
@@ -152,12 +153,8 @@ export class Classifier extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Classifier.__pulumiType, name, inputs, opts);
     }

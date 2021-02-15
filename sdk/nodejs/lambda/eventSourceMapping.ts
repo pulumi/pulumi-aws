@@ -189,7 +189,8 @@ export class EventSourceMapping extends pulumi.CustomResource {
     constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventSourceMappingArgs | EventSourceMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventSourceMappingState | undefined;
             inputs["batchSize"] = state ? state.batchSize : undefined;
             inputs["bisectBatchOnFunctionError"] = state ? state.bisectBatchOnFunctionError : undefined;
@@ -212,10 +213,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["uuid"] = state ? state.uuid : undefined;
         } else {
             const args = argsOrState as EventSourceMappingArgs | undefined;
-            if ((!args || args.eventSourceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventSourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceArn'");
             }
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
             inputs["batchSize"] = args ? args.batchSize : undefined;
@@ -238,12 +239,8 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["stateTransitionReason"] = undefined /*out*/;
             inputs["uuid"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventSourceMapping.__pulumiType, name, inputs, opts);
     }

@@ -244,7 +244,8 @@ export class ListenerRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ListenerRule is deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -253,13 +254,13 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.conditions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.conditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -268,12 +269,8 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ListenerRule.__pulumiType, name, inputs, opts);
     }

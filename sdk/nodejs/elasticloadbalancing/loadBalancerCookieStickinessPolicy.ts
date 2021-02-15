@@ -94,7 +94,8 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerCookieStickinessPolicyArgs | LoadBalancerCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;
             inputs["cookieExpirationPeriod"] = state ? state.cookieExpirationPeriod : undefined;
             inputs["lbPort"] = state ? state.lbPort : undefined;
@@ -102,10 +103,10 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LoadBalancerCookieStickinessPolicyArgs | undefined;
-            if ((!args || args.lbPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lbPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["cookieExpirationPeriod"] = args ? args.cookieExpirationPeriod : undefined;
@@ -113,12 +114,8 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancerCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }

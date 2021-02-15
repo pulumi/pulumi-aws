@@ -78,29 +78,26 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     constructor(name: string, args: ResolverRuleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverRuleAssociationArgs | ResolverRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResolverRuleAssociationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ResolverRuleAssociationArgs | undefined;
-            if ((!args || args.resolverRuleId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverRuleAssociation.__pulumiType, name, inputs, opts);
     }

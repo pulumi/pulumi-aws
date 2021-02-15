@@ -106,29 +106,26 @@ export class CodeRepository extends pulumi.CustomResource {
     constructor(name: string, args: CodeRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CodeRepositoryArgs | CodeRepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CodeRepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["codeRepositoryName"] = state ? state.codeRepositoryName : undefined;
             inputs["gitConfig"] = state ? state.gitConfig : undefined;
         } else {
             const args = argsOrState as CodeRepositoryArgs | undefined;
-            if ((!args || args.codeRepositoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.codeRepositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'codeRepositoryName'");
             }
-            if ((!args || args.gitConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gitConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gitConfig'");
             }
             inputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
             inputs["gitConfig"] = args ? args.gitConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CodeRepository.__pulumiType, name, inputs, opts);
     }

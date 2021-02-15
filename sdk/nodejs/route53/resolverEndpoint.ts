@@ -113,7 +113,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: ResolverEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverEndpointArgs | ResolverEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResolverEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["direction"] = state ? state.direction : undefined;
@@ -124,13 +125,13 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResolverEndpointArgs | undefined;
-            if ((!args || args.direction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.direction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.ipAddresses === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipAddresses === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            if ((!args || args.securityGroupIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
             inputs["direction"] = args ? args.direction : undefined;
@@ -141,12 +142,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostVpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverEndpoint.__pulumiType, name, inputs, opts);
     }

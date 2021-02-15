@@ -223,7 +223,8 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
             inputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
             inputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
@@ -244,16 +245,16 @@ export class Integration extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.httpMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["cacheKeyParameters"] = args ? args.cacheKeyParameters : undefined;
@@ -274,12 +275,8 @@ export class Integration extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Integration.__pulumiType, name, inputs, opts);
     }

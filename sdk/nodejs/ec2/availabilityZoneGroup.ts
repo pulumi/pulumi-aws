@@ -76,27 +76,24 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
     constructor(name: string, args: AvailabilityZoneGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AvailabilityZoneGroupArgs | AvailabilityZoneGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AvailabilityZoneGroupState | undefined;
             inputs["groupName"] = state ? state.groupName : undefined;
             inputs["optInStatus"] = state ? state.optInStatus : undefined;
         } else {
             const args = argsOrState as AvailabilityZoneGroupArgs | undefined;
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.optInStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.optInStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'optInStatus'");
             }
             inputs["groupName"] = args ? args.groupName : undefined;
             inputs["optInStatus"] = args ? args.optInStatus : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AvailabilityZoneGroup.__pulumiType, name, inputs, opts);
     }

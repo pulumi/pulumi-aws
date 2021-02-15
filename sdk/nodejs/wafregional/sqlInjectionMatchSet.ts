@@ -79,7 +79,8 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     constructor(name: string, args?: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlInjectionMatchSetArgs | SqlInjectionMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SqlInjectionMatchSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
@@ -88,12 +89,8 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SqlInjectionMatchSet.__pulumiType, name, inputs, opts);
     }

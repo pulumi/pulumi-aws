@@ -115,7 +115,8 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptionType"] = state ? state.encryptionType : undefined;
@@ -128,7 +129,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            if ((!args || args.shardCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shardCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shardCount'");
             }
             inputs["arn"] = args ? args.arn : undefined;
@@ -141,12 +142,8 @@ export class Stream extends pulumi.CustomResource {
             inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stream.__pulumiType, name, inputs, opts);
     }

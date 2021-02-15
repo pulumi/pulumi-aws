@@ -170,7 +170,8 @@ export class StateMachine extends pulumi.CustomResource {
     constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StateMachineArgs | StateMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StateMachineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
@@ -183,10 +184,10 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
-            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -199,12 +200,8 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StateMachine.__pulumiType, name, inputs, opts);
     }

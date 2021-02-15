@@ -130,7 +130,8 @@ export class SlotType extends pulumi.CustomResource {
     constructor(name: string, args: SlotTypeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlotTypeArgs | SlotTypeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SlotTypeState | undefined;
             inputs["checksum"] = state ? state.checksum : undefined;
             inputs["createVersion"] = state ? state.createVersion : undefined;
@@ -143,7 +144,7 @@ export class SlotType extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SlotTypeArgs | undefined;
-            if ((!args || args.enumerationValues === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enumerationValues === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enumerationValues'");
             }
             inputs["createVersion"] = args ? args.createVersion : undefined;
@@ -156,12 +157,8 @@ export class SlotType extends pulumi.CustomResource {
             inputs["lastUpdatedDate"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SlotType.__pulumiType, name, inputs, opts);
     }

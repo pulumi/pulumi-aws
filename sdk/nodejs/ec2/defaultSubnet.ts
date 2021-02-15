@@ -114,7 +114,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
     constructor(name: string, args: DefaultSubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultSubnetArgs | DefaultSubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefaultSubnetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
@@ -132,7 +133,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultSubnetArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -150,12 +151,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DefaultSubnet.__pulumiType, name, inputs, opts);
     }

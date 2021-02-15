@@ -197,7 +197,8 @@ export class NodeGroup extends pulumi.CustomResource {
     constructor(name: string, args: NodeGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NodeGroupArgs | NodeGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NodeGroupState | undefined;
             inputs["amiType"] = state ? state.amiType : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -220,16 +221,16 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.nodeRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeRoleArn'");
             }
-            if ((!args || args.scalingConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scalingConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingConfig'");
             }
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["amiType"] = args ? args.amiType : undefined;
@@ -252,12 +253,8 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["resources"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NodeGroup.__pulumiType, name, inputs, opts);
     }

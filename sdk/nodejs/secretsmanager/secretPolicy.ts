@@ -91,29 +91,26 @@ export class SecretPolicy extends pulumi.CustomResource {
     constructor(name: string, args: SecretPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretPolicyArgs | SecretPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecretPolicyState | undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as SecretPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.secretArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretArn'");
             }
             inputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["secretArn"] = args ? args.secretArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecretPolicy.__pulumiType, name, inputs, opts);
     }

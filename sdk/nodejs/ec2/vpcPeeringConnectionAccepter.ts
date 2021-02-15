@@ -152,7 +152,8 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     constructor(name: string, args: VpcPeeringConnectionAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcPeeringConnectionAccepterArgs | VpcPeeringConnectionAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcPeeringConnectionAccepterState | undefined;
             inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
@@ -166,7 +167,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as VpcPeeringConnectionAccepterArgs | undefined;
-            if ((!args || args.vpcPeeringConnectionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcPeeringConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
             inputs["accepter"] = args ? args.accepter : undefined;
@@ -180,12 +181,8 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["peerVpcId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcPeeringConnectionAccepter.__pulumiType, name, inputs, opts);
     }

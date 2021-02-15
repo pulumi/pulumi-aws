@@ -109,29 +109,26 @@ export class RepositoryPolicy extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryPolicyState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;
             inputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyArgs | undefined;
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["policy"] = args ? args.policy : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["registryId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RepositoryPolicy.__pulumiType, name, inputs, opts);
     }

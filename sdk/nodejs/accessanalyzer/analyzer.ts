@@ -93,7 +93,8 @@ export class Analyzer extends pulumi.CustomResource {
     constructor(name: string, args: AnalyzerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyzerArgs | AnalyzerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AnalyzerState | undefined;
             inputs["analyzerName"] = state ? state.analyzerName : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -101,7 +102,7 @@ export class Analyzer extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AnalyzerArgs | undefined;
-            if ((!args || args.analyzerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.analyzerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'analyzerName'");
             }
             inputs["analyzerName"] = args ? args.analyzerName : undefined;
@@ -109,12 +110,8 @@ export class Analyzer extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Analyzer.__pulumiType, name, inputs, opts);
     }

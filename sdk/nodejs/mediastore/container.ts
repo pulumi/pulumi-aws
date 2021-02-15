@@ -79,7 +79,8 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ContainerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
@@ -92,12 +93,8 @@ export class Container extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Container.__pulumiType, name, inputs, opts);
     }

@@ -94,7 +94,8 @@ export class ParameterGroup extends pulumi.CustomResource {
     constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ParameterGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;
@@ -102,7 +103,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["parameters"] = state ? state.parameters : undefined;
         } else {
             const args = argsOrState as ParameterGroupArgs | undefined;
-            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
@@ -110,12 +111,8 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }

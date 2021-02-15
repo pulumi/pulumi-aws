@@ -100,26 +100,23 @@ export class AppImageConfig extends pulumi.CustomResource {
     constructor(name: string, args: AppImageConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppImageConfigArgs | AppImageConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AppImageConfigState | undefined;
             inputs["appImageConfigName"] = state ? state.appImageConfigName : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kernelGatewayImageConfig"] = state ? state.kernelGatewayImageConfig : undefined;
         } else {
             const args = argsOrState as AppImageConfigArgs | undefined;
-            if ((!args || args.appImageConfigName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appImageConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appImageConfigName'");
             }
             inputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
             inputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AppImageConfig.__pulumiType, name, inputs, opts);
     }

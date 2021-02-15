@@ -102,7 +102,8 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     constructor(name: string, args: DefaultRouteTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultRouteTableArgs | DefaultRouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefaultRouteTableState | undefined;
             inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -112,7 +113,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultRouteTableArgs | undefined;
-            if ((!args || args.defaultRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultRouteTableId'");
             }
             inputs["defaultRouteTableId"] = args ? args.defaultRouteTableId : undefined;
@@ -122,12 +123,8 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DefaultRouteTable.__pulumiType, name, inputs, opts);
     }

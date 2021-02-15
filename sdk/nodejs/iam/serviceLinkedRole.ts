@@ -97,7 +97,8 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     constructor(name: string, args: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceLinkedRoleArgs | ServiceLinkedRoleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceLinkedRoleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsServiceName"] = state ? state.awsServiceName : undefined;
@@ -109,7 +110,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as ServiceLinkedRoleArgs | undefined;
-            if ((!args || args.awsServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.awsServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsServiceName'");
             }
             inputs["awsServiceName"] = args ? args.awsServiceName : undefined;
@@ -121,12 +122,8 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["path"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceLinkedRole.__pulumiType, name, inputs, opts);
     }

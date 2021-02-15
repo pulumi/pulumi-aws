@@ -99,7 +99,8 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     constructor(name: string, args: LinkAggregationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkAggregationGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
@@ -111,10 +112,10 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LinkAggregationGroupArgs | undefined;
-            if ((!args || args.connectionsBandwidth === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionsBandwidth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionsBandwidth'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
@@ -126,12 +127,8 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkAggregationGroup.__pulumiType, name, inputs, opts);
     }

@@ -85,7 +85,8 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     constructor(name: string, args: DefaultNetworkAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultNetworkAclArgs | DefaultNetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefaultNetworkAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
@@ -97,7 +98,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultNetworkAclArgs | undefined;
-            if ((!args || args.defaultNetworkAclId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultNetworkAclId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultNetworkAclId'");
             }
             inputs["defaultNetworkAclId"] = args ? args.defaultNetworkAclId : undefined;
@@ -109,12 +110,8 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DefaultNetworkAcl.__pulumiType, name, inputs, opts);
     }

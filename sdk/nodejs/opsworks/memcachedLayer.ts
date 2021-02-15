@@ -133,7 +133,8 @@ export class MemcachedLayer extends pulumi.CustomResource {
     constructor(name: string, args: MemcachedLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemcachedLayerArgs | MemcachedLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MemcachedLayerState | undefined;
             inputs["allocatedMemory"] = state ? state.allocatedMemory : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -160,7 +161,7 @@ export class MemcachedLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as MemcachedLayerArgs | undefined;
-            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["allocatedMemory"] = args ? args.allocatedMemory : undefined;
@@ -187,12 +188,8 @@ export class MemcachedLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MemcachedLayer.__pulumiType, name, inputs, opts);
     }

@@ -134,7 +134,8 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, args?: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["delegationSetId"] = state ? state.delegationSetId : undefined;
@@ -155,12 +156,8 @@ export class Zone extends pulumi.CustomResource {
             inputs["nameServers"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Zone.__pulumiType, name, inputs, opts);
     }

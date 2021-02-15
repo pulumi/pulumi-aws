@@ -113,7 +113,8 @@ export class VaultLock extends pulumi.CustomResource {
     constructor(name: string, args: VaultLockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultLockArgs | VaultLockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VaultLockState | undefined;
             inputs["completeLock"] = state ? state.completeLock : undefined;
             inputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
@@ -121,13 +122,13 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as VaultLockArgs | undefined;
-            if ((!args || args.completeLock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.completeLock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'completeLock'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["completeLock"] = args ? args.completeLock : undefined;
@@ -135,12 +136,8 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VaultLock.__pulumiType, name, inputs, opts);
     }

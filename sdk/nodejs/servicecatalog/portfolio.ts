@@ -84,7 +84,8 @@ export class Portfolio extends pulumi.CustomResource {
     constructor(name: string, args?: PortfolioArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PortfolioState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdTime"] = state ? state.createdTime : undefined;
@@ -101,12 +102,8 @@ export class Portfolio extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Portfolio.__pulumiType, name, inputs, opts);
     }

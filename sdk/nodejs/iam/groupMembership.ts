@@ -83,29 +83,26 @@ export class GroupMembership extends pulumi.CustomResource {
     constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
             inputs["group"] = state ? state.group : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
-            if ((!args || args.group === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.group === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if ((!args || args.users === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
             inputs["group"] = args ? args.group : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["users"] = args ? args.users : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GroupMembership.__pulumiType, name, inputs, opts);
     }

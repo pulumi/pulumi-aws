@@ -120,7 +120,8 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ImageState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dateCreated"] = state ? state.dateCreated : undefined;
@@ -137,10 +138,10 @@ export class Image extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if ((!args || args.imageRecipeArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageRecipeArn'");
             }
-            if ((!args || args.infrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
             inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
@@ -157,12 +158,8 @@ export class Image extends pulumi.CustomResource {
             inputs["platform"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Image.__pulumiType, name, inputs, opts);
     }

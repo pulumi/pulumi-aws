@@ -84,27 +84,24 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotScheduleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotScheduleAssociationArgs | SnapshotScheduleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotScheduleAssociationState | undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             inputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.scheduleIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SnapshotScheduleAssociation.__pulumiType, name, inputs, opts);
     }

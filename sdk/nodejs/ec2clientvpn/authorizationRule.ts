@@ -92,7 +92,8 @@ export class AuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizationRuleArgs | AuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AuthorizationRuleState | undefined;
             inputs["accessGroupId"] = state ? state.accessGroupId : undefined;
             inputs["authorizeAllGroups"] = state ? state.authorizeAllGroups : undefined;
@@ -101,10 +102,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
             inputs["targetNetworkCidr"] = state ? state.targetNetworkCidr : undefined;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
-            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if ((!args || args.targetNetworkCidr === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetNetworkCidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetNetworkCidr'");
             }
             inputs["accessGroupId"] = args ? args.accessGroupId : undefined;
@@ -113,12 +114,8 @@ export class AuthorizationRule extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AuthorizationRule.__pulumiType, name, inputs, opts);
     }

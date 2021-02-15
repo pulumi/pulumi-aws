@@ -97,7 +97,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecurityConfigurationState | undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
@@ -105,7 +106,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
         } else {
             const args = argsOrState as SecurityConfigurationArgs | undefined;
-            if ((!args || args.configuration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
             inputs["configuration"] = args ? args.configuration : undefined;
@@ -113,12 +114,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }

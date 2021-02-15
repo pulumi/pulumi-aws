@@ -83,24 +83,21 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     constructor(name: string, args: EgressOnlyInternetGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EgressOnlyInternetGatewayArgs | EgressOnlyInternetGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EgressOnlyInternetGatewayState | undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as EgressOnlyInternetGatewayArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EgressOnlyInternetGateway.__pulumiType, name, inputs, opts);
     }

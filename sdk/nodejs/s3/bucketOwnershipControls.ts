@@ -78,27 +78,24 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
     constructor(name: string, args: BucketOwnershipControlsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketOwnershipControlsArgs | BucketOwnershipControlsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketOwnershipControlsState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["rule"] = state ? state.rule : undefined;
         } else {
             const args = argsOrState as BucketOwnershipControlsArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.rule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["rule"] = args ? args.rule : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BucketOwnershipControls.__pulumiType, name, inputs, opts);
     }

@@ -310,7 +310,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: LaunchConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LaunchConfigurationArgs | LaunchConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LaunchConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
@@ -335,10 +336,10 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["vpcClassicLinkSecurityGroups"] = state ? state.vpcClassicLinkSecurityGroups : undefined;
         } else {
             const args = argsOrState as LaunchConfigurationArgs | undefined;
-            if ((!args || args.imageId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.imageId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
@@ -363,12 +364,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LaunchConfiguration.__pulumiType, name, inputs, opts);
     }

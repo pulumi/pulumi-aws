@@ -109,7 +109,8 @@ export class CachePolicy extends pulumi.CustomResource {
     constructor(name: string, args?: CachePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CachePolicyArgs | CachePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CachePolicyState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
@@ -128,12 +129,8 @@ export class CachePolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CachePolicy.__pulumiType, name, inputs, opts);
     }

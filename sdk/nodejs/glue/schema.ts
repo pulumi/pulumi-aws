@@ -117,7 +117,8 @@ export class Schema extends pulumi.CustomResource {
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SchemaArgs | SchemaState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["compatibility"] = state ? state.compatibility : undefined;
@@ -133,16 +134,16 @@ export class Schema extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
-            if ((!args || args.compatibility === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.compatibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'compatibility'");
             }
-            if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if ((!args || args.schemaDefinition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
             inputs["compatibility"] = args ? args.compatibility : undefined;
@@ -158,12 +159,8 @@ export class Schema extends pulumi.CustomResource {
             inputs["registryName"] = undefined /*out*/;
             inputs["schemaCheckpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schema.__pulumiType, name, inputs, opts);
     }

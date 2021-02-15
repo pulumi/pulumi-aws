@@ -107,7 +107,8 @@ export class VpcAttachment extends pulumi.CustomResource {
     constructor(name: string, args: VpcAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcAttachmentArgs | VpcAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
             inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
@@ -121,13 +122,13 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
         } else {
             const args = argsOrState as VpcAttachmentArgs | undefined;
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.transitGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
@@ -141,12 +142,8 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcOwnerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcAttachment.__pulumiType, name, inputs, opts);
     }

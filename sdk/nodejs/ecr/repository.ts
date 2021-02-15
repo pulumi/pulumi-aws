@@ -101,7 +101,8 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
@@ -122,12 +123,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["registryId"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }

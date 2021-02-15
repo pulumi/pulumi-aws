@@ -115,7 +115,8 @@ export class RestApi extends pulumi.CustomResource {
     constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RestApiArgs | RestApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RestApiState | undefined;
             inputs["apiKeySource"] = state ? state.apiKeySource : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -150,12 +151,8 @@ export class RestApi extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["rootResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RestApi.__pulumiType, name, inputs, opts);
     }

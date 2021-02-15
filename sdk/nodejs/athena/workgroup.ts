@@ -102,7 +102,8 @@ export class Workgroup extends pulumi.CustomResource {
     constructor(name: string, args?: WorkgroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkgroupArgs | WorkgroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkgroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -121,12 +122,8 @@ export class Workgroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Workgroup.__pulumiType, name, inputs, opts);
     }

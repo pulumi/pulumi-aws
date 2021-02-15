@@ -96,7 +96,8 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ModelState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
@@ -105,13 +106,13 @@ export class Model extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.contentType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -120,12 +121,8 @@ export class Model extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Model.__pulumiType, name, inputs, opts);
     }

@@ -102,7 +102,8 @@ export class ResourceServer extends pulumi.CustomResource {
     constructor(name: string, args: ResourceServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceServerArgs | ResourceServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceServerState | undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -111,10 +112,10 @@ export class ResourceServer extends pulumi.CustomResource {
             inputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as ResourceServerArgs | undefined;
-            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["identifier"] = args ? args.identifier : undefined;
@@ -123,12 +124,8 @@ export class ResourceServer extends pulumi.CustomResource {
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["scopeIdentifiers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceServer.__pulumiType, name, inputs, opts);
     }

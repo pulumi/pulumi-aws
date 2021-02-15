@@ -92,32 +92,29 @@ export class Notification extends pulumi.CustomResource {
     constructor(name: string, args: NotificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationArgs | NotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotificationState | undefined;
             inputs["groupNames"] = state ? state.groupNames : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
             inputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as NotificationArgs | undefined;
-            if ((!args || args.groupNames === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupNames'");
             }
-            if ((!args || args.notifications === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.notifications === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if ((!args || args.topicArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
             inputs["groupNames"] = args ? args.groupNames : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Notification.__pulumiType, name, inputs, opts);
     }

@@ -73,7 +73,8 @@ export class StaticIp extends pulumi.CustomResource {
     constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StaticIpState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
@@ -86,12 +87,8 @@ export class StaticIp extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["supportCode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StaticIp.__pulumiType, name, inputs, opts);
     }

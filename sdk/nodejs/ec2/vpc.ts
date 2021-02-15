@@ -155,7 +155,8 @@ export class Vpc extends pulumi.CustomResource {
     constructor(name: string, args: VpcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcArgs | VpcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
@@ -176,7 +177,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
-            if ((!args || args.cidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
             inputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
@@ -197,12 +198,8 @@ export class Vpc extends pulumi.CustomResource {
             inputs["mainRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Vpc.__pulumiType, name, inputs, opts);
     }

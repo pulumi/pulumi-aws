@@ -38,6 +38,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
@@ -59,12 +60,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

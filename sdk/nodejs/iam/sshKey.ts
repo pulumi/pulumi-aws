@@ -92,7 +92,8 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
@@ -102,13 +103,13 @@ export class SshKey extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if ((!args || args.encoding === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.encoding === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encoding'");
             }
-            if ((!args || args.publicKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publicKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["encoding"] = args ? args.encoding : undefined;
@@ -118,12 +119,8 @@ export class SshKey extends pulumi.CustomResource {
             inputs["fingerprint"] = undefined /*out*/;
             inputs["sshPublicKeyId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SshKey.__pulumiType, name, inputs, opts);
     }

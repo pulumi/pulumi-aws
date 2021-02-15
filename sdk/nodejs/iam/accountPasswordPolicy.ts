@@ -114,7 +114,8 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     constructor(name: string, args?: AccountPasswordPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountPasswordPolicyArgs | AccountPasswordPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountPasswordPolicyState | undefined;
             inputs["allowUsersToChangePassword"] = state ? state.allowUsersToChangePassword : undefined;
             inputs["expirePasswords"] = state ? state.expirePasswords : undefined;
@@ -139,12 +140,8 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
             inputs["requireUppercaseCharacters"] = args ? args.requireUppercaseCharacters : undefined;
             inputs["expirePasswords"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccountPasswordPolicy.__pulumiType, name, inputs, opts);
     }

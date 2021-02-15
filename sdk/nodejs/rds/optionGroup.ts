@@ -126,7 +126,8 @@ export class OptionGroup extends pulumi.CustomResource {
     constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OptionGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["engineName"] = state ? state.engineName : undefined;
@@ -138,10 +139,10 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as OptionGroupArgs | undefined;
-            if ((!args || args.engineName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if ((!args || args.majorEngineVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.majorEngineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
             inputs["engineName"] = args ? args.engineName : undefined;
@@ -153,12 +154,8 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OptionGroup.__pulumiType, name, inputs, opts);
     }

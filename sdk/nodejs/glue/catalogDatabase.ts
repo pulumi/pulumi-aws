@@ -89,7 +89,8 @@ export class CatalogDatabase extends pulumi.CustomResource {
     constructor(name: string, args?: CatalogDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CatalogDatabaseState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
@@ -106,12 +107,8 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CatalogDatabase.__pulumiType, name, inputs, opts);
     }

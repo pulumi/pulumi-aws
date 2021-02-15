@@ -300,7 +300,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationGroupArgs | ReplicationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ReplicationGroupState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -339,7 +340,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
         } else {
             const args = argsOrState as ReplicationGroupArgs | undefined;
-            if ((!args || args.replicationGroupDescription === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.replicationGroupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationGroupDescription'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
@@ -378,12 +379,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["primaryEndpointAddress"] = undefined /*out*/;
             inputs["readerEndpointAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ReplicationGroup.__pulumiType, name, inputs, opts);
     }

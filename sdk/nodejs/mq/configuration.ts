@@ -112,7 +112,8 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["data"] = state ? state.data : undefined;
@@ -124,13 +125,13 @@ export class Configuration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.data === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.data === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'data'");
             }
-            if ((!args || args.engineType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if ((!args || args.engineVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
             inputs["data"] = args ? args.data : undefined;
@@ -142,12 +143,8 @@ export class Configuration extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["latestRevision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Configuration.__pulumiType, name, inputs, opts);
     }

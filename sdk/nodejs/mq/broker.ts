@@ -173,7 +173,8 @@ export class Broker extends pulumi.CustomResource {
     constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BrokerArgs | BrokerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BrokerState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -195,22 +196,22 @@ export class Broker extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
-            if ((!args || args.brokerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.brokerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'brokerName'");
             }
-            if ((!args || args.engineType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if ((!args || args.engineVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if ((!args || args.hostInstanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostInstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if ((!args || args.securityGroups === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if ((!args || args.users === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
@@ -232,12 +233,8 @@ export class Broker extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Broker.__pulumiType, name, inputs, opts);
     }

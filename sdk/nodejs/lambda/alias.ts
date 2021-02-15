@@ -104,7 +104,8 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -115,10 +116,10 @@ export class Alias extends pulumi.CustomResource {
             inputs["routingConfig"] = state ? state.routingConfig : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.functionVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.functionVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -129,12 +130,8 @@ export class Alias extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["invokeArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Alias.__pulumiType, name, inputs, opts);
     }

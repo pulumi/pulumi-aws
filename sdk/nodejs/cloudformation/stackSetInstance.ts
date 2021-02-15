@@ -128,7 +128,8 @@ export class StackSetInstance extends pulumi.CustomResource {
     constructor(name: string, args: StackSetInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackSetInstanceArgs | StackSetInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StackSetInstanceState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
@@ -138,7 +139,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             inputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
-            if ((!args || args.stackSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackSetName'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -148,12 +149,8 @@ export class StackSetInstance extends pulumi.CustomResource {
             inputs["stackSetName"] = args ? args.stackSetName : undefined;
             inputs["stackId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StackSetInstance.__pulumiType, name, inputs, opts);
     }

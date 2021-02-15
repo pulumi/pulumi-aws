@@ -172,7 +172,8 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FlowLogState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
@@ -188,7 +189,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
-            if ((!args || args.trafficType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trafficType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficType'");
             }
             inputs["eniId"] = args ? args.eniId : undefined;
@@ -204,12 +205,8 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FlowLog.__pulumiType, name, inputs, opts);
     }

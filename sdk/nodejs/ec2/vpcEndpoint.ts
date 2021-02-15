@@ -195,7 +195,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: VpcEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointArgs | VpcEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;
@@ -217,10 +218,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcEndpointArgs | undefined;
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["autoAccept"] = args ? args.autoAccept : undefined;
@@ -242,12 +243,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["requesterManaged"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcEndpoint.__pulumiType, name, inputs, opts);
     }

@@ -90,7 +90,8 @@ export class SnapshotSchedule extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotScheduleArgs | SnapshotScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotScheduleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["definitions"] = state ? state.definitions : undefined;
@@ -101,7 +102,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleArgs | undefined;
-            if ((!args || args.definitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.definitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definitions'");
             }
             inputs["definitions"] = args ? args.definitions : undefined;
@@ -112,12 +113,8 @@ export class SnapshotSchedule extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SnapshotSchedule.__pulumiType, name, inputs, opts);
     }

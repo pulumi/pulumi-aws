@@ -103,7 +103,8 @@ export class CloudFormationStack extends pulumi.CustomResource {
     constructor(name: string, args: CloudFormationStackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CloudFormationStackArgs | CloudFormationStackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CloudFormationStackState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
@@ -114,10 +115,10 @@ export class CloudFormationStack extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CloudFormationStackArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.capabilities === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.capabilities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capabilities'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -128,12 +129,8 @@ export class CloudFormationStack extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CloudFormationStack.__pulumiType, name, inputs, opts);
     }

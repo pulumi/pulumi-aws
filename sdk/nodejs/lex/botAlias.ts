@@ -106,7 +106,8 @@ export class BotAlias extends pulumi.CustomResource {
     constructor(name: string, args: BotAliasArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BotAliasArgs | BotAliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BotAliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["botName"] = state ? state.botName : undefined;
@@ -119,10 +120,10 @@ export class BotAlias extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as BotAliasArgs | undefined;
-            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.botName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.botVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.botVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
             inputs["botName"] = args ? args.botName : undefined;
@@ -135,12 +136,8 @@ export class BotAlias extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BotAlias.__pulumiType, name, inputs, opts);
     }

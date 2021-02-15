@@ -78,7 +78,8 @@ export class ScalingPlan extends pulumi.CustomResource {
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScalingPlanArgs | ScalingPlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScalingPlanState | undefined;
             inputs["applicationSource"] = state ? state.applicationSource : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -86,10 +87,10 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
-            if ((!args || args.applicationSource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationSource'");
             }
-            if ((!args || args.scalingInstructions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scalingInstructions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingInstructions'");
             }
             inputs["applicationSource"] = args ? args.applicationSource : undefined;
@@ -97,12 +98,8 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
             inputs["scalingPlanVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ScalingPlan.__pulumiType, name, inputs, opts);
     }

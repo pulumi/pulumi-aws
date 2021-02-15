@@ -92,7 +92,8 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DomainState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -102,7 +103,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["workflowExecutionRetentionPeriodInDays"] = state ? state.workflowExecutionRetentionPeriodInDays : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.workflowExecutionRetentionPeriodInDays === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workflowExecutionRetentionPeriodInDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workflowExecutionRetentionPeriodInDays'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -112,12 +113,8 @@ export class Domain extends pulumi.CustomResource {
             inputs["workflowExecutionRetentionPeriodInDays"] = args ? args.workflowExecutionRetentionPeriodInDays : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Domain.__pulumiType, name, inputs, opts);
     }

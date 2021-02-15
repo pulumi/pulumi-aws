@@ -101,7 +101,8 @@ export class Member extends pulumi.CustomResource {
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MemberState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
@@ -112,13 +113,13 @@ export class Member extends pulumi.CustomResource {
             inputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -129,12 +130,8 @@ export class Member extends pulumi.CustomResource {
             inputs["invite"] = args ? args.invite : undefined;
             inputs["relationshipStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Member.__pulumiType, name, inputs, opts);
     }

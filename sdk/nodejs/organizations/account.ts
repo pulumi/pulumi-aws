@@ -120,7 +120,8 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["email"] = state ? state.email : undefined;
@@ -134,7 +135,7 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["email"] = args ? args.email : undefined;
@@ -148,12 +149,8 @@ export class Account extends pulumi.CustomResource {
             inputs["joinedTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Account.__pulumiType, name, inputs, opts);
     }

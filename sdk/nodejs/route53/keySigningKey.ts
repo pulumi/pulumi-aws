@@ -154,7 +154,8 @@ export class KeySigningKey extends pulumi.CustomResource {
     constructor(name: string, args: KeySigningKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeySigningKeyArgs | KeySigningKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KeySigningKeyState | undefined;
             inputs["digestAlgorithmMnemonic"] = state ? state.digestAlgorithmMnemonic : undefined;
             inputs["digestAlgorithmType"] = state ? state.digestAlgorithmType : undefined;
@@ -172,10 +173,10 @@ export class KeySigningKey extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as KeySigningKeyArgs | undefined;
-            if ((!args || args.hostedZoneId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            if ((!args || args.keyManagementServiceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
             inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
@@ -193,12 +194,8 @@ export class KeySigningKey extends pulumi.CustomResource {
             inputs["signingAlgorithmMnemonic"] = undefined /*out*/;
             inputs["signingAlgorithmType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KeySigningKey.__pulumiType, name, inputs, opts);
     }

@@ -126,7 +126,8 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
@@ -142,16 +143,16 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.authenticationOptions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authenticationOptions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationOptions'");
             }
-            if ((!args || args.clientCidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientCidrBlock'");
             }
-            if ((!args || args.connectionLogOptions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionLogOptions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionLogOptions'");
             }
-            if ((!args || args.serverCertificateArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverCertificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverCertificateArn'");
             }
             inputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
@@ -167,12 +168,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

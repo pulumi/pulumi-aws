@@ -119,7 +119,8 @@ export class SigningProfile extends pulumi.CustomResource {
     constructor(name: string, args: SigningProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningProfileArgs | SigningProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SigningProfileState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -134,7 +135,7 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["versionArn"] = state ? state.versionArn : undefined;
         } else {
             const args = argsOrState as SigningProfileArgs | undefined;
-            if ((!args || args.platformId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platformId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -149,12 +150,8 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["versionArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SigningProfile.__pulumiType, name, inputs, opts);
     }

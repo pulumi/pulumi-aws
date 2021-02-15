@@ -96,26 +96,23 @@ export class BucketMetric extends pulumi.CustomResource {
     constructor(name: string, args: BucketMetricArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketMetricArgs | BucketMetricState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketMetricState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["filter"] = state ? state.filter : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as BucketMetricArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["filter"] = args ? args.filter : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BucketMetric.__pulumiType, name, inputs, opts);
     }

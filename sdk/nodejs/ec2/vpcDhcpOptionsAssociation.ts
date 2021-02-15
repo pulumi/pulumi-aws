@@ -78,27 +78,24 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     constructor(name: string, args: VpcDhcpOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
             inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcDhcpOptionsAssociationArgs | undefined;
-            if ((!args || args.dhcpOptionsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dhcpOptionsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dhcpOptionsId'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcDhcpOptionsAssociation.__pulumiType, name, inputs, opts);
     }

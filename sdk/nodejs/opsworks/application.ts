@@ -160,7 +160,8 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             inputs["appSources"] = state ? state.appSources : undefined;
             inputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
@@ -181,10 +182,10 @@ export class Application extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["appSources"] = args ? args.appSources : undefined;
@@ -205,12 +206,8 @@ export class Application extends pulumi.CustomResource {
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Application.__pulumiType, name, inputs, opts);
     }

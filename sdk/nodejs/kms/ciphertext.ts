@@ -87,7 +87,8 @@ export class Ciphertext extends pulumi.CustomResource {
     constructor(name: string, args: CiphertextArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CiphertextArgs | CiphertextState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CiphertextState | undefined;
             inputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
             inputs["context"] = state ? state.context : undefined;
@@ -95,10 +96,10 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["plaintext"] = state ? state.plaintext : undefined;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
-            if ((!args || args.keyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.plaintext === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.plaintext === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'plaintext'");
             }
             inputs["context"] = args ? args.context : undefined;
@@ -106,12 +107,8 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["plaintext"] = args ? args.plaintext : undefined;
             inputs["ciphertextBlob"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Ciphertext.__pulumiType, name, inputs, opts);
     }

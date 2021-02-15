@@ -93,7 +93,8 @@ export class VpcLink extends pulumi.CustomResource {
     constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcLinkArgs | VpcLinkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcLinkState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -102,7 +103,7 @@ export class VpcLink extends pulumi.CustomResource {
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as VpcLinkArgs | undefined;
-            if ((!args || args.targetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -111,12 +112,8 @@ export class VpcLink extends pulumi.CustomResource {
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcLink.__pulumiType, name, inputs, opts);
     }

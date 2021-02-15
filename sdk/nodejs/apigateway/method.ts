@@ -156,7 +156,8 @@ export class Method extends pulumi.CustomResource {
     constructor(name: string, args: MethodArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MethodState | undefined;
             inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
@@ -171,16 +172,16 @@ export class Method extends pulumi.CustomResource {
             inputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as MethodArgs | undefined;
-            if ((!args || args.authorization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorization'");
             }
-            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.httpMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
@@ -195,12 +196,8 @@ export class Method extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Method.__pulumiType, name, inputs, opts);
     }

@@ -123,7 +123,8 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
     constructor(name: string, args: HostedTransitVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedTransitVirtualInterfaceArgs | HostedTransitVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HostedTransitVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
@@ -141,19 +142,19 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
             inputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedTransitVirtualInterfaceArgs | undefined;
-            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.bgpAsn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if ((!args || args.connectionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if ((!args || args.ownerAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ownerAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerAccountId'");
             }
-            if ((!args || args.vlan === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;
@@ -171,12 +172,8 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HostedTransitVirtualInterface.__pulumiType, name, inputs, opts);
     }

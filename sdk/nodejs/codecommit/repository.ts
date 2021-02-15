@@ -98,7 +98,8 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
@@ -110,7 +111,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
@@ -122,12 +123,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["cloneUrlSsh"] = undefined /*out*/;
             inputs["repositoryId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }

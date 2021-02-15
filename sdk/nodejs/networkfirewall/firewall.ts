@@ -122,7 +122,8 @@ export class Firewall extends pulumi.CustomResource {
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallArgs | FirewallState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
@@ -138,13 +139,13 @@ export class Firewall extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if ((!args || args.firewallPolicyArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            if ((!args || args.subnetMappings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetMappings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetMappings'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
@@ -160,12 +161,8 @@ export class Firewall extends pulumi.CustomResource {
             inputs["firewallStatuses"] = undefined /*out*/;
             inputs["updateToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Firewall.__pulumiType, name, inputs, opts);
     }

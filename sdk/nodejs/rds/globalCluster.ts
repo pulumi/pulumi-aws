@@ -146,7 +146,8 @@ export class GlobalCluster extends pulumi.CustomResource {
     constructor(name: string, args: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GlobalClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -161,7 +162,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
-            if ((!args || args.globalClusterIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.globalClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -176,12 +177,8 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["globalClusterMembers"] = undefined /*out*/;
             inputs["globalClusterResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GlobalCluster.__pulumiType, name, inputs, opts);
     }

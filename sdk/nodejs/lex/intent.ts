@@ -228,7 +228,8 @@ export class Intent extends pulumi.CustomResource {
     constructor(name: string, args: IntentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntentArgs | IntentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["checksum"] = state ? state.checksum : undefined;
@@ -249,7 +250,7 @@ export class Intent extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as IntentArgs | undefined;
-            if ((!args || args.fulfillmentActivity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fulfillmentActivity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fulfillmentActivity'");
             }
             inputs["conclusionStatement"] = args ? args.conclusionStatement : undefined;
@@ -270,12 +271,8 @@ export class Intent extends pulumi.CustomResource {
             inputs["lastUpdatedDate"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Intent.__pulumiType, name, inputs, opts);
     }

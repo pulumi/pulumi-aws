@@ -161,7 +161,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -183,16 +184,16 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.nodeType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            if ((!args || args.replicationFactor === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.replicationFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationFactor'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -214,12 +215,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["nodes"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

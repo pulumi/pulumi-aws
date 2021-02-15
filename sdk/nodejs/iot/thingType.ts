@@ -80,7 +80,8 @@ export class ThingType extends pulumi.CustomResource {
     constructor(name: string, args?: ThingTypeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingTypeArgs | ThingTypeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ThingTypeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deprecated"] = state ? state.deprecated : undefined;
@@ -93,12 +94,8 @@ export class ThingType extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ThingType.__pulumiType, name, inputs, opts);
     }

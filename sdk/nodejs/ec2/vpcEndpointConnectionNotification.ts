@@ -111,7 +111,8 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
             inputs["connectionEvents"] = state ? state.connectionEvents : undefined;
             inputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
@@ -121,10 +122,10 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointConnectionNotificationArgs | undefined;
-            if ((!args || args.connectionEvents === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionEvents === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionEvents'");
             }
-            if ((!args || args.connectionNotificationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionNotificationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
             inputs["connectionEvents"] = args ? args.connectionEvents : undefined;
@@ -134,12 +135,8 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["notificationType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcEndpointConnectionNotification.__pulumiType, name, inputs, opts);
     }

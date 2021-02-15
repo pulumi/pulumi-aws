@@ -108,7 +108,8 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     constructor(name: string, args: LocationFsxWindowsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocationFsxWindowsArgs | LocationFsxWindowsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LocationFsxWindowsState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationTime"] = state ? state.creationTime : undefined;
@@ -122,16 +123,16 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as LocationFsxWindowsArgs | undefined;
-            if ((!args || args.fsxFilesystemArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fsxFilesystemArn'");
             }
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.securityGroupArns === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["domain"] = args ? args.domain : undefined;
@@ -145,12 +146,8 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LocationFsxWindows.__pulumiType, name, inputs, opts);
     }

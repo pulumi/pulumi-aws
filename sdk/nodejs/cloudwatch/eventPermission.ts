@@ -106,7 +106,8 @@ export class EventPermission extends pulumi.CustomResource {
     constructor(name: string, args: EventPermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventPermissionArgs | EventPermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventPermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["condition"] = state ? state.condition : undefined;
@@ -115,10 +116,10 @@ export class EventPermission extends pulumi.CustomResource {
             inputs["statementId"] = state ? state.statementId : undefined;
         } else {
             const args = argsOrState as EventPermissionArgs | undefined;
-            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.statementId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.statementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -127,12 +128,8 @@ export class EventPermission extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["statementId"] = args ? args.statementId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventPermission.__pulumiType, name, inputs, opts);
     }

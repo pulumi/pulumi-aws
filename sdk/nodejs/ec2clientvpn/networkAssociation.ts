@@ -107,7 +107,8 @@ export class NetworkAssociation extends pulumi.CustomResource {
     constructor(name: string, args: NetworkAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkAssociationArgs | NetworkAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkAssociationState | undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
@@ -117,10 +118,10 @@ export class NetworkAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as NetworkAssociationArgs | undefined;
-            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
@@ -130,12 +131,8 @@ export class NetworkAssociation extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkAssociation.__pulumiType, name, inputs, opts);
     }

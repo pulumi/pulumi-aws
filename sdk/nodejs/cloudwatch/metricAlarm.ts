@@ -315,7 +315,8 @@ export class MetricAlarm extends pulumi.CustomResource {
     constructor(name: string, args: MetricAlarmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricAlarmArgs | MetricAlarmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MetricAlarmState | undefined;
             inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
@@ -342,10 +343,10 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["unit"] = state ? state.unit : undefined;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
-            if ((!args || args.comparisonOperator === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
             inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
@@ -372,12 +373,8 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["unit"] = args ? args.unit : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MetricAlarm.__pulumiType, name, inputs, opts);
     }

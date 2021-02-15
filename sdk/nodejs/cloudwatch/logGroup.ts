@@ -96,7 +96,8 @@ export class LogGroup extends pulumi.CustomResource {
     constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -113,12 +114,8 @@ export class LogGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogGroup.__pulumiType, name, inputs, opts);
     }

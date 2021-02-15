@@ -226,7 +226,8 @@ export class Directory extends pulumi.CustomResource {
     constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
             inputs["alias"] = state ? state.alias : undefined;
             inputs["customerUserName"] = state ? state.customerUserName : undefined;
@@ -245,7 +246,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;
@@ -264,12 +265,8 @@ export class Directory extends pulumi.CustomResource {
             inputs["registrationCode"] = undefined /*out*/;
             inputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Directory.__pulumiType, name, inputs, opts);
     }

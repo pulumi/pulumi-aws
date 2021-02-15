@@ -197,7 +197,8 @@ export class UserPoolClient extends pulumi.CustomResource {
     constructor(name: string, args: UserPoolClientArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPoolClientArgs | UserPoolClientState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserPoolClientState | undefined;
             inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
@@ -218,7 +219,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["writeAttributes"] = state ? state.writeAttributes : undefined;
         } else {
             const args = argsOrState as UserPoolClientArgs | undefined;
-            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;
@@ -239,12 +240,8 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             inputs["clientSecret"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserPoolClient.__pulumiType, name, inputs, opts);
     }

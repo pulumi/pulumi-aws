@@ -134,7 +134,8 @@ export class SamplingRule extends pulumi.CustomResource {
     constructor(name: string, args: SamplingRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamplingRuleArgs | SamplingRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SamplingRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
@@ -152,34 +153,34 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SamplingRuleArgs | undefined;
-            if ((!args || args.fixedRate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fixedRate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fixedRate'");
             }
-            if ((!args || args.host === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.host === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.httpMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.reservoirSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.reservoirSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reservoirSize'");
             }
-            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.serviceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceType'");
             }
-            if ((!args || args.urlPath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.urlPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlPath'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;
@@ -197,12 +198,8 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SamplingRule.__pulumiType, name, inputs, opts);
     }

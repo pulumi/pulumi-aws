@@ -286,7 +286,8 @@ export class EventTarget extends pulumi.CustomResource {
     constructor(name: string, args: EventTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventTargetArgs | EventTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["batchTarget"] = state ? state.batchTarget : undefined;
@@ -303,10 +304,10 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as EventTargetArgs | undefined;
-            if ((!args || args.arn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.arn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.rule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
             inputs["arn"] = args ? args.arn : undefined;
@@ -323,12 +324,8 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["sqsTarget"] = args ? args.sqsTarget : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventTarget.__pulumiType, name, inputs, opts);
     }

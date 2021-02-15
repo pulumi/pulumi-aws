@@ -189,7 +189,8 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
@@ -212,10 +213,10 @@ export class Integration extends pulumi.CustomResource {
             inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -238,12 +239,8 @@ export class Integration extends pulumi.CustomResource {
             inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
             inputs["integrationResponseSelectionExpression"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Integration.__pulumiType, name, inputs, opts);
     }

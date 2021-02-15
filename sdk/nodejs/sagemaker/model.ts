@@ -113,7 +113,8 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ModelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containers"] = state ? state.containers : undefined;
@@ -125,7 +126,7 @@ export class Model extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
             inputs["containers"] = args ? args.containers : undefined;
@@ -137,12 +138,8 @@ export class Model extends pulumi.CustomResource {
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Model.__pulumiType, name, inputs, opts);
     }

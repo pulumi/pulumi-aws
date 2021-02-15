@@ -82,7 +82,8 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     constructor(name: string, args: AggregateAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AggregateAuthorizationState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -90,10 +91,10 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AggregateAuthorizationArgs | undefined;
-            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.region === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.region === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -101,12 +102,8 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AggregateAuthorization.__pulumiType, name, inputs, opts);
     }

@@ -86,7 +86,8 @@ export class BaiduChannel extends pulumi.CustomResource {
     constructor(name: string, args: BaiduChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BaiduChannelArgs | BaiduChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BaiduChannelState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
@@ -94,13 +95,13 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["secretKey"] = state ? state.secretKey : undefined;
         } else {
             const args = argsOrState as BaiduChannelArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.secretKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretKey'");
             }
             inputs["apiKey"] = args ? args.apiKey : undefined;
@@ -108,12 +109,8 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["secretKey"] = args ? args.secretKey : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BaiduChannel.__pulumiType, name, inputs, opts);
     }

@@ -96,7 +96,8 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssessmentTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["duration"] = state ? state.duration : undefined;
@@ -106,13 +107,13 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as AssessmentTemplateArgs | undefined;
-            if ((!args || args.duration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.duration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'duration'");
             }
-            if ((!args || args.rulesPackageArns === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rulesPackageArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            if ((!args || args.targetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
             inputs["duration"] = args ? args.duration : undefined;
@@ -122,12 +123,8 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AssessmentTemplate.__pulumiType, name, inputs, opts);
     }

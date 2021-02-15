@@ -302,7 +302,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     constructor(name: string, args: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpotInstanceRequestArgs | SpotInstanceRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SpotInstanceRequestState | undefined;
             inputs["ami"] = state ? state.ami : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -361,10 +362,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotInstanceRequestArgs | undefined;
-            if ((!args || args.ami === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ami === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ami'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["ami"] = args ? args.ami : undefined;
@@ -423,12 +424,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["spotInstanceId"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SpotInstanceRequest.__pulumiType, name, inputs, opts);
     }

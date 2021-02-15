@@ -151,7 +151,8 @@ export class Ami extends pulumi.CustomResource {
     constructor(name: string, args?: AmiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AmiArgs | AmiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AmiState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -188,12 +189,8 @@ export class Ami extends pulumi.CustomResource {
             inputs["manageEbsSnapshots"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Ami.__pulumiType, name, inputs, opts);
     }

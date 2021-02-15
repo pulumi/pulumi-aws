@@ -300,7 +300,8 @@ export class Trail extends pulumi.CustomResource {
     constructor(name: string, args: TrailArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrailArgs | TrailState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TrailState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudWatchLogsGroupArn"] = state ? state.cloudWatchLogsGroupArn : undefined;
@@ -321,7 +322,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TrailArgs | undefined;
-            if ((!args || args.s3BucketName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
             inputs["cloudWatchLogsGroupArn"] = args ? args.cloudWatchLogsGroupArn : undefined;
@@ -342,12 +343,8 @@ export class Trail extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["homeRegion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Trail.__pulumiType, name, inputs, opts);
     }

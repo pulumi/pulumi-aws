@@ -112,7 +112,8 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: AnalyticsConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsConfigurationArgs | AnalyticsConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AnalyticsConfigurationState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["filter"] = state ? state.filter : undefined;
@@ -120,7 +121,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             inputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
         } else {
             const args = argsOrState as AnalyticsConfigurationArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
@@ -128,12 +129,8 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AnalyticsConfiguration.__pulumiType, name, inputs, opts);
     }

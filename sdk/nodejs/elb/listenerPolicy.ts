@@ -138,32 +138,29 @@ export class ListenerPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ListenerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
             inputs["policyNames"] = state ? state.policyNames : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
-            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.loadBalancerPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ListenerPolicy.__pulumiType, name, inputs, opts);
     }
 }

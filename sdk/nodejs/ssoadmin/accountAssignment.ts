@@ -78,7 +78,8 @@ export class AccountAssignment extends pulumi.CustomResource {
     constructor(name: string, args: AccountAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountAssignmentArgs | AccountAssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountAssignmentState | undefined;
             inputs["instanceArn"] = state ? state.instanceArn : undefined;
             inputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
@@ -88,19 +89,19 @@ export class AccountAssignment extends pulumi.CustomResource {
             inputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as AccountAssignmentArgs | undefined;
-            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
@@ -110,12 +111,8 @@ export class AccountAssignment extends pulumi.CustomResource {
             inputs["targetId"] = args ? args.targetId : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccountAssignment.__pulumiType, name, inputs, opts);
     }

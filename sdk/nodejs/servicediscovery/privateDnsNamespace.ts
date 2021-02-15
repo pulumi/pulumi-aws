@@ -91,7 +91,8 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
     constructor(name: string, args: PrivateDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrivateDnsNamespaceArgs | PrivateDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PrivateDnsNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -101,7 +102,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as PrivateDnsNamespaceArgs | undefined;
-            if ((!args || args.vpc === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpc === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpc'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -111,12 +112,8 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PrivateDnsNamespace.__pulumiType, name, inputs, opts);
     }

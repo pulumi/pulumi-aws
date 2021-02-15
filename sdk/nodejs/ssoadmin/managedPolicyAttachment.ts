@@ -72,7 +72,8 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, args: ManagedPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPolicyAttachmentArgs | ManagedPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManagedPolicyAttachmentState | undefined;
             inputs["instanceArn"] = state ? state.instanceArn : undefined;
             inputs["managedPolicyArn"] = state ? state.managedPolicyArn : undefined;
@@ -80,13 +81,13 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
             inputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
         } else {
             const args = argsOrState as ManagedPolicyAttachmentArgs | undefined;
-            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.managedPolicyArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedPolicyArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
@@ -94,12 +95,8 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
             inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
             inputs["managedPolicyName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagedPolicyAttachment.__pulumiType, name, inputs, opts);
     }

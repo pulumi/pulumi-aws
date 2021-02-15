@@ -115,7 +115,8 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
@@ -129,7 +130,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if ((!args || args.volumeId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -143,12 +144,8 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

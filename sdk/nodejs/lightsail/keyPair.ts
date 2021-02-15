@@ -125,7 +125,8 @@ export class KeyPair extends pulumi.CustomResource {
     constructor(name: string, args?: KeyPairArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KeyPairState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptedFingerprint"] = state ? state.encryptedFingerprint : undefined;
@@ -148,12 +149,8 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["fingerprint"] = undefined /*out*/;
             inputs["privateKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KeyPair.__pulumiType, name, inputs, opts);
     }

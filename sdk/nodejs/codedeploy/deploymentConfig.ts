@@ -147,7 +147,8 @@ export class DeploymentConfig extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeploymentConfigState | undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
@@ -156,7 +157,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
-            if ((!args || args.deploymentConfigName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deploymentConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentConfigName'");
             }
             inputs["computePlatform"] = args ? args.computePlatform : undefined;
@@ -165,12 +166,8 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             inputs["deploymentConfigId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DeploymentConfig.__pulumiType, name, inputs, opts);
     }

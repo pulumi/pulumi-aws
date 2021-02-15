@@ -105,7 +105,8 @@ export class PeeringAttachment extends pulumi.CustomResource {
     constructor(name: string, args: PeeringAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PeeringAttachmentArgs | PeeringAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PeeringAttachmentState | undefined;
             inputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             inputs["peerRegion"] = state ? state.peerRegion : undefined;
@@ -114,13 +115,13 @@ export class PeeringAttachment extends pulumi.CustomResource {
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as PeeringAttachmentArgs | undefined;
-            if ((!args || args.peerRegion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peerRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerRegion'");
             }
-            if ((!args || args.peerTransitGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peerTransitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerTransitGatewayId'");
             }
-            if ((!args || args.transitGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
             inputs["peerAccountId"] = args ? args.peerAccountId : undefined;
@@ -129,12 +130,8 @@ export class PeeringAttachment extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PeeringAttachment.__pulumiType, name, inputs, opts);
     }

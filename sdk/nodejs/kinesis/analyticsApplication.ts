@@ -150,7 +150,8 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     constructor(name: string, args?: AnalyticsApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsApplicationArgs | AnalyticsApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AnalyticsApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
@@ -181,12 +182,8 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AnalyticsApplication.__pulumiType, name, inputs, opts);
     }

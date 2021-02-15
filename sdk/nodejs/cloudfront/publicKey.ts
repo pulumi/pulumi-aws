@@ -91,7 +91,8 @@ export class PublicKey extends pulumi.CustomResource {
     constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicKeyArgs | PublicKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PublicKeyState | undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
             inputs["comment"] = state ? state.comment : undefined;
@@ -101,7 +102,7 @@ export class PublicKey extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
         } else {
             const args = argsOrState as PublicKeyArgs | undefined;
-            if ((!args || args.encodedKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.encodedKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encodedKey'");
             }
             inputs["comment"] = args ? args.comment : undefined;
@@ -111,12 +112,8 @@ export class PublicKey extends pulumi.CustomResource {
             inputs["callerReference"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublicKey.__pulumiType, name, inputs, opts);
     }

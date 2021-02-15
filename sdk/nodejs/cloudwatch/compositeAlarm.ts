@@ -88,7 +88,8 @@ export class CompositeAlarm extends pulumi.CustomResource {
     constructor(name: string, args: CompositeAlarmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CompositeAlarmArgs | CompositeAlarmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CompositeAlarmState | undefined;
             inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
@@ -101,10 +102,10 @@ export class CompositeAlarm extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CompositeAlarmArgs | undefined;
-            if ((!args || args.alarmName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.alarmName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alarmName'");
             }
-            if ((!args || args.alarmRule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.alarmRule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
             inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
@@ -117,12 +118,8 @@ export class CompositeAlarm extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CompositeAlarm.__pulumiType, name, inputs, opts);
     }

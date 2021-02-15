@@ -97,7 +97,8 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
@@ -118,12 +119,8 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiKey.__pulumiType, name, inputs, opts);
     }

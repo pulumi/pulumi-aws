@@ -144,29 +144,26 @@ export class ListenerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ListenerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
             inputs["policyNames"] = state ? state.policyNames : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
-            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.loadBalancerPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ListenerPolicy.__pulumiType, name, inputs, opts);
     }

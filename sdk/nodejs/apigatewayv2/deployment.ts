@@ -88,7 +88,8 @@ export class Deployment extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["autoDeployed"] = state ? state.autoDeployed : undefined;
@@ -96,7 +97,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -104,12 +105,8 @@ export class Deployment extends pulumi.CustomResource {
             inputs["triggers"] = args ? args.triggers : undefined;
             inputs["autoDeployed"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Deployment.__pulumiType, name, inputs, opts);
     }

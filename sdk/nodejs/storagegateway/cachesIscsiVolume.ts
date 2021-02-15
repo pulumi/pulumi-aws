@@ -168,7 +168,8 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     constructor(name: string, args: CachesIscsiVolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CachesIscsiVolumeArgs | CachesIscsiVolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CachesIscsiVolumeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
@@ -188,16 +189,16 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
         } else {
             const args = argsOrState as CachesIscsiVolumeArgs | undefined;
-            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.targetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if ((!args || args.volumeSizeInBytes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.volumeSizeInBytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
@@ -217,12 +218,8 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeArn"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CachesIscsiVolume.__pulumiType, name, inputs, opts);
     }

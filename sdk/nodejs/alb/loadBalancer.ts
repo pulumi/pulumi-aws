@@ -227,7 +227,8 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -274,15 +275,11 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["vpcId"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/loadBalancer:LoadBalancer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }
 }

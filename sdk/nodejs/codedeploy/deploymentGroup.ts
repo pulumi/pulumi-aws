@@ -263,7 +263,8 @@ export class DeploymentGroup extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentGroupArgs | DeploymentGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeploymentGroupState | undefined;
             inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
             inputs["appName"] = state ? state.appName : undefined;
@@ -282,13 +283,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
-            if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.deploymentGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deploymentGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentGroupName'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
             inputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
@@ -307,12 +308,8 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DeploymentGroup.__pulumiType, name, inputs, opts);
     }

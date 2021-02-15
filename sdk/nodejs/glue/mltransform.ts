@@ -205,7 +205,8 @@ export class MLTransform extends pulumi.CustomResource {
     constructor(name: string, args: MLTransformArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MLTransformArgs | MLTransformState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MLTransformState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -224,13 +225,13 @@ export class MLTransform extends pulumi.CustomResource {
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as MLTransformArgs | undefined;
-            if ((!args || args.inputRecordTables === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.inputRecordTables === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputRecordTables'");
             }
-            if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -249,12 +250,8 @@ export class MLTransform extends pulumi.CustomResource {
             inputs["labelCount"] = undefined /*out*/;
             inputs["schemas"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MLTransform.__pulumiType, name, inputs, opts);
     }

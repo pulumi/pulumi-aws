@@ -127,7 +127,8 @@ export class PlatformApplication extends pulumi.CustomResource {
     constructor(name: string, args: PlatformApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlatformApplicationArgs | PlatformApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PlatformApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
@@ -143,10 +144,10 @@ export class PlatformApplication extends pulumi.CustomResource {
             inputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
         } else {
             const args = argsOrState as PlatformApplicationArgs | undefined;
-            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.platformCredential === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platformCredential === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformCredential'");
             }
             inputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;
@@ -162,12 +163,8 @@ export class PlatformApplication extends pulumi.CustomResource {
             inputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PlatformApplication.__pulumiType, name, inputs, opts);
     }

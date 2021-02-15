@@ -84,32 +84,29 @@ export class RoleAssociation extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleAssociationArgs | RoleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RoleAssociationState | undefined;
             inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
             inputs["featureName"] = state ? state.featureName : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RoleAssociationArgs | undefined;
-            if ((!args || args.dbInstanceIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dbInstanceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbInstanceIdentifier'");
             }
-            if ((!args || args.featureName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.featureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureName'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             inputs["featureName"] = args ? args.featureName : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RoleAssociation.__pulumiType, name, inputs, opts);
     }

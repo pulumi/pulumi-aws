@@ -143,7 +143,8 @@ export class ConformancePack extends pulumi.CustomResource {
     constructor(name: string, args?: ConformancePackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConformancePackArgs | ConformancePackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConformancePackState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deliveryS3Bucket"] = state ? state.deliveryS3Bucket : undefined;
@@ -162,12 +163,8 @@ export class ConformancePack extends pulumi.CustomResource {
             inputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConformancePack.__pulumiType, name, inputs, opts);
     }

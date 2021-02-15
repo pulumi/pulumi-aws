@@ -152,7 +152,8 @@ export class Target extends pulumi.CustomResource {
     constructor(name: string, args: TargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TargetArgs | TargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TargetState | undefined;
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["minCapacity"] = state ? state.minCapacity : undefined;
@@ -162,19 +163,19 @@ export class Target extends pulumi.CustomResource {
             inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
         } else {
             const args = argsOrState as TargetArgs | undefined;
-            if ((!args || args.maxCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if ((!args || args.minCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minCapacity'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
@@ -184,12 +185,8 @@ export class Target extends pulumi.CustomResource {
             inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Target.__pulumiType, name, inputs, opts);
     }

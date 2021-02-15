@@ -79,7 +79,8 @@ export class IpGroup extends pulumi.CustomResource {
     constructor(name: string, args?: IpGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IpGroupArgs | IpGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IpGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -92,12 +93,8 @@ export class IpGroup extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IpGroup.__pulumiType, name, inputs, opts);
     }

@@ -695,7 +695,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
             inputs["applications"] = state ? state.applications : undefined;
@@ -728,10 +729,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.releaseLabel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if ((!args || args.serviceRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
             inputs["additionalInfo"] = args ? args.additionalInfo : undefined;
@@ -764,12 +765,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

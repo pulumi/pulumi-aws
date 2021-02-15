@@ -111,7 +111,8 @@ export class ExternalKey extends pulumi.CustomResource {
     constructor(name: string, args?: ExternalKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExternalKeyArgs | ExternalKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExternalKeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
@@ -138,12 +139,8 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyState"] = undefined /*out*/;
             inputs["keyUsage"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ExternalKey.__pulumiType, name, inputs, opts);
     }

@@ -87,7 +87,8 @@ export class Agent extends pulumi.CustomResource {
     constructor(name: string, args?: AgentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgentArgs | AgentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AgentState | undefined;
             inputs["activationKey"] = state ? state.activationKey : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -102,12 +103,8 @@ export class Agent extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Agent.__pulumiType, name, inputs, opts);
     }

@@ -74,27 +74,24 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
     constructor(name: string, args: ResolverQueryLogConfigAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverQueryLogConfigAssociationArgs | ResolverQueryLogConfigAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResolverQueryLogConfigAssociationState | undefined;
             inputs["resolverQueryLogConfigId"] = state ? state.resolverQueryLogConfigId : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigAssociationArgs | undefined;
-            if ((!args || args.resolverQueryLogConfigId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resolverQueryLogConfigId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resolverQueryLogConfigId'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverQueryLogConfigAssociation.__pulumiType, name, inputs, opts);
     }

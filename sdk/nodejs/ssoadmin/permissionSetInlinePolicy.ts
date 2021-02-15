@@ -69,32 +69,29 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
     constructor(name: string, args: PermissionSetInlinePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionSetInlinePolicyArgs | PermissionSetInlinePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PermissionSetInlinePolicyState | undefined;
             inputs["inlinePolicy"] = state ? state.inlinePolicy : undefined;
             inputs["instanceArn"] = state ? state.instanceArn : undefined;
             inputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
         } else {
             const args = argsOrState as PermissionSetInlinePolicyArgs | undefined;
-            if ((!args || args.inlinePolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.inlinePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inlinePolicy'");
             }
-            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
             inputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
             inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PermissionSetInlinePolicy.__pulumiType, name, inputs, opts);
     }

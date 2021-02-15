@@ -103,7 +103,8 @@ export class GameSessionQueue extends pulumi.CustomResource {
     constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GameSessionQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["destinations"] = state ? state.destinations : undefined;
@@ -120,12 +121,8 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GameSessionQueue.__pulumiType, name, inputs, opts);
     }

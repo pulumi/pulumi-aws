@@ -173,7 +173,8 @@ export class LustreFileSystem extends pulumi.CustomResource {
     constructor(name: string, args: LustreFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LustreFileSystemArgs | LustreFileSystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LustreFileSystemState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
@@ -200,10 +201,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as LustreFileSystemArgs | undefined;
-            if ((!args || args.storageCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
@@ -230,12 +231,8 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LustreFileSystem.__pulumiType, name, inputs, opts);
     }

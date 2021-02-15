@@ -93,7 +93,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EnvironmentEC2State | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
@@ -106,7 +107,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
@@ -119,12 +120,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EnvironmentEC2.__pulumiType, name, inputs, opts);
     }

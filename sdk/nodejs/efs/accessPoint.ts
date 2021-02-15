@@ -89,7 +89,8 @@ export class AccessPoint extends pulumi.CustomResource {
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessPointArgs | AccessPointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
@@ -100,7 +101,7 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
@@ -111,12 +112,8 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["fileSystemArn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccessPoint.__pulumiType, name, inputs, opts);
     }

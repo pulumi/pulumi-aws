@@ -306,7 +306,8 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             inputs["applicationConfiguration"] = state ? state.applicationConfiguration : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -322,10 +323,10 @@ export class Application extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.runtimeEnvironment === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            if ((!args || args.serviceExecutionRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
             inputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
@@ -341,12 +342,8 @@ export class Application extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Application.__pulumiType, name, inputs, opts);
     }

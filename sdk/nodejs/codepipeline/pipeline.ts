@@ -197,7 +197,8 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["artifactStore"] = state ? state.artifactStore : undefined;
@@ -207,13 +208,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.artifactStore === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.artifactStore === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'artifactStore'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stages === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
             inputs["artifactStore"] = args ? args.artifactStore : undefined;
@@ -223,12 +224,8 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pipeline.__pulumiType, name, inputs, opts);
     }

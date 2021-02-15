@@ -92,7 +92,8 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -102,10 +103,10 @@ export class Configuration extends pulumi.CustomResource {
             inputs["serverProperties"] = state ? state.serverProperties : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.kafkaVersions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kafkaVersions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersions'");
             }
-            if ((!args || args.serverProperties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverProperties'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -115,12 +116,8 @@ export class Configuration extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["latestRevision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Configuration.__pulumiType, name, inputs, opts);
     }

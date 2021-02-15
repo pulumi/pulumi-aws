@@ -82,7 +82,8 @@ export class ByteMatchSet extends pulumi.CustomResource {
     constructor(name: string, args?: ByteMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ByteMatchSetArgs | ByteMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ByteMatchSetState | undefined;
             inputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -91,12 +92,8 @@ export class ByteMatchSet extends pulumi.CustomResource {
             inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ByteMatchSet.__pulumiType, name, inputs, opts);
     }

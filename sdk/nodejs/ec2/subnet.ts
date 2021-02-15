@@ -151,7 +151,8 @@ export class Subnet extends pulumi.CustomResource {
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
@@ -169,10 +170,10 @@ export class Subnet extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if ((!args || args.cidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
@@ -190,12 +191,8 @@ export class Subnet extends pulumi.CustomResource {
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Subnet.__pulumiType, name, inputs, opts);
     }

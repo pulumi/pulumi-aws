@@ -175,7 +175,8 @@ export class TargetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TargetGroup is deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TargetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
@@ -214,12 +215,8 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TargetGroup.__pulumiType, name, inputs, opts);
     }

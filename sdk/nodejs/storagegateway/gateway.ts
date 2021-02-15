@@ -199,7 +199,8 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
             inputs["activationKey"] = state ? state.activationKey : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -224,10 +225,10 @@ export class Gateway extends pulumi.CustomResource {
             inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.gatewayTimezone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayTimezone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
             inputs["activationKey"] = args ? args.activationKey : undefined;
@@ -252,12 +253,8 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayNetworkInterfaces"] = undefined /*out*/;
             inputs["hostEnvironment"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Gateway.__pulumiType, name, inputs, opts);
     }

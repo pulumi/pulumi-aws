@@ -87,7 +87,8 @@ export class IpSet extends pulumi.CustomResource {
     constructor(name: string, args?: IpSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
@@ -98,12 +99,8 @@ export class IpSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IpSet.__pulumiType, name, inputs, opts);
     }

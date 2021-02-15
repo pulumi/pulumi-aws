@@ -219,7 +219,8 @@ export class Directory extends pulumi.CustomResource {
     constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
             inputs["accessUrl"] = state ? state.accessUrl : undefined;
             inputs["alias"] = state ? state.alias : undefined;
@@ -238,10 +239,10 @@ export class Directory extends pulumi.CustomResource {
             inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
             inputs["alias"] = args ? args.alias : undefined;
@@ -260,12 +261,8 @@ export class Directory extends pulumi.CustomResource {
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["securityGroupId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Directory.__pulumiType, name, inputs, opts);
     }

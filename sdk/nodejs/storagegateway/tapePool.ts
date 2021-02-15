@@ -90,7 +90,8 @@ export class TapePool extends pulumi.CustomResource {
     constructor(name: string, args: TapePoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TapePoolArgs | TapePoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TapePoolState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["poolName"] = state ? state.poolName : undefined;
@@ -100,10 +101,10 @@ export class TapePool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TapePoolArgs | undefined;
-            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.storageClass === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageClass'");
             }
             inputs["poolName"] = args ? args.poolName : undefined;
@@ -113,12 +114,8 @@ export class TapePool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TapePool.__pulumiType, name, inputs, opts);
     }

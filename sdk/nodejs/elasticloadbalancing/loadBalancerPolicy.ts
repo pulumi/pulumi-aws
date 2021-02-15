@@ -151,7 +151,8 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["policyAttributes"] = state ? state.policyAttributes : undefined;
@@ -159,13 +160,13 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             inputs["policyTypeName"] = state ? state.policyTypeName : undefined;
         } else {
             const args = argsOrState as LoadBalancerPolicyArgs | undefined;
-            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if ((!args || args.policyTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyTypeName'");
             }
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
@@ -173,12 +174,8 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["policyTypeName"] = args ? args.policyTypeName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancerPolicy.__pulumiType, name, inputs, opts);
     }

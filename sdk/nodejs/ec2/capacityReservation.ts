@@ -121,7 +121,8 @@ export class CapacityReservation extends pulumi.CustomResource {
     constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CapacityReservationArgs | CapacityReservationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -138,16 +139,16 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tenancy"] = state ? state.tenancy : undefined;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if ((!args || args.instanceCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if ((!args || args.instancePlatform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instancePlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -164,12 +165,8 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CapacityReservation.__pulumiType, name, inputs, opts);
     }

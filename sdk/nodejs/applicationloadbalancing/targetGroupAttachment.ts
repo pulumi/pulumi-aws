@@ -113,7 +113,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["port"] = state ? state.port : undefined;
@@ -121,10 +122,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as TargetGroupAttachmentArgs | undefined;
-            if ((!args || args.targetGroupArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetGroupArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupArn'");
             }
-            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -132,12 +133,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TargetGroupAttachment.__pulumiType, name, inputs, opts);
     }

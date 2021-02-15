@@ -75,7 +75,8 @@ export class Activity extends pulumi.CustomResource {
     constructor(name: string, args?: ActivityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActivityArgs | ActivityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActivityState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -86,12 +87,8 @@ export class Activity extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Activity.__pulumiType, name, inputs, opts);
     }

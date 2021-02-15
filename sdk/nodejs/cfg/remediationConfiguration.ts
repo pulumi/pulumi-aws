@@ -118,7 +118,8 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: RemediationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RemediationConfigurationArgs | RemediationConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RemediationConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["configRuleName"] = state ? state.configRuleName : undefined;
@@ -129,13 +130,13 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             inputs["targetVersion"] = state ? state.targetVersion : undefined;
         } else {
             const args = argsOrState as RemediationConfigurationArgs | undefined;
-            if ((!args || args.configRuleName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configRuleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configRuleName'");
             }
-            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
             inputs["configRuleName"] = args ? args.configRuleName : undefined;
@@ -146,12 +147,8 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             inputs["targetVersion"] = args ? args.targetVersion : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RemediationConfiguration.__pulumiType, name, inputs, opts);
     }

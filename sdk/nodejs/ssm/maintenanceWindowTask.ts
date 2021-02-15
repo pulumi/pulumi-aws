@@ -190,7 +190,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MaintenanceWindowTaskState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
@@ -205,19 +206,19 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["windowId"] = state ? state.windowId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
-            if ((!args || args.maxConcurrency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxConcurrency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxConcurrency'");
             }
-            if ((!args || args.maxErrors === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxErrors === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxErrors'");
             }
-            if ((!args || args.taskArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.taskArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskArn'");
             }
-            if ((!args || args.taskType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.taskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if ((!args || args.windowId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -232,12 +233,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["taskType"] = args ? args.taskType : undefined;
             inputs["windowId"] = args ? args.windowId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MaintenanceWindowTask.__pulumiType, name, inputs, opts);
     }

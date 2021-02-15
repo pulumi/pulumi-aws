@@ -84,7 +84,8 @@ export class ResourceShare extends pulumi.CustomResource {
     constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceShareArgs | ResourceShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceShareState | undefined;
             inputs["allowExternalPrincipals"] = state ? state.allowExternalPrincipals : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -97,12 +98,8 @@ export class ResourceShare extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceShare.__pulumiType, name, inputs, opts);
     }

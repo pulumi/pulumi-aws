@@ -124,7 +124,8 @@ export class FileSystem extends pulumi.CustomResource {
     constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FileSystemState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationToken"] = state ? state.creationToken : undefined;
@@ -149,12 +150,8 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FileSystem.__pulumiType, name, inputs, opts);
     }

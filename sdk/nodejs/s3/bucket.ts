@@ -440,7 +440,8 @@ export class Bucket extends pulumi.CustomResource {
     constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketState | undefined;
             inputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
             inputs["acl"] = state ? state.acl : undefined;
@@ -493,12 +494,8 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucketRegionalDomainName"] = undefined /*out*/;
             inputs["region"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Bucket.__pulumiType, name, inputs, opts);
     }

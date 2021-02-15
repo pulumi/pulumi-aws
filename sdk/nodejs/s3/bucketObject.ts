@@ -218,7 +218,8 @@ export class BucketObject extends pulumi.CustomResource {
     constructor(name: string, args: BucketObjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketObjectState | undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
@@ -246,7 +247,7 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
         } else {
             const args = argsOrState as BucketObjectArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["acl"] = args ? args.acl : undefined;
@@ -274,12 +275,8 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             inputs["versionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BucketObject.__pulumiType, name, inputs, opts);
     }

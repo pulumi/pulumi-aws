@@ -95,7 +95,8 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
     constructor(name: string, args: LogSubscriptionFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogSubscriptionFilterArgs | LogSubscriptionFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogSubscriptionFilterState | undefined;
             inputs["destinationArn"] = state ? state.destinationArn : undefined;
             inputs["distribution"] = state ? state.distribution : undefined;
@@ -105,13 +106,13 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LogSubscriptionFilterArgs | undefined;
-            if ((!args || args.destinationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if ((!args || args.filterPattern === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filterPattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroup'");
             }
             inputs["destinationArn"] = args ? args.destinationArn : undefined;
@@ -121,12 +122,8 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogSubscriptionFilter.__pulumiType, name, inputs, opts);
     }

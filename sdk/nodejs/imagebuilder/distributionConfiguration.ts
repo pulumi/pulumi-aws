@@ -105,7 +105,8 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DistributionConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DistributionConfigurationArgs | DistributionConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DistributionConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dateCreated"] = state ? state.dateCreated : undefined;
@@ -116,7 +117,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DistributionConfigurationArgs | undefined;
-            if ((!args || args.distributions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.distributions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributions'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -127,12 +128,8 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             inputs["dateCreated"] = undefined /*out*/;
             inputs["dateUpdated"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DistributionConfiguration.__pulumiType, name, inputs, opts);
     }

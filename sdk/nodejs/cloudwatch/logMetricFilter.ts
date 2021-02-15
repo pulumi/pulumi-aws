@@ -90,7 +90,8 @@ export class LogMetricFilter extends pulumi.CustomResource {
     constructor(name: string, args: LogMetricFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogMetricFilterArgs | LogMetricFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogMetricFilterState | undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["metricTransformation"] = state ? state.metricTransformation : undefined;
@@ -98,13 +99,13 @@ export class LogMetricFilter extends pulumi.CustomResource {
             inputs["pattern"] = state ? state.pattern : undefined;
         } else {
             const args = argsOrState as LogMetricFilterArgs | undefined;
-            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if ((!args || args.metricTransformation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metricTransformation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformation'");
             }
-            if ((!args || args.pattern === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
@@ -112,12 +113,8 @@ export class LogMetricFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["pattern"] = args ? args.pattern : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogMetricFilter.__pulumiType, name, inputs, opts);
     }

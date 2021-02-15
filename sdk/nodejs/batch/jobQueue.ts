@@ -98,7 +98,8 @@ export class JobQueue extends pulumi.CustomResource {
     constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobQueueArgs | JobQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
@@ -108,13 +109,13 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
-            if ((!args || args.computeEnvironments === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.computeEnvironments === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'computeEnvironments'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;
@@ -124,12 +125,8 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(JobQueue.__pulumiType, name, inputs, opts);
     }

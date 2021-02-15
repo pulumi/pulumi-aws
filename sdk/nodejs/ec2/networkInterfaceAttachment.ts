@@ -79,7 +79,8 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInterfaceAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceAttachmentArgs | NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkInterfaceAttachmentState | undefined;
             inputs["attachmentId"] = state ? state.attachmentId : undefined;
             inputs["deviceIndex"] = state ? state.deviceIndex : undefined;
@@ -88,13 +89,13 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceAttachmentArgs | undefined;
-            if ((!args || args.deviceIndex === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceIndex === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceIndex'");
             }
-            if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
             inputs["deviceIndex"] = args ? args.deviceIndex : undefined;
@@ -103,12 +104,8 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             inputs["attachmentId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInterfaceAttachment.__pulumiType, name, inputs, opts);
     }

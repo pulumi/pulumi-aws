@@ -108,7 +108,8 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
@@ -133,12 +134,8 @@ export class Key extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Key.__pulumiType, name, inputs, opts);
     }

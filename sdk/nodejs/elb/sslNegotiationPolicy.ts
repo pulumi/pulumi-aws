@@ -118,7 +118,8 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
     constructor(name: string, args: SslNegotiationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SslNegotiationPolicyArgs | SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SslNegotiationPolicyState | undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["lbPort"] = state ? state.lbPort : undefined;
@@ -126,10 +127,10 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SslNegotiationPolicyArgs | undefined;
-            if ((!args || args.lbPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lbPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;
@@ -137,15 +138,11 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SslNegotiationPolicy.__pulumiType, name, inputs, opts);
     }
 }

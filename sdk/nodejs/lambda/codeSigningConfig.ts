@@ -101,7 +101,8 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CodeSigningConfigArgs | CodeSigningConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CodeSigningConfigState | undefined;
             inputs["allowedPublishers"] = state ? state.allowedPublishers : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -111,7 +112,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             inputs["policies"] = state ? state.policies : undefined;
         } else {
             const args = argsOrState as CodeSigningConfigArgs | undefined;
-            if ((!args || args.allowedPublishers === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
             inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
@@ -121,12 +122,8 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             inputs["configId"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CodeSigningConfig.__pulumiType, name, inputs, opts);
     }

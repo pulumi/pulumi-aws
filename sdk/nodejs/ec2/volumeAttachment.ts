@@ -112,7 +112,8 @@ export class VolumeAttachment extends pulumi.CustomResource {
     constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeAttachmentArgs | VolumeAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VolumeAttachmentState | undefined;
             inputs["deviceName"] = state ? state.deviceName : undefined;
             inputs["forceDetach"] = state ? state.forceDetach : undefined;
@@ -121,13 +122,13 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as VolumeAttachmentArgs | undefined;
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.volumeId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -136,12 +137,8 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VolumeAttachment.__pulumiType, name, inputs, opts);
     }

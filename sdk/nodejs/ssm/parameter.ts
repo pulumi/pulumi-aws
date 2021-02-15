@@ -148,7 +148,8 @@ export class Parameter extends pulumi.CustomResource {
     constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ParameterState | undefined;
             inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -164,10 +165,10 @@ export class Parameter extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ParameterArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["allowedPattern"] = args ? args.allowedPattern : undefined;
@@ -183,12 +184,8 @@ export class Parameter extends pulumi.CustomResource {
             inputs["value"] = args ? args.value : undefined;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Parameter.__pulumiType, name, inputs, opts);
     }

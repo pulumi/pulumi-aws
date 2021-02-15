@@ -88,7 +88,8 @@ export class VpnGateway extends pulumi.CustomResource {
     constructor(name: string, args?: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayArgs | VpnGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -103,12 +104,8 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }

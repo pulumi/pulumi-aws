@@ -78,22 +78,19 @@ export class RegionSettings extends pulumi.CustomResource {
     constructor(name: string, args: RegionSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegionSettingsArgs | RegionSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RegionSettingsState | undefined;
             inputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
             const args = argsOrState as RegionSettingsArgs | undefined;
-            if ((!args || args.resourceTypeOptInPreference === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceTypeOptInPreference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
             inputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RegionSettings.__pulumiType, name, inputs, opts);
     }

@@ -92,29 +92,26 @@ export class IdentityPolicy extends pulumi.CustomResource {
     constructor(name: string, args: IdentityPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityPolicyArgs | IdentityPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IdentityPolicyState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as IdentityPolicyArgs | undefined;
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IdentityPolicy.__pulumiType, name, inputs, opts);
     }

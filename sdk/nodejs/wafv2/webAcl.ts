@@ -303,7 +303,8 @@ export class WebAcl extends pulumi.CustomResource {
     constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
@@ -317,13 +318,13 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -337,12 +338,8 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["capacity"] = undefined /*out*/;
             inputs["lockToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebAcl.__pulumiType, name, inputs, opts);
     }

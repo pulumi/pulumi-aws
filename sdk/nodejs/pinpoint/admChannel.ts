@@ -87,7 +87,8 @@ export class AdmChannel extends pulumi.CustomResource {
     constructor(name: string, args: AdmChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdmChannelArgs | AdmChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AdmChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -95,13 +96,13 @@ export class AdmChannel extends pulumi.CustomResource {
             inputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as AdmChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -109,12 +110,8 @@ export class AdmChannel extends pulumi.CustomResource {
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AdmChannel.__pulumiType, name, inputs, opts);
     }

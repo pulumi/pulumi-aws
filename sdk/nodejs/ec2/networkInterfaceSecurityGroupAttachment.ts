@@ -125,27 +125,24 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
     constructor(name: string, args: NetworkInterfaceSecurityGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceSecurityGroupAttachmentArgs | NetworkInterfaceSecurityGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs | undefined;
-            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, inputs, opts);
     }

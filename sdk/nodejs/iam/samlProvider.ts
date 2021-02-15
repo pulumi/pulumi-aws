@@ -80,7 +80,8 @@ export class SamlProvider extends pulumi.CustomResource {
     constructor(name: string, args: SamlProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlProviderArgs | SamlProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SamlProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,7 +89,7 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as SamlProviderArgs | undefined;
-            if ((!args || args.samlMetadataDocument === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.samlMetadataDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samlMetadataDocument'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -96,12 +97,8 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["validUntil"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SamlProvider.__pulumiType, name, inputs, opts);
     }

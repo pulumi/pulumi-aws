@@ -176,7 +176,8 @@ export class Bot extends pulumi.CustomResource {
     constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BotArgs | BotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BotState | undefined;
             inputs["abortStatement"] = state ? state.abortStatement : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -201,13 +202,13 @@ export class Bot extends pulumi.CustomResource {
             inputs["voiceId"] = state ? state.voiceId : undefined;
         } else {
             const args = argsOrState as BotArgs | undefined;
-            if ((!args || args.abortStatement === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.abortStatement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'abortStatement'");
             }
-            if ((!args || args.childDirected === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.childDirected === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'childDirected'");
             }
-            if ((!args || args.intents === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.intents === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'intents'");
             }
             inputs["abortStatement"] = args ? args.abortStatement : undefined;
@@ -232,12 +233,8 @@ export class Bot extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Bot.__pulumiType, name, inputs, opts);
     }

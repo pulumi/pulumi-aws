@@ -76,26 +76,23 @@ export class LogStream extends pulumi.CustomResource {
     constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
-            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogStream.__pulumiType, name, inputs, opts);
     }

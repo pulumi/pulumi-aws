@@ -134,7 +134,8 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FleetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditStreamArn"] = state ? state.auditStreamArn : undefined;
@@ -161,12 +162,8 @@ export class Fleet extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Fleet.__pulumiType, name, inputs, opts);
     }

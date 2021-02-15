@@ -75,7 +75,8 @@ export class DelegationSet extends pulumi.CustomResource {
     constructor(name: string, args?: DelegationSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DelegationSetState | undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["referenceName"] = state ? state.referenceName : undefined;
@@ -84,12 +85,8 @@ export class DelegationSet extends pulumi.CustomResource {
             inputs["referenceName"] = args ? args.referenceName : undefined;
             inputs["nameServers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DelegationSet.__pulumiType, name, inputs, opts);
     }
