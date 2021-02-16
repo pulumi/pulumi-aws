@@ -121,32 +121,29 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.body === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["body"] = args ? args.body : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SshKey.__pulumiType, name, inputs, opts);
     }

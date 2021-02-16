@@ -110,7 +110,8 @@ export class SigningProfilePermission extends pulumi.CustomResource {
     constructor(name: string, args: SigningProfilePermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningProfilePermissionArgs | SigningProfilePermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SigningProfilePermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["principal"] = state ? state.principal : undefined;
@@ -120,13 +121,13 @@ export class SigningProfilePermission extends pulumi.CustomResource {
             inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as SigningProfilePermissionArgs | undefined;
-            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -136,12 +137,8 @@ export class SigningProfilePermission extends pulumi.CustomResource {
             inputs["statementId"] = args ? args.statementId : undefined;
             inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SigningProfilePermission.__pulumiType, name, inputs, opts);
     }

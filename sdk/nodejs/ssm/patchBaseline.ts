@@ -271,7 +271,8 @@ export class PatchBaseline extends pulumi.CustomResource {
     constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PatchBaselineState | undefined;
             inputs["approvalRules"] = state ? state.approvalRules : undefined;
             inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
@@ -302,12 +303,8 @@ export class PatchBaseline extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PatchBaseline.__pulumiType, name, inputs, opts);
     }

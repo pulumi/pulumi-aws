@@ -99,29 +99,26 @@ export class MailFrom extends pulumi.CustomResource {
     constructor(name: string, args: MailFromArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MailFromState | undefined;
             inputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
         } else {
             const args = argsOrState as MailFromArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.mailFromDomain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mailFromDomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mailFromDomain'");
             }
             inputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MailFrom.__pulumiType, name, inputs, opts);
     }

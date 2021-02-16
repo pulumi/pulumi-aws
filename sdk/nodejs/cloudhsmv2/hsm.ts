@@ -99,7 +99,8 @@ export class Hsm extends pulumi.CustomResource {
     constructor(name: string, args: HsmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HsmArgs | HsmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HsmState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
@@ -110,7 +111,7 @@ export class Hsm extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as HsmArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -121,12 +122,8 @@ export class Hsm extends pulumi.CustomResource {
             inputs["hsmId"] = undefined /*out*/;
             inputs["hsmState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Hsm.__pulumiType, name, inputs, opts);
     }

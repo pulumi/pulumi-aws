@@ -60,27 +60,24 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
     constructor(name: string, args: ScramSecretAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScramSecretAssociationArgs | ScramSecretAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScramSecretAssociationState | undefined;
             inputs["clusterArn"] = state ? state.clusterArn : undefined;
             inputs["secretArnLists"] = state ? state.secretArnLists : undefined;
         } else {
             const args = argsOrState as ScramSecretAssociationArgs | undefined;
-            if ((!args || args.clusterArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if ((!args || args.secretArnLists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretArnLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretArnLists'");
             }
             inputs["clusterArn"] = args ? args.clusterArn : undefined;
             inputs["secretArnLists"] = args ? args.secretArnLists : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ScramSecretAssociation.__pulumiType, name, inputs, opts);
     }

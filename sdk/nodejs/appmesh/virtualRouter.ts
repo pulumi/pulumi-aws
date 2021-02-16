@@ -124,7 +124,8 @@ export class VirtualRouter extends pulumi.CustomResource {
     constructor(name: string, args: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualRouterArgs | VirtualRouterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualRouterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
@@ -137,10 +138,10 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualRouterArgs | undefined;
-            if ((!args || args.meshName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.meshName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if ((!args || args.spec === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.spec === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
             inputs["meshName"] = args ? args.meshName : undefined;
@@ -153,12 +154,8 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["lastUpdatedDate"] = undefined /*out*/;
             inputs["resourceOwner"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualRouter.__pulumiType, name, inputs, opts);
     }

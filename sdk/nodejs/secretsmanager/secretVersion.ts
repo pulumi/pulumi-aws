@@ -111,7 +111,8 @@ export class SecretVersion extends pulumi.CustomResource {
     constructor(name: string, args: SecretVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretVersionArgs | SecretVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecretVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["secretBinary"] = state ? state.secretBinary : undefined;
@@ -121,7 +122,7 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["versionStages"] = state ? state.versionStages : undefined;
         } else {
             const args = argsOrState as SecretVersionArgs | undefined;
-            if ((!args || args.secretId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
             inputs["secretBinary"] = args ? args.secretBinary : undefined;
@@ -131,12 +132,8 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecretVersion.__pulumiType, name, inputs, opts);
     }

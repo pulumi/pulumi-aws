@@ -93,7 +93,8 @@ export class Build extends pulumi.CustomResource {
     constructor(name: string, args: BuildArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BuildArgs | BuildState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BuildState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -103,10 +104,10 @@ export class Build extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as BuildArgs | undefined;
-            if ((!args || args.operatingSystem === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operatingSystem === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if ((!args || args.storageLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -116,12 +117,8 @@ export class Build extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Build.__pulumiType, name, inputs, opts);
     }

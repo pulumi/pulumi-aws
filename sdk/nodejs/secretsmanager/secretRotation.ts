@@ -95,7 +95,8 @@ export class SecretRotation extends pulumi.CustomResource {
     constructor(name: string, args: SecretRotationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretRotationArgs | SecretRotationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecretRotationState | undefined;
             inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
             inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
@@ -104,13 +105,13 @@ export class SecretRotation extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
-            if ((!args || args.rotationLambdaArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rotationLambdaArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rotationLambdaArn'");
             }
-            if ((!args || args.rotationRules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rotationRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rotationRules'");
             }
-            if ((!args || args.secretId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
             inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
@@ -119,12 +120,8 @@ export class SecretRotation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["rotationEnabled"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecretRotation.__pulumiType, name, inputs, opts);
     }

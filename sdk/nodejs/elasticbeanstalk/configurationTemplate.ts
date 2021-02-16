@@ -97,7 +97,8 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationTemplateArgs | ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConfigurationTemplateState | undefined;
             inputs["application"] = state ? state.application : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -107,7 +108,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["solutionStackName"] = state ? state.solutionStackName : undefined;
         } else {
             const args = argsOrState as ConfigurationTemplateArgs | undefined;
-            if ((!args || args.application === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
             inputs["application"] = args ? args.application : undefined;
@@ -117,12 +118,8 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConfigurationTemplate.__pulumiType, name, inputs, opts);
     }

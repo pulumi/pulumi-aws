@@ -154,7 +154,8 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
     constructor(name: string, args?: OriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginAccessIdentityArgs | OriginAccessIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OriginAccessIdentityState | undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
             inputs["cloudfrontAccessIdentityPath"] = state ? state.cloudfrontAccessIdentityPath : undefined;
@@ -171,12 +172,8 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
             inputs["iamArn"] = undefined /*out*/;
             inputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OriginAccessIdentity.__pulumiType, name, inputs, opts);
     }

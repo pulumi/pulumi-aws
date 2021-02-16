@@ -71,7 +71,8 @@ export class MethodSettings extends pulumi.CustomResource {
     constructor(name: string, args: MethodSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MethodSettingsArgs | MethodSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MethodSettingsState | undefined;
             inputs["methodPath"] = state ? state.methodPath : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
@@ -79,16 +80,16 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as MethodSettingsArgs | undefined;
-            if ((!args || args.methodPath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.methodPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'methodPath'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            if ((!args || args.stageName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stageName'");
             }
             inputs["methodPath"] = args ? args.methodPath : undefined;
@@ -96,12 +97,8 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MethodSettings.__pulumiType, name, inputs, opts);
     }

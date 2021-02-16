@@ -79,7 +79,8 @@ export class InstanceFleet extends pulumi.CustomResource {
     constructor(name: string, args: InstanceFleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceFleetArgs | InstanceFleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InstanceFleetState | undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
             inputs["instanceTypeConfigs"] = state ? state.instanceTypeConfigs : undefined;
@@ -91,7 +92,7 @@ export class InstanceFleet extends pulumi.CustomResource {
             inputs["targetSpotCapacity"] = state ? state.targetSpotCapacity : undefined;
         } else {
             const args = argsOrState as InstanceFleetArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
             inputs["clusterId"] = args ? args.clusterId : undefined;
@@ -103,12 +104,8 @@ export class InstanceFleet extends pulumi.CustomResource {
             inputs["provisionedOnDemandCapacity"] = undefined /*out*/;
             inputs["provisionedSpotCapacity"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InstanceFleet.__pulumiType, name, inputs, opts);
     }

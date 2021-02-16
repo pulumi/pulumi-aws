@@ -95,7 +95,8 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -106,12 +107,8 @@ export class Application extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["uniqueId"] = args ? args.uniqueId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Application.__pulumiType, name, inputs, opts);
     }

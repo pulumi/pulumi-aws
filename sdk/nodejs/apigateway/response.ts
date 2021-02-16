@@ -94,7 +94,8 @@ export class Response extends pulumi.CustomResource {
     constructor(name: string, args: ResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResponseState | undefined;
             inputs["responseParameters"] = state ? state.responseParameters : undefined;
             inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
@@ -103,10 +104,10 @@ export class Response extends pulumi.CustomResource {
             inputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
             const args = argsOrState as ResponseArgs | undefined;
-            if ((!args || args.responseType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.responseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responseType'");
             }
-            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
             inputs["responseParameters"] = args ? args.responseParameters : undefined;
@@ -115,12 +116,8 @@ export class Response extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Response.__pulumiType, name, inputs, opts);
     }

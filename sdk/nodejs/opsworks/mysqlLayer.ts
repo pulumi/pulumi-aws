@@ -139,7 +139,8 @@ export class MysqlLayer extends pulumi.CustomResource {
     constructor(name: string, args: MysqlLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MysqlLayerArgs | MysqlLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MysqlLayerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
@@ -167,7 +168,7 @@ export class MysqlLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as MysqlLayerArgs | undefined;
-            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
@@ -195,12 +196,8 @@ export class MysqlLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MysqlLayer.__pulumiType, name, inputs, opts);
     }

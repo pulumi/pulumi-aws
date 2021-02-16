@@ -98,7 +98,8 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -108,7 +109,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["publicKey"] = state ? state.publicKey : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.active === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.active === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -118,12 +119,8 @@ export class Certificate extends pulumi.CustomResource {
             inputs["privateKey"] = undefined /*out*/;
             inputs["publicKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Certificate.__pulumiType, name, inputs, opts);
     }

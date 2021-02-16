@@ -101,7 +101,8 @@ export class Partition extends pulumi.CustomResource {
     constructor(name: string, args: PartitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PartitionArgs | PartitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PartitionState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["creationTime"] = state ? state.creationTime : undefined;
@@ -114,13 +115,13 @@ export class Partition extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as PartitionArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionValues === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.partitionValues === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionValues'");
             }
-            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;
@@ -133,12 +134,8 @@ export class Partition extends pulumi.CustomResource {
             inputs["lastAccessedTime"] = undefined /*out*/;
             inputs["lastAnalyzedTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Partition.__pulumiType, name, inputs, opts);
     }

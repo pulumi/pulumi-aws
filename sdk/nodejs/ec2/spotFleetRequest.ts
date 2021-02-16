@@ -296,7 +296,8 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     constructor(name: string, args: SpotFleetRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpotFleetRequestArgs | SpotFleetRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SpotFleetRequestState | undefined;
             inputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
             inputs["clientToken"] = state ? state.clientToken : undefined;
@@ -321,10 +322,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotFleetRequestArgs | undefined;
-            if ((!args || args.iamFleetRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iamFleetRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamFleetRole'");
             }
-            if ((!args || args.targetCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
             inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
@@ -349,12 +350,8 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["clientToken"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SpotFleetRequest.__pulumiType, name, inputs, opts);
     }

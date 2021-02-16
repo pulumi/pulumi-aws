@@ -81,24 +81,21 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     constructor(name: string, args: DataCatalogEncryptionSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataCatalogEncryptionSettingsArgs | DataCatalogEncryptionSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataCatalogEncryptionSettingsState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["dataCatalogEncryptionSettings"] = state ? state.dataCatalogEncryptionSettings : undefined;
         } else {
             const args = argsOrState as DataCatalogEncryptionSettingsArgs | undefined;
-            if ((!args || args.dataCatalogEncryptionSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataCatalogEncryptionSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataCatalogEncryptionSettings'");
             }
             inputs["catalogId"] = args ? args.catalogId : undefined;
             inputs["dataCatalogEncryptionSettings"] = args ? args.dataCatalogEncryptionSettings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataCatalogEncryptionSettings.__pulumiType, name, inputs, opts);
     }

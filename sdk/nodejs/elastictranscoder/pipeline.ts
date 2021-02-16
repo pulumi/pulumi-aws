@@ -119,7 +119,8 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
@@ -134,10 +135,10 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.inputBucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.inputBucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputBucket'");
             }
-            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;
@@ -152,12 +153,8 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pipeline.__pulumiType, name, inputs, opts);
     }

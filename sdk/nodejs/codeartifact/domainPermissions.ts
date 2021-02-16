@@ -102,7 +102,8 @@ export class DomainPermissions extends pulumi.CustomResource {
     constructor(name: string, args: DomainPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainPermissionsArgs | DomainPermissionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DomainPermissionsState | undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["domainOwner"] = state ? state.domainOwner : undefined;
@@ -111,10 +112,10 @@ export class DomainPermissions extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as DomainPermissionsArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.policyDocument === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
             inputs["domain"] = args ? args.domain : undefined;
@@ -123,12 +124,8 @@ export class DomainPermissions extends pulumi.CustomResource {
             inputs["policyRevision"] = args ? args.policyRevision : undefined;
             inputs["resourceArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DomainPermissions.__pulumiType, name, inputs, opts);
     }

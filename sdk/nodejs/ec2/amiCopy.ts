@@ -159,7 +159,8 @@ export class AmiCopy extends pulumi.CustomResource {
     constructor(name: string, args: AmiCopyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AmiCopyArgs | AmiCopyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AmiCopyState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -183,10 +184,10 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiCopyArgs | undefined;
-            if ((!args || args.sourceAmiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceAmiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAmiId'");
             }
-            if ((!args || args.sourceAmiRegion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceAmiRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAmiRegion'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -210,12 +211,8 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AmiCopy.__pulumiType, name, inputs, opts);
     }

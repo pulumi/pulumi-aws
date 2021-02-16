@@ -149,7 +149,8 @@ export class NfsFileShare extends pulumi.CustomResource {
     constructor(name: string, args: NfsFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NfsFileShareArgs | NfsFileShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NfsFileShareState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
@@ -173,16 +174,16 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
-            if ((!args || args.clientLists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientLists'");
             }
-            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if ((!args || args.locationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
@@ -206,12 +207,8 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["fileshareId"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NfsFileShare.__pulumiType, name, inputs, opts);
     }

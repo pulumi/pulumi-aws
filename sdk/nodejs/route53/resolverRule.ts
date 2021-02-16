@@ -125,7 +125,8 @@ export class ResolverRule extends pulumi.CustomResource {
     constructor(name: string, args: ResolverRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverRuleArgs | ResolverRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResolverRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
@@ -138,10 +139,10 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["targetIps"] = state ? state.targetIps : undefined;
         } else {
             const args = argsOrState as ResolverRuleArgs | undefined;
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.ruleType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -154,12 +155,8 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverRule.__pulumiType, name, inputs, opts);
     }

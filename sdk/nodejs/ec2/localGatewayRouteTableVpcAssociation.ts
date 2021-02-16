@@ -83,7 +83,8 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
     constructor(name: string, args: LocalGatewayRouteTableVpcAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocalGatewayRouteTableVpcAssociationArgs | LocalGatewayRouteTableVpcAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LocalGatewayRouteTableVpcAssociationState | undefined;
             inputs["localGatewayId"] = state ? state.localGatewayId : undefined;
             inputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
@@ -91,10 +92,10 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as LocalGatewayRouteTableVpcAssociationArgs | undefined;
-            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
@@ -102,12 +103,8 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["localGatewayId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LocalGatewayRouteTableVpcAssociation.__pulumiType, name, inputs, opts);
     }

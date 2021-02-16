@@ -208,7 +208,8 @@ export class GraphQLApi extends pulumi.CustomResource {
     constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GraphQLApiState | undefined;
             inputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -223,7 +224,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
-            if ((!args || args.authenticationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
             inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
@@ -238,12 +239,8 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GraphQLApi.__pulumiType, name, inputs, opts);
     }

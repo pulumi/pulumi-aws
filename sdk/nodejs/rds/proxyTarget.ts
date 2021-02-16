@@ -142,7 +142,8 @@ export class ProxyTarget extends pulumi.CustomResource {
     constructor(name: string, args: ProxyTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyTargetArgs | ProxyTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProxyTargetState | undefined;
             inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
             inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
@@ -156,10 +157,10 @@ export class ProxyTarget extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProxyTargetArgs | undefined;
-            if ((!args || args.dbProxyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.targetGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
@@ -173,12 +174,8 @@ export class ProxyTarget extends pulumi.CustomResource {
             inputs["trackedClusterId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProxyTarget.__pulumiType, name, inputs, opts);
     }

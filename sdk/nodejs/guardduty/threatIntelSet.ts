@@ -106,7 +106,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -117,16 +118,16 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ThreatIntelSetArgs | undefined;
-            if ((!args || args.activate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.activate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'activate'");
             }
-            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.format === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["activate"] = args ? args.activate : undefined;
@@ -137,12 +138,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ThreatIntelSet.__pulumiType, name, inputs, opts);
     }

@@ -97,7 +97,8 @@ export class CapacityProvider extends pulumi.CustomResource {
     constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CapacityProviderArgs | CapacityProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CapacityProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoScalingGroupProvider"] = state ? state.autoScalingGroupProvider : undefined;
@@ -105,7 +106,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CapacityProviderArgs | undefined;
-            if ((!args || args.autoScalingGroupProvider === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoScalingGroupProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupProvider'");
             }
             inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
@@ -113,12 +114,8 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CapacityProvider.__pulumiType, name, inputs, opts);
     }

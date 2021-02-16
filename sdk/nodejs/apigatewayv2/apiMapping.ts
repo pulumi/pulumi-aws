@@ -85,7 +85,8 @@ export class ApiMapping extends pulumi.CustomResource {
     constructor(name: string, args: ApiMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiMappingArgs | ApiMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiMappingState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["apiMappingKey"] = state ? state.apiMappingKey : undefined;
@@ -93,13 +94,13 @@ export class ApiMapping extends pulumi.CustomResource {
             inputs["stage"] = state ? state.stage : undefined;
         } else {
             const args = argsOrState as ApiMappingArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.stage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -107,12 +108,8 @@ export class ApiMapping extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["stage"] = args ? args.stage : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiMapping.__pulumiType, name, inputs, opts);
     }

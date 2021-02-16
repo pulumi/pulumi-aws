@@ -91,7 +91,8 @@ export class XssMatchSet extends pulumi.CustomResource {
     constructor(name: string, args?: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: XssMatchSetArgs | XssMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as XssMatchSetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -102,12 +103,8 @@ export class XssMatchSet extends pulumi.CustomResource {
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(XssMatchSet.__pulumiType, name, inputs, opts);
     }

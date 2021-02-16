@@ -120,7 +120,8 @@ export class NotificationRule extends pulumi.CustomResource {
     constructor(name: string, args: NotificationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationRuleArgs | NotificationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["detailType"] = state ? state.detailType : undefined;
@@ -132,13 +133,13 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
-            if ((!args || args.detailType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detailType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detailType'");
             }
-            if ((!args || args.eventTypeIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventTypeIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
             inputs["detailType"] = args ? args.detailType : undefined;
@@ -150,12 +151,8 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["targets"] = args ? args.targets : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotificationRule.__pulumiType, name, inputs, opts);
     }

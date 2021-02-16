@@ -108,7 +108,8 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -118,13 +119,13 @@ export class Route extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.clientVpnEndpointId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.targetVpcSubnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetVpcSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetVpcSubnetId'");
             }
             inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
@@ -134,12 +135,8 @@ export class Route extends pulumi.CustomResource {
             inputs["origin"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Route.__pulumiType, name, inputs, opts);
     }

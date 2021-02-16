@@ -112,32 +112,29 @@ export class EventStream extends pulumi.CustomResource {
     constructor(name: string, args: EventStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventStreamArgs | EventStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventStreamState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EventStreamArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.destinationStreamArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationStreamArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationStreamArn'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventStream.__pulumiType, name, inputs, opts);
     }

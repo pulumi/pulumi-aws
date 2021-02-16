@@ -94,7 +94,8 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ModelState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -103,10 +104,10 @@ export class Model extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if ((!args || args.contentType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["contentType"] = args ? args.contentType : undefined;
@@ -115,12 +116,8 @@ export class Model extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Model.__pulumiType, name, inputs, opts);
     }

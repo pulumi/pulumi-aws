@@ -112,7 +112,8 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     constructor(name: string, args: TrafficMirrorSessionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrafficMirrorSessionArgs | TrafficMirrorSessionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TrafficMirrorSessionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -125,16 +126,16 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as TrafficMirrorSessionArgs | undefined;
-            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.sessionNumber === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sessionNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sessionNumber'");
             }
-            if ((!args || args.trafficMirrorFilterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            if ((!args || args.trafficMirrorTargetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trafficMirrorTargetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorTargetId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -147,12 +148,8 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TrafficMirrorSession.__pulumiType, name, inputs, opts);
     }

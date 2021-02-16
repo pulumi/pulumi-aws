@@ -101,7 +101,8 @@ export class IdentityProvider extends pulumi.CustomResource {
     constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderArgs | IdentityProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IdentityProviderState | undefined;
             inputs["attributeMapping"] = state ? state.attributeMapping : undefined;
             inputs["idpIdentifiers"] = state ? state.idpIdentifiers : undefined;
@@ -111,16 +112,16 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
-            if ((!args || args.providerDetails === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerDetails'");
             }
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if ((!args || args.providerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["attributeMapping"] = args ? args.attributeMapping : undefined;
@@ -130,12 +131,8 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["providerType"] = args ? args.providerType : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }

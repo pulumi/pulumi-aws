@@ -89,7 +89,8 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
     constructor(name: string, args: TransitGatewayPeeringAttachmentAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TransitGatewayPeeringAttachmentAccepterArgs | TransitGatewayPeeringAttachmentAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TransitGatewayPeeringAttachmentAccepterState | undefined;
             inputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             inputs["peerRegion"] = state ? state.peerRegion : undefined;
@@ -99,7 +100,7 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as TransitGatewayPeeringAttachmentAccepterArgs | undefined;
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
@@ -109,12 +110,8 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
             inputs["peerTransitGatewayId"] = undefined /*out*/;
             inputs["transitGatewayId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TransitGatewayPeeringAttachmentAccepter.__pulumiType, name, inputs, opts);
     }

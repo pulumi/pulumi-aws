@@ -210,7 +210,8 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -222,13 +223,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingScalingPolicyConfiguration"] = state ? state.targetTrackingScalingPolicyConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -240,12 +241,8 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Policy.__pulumiType, name, inputs, opts);
     }

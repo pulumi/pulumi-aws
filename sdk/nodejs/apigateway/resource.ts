@@ -86,7 +86,8 @@ export class Resource extends pulumi.CustomResource {
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
             inputs["parentId"] = state ? state.parentId : undefined;
             inputs["path"] = state ? state.path : undefined;
@@ -94,13 +95,13 @@ export class Resource extends pulumi.CustomResource {
             inputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if ((!args || args.parentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.pathPart === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pathPart === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["parentId"] = args ? args.parentId : undefined;
@@ -108,12 +109,8 @@ export class Resource extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["path"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Resource.__pulumiType, name, inputs, opts);
     }

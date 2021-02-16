@@ -142,7 +142,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
     constructor(name: string, args: VpcEndpointServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointServiceArgs | VpcEndpointServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcEndpointServiceState | undefined;
             inputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
             inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
@@ -160,7 +161,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceArgs | undefined;
-            if ((!args || args.acceptanceRequired === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
             inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
@@ -178,12 +179,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["serviceType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcEndpointService.__pulumiType, name, inputs, opts);
     }

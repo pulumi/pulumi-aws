@@ -133,7 +133,8 @@ export class Grant extends pulumi.CustomResource {
     constructor(name: string, args: GrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GrantArgs | GrantState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GrantState | undefined;
             inputs["constraints"] = state ? state.constraints : undefined;
             inputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
@@ -147,13 +148,13 @@ export class Grant extends pulumi.CustomResource {
             inputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
         } else {
             const args = argsOrState as GrantArgs | undefined;
-            if ((!args || args.granteePrincipal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.granteePrincipal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'granteePrincipal'");
             }
-            if ((!args || args.keyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.operations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operations'");
             }
             inputs["constraints"] = args ? args.constraints : undefined;
@@ -167,12 +168,8 @@ export class Grant extends pulumi.CustomResource {
             inputs["grantId"] = undefined /*out*/;
             inputs["grantToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Grant.__pulumiType, name, inputs, opts);
     }

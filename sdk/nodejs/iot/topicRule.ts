@@ -157,7 +157,8 @@ export class TopicRule extends pulumi.CustomResource {
     constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TopicRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
@@ -184,13 +185,13 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.sql === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sql'");
             }
-            if ((!args || args.sqlVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlVersion'");
             }
             inputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;
@@ -217,12 +218,8 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TopicRule.__pulumiType, name, inputs, opts);
     }

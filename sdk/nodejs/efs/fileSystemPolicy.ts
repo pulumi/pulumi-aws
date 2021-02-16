@@ -98,27 +98,24 @@ export class FileSystemPolicy extends pulumi.CustomResource {
     constructor(name: string, args: FileSystemPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FileSystemPolicyArgs | FileSystemPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FileSystemPolicyState | undefined;
             inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as FileSystemPolicyArgs | undefined;
-            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FileSystemPolicy.__pulumiType, name, inputs, opts);
     }

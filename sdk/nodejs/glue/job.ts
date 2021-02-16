@@ -175,7 +175,8 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["command"] = state ? state.command : undefined;
@@ -197,10 +198,10 @@ export class Job extends pulumi.CustomResource {
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.command === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.command === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["command"] = args ? args.command : undefined;
@@ -222,12 +223,8 @@ export class Job extends pulumi.CustomResource {
             inputs["workerType"] = args ? args.workerType : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Job.__pulumiType, name, inputs, opts);
     }

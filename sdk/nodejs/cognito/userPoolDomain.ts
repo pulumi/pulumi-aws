@@ -122,7 +122,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
     constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserPoolDomainState | undefined;
             inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
@@ -133,10 +134,10 @@ export class UserPoolDomain extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as UserPoolDomainArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.userPoolId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
@@ -147,12 +148,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
             inputs["s3Bucket"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserPoolDomain.__pulumiType, name, inputs, opts);
     }

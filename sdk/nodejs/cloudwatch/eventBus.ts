@@ -77,7 +77,8 @@ export class EventBus extends pulumi.CustomResource {
     constructor(name: string, args?: EventBusArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventBusArgs | EventBusState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventBusState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,12 +89,8 @@ export class EventBus extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventBus.__pulumiType, name, inputs, opts);
     }

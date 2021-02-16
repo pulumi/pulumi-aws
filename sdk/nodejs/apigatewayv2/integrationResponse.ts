@@ -93,7 +93,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationResponseArgs | IntegrationResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationResponseState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["contentHandlingStrategy"] = state ? state.contentHandlingStrategy : undefined;
@@ -103,13 +104,13 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            if ((!args || args.integrationResponseKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -119,12 +120,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
             inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationResponse.__pulumiType, name, inputs, opts);
     }

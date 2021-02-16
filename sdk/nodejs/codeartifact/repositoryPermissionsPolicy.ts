@@ -111,7 +111,8 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryPermissionsPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPermissionsPolicyArgs | RepositoryPermissionsPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryPermissionsPolicyState | undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["domainOwner"] = state ? state.domainOwner : undefined;
@@ -121,13 +122,13 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as RepositoryPermissionsPolicyArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.policyDocument === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["domain"] = args ? args.domain : undefined;
@@ -137,12 +138,8 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             inputs["repository"] = args ? args.repository : undefined;
             inputs["resourceArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RepositoryPermissionsPolicy.__pulumiType, name, inputs, opts);
     }

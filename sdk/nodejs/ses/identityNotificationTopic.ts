@@ -84,7 +84,8 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
     constructor(name: string, args: IdentityNotificationTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityNotificationTopicArgs | IdentityNotificationTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IdentityNotificationTopicState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
@@ -92,10 +93,10 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             inputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as IdentityNotificationTopicArgs | undefined;
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.notificationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.notificationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -103,12 +104,8 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             inputs["notificationType"] = args ? args.notificationType : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IdentityNotificationTopic.__pulumiType, name, inputs, opts);
     }

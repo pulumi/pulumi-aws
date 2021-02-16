@@ -139,7 +139,8 @@ export class Selection extends pulumi.CustomResource {
     constructor(name: string, args: SelectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SelectionArgs | SelectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SelectionState | undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -148,10 +149,10 @@ export class Selection extends pulumi.CustomResource {
             inputs["selectionTags"] = state ? state.selectionTags : undefined;
         } else {
             const args = argsOrState as SelectionArgs | undefined;
-            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.planId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.planId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'planId'");
             }
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
@@ -160,12 +161,8 @@ export class Selection extends pulumi.CustomResource {
             inputs["resources"] = args ? args.resources : undefined;
             inputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Selection.__pulumiType, name, inputs, opts);
     }

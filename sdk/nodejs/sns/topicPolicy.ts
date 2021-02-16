@@ -105,27 +105,24 @@ export class TopicPolicy extends pulumi.CustomResource {
     constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicPolicyArgs | TopicPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TopicPolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as TopicPolicyArgs | undefined;
-            if ((!args || args.arn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.arn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["arn"] = args ? args.arn : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TopicPolicy.__pulumiType, name, inputs, opts);
     }

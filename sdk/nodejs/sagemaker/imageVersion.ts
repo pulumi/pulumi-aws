@@ -86,7 +86,8 @@ export class ImageVersion extends pulumi.CustomResource {
     constructor(name: string, args: ImageVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageVersionArgs | ImageVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ImageVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["baseImage"] = state ? state.baseImage : undefined;
@@ -96,10 +97,10 @@ export class ImageVersion extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageVersionArgs | undefined;
-            if ((!args || args.baseImage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.baseImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseImage'");
             }
-            if ((!args || args.imageName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
             inputs["baseImage"] = args ? args.baseImage : undefined;
@@ -109,12 +110,8 @@ export class ImageVersion extends pulumi.CustomResource {
             inputs["imageArn"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ImageVersion.__pulumiType, name, inputs, opts);
     }

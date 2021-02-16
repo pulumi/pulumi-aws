@@ -96,7 +96,8 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
@@ -107,13 +108,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.outpostId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.outpostId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["outpostId"] = args ? args.outpostId : undefined;
@@ -124,12 +125,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

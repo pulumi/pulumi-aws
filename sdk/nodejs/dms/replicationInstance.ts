@@ -177,7 +177,8 @@ export class ReplicationInstance extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationInstanceArgs | ReplicationInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ReplicationInstanceState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
@@ -199,10 +200,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ReplicationInstanceArgs | undefined;
-            if ((!args || args.replicationInstanceClass === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.replicationInstanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceClass'");
             }
-            if ((!args || args.replicationInstanceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.replicationInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
             inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
@@ -224,12 +225,8 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["replicationInstancePrivateIps"] = undefined /*out*/;
             inputs["replicationInstancePublicIps"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ReplicationInstance.__pulumiType, name, inputs, opts);
     }

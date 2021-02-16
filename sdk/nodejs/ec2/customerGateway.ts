@@ -95,7 +95,8 @@ export class CustomerGateway extends pulumi.CustomResource {
     constructor(name: string, args: CustomerGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomerGatewayArgs | CustomerGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CustomerGatewayState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
@@ -105,13 +106,13 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CustomerGatewayArgs | undefined;
-            if ((!args || args.bgpAsn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if ((!args || args.ipAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
@@ -121,12 +122,8 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CustomerGateway.__pulumiType, name, inputs, opts);
     }

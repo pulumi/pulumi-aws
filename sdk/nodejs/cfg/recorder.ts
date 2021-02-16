@@ -92,26 +92,23 @@ export class Recorder extends pulumi.CustomResource {
     constructor(name: string, args: RecorderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecorderArgs | RecorderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RecorderState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recordingGroup"] = state ? state.recordingGroup : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RecorderArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Recorder.__pulumiType, name, inputs, opts);
     }

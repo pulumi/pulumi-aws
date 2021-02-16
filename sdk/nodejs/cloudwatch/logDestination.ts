@@ -82,7 +82,8 @@ export class LogDestination extends pulumi.CustomResource {
     constructor(name: string, args: LogDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogDestinationArgs | LogDestinationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogDestinationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -90,10 +91,10 @@ export class LogDestination extends pulumi.CustomResource {
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as LogDestinationArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.targetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -101,12 +102,8 @@ export class LogDestination extends pulumi.CustomResource {
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogDestination.__pulumiType, name, inputs, opts);
     }

@@ -141,7 +141,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationResponseArgs | IntegrationResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationResponseState | undefined;
             inputs["contentHandling"] = state ? state.contentHandling : undefined;
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
@@ -153,16 +154,16 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
-            if ((!args || args.httpMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.httpMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if ((!args || args.statusCode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.statusCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statusCode'");
             }
             inputs["contentHandling"] = args ? args.contentHandling : undefined;
@@ -174,12 +175,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationResponse.__pulumiType, name, inputs, opts);
     }

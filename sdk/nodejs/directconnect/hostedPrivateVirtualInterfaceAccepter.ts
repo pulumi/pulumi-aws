@@ -109,7 +109,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     constructor(name: string, args: HostedPrivateVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
@@ -118,7 +119,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as HostedPrivateVirtualInterfaceAccepterArgs | undefined;
-            if ((!args || args.virtualInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
@@ -127,12 +128,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HostedPrivateVirtualInterfaceAccepter.__pulumiType, name, inputs, opts);
     }

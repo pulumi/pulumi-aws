@@ -119,7 +119,8 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VaultState | undefined;
             inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -136,12 +137,8 @@ export class Vault extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Vault.__pulumiType, name, inputs, opts);
     }

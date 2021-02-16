@@ -159,7 +159,8 @@ export class StackSet extends pulumi.CustomResource {
     constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StackSetState | undefined;
             inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -174,7 +175,7 @@ export class StackSet extends pulumi.CustomResource {
             inputs["templateUrl"] = state ? state.templateUrl : undefined;
         } else {
             const args = argsOrState as StackSetArgs | undefined;
-            if ((!args || args.administrationRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.administrationRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administrationRoleArn'");
             }
             inputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
@@ -189,12 +190,8 @@ export class StackSet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackSetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StackSet.__pulumiType, name, inputs, opts);
     }

@@ -93,7 +93,8 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
             inputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
             inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
@@ -106,7 +107,7 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
@@ -119,12 +120,8 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Authorizer.__pulumiType, name, inputs, opts);
     }

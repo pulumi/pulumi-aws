@@ -113,24 +113,21 @@ export class CertificateValidation extends pulumi.CustomResource {
     constructor(name: string, args: CertificateValidationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateValidationArgs | CertificateValidationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateValidationState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
         } else {
             const args = argsOrState as CertificateValidationArgs | undefined;
-            if ((!args || args.certificateArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CertificateValidation.__pulumiType, name, inputs, opts);
     }

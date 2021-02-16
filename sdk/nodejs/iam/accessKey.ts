@@ -127,7 +127,8 @@ export class AccessKey extends pulumi.CustomResource {
     constructor(name: string, args: AccessKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessKeyArgs | AccessKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccessKeyState | undefined;
             inputs["createDate"] = state ? state.createDate : undefined;
             inputs["encryptedSecret"] = state ? state.encryptedSecret : undefined;
@@ -139,7 +140,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as AccessKeyArgs | undefined;
-            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["pgpKey"] = args ? args.pgpKey : undefined;
@@ -151,12 +152,8 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["secret"] = undefined /*out*/;
             inputs["sesSmtpPasswordV4"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccessKey.__pulumiType, name, inputs, opts);
     }

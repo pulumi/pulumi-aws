@@ -185,7 +185,8 @@ export class Trigger extends pulumi.CustomResource {
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TriggerState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -199,10 +200,10 @@ export class Trigger extends pulumi.CustomResource {
             inputs["workflowName"] = state ? state.workflowName : undefined;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -216,12 +217,8 @@ export class Trigger extends pulumi.CustomResource {
             inputs["workflowName"] = args ? args.workflowName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Trigger.__pulumiType, name, inputs, opts);
     }

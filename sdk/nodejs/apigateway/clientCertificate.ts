@@ -89,7 +89,8 @@ export class ClientCertificate extends pulumi.CustomResource {
     constructor(name: string, args?: ClientCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClientCertificateArgs | ClientCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClientCertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
@@ -106,12 +107,8 @@ export class ClientCertificate extends pulumi.CustomResource {
             inputs["expirationDate"] = undefined /*out*/;
             inputs["pemEncodedCertificate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ClientCertificate.__pulumiType, name, inputs, opts);
     }

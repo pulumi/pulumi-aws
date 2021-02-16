@@ -98,7 +98,8 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;
@@ -110,10 +111,10 @@ export class Connection extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.bandwidth === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bandwidth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bandwidth'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
             inputs["bandwidth"] = args ? args.bandwidth : undefined;
@@ -125,12 +126,8 @@ export class Connection extends pulumi.CustomResource {
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Connection.__pulumiType, name, inputs, opts);
     }

@@ -93,7 +93,8 @@ export class S3Location extends pulumi.CustomResource {
     constructor(name: string, args: S3LocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: S3LocationArgs | S3LocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as S3LocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
@@ -103,13 +104,13 @@ export class S3Location extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as S3LocationArgs | undefined;
-            if ((!args || args.s3BucketArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3BucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketArn'");
             }
-            if ((!args || args.s3Config === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3Config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
-            if ((!args || args.subdirectory === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
             inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
@@ -119,12 +120,8 @@ export class S3Location extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(S3Location.__pulumiType, name, inputs, opts);
     }

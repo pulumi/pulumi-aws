@@ -213,7 +213,8 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             inputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             inputs["cluster"] = state ? state.cluster : undefined;
@@ -264,12 +265,8 @@ export class Service extends pulumi.CustomResource {
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Service.__pulumiType, name, inputs, opts);
     }

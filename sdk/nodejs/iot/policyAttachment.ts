@@ -87,27 +87,24 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.target === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
             inputs["policy"] = args ? args.policy : undefined;
             inputs["target"] = args ? args.target : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }

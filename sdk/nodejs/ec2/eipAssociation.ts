@@ -114,7 +114,8 @@ export class EipAssociation extends pulumi.CustomResource {
     constructor(name: string, args?: EipAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EipAssociationArgs | EipAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EipAssociationState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["allowReassociation"] = state ? state.allowReassociation : undefined;
@@ -131,12 +132,8 @@ export class EipAssociation extends pulumi.CustomResource {
             inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             inputs["publicIp"] = args ? args.publicIp : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EipAssociation.__pulumiType, name, inputs, opts);
     }

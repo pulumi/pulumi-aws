@@ -108,24 +108,21 @@ export class ResourceDataSync extends pulumi.CustomResource {
     constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceDataSyncState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ResourceDataSyncArgs | undefined;
-            if ((!args || args.s3Destination === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3Destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Destination'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceDataSync.__pulumiType, name, inputs, opts);
     }

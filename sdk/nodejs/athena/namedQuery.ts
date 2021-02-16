@@ -104,7 +104,8 @@ export class NamedQuery extends pulumi.CustomResource {
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NamedQueryState | undefined;
             inputs["database"] = state ? state.database : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -113,10 +114,10 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
-            if ((!args || args.database === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["database"] = args ? args.database : undefined;
@@ -125,12 +126,8 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["query"] = args ? args.query : undefined;
             inputs["workgroup"] = args ? args.workgroup : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NamedQuery.__pulumiType, name, inputs, opts);
     }

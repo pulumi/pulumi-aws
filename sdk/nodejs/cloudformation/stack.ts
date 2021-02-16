@@ -149,7 +149,8 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StackState | undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["disableRollback"] = state ? state.disableRollback : undefined;
@@ -182,12 +183,8 @@ export class Stack extends pulumi.CustomResource {
             inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stack.__pulumiType, name, inputs, opts);
     }

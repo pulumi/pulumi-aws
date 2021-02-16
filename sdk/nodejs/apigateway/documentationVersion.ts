@@ -89,29 +89,26 @@ export class DocumentationVersion extends pulumi.CustomResource {
     constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DocumentationVersionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as DocumentationVersionArgs | undefined;
-            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DocumentationVersion.__pulumiType, name, inputs, opts);
     }

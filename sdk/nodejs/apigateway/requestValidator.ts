@@ -85,7 +85,8 @@ export class RequestValidator extends pulumi.CustomResource {
     constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RequestValidatorState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
@@ -93,7 +94,7 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["validateRequestParameters"] = state ? state.validateRequestParameters : undefined;
         } else {
             const args = argsOrState as RequestValidatorArgs | undefined;
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -101,12 +102,8 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
             inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RequestValidator.__pulumiType, name, inputs, opts);
     }

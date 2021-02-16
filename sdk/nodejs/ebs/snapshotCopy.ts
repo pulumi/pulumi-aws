@@ -121,7 +121,8 @@ export class SnapshotCopy extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotCopyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotCopyArgs | SnapshotCopyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
@@ -137,10 +138,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotCopyArgs | undefined;
-            if ((!args || args.sourceRegion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRegion'");
             }
-            if ((!args || args.sourceSnapshotId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceSnapshotId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceSnapshotId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -156,12 +157,8 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SnapshotCopy.__pulumiType, name, inputs, opts);
     }

@@ -212,7 +212,8 @@ export class HealthCheck extends pulumi.CustomResource {
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HealthCheckArgs | HealthCheckState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HealthCheckState | undefined;
             inputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
             inputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
@@ -236,7 +237,7 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as HealthCheckArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["childHealthThreshold"] = args ? args.childHealthThreshold : undefined;
@@ -260,12 +261,8 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HealthCheck.__pulumiType, name, inputs, opts);
     }

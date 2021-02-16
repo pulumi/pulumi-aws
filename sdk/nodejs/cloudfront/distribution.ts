@@ -397,7 +397,8 @@ export class Distribution extends pulumi.CustomResource {
     constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DistributionState | undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -429,19 +430,19 @@ export class Distribution extends pulumi.CustomResource {
             inputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
             const args = argsOrState as DistributionArgs | undefined;
-            if ((!args || args.defaultCacheBehavior === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultCacheBehavior === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultCacheBehavior'");
             }
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.origins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.restrictions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restrictions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restrictions'");
             }
-            if ((!args || args.viewerCertificate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.viewerCertificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
             inputs["aliases"] = args ? args.aliases : undefined;
@@ -473,12 +474,8 @@ export class Distribution extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["trustedSigners"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Distribution.__pulumiType, name, inputs, opts);
     }

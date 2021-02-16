@@ -118,7 +118,8 @@ export class MountTarget extends pulumi.CustomResource {
     constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MountTargetState | undefined;
             inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
             inputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
@@ -133,10 +134,10 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as MountTargetArgs | undefined;
-            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
@@ -151,12 +152,8 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MountTarget.__pulumiType, name, inputs, opts);
     }

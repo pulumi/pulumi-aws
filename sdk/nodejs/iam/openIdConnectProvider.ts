@@ -83,7 +83,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OpenIdConnectProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
@@ -91,13 +92,13 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OpenIdConnectProviderArgs | undefined;
-            if ((!args || args.clientIdLists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientIdLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientIdLists'");
             }
-            if ((!args || args.thumbprintLists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.thumbprintLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thumbprintLists'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["clientIdLists"] = args ? args.clientIdLists : undefined;
@@ -105,12 +106,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }

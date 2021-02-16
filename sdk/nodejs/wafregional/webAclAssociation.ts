@@ -120,27 +120,24 @@ export class WebAclAssociation extends pulumi.CustomResource {
     constructor(name: string, args: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclAssociationArgs | WebAclAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
             inputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
             const args = argsOrState as WebAclAssociationArgs | undefined;
-            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webAclId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.webAclId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webAclId'");
             }
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebAclAssociation.__pulumiType, name, inputs, opts);
     }

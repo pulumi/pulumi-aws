@@ -105,7 +105,8 @@ export class ZoneAssociation extends pulumi.CustomResource {
     constructor(name: string, args: ZoneAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneAssociationArgs | ZoneAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZoneAssociationState | undefined;
             inputs["owningAccount"] = state ? state.owningAccount : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -113,10 +114,10 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as ZoneAssociationArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if ((!args || args.zoneId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;
@@ -124,12 +125,8 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["zoneId"] = args ? args.zoneId : undefined;
             inputs["owningAccount"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ZoneAssociation.__pulumiType, name, inputs, opts);
     }

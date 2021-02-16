@@ -144,7 +144,8 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             inputs["administratorAccount"] = state ? state.administratorAccount : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -157,10 +158,10 @@ export class Repository extends pulumi.CustomResource {
             inputs["upstreams"] = state ? state.upstreams : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -173,12 +174,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["administratorAccount"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }

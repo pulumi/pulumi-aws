@@ -87,7 +87,8 @@ export class UsagePlan extends pulumi.CustomResource {
     constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UsagePlanState | undefined;
             inputs["apiStages"] = state ? state.apiStages : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -108,12 +109,8 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UsagePlan.__pulumiType, name, inputs, opts);
     }

@@ -107,7 +107,8 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
     constructor(name: string, args: HostedTransitVirtualInterfaceAcceptorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedTransitVirtualInterfaceAcceptorArgs | HostedTransitVirtualInterfaceAcceptorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HostedTransitVirtualInterfaceAcceptorState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
@@ -115,10 +116,10 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as HostedTransitVirtualInterfaceAcceptorArgs | undefined;
-            if ((!args || args.dxGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            if ((!args || args.virtualInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
@@ -126,12 +127,8 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HostedTransitVirtualInterfaceAcceptor.__pulumiType, name, inputs, opts);
     }

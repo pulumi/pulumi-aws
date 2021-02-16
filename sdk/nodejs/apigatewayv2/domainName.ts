@@ -100,7 +100,8 @@ export class DomainName extends pulumi.CustomResource {
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
             inputs["apiMappingSelectionExpression"] = state ? state.apiMappingSelectionExpression : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -110,10 +111,10 @@ export class DomainName extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.domainNameConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainNameConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainNameConfiguration'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -123,12 +124,8 @@ export class DomainName extends pulumi.CustomResource {
             inputs["apiMappingSelectionExpression"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DomainName.__pulumiType, name, inputs, opts);
     }

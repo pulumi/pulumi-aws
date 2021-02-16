@@ -120,7 +120,8 @@ export class NetworkAcl extends pulumi.CustomResource {
     constructor(name: string, args: NetworkAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["egress"] = state ? state.egress : undefined;
@@ -131,7 +132,7 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as NetworkAclArgs | undefined;
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["egress"] = args ? args.egress : undefined;
@@ -142,12 +143,8 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkAcl.__pulumiType, name, inputs, opts);
     }

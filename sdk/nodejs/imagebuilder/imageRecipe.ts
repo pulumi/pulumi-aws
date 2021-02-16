@@ -126,7 +126,8 @@ export class ImageRecipe extends pulumi.CustomResource {
     constructor(name: string, args: ImageRecipeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageRecipeArgs | ImageRecipeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ImageRecipeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
@@ -142,13 +143,13 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["workingDirectory"] = state ? state.workingDirectory : undefined;
         } else {
             const args = argsOrState as ImageRecipeArgs | undefined;
-            if ((!args || args.components === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.components === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if ((!args || args.parentImage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
@@ -164,12 +165,8 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["owner"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ImageRecipe.__pulumiType, name, inputs, opts);
     }

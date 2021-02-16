@@ -93,7 +93,8 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, args: BucketPublicAccessBlockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketPublicAccessBlockArgs | BucketPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketPublicAccessBlockState | undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
@@ -102,7 +103,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             inputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
         } else {
             const args = argsOrState as BucketPublicAccessBlockArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["blockPublicAcls"] = args ? args.blockPublicAcls : undefined;
@@ -111,12 +112,8 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             inputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
             inputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BucketPublicAccessBlock.__pulumiType, name, inputs, opts);
     }

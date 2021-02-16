@@ -168,7 +168,8 @@ export class ServerCertificate extends pulumi.CustomResource {
     constructor(name: string, args: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerCertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
@@ -179,10 +180,10 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["privateKey"] = state ? state.privateKey : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
-            if ((!args || args.certificateBody === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateBody'");
             }
-            if ((!args || args.privateKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
             inputs["arn"] = args ? args.arn : undefined;
@@ -193,12 +194,8 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerCertificate.__pulumiType, name, inputs, opts);
     }

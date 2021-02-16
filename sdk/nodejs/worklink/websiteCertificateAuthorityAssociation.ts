@@ -82,7 +82,8 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
     constructor(name: string, args: WebsiteCertificateAuthorityAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
@@ -90,10 +91,10 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             inputs["websiteCaId"] = state ? state.websiteCaId : undefined;
         } else {
             const args = argsOrState as WebsiteCertificateAuthorityAssociationArgs | undefined;
-            if ((!args || args.certificate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.fleetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fleetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fleetArn'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
@@ -101,12 +102,8 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             inputs["fleetArn"] = args ? args.fleetArn : undefined;
             inputs["websiteCaId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, inputs, opts);
     }

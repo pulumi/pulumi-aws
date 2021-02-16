@@ -429,7 +429,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     constructor(name: string, args: FirehoseDeliveryStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirehoseDeliveryStreamArgs | FirehoseDeliveryStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirehoseDeliveryStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["destination"] = state ? state.destination : undefined;
@@ -447,7 +448,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
-            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
             inputs["arn"] = args ? args.arn : undefined;
@@ -465,12 +466,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirehoseDeliveryStream.__pulumiType, name, inputs, opts);
     }

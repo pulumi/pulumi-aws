@@ -80,7 +80,8 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     constructor(name: string, args: OrganizationalUnitArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationalUnitArgs | OrganizationalUnitState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationalUnitState | undefined;
             inputs["accounts"] = state ? state.accounts : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -88,7 +89,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             inputs["parentId"] = state ? state.parentId : undefined;
         } else {
             const args = argsOrState as OrganizationalUnitArgs | undefined;
-            if ((!args || args.parentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -96,12 +97,8 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationalUnit.__pulumiType, name, inputs, opts);
     }

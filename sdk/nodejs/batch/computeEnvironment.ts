@@ -180,7 +180,8 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ComputeEnvironmentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
@@ -195,10 +196,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if ((!args || args.serviceRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
@@ -213,12 +214,8 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["statusReason"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ComputeEnvironment.__pulumiType, name, inputs, opts);
     }

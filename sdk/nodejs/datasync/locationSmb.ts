@@ -109,7 +109,8 @@ export class LocationSmb extends pulumi.CustomResource {
     constructor(name: string, args: LocationSmbArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocationSmbArgs | LocationSmbState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LocationSmbState | undefined;
             inputs["agentArns"] = state ? state.agentArns : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -123,19 +124,19 @@ export class LocationSmb extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as LocationSmbArgs | undefined;
-            if ((!args || args.agentArns === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.agentArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.serverHostname === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverHostname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            if ((!args || args.subdirectory === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["agentArns"] = args ? args.agentArns : undefined;
@@ -149,12 +150,8 @@ export class LocationSmb extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LocationSmb.__pulumiType, name, inputs, opts);
     }

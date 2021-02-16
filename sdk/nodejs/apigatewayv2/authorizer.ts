@@ -139,7 +139,8 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["authorizerCredentialsArn"] = state ? state.authorizerCredentialsArn : undefined;
@@ -153,10 +154,10 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.authorizerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -170,12 +171,8 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Authorizer.__pulumiType, name, inputs, opts);
     }

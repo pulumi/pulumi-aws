@@ -124,7 +124,8 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     constructor(name: string, args: ManagedPrefixListArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrefixListArgs | ManagedPrefixListState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManagedPrefixListState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -136,10 +137,10 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListArgs | undefined;
-            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.maxEntries === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxEntries'");
             }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;
@@ -151,12 +152,8 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagedPrefixList.__pulumiType, name, inputs, opts);
     }

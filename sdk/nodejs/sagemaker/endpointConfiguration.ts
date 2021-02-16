@@ -100,7 +100,8 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: EndpointConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointConfigurationArgs | EndpointConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
@@ -110,7 +111,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointConfigurationArgs | undefined;
-            if ((!args || args.productionVariants === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.productionVariants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productionVariants'");
             }
             inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
@@ -120,12 +121,8 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointConfiguration.__pulumiType, name, inputs, opts);
     }

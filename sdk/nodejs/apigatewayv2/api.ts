@@ -153,7 +153,8 @@ export class Api extends pulumi.CustomResource {
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiState | undefined;
             inputs["apiEndpoint"] = state ? state.apiEndpoint : undefined;
             inputs["apiKeySelectionExpression"] = state ? state.apiKeySelectionExpression : undefined;
@@ -173,7 +174,7 @@ export class Api extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
-            if ((!args || args.protocolType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocolType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
             }
             inputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
@@ -193,12 +194,8 @@ export class Api extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Api.__pulumiType, name, inputs, opts);
     }

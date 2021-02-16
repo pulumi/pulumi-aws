@@ -153,7 +153,8 @@ export class SigningJob extends pulumi.CustomResource {
     constructor(name: string, args: SigningJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningJobArgs | SigningJobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SigningJobState | undefined;
             inputs["completedAt"] = state ? state.completedAt : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
@@ -175,13 +176,13 @@ export class SigningJob extends pulumi.CustomResource {
             inputs["statusReason"] = state ? state.statusReason : undefined;
         } else {
             const args = argsOrState as SigningJobArgs | undefined;
-            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["destination"] = args ? args.destination : undefined;
@@ -203,12 +204,8 @@ export class SigningJob extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["statusReason"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SigningJob.__pulumiType, name, inputs, opts);
     }

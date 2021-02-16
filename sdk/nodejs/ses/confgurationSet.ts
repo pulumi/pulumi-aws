@@ -94,7 +94,8 @@ export class ConfgurationSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConfgurationSetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
@@ -105,12 +106,8 @@ export class ConfgurationSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConfgurationSet.__pulumiType, name, inputs, opts);
     }

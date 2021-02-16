@@ -205,7 +205,8 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     constructor(name: string, args: WindowsFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WindowsFileSystemArgs | WindowsFileSystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WindowsFileSystemState | undefined;
             inputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -232,13 +233,13 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as WindowsFileSystemArgs | undefined;
-            if ((!args || args.storageCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.throughputCapacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
             inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
@@ -265,12 +266,8 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["remoteAdministrationEndpoint"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WindowsFileSystem.__pulumiType, name, inputs, opts);
     }

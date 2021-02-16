@@ -100,7 +100,8 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     constructor(name: string, args: OriginRequestPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginRequestPolicyArgs | OriginRequestPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OriginRequestPolicyState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["cookiesConfig"] = state ? state.cookiesConfig : undefined;
@@ -110,13 +111,13 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             inputs["queryStringsConfig"] = state ? state.queryStringsConfig : undefined;
         } else {
             const args = argsOrState as OriginRequestPolicyArgs | undefined;
-            if ((!args || args.cookiesConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cookiesConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cookiesConfig'");
             }
-            if ((!args || args.headersConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.headersConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'headersConfig'");
             }
-            if ((!args || args.queryStringsConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.queryStringsConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryStringsConfig'");
             }
             inputs["comment"] = args ? args.comment : undefined;
@@ -126,12 +127,8 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OriginRequestPolicy.__pulumiType, name, inputs, opts);
     }

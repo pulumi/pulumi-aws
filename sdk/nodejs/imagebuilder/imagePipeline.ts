@@ -134,7 +134,8 @@ export class ImagePipeline extends pulumi.CustomResource {
     constructor(name: string, args: ImagePipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImagePipelineArgs | ImagePipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ImagePipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dateCreated"] = state ? state.dateCreated : undefined;
@@ -154,10 +155,10 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
-            if ((!args || args.imageRecipeArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageRecipeArn'");
             }
-            if ((!args || args.infrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -177,12 +178,8 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["dateUpdated"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ImagePipeline.__pulumiType, name, inputs, opts);
     }

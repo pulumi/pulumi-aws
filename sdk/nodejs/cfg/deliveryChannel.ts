@@ -123,7 +123,8 @@ export class DeliveryChannel extends pulumi.CustomResource {
     constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeliveryChannelState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
@@ -132,7 +133,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as DeliveryChannelArgs | undefined;
-            if ((!args || args.s3BucketName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -141,12 +142,8 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DeliveryChannel.__pulumiType, name, inputs, opts);
     }

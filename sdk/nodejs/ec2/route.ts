@@ -150,7 +150,8 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
@@ -170,7 +171,7 @@ export class Route extends pulumi.CustomResource {
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.routeTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
@@ -190,12 +191,8 @@ export class Route extends pulumi.CustomResource {
             inputs["origin"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Route.__pulumiType, name, inputs, opts);
     }

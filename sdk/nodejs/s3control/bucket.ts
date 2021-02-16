@@ -92,7 +92,8 @@ export class Bucket extends pulumi.CustomResource {
     constructor(name: string, args: BucketArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
@@ -102,10 +103,10 @@ export class Bucket extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.outpostId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.outpostId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
@@ -115,12 +116,8 @@ export class Bucket extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["publicAccessBlockEnabled"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Bucket.__pulumiType, name, inputs, opts);
     }

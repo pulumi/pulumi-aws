@@ -146,7 +146,8 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, args?: DefaultSecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultSecurityGroupArgs | DefaultSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefaultSecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -169,12 +170,8 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DefaultSecurityGroup.__pulumiType, name, inputs, opts);
     }

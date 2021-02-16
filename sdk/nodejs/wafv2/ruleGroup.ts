@@ -323,7 +323,8 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RuleGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
@@ -336,13 +337,13 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.capacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;
@@ -355,12 +356,8 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["lockToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RuleGroup.__pulumiType, name, inputs, opts);
     }

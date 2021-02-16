@@ -111,7 +111,8 @@ export class InstanceGroup extends pulumi.CustomResource {
     constructor(name: string, args: InstanceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceGroupArgs | InstanceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InstanceGroupState | undefined;
             inputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
             inputs["bidPrice"] = state ? state.bidPrice : undefined;
@@ -126,10 +127,10 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as InstanceGroupArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
@@ -144,12 +145,8 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["runningInstanceCount"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InstanceGroup.__pulumiType, name, inputs, opts);
     }

@@ -231,7 +231,8 @@ export class Permission extends pulumi.CustomResource {
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
@@ -244,13 +245,13 @@ export class Permission extends pulumi.CustomResource {
             inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
-            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.function === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.function === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -263,12 +264,8 @@ export class Permission extends pulumi.CustomResource {
             inputs["statementId"] = args ? args.statementId : undefined;
             inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Permission.__pulumiType, name, inputs, opts);
     }

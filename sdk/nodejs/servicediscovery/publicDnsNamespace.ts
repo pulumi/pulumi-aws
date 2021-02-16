@@ -85,7 +85,8 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
     constructor(name: string, args?: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicDnsNamespaceArgs | PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PublicDnsNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -100,12 +101,8 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublicDnsNamespace.__pulumiType, name, inputs, opts);
     }

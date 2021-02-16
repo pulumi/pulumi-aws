@@ -81,24 +81,21 @@ export class Protection extends pulumi.CustomResource {
     constructor(name: string, args: ProtectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionArgs | ProtectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProtectionState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ProtectionArgs | undefined;
-            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Protection.__pulumiType, name, inputs, opts);
     }

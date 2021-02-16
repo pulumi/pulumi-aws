@@ -85,32 +85,29 @@ export class DocumentationPart extends pulumi.CustomResource {
     constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentationPartArgs | DocumentationPartState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DocumentationPartState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["properties"] = state ? state.properties : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as DocumentationPartArgs | undefined;
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DocumentationPart.__pulumiType, name, inputs, opts);
     }

@@ -79,7 +79,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
     constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssessmentTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -90,12 +91,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
             inputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AssessmentTarget.__pulumiType, name, inputs, opts);
     }

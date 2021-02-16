@@ -123,7 +123,8 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
             inputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
@@ -156,12 +157,8 @@ export class Association extends pulumi.CustomResource {
             inputs["targets"] = args ? args.targets : undefined;
             inputs["associationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Association.__pulumiType, name, inputs, opts);
     }

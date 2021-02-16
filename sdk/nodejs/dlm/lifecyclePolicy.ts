@@ -155,7 +155,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     constructor(name: string, args: LifecyclePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -165,13 +166,13 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.policyDetails === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDetails'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -181,12 +182,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LifecyclePolicy.__pulumiType, name, inputs, opts);
     }

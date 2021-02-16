@@ -127,7 +127,8 @@ export class Stage extends pulumi.CustomResource {
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StageState | undefined;
             inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
@@ -145,7 +146,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
             inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
@@ -163,12 +164,8 @@ export class Stage extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stage.__pulumiType, name, inputs, opts);
     }

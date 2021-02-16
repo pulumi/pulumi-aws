@@ -65,22 +65,19 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
     constructor(name: string, args: MemberAccountAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberAccountAssociationArgs | MemberAccountAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MemberAccountAssociationState | undefined;
             inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
         } else {
             const args = argsOrState as MemberAccountAssociationArgs | undefined;
-            if ((!args || args.memberAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.memberAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberAccountId'");
             }
             inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MemberAccountAssociation.__pulumiType, name, inputs, opts);
     }

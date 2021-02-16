@@ -285,7 +285,8 @@ export class BucketNotification extends pulumi.CustomResource {
     constructor(name: string, args: BucketNotificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BucketNotificationState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
@@ -293,7 +294,7 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as BucketNotificationArgs | undefined;
-            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
@@ -301,12 +302,8 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["queues"] = args ? args.queues : undefined;
             inputs["topics"] = args ? args.topics : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BucketNotification.__pulumiType, name, inputs, opts);
     }

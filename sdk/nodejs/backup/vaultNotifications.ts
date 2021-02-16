@@ -104,7 +104,8 @@ export class VaultNotifications extends pulumi.CustomResource {
     constructor(name: string, args: VaultNotificationsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultNotificationsArgs | VaultNotificationsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VaultNotificationsState | undefined;
             inputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
             inputs["backupVaultEvents"] = state ? state.backupVaultEvents : undefined;
@@ -112,13 +113,13 @@ export class VaultNotifications extends pulumi.CustomResource {
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as VaultNotificationsArgs | undefined;
-            if ((!args || args.backupVaultEvents === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backupVaultEvents === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultEvents'");
             }
-            if ((!args || args.backupVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if ((!args || args.snsTopicArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
             inputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;
@@ -126,12 +127,8 @@ export class VaultNotifications extends pulumi.CustomResource {
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             inputs["backupVaultArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VaultNotifications.__pulumiType, name, inputs, opts);
     }

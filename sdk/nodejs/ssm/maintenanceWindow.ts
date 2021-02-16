@@ -117,7 +117,8 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MaintenanceWindowState | undefined;
             inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
             inputs["cutoff"] = state ? state.cutoff : undefined;
@@ -133,13 +134,13 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
-            if ((!args || args.cutoff === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cutoff === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cutoff'");
             }
-            if ((!args || args.duration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.duration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'duration'");
             }
-            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
             inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
@@ -155,12 +156,8 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MaintenanceWindow.__pulumiType, name, inputs, opts);
     }

@@ -218,7 +218,8 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
             inputs["allSettings"] = state ? state.allSettings : undefined;
             inputs["application"] = state ? state.application : undefined;
@@ -245,7 +246,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["waitForReadyTimeout"] = state ? state.waitForReadyTimeout : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if ((!args || args.application === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
             inputs["application"] = args ? args.application : undefined;
@@ -272,12 +273,8 @@ export class Environment extends pulumi.CustomResource {
             inputs["queues"] = undefined /*out*/;
             inputs["triggers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Environment.__pulumiType, name, inputs, opts);
     }

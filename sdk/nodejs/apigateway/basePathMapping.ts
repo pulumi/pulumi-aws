@@ -76,7 +76,8 @@ export class BasePathMapping extends pulumi.CustomResource {
     constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BasePathMappingArgs | BasePathMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BasePathMappingState | undefined;
             inputs["basePath"] = state ? state.basePath : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
@@ -84,10 +85,10 @@ export class BasePathMapping extends pulumi.CustomResource {
             inputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as BasePathMappingArgs | undefined;
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.restApi === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
             inputs["basePath"] = args ? args.basePath : undefined;
@@ -95,12 +96,8 @@ export class BasePathMapping extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BasePathMapping.__pulumiType, name, inputs, opts);
     }

@@ -133,7 +133,8 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
             inputs["branchFilter"] = state ? state.branchFilter : undefined;
             inputs["filterGroups"] = state ? state.filterGroups : undefined;
@@ -143,7 +144,7 @@ export class Webhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
             inputs["branchFilter"] = args ? args.branchFilter : undefined;
@@ -153,12 +154,8 @@ export class Webhook extends pulumi.CustomResource {
             inputs["secret"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Webhook.__pulumiType, name, inputs, opts);
     }

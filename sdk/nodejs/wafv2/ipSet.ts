@@ -104,7 +104,8 @@ export class IpSet extends pulumi.CustomResource {
     constructor(name: string, args: IpSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
             inputs["addresses"] = state ? state.addresses : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -116,10 +117,10 @@ export class IpSet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
-            if ((!args || args.ipAddressVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddressVersion'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["addresses"] = args ? args.addresses : undefined;
@@ -131,12 +132,8 @@ export class IpSet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["lockToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IpSet.__pulumiType, name, inputs, opts);
     }

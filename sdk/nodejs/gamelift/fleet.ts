@@ -127,7 +127,8 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FleetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["buildId"] = state ? state.buildId : undefined;
@@ -146,10 +147,10 @@ export class Fleet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if ((!args || args.buildId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.buildId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'buildId'");
             }
-            if ((!args || args.ec2InstanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ec2InstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
             inputs["buildId"] = args ? args.buildId : undefined;
@@ -168,12 +169,8 @@ export class Fleet extends pulumi.CustomResource {
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Fleet.__pulumiType, name, inputs, opts);
     }

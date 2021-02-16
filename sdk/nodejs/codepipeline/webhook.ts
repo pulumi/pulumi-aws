@@ -163,7 +163,8 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
@@ -175,16 +176,16 @@ export class Webhook extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if ((!args || args.authentication === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.targetAction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetAction'");
             }
-            if ((!args || args.targetPipeline === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetPipeline === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPipeline'");
             }
             inputs["authentication"] = args ? args.authentication : undefined;
@@ -196,12 +197,8 @@ export class Webhook extends pulumi.CustomResource {
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Webhook.__pulumiType, name, inputs, opts);
     }

@@ -76,27 +76,24 @@ export class WorkingStorage extends pulumi.CustomResource {
     constructor(name: string, args: WorkingStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkingStorageArgs | WorkingStorageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkingStorageState | undefined;
             inputs["diskId"] = state ? state.diskId : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
             const args = argsOrState as WorkingStorageArgs | undefined;
-            if ((!args || args.diskId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.diskId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if ((!args || args.gatewayArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WorkingStorage.__pulumiType, name, inputs, opts);
     }

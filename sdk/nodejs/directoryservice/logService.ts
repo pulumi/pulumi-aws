@@ -93,27 +93,24 @@ export class LogService extends pulumi.CustomResource {
     constructor(name: string, args: LogServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogServiceArgs | LogServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogServiceState | undefined;
             inputs["directoryId"] = state ? state.directoryId : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
         } else {
             const args = argsOrState as LogServiceArgs | undefined;
-            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.logGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
             inputs["directoryId"] = args ? args.directoryId : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogService.__pulumiType, name, inputs, opts);
     }

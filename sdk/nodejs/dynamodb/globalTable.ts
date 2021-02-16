@@ -121,26 +121,23 @@ export class GlobalTable extends pulumi.CustomResource {
     constructor(name: string, args: GlobalTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalTableArgs | GlobalTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GlobalTableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["replicas"] = state ? state.replicas : undefined;
         } else {
             const args = argsOrState as GlobalTableArgs | undefined;
-            if ((!args || args.replicas === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.replicas === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["replicas"] = args ? args.replicas : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GlobalTable.__pulumiType, name, inputs, opts);
     }

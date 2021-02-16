@@ -304,7 +304,8 @@ export class Instance extends pulumi.CustomResource {
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
             inputs["ami"] = state ? state.ami : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -352,10 +353,10 @@ export class Instance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if ((!args || args.ami === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ami === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ami'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
             inputs["ami"] = args ? args.ami : undefined;
@@ -403,12 +404,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Instance.__pulumiType, name, inputs, opts);
     }

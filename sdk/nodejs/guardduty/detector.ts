@@ -87,7 +87,8 @@ export class Detector extends pulumi.CustomResource {
     constructor(name: string, args?: DetectorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DetectorArgs | DetectorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DetectorState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -102,12 +103,8 @@ export class Detector extends pulumi.CustomResource {
             inputs["accountId"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Detector.__pulumiType, name, inputs, opts);
     }

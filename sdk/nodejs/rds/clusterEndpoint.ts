@@ -152,7 +152,8 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: ClusterEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterEndpointArgs | ClusterEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterEndpointIdentifier"] = state ? state.clusterEndpointIdentifier : undefined;
@@ -164,13 +165,13 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterEndpointArgs | undefined;
-            if ((!args || args.clusterEndpointIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterEndpointIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterEndpointIdentifier'");
             }
-            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.customEndpointType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.customEndpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customEndpointType'");
             }
             inputs["clusterEndpointIdentifier"] = args ? args.clusterEndpointIdentifier : undefined;
@@ -182,12 +183,8 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ClusterEndpoint.__pulumiType, name, inputs, opts);
     }

@@ -87,7 +87,8 @@ export class ParameterGroup extends pulumi.CustomResource {
     constructor(name: string, args?: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ParameterGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -98,12 +99,8 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }

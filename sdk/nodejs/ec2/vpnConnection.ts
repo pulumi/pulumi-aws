@@ -346,7 +346,8 @@ export class VpnConnection extends pulumi.CustomResource {
     constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnConnectionArgs | VpnConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
@@ -413,10 +414,10 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnConnectionArgs | undefined;
-            if ((!args || args.customerGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.customerGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
@@ -483,12 +484,8 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
             inputs["vgwTelemetries"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }

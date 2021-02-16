@@ -251,7 +251,8 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
@@ -262,10 +263,10 @@ export class Listener extends pulumi.CustomResource {
             inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if ((!args || args.defaultActions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultActions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if ((!args || args.loadBalancerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
@@ -276,15 +277,11 @@ export class Listener extends pulumi.CustomResource {
             inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listener:Listener" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Listener.__pulumiType, name, inputs, opts);
     }
 }

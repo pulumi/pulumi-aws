@@ -77,27 +77,24 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: OrganizationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationConfigurationArgs | OrganizationConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             inputs["autoEnable"] = state ? state.autoEnable : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if ((!args || args.autoEnable === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoEnable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            if ((!args || args.detectorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
             inputs["autoEnable"] = args ? args.autoEnable : undefined;
             inputs["detectorId"] = args ? args.detectorId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationConfiguration.__pulumiType, name, inputs, opts);
     }

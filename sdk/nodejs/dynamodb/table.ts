@@ -217,7 +217,8 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
@@ -240,10 +241,10 @@ export class Table extends pulumi.CustomResource {
             inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if ((!args || args.attributes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.attributes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.hashKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hashKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hashKey'");
             }
             inputs["attributes"] = args ? args.attributes : undefined;
@@ -266,12 +267,8 @@ export class Table extends pulumi.CustomResource {
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamLabel"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Table.__pulumiType, name, inputs, opts);
     }

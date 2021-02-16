@@ -137,7 +137,8 @@ export class Canary extends pulumi.CustomResource {
     constructor(name: string, args: CanaryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CanaryArgs | CanaryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CanaryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
@@ -162,19 +163,19 @@ export class Canary extends pulumi.CustomResource {
             inputs["zipFile"] = state ? state.zipFile : undefined;
         } else {
             const args = argsOrState as CanaryArgs | undefined;
-            if ((!args || args.artifactS3Location === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'artifactS3Location'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.handler === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.handler === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'handler'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
             inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
@@ -199,12 +200,8 @@ export class Canary extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["timelines"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Canary.__pulumiType, name, inputs, opts);
     }

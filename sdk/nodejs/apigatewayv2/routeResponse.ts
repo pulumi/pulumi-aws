@@ -89,7 +89,8 @@ export class RouteResponse extends pulumi.CustomResource {
     constructor(name: string, args: RouteResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteResponseArgs | RouteResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteResponseState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
@@ -98,13 +99,13 @@ export class RouteResponse extends pulumi.CustomResource {
             inputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
         } else {
             const args = argsOrState as RouteResponseArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeId'");
             }
-            if ((!args || args.routeResponseKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -113,12 +114,8 @@ export class RouteResponse extends pulumi.CustomResource {
             inputs["routeId"] = args ? args.routeId : undefined;
             inputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RouteResponse.__pulumiType, name, inputs, opts);
     }

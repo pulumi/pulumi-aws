@@ -147,7 +147,8 @@ export class Function extends pulumi.CustomResource {
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -160,16 +161,16 @@ export class Function extends pulumi.CustomResource {
             inputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.dataSource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.requestMappingTemplate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.requestMappingTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requestMappingTemplate'");
             }
-            if ((!args || args.responseMappingTemplate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.responseMappingTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responseMappingTemplate'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -182,12 +183,8 @@ export class Function extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["functionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Function.__pulumiType, name, inputs, opts);
     }

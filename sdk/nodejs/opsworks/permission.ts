@@ -81,7 +81,8 @@ export class Permission extends pulumi.CustomResource {
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PermissionState | undefined;
             inputs["allowSsh"] = state ? state.allowSsh : undefined;
             inputs["allowSudo"] = state ? state.allowSudo : undefined;
@@ -90,7 +91,7 @@ export class Permission extends pulumi.CustomResource {
             inputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
-            if ((!args || args.userArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
             inputs["allowSsh"] = args ? args.allowSsh : undefined;
@@ -99,12 +100,8 @@ export class Permission extends pulumi.CustomResource {
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["userArn"] = args ? args.userArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Permission.__pulumiType, name, inputs, opts);
     }

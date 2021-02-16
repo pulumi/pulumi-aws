@@ -163,7 +163,8 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -187,13 +188,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.endpointId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointId'");
             }
-            if ((!args || args.endpointType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.engineName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
@@ -217,12 +218,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["endpointArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

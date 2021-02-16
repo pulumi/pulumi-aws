@@ -64,32 +64,29 @@ export class Tag extends pulumi.CustomResource {
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagArgs | TagState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TagState | undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
-            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["key"] = args ? args.key : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Tag.__pulumiType, name, inputs, opts);
     }

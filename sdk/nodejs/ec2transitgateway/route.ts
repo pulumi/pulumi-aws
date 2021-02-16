@@ -96,7 +96,8 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             inputs["blackhole"] = state ? state.blackhole : undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
@@ -104,10 +105,10 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
             inputs["blackhole"] = args ? args.blackhole : undefined;
@@ -115,12 +116,8 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Route.__pulumiType, name, inputs, opts);
     }

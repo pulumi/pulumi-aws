@@ -130,7 +130,8 @@ export class Proxy extends pulumi.CustomResource {
     constructor(name: string, args: ProxyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyArgs | ProxyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProxyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auths"] = state ? state.auths : undefined;
@@ -146,16 +147,16 @@ export class Proxy extends pulumi.CustomResource {
             inputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
-            if ((!args || args.auths === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.auths === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'auths'");
             }
-            if ((!args || args.engineFamily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
             inputs["auths"] = args ? args.auths : undefined;
@@ -171,12 +172,8 @@ export class Proxy extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Proxy.__pulumiType, name, inputs, opts);
     }

@@ -95,7 +95,8 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AppCookieStickinessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AppCookieStickinessPolicyState | undefined;
             inputs["cookieName"] = state ? state.cookieName : undefined;
             inputs["lbPort"] = state ? state.lbPort : undefined;
@@ -103,13 +104,13 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
-            if ((!args || args.cookieName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cookieName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cookieName'");
             }
-            if ((!args || args.lbPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lbPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if ((!args || args.loadBalancer === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
             inputs["cookieName"] = args ? args.cookieName : undefined;
@@ -117,15 +118,11 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }
 }

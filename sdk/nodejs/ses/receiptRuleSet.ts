@@ -69,22 +69,19 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     constructor(name: string, args: ReceiptRuleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReceiptRuleSetArgs | ReceiptRuleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ReceiptRuleSetState | undefined;
             inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ReceiptRuleSetArgs | undefined;
-            if ((!args || args.ruleSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ReceiptRuleSet.__pulumiType, name, inputs, opts);
     }

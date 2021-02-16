@@ -110,7 +110,8 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
     constructor(name: string, args: ApnsVoipChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApnsVoipChannelArgs | ApnsVoipChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApnsVoipChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["bundleId"] = state ? state.bundleId : undefined;
@@ -123,7 +124,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             inputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
         } else {
             const args = argsOrState as ApnsVoipChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -136,12 +137,8 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             inputs["tokenKey"] = args ? args.tokenKey : undefined;
             inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApnsVoipChannel.__pulumiType, name, inputs, opts);
     }

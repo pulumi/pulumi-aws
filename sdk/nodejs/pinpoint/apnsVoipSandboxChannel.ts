@@ -110,7 +110,8 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     constructor(name: string, args: ApnsVoipSandboxChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApnsVoipSandboxChannelArgs | ApnsVoipSandboxChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApnsVoipSandboxChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["bundleId"] = state ? state.bundleId : undefined;
@@ -123,7 +124,7 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
             inputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
         } else {
             const args = argsOrState as ApnsVoipSandboxChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -136,12 +137,8 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
             inputs["tokenKey"] = args ? args.tokenKey : undefined;
             inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApnsVoipSandboxChannel.__pulumiType, name, inputs, opts);
     }

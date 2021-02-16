@@ -188,7 +188,8 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     constructor(name: string, args: SecurityGroupRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityGroupRuleArgs | SecurityGroupRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecurityGroupRuleState | undefined;
             inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -203,19 +204,19 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityGroupRuleArgs | undefined;
-            if ((!args || args.fromPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fromPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fromPort'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.securityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.toPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.toPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'toPort'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
@@ -230,12 +231,8 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             inputs["toPort"] = args ? args.toPort : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecurityGroupRule.__pulumiType, name, inputs, opts);
     }

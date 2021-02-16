@@ -154,7 +154,8 @@ export class TaskDefinition extends pulumi.CustomResource {
     constructor(name: string, args: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TaskDefinitionArgs | TaskDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TaskDefinitionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
@@ -175,10 +176,10 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
-            if ((!args || args.containerDefinitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containerDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerDefinitions'");
             }
-            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
             inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
@@ -199,12 +200,8 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TaskDefinition.__pulumiType, name, inputs, opts);
     }

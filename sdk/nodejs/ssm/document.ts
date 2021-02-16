@@ -209,7 +209,8 @@ export class Document extends pulumi.CustomResource {
     constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DocumentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attachmentsSources"] = state ? state.attachmentsSources : undefined;
@@ -235,10 +236,10 @@ export class Document extends pulumi.CustomResource {
             inputs["versionName"] = state ? state.versionName : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
-            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.documentType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.documentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'documentType'");
             }
             inputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;
@@ -264,12 +265,8 @@ export class Document extends pulumi.CustomResource {
             inputs["schemaVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Document.__pulumiType, name, inputs, opts);
     }

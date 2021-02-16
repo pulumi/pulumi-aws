@@ -137,7 +137,8 @@ export class PhpAppLayer extends pulumi.CustomResource {
     constructor(name: string, args: PhpAppLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PhpAppLayerArgs | PhpAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PhpAppLayerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
@@ -163,7 +164,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as PhpAppLayerArgs | undefined;
-            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
@@ -189,12 +190,8 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PhpAppLayer.__pulumiType, name, inputs, opts);
     }

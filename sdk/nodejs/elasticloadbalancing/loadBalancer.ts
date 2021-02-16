@@ -214,7 +214,8 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -238,7 +239,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if ((!args || args.listeners === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.listeners === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listeners'");
             }
             inputs["accessLogs"] = args ? args.accessLogs : undefined;
@@ -262,12 +263,8 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["sourceSecurityGroupId"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }

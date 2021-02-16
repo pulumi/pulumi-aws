@@ -123,27 +123,24 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: LoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoggingConfigurationArgs | LoggingConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LoggingConfigurationState | undefined;
             inputs["firewallArn"] = state ? state.firewallArn : undefined;
             inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
         } else {
             const args = argsOrState as LoggingConfigurationArgs | undefined;
-            if ((!args || args.firewallArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firewallArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.loggingConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
             inputs["firewallArn"] = args ? args.firewallArn : undefined;
             inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoggingConfiguration.__pulumiType, name, inputs, opts);
     }

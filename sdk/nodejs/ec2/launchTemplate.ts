@@ -204,7 +204,8 @@ export class LaunchTemplate extends pulumi.CustomResource {
     constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LaunchTemplateArgs | LaunchTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LaunchTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
@@ -279,12 +280,8 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LaunchTemplate.__pulumiType, name, inputs, opts);
     }

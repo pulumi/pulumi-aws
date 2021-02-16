@@ -82,7 +82,8 @@ export class ReceiptFilter extends pulumi.CustomResource {
     constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ReceiptFilterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
@@ -90,10 +91,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ReceiptFilterArgs | undefined;
-            if ((!args || args.cidr === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
             inputs["cidr"] = args ? args.cidr : undefined;
@@ -101,12 +102,8 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ReceiptFilter.__pulumiType, name, inputs, opts);
     }

@@ -144,7 +144,8 @@ export class GangliaLayer extends pulumi.CustomResource {
     constructor(name: string, args: GangliaLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GangliaLayerArgs | GangliaLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GangliaLayerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
@@ -173,10 +174,10 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as GangliaLayerArgs | undefined;
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.stackId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
@@ -205,12 +206,8 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GangliaLayer.__pulumiType, name, inputs, opts);
     }

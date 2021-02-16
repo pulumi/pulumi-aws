@@ -110,7 +110,8 @@ export class InstanceProfile extends pulumi.CustomResource {
     constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InstanceProfileState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;
@@ -129,12 +130,8 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InstanceProfile.__pulumiType, name, inputs, opts);
     }

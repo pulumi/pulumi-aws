@@ -130,7 +130,8 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["bundleId"] = state ? state.bundleId : undefined;
             inputs["computerName"] = state ? state.computerName : undefined;
@@ -145,13 +146,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceProperties"] = state ? state.workspaceProperties : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.bundleId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.directoryId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["bundleId"] = args ? args.bundleId : undefined;
@@ -166,12 +167,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Workspace.__pulumiType, name, inputs, opts);
     }

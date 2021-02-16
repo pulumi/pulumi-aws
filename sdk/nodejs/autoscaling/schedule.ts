@@ -120,7 +120,8 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
@@ -133,10 +134,10 @@ export class Schedule extends pulumi.CustomResource {
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if ((!args || args.scheduledActionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduledActionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduledActionName'");
             }
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
@@ -149,12 +150,8 @@ export class Schedule extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schedule.__pulumiType, name, inputs, opts);
     }

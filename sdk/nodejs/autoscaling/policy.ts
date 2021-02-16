@@ -135,7 +135,8 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             inputs["adjustmentType"] = state ? state.adjustmentType : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -151,7 +152,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
             inputs["adjustmentType"] = args ? args.adjustmentType : undefined;
@@ -167,12 +168,8 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Policy.__pulumiType, name, inputs, opts);
     }

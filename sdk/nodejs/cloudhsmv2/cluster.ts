@@ -97,7 +97,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["clusterCertificates"] = state ? state.clusterCertificates : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
@@ -110,10 +111,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.hsmType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hsmType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hsmType'");
             }
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["hsmType"] = args ? args.hsmType : undefined;
@@ -126,12 +127,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["securityGroupId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

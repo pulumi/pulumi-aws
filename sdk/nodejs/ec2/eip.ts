@@ -214,7 +214,8 @@ export class Eip extends pulumi.CustomResource {
     constructor(name: string, args?: EipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EipArgs | EipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EipState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
@@ -253,12 +254,8 @@ export class Eip extends pulumi.CustomResource {
             inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Eip.__pulumiType, name, inputs, opts);
     }

@@ -121,7 +121,8 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     constructor(name: string, args?: ConfigurationAggregatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationAggregatorArgs | ConfigurationAggregatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConfigurationAggregatorState | undefined;
             inputs["accountAggregationSource"] = state ? state.accountAggregationSource : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -136,12 +137,8 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConfigurationAggregator.__pulumiType, name, inputs, opts);
     }

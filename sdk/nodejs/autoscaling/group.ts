@@ -206,7 +206,8 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -243,10 +244,10 @@ export class Group extends pulumi.CustomResource {
             inputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if ((!args || args.maxSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if ((!args || args.minSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -283,12 +284,8 @@ export class Group extends pulumi.CustomResource {
             inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Group.__pulumiType, name, inputs, opts);
     }

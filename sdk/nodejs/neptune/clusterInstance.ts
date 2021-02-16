@@ -183,7 +183,8 @@ export class ClusterInstance extends pulumi.CustomResource {
     constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterInstanceState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
@@ -211,10 +212,10 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.instanceClass === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceClass'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
@@ -242,12 +243,8 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["writer"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ClusterInstance.__pulumiType, name, inputs, opts);
     }

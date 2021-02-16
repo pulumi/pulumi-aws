@@ -125,7 +125,8 @@ export class EmailChannel extends pulumi.CustomResource {
     constructor(name: string, args: EmailChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailChannelArgs | EmailChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EmailChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -135,16 +136,16 @@ export class EmailChannel extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EmailChannelArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.fromAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fromAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fromAddress'");
             }
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -154,12 +155,8 @@ export class EmailChannel extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["messagesPerSecond"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EmailChannel.__pulumiType, name, inputs, opts);
     }

@@ -111,7 +111,8 @@ export class VideoStream extends pulumi.CustomResource {
     constructor(name: string, args?: VideoStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VideoStreamArgs | VideoStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VideoStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationTime"] = state ? state.creationTime : undefined;
@@ -134,12 +135,8 @@ export class VideoStream extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VideoStream.__pulumiType, name, inputs, opts);
     }

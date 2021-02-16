@@ -145,7 +145,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: InfrastructureConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InfrastructureConfigurationArgs | InfrastructureConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InfrastructureConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dateCreated"] = state ? state.dateCreated : undefined;
@@ -164,7 +165,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["terminateInstanceOnFailure"] = state ? state.terminateInstanceOnFailure : undefined;
         } else {
             const args = argsOrState as InfrastructureConfigurationArgs | undefined;
-            if ((!args || args.instanceProfileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -183,12 +184,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["dateCreated"] = undefined /*out*/;
             inputs["dateUpdated"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InfrastructureConfiguration.__pulumiType, name, inputs, opts);
     }

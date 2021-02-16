@@ -82,7 +82,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
@@ -90,10 +91,10 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
@@ -101,12 +102,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RouteTableAssociation.__pulumiType, name, inputs, opts);
     }

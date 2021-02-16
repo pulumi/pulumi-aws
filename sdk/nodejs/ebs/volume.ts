@@ -119,7 +119,8 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -135,7 +136,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -151,12 +152,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Volume.__pulumiType, name, inputs, opts);
     }

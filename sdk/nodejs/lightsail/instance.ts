@@ -181,7 +181,8 @@ export class Instance extends pulumi.CustomResource {
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -202,13 +203,13 @@ export class Instance extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if ((!args || args.blueprintId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.blueprintId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if ((!args || args.bundleId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -229,12 +230,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["ramSize"] = undefined /*out*/;
             inputs["username"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Instance.__pulumiType, name, inputs, opts);
     }

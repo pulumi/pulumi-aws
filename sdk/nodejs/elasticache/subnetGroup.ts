@@ -93,26 +93,23 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubnetGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
         } else {
             const args = argsOrState as SubnetGroupArgs | undefined;
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SubnetGroup.__pulumiType, name, inputs, opts);
     }

@@ -175,7 +175,8 @@ export class DevEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: DevEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DevEndpointArgs | DevEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DevEndpointState | undefined;
             inputs["arguments"] = state ? state.arguments : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -203,7 +204,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["zeppelinRemoteSparkInterpreterPort"] = state ? state.zeppelinRemoteSparkInterpreterPort : undefined;
         } else {
             const args = argsOrState as DevEndpointArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["arguments"] = args ? args.arguments : undefined;
@@ -231,12 +232,8 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["yarnEndpointAddress"] = undefined /*out*/;
             inputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DevEndpoint.__pulumiType, name, inputs, opts);
     }

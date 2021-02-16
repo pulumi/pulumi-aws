@@ -174,7 +174,8 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StackState | undefined;
             inputs["agentVersion"] = state ? state.agentVersion : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -202,13 +203,13 @@ export class Stack extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            if ((!args || args.defaultInstanceProfileArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultInstanceProfileArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultInstanceProfileArn'");
             }
-            if ((!args || args.region === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.region === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
             inputs["agentVersion"] = args ? args.agentVersion : undefined;
@@ -236,12 +237,8 @@ export class Stack extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stack.__pulumiType, name, inputs, opts);
     }

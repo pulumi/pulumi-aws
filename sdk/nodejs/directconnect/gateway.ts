@@ -77,26 +77,23 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if ((!args || args.amazonSideAsn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
             inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Gateway.__pulumiType, name, inputs, opts);
     }

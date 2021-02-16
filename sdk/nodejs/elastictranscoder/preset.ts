@@ -155,7 +155,8 @@ export class Preset extends pulumi.CustomResource {
     constructor(name: string, args: PresetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PresetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["audio"] = state ? state.audio : undefined;
@@ -170,7 +171,7 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
         } else {
             const args = argsOrState as PresetArgs | undefined;
-            if ((!args || args.container === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.container === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'container'");
             }
             inputs["audio"] = args ? args.audio : undefined;
@@ -185,12 +186,8 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Preset.__pulumiType, name, inputs, opts);
     }

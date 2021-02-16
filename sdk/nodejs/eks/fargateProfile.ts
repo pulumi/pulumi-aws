@@ -124,7 +124,8 @@ export class FargateProfile extends pulumi.CustomResource {
     constructor(name: string, args: FargateProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FargateProfileArgs | FargateProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FargateProfileState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
@@ -136,13 +137,13 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FargateProfileArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.podExecutionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.podExecutionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if ((!args || args.selectors === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.selectors === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -154,12 +155,8 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FargateProfile.__pulumiType, name, inputs, opts);
     }

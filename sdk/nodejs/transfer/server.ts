@@ -149,7 +149,8 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args?: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
@@ -178,12 +179,8 @@ export class Server extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostKeyFingerprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Server.__pulumiType, name, inputs, opts);
     }

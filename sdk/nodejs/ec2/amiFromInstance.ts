@@ -151,7 +151,8 @@ export class AmiFromInstance extends pulumi.CustomResource {
     constructor(name: string, args: AmiFromInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AmiFromInstanceArgs | AmiFromInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AmiFromInstanceState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -173,7 +174,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiFromInstanceArgs | undefined;
-            if ((!args || args.sourceInstanceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceInstanceId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -195,12 +196,8 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AmiFromInstance.__pulumiType, name, inputs, opts);
     }

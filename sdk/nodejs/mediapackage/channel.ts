@@ -87,7 +87,8 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelArgs | ChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["channelId"] = state ? state.channelId : undefined;
@@ -96,7 +97,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            if ((!args || args.channelId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.channelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
             inputs["channelId"] = args ? args.channelId : undefined;
@@ -105,12 +106,8 @@ export class Channel extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Channel.__pulumiType, name, inputs, opts);
     }

@@ -130,7 +130,8 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     constructor(name: string, args?: VpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcDhcpOptionsArgs | VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
@@ -151,12 +152,8 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpcDhcpOptions.__pulumiType, name, inputs, opts);
     }

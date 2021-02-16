@@ -163,7 +163,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
@@ -182,10 +183,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
             inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
@@ -204,12 +205,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["platformVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

@@ -134,7 +134,8 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DomainState | undefined;
             inputs["appNetworkAccessType"] = state ? state.appNetworkAccessType : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -150,19 +151,19 @@ export class Domain extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.authMode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if ((!args || args.defaultUserSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
             }
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.subnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
@@ -178,12 +179,8 @@ export class Domain extends pulumi.CustomResource {
             inputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Domain.__pulumiType, name, inputs, opts);
     }

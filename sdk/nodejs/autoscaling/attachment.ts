@@ -103,26 +103,23 @@ export class Attachment extends pulumi.CustomResource {
     constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AttachmentState | undefined;
             inputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["elb"] = state ? state.elb : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
-            if ((!args || args.autoscalingGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
             inputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             inputs["elb"] = args ? args.elb : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Attachment.__pulumiType, name, inputs, opts);
     }

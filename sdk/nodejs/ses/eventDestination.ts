@@ -146,7 +146,8 @@ export class EventDestination extends pulumi.CustomResource {
     constructor(name: string, args: EventDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventDestinationArgs | EventDestinationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventDestinationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
@@ -158,10 +159,10 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["snsDestination"] = state ? state.snsDestination : undefined;
         } else {
             const args = argsOrState as EventDestinationArgs | undefined;
-            if ((!args || args.configurationSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if ((!args || args.matchingTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.matchingTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
             inputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
@@ -173,12 +174,8 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["snsDestination"] = args ? args.snsDestination : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventDestination.__pulumiType, name, inputs, opts);
     }

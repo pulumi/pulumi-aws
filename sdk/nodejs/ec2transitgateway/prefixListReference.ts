@@ -97,7 +97,8 @@ export class PrefixListReference extends pulumi.CustomResource {
     constructor(name: string, args: PrefixListReferenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrefixListReferenceArgs | PrefixListReferenceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PrefixListReferenceState | undefined;
             inputs["blackhole"] = state ? state.blackhole : undefined;
             inputs["prefixListId"] = state ? state.prefixListId : undefined;
@@ -106,10 +107,10 @@ export class PrefixListReference extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as PrefixListReferenceArgs | undefined;
-            if ((!args || args.prefixListId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.prefixListId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'prefixListId'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
             inputs["blackhole"] = args ? args.blackhole : undefined;
@@ -118,12 +119,8 @@ export class PrefixListReference extends pulumi.CustomResource {
             inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             inputs["prefixListOwnerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PrefixListReference.__pulumiType, name, inputs, opts);
     }

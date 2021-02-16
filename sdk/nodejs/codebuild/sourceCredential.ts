@@ -100,7 +100,8 @@ export class SourceCredential extends pulumi.CustomResource {
     constructor(name: string, args: SourceCredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SourceCredentialArgs | SourceCredentialState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SourceCredentialState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authType"] = state ? state.authType : undefined;
@@ -109,13 +110,13 @@ export class SourceCredential extends pulumi.CustomResource {
             inputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SourceCredentialArgs | undefined;
-            if ((!args || args.authType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.serverType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
-            if ((!args || args.token === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
             inputs["authType"] = args ? args.authType : undefined;
@@ -124,12 +125,8 @@ export class SourceCredential extends pulumi.CustomResource {
             inputs["userName"] = args ? args.userName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SourceCredential.__pulumiType, name, inputs, opts);
     }

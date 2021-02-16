@@ -115,7 +115,8 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
     constructor(name: string, args: ResourceShareAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceShareAccepterArgs | ResourceShareAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceShareAccepterState | undefined;
             inputs["invitationArn"] = state ? state.invitationArn : undefined;
             inputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
@@ -127,7 +128,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ResourceShareAccepterArgs | undefined;
-            if ((!args || args.shareArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareArn'");
             }
             inputs["shareArn"] = args ? args.shareArn : undefined;
@@ -139,12 +140,8 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
             inputs["shareName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceShareAccepter.__pulumiType, name, inputs, opts);
     }

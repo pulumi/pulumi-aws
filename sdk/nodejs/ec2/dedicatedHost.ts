@@ -93,7 +93,8 @@ export class DedicatedHost extends pulumi.CustomResource {
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostArgs | DedicatedHostState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
             inputs["autoPlacement"] = state ? state.autoPlacement : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -103,7 +104,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
             inputs["autoPlacement"] = args ? args.autoPlacement : undefined;
@@ -113,12 +114,8 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DedicatedHost.__pulumiType, name, inputs, opts);
     }

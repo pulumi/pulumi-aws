@@ -209,7 +209,8 @@ export class UserPool extends pulumi.CustomResource {
     constructor(name: string, args?: UserPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPoolArgs | UserPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserPoolState | undefined;
             inputs["accountRecoverySetting"] = state ? state.accountRecoverySetting : undefined;
             inputs["adminCreateUserConfig"] = state ? state.adminCreateUserConfig : undefined;
@@ -266,12 +267,8 @@ export class UserPool extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["lastModifiedDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserPool.__pulumiType, name, inputs, opts);
     }

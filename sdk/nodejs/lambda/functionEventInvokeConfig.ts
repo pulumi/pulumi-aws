@@ -163,7 +163,8 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     constructor(name: string, args: FunctionEventInvokeConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionEventInvokeConfigArgs | FunctionEventInvokeConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FunctionEventInvokeConfigState | undefined;
             inputs["destinationConfig"] = state ? state.destinationConfig : undefined;
             inputs["functionName"] = state ? state.functionName : undefined;
@@ -172,7 +173,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             inputs["qualifier"] = state ? state.qualifier : undefined;
         } else {
             const args = argsOrState as FunctionEventInvokeConfigArgs | undefined;
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
             inputs["destinationConfig"] = args ? args.destinationConfig : undefined;
@@ -181,12 +182,8 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             inputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
             inputs["qualifier"] = args ? args.qualifier : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FunctionEventInvokeConfig.__pulumiType, name, inputs, opts);
     }

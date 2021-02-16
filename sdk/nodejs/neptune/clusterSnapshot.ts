@@ -120,7 +120,8 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     constructor(name: string, args: ClusterSnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterSnapshotState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -139,10 +140,10 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
-            if ((!args || args.dbClusterIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if ((!args || args.dbClusterSnapshotIdentifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dbClusterSnapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterSnapshotIdentifier'");
             }
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
@@ -161,12 +162,8 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ClusterSnapshot.__pulumiType, name, inputs, opts);
     }
