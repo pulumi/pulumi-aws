@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.19.0  
-  **Please Note:** This includes a bug fix that stops mutating resources options in the nodejs provider
+_(none)_
 
 ---
+
+## 3.29.1 (2021-02-16)
+* Upgrade to pulumi-terraform-bridge v2.19.0  
+  **Please Note:** This includes a bug fix that stops mutating resources options in the nodejs provider
 
 ## 3.29.0 (2021-02-15)
 * Update to v3.28.0 of the AWS Terraform Provider
