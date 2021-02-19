@@ -174,6 +174,8 @@ type GatewayAssociation struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
+	// Deprecated: use 'associated_gateway_id' argument instead
+	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewGatewayAssociation registers a new resource with the given unique name, arguments, and options.
@@ -227,6 +229,8 @@ type gatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
+	// Deprecated: use 'associated_gateway_id' argument instead
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type GatewayAssociationState struct {
@@ -249,6 +253,8 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
+	// Deprecated: use 'associated_gateway_id' argument instead
+	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationState) ElementType() reflect.Type {
@@ -269,6 +275,8 @@ type gatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
+	// Deprecated: use 'associated_gateway_id' argument instead
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a GatewayAssociation resource.
@@ -286,6 +294,8 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
+	// Deprecated: use 'associated_gateway_id' argument instead
+	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationArgs) ElementType() reflect.Type {

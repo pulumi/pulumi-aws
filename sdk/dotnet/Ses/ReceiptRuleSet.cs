@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses
 {
     /// <summary>
-    /// Provides an SES receipt rule set resource
+    /// Provides an SES receipt rule set resource.
     /// 
     /// ## Example Usage
     /// 
@@ -43,7 +43,13 @@ namespace Pulumi.Aws.Ses
     public partial class ReceiptRuleSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the rule set
+        /// SES receipt rule set ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the rule set.
         /// </summary>
         [Output("ruleSetName")]
         public Output<string> RuleSetName { get; private set; } = null!;
@@ -95,7 +101,7 @@ namespace Pulumi.Aws.Ses
     public sealed class ReceiptRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the rule set
+        /// Name of the rule set.
         /// </summary>
         [Input("ruleSetName", required: true)]
         public Input<string> RuleSetName { get; set; } = null!;
@@ -108,7 +114,13 @@ namespace Pulumi.Aws.Ses
     public sealed class ReceiptRuleSetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the rule set
+        /// SES receipt rule set ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Name of the rule set.
         /// </summary>
         [Input("ruleSetName")]
         public Input<string>? RuleSetName { get; set; }

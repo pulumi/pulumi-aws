@@ -101,11 +101,29 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.AmiEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
+        /// The hypervisor type of the image.
+        /// </summary>
+        [Output("hypervisor")]
+        public Output<string> Hypervisor { get; private set; } = null!;
+
+        /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
         public Output<string> ImageLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+        /// </summary>
+        [Output("imageOwnerAlias")]
+        public Output<string> ImageOwnerAlias { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of image.
+        /// </summary>
+        [Output("imageType")]
+        public Output<string> ImageType { get; private set; } = null!;
 
         /// <summary>
         /// The id of the kernel image (AKI) that will be used as the paravirtual
@@ -122,6 +140,30 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID of the image owner.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// This value is set to windows for Windows AMIs; otherwise, it is blank.
+        /// </summary>
+        [Output("platform")]
+        public Output<string> Platform { get; private set; } = null!;
+
+        /// <summary>
+        /// The platform details associated with the billing code of the AMI.
+        /// </summary>
+        [Output("platformDetails")]
+        public Output<string> PlatformDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the image has public launch permissions.
+        /// </summary>
+        [Output("public")]
+        public Output<bool> Public { get; private set; } = null!;
 
         /// <summary>
         /// The id of an initrd image (ARI) that will be used when booting the
@@ -154,6 +196,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        /// </summary>
+        [Output("usageOperation")]
+        public Output<string> UsageOperation { get; private set; } = null!;
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
@@ -371,11 +419,29 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The hypervisor type of the image.
+        /// </summary>
+        [Input("hypervisor")]
+        public Input<string>? Hypervisor { get; set; }
+
+        /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Input("imageLocation")]
         public Input<string>? ImageLocation { get; set; }
+
+        /// <summary>
+        /// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+        /// </summary>
+        [Input("imageOwnerAlias")]
+        public Input<string>? ImageOwnerAlias { get; set; }
+
+        /// <summary>
+        /// The type of image.
+        /// </summary>
+        [Input("imageType")]
+        public Input<string>? ImageType { get; set; }
 
         /// <summary>
         /// The id of the kernel image (AKI) that will be used as the paravirtual
@@ -392,6 +458,30 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS account ID of the image owner.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// This value is set to windows for Windows AMIs; otherwise, it is blank.
+        /// </summary>
+        [Input("platform")]
+        public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// The platform details associated with the billing code of the AMI.
+        /// </summary>
+        [Input("platformDetails")]
+        public Input<string>? PlatformDetails { get; set; }
+
+        /// <summary>
+        /// Indicates whether the image has public launch permissions.
+        /// </summary>
+        [Input("public")]
+        public Input<bool>? Public { get; set; }
 
         /// <summary>
         /// The id of an initrd image (ARI) that will be used when booting the
@@ -430,6 +520,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        /// </summary>
+        [Input("usageOperation")]
+        public Input<string>? UsageOperation { get; set; }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances

@@ -9,14 +9,11 @@ import (
 
 // `ec2.RouteTable` provides details about a specific Route Table.
 //
-// This resource can prove useful when a module accepts a Subnet id as
-// an input variable and needs to, for example, add a route in
-// the Route Table.
+// This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
 //
 // ## Example Usage
 //
-// The following example shows how one might accept a Route Table id as a variable
-// and use this data source to obtain the data necessary to create a route.
+// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
 //
 // ```go
 // package main
@@ -61,35 +58,38 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 
 // A collection of arguments for invoking getRouteTable.
 type LookupRouteTableArgs struct {
-	// Custom filter block as described below.
+	// Configuration block. Detailed below.
 	Filters []GetRouteTableFilter `pulumi:"filters"`
-	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId *string `pulumi:"gatewayId"`
-	// The id of the specific Route Table to retrieve.
+	// ID of the specific Route Table to retrieve.
 	RouteTableId *string `pulumi:"routeTableId"`
-	// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags, each pair of which must exactly match
-	// a pair on the desired Route Table.
+	// Map of tags, each pair of which must exactly match a pair on the desired Route Table.
 	Tags map[string]string `pulumi:"tags"`
-	// The id of the VPC that the desired Route Table belongs to.
+	// ID of the VPC that the desired Route Table belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
+	// ARN of the route table.
+	Arn string `pulumi:"arn"`
+	// List of associations with attributes detailed below.
 	Associations []GetRouteTableAssociationType `pulumi:"associations"`
 	Filters      []GetRouteTableFilter          `pulumi:"filters"`
-	// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+	// Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
 	GatewayId string `pulumi:"gatewayId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ID of the AWS account that owns the route table
+	// ID of the AWS account that owns the route table.
 	OwnerId string `pulumi:"ownerId"`
-	// The Route Table ID.
-	RouteTableId string               `pulumi:"routeTableId"`
-	Routes       []GetRouteTableRoute `pulumi:"routes"`
-	// The Subnet ID. Only set when associated with a Subnet.
+	// Route Table ID.
+	RouteTableId string `pulumi:"routeTableId"`
+	// List of routes with attributes detailed below.
+	Routes []GetRouteTableRoute `pulumi:"routes"`
+	// Subnet ID. Only set when associated with a subnet.
 	SubnetId string            `pulumi:"subnetId"`
 	Tags     map[string]string `pulumi:"tags"`
 	VpcId    string            `pulumi:"vpcId"`

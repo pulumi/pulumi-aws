@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an SES receipt rule set resource
+// Provides an SES receipt rule set resource.
 //
 // ## Example Usage
 //
@@ -46,7 +46,9 @@ import (
 type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
-	// The name of the rule set
+	// SES receipt rule set ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the rule set.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
 
@@ -82,12 +84,16 @@ func GetReceiptRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptRuleSet resources.
 type receiptRuleSetState struct {
-	// The name of the rule set
+	// SES receipt rule set ARN.
+	Arn *string `pulumi:"arn"`
+	// Name of the rule set.
 	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 type ReceiptRuleSetState struct {
-	// The name of the rule set
+	// SES receipt rule set ARN.
+	Arn pulumi.StringPtrInput
+	// Name of the rule set.
 	RuleSetName pulumi.StringPtrInput
 }
 
@@ -96,13 +102,13 @@ func (ReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type receiptRuleSetArgs struct {
-	// The name of the rule set
+	// Name of the rule set.
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ReceiptRuleSet resource.
 type ReceiptRuleSetArgs struct {
-	// The name of the rule set
+	// Name of the rule set.
 	RuleSetName pulumi.StringInput
 }
 

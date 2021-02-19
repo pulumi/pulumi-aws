@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     loggingConfiguration: {
- *         logDestination: aws_cloudwatch_log_group.log_group_for_sfn.arn,
+ *         logDestination: `${aws_cloudwatch_log_group.log_group_for_sfn.arn}:*`,
  *         includeExecutionData: true,
  *         level: "ERROR",
  *     },

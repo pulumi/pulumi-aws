@@ -20,6 +20,7 @@ export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./getBucketObjects";
 export * from "./inventory";
+export * from "./objectCopy";
 export * from "./routingRules";
 export * from "./s3Mixins";
 
@@ -38,6 +39,7 @@ import { BucketOwnershipControls } from "./bucketOwnershipControls";
 import { BucketPolicy } from "./bucketPolicy";
 import { BucketPublicAccessBlock } from "./bucketPublicAccessBlock";
 import { Inventory } from "./inventory";
+import { ObjectCopy } from "./objectCopy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -65,6 +67,8 @@ const _module = {
                 return new BucketPublicAccessBlock(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
                 return new Inventory(name, <any>undefined, { urn })
+            case "aws:s3/objectCopy:ObjectCopy":
+                return new ObjectCopy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -81,3 +85,4 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketOwnershipControls", _modu
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)

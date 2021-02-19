@@ -7538,10 +7538,8 @@ class GetRouteTableFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               A Route Table will be selected if any one of the given values matches.
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -7550,8 +7548,7 @@ class GetRouteTableFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
         """
         return pulumi.get(self, "name")
 
@@ -7563,8 +7560,7 @@ class GetRouteTableFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Set of values that are accepted for the given field.
-        A Route Table will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -7725,11 +7721,8 @@ class GetSubnetFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-               For example, if matching against tag `Name`, use:
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               A subnet will be selected if any one of the given values matches.
+        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -7738,9 +7731,7 @@ class GetSubnetFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        For example, if matching against tag `Name`, use:
+        The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         """
         return pulumi.get(self, "name")
 
@@ -7752,8 +7743,7 @@ class GetSubnetFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Set of values that are accepted for the given field.
-        A subnet will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

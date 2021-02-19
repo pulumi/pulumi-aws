@@ -86,16 +86,20 @@ class CapacityProviderAutoScalingGroupProviderArgs:
 @pulumi.input_type
 class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
     def __init__(__self__, *,
+                 instance_warmup_period: Optional[pulumi.Input[int]] = None,
                  maximum_scaling_step_size: Optional[pulumi.Input[int]] = None,
                  minimum_scaling_step_size: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input[int] instance_warmup_period: The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
         :param pulumi.Input[int] maximum_scaling_step_size: The maximum step adjustment size. A number between 1 and 10,000.
         :param pulumi.Input[int] minimum_scaling_step_size: The minimum step adjustment size. A number between 1 and 10,000.
         :param pulumi.Input[str] status: Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] target_capacity: The target utilization for the capacity provider. A number between 1 and 100.
         """
+        if instance_warmup_period is not None:
+            pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
             pulumi.set(__self__, "maximum_scaling_step_size", maximum_scaling_step_size)
         if minimum_scaling_step_size is not None:
@@ -104,6 +108,18 @@ class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
             pulumi.set(__self__, "status", status)
         if target_capacity is not None:
             pulumi.set(__self__, "target_capacity", target_capacity)
+
+    @property
+    @pulumi.getter(name="instanceWarmupPeriod")
+    def instance_warmup_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+        """
+        return pulumi.get(self, "instance_warmup_period")
+
+    @instance_warmup_period.setter
+    def instance_warmup_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_warmup_period", value)
 
     @property
     @pulumi.getter(name="maximumScalingStepSize")

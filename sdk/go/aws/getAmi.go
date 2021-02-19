@@ -123,7 +123,9 @@ type GetAmiResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The description of the AMI that was provided during image
 	// creation.
-	Description     string         `pulumi:"description"`
+	Description string `pulumi:"description"`
+	// Specifies whether enhanced networking with ENA is enabled.
+	EnaSupport      bool           `pulumi:"enaSupport"`
 	ExecutableUsers []string       `pulumi:"executableUsers"`
 	Filters         []GetAmiFilter `pulumi:"filters"`
 	// The hypervisor type of the image.
@@ -151,6 +153,8 @@ type GetAmiResult struct {
 	Owners  []string `pulumi:"owners"`
 	// The value is Windows for `Windows` AMIs; otherwise blank.
 	Platform string `pulumi:"platform"`
+	// The platform details associated with the billing code of the AMI.
+	PlatformDetails string `pulumi:"platformDetails"`
 	// Any product codes associated with the AMI.
 	// * `product_codes.#.product_code_id` - The product code.
 	// * `product_codes.#.product_code_type` - The type of product code.
@@ -180,6 +184,8 @@ type GetAmiResult struct {
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	UsageOperation string `pulumi:"usageOperation"`
 	// The type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
 	VirtualizationType string `pulumi:"virtualizationType"`

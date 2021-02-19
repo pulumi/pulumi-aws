@@ -766,7 +766,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> pulumi.Output[Optional[str]]:
+    def spot_price(self) -> pulumi.Output[str]:
         """
         The maximum price to request on the spot market.
         """

@@ -19,12 +19,14 @@ class EventTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
+                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']]] = None,
                  ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
                  input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
                  kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
+                 retry_policy: Optional[pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  rule: Optional[pulumi.Input[str]] = None,
                  run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
@@ -214,12 +216,14 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
@@ -247,12 +251,14 @@ class EventTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'arn'")
             __props__['arn'] = arn
             __props__['batch_target'] = batch_target
+            __props__['dead_letter_config'] = dead_letter_config
             __props__['ecs_target'] = ecs_target
             __props__['event_bus_name'] = event_bus_name
             __props__['input'] = input
             __props__['input_path'] = input_path
             __props__['input_transformer'] = input_transformer
             __props__['kinesis_target'] = kinesis_target
+            __props__['retry_policy'] = retry_policy
             __props__['role_arn'] = role_arn
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
@@ -272,12 +278,14 @@ class EventTarget(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
+            dead_letter_config: Optional[pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']]] = None,
             ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
             event_bus_name: Optional[pulumi.Input[str]] = None,
             input: Optional[pulumi.Input[str]] = None,
             input_path: Optional[pulumi.Input[str]] = None,
             input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
             kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
+            retry_policy: Optional[pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             rule: Optional[pulumi.Input[str]] = None,
             run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
@@ -292,12 +300,14 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
@@ -310,12 +320,14 @@ class EventTarget(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["batch_target"] = batch_target
+        __props__["dead_letter_config"] = dead_letter_config
         __props__["ecs_target"] = ecs_target
         __props__["event_bus_name"] = event_bus_name
         __props__["input"] = input
         __props__["input_path"] = input_path
         __props__["input_transformer"] = input_transformer
         __props__["kinesis_target"] = kinesis_target
+        __props__["retry_policy"] = retry_policy
         __props__["role_arn"] = role_arn
         __props__["rule"] = rule
         __props__["run_command_targets"] = run_command_targets
@@ -338,6 +350,14 @@ class EventTarget(pulumi.CustomResource):
         Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "batch_target")
+
+    @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> pulumi.Output[Optional['outputs.EventTargetDeadLetterConfig']]:
+        """
+        Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "dead_letter_config")
 
     @property
     @pulumi.getter(name="ecsTarget")
@@ -386,6 +406,14 @@ class EventTarget(pulumi.CustomResource):
         Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "kinesis_target")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> pulumi.Output[Optional['outputs.EventTargetRetryPolicy']]:
+        """
+        Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "retry_policy")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -21,7 +21,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, creation_date=None, description=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, creation_date=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -37,6 +37,9 @@ class GetAmiResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if ena_support and not isinstance(ena_support, bool):
+            raise TypeError("Expected argument 'ena_support' to be a bool")
+        pulumi.set(__self__, "ena_support", ena_support)
         if executable_users and not isinstance(executable_users, list):
             raise TypeError("Expected argument 'executable_users' to be a list")
         pulumi.set(__self__, "executable_users", executable_users)
@@ -82,6 +85,9 @@ class GetAmiResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if platform_details and not isinstance(platform_details, str):
+            raise TypeError("Expected argument 'platform_details' to be a str")
+        pulumi.set(__self__, "platform_details", platform_details)
         if product_codes and not isinstance(product_codes, list):
             raise TypeError("Expected argument 'product_codes' to be a list")
         pulumi.set(__self__, "product_codes", product_codes)
@@ -112,6 +118,9 @@ class GetAmiResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if usage_operation and not isinstance(usage_operation, str):
+            raise TypeError("Expected argument 'usage_operation' to be a str")
+        pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type and not isinstance(virtualization_type, str):
             raise TypeError("Expected argument 'virtualization_type' to be a str")
         pulumi.set(__self__, "virtualization_type", virtualization_type)
@@ -171,6 +180,14 @@ class GetAmiResult:
         creation.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enaSupport")
+    def ena_support(self) -> bool:
+        """
+        Specifies whether enhanced networking with ENA is enabled.
+        """
+        return pulumi.get(self, "ena_support")
 
     @property
     @pulumi.getter(name="executableUsers")
@@ -280,6 +297,14 @@ class GetAmiResult:
         return pulumi.get(self, "platform")
 
     @property
+    @pulumi.getter(name="platformDetails")
+    def platform_details(self) -> str:
+        """
+        The platform details associated with the billing code of the AMI.
+        """
+        return pulumi.get(self, "platform_details")
+
+    @property
     @pulumi.getter(name="productCodes")
     def product_codes(self) -> Sequence['outputs.GetAmiProductCodeResult']:
         """
@@ -369,6 +394,14 @@ class GetAmiResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="usageOperation")
+    def usage_operation(self) -> str:
+        """
+        The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        """
+        return pulumi.get(self, "usage_operation")
+
+    @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> str:
         """
@@ -389,6 +422,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             block_device_mappings=self.block_device_mappings,
             creation_date=self.creation_date,
             description=self.description,
+            ena_support=self.ena_support,
             executable_users=self.executable_users,
             filters=self.filters,
             hypervisor=self.hypervisor,
@@ -404,6 +438,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             owner_id=self.owner_id,
             owners=self.owners,
             platform=self.platform,
+            platform_details=self.platform_details,
             product_codes=self.product_codes,
             public=self.public,
             ramdisk_id=self.ramdisk_id,
@@ -414,6 +449,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             state=self.state,
             state_reason=self.state_reason,
             tags=self.tags,
+            usage_operation=self.usage_operation,
             virtualization_type=self.virtualization_type)
 
 
@@ -491,6 +527,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         block_device_mappings=__ret__.block_device_mappings,
         creation_date=__ret__.creation_date,
         description=__ret__.description,
+        ena_support=__ret__.ena_support,
         executable_users=__ret__.executable_users,
         filters=__ret__.filters,
         hypervisor=__ret__.hypervisor,
@@ -506,6 +543,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         owner_id=__ret__.owner_id,
         owners=__ret__.owners,
         platform=__ret__.platform,
+        platform_details=__ret__.platform_details,
         product_codes=__ret__.product_codes,
         public=__ret__.public,
         ramdisk_id=__ret__.ramdisk_id,
@@ -516,4 +554,5 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         state=__ret__.state,
         state_reason=__ret__.state_reason,
         tags=__ret__.tags,
+        usage_operation=__ret__.usage_operation,
         virtualization_type=__ret__.virtualization_type)

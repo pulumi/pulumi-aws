@@ -50,8 +50,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOrderedCacheBehaviorForwardedValues? ForwardedValues;
         /// <summary>
-        /// A config block that triggers a lambda function with
-        /// specific actions. Defined below, maximum 4.
+        /// A config block that triggers a lambda
+        /// function with specific actions (maximum 4).
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation> LambdaFunctionAssociations;
         /// <summary>
@@ -68,6 +68,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// whether the object has been updated. Defaults to 0 seconds.
         /// </summary>
         public readonly int? MinTtl;
+        /// <summary>
+        /// The unique identifier of the origin request policy
+        /// that is attached to the behavior.
+        /// </summary>
         public readonly string? OriginRequestPolicyId;
         /// <summary>
         /// The pattern (for example, `images/*.jpg)` that

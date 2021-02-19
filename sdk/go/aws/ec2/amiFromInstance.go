@@ -68,15 +68,22 @@ type AmiFromInstance struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
+	Hypervisor            pulumi.StringOutput                            `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
+	ImageLocation   pulumi.StringOutput `pulumi:"imageLocation"`
+	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
+	ImageType       pulumi.StringOutput `pulumi:"imageType"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringOutput `pulumi:"kernelId"`
 	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput `pulumi:"name"`
+	OwnerId         pulumi.StringOutput `pulumi:"ownerId"`
+	Platform        pulumi.StringOutput `pulumi:"platform"`
+	PlatformDetails pulumi.StringOutput `pulumi:"platformDetails"`
+	Public          pulumi.BoolOutput   `pulumi:"public"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
@@ -94,7 +101,8 @@ type AmiFromInstance struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	UsageOperation pulumi.StringOutput    `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -147,15 +155,22 @@ type amiFromInstanceState struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiFromInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	Hypervisor            *string                               `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation *string `pulumi:"imageLocation"`
+	ImageLocation   *string `pulumi:"imageLocation"`
+	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
+	ImageType       *string `pulumi:"imageType"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           *string `pulumi:"kernelId"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
-	Name *string `pulumi:"name"`
+	Name            *string `pulumi:"name"`
+	OwnerId         *string `pulumi:"ownerId"`
+	Platform        *string `pulumi:"platform"`
+	PlatformDetails *string `pulumi:"platformDetails"`
+	Public          *bool   `pulumi:"public"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
@@ -173,7 +188,8 @@ type amiFromInstanceState struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags           map[string]string `pulumi:"tags"`
+	UsageOperation *string           `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -195,15 +211,22 @@ type AmiFromInstanceState struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayInput
+	Hypervisor            pulumi.StringPtrInput
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation pulumi.StringPtrInput
+	ImageLocation   pulumi.StringPtrInput
+	ImageOwnerAlias pulumi.StringPtrInput
+	ImageType       pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	OwnerId         pulumi.StringPtrInput
+	Platform        pulumi.StringPtrInput
+	PlatformDetails pulumi.StringPtrInput
+	Public          pulumi.BoolPtrInput
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
@@ -221,7 +244,8 @@ type AmiFromInstanceState struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
+	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.

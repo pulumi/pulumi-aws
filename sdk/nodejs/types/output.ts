@@ -1000,7 +1000,7 @@ export namespace alb {
          */
         interval?: number;
         /**
-         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
          */
         matcher: string;
         /**
@@ -2104,7 +2104,7 @@ export namespace applicationloadbalancing {
          */
         interval?: number;
         /**
-         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
          */
         matcher: string;
         /**
@@ -4891,8 +4891,8 @@ export namespace cloudfront {
          */
         forwardedValues: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
         /**
-         * A config block that triggers a lambda function with
-         * specific actions. Defined below, maximum 4.
+         * A config block that triggers a lambda
+         * function with specific actions (maximum 4).
          */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionDefaultCacheBehaviorLambdaFunctionAssociation[];
         /**
@@ -4909,6 +4909,10 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: number;
+        /**
+         * The unique identifier of the origin request policy
+         * that is attached to the behavior.
+         */
         originRequestPolicyId?: string;
         /**
          * The ARN of the real-time log configuration
@@ -5056,8 +5060,8 @@ export namespace cloudfront {
          */
         forwardedValues: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
         /**
-         * A config block that triggers a lambda function with
-         * specific actions. Defined below, maximum 4.
+         * A config block that triggers a lambda
+         * function with specific actions (maximum 4).
          */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionOrderedCacheBehaviorLambdaFunctionAssociation[];
         /**
@@ -5074,6 +5078,10 @@ export namespace cloudfront {
          * whether the object has been updated. Defaults to 0 seconds.
          */
         minTtl?: number;
+        /**
+         * The unique identifier of the origin request policy
+         * that is attached to the behavior.
+         */
         originRequestPolicyId?: string;
         /**
          * The pattern (for example, `images/*.jpg)` that
@@ -5572,6 +5580,13 @@ export namespace cloudwatch {
         jobName: string;
     }
 
+    export interface EventTargetDeadLetterConfig {
+        /**
+         * - ARN of the SQS queue specified as the target for the dead-letter queue.
+         */
+        arn?: string;
+    }
+
     export interface EventTargetEcsTarget {
         /**
          * Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -5630,6 +5645,17 @@ export namespace cloudwatch {
          * The JSON path to be extracted from the event and used as the partition key.
          */
         partitionKeyPath?: string;
+    }
+
+    export interface EventTargetRetryPolicy {
+        /**
+         * The age in seconds to continue to make retry attempts.
+         */
+        maximumEventAgeInSeconds?: number;
+        /**
+         * maximum number of retry attempts to make before the request fails
+         */
+        maximumRetryAttempts?: number;
     }
 
     export interface EventTargetRunCommandTarget {
@@ -6674,15 +6700,19 @@ export namespace cognito {
 
     export interface UserPoolClientAnalyticsConfiguration {
         /**
+         * The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         */
+        applicationArn?: string;
+        /**
          * The application ID for an Amazon Pinpoint application.
          */
-        applicationId: string;
+        applicationId?: string;
         /**
-         * An ID for the Analytics Configuration.
+         * An ID for the Analytics Configuration. Conflicts with `applicationArn`.
          */
-        externalId: string;
+        externalId?: string;
         /**
-         * The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+         * The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
          */
         roleArn: string;
         /**
@@ -8749,83 +8779,85 @@ export namespace ec2 {
 
     export interface GetRouteTableAssociation {
         /**
-         * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+         * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
          */
         gatewayId: string;
         /**
-         * If the Association due to the Main Route Table.
+         * Whether the association is due to the main route table.
          */
         main: boolean;
         /**
-         * The Association ID.
+         * Association ID.
          */
         routeTableAssociationId: string;
         /**
-         * The id of the specific Route Table to retrieve.
+         * ID of the specific Route Table to retrieve.
          */
         routeTableId: string;
         /**
-         * The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+         * ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
          */
         subnetId: string;
     }
 
     export interface GetRouteTableFilter {
         /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A Route Table will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetRouteTableRoute {
         /**
-         * The CIDR block of the route.
+         * ID of the Carrier Gateway.
+         */
+        carrierGatewayId: string;
+        /**
+         * CIDR block of the route.
          */
         cidrBlock: string;
         /**
-         * The ID of the Egress Only Internet Gateway.
+         * ID of the Egress Only Internet Gateway.
          */
         egressOnlyGatewayId: string;
         /**
-         * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+         * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
          */
         gatewayId: string;
         /**
-         * The EC2 instance ID.
+         * EC2 instance ID.
          */
         instanceId: string;
         /**
-         * The IPv6 CIDR block of the route.
+         * IPv6 CIDR block of the route.
          */
         ipv6CidrBlock: string;
         /**
-         * The Local Gateway ID.
+         * Local Gateway ID.
          */
         localGatewayId: string;
         /**
-         * The NAT Gateway ID.
+         * NAT Gateway ID.
          */
         natGatewayId: string;
         /**
-         * The ID of the elastic network interface (eni) to use.
+         * ID of the elastic network interface (eni) to use.
          */
         networkInterfaceId: string;
         /**
-         * The EC2 Transit Gateway ID.
+         * EC2 Transit Gateway ID.
          */
         transitGatewayId: string;
         /**
-         * The VPC Endpoint ID.
+         * VPC Endpoint ID.
          */
         vpcEndpointId: string;
         /**
-         * The VPC Peering ID.
+         * VPC Peering ID.
          */
         vpcPeeringConnectionId: string;
     }
@@ -8874,14 +8906,11 @@ export namespace ec2 {
 
     export interface GetSubnetFilter {
         /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         * For example, if matching against tag `Name`, use:
+         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A subnet will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -10381,6 +10410,10 @@ export namespace ecs {
 
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
         /**
+         * The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+         */
+        instanceWarmupPeriod: number;
+        /**
          * The maximum step adjustment size. A number between 1 and 10,000.
          */
         maximumScalingStepSize: number;
@@ -11793,7 +11826,7 @@ export namespace elasticloadbalancingv2 {
          */
         interval?: number;
         /**
-         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
          */
         matcher: string;
         /**
@@ -14565,7 +14598,7 @@ export namespace imagebuilder {
          */
         pipelineExecutionStartCondition?: string;
         /**
-         * Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * *)` is evaluated every day at midnight UTC.
+         * Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
          */
         scheduleExpression: string;
     }
@@ -17914,7 +17947,7 @@ export namespace lb {
          */
         interval?: number;
         /**
-         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
          */
         matcher: string;
         /**
@@ -20805,6 +20838,29 @@ export namespace s3 {
          */
         frequency: string;
     }
+
+    export interface ObjectCopyGrant {
+        /**
+         * Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+         */
+        email?: string;
+        /**
+         * The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+         */
+        id?: string;
+        /**
+         * List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+         */
+        permissions: string[];
+        /**
+         * - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+         */
+        type: string;
+        /**
+         * URI of the grantee group. Used only when `type` is `Group`.
+         */
+        uri?: string;
+    }
 }
 
 export namespace s3control {
@@ -21634,7 +21690,7 @@ export namespace sfn {
          */
         level?: string;
         /**
-         * Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+         * Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
          */
         logDestination?: string;
     }

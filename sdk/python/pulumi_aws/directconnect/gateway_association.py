@@ -20,6 +20,7 @@ class GatewayAssociation(pulumi.CustomResource):
                  associated_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
                  proposal_id: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -121,6 +122,10 @@ class GatewayAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__['dx_gateway_id'] = dx_gateway_id
             __props__['proposal_id'] = proposal_id
+            if vpn_gateway_id is not None and not opts.urn:
+                warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+                pulumi.log.warn("vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead")
+            __props__['vpn_gateway_id'] = vpn_gateway_id
             __props__['associated_gateway_type'] = None
             __props__['dx_gateway_association_id'] = None
             __props__['dx_gateway_owner_account_id'] = None
@@ -141,7 +146,8 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_association_id: Optional[pulumi.Input[str]] = None,
             dx_gateway_id: Optional[pulumi.Input[str]] = None,
             dx_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
-            proposal_id: Optional[pulumi.Input[str]] = None) -> 'GatewayAssociation':
+            proposal_id: Optional[pulumi.Input[str]] = None,
+            vpn_gateway_id: Optional[pulumi.Input[str]] = None) -> 'GatewayAssociation':
         """
         Get an existing GatewayAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -173,6 +179,7 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__["dx_gateway_id"] = dx_gateway_id
         __props__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
         __props__["proposal_id"] = proposal_id
+        __props__["vpn_gateway_id"] = vpn_gateway_id
         return GatewayAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -241,6 +248,11 @@ class GatewayAssociation(pulumi.CustomResource):
         Used for cross-account Direct Connect gateway associations.
         """
         return pulumi.get(self, "proposal_id")
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "vpn_gateway_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

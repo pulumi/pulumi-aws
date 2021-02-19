@@ -52,6 +52,7 @@ __all__ = [
     'InventoryDestinationBucketEncryptionSseS3Args',
     'InventoryFilterArgs',
     'InventoryScheduleArgs',
+    'ObjectCopyGrantArgs',
 ]
 
 @pulumi.input_type
@@ -2072,5 +2073,90 @@ class InventoryScheduleArgs:
     @frequency.setter
     def frequency(self, value: pulumi.Input[str]):
         pulumi.set(self, "frequency", value)
+
+
+@pulumi.input_type
+class ObjectCopyGrantArgs:
+    def __init__(__self__, *,
+                 permissions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str],
+                 email: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        :param pulumi.Input[str] type: - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        :param pulumi.Input[str] email: Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+        :param pulumi.Input[str] id: The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        :param pulumi.Input[str] uri: URI of the grantee group. Used only when `type` is `Group`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the grantee group. Used only when `type` is `Group`.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 

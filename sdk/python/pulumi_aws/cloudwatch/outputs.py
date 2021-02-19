@@ -12,10 +12,12 @@ from . import outputs
 __all__ = [
     'EventPermissionCondition',
     'EventTargetBatchTarget',
+    'EventTargetDeadLetterConfig',
     'EventTargetEcsTarget',
     'EventTargetEcsTargetNetworkConfiguration',
     'EventTargetInputTransformer',
     'EventTargetKinesisTarget',
+    'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
     'EventTargetSqsTarget',
     'LogMetricFilterMetricTransformation',
@@ -117,6 +119,28 @@ class EventTargetBatchTarget(dict):
         The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
         """
         return pulumi.get(self, "job_attempts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventTargetDeadLetterConfig(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None):
+        """
+        :param str arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        return pulumi.get(self, "arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -300,6 +324,40 @@ class EventTargetKinesisTarget(dict):
         The JSON path to be extracted from the event and used as the partition key.
         """
         return pulumi.get(self, "partition_key_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventTargetRetryPolicy(dict):
+    def __init__(__self__, *,
+                 maximum_event_age_in_seconds: Optional[int] = None,
+                 maximum_retry_attempts: Optional[int] = None):
+        """
+        :param int maximum_event_age_in_seconds: The age in seconds to continue to make retry attempts.
+        :param int maximum_retry_attempts: maximum number of retry attempts to make before the request fails
+        """
+        if maximum_event_age_in_seconds is not None:
+            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+        if maximum_retry_attempts is not None:
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+
+    @property
+    @pulumi.getter(name="maximumEventAgeInSeconds")
+    def maximum_event_age_in_seconds(self) -> Optional[int]:
+        """
+        The age in seconds to continue to make retry attempts.
+        """
+        return pulumi.get(self, "maximum_event_age_in_seconds")
+
+    @property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> Optional[int]:
+        """
+        maximum number of retry attempts to make before the request fails
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

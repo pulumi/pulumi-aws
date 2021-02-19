@@ -51,14 +51,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := rds.NewInstance(ctx, "_default", &rds.InstanceArgs{
-// 			AllocatedStorage:   pulumi.Int(20),
+// 			AllocatedStorage:   pulumi.Int(10),
 // 			Engine:             pulumi.String("mysql"),
 // 			EngineVersion:      pulumi.String("5.7"),
-// 			InstanceClass:      pulumi.String("db.t2.micro"),
+// 			InstanceClass:      pulumi.String("db.t3.micro"),
 // 			Name:               pulumi.String("mydb"),
 // 			ParameterGroupName: pulumi.String("default.mysql5.7"),
 // 			Password:           pulumi.String("foobarbaz"),
-// 			StorageType:        pulumi.String("gp2"),
+// 			SkipFinalSnapshot:  pulumi.Bool(true),
 // 			Username:           pulumi.String("foo"),
 // 		})
 // 		if err != nil {

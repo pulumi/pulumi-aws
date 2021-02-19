@@ -18,6 +18,7 @@ from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *
 from .inventory import *
+from .object_copy import *
 from ._inputs import *
 from . import outputs
 
@@ -55,6 +56,8 @@ def _register_module():
                 return BucketPublicAccessBlock(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:s3/inventory:Inventory":
                 return Inventory(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:s3/objectCopy:ObjectCopy":
+                return ObjectCopy(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -71,5 +74,6 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "s3/bucketPolicy", _module_instance)
     pulumi.runtime.register_resource_module("aws", "s3/bucketPublicAccessBlock", _module_instance)
     pulumi.runtime.register_resource_module("aws", "s3/inventory", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "s3/objectCopy", _module_instance)
 
 _register_module()

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///             InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
     ///             Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
     ///             {
-    ///                 ScheduleExpression = "cron(0 0 * * *)",
+    ///                 ScheduleExpression = "cron(0 0 * * ? *)",
     ///             },
     ///         });
     ///     }

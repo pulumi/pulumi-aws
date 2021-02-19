@@ -61,14 +61,11 @@ export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.In
  */
 export interface GetSecurityGroupsArgs {
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-security-groups in the AWS CLI reference][1].
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
      */
     readonly filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match for
-     * desired security groups.
+     * A map of tags, each pair of which must exactly match for desired security groups.
      */
     readonly tags?: {[key: string]: string};
 }
@@ -77,6 +74,10 @@ export interface GetSecurityGroupsArgs {
  * A collection of values returned by getSecurityGroups.
  */
 export interface GetSecurityGroupsResult {
+    /**
+     * ARNs of the matched security groups.
+     */
+    readonly arns: string[];
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -88,8 +89,7 @@ export interface GetSecurityGroupsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
     /**
-     * The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
-     * unless the `vpc-id` filter is also used.
+     * The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
 }

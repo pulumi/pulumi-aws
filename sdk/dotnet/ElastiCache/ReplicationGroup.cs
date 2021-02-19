@@ -256,7 +256,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the node group.
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the node group.
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -755,7 +755,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the node group.
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

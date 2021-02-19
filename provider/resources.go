@@ -699,6 +699,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_stream":          {Tok: awsResource(cloudwatchMod, "LogStream")},
 			"aws_cloudwatch_event_bus":           {Tok: awsResource(cloudwatchMod, "EventBus")},
 			"aws_cloudwatch_composite_alarm":     {Tok: awsResource(cloudwatchMod, "CompositeAlarm")},
+			"aws_cloudwatch_event_archive":       {Tok: awsResource(cloudwatchMod, "EventArchive")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -986,6 +987,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_elasticache_global_replication_group": {Tok: awsResource(elasticacheMod, "GlobalReplicationGroup")},
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsResource(ec2Mod, "Ami"),
@@ -2025,6 +2027,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_member":                     {Tok: awsResource(securityhubMod, "Member")},
 			"aws_securityhub_action_target":              {Tok: awsResource(securityhubMod, "ActionTarget")},
 			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
+			"aws_securityhub_invite_accepter":            {Tok: awsResource(securityhubMod, "InviteAccepter")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -2129,6 +2132,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_access_point":              {Tok: awsResource(s3Mod, "AccessPoint")},
 			"aws_s3_bucket_ownership_controls": {Tok: awsResource(s3Mod, "BucketOwnershipControls")},
+			"aws_s3_object_copy":               {Tok: awsResource(s3Mod, "ObjectCopy")},
 			//S3 Control
 			"aws_s3control_bucket": {
 				Tok: awsResource(s3ControlMod, "Bucket"),

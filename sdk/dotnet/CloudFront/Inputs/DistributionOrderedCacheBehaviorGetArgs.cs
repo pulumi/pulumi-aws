@@ -78,8 +78,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<Inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs>? _lambdaFunctionAssociations;
 
         /// <summary>
-        /// A config block that triggers a lambda function with
-        /// specific actions. Defined below, maximum 4.
+        /// A config block that triggers a lambda
+        /// function with specific actions (maximum 4).
         /// </summary>
         public InputList<Inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs> LambdaFunctionAssociations
         {
@@ -105,6 +105,10 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the origin request policy
+        /// that is attached to the behavior.
+        /// </summary>
         [Input("originRequestPolicyId")]
         public Input<string>? OriginRequestPolicyId { get; set; }
 

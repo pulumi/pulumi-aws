@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./cluster";
 export * from "./getCluster";
 export * from "./getReplicationGroup";
+export * from "./globalReplicationGroup";
 export * from "./parameterGroup";
 export * from "./replicationGroup";
 export * from "./securityGroup";
@@ -15,6 +16,7 @@ export * from "./subnetGroup";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
+import { GlobalReplicationGroup } from "./globalReplicationGroup";
 import { ParameterGroup } from "./parameterGroup";
 import { ReplicationGroup } from "./replicationGroup";
 import { SecurityGroup } from "./securityGroup";
@@ -26,6 +28,8 @@ const _module = {
         switch (type) {
             case "aws:elasticache/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup":
+                return new GlobalReplicationGroup(name, <any>undefined, { urn })
             case "aws:elasticache/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:elasticache/replicationGroup:ReplicationGroup":
@@ -40,6 +44,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "elasticache/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticache/globalReplicationGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/replicationGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/securityGroup", _module)

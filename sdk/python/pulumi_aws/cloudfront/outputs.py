@@ -356,8 +356,8 @@ class DistributionDefaultCacheBehavior(dict):
         :param str field_level_encryption_id: Field level encryption configuration ID
         :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with
-               specific actions. Defined below, maximum 4.
+        :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda
+               function with specific actions (maximum 4).
         :param int max_ttl: The maximum amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
                to your origin to determine whether the object has been updated. Only
@@ -366,6 +366,8 @@ class DistributionDefaultCacheBehavior(dict):
         :param int min_ttl: The minimum amount of time that you want objects to
                stay in CloudFront caches before CloudFront queries your origin to see
                whether the object has been updated. Defaults to 0 seconds.
+        :param str origin_request_policy_id: The unique identifier of the origin request policy
+               that is attached to the behavior.
         :param str realtime_log_config_arn: The ARN of the real-time log configuration
                that is attached to this cache behavior.
         :param bool smooth_streaming: Indicates whether you want to distribute
@@ -492,8 +494,8 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation']]:
         """
-        A config block that triggers a lambda function with
-        specific actions. Defined below, maximum 4.
+        A config block that triggers a lambda
+        function with specific actions (maximum 4).
         """
         return pulumi.get(self, "lambda_function_associations")
 
@@ -522,6 +524,10 @@ class DistributionDefaultCacheBehavior(dict):
     @property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the origin request policy
+        that is attached to the behavior.
+        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @property
@@ -813,8 +819,8 @@ class DistributionOrderedCacheBehavior(dict):
         :param str field_level_encryption_id: Field level encryption configuration ID
         :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with
-               specific actions. Defined below, maximum 4.
+        :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda
+               function with specific actions (maximum 4).
         :param int max_ttl: The maximum amount of time (in seconds) that an
                object is in a CloudFront cache before CloudFront forwards another request
                to your origin to determine whether the object has been updated. Only
@@ -823,6 +829,8 @@ class DistributionOrderedCacheBehavior(dict):
         :param int min_ttl: The minimum amount of time that you want objects to
                stay in CloudFront caches before CloudFront queries your origin to see
                whether the object has been updated. Defaults to 0 seconds.
+        :param str origin_request_policy_id: The unique identifier of the origin request policy
+               that is attached to the behavior.
         :param str realtime_log_config_arn: The ARN of the real-time log configuration
                that is attached to this cache behavior.
         :param bool smooth_streaming: Indicates whether you want to distribute
@@ -959,8 +967,8 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation']]:
         """
-        A config block that triggers a lambda function with
-        specific actions. Defined below, maximum 4.
+        A config block that triggers a lambda
+        function with specific actions (maximum 4).
         """
         return pulumi.get(self, "lambda_function_associations")
 
@@ -989,6 +997,10 @@ class DistributionOrderedCacheBehavior(dict):
     @property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the origin request policy
+        that is attached to the behavior.
+        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @property

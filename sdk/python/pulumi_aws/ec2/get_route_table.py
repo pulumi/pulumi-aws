@@ -21,7 +21,10 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, associations=None, filters=None, gateway_id=None, id=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, associations=None, filters=None, gateway_id=None, id=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         pulumi.set(__self__, "associations", associations)
@@ -55,7 +58,18 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the route table.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
     def associations(self) -> Sequence['outputs.GetRouteTableAssociationResult']:
+        """
+        List of associations with attributes detailed below.
+        """
         return pulumi.get(self, "associations")
 
     @property
@@ -67,7 +81,7 @@ class GetRouteTableResult:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> str:
         """
-        The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+        Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -83,7 +97,7 @@ class GetRouteTableResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the route table
+        ID of the AWS account that owns the route table.
         """
         return pulumi.get(self, "owner_id")
 
@@ -91,20 +105,23 @@ class GetRouteTableResult:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> str:
         """
-        The Route Table ID.
+        Route Table ID.
         """
         return pulumi.get(self, "route_table_id")
 
     @property
     @pulumi.getter
     def routes(self) -> Sequence['outputs.GetRouteTableRouteResult']:
+        """
+        List of routes with attributes detailed below.
+        """
         return pulumi.get(self, "routes")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The Subnet ID. Only set when associated with a Subnet.
+        Subnet ID. Only set when associated with a subnet.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -125,6 +142,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
         if False:
             yield self
         return GetRouteTableResult(
+            arn=self.arn,
             associations=self.associations,
             filters=self.filters,
             gateway_id=self.gateway_id,
@@ -147,14 +165,11 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     """
     `ec2.RouteTable` provides details about a specific Route Table.
 
-    This resource can prove useful when a module accepts a Subnet id as
-    an input variable and needs to, for example, add a route in
-    the Route Table.
+    This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
 
     ## Example Usage
 
-    The following example shows how one might accept a Route Table id as a variable
-    and use this data source to obtain the data necessary to create a route.
+    The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
 
     ```python
     import pulumi
@@ -170,13 +185,12 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Custom filter block as described below.
-    :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-    :param str route_table_id: The id of the specific Route Table to retrieve.
-    :param str subnet_id: The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
-           a pair on the desired Route Table.
-    :param str vpc_id: The id of the VPC that the desired Route Table belongs to.
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
+    :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param str route_table_id: ID of the specific Route Table to retrieve.
+    :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
+    :param str vpc_id: ID of the VPC that the desired Route Table belongs to.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -192,6 +206,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
+        arn=__ret__.arn,
         associations=__ret__.associations,
         filters=__ret__.filters,
         gateway_id=__ret__.gateway_id,

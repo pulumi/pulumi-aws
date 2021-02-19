@@ -178,6 +178,9 @@ namespace Pulumi.Aws.DirectConnect
         [Output("proposalId")]
         public Output<string?> ProposalId { get; private set; } = null!;
 
+        [Output("vpnGatewayId")]
+        public Output<string?> VpnGatewayId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -263,6 +266,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
 
+        [Input("vpnGatewayId")]
+        public Input<string>? VpnGatewayId { get; set; }
+
         public GatewayAssociationArgs()
         {
         }
@@ -326,6 +332,9 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
+
+        [Input("vpnGatewayId")]
+        public Input<string>? VpnGatewayId { get; set; }
 
         public GatewayAssociationState()
         {

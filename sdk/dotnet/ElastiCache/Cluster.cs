@@ -188,9 +188,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
-        /// supported node types. For Memcached, changing this value will re-create the resource.
+        /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -392,9 +390,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
-        /// supported node types. For Memcached, changing this value will re-create the resource.
+        /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -617,9 +613,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes. See
-        /// [Available Cache Node Types](https://aws.amazon.com/elasticache/pricing/#Available_node_types) for
-        /// supported node types. For Memcached, changing this value will re-create the resource.
+        /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

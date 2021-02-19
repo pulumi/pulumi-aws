@@ -135,6 +135,10 @@ export interface GetAmiResult {
      * creation.
      */
     readonly description: string;
+    /**
+     * Specifies whether enhanced networking with ENA is enabled.
+     */
+    readonly enaSupport: boolean;
     readonly executableUsers?: string[];
     readonly filters?: outputs.GetAmiFilter[];
     /**
@@ -182,6 +186,10 @@ export interface GetAmiResult {
      * The value is Windows for `Windows` AMIs; otherwise blank.
      */
     readonly platform: string;
+    /**
+     * The platform details associated with the billing code of the AMI.
+     */
+    readonly platformDetails: string;
     /**
      * Any product codes associated with the AMI.
      * * `product_codes.#.product_code_id` - The product code.
@@ -231,6 +239,10 @@ export interface GetAmiResult {
      * * `tags.#.value` - The value of the tag.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     */
+    readonly usageOperation: string;
     /**
      * The type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).

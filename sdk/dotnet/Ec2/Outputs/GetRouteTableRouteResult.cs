@@ -14,52 +14,58 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetRouteTableRouteResult
     {
         /// <summary>
-        /// The CIDR block of the route.
+        /// ID of the Carrier Gateway.
+        /// </summary>
+        public readonly string CarrierGatewayId;
+        /// <summary>
+        /// CIDR block of the route.
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
-        /// The ID of the Egress Only Internet Gateway.
+        /// ID of the Egress Only Internet Gateway.
         /// </summary>
         public readonly string EgressOnlyGatewayId;
         /// <summary>
-        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        /// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
         public readonly string GatewayId;
         /// <summary>
-        /// The EC2 instance ID.
+        /// EC2 instance ID.
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
-        /// The IPv6 CIDR block of the route.
+        /// IPv6 CIDR block of the route.
         /// </summary>
         public readonly string Ipv6CidrBlock;
         /// <summary>
-        /// The Local Gateway ID.
+        /// Local Gateway ID.
         /// </summary>
         public readonly string LocalGatewayId;
         /// <summary>
-        /// The NAT Gateway ID.
+        /// NAT Gateway ID.
         /// </summary>
         public readonly string NatGatewayId;
         /// <summary>
-        /// The ID of the elastic network interface (eni) to use.
+        /// ID of the elastic network interface (eni) to use.
         /// </summary>
         public readonly string NetworkInterfaceId;
         /// <summary>
-        /// The EC2 Transit Gateway ID.
+        /// EC2 Transit Gateway ID.
         /// </summary>
         public readonly string TransitGatewayId;
         /// <summary>
-        /// The VPC Endpoint ID.
+        /// VPC Endpoint ID.
         /// </summary>
         public readonly string VpcEndpointId;
         /// <summary>
-        /// The VPC Peering ID.
+        /// VPC Peering ID.
         /// </summary>
         public readonly string VpcPeeringConnectionId;
 
         [OutputConstructor]
         private GetRouteTableRouteResult(
+            string carrierGatewayId,
+
             string cidrBlock,
 
             string egressOnlyGatewayId,
@@ -82,6 +88,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string vpcPeeringConnectionId)
         {
+            CarrierGatewayId = carrierGatewayId;
             CidrBlock = cidrBlock;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;

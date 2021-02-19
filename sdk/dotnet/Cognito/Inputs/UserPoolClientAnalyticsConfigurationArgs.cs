@@ -13,22 +13,28 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolClientAnalyticsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        /// </summary>
+        [Input("applicationArn")]
+        public Input<string>? ApplicationArn { get; set; }
+
+        /// <summary>
         /// The application ID for an Amazon Pinpoint application.
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// An ID for the Analytics Configuration.
+        /// An ID for the Analytics Configuration. Conflicts with `application_arn`.
         /// </summary>
-        [Input("externalId", required: true)]
-        public Input<string> ExternalId { get; set; } = null!;
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         /// <summary>
         /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.

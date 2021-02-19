@@ -85,7 +85,7 @@ import (
 // 			RoleArn:    pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
 // 			Definition: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",\n", "  \"StartAt\": \"HelloWorld\",\n", "  \"States\": {\n", "    \"HelloWorld\": {\n", "      \"Type\": \"Task\",\n", "      \"Resource\": \"", aws_lambda_function.Lambda.Arn, "\",\n", "      \"End\": true\n", "    }\n", "  }\n", "}\n")),
 // 			LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-// 				LogDestination:       pulumi.Any(aws_cloudwatch_log_group.Log_group_for_sfn.Arn),
+// 				LogDestination:       pulumi.String(fmt.Sprintf("%v%v", aws_cloudwatch_log_group.Log_group_for_sfn.Arn, ":*")),
 // 				IncludeExecutionData: pulumi.Bool(true),
 // 				Level:                pulumi.String("ERROR"),
 // 			},

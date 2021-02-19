@@ -14,17 +14,21 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolClientAnalyticsConfiguration
     {
         /// <summary>
+        /// The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        /// </summary>
+        public readonly string? ApplicationArn;
+        /// <summary>
         /// The application ID for an Amazon Pinpoint application.
         /// </summary>
-        public readonly string ApplicationId;
+        public readonly string? ApplicationId;
         /// <summary>
-        /// An ID for the Analytics Configuration.
+        /// An ID for the Analytics Configuration. Conflicts with `application_arn`.
         /// </summary>
-        public readonly string ExternalId;
+        public readonly string? ExternalId;
         /// <summary>
-        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         /// </summary>
@@ -32,14 +36,17 @@ namespace Pulumi.Aws.Cognito.Outputs
 
         [OutputConstructor]
         private UserPoolClientAnalyticsConfiguration(
-            string applicationId,
+            string? applicationArn,
 
-            string externalId,
+            string? applicationId,
 
-            string roleArn,
+            string? externalId,
+
+            string? roleArn,
 
             bool? userDataShared)
         {
+            ApplicationArn = applicationArn;
             ApplicationId = applicationId;
             ExternalId = externalId;
             RoleArn = roleArn;

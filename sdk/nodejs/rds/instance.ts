@@ -40,14 +40,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const defaultInstance = new aws.rds.Instance("default", {
- *     allocatedStorage: 20,
+ *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: "db.t3.micro",
  *     name: "mydb",
  *     parameterGroupName: "default.mysql5.7",
  *     password: "foobarbaz",
- *     storageType: "gp2",
+ *     skipFinalSnapshot: true,
  *     username: "foo",
  * });
  * ```

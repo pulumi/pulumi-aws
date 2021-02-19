@@ -99,7 +99,7 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\",
             logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=aws_cloudwatch_log_group["log_group_for_sfn"]["arn"],
+                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
                 include_execution_data=True,
                 level="ERROR",
             ))

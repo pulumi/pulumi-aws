@@ -357,25 +357,40 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
 @pulumi.output_type
 class UserPoolClientAnalyticsConfiguration(dict):
     def __init__(__self__, *,
-                 application_id: str,
-                 external_id: str,
-                 role_arn: str,
+                 application_arn: Optional[str] = None,
+                 application_id: Optional[str] = None,
+                 external_id: Optional[str] = None,
+                 role_arn: Optional[str] = None,
                  user_data_shared: Optional[bool] = None):
         """
+        :param str application_arn: The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
         :param str application_id: The application ID for an Amazon Pinpoint application.
-        :param str external_id: An ID for the Analytics Configuration.
-        :param str role_arn: The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        :param str external_id: An ID for the Analytics Configuration. Conflicts with `application_arn`.
+        :param str role_arn: The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         :param bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "role_arn", role_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if user_data_shared is not None:
             pulumi.set(__self__, "user_data_shared", user_data_shared)
 
     @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[str]:
+        """
+        The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> Optional[str]:
         """
         The application ID for an Amazon Pinpoint application.
         """
@@ -383,17 +398,17 @@ class UserPoolClientAnalyticsConfiguration(dict):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> str:
+    def external_id(self) -> Optional[str]:
         """
-        An ID for the Analytics Configuration.
+        An ID for the Analytics Configuration. Conflicts with `application_arn`.
         """
         return pulumi.get(self, "external_id")
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
-        The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         """
         return pulumi.get(self, "role_arn")
 

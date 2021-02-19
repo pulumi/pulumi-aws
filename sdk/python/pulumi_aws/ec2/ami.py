@@ -125,8 +125,16 @@ class Ami(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtualization_type'] = virtualization_type
             __props__['arn'] = None
+            __props__['hypervisor'] = None
+            __props__['image_owner_alias'] = None
+            __props__['image_type'] = None
             __props__['manage_ebs_snapshots'] = None
+            __props__['owner_id'] = None
+            __props__['platform'] = None
+            __props__['platform_details'] = None
+            __props__['public'] = None
             __props__['root_snapshot_id'] = None
+            __props__['usage_operation'] = None
         super(Ami, __self__).__init__(
             'aws:ec2/ami:Ami',
             resource_name,
@@ -143,15 +151,23 @@ class Ami(pulumi.CustomResource):
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]]] = None,
+            hypervisor: Optional[pulumi.Input[str]] = None,
             image_location: Optional[pulumi.Input[str]] = None,
+            image_owner_alias: Optional[pulumi.Input[str]] = None,
+            image_type: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
+            platform: Optional[pulumi.Input[str]] = None,
+            platform_details: Optional[pulumi.Input[str]] = None,
+            public: Optional[pulumi.Input[bool]] = None,
             ramdisk_id: Optional[pulumi.Input[str]] = None,
             root_device_name: Optional[pulumi.Input[str]] = None,
             root_snapshot_id: Optional[pulumi.Input[str]] = None,
             sriov_net_support: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'Ami':
         """
         Get an existing Ami resource's state with the given name, id, and optional extra
@@ -168,11 +184,18 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] hypervisor: The hypervisor type of the image.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] image_owner_alias: The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+        :param pulumi.Input[str] image_type: The type of image.
         :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] name: A region-unique name for the AMI.
+        :param pulumi.Input[str] owner_id: The AWS account ID of the image owner.
+        :param pulumi.Input[str] platform: This value is set to windows for Windows AMIs; otherwise, it is blank.
+        :param pulumi.Input[str] platform_details: The platform details associated with the billing code of the AMI.
+        :param pulumi.Input[bool] public: Indicates whether the image has public launch permissions.
         :param pulumi.Input[str] ramdisk_id: The id of an initrd image (ARI) that will be used when booting the
                created instances.
         :param pulumi.Input[str] root_device_name: The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
@@ -180,6 +203,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] usage_operation: The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -194,15 +218,23 @@ class Ami(pulumi.CustomResource):
         __props__["ebs_block_devices"] = ebs_block_devices
         __props__["ena_support"] = ena_support
         __props__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__["hypervisor"] = hypervisor
         __props__["image_location"] = image_location
+        __props__["image_owner_alias"] = image_owner_alias
+        __props__["image_type"] = image_type
         __props__["kernel_id"] = kernel_id
         __props__["manage_ebs_snapshots"] = manage_ebs_snapshots
         __props__["name"] = name
+        __props__["owner_id"] = owner_id
+        __props__["platform"] = platform
+        __props__["platform_details"] = platform_details
+        __props__["public"] = public
         __props__["ramdisk_id"] = ramdisk_id
         __props__["root_device_name"] = root_device_name
         __props__["root_snapshot_id"] = root_snapshot_id
         __props__["sriov_net_support"] = sriov_net_support
         __props__["tags"] = tags
+        __props__["usage_operation"] = usage_operation
         __props__["virtualization_type"] = virtualization_type
         return Ami(resource_name, opts=opts, __props__=__props__)
 
@@ -257,6 +289,14 @@ class Ami(pulumi.CustomResource):
         return pulumi.get(self, "ephemeral_block_devices")
 
     @property
+    @pulumi.getter
+    def hypervisor(self) -> pulumi.Output[str]:
+        """
+        The hypervisor type of the image.
+        """
+        return pulumi.get(self, "hypervisor")
+
+    @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
         """
@@ -264,6 +304,22 @@ class Ami(pulumi.CustomResource):
         by the `ec2-upload-bundle` command in the EC2 command line tools.
         """
         return pulumi.get(self, "image_location")
+
+    @property
+    @pulumi.getter(name="imageOwnerAlias")
+    def image_owner_alias(self) -> pulumi.Output[str]:
+        """
+        The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+        """
+        return pulumi.get(self, "image_owner_alias")
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> pulumi.Output[str]:
+        """
+        The type of image.
+        """
+        return pulumi.get(self, "image_type")
 
     @property
     @pulumi.getter(name="kernelId")
@@ -286,6 +342,38 @@ class Ami(pulumi.CustomResource):
         A region-unique name for the AMI.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the image owner.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Output[str]:
+        """
+        This value is set to windows for Windows AMIs; otherwise, it is blank.
+        """
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="platformDetails")
+    def platform_details(self) -> pulumi.Output[str]:
+        """
+        The platform details associated with the billing code of the AMI.
+        """
+        return pulumi.get(self, "platform_details")
+
+    @property
+    @pulumi.getter
+    def public(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether the image has public launch permissions.
+        """
+        return pulumi.get(self, "public")
 
     @property
     @pulumi.getter(name="ramdiskId")
@@ -328,6 +416,14 @@ class Ami(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="usageOperation")
+    def usage_operation(self) -> pulumi.Output[str]:
+        """
+        The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        """
+        return pulumi.get(self, "usage_operation")
 
     @property
     @pulumi.getter(name="virtualizationType")

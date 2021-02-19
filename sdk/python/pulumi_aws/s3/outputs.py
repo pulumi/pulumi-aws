@@ -53,6 +53,7 @@ __all__ = [
     'InventoryDestinationBucketEncryptionSseS3',
     'InventoryFilter',
     'InventorySchedule',
+    'ObjectCopyGrant',
 ]
 
 @pulumi.output_type
@@ -1760,6 +1761,74 @@ class InventorySchedule(dict):
         Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         """
         return pulumi.get(self, "frequency")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ObjectCopyGrant(dict):
+    def __init__(__self__, *,
+                 permissions: Sequence[str],
+                 type: str,
+                 email: Optional[str] = None,
+                 id: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        :param Sequence[str] permissions: List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        :param str type: - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        :param str email: Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+        :param str id: The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        :param str uri: URI of the grantee group. Used only when `type` is `Group`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        """
+        List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        URI of the grantee group. Used only when `type` is `Group`.
+        """
+        return pulumi.get(self, "uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

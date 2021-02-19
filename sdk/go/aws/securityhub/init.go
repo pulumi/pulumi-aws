@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:securityhub/actionTarget:ActionTarget":
 		r, err = NewActionTarget(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:securityhub/inviteAccepter:InviteAccepter":
+		r, err = NewInviteAccepter(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:securityhub/member:Member":
 		r, err = NewMember(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securityhub/actionTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securityhub/inviteAccepter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

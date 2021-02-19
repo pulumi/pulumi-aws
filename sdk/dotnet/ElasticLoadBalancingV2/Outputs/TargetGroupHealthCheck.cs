@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+        /// The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
         /// </summary>
         public readonly string? Matcher;
         /// <summary>

@@ -21,7 +21,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetSubnetResult:
         if availability_zone_id and not isinstance(availability_zone_id, str):
             raise TypeError("Expected argument 'availability_zone_id' to be a str")
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if available_ip_address_count and not isinstance(available_ip_address_count, int):
+            raise TypeError("Expected argument 'available_ip_address_count' to be a int")
+        pulumi.set(__self__, "available_ip_address_count", available_ip_address_count)
         if cidr_block and not isinstance(cidr_block, str):
             raise TypeError("Expected argument 'cidr_block' to be a str")
         pulumi.set(__self__, "cidr_block", cidr_block)
@@ -81,13 +84,16 @@ class GetSubnetResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the subnet.
+        ARN of the subnet.
         """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> bool:
+        """
+        Whether an IPv6 address is assigned on creation.
+        """
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
@@ -99,6 +105,14 @@ class GetSubnetResult:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> str:
         return pulumi.get(self, "availability_zone_id")
+
+    @property
+    @pulumi.getter(name="availableIpAddressCount")
+    def available_ip_address_count(self) -> int:
+        """
+        Available IP addresses of the subnet.
+        """
+        return pulumi.get(self, "available_ip_address_count")
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -136,6 +150,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
     def ipv6_cidr_block_association_id(self) -> str:
+        """
+        Association ID of the IPv6 CIDR block.
+        """
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @property
@@ -158,7 +175,7 @@ class GetSubnetResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -166,7 +183,7 @@ class GetSubnetResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the subnet.
+        ID of the AWS account that owns the subnet.
         """
         return pulumi.get(self, "owner_id")
 
@@ -196,6 +213,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             assign_ipv6_address_on_creation=self.assign_ipv6_address_on_creation,
             availability_zone=self.availability_zone,
             availability_zone_id=self.availability_zone_id,
+            available_ip_address_count=self.available_ip_address_count,
             cidr_block=self.cidr_block,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             default_for_az=self.default_for_az,
@@ -226,15 +244,11 @@ def get_subnet(availability_zone: Optional[str] = None,
     """
     `ec2.Subnet` provides details about a specific VPC subnet.
 
-    This resource can prove useful when a module accepts a subnet id as
-    an input variable and needs to, for example, determine the id of the
-    VPC that the subnet belongs to.
+    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
 
     ## Example Usage
 
-    The following example shows how one might accept a subnet id as a variable
-    and use this data source to obtain the data necessary to create a security
-    group that allows connections from hosts in that subnet.
+    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 
     ```python
     import pulumi
@@ -252,21 +266,31 @@ def get_subnet(availability_zone: Optional[str] = None,
             protocol="tcp",
         )])
     ```
+    ### Filter Example
+
+    If you want to match against tag `Name`, use:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+        name="tag:Name",
+        values=["yakdriver"],
+    )])
+    ```
 
 
-    :param str availability_zone: The availability zone where the
-           subnet must reside.
-    :param str availability_zone_id: The ID of the Availability Zone for the subnet.
-    :param str cidr_block: The cidr block of the desired subnet.
-    :param bool default_for_az: Boolean constraint for whether the desired
-           subnet must be the default subnet for its associated availability zone.
-    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific subnet to retrieve.
-    :param str ipv6_cidr_block: The Ipv6 cidr block of the desired subnet
-    :param str state: The state that the desired subnet must have.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
-           a pair on the desired subnet.
-    :param str vpc_id: The id of the VPC that the desired subnet belongs to.
+    :param str availability_zone: Availability zone where the subnet must reside.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet.
+    :param str cidr_block: CIDR block of the desired subnet.
+    :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param str id: ID of the specific subnet to retrieve.
+    :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param str state: State that the desired subnet must have.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
+    :param str vpc_id: ID of the VPC that the desired subnet belongs to.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -290,6 +314,7 @@ def get_subnet(availability_zone: Optional[str] = None,
         assign_ipv6_address_on_creation=__ret__.assign_ipv6_address_on_creation,
         availability_zone=__ret__.availability_zone,
         availability_zone_id=__ret__.availability_zone_id,
+        available_ip_address_count=__ret__.available_ip_address_count,
         cidr_block=__ret__.cidr_block,
         customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         default_for_az=__ret__.default_for_az,

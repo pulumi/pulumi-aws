@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBucketPublicAccessBlock(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:s3/inventory:Inventory":
 		r, err = NewInventory(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:s3/objectCopy:ObjectCopy":
+		r, err = NewObjectCopy(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -108,6 +110,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/inventory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/objectCopy",
 		&module{version},
 	)
 }

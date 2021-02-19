@@ -6065,6 +6065,139 @@ func (o InventorySchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ObjectCopyGrant struct {
+	// Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+	Email *string `pulumi:"email"`
+	// The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+	Id *string `pulumi:"id"`
+	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+	Permissions []string `pulumi:"permissions"`
+	// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	Type string `pulumi:"type"`
+	// URI of the grantee group. Used only when `type` is `Group`.
+	Uri *string `pulumi:"uri"`
+}
+
+// ObjectCopyGrantInput is an input type that accepts ObjectCopyGrantArgs and ObjectCopyGrantOutput values.
+// You can construct a concrete instance of `ObjectCopyGrantInput` via:
+//
+//          ObjectCopyGrantArgs{...}
+type ObjectCopyGrantInput interface {
+	pulumi.Input
+
+	ToObjectCopyGrantOutput() ObjectCopyGrantOutput
+	ToObjectCopyGrantOutputWithContext(context.Context) ObjectCopyGrantOutput
+}
+
+type ObjectCopyGrantArgs struct {
+	// Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// URI of the grantee group. Used only when `type` is `Group`.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ObjectCopyGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyGrant)(nil)).Elem()
+}
+
+func (i ObjectCopyGrantArgs) ToObjectCopyGrantOutput() ObjectCopyGrantOutput {
+	return i.ToObjectCopyGrantOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyGrantArgs) ToObjectCopyGrantOutputWithContext(ctx context.Context) ObjectCopyGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyGrantOutput)
+}
+
+// ObjectCopyGrantArrayInput is an input type that accepts ObjectCopyGrantArray and ObjectCopyGrantArrayOutput values.
+// You can construct a concrete instance of `ObjectCopyGrantArrayInput` via:
+//
+//          ObjectCopyGrantArray{ ObjectCopyGrantArgs{...} }
+type ObjectCopyGrantArrayInput interface {
+	pulumi.Input
+
+	ToObjectCopyGrantArrayOutput() ObjectCopyGrantArrayOutput
+	ToObjectCopyGrantArrayOutputWithContext(context.Context) ObjectCopyGrantArrayOutput
+}
+
+type ObjectCopyGrantArray []ObjectCopyGrantInput
+
+func (ObjectCopyGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectCopyGrant)(nil)).Elem()
+}
+
+func (i ObjectCopyGrantArray) ToObjectCopyGrantArrayOutput() ObjectCopyGrantArrayOutput {
+	return i.ToObjectCopyGrantArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyGrantArray) ToObjectCopyGrantArrayOutputWithContext(ctx context.Context) ObjectCopyGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyGrantArrayOutput)
+}
+
+type ObjectCopyGrantOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyGrant)(nil)).Elem()
+}
+
+func (o ObjectCopyGrantOutput) ToObjectCopyGrantOutput() ObjectCopyGrantOutput {
+	return o
+}
+
+func (o ObjectCopyGrantOutput) ToObjectCopyGrantOutputWithContext(ctx context.Context) ObjectCopyGrantOutput {
+	return o
+}
+
+// Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+func (o ObjectCopyGrantOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectCopyGrant) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+func (o ObjectCopyGrantOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectCopyGrant) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+func (o ObjectCopyGrantOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObjectCopyGrant) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+func (o ObjectCopyGrantOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectCopyGrant) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// URI of the grantee group. Used only when `type` is `Group`.
+func (o ObjectCopyGrantOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectCopyGrant) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ObjectCopyGrantArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectCopyGrant)(nil)).Elem()
+}
+
+func (o ObjectCopyGrantArrayOutput) ToObjectCopyGrantArrayOutput() ObjectCopyGrantArrayOutput {
+	return o
+}
+
+func (o ObjectCopyGrantArrayOutput) ToObjectCopyGrantArrayOutputWithContext(ctx context.Context) ObjectCopyGrantArrayOutput {
+	return o
+}
+
+func (o ObjectCopyGrantArrayOutput) Index(i pulumi.IntInput) ObjectCopyGrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectCopyGrant {
+		return vs[0].([]ObjectCopyGrant)[vs[1].(int)]
+	}).(ObjectCopyGrantOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
@@ -6149,4 +6282,6 @@ func init() {
 	pulumi.RegisterOutputType(InventoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(InventoryScheduleOutput{})
 	pulumi.RegisterOutputType(InventorySchedulePtrOutput{})
+	pulumi.RegisterOutputType(ObjectCopyGrantOutput{})
+	pulumi.RegisterOutputType(ObjectCopyGrantArrayOutput{})
 }

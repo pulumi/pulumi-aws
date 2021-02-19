@@ -88,9 +88,7 @@ namespace Pulumi.Aws.Ec2
         private List<Inputs.GetSecurityGroupsFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-security-groups in the AWS CLI reference][1].
+        /// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
         /// </summary>
         public List<Inputs.GetSecurityGroupsFilterArgs> Filters
         {
@@ -102,8 +100,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match for
-        /// desired security groups.
+        /// A map of tags, each pair of which must exactly match for desired security groups.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -120,6 +117,10 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetSecurityGroupsResult
     {
+        /// <summary>
+        /// ARNs of the matched security groups.
+        /// </summary>
+        public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetSecurityGroupsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -131,13 +132,14 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
-        /// unless the `vpc-id` filter is also used.
+        /// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
         /// </summary>
         public readonly ImmutableArray<string> VpcIds;
 
         [OutputConstructor]
         private GetSecurityGroupsResult(
+            ImmutableArray<string> arns,
+
             ImmutableArray<Outputs.GetSecurityGroupsFilterResult> filters,
 
             string id,
@@ -148,6 +150,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> vpcIds)
         {
+            Arns = arns;
             Filters = filters;
             Id = id;
             Ids = ids;

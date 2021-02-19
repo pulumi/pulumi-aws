@@ -337,6 +337,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetBatchTarget?> BatchTarget { get; private set; } = null!;
 
         /// <summary>
+        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Output("deadLetterConfig")]
+        public Output<Outputs.EventTargetDeadLetterConfig?> DeadLetterConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Output("ecsTarget")]
@@ -371,6 +377,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("kinesisTarget")]
         public Output<Outputs.EventTargetKinesisTarget?> KinesisTarget { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Output("retryPolicy")]
+        public Output<Outputs.EventTargetRetryPolicy?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
@@ -461,6 +473,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetBatchTargetArgs>? BatchTarget { get; set; }
 
         /// <summary>
+        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("deadLetterConfig")]
+        public Input<Inputs.EventTargetDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("ecsTarget")]
@@ -495,6 +513,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kinesisTarget")]
         public Input<Inputs.EventTargetKinesisTargetArgs>? KinesisTarget { get; set; }
+
+        /// <summary>
+        /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("retryPolicy")]
+        public Input<Inputs.EventTargetRetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
@@ -552,6 +576,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetBatchTargetGetArgs>? BatchTarget { get; set; }
 
         /// <summary>
+        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("deadLetterConfig")]
+        public Input<Inputs.EventTargetDeadLetterConfigGetArgs>? DeadLetterConfig { get; set; }
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("ecsTarget")]
@@ -586,6 +616,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kinesisTarget")]
         public Input<Inputs.EventTargetKinesisTargetGetArgs>? KinesisTarget { get; set; }
+
+        /// <summary>
+        /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("retryPolicy")]
+        public Input<Inputs.EventTargetRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.

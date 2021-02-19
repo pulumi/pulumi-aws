@@ -367,6 +367,137 @@ func (o EventTargetBatchTargetPtrOutput) JobName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventTargetDeadLetterConfig struct {
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn *string `pulumi:"arn"`
+}
+
+// EventTargetDeadLetterConfigInput is an input type that accepts EventTargetDeadLetterConfigArgs and EventTargetDeadLetterConfigOutput values.
+// You can construct a concrete instance of `EventTargetDeadLetterConfigInput` via:
+//
+//          EventTargetDeadLetterConfigArgs{...}
+type EventTargetDeadLetterConfigInput interface {
+	pulumi.Input
+
+	ToEventTargetDeadLetterConfigOutput() EventTargetDeadLetterConfigOutput
+	ToEventTargetDeadLetterConfigOutputWithContext(context.Context) EventTargetDeadLetterConfigOutput
+}
+
+type EventTargetDeadLetterConfigArgs struct {
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (EventTargetDeadLetterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetDeadLetterConfig)(nil)).Elem()
+}
+
+func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigOutput() EventTargetDeadLetterConfigOutput {
+	return i.ToEventTargetDeadLetterConfigOutputWithContext(context.Background())
+}
+
+func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetDeadLetterConfigOutput)
+}
+
+func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput {
+	return i.ToEventTargetDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetDeadLetterConfigOutput).ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx)
+}
+
+// EventTargetDeadLetterConfigPtrInput is an input type that accepts EventTargetDeadLetterConfigArgs, EventTargetDeadLetterConfigPtr and EventTargetDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `EventTargetDeadLetterConfigPtrInput` via:
+//
+//          EventTargetDeadLetterConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EventTargetDeadLetterConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput
+	ToEventTargetDeadLetterConfigPtrOutputWithContext(context.Context) EventTargetDeadLetterConfigPtrOutput
+}
+
+type eventTargetDeadLetterConfigPtrType EventTargetDeadLetterConfigArgs
+
+func EventTargetDeadLetterConfigPtr(v *EventTargetDeadLetterConfigArgs) EventTargetDeadLetterConfigPtrInput {
+	return (*eventTargetDeadLetterConfigPtrType)(v)
+}
+
+func (*eventTargetDeadLetterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetDeadLetterConfig)(nil)).Elem()
+}
+
+func (i *eventTargetDeadLetterConfigPtrType) ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput {
+	return i.ToEventTargetDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetDeadLetterConfigPtrType) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetDeadLetterConfigPtrOutput)
+}
+
+type EventTargetDeadLetterConfigOutput struct{ *pulumi.OutputState }
+
+func (EventTargetDeadLetterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetDeadLetterConfig)(nil)).Elem()
+}
+
+func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigOutput() EventTargetDeadLetterConfigOutput {
+	return o
+}
+
+func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigOutput {
+	return o
+}
+
+func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput {
+	return o.ToEventTargetDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v EventTargetDeadLetterConfig) *EventTargetDeadLetterConfig {
+		return &v
+	}).(EventTargetDeadLetterConfigPtrOutput)
+}
+
+// - ARN of the SQS queue specified as the target for the dead-letter queue.
+func (o EventTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type EventTargetDeadLetterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetDeadLetterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetDeadLetterConfig)(nil)).Elem()
+}
+
+func (o EventTargetDeadLetterConfigPtrOutput) ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o EventTargetDeadLetterConfigPtrOutput) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o EventTargetDeadLetterConfigPtrOutput) Elem() EventTargetDeadLetterConfigOutput {
+	return o.ApplyT(func(v *EventTargetDeadLetterConfig) EventTargetDeadLetterConfig { return *v }).(EventTargetDeadLetterConfigOutput)
+}
+
+// - ARN of the SQS queue specified as the target for the dead-letter queue.
+func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventTargetEcsTarget struct {
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group *string `pulumi:"group"`
@@ -1049,6 +1180,156 @@ func (o EventTargetKinesisTargetPtrOutput) PartitionKeyPath() pulumi.StringPtrOu
 		}
 		return v.PartitionKeyPath
 	}).(pulumi.StringPtrOutput)
+}
+
+type EventTargetRetryPolicy struct {
+	// The age in seconds to continue to make retry attempts.
+	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
+	// maximum number of retry attempts to make before the request fails
+	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+}
+
+// EventTargetRetryPolicyInput is an input type that accepts EventTargetRetryPolicyArgs and EventTargetRetryPolicyOutput values.
+// You can construct a concrete instance of `EventTargetRetryPolicyInput` via:
+//
+//          EventTargetRetryPolicyArgs{...}
+type EventTargetRetryPolicyInput interface {
+	pulumi.Input
+
+	ToEventTargetRetryPolicyOutput() EventTargetRetryPolicyOutput
+	ToEventTargetRetryPolicyOutputWithContext(context.Context) EventTargetRetryPolicyOutput
+}
+
+type EventTargetRetryPolicyArgs struct {
+	// The age in seconds to continue to make retry attempts.
+	MaximumEventAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumEventAgeInSeconds"`
+	// maximum number of retry attempts to make before the request fails
+	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
+}
+
+func (EventTargetRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetRetryPolicy)(nil)).Elem()
+}
+
+func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyOutput() EventTargetRetryPolicyOutput {
+	return i.ToEventTargetRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyOutputWithContext(ctx context.Context) EventTargetRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRetryPolicyOutput)
+}
+
+func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput {
+	return i.ToEventTargetRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRetryPolicyOutput).ToEventTargetRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// EventTargetRetryPolicyPtrInput is an input type that accepts EventTargetRetryPolicyArgs, EventTargetRetryPolicyPtr and EventTargetRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `EventTargetRetryPolicyPtrInput` via:
+//
+//          EventTargetRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type EventTargetRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput
+	ToEventTargetRetryPolicyPtrOutputWithContext(context.Context) EventTargetRetryPolicyPtrOutput
+}
+
+type eventTargetRetryPolicyPtrType EventTargetRetryPolicyArgs
+
+func EventTargetRetryPolicyPtr(v *EventTargetRetryPolicyArgs) EventTargetRetryPolicyPtrInput {
+	return (*eventTargetRetryPolicyPtrType)(v)
+}
+
+func (*eventTargetRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetRetryPolicy)(nil)).Elem()
+}
+
+func (i *eventTargetRetryPolicyPtrType) ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput {
+	return i.ToEventTargetRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetRetryPolicyPtrType) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRetryPolicyPtrOutput)
+}
+
+type EventTargetRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (EventTargetRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetRetryPolicy)(nil)).Elem()
+}
+
+func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyOutput() EventTargetRetryPolicyOutput {
+	return o
+}
+
+func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyOutputWithContext(ctx context.Context) EventTargetRetryPolicyOutput {
+	return o
+}
+
+func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput {
+	return o.ToEventTargetRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
+	return o.ApplyT(func(v EventTargetRetryPolicy) *EventTargetRetryPolicy {
+		return &v
+	}).(EventTargetRetryPolicyPtrOutput)
+}
+
+// The age in seconds to continue to make retry attempts.
+func (o EventTargetRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTargetRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// maximum number of retry attempts to make before the request fails
+func (o EventTargetRetryPolicyOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTargetRetryPolicy) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+type EventTargetRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetRetryPolicy)(nil)).Elem()
+}
+
+func (o EventTargetRetryPolicyPtrOutput) ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput {
+	return o
+}
+
+func (o EventTargetRetryPolicyPtrOutput) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
+	return o
+}
+
+func (o EventTargetRetryPolicyPtrOutput) Elem() EventTargetRetryPolicyOutput {
+	return o.ApplyT(func(v *EventTargetRetryPolicy) EventTargetRetryPolicy { return *v }).(EventTargetRetryPolicyOutput)
+}
+
+// The age in seconds to continue to make retry attempts.
+func (o EventTargetRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventTargetRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumEventAgeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// maximum number of retry attempts to make before the request fails
+func (o EventTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventTargetRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumRetryAttempts
+	}).(pulumi.IntPtrOutput)
 }
 
 type EventTargetRunCommandTarget struct {
@@ -1852,6 +2133,8 @@ func init() {
 	pulumi.RegisterOutputType(EventPermissionConditionPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(EventTargetDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{})
@@ -1860,6 +2143,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetInputTransformerPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetKinesisTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetKinesisTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetRetryPolicyOutput{})
+	pulumi.RegisterOutputType(EventTargetRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetOutput{})

@@ -8,14 +8,11 @@ import * as utilities from "../utilities";
 /**
  * `aws.ec2.RouteTable` provides details about a specific Route Table.
  *
- * This resource can prove useful when a module accepts a Subnet id as
- * an input variable and needs to, for example, add a route in
- * the Route Table.
+ * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a Route Table id as a variable
- * and use this data source to obtain the data necessary to create a route.
+ * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,28 +54,27 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetRouteTableArgs {
     /**
-     * Custom filter block as described below.
+     * Configuration block. Detailed below.
      */
     readonly filters?: inputs.ec2.GetRouteTableFilter[];
     /**
-     * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+     * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */
     readonly gatewayId?: string;
     /**
-     * The id of the specific Route Table to retrieve.
+     * ID of the specific Route Table to retrieve.
      */
     readonly routeTableId?: string;
     /**
-     * The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+     * ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      */
     readonly subnetId?: string;
     /**
-     * A map of tags, each pair of which must exactly match
-     * a pair on the desired Route Table.
+     * Map of tags, each pair of which must exactly match a pair on the desired Route Table.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The id of the VPC that the desired Route Table belongs to.
+     * ID of the VPC that the desired Route Table belongs to.
      */
     readonly vpcId?: string;
 }
@@ -87,10 +83,17 @@ export interface GetRouteTableArgs {
  * A collection of values returned by getRouteTable.
  */
 export interface GetRouteTableResult {
+    /**
+     * ARN of the route table.
+     */
+    readonly arn: string;
+    /**
+     * List of associations with attributes detailed below.
+     */
     readonly associations: outputs.ec2.GetRouteTableAssociation[];
     readonly filters?: outputs.ec2.GetRouteTableFilter[];
     /**
-     * The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+     * Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
      */
     readonly gatewayId: string;
     /**
@@ -98,16 +101,19 @@ export interface GetRouteTableResult {
      */
     readonly id: string;
     /**
-     * The ID of the AWS account that owns the route table
+     * ID of the AWS account that owns the route table.
      */
     readonly ownerId: string;
     /**
-     * The Route Table ID.
+     * Route Table ID.
      */
     readonly routeTableId: string;
+    /**
+     * List of routes with attributes detailed below.
+     */
     readonly routes: outputs.ec2.GetRouteTableRoute[];
     /**
-     * The Subnet ID. Only set when associated with a Subnet.
+     * Subnet ID. Only set when associated with a subnet.
      */
     readonly subnetId: string;
     readonly tags: {[key: string]: string};

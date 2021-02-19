@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .account import *
 from .action_target import *
+from .invite_accepter import *
 from .member import *
 from .organization_admin_account import *
 from .product_subscription import *
@@ -26,6 +27,8 @@ def _register_module():
                 return Account(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/actionTarget:ActionTarget":
                 return ActionTarget(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:securityhub/inviteAccepter:InviteAccepter":
+                return InviteAccepter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/member:Member":
                 return Member(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
@@ -41,6 +44,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "securityhub/account", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/actionTarget", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "securityhub/inviteAccepter", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/member", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/organizationAdminAccount", _module_instance)
     pulumi.runtime.register_resource_module("aws", "securityhub/productSubscription", _module_instance)

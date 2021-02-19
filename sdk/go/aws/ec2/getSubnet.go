@@ -9,15 +9,11 @@ import (
 
 // `ec2.Subnet` provides details about a specific VPC subnet.
 //
-// This resource can prove useful when a module accepts a subnet id as
-// an input variable and needs to, for example, determine the id of the
-// VPC that the subnet belongs to.
+// This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
 //
 // ## Example Usage
 //
-// The following example shows how one might accept a subnet id as a variable
-// and use this data source to obtain the data necessary to create a security
-// group that allows connections from hosts in that subnet.
+// The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 //
 // ```go
 // package main
@@ -59,6 +55,37 @@ import (
 // 	})
 // }
 // ```
+// ### Filter Example
+//
+// If you want to match against tag `Name`, use:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+// 			Filters: []ec2.GetSubnetFilter{
+// 				ec2.GetSubnetFilter{
+// 					Name: "tag:Name",
+// 					Values: []string{
+// 						"yakdriver",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws:ec2/getSubnet:getSubnet", args, &rv, opts...)
@@ -70,53 +97,54 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSubnet.
 type LookupSubnetArgs struct {
-	// The availability zone where the
-	// subnet must reside.
+	// Availability zone where the subnet must reside.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The ID of the Availability Zone for the subnet.
+	// ID of the Availability Zone for the subnet.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// The cidr block of the desired subnet.
+	// CIDR block of the desired subnet.
 	CidrBlock *string `pulumi:"cidrBlock"`
-	// Boolean constraint for whether the desired
-	// subnet must be the default subnet for its associated availability zone.
+	// Whether the desired subnet must be the default subnet for its associated availability zone.
 	DefaultForAz *bool `pulumi:"defaultForAz"`
-	// Custom filter block as described below.
+	// Configuration block. Detailed below.
 	Filters []GetSubnetFilter `pulumi:"filters"`
-	// The id of the specific subnet to retrieve.
+	// ID of the specific subnet to retrieve.
 	Id *string `pulumi:"id"`
-	// The Ipv6 cidr block of the desired subnet
+	// IPv6 CIDR block of the desired subnet.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The state that the desired subnet must have.
+	// State that the desired subnet must have.
 	State *string `pulumi:"state"`
-	// A map of tags, each pair of which must exactly match
-	// a pair on the desired subnet.
+	// Map of tags, each pair of which must exactly match a pair on the desired subnet.
 	Tags map[string]string `pulumi:"tags"`
-	// The id of the VPC that the desired subnet belongs to.
+	// ID of the VPC that the desired subnet belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
-	// The ARN of the subnet.
-	Arn                         string `pulumi:"arn"`
+	// ARN of the subnet.
+	Arn string `pulumi:"arn"`
+	// Whether an IPv6 address is assigned on creation.
 	AssignIpv6AddressOnCreation bool   `pulumi:"assignIpv6AddressOnCreation"`
 	AvailabilityZone            string `pulumi:"availabilityZone"`
 	AvailabilityZoneId          string `pulumi:"availabilityZoneId"`
-	CidrBlock                   string `pulumi:"cidrBlock"`
+	// Available IP addresses of the subnet.
+	AvailableIpAddressCount int    `pulumi:"availableIpAddressCount"`
+	CidrBlock               string `pulumi:"cidrBlock"`
 	// Identifier of customer owned IPv4 address pool.
-	CustomerOwnedIpv4Pool      string            `pulumi:"customerOwnedIpv4Pool"`
-	DefaultForAz               bool              `pulumi:"defaultForAz"`
-	Filters                    []GetSubnetFilter `pulumi:"filters"`
-	Id                         string            `pulumi:"id"`
-	Ipv6CidrBlock              string            `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId string            `pulumi:"ipv6CidrBlockAssociationId"`
+	CustomerOwnedIpv4Pool string            `pulumi:"customerOwnedIpv4Pool"`
+	DefaultForAz          bool              `pulumi:"defaultForAz"`
+	Filters               []GetSubnetFilter `pulumi:"filters"`
+	Id                    string            `pulumi:"id"`
+	Ipv6CidrBlock         string            `pulumi:"ipv6CidrBlock"`
+	// Association ID of the IPv6 CIDR block.
+	Ipv6CidrBlockAssociationId string `pulumi:"ipv6CidrBlockAssociationId"`
 	// Whether customer owned IP addresses are assigned on network interface creation.
 	MapCustomerOwnedIpOnLaunch bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Whether public IP addresses are assigned on instance launch.
 	MapPublicIpOnLaunch bool `pulumi:"mapPublicIpOnLaunch"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
-	// The ID of the AWS account that owns the subnet.
+	// ID of the AWS account that owns the subnet.
 	OwnerId string            `pulumi:"ownerId"`
 	State   string            `pulumi:"state"`
 	Tags    map[string]string `pulumi:"tags"`
