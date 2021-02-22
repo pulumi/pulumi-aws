@@ -196,6 +196,10 @@ namespace Pulumi.Aws
         /// creation.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Specifies whether enhanced networking with ENA is enabled.
+        /// </summary>
+        public readonly bool EnaSupport;
         public readonly ImmutableArray<string> ExecutableUsers;
         public readonly ImmutableArray<Outputs.GetAmiFilterResult> Filters;
         /// <summary>
@@ -243,6 +247,10 @@ namespace Pulumi.Aws
         /// The value is Windows for `Windows` AMIs; otherwise blank.
         /// </summary>
         public readonly string Platform;
+        /// <summary>
+        /// The platform details associated with the billing code of the AMI.
+        /// </summary>
+        public readonly string PlatformDetails;
         /// <summary>
         /// Any product codes associated with the AMI.
         /// * `product_codes.#.product_code_id` - The product code.
@@ -293,6 +301,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        /// </summary>
+        public readonly string UsageOperation;
+        /// <summary>
         /// The type of virtualization of the AMI (ie: `hvm` or
         /// `paravirtual`).
         /// </summary>
@@ -309,6 +321,8 @@ namespace Pulumi.Aws
             string creationDate,
 
             string description,
+
+            bool enaSupport,
 
             ImmutableArray<string> executableUsers,
 
@@ -340,6 +354,8 @@ namespace Pulumi.Aws
 
             string platform,
 
+            string platformDetails,
+
             ImmutableArray<Outputs.GetAmiProductCodeResult> productCodes,
 
             bool @public,
@@ -360,6 +376,8 @@ namespace Pulumi.Aws
 
             ImmutableDictionary<string, string> tags,
 
+            string usageOperation,
+
             string virtualizationType)
         {
             Architecture = architecture;
@@ -367,6 +385,7 @@ namespace Pulumi.Aws
             BlockDeviceMappings = blockDeviceMappings;
             CreationDate = creationDate;
             Description = description;
+            EnaSupport = enaSupport;
             ExecutableUsers = executableUsers;
             Filters = filters;
             Hypervisor = hypervisor;
@@ -382,6 +401,7 @@ namespace Pulumi.Aws
             OwnerId = ownerId;
             Owners = owners;
             Platform = platform;
+            PlatformDetails = platformDetails;
             ProductCodes = productCodes;
             Public = @public;
             RamdiskId = ramdiskId;
@@ -392,6 +412,7 @@ namespace Pulumi.Aws
             State = state;
             StateReason = stateReason;
             Tags = tags;
+            UsageOperation = usageOperation;
             VirtualizationType = virtualizationType;
         }
     }

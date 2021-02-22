@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum price to request on the spot market.
         /// </summary>
         [Output("spotPrice")]
-        public Output<string?> SpotPrice { get; private set; } = null!;
+        public Output<string> SpotPrice { get; private set; } = null!;
 
         [Output("spotRequestState")]
         public Output<string> SpotRequestState { get; private set; } = null!;

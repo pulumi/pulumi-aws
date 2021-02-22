@@ -94,12 +94,21 @@ namespace Pulumi.Aws.Ec2
         [Output("ephemeralBlockDevices")]
         public Output<ImmutableArray<Outputs.AmiCopyEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
+        [Output("hypervisor")]
+        public Output<string> Hypervisor { get; private set; } = null!;
+
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
         public Output<string> ImageLocation { get; private set; } = null!;
+
+        [Output("imageOwnerAlias")]
+        public Output<string> ImageOwnerAlias { get; private set; } = null!;
+
+        [Output("imageType")]
+        public Output<string> ImageType { get; private set; } = null!;
 
         /// <summary>
         /// The id of the kernel image (AKI) that will be used as the paravirtual
@@ -124,6 +133,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        [Output("platform")]
+        public Output<string> Platform { get; private set; } = null!;
+
+        [Output("platformDetails")]
+        public Output<string> PlatformDetails { get; private set; } = null!;
+
+        [Output("public")]
+        public Output<bool> Public { get; private set; } = null!;
 
         /// <summary>
         /// The id of an initrd image (ARI) that will be used when booting the
@@ -167,6 +188,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("usageOperation")]
+        public Output<string> UsageOperation { get; private set; } = null!;
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
@@ -363,12 +387,21 @@ namespace Pulumi.Aws.Ec2
             set => _ephemeralBlockDevices = value;
         }
 
+        [Input("hypervisor")]
+        public Input<string>? Hypervisor { get; set; }
+
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Input("imageLocation")]
         public Input<string>? ImageLocation { get; set; }
+
+        [Input("imageOwnerAlias")]
+        public Input<string>? ImageOwnerAlias { get; set; }
+
+        [Input("imageType")]
+        public Input<string>? ImageType { get; set; }
 
         /// <summary>
         /// The id of the kernel image (AKI) that will be used as the paravirtual
@@ -393,6 +426,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        [Input("platform")]
+        public Input<string>? Platform { get; set; }
+
+        [Input("platformDetails")]
+        public Input<string>? PlatformDetails { get; set; }
+
+        [Input("public")]
+        public Input<bool>? Public { get; set; }
 
         /// <summary>
         /// The id of an initrd image (ARI) that will be used when booting the
@@ -442,6 +487,9 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("usageOperation")]
+        public Input<string>? UsageOperation { get; set; }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances

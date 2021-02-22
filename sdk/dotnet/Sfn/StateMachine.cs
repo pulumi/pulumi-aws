@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Sfn
     /// ",
     ///             LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
     ///             {
-    ///                 LogDestination = aws_cloudwatch_log_group.Log_group_for_sfn.Arn,
+    ///                 LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
     ///                 IncludeExecutionData = true,
     ///                 Level = "ERROR",
     ///             },

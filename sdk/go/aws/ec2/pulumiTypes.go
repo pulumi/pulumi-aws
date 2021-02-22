@@ -19002,15 +19002,15 @@ func (o GetNetworkInterfacesFilterArrayOutput) Index(i pulumi.IntInput) GetNetwo
 }
 
 type GetRouteTableAssociationType struct {
-	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId string `pulumi:"gatewayId"`
-	// If the Association due to the Main Route Table.
+	// Whether the association is due to the main route table.
 	Main bool `pulumi:"main"`
-	// The Association ID.
+	// Association ID.
 	RouteTableAssociationId string `pulumi:"routeTableAssociationId"`
-	// The id of the specific Route Table to retrieve.
+	// ID of the specific Route Table to retrieve.
 	RouteTableId string `pulumi:"routeTableId"`
-	// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -19026,15 +19026,15 @@ type GetRouteTableAssociationTypeInput interface {
 }
 
 type GetRouteTableAssociationTypeArgs struct {
-	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
-	// If the Association due to the Main Route Table.
+	// Whether the association is due to the main route table.
 	Main pulumi.BoolInput `pulumi:"main"`
-	// The Association ID.
+	// Association ID.
 	RouteTableAssociationId pulumi.StringInput `pulumi:"routeTableAssociationId"`
-	// The id of the specific Route Table to retrieve.
+	// ID of the specific Route Table to retrieve.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
-	// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -19089,27 +19089,27 @@ func (o GetRouteTableAssociationTypeOutput) ToGetRouteTableAssociationTypeOutput
 	return o
 }
 
-// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 func (o GetRouteTableAssociationTypeOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationType) string { return v.GatewayId }).(pulumi.StringOutput)
 }
 
-// If the Association due to the Main Route Table.
+// Whether the association is due to the main route table.
 func (o GetRouteTableAssociationTypeOutput) Main() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationType) bool { return v.Main }).(pulumi.BoolOutput)
 }
 
-// The Association ID.
+// Association ID.
 func (o GetRouteTableAssociationTypeOutput) RouteTableAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationType) string { return v.RouteTableAssociationId }).(pulumi.StringOutput)
 }
 
-// The id of the specific Route Table to retrieve.
+// ID of the specific Route Table to retrieve.
 func (o GetRouteTableAssociationTypeOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationType) string { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 func (o GetRouteTableAssociationTypeOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationType) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -19135,11 +19135,9 @@ func (o GetRouteTableAssociationTypeArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 type GetRouteTableFilter struct {
-	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Route Table will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -19155,11 +19153,9 @@ type GetRouteTableFilterInput interface {
 }
 
 type GetRouteTableFilterArgs struct {
-	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Route Table will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -19214,14 +19210,12 @@ func (o GetRouteTableFilterOutput) ToGetRouteTableFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 func (o GetRouteTableFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A Route Table will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
 func (o GetRouteTableFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -19247,27 +19241,29 @@ func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFi
 }
 
 type GetRouteTableRoute struct {
-	// The CIDR block of the route.
+	// ID of the Carrier Gateway.
+	CarrierGatewayId string `pulumi:"carrierGatewayId"`
+	// CIDR block of the route.
 	CidrBlock string `pulumi:"cidrBlock"`
-	// The ID of the Egress Only Internet Gateway.
+	// ID of the Egress Only Internet Gateway.
 	EgressOnlyGatewayId string `pulumi:"egressOnlyGatewayId"`
-	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId string `pulumi:"gatewayId"`
-	// The EC2 instance ID.
+	// EC2 instance ID.
 	InstanceId string `pulumi:"instanceId"`
-	// The IPv6 CIDR block of the route.
+	// IPv6 CIDR block of the route.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
-	// The Local Gateway ID.
+	// Local Gateway ID.
 	LocalGatewayId string `pulumi:"localGatewayId"`
-	// The NAT Gateway ID.
+	// NAT Gateway ID.
 	NatGatewayId string `pulumi:"natGatewayId"`
-	// The ID of the elastic network interface (eni) to use.
+	// ID of the elastic network interface (eni) to use.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The EC2 Transit Gateway ID.
+	// EC2 Transit Gateway ID.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The VPC Endpoint ID.
+	// VPC Endpoint ID.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
-	// The VPC Peering ID.
+	// VPC Peering ID.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -19283,27 +19279,29 @@ type GetRouteTableRouteInput interface {
 }
 
 type GetRouteTableRouteArgs struct {
-	// The CIDR block of the route.
+	// ID of the Carrier Gateway.
+	CarrierGatewayId pulumi.StringInput `pulumi:"carrierGatewayId"`
+	// CIDR block of the route.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
-	// The ID of the Egress Only Internet Gateway.
+	// ID of the Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringInput `pulumi:"egressOnlyGatewayId"`
-	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
-	// The EC2 instance ID.
+	// EC2 instance ID.
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// The IPv6 CIDR block of the route.
+	// IPv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
-	// The Local Gateway ID.
+	// Local Gateway ID.
 	LocalGatewayId pulumi.StringInput `pulumi:"localGatewayId"`
-	// The NAT Gateway ID.
+	// NAT Gateway ID.
 	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
-	// The ID of the elastic network interface (eni) to use.
+	// ID of the elastic network interface (eni) to use.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
-	// The EC2 Transit Gateway ID.
+	// EC2 Transit Gateway ID.
 	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
-	// The VPC Endpoint ID.
+	// VPC Endpoint ID.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
-	// The VPC Peering ID.
+	// VPC Peering ID.
 	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -19358,57 +19356,62 @@ func (o GetRouteTableRouteOutput) ToGetRouteTableRouteOutputWithContext(ctx cont
 	return o
 }
 
-// The CIDR block of the route.
+// ID of the Carrier Gateway.
+func (o GetRouteTableRouteOutput) CarrierGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CarrierGatewayId }).(pulumi.StringOutput)
+}
+
+// CIDR block of the route.
 func (o GetRouteTableRouteOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// The ID of the Egress Only Internet Gateway.
+// ID of the Egress Only Internet Gateway.
 func (o GetRouteTableRouteOutput) EgressOnlyGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.EgressOnlyGatewayId }).(pulumi.StringOutput)
 }
 
-// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 func (o GetRouteTableRouteOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.GatewayId }).(pulumi.StringOutput)
 }
 
-// The EC2 instance ID.
+// EC2 instance ID.
 func (o GetRouteTableRouteOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR block of the route.
+// IPv6 CIDR block of the route.
 func (o GetRouteTableRouteOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
-// The Local Gateway ID.
+// Local Gateway ID.
 func (o GetRouteTableRouteOutput) LocalGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.LocalGatewayId }).(pulumi.StringOutput)
 }
 
-// The NAT Gateway ID.
+// NAT Gateway ID.
 func (o GetRouteTableRouteOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.NatGatewayId }).(pulumi.StringOutput)
 }
 
-// The ID of the elastic network interface (eni) to use.
+// ID of the elastic network interface (eni) to use.
 func (o GetRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// The EC2 Transit Gateway ID.
+// EC2 Transit Gateway ID.
 func (o GetRouteTableRouteOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The VPC Endpoint ID.
+// VPC Endpoint ID.
 func (o GetRouteTableRouteOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
-// The VPC Peering ID.
+// VPC Peering ID.
 func (o GetRouteTableRouteOutput) VpcPeeringConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.VpcPeeringConnectionId }).(pulumi.StringOutput)
 }
@@ -19864,12 +19867,9 @@ func (o GetSpotPriceFilterArrayOutput) Index(i pulumi.IntInput) GetSpotPriceFilt
 }
 
 type GetSubnetFilter struct {
-	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-	// For example, if matching against tag `Name`, use:
+	// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A subnet will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -19885,12 +19885,9 @@ type GetSubnetFilterInput interface {
 }
 
 type GetSubnetFilterArgs struct {
-	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-	// For example, if matching against tag `Name`, use:
+	// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A subnet will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -19945,15 +19942,12 @@ func (o GetSubnetFilterOutput) ToGetSubnetFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-// For example, if matching against tag `Name`, use:
+// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 func (o GetSubnetFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A subnet will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
 func (o GetSubnetFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSubnetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

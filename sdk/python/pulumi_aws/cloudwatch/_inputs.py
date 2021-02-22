@@ -11,10 +11,12 @@ from .. import _utilities, _tables
 __all__ = [
     'EventPermissionConditionArgs',
     'EventTargetBatchTargetArgs',
+    'EventTargetDeadLetterConfigArgs',
     'EventTargetEcsTargetArgs',
     'EventTargetEcsTargetNetworkConfigurationArgs',
     'EventTargetInputTransformerArgs',
     'EventTargetKinesisTargetArgs',
+    'EventTargetRetryPolicyArgs',
     'EventTargetRunCommandTargetArgs',
     'EventTargetSqsTargetArgs',
     'LogMetricFilterMetricTransformationArgs',
@@ -141,6 +143,29 @@ class EventTargetBatchTargetArgs:
     @job_attempts.setter
     def job_attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "job_attempts", value)
+
+
+@pulumi.input_type
+class EventTargetDeadLetterConfigArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
 
 @pulumi.input_type
@@ -360,6 +385,45 @@ class EventTargetKinesisTargetArgs:
     @partition_key_path.setter
     def partition_key_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition_key_path", value)
+
+
+@pulumi.input_type
+class EventTargetRetryPolicyArgs:
+    def __init__(__self__, *,
+                 maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] maximum_event_age_in_seconds: The age in seconds to continue to make retry attempts.
+        :param pulumi.Input[int] maximum_retry_attempts: maximum number of retry attempts to make before the request fails
+        """
+        if maximum_event_age_in_seconds is not None:
+            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+        if maximum_retry_attempts is not None:
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+
+    @property
+    @pulumi.getter(name="maximumEventAgeInSeconds")
+    def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in seconds to continue to make retry attempts.
+        """
+        return pulumi.get(self, "maximum_event_age_in_seconds")
+
+    @maximum_event_age_in_seconds.setter
+    def maximum_event_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_event_age_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        maximum number of retry attempts to make before the request fails
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+    @maximum_retry_attempts.setter
+    def maximum_retry_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_retry_attempts", value)
 
 
 @pulumi.input_type

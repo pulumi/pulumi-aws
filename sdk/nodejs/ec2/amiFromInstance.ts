@@ -89,11 +89,14 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * should be attached to created instances. The structure of this block is described below.
      */
     public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEphemeralBlockDevice[]>;
+    public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     public /*out*/ readonly imageLocation!: pulumi.Output<string>;
+    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
+    public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
@@ -104,6 +107,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * A region-unique name for the AMI.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platformDetails!: pulumi.Output<string>;
+    public /*out*/ readonly public!: pulumi.Output<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
@@ -134,6 +141,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -160,10 +168,17 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            inputs["hypervisor"] = state ? state.hypervisor : undefined;
             inputs["imageLocation"] = state ? state.imageLocation : undefined;
+            inputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
+            inputs["imageType"] = state ? state.imageType : undefined;
             inputs["kernelId"] = state ? state.kernelId : undefined;
             inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["platform"] = state ? state.platform : undefined;
+            inputs["platformDetails"] = state ? state.platformDetails : undefined;
+            inputs["public"] = state ? state.public : undefined;
             inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
             inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
             inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
@@ -171,6 +186,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["sourceInstanceId"] = state ? state.sourceInstanceId : undefined;
             inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["usageOperation"] = state ? state.usageOperation : undefined;
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiFromInstanceArgs | undefined;
@@ -187,13 +203,21 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["architecture"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["enaSupport"] = undefined /*out*/;
+            inputs["hypervisor"] = undefined /*out*/;
             inputs["imageLocation"] = undefined /*out*/;
+            inputs["imageOwnerAlias"] = undefined /*out*/;
+            inputs["imageType"] = undefined /*out*/;
             inputs["kernelId"] = undefined /*out*/;
             inputs["manageEbsSnapshots"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["platform"] = undefined /*out*/;
+            inputs["platformDetails"] = undefined /*out*/;
+            inputs["public"] = undefined /*out*/;
             inputs["ramdiskId"] = undefined /*out*/;
             inputs["rootDeviceName"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
             inputs["sriovNetSupport"] = undefined /*out*/;
+            inputs["usageOperation"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -233,11 +257,14 @@ export interface AmiFromInstanceState {
      * should be attached to created instances. The structure of this block is described below.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
+    readonly hypervisor?: pulumi.Input<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     readonly imageLocation?: pulumi.Input<string>;
+    readonly imageOwnerAlias?: pulumi.Input<string>;
+    readonly imageType?: pulumi.Input<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
@@ -248,6 +275,10 @@ export interface AmiFromInstanceState {
      * A region-unique name for the AMI.
      */
     readonly name?: pulumi.Input<string>;
+    readonly ownerId?: pulumi.Input<string>;
+    readonly platform?: pulumi.Input<string>;
+    readonly platformDetails?: pulumi.Input<string>;
+    readonly public?: pulumi.Input<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
@@ -278,6 +309,7 @@ export interface AmiFromInstanceState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

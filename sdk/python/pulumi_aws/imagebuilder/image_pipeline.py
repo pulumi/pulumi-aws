@@ -43,7 +43,7 @@ class ImagePipeline(pulumi.CustomResource):
             image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
             infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
             schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
-                schedule_expression="cron(0 0 * * *)",
+                schedule_expression="cron(0 0 * * ? *)",
             ))
         ```
 

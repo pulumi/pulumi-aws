@@ -99,13 +99,21 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__['architecture'] = None
             __props__['arn'] = None
             __props__['ena_support'] = None
+            __props__['hypervisor'] = None
             __props__['image_location'] = None
+            __props__['image_owner_alias'] = None
+            __props__['image_type'] = None
             __props__['kernel_id'] = None
             __props__['manage_ebs_snapshots'] = None
+            __props__['owner_id'] = None
+            __props__['platform'] = None
+            __props__['platform_details'] = None
+            __props__['public'] = None
             __props__['ramdisk_id'] = None
             __props__['root_device_name'] = None
             __props__['root_snapshot_id'] = None
             __props__['sriov_net_support'] = None
+            __props__['usage_operation'] = None
             __props__['virtualization_type'] = None
         super(AmiFromInstance, __self__).__init__(
             'aws:ec2/amiFromInstance:AmiFromInstance',
@@ -123,10 +131,17 @@ class AmiFromInstance(pulumi.CustomResource):
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
+            hypervisor: Optional[pulumi.Input[str]] = None,
             image_location: Optional[pulumi.Input[str]] = None,
+            image_owner_alias: Optional[pulumi.Input[str]] = None,
+            image_type: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
+            platform: Optional[pulumi.Input[str]] = None,
+            platform_details: Optional[pulumi.Input[str]] = None,
+            public: Optional[pulumi.Input[bool]] = None,
             ramdisk_id: Optional[pulumi.Input[str]] = None,
             root_device_name: Optional[pulumi.Input[str]] = None,
             root_snapshot_id: Optional[pulumi.Input[str]] = None,
@@ -134,6 +149,7 @@ class AmiFromInstance(pulumi.CustomResource):
             source_instance_id: Optional[pulumi.Input[str]] = None,
             sriov_net_support: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'AmiFromInstance':
         """
         Get an existing AmiFromInstance resource's state with the given name, id, and optional extra
@@ -180,10 +196,17 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__["ebs_block_devices"] = ebs_block_devices
         __props__["ena_support"] = ena_support
         __props__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__["hypervisor"] = hypervisor
         __props__["image_location"] = image_location
+        __props__["image_owner_alias"] = image_owner_alias
+        __props__["image_type"] = image_type
         __props__["kernel_id"] = kernel_id
         __props__["manage_ebs_snapshots"] = manage_ebs_snapshots
         __props__["name"] = name
+        __props__["owner_id"] = owner_id
+        __props__["platform"] = platform
+        __props__["platform_details"] = platform_details
+        __props__["public"] = public
         __props__["ramdisk_id"] = ramdisk_id
         __props__["root_device_name"] = root_device_name
         __props__["root_snapshot_id"] = root_snapshot_id
@@ -191,6 +214,7 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__["source_instance_id"] = source_instance_id
         __props__["sriov_net_support"] = sriov_net_support
         __props__["tags"] = tags
+        __props__["usage_operation"] = usage_operation
         __props__["virtualization_type"] = virtualization_type
         return AmiFromInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -245,6 +269,11 @@ class AmiFromInstance(pulumi.CustomResource):
         return pulumi.get(self, "ephemeral_block_devices")
 
     @property
+    @pulumi.getter
+    def hypervisor(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "hypervisor")
+
+    @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
         """
@@ -252,6 +281,16 @@ class AmiFromInstance(pulumi.CustomResource):
         by the `ec2-upload-bundle` command in the EC2 command line tools.
         """
         return pulumi.get(self, "image_location")
+
+    @property
+    @pulumi.getter(name="imageOwnerAlias")
+    def image_owner_alias(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "image_owner_alias")
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "image_type")
 
     @property
     @pulumi.getter(name="kernelId")
@@ -274,6 +313,26 @@ class AmiFromInstance(pulumi.CustomResource):
         A region-unique name for the AMI.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="platformDetails")
+    def platform_details(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "platform_details")
+
+    @property
+    @pulumi.getter
+    def public(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "public")
 
     @property
     @pulumi.getter(name="ramdiskId")
@@ -332,6 +391,11 @@ class AmiFromInstance(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="usageOperation")
+    def usage_operation(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "usage_operation")
 
     @property
     @pulumi.getter(name="virtualizationType")

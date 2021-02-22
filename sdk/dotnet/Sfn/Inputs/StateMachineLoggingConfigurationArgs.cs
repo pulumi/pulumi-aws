@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sfn.Inputs
         public Input<string>? Level { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+        /// Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
         /// </summary>
         [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }

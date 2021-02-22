@@ -156,8 +156,8 @@ type SpotInstanceRequest struct {
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringOutput `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice        pulumi.StringPtrOutput `pulumi:"spotPrice"`
-	SpotRequestState pulumi.StringOutput    `pulumi:"spotRequestState"`
+	SpotPrice        pulumi.StringOutput `pulumi:"spotPrice"`
+	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`

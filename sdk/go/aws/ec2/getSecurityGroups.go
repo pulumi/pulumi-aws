@@ -20,24 +20,22 @@ func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ..
 
 // A collection of arguments for invoking getSecurityGroups.
 type GetSecurityGroupsArgs struct {
-	// One or more name/value pairs to use as filters. There are
-	// several valid keys, for a full reference, check out
-	// [describe-security-groups in the AWS CLI reference][1].
+	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match for
-	// desired security groups.
+	// A map of tags, each pair of which must exactly match for desired security groups.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityGroups.
 type GetSecurityGroupsResult struct {
+	// ARNs of the matched security groups.
+	Arns    []string                  `pulumi:"arns"`
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of the matches security groups.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
-	// unless the `vpc-id` filter is also used.
+	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
 	VpcIds []string `pulumi:"vpcIds"`
 }

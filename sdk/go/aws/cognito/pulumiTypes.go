@@ -1044,12 +1044,14 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) SmsMessage(
 }
 
 type UserPoolClientAnalyticsConfiguration struct {
+	// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	ApplicationArn *string `pulumi:"applicationArn"`
 	// The application ID for an Amazon Pinpoint application.
-	ApplicationId string `pulumi:"applicationId"`
-	// An ID for the Analytics Configuration.
-	ExternalId string `pulumi:"externalId"`
-	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-	RoleArn string `pulumi:"roleArn"`
+	ApplicationId *string `pulumi:"applicationId"`
+	// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	ExternalId *string `pulumi:"externalId"`
+	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	RoleArn *string `pulumi:"roleArn"`
 	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared *bool `pulumi:"userDataShared"`
 }
@@ -1066,12 +1068,14 @@ type UserPoolClientAnalyticsConfigurationInput interface {
 }
 
 type UserPoolClientAnalyticsConfigurationArgs struct {
+	// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
 	// The application ID for an Amazon Pinpoint application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// An ID for the Analytics Configuration.
-	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
 }
@@ -1153,19 +1157,24 @@ func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsCon
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }
 
+// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
 // The application ID for an Amazon Pinpoint application.
-func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ApplicationId }).(pulumi.StringOutput)
+func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// An ID for the Analytics Configuration.
-func (o UserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ExternalId }).(pulumi.StringOutput)
+// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+func (o UserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-func (o UserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+func (o UserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
@@ -1191,33 +1200,43 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnal
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) UserPoolClientAnalyticsConfiguration { return *v }).(UserPoolClientAnalyticsConfigurationOutput)
 }
 
+// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The application ID for an Amazon Pinpoint application.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ApplicationId
+		return v.ApplicationId
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ID for the Analytics Configuration.
+// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ExternalId
+		return v.ExternalId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleArn
+		return v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 

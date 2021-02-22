@@ -21,7 +21,7 @@ class StateMachineLoggingConfigurationArgs:
         """
         :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to FALSE, data is excluded.
         :param pulumi.Input[str] level: Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
-        :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+        :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
         """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
@@ -58,7 +58,7 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging.
+        Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
 

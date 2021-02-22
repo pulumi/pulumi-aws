@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCompositeAlarm(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudwatch/dashboard:Dashboard":
 		r, err = NewDashboard(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cloudwatch/eventArchive:EventArchive":
+		r, err = NewEventArchive(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudwatch/eventBus:EventBus":
 		r, err = NewEventBus(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudwatch/eventPermission:EventPermission":
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/dashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/eventArchive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

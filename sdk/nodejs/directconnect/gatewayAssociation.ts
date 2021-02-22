@@ -133,6 +133,10 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * Used for cross-account Direct Connect gateway associations.
      */
     public readonly proposalId!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated use 'associated_gateway_id' argument instead
+     */
+    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -155,6 +159,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
             inputs["proposalId"] = state ? state.proposalId : undefined;
+            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
             if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
@@ -165,6 +170,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["associatedGatewayOwnerAccountId"] = args ? args.associatedGatewayOwnerAccountId : undefined;
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             inputs["proposalId"] = args ? args.proposalId : undefined;
+            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["associatedGatewayType"] = undefined /*out*/;
             inputs["dxGatewayAssociationId"] = undefined /*out*/;
             inputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
@@ -215,6 +221,10 @@ export interface GatewayAssociationState {
      * Used for cross-account Direct Connect gateway associations.
      */
     readonly proposalId?: pulumi.Input<string>;
+    /**
+     * @deprecated use 'associated_gateway_id' argument instead
+     */
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -244,4 +254,8 @@ export interface GatewayAssociationArgs {
      * Used for cross-account Direct Connect gateway associations.
      */
     readonly proposalId?: pulumi.Input<string>;
+    /**
+     * @deprecated use 'associated_gateway_id' argument instead
+     */
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }

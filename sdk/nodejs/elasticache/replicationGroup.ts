@@ -210,7 +210,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The compute and memory capacity of the nodes in the node group.
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -461,7 +461,7 @@ export interface ReplicationGroupState {
      */
     readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
-     * The compute and memory capacity of the nodes in the node group.
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
@@ -601,7 +601,7 @@ export interface ReplicationGroupArgs {
      */
     readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
-     * The compute and memory capacity of the nodes in the node group.
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      */
     readonly nodeType?: pulumi.Input<string>;
     /**

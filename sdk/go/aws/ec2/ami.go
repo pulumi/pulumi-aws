@@ -74,15 +74,29 @@ type Ami struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
+	// The hypervisor type of the image.
+	Hypervisor pulumi.StringOutput `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
+	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
+	// The type of image.
+	ImageType pulumi.StringOutput `pulumi:"imageType"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrOutput `pulumi:"kernelId"`
 	ManageEbsSnapshots pulumi.BoolOutput      `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS account ID of the image owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// This value is set to windows for Windows AMIs; otherwise, it is blank.
+	Platform pulumi.StringOutput `pulumi:"platform"`
+	// The platform details associated with the billing code of the AMI.
+	PlatformDetails pulumi.StringOutput `pulumi:"platformDetails"`
+	// Indicates whether the image has public launch permissions.
+	Public pulumi.BoolOutput `pulumi:"public"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrOutput `pulumi:"ramdiskId"`
@@ -95,6 +109,8 @@ type Ami struct {
 	SriovNetSupport pulumi.StringPtrOutput `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -144,15 +160,29 @@ type amiState struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	// The hypervisor type of the image.
+	Hypervisor *string `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
+	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
+	// The type of image.
+	ImageType *string `pulumi:"imageType"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           *string `pulumi:"kernelId"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
+	// The AWS account ID of the image owner.
+	OwnerId *string `pulumi:"ownerId"`
+	// This value is set to windows for Windows AMIs; otherwise, it is blank.
+	Platform *string `pulumi:"platform"`
+	// The platform details associated with the billing code of the AMI.
+	PlatformDetails *string `pulumi:"platformDetails"`
+	// Indicates whether the image has public launch permissions.
+	Public *bool `pulumi:"public"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
@@ -165,6 +195,8 @@ type amiState struct {
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	UsageOperation *string `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -186,15 +218,29 @@ type AmiState struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayInput
+	// The hypervisor type of the image.
+	Hypervisor pulumi.StringPtrInput
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
+	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	ImageOwnerAlias pulumi.StringPtrInput
+	// The type of image.
+	ImageType pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput
+	// The AWS account ID of the image owner.
+	OwnerId pulumi.StringPtrInput
+	// This value is set to windows for Windows AMIs; otherwise, it is blank.
+	Platform pulumi.StringPtrInput
+	// The platform details associated with the billing code of the AMI.
+	PlatformDetails pulumi.StringPtrInput
+	// Indicates whether the image has public launch permissions.
+	Public pulumi.BoolPtrInput
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
@@ -207,6 +253,8 @@ type AmiState struct {
 	SriovNetSupport pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.

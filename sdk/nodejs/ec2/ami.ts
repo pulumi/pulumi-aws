@@ -98,10 +98,22 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiEphemeralBlockDevice[]>;
     /**
+     * The hypervisor type of the image.
+     */
+    public /*out*/ readonly hypervisor!: pulumi.Output<string>;
+    /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     public readonly imageLocation!: pulumi.Output<string>;
+    /**
+     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     */
+    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
+    /**
+     * The type of image.
+     */
+    public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
@@ -112,6 +124,22 @@ export class Ami extends pulumi.CustomResource {
      * A region-unique name for the AMI.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS account ID of the image owner.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * This value is set to windows for Windows AMIs; otherwise, it is blank.
+     */
+    public /*out*/ readonly platform!: pulumi.Output<string>;
+    /**
+     * The platform details associated with the billing code of the AMI.
+     */
+    public /*out*/ readonly platformDetails!: pulumi.Output<string>;
+    /**
+     * Indicates whether the image has public launch permissions.
+     */
+    public /*out*/ readonly public!: pulumi.Output<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
@@ -134,6 +162,10 @@ export class Ami extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     */
+    public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -160,15 +192,23 @@ export class Ami extends pulumi.CustomResource {
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            inputs["hypervisor"] = state ? state.hypervisor : undefined;
             inputs["imageLocation"] = state ? state.imageLocation : undefined;
+            inputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
+            inputs["imageType"] = state ? state.imageType : undefined;
             inputs["kernelId"] = state ? state.kernelId : undefined;
             inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["platform"] = state ? state.platform : undefined;
+            inputs["platformDetails"] = state ? state.platformDetails : undefined;
+            inputs["public"] = state ? state.public : undefined;
             inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
             inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
             inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
             inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["usageOperation"] = state ? state.usageOperation : undefined;
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiArgs | undefined;
@@ -186,8 +226,16 @@ export class Ami extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["hypervisor"] = undefined /*out*/;
+            inputs["imageOwnerAlias"] = undefined /*out*/;
+            inputs["imageType"] = undefined /*out*/;
             inputs["manageEbsSnapshots"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["platform"] = undefined /*out*/;
+            inputs["platformDetails"] = undefined /*out*/;
+            inputs["public"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
+            inputs["usageOperation"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -227,10 +275,22 @@ export interface AmiState {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
     /**
+     * The hypervisor type of the image.
+     */
+    readonly hypervisor?: pulumi.Input<string>;
+    /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     readonly imageLocation?: pulumi.Input<string>;
+    /**
+     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     */
+    readonly imageOwnerAlias?: pulumi.Input<string>;
+    /**
+     * The type of image.
+     */
+    readonly imageType?: pulumi.Input<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
@@ -241,6 +301,22 @@ export interface AmiState {
      * A region-unique name for the AMI.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the image owner.
+     */
+    readonly ownerId?: pulumi.Input<string>;
+    /**
+     * This value is set to windows for Windows AMIs; otherwise, it is blank.
+     */
+    readonly platform?: pulumi.Input<string>;
+    /**
+     * The platform details associated with the billing code of the AMI.
+     */
+    readonly platformDetails?: pulumi.Input<string>;
+    /**
+     * Indicates whether the image has public launch permissions.
+     */
+    readonly public?: pulumi.Input<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
@@ -263,6 +339,10 @@ export interface AmiState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     */
+    readonly usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

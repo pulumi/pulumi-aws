@@ -21,7 +21,10 @@ class GetSecurityGroupsResult:
     """
     A collection of values returned by getSecurityGroups.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, tags=None, vpc_ids=None):
+    def __init__(__self__, arns=None, filters=None, id=None, ids=None, tags=None, vpc_ids=None):
+        if arns and not isinstance(arns, list):
+            raise TypeError("Expected argument 'arns' to be a list")
+        pulumi.set(__self__, "arns", arns)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -37,6 +40,14 @@ class GetSecurityGroupsResult:
         if vpc_ids and not isinstance(vpc_ids, list):
             raise TypeError("Expected argument 'vpc_ids' to be a list")
         pulumi.set(__self__, "vpc_ids", vpc_ids)
+
+    @property
+    @pulumi.getter
+    def arns(self) -> Sequence[str]:
+        """
+        ARNs of the matched security groups.
+        """
+        return pulumi.get(self, "arns")
 
     @property
     @pulumi.getter
@@ -68,8 +79,7 @@ class GetSecurityGroupsResult:
     @pulumi.getter(name="vpcIds")
     def vpc_ids(self) -> Sequence[str]:
         """
-        The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
-        unless the `vpc-id` filter is also used.
+        The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
         """
         return pulumi.get(self, "vpc_ids")
 
@@ -80,6 +90,7 @@ class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
         if False:
             yield self
         return GetSecurityGroupsResult(
+            arns=self.arns,
             filters=self.filters,
             id=self.id,
             ids=self.ids,
@@ -123,11 +134,8 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-security-groups in the AWS CLI reference][1].
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match for
-           desired security groups.
+    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match for desired security groups.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -139,6 +147,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts, typ=GetSecurityGroupsResult).value
 
     return AwaitableGetSecurityGroupsResult(
+        arns=__ret__.arns,
         filters=__ret__.filters,
         id=__ret__.id,
         ids=__ret__.ids,

@@ -232,6 +232,10 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly batchTarget!: pulumi.Output<outputs.cloudwatch.EventTargetBatchTarget | undefined>;
     /**
+     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventTargetDeadLetterConfig | undefined>;
+    /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
     public readonly ecsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
@@ -255,6 +259,10 @@ export class EventTarget extends pulumi.CustomResource {
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
     public readonly kinesisTarget!: pulumi.Output<outputs.cloudwatch.EventTargetKinesisTarget | undefined>;
+    /**
+     * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
@@ -291,12 +299,14 @@ export class EventTarget extends pulumi.CustomResource {
             const state = argsOrState as EventTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["batchTarget"] = state ? state.batchTarget : undefined;
+            inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
             inputs["eventBusName"] = state ? state.eventBusName : undefined;
             inputs["input"] = state ? state.input : undefined;
             inputs["inputPath"] = state ? state.inputPath : undefined;
             inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
             inputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
+            inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["rule"] = state ? state.rule : undefined;
             inputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
@@ -312,12 +322,14 @@ export class EventTarget extends pulumi.CustomResource {
             }
             inputs["arn"] = args ? args.arn : undefined;
             inputs["batchTarget"] = args ? args.batchTarget : undefined;
+            inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             inputs["ecsTarget"] = args ? args.ecsTarget : undefined;
             inputs["eventBusName"] = args ? args.eventBusName : undefined;
             inputs["input"] = args ? args.input : undefined;
             inputs["inputPath"] = args ? args.inputPath : undefined;
             inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
             inputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
+            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["rule"] = args ? args.rule : undefined;
             inputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
@@ -344,6 +356,10 @@ export interface EventTargetState {
      */
     readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
+     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     */
+    readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
     readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
@@ -367,6 +383,10 @@ export interface EventTargetState {
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
     readonly kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    /**
+     * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+     */
+    readonly retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
@@ -402,6 +422,10 @@ export interface EventTargetArgs {
      */
     readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
+     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     */
+    readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
     readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
@@ -425,6 +449,10 @@ export interface EventTargetArgs {
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
     readonly kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    /**
+     * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+     */
+    readonly retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */

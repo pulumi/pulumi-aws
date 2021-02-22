@@ -6,6 +6,7 @@
 from .cluster import *
 from .get_cluster import *
 from .get_replication_group import *
+from .global_replication_group import *
 from .parameter_group import *
 from .replication_group import *
 from .security_group import *
@@ -27,6 +28,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:elasticache/cluster:Cluster":
                 return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup":
+                return GlobalReplicationGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:elasticache/parameterGroup:ParameterGroup":
                 return ParameterGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:elasticache/replicationGroup:ReplicationGroup":
@@ -41,6 +44,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "elasticache/cluster", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "elasticache/globalReplicationGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "elasticache/parameterGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "elasticache/replicationGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "elasticache/securityGroup", _module_instance)

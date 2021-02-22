@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
  *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,
  *     schedule: {
- *         scheduleExpression: "cron(0 0 * * *)",
+ *         scheduleExpression: "cron(0 0 * * ? *)",
  *     },
  * });
  * ```

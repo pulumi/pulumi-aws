@@ -1218,8 +1218,8 @@ type DistributionDefaultCacheBehavior struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
-	// A config block that triggers a lambda function with
-	// specific actions. Defined below, maximum 4.
+	// A config block that triggers a lambda
+	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
 	// The maximum amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
@@ -1230,7 +1230,9 @@ type DistributionDefaultCacheBehavior struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl                *int    `pulumi:"minTtl"`
+	MinTtl *int `pulumi:"minTtl"`
+	// The unique identifier of the origin request policy
+	// that is attached to the behavior.
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
 	// The ARN of the real-time log configuration
 	// that is attached to this cache behavior.
@@ -1287,8 +1289,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// A config block that triggers a lambda function with
-	// specific actions. Defined below, maximum 4.
+	// A config block that triggers a lambda
+	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
 	// The maximum amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
@@ -1299,7 +1301,9 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl                pulumi.IntPtrInput    `pulumi:"minTtl"`
+	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
+	// The unique identifier of the origin request policy
+	// that is attached to the behavior.
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
 	// The ARN of the real-time log configuration
 	// that is attached to this cache behavior.
@@ -1444,8 +1448,8 @@ func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDe
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a lambda function with
-// specific actions. Defined below, maximum 4.
+// A config block that triggers a lambda
+// function with specific actions (maximum 4).
 func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
 		return v.LambdaFunctionAssociations
@@ -1468,6 +1472,8 @@ func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
+// The unique identifier of the origin request policy
+// that is attached to the behavior.
 func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -1602,8 +1608,8 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a lambda function with
-// specific actions. Defined below, maximum 4.
+// A config block that triggers a lambda
+// function with specific actions (maximum 4).
 func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
 		if v == nil {
@@ -1639,6 +1645,8 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The unique identifier of the origin request policy
+// that is attached to the behavior.
 func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2424,8 +2432,8 @@ type DistributionOrderedCacheBehavior struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
-	// A config block that triggers a lambda function with
-	// specific actions. Defined below, maximum 4.
+	// A config block that triggers a lambda
+	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionOrderedCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
 	// The maximum amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
@@ -2436,7 +2444,9 @@ type DistributionOrderedCacheBehavior struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl                *int    `pulumi:"minTtl"`
+	MinTtl *int `pulumi:"minTtl"`
+	// The unique identifier of the origin request policy
+	// that is attached to the behavior.
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
@@ -2496,8 +2506,8 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// A config block that triggers a lambda function with
-	// specific actions. Defined below, maximum 4.
+	// A config block that triggers a lambda
+	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
 	// The maximum amount of time (in seconds) that an
 	// object is in a CloudFront cache before CloudFront forwards another request
@@ -2508,7 +2518,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The minimum amount of time that you want objects to
 	// stay in CloudFront caches before CloudFront queries your origin to see
 	// whether the object has been updated. Defaults to 0 seconds.
-	MinTtl                pulumi.IntPtrInput    `pulumi:"minTtl"`
+	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
+	// The unique identifier of the origin request policy
+	// that is attached to the behavior.
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
 	// The pattern (for example, `images/*.jpg)` that
 	// specifies which requests you want this cache behavior to apply to.
@@ -2630,8 +2642,8 @@ func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOr
 	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a lambda function with
-// specific actions. Defined below, maximum 4.
+// A config block that triggers a lambda
+// function with specific actions (maximum 4).
 func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
 		return v.LambdaFunctionAssociations
@@ -2654,6 +2666,8 @@ func (o DistributionOrderedCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
+// The unique identifier of the origin request policy
+// that is attached to the behavior.
 func (o DistributionOrderedCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }

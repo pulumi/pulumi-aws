@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an SES receipt rule set resource
+ * Provides an SES receipt rule set resource.
  *
  * ## Example Usage
  *
@@ -55,7 +55,11 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the rule set
+     * SES receipt rule set ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name of the rule set.
      */
     public readonly ruleSetName!: pulumi.Output<string>;
 
@@ -72,6 +76,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReceiptRuleSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ReceiptRuleSetArgs | undefined;
@@ -79,6 +84,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -92,7 +98,11 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
  */
 export interface ReceiptRuleSetState {
     /**
-     * The name of the rule set
+     * SES receipt rule set ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
+     * Name of the rule set.
      */
     readonly ruleSetName?: pulumi.Input<string>;
 }
@@ -102,7 +112,7 @@ export interface ReceiptRuleSetState {
  */
 export interface ReceiptRuleSetArgs {
     /**
-     * The name of the rule set
+     * Name of the rule set.
      */
     readonly ruleSetName: pulumi.Input<string>;
 }

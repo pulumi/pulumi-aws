@@ -182,6 +182,8 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
+	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
 	// The maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
 	// The minimum step adjustment size. A number between 1 and 10,000.
@@ -204,6 +206,8 @@ type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScalingArgs struct {
+	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
 	// The maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
 	// The minimum step adjustment size. A number between 1 and 10,000.
@@ -291,6 +295,11 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacity
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
+// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
+}
+
 // The maximum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
@@ -329,6 +338,16 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Elem() 
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) CapacityProviderAutoScalingGroupProviderManagedScaling {
 		return *v
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput)
+}
+
+// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceWarmupPeriod
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum step adjustment size. A number between 1 and 10,000.

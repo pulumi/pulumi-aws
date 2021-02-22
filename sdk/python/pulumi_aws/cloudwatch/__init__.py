@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .composite_alarm import *
 from .dashboard import *
+from .event_archive import *
 from .event_bus import *
 from .event_permission import *
 from .event_rule import *
@@ -37,6 +38,8 @@ def _register_module():
                 return CompositeAlarm(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudwatch/dashboard:Dashboard":
                 return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/eventArchive:EventArchive":
+                return EventArchive(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudwatch/eventBus:EventBus":
                 return EventBus(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudwatch/eventPermission:EventPermission":
@@ -68,6 +71,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "cloudwatch/compositeAlarm", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/dashboard", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/eventArchive", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/eventBus", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/eventPermission", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/eventRule", _module_instance)

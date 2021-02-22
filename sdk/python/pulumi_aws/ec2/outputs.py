@@ -7305,11 +7305,11 @@ class GetRouteTableAssociationResult(dict):
                  route_table_id: str,
                  subnet_id: str):
         """
-        :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        :param bool main: If the Association due to the Main Route Table.
-        :param str route_table_association_id: The Association ID.
-        :param str route_table_id: The id of the specific Route Table to retrieve.
-        :param str subnet_id: The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+        :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        :param bool main: Whether the association is due to the main route table.
+        :param str route_table_association_id: Association ID.
+        :param str route_table_id: ID of the specific Route Table to retrieve.
+        :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         """
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "main", main)
@@ -7321,7 +7321,7 @@ class GetRouteTableAssociationResult(dict):
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> str:
         """
-        The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         """
         return pulumi.get(self, "gateway_id")
 
@@ -7329,7 +7329,7 @@ class GetRouteTableAssociationResult(dict):
     @pulumi.getter
     def main(self) -> bool:
         """
-        If the Association due to the Main Route Table.
+        Whether the association is due to the main route table.
         """
         return pulumi.get(self, "main")
 
@@ -7337,7 +7337,7 @@ class GetRouteTableAssociationResult(dict):
     @pulumi.getter(name="routeTableAssociationId")
     def route_table_association_id(self) -> str:
         """
-        The Association ID.
+        Association ID.
         """
         return pulumi.get(self, "route_table_association_id")
 
@@ -7345,7 +7345,7 @@ class GetRouteTableAssociationResult(dict):
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> str:
         """
-        The id of the specific Route Table to retrieve.
+        ID of the specific Route Table to retrieve.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -7353,7 +7353,7 @@ class GetRouteTableAssociationResult(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+        ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         """
         return pulumi.get(self, "subnet_id")
 
@@ -7364,10 +7364,8 @@ class GetRouteTableFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               A Route Table will be selected if any one of the given values matches.
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -7376,8 +7374,7 @@ class GetRouteTableFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
         """
         return pulumi.get(self, "name")
 
@@ -7385,8 +7382,7 @@ class GetRouteTableFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Set of values that are accepted for the given field.
-        A Route Table will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -7394,6 +7390,7 @@ class GetRouteTableFilterResult(dict):
 @pulumi.output_type
 class GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
+                 carrier_gateway_id: str,
                  cidr_block: str,
                  egress_only_gateway_id: str,
                  gateway_id: str,
@@ -7406,18 +7403,20 @@ class GetRouteTableRouteResult(dict):
                  vpc_endpoint_id: str,
                  vpc_peering_connection_id: str):
         """
-        :param str cidr_block: The CIDR block of the route.
-        :param str egress_only_gateway_id: The ID of the Egress Only Internet Gateway.
-        :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        :param str instance_id: The EC2 instance ID.
-        :param str ipv6_cidr_block: The IPv6 CIDR block of the route.
-        :param str local_gateway_id: The Local Gateway ID.
-        :param str nat_gateway_id: The NAT Gateway ID.
-        :param str network_interface_id: The ID of the elastic network interface (eni) to use.
-        :param str transit_gateway_id: The EC2 Transit Gateway ID.
-        :param str vpc_endpoint_id: The VPC Endpoint ID.
-        :param str vpc_peering_connection_id: The VPC Peering ID.
+        :param str carrier_gateway_id: ID of the Carrier Gateway.
+        :param str cidr_block: CIDR block of the route.
+        :param str egress_only_gateway_id: ID of the Egress Only Internet Gateway.
+        :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        :param str instance_id: EC2 instance ID.
+        :param str ipv6_cidr_block: IPv6 CIDR block of the route.
+        :param str local_gateway_id: Local Gateway ID.
+        :param str nat_gateway_id: NAT Gateway ID.
+        :param str network_interface_id: ID of the elastic network interface (eni) to use.
+        :param str transit_gateway_id: EC2 Transit Gateway ID.
+        :param str vpc_endpoint_id: VPC Endpoint ID.
+        :param str vpc_peering_connection_id: VPC Peering ID.
         """
+        pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         pulumi.set(__self__, "gateway_id", gateway_id)
@@ -7431,10 +7430,18 @@ class GetRouteTableRouteResult(dict):
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
+    @pulumi.getter(name="carrierGatewayId")
+    def carrier_gateway_id(self) -> str:
+        """
+        ID of the Carrier Gateway.
+        """
+        return pulumi.get(self, "carrier_gateway_id")
+
+    @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
         """
-        The CIDR block of the route.
+        CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -7442,7 +7449,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="egressOnlyGatewayId")
     def egress_only_gateway_id(self) -> str:
         """
-        The ID of the Egress Only Internet Gateway.
+        ID of the Egress Only Internet Gateway.
         """
         return pulumi.get(self, "egress_only_gateway_id")
 
@@ -7450,7 +7457,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> str:
         """
-        The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         """
         return pulumi.get(self, "gateway_id")
 
@@ -7458,7 +7465,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
         """
-        The EC2 instance ID.
+        EC2 instance ID.
         """
         return pulumi.get(self, "instance_id")
 
@@ -7466,7 +7473,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> str:
         """
-        The IPv6 CIDR block of the route.
+        IPv6 CIDR block of the route.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -7474,7 +7481,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> str:
         """
-        The Local Gateway ID.
+        Local Gateway ID.
         """
         return pulumi.get(self, "local_gateway_id")
 
@@ -7482,7 +7489,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> str:
         """
-        The NAT Gateway ID.
+        NAT Gateway ID.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -7490,7 +7497,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         """
-        The ID of the elastic network interface (eni) to use.
+        ID of the elastic network interface (eni) to use.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -7498,7 +7505,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
         """
-        The EC2 Transit Gateway ID.
+        EC2 Transit Gateway ID.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -7506,7 +7513,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> str:
         """
-        The VPC Endpoint ID.
+        VPC Endpoint ID.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -7514,7 +7521,7 @@ class GetRouteTableRouteResult(dict):
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> str:
         """
-        The VPC Peering ID.
+        VPC Peering ID.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -7639,11 +7646,8 @@ class GetSubnetFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-               For example, if matching against tag `Name`, use:
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               A subnet will be selected if any one of the given values matches.
+        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -7652,9 +7656,7 @@ class GetSubnetFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        For example, if matching against tag `Name`, use:
+        The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         """
         return pulumi.get(self, "name")
 
@@ -7662,8 +7664,7 @@ class GetSubnetFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Set of values that are accepted for the given field.
-        A subnet will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

@@ -29,7 +29,7 @@ import (
 // 			ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
 // 			InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
 // 			Schedule: &imagebuilder.ImagePipelineScheduleArgs{
-// 				ScheduleExpression: pulumi.String("cron(0 0 * * *)"),
+// 				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
 // 			},
 // 		})
 // 		if err != nil {

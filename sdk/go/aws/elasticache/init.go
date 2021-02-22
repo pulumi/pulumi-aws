@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:elasticache/cluster:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup":
+		r, err = NewGlobalReplicationGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:elasticache/parameterGroup:ParameterGroup":
 		r, err = NewParameterGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:elasticache/replicationGroup:ReplicationGroup":
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"elasticache/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"elasticache/globalReplicationGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

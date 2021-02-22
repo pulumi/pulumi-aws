@@ -284,6 +284,8 @@ type EventTarget struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
+	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	DeadLetterConfig EventTargetDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrOutput `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
@@ -296,6 +298,8 @@ type EventTarget struct {
 	InputTransformer EventTargetInputTransformerPtrOutput `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrOutput `pulumi:"kinesisTarget"`
+	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
@@ -347,6 +351,8 @@ type eventTargetState struct {
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
+	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
@@ -359,6 +365,8 @@ type eventTargetState struct {
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
+	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
@@ -376,6 +384,8 @@ type EventTargetState struct {
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
+	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
@@ -388,6 +398,8 @@ type EventTargetState struct {
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput
+	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
@@ -409,6 +421,8 @@ type eventTargetArgs struct {
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
+	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
@@ -421,6 +435,8 @@ type eventTargetArgs struct {
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
+	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
@@ -439,6 +455,8 @@ type EventTargetArgs struct {
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
+	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
@@ -451,6 +469,8 @@ type EventTargetArgs struct {
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput
+	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.

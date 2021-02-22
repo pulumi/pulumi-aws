@@ -8,15 +8,11 @@ import * as utilities from "../utilities";
 /**
  * `aws.ec2.Subnet` provides details about a specific VPC subnet.
  *
- * This resource can prove useful when a module accepts a subnet id as
- * an input variable and needs to, for example, determine the id of the
- * VPC that the subnet belongs to.
+ * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a subnet id as a variable
- * and use this data source to obtain the data necessary to create a security
- * group that allows connections from hosts in that subnet.
+ * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -36,6 +32,21 @@ import * as utilities from "../utilities";
  *         protocol: "tcp",
  *     }],
  * });
+ * ```
+ * ### Filter Example
+ *
+ * If you want to match against tag `Name`, use:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selected = pulumi.output(aws.ec2.getSubnet({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["yakdriver"],
+ *     }],
+ * }, { async: true }));
  * ```
  */
 export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
@@ -66,46 +77,43 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetSubnetArgs {
     /**
-     * The availability zone where the
-     * subnet must reside.
+     * Availability zone where the subnet must reside.
      */
     readonly availabilityZone?: string;
     /**
-     * The ID of the Availability Zone for the subnet.
+     * ID of the Availability Zone for the subnet.
      */
     readonly availabilityZoneId?: string;
     /**
-     * The cidr block of the desired subnet.
+     * CIDR block of the desired subnet.
      */
     readonly cidrBlock?: string;
     /**
-     * Boolean constraint for whether the desired
-     * subnet must be the default subnet for its associated availability zone.
+     * Whether the desired subnet must be the default subnet for its associated availability zone.
      */
     readonly defaultForAz?: boolean;
     /**
-     * Custom filter block as described below.
+     * Configuration block. Detailed below.
      */
     readonly filters?: inputs.ec2.GetSubnetFilter[];
     /**
-     * The id of the specific subnet to retrieve.
+     * ID of the specific subnet to retrieve.
      */
     readonly id?: string;
     /**
-     * The Ipv6 cidr block of the desired subnet
+     * IPv6 CIDR block of the desired subnet.
      */
     readonly ipv6CidrBlock?: string;
     /**
-     * The state that the desired subnet must have.
+     * State that the desired subnet must have.
      */
     readonly state?: string;
     /**
-     * A map of tags, each pair of which must exactly match
-     * a pair on the desired subnet.
+     * Map of tags, each pair of which must exactly match a pair on the desired subnet.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The id of the VPC that the desired subnet belongs to.
+     * ID of the VPC that the desired subnet belongs to.
      */
     readonly vpcId?: string;
 }
@@ -115,12 +123,19 @@ export interface GetSubnetArgs {
  */
 export interface GetSubnetResult {
     /**
-     * The ARN of the subnet.
+     * ARN of the subnet.
      */
     readonly arn: string;
+    /**
+     * Whether an IPv6 address is assigned on creation.
+     */
     readonly assignIpv6AddressOnCreation: boolean;
     readonly availabilityZone: string;
     readonly availabilityZoneId: string;
+    /**
+     * Available IP addresses of the subnet.
+     */
+    readonly availableIpAddressCount: number;
     readonly cidrBlock: string;
     /**
      * Identifier of customer owned IPv4 address pool.
@@ -130,6 +145,9 @@ export interface GetSubnetResult {
     readonly filters?: outputs.ec2.GetSubnetFilter[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
+    /**
+     * Association ID of the IPv6 CIDR block.
+     */
     readonly ipv6CidrBlockAssociationId: string;
     /**
      * Whether customer owned IP addresses are assigned on network interface creation.
@@ -140,11 +158,11 @@ export interface GetSubnetResult {
      */
     readonly mapPublicIpOnLaunch: boolean;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     readonly outpostArn: string;
     /**
-     * The ID of the AWS account that owns the subnet.
+     * ID of the AWS account that owns the subnet.
      */
     readonly ownerId: string;
     readonly state: string;

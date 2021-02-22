@@ -242,7 +242,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * The maximum price to request on the spot market.
      */
-    public readonly spotPrice!: pulumi.Output<string | undefined>;
+    public readonly spotPrice!: pulumi.Output<string>;
     public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
      * If set to `one-time`, after
