@@ -10,11 +10,51 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'RoleInlinePolicyArgs',
     'GetPolicyDocumentStatementArgs',
     'GetPolicyDocumentStatementConditionArgs',
     'GetPolicyDocumentStatementNotPrincipalArgs',
     'GetPolicyDocumentStatementPrincipalArgs',
 ]
+
+@pulumi.input_type
+class RoleInlinePolicyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the role policy.
+        :param pulumi.Input[str] policy: Policy document as a JSON formatted string.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the role policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy document as a JSON formatted string.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
 
 @pulumi.input_type
 class GetPolicyDocumentStatementArgs:

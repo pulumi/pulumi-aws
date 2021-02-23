@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fms.Inputs
     public sealed class PolicySecurityServicePolicyDataGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+        /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         /// </summary>
         [Input("managedServiceData")]
         public Input<string>? ManagedServiceData { get; set; }
 
         /// <summary>
-        /// valid values are `BLOCK` or `COUNT`.
+        /// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

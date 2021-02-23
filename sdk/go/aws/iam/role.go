@@ -13,9 +13,12 @@ import (
 
 // Provides an IAM role.
 //
-// > *NOTE:* If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
+// > **NOTE:** If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource does not have this requirement.
+//
+// > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 //
 // ## Example Usage
+// ### Basic Example
 //
 // ```go
 // package main
@@ -59,7 +62,7 @@ import (
 // 	})
 // }
 // ```
-// ## Example of Using Data Source for Assume Role Policy
+// ### Example of Using Data Source for Assume Role Policy
 //
 // ```go
 // package main
@@ -102,6 +105,134 @@ import (
 // 	})
 // }
 // ```
+// ### Example of Removing Inline Policies
+//
+// This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, the provider will remove that policy.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+// 			InlinePolicies: iam.RoleInlinePolicyArray{
+// 				nil,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example of Exclusive Managed Policies
+//
+// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, the provider will detach that policy. If someone detaches these policies out-of-band, the provider will attach them again.
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"Version": "2012-10-17",
+// 			"Statement": []map[string]interface{}{
+// 				map[string]interface{}{
+// 					"Action": []string{
+// 						"ec2:Describe*",
+// 					},
+// 					"Effect":   "Allow",
+// 					"Resource": "*",
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		policyOne, err := iam.NewPolicy(ctx, "policyOne", &iam.PolicyArgs{
+// 			Policy: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
+// 			"Version": "2012-10-17",
+// 			"Statement": []map[string]interface{}{
+// 				map[string]interface{}{
+// 					"Action": []string{
+// 						"s3:ListAllMyBuckets",
+// 						"s3:ListBucket",
+// 						"s3:HeadBucket",
+// 					},
+// 					"Effect":   "Allow",
+// 					"Resource": "*",
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json1 := string(tmpJSON1)
+// 		policyTwo, err := iam.NewPolicy(ctx, "policyTwo", &iam.PolicyArgs{
+// 			Policy: pulumi.String(json1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+// 			ManagedPolicyArns: pulumi.StringArray{
+// 				policyOne.Arn,
+// 				policyTwo.Arn,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example of Removing Managed Policies
+//
+// This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, the provider will detach that policy.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+// 			AssumeRolePolicy:  pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
+// 			ManagedPolicyArns: []interface{}{},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -113,30 +244,33 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the role.
+	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The policy that grants an entity permission to assume the role.
+	// Policy that grants an entity permission to assume the role.
 	AssumeRolePolicy pulumi.StringOutput `pulumi:"assumeRolePolicy"`
-	// The creation date of the IAM role.
+	// Creation date of the IAM role.
 	CreateDate pulumi.StringOutput `pulumi:"createDate"`
-	// The description of the role.
+	// Description of the role.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrOutput `pulumi:"forceDetachPolicies"`
-	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
+	InlinePolicies RoleInlinePolicyArrayOutput `pulumi:"inlinePolicies"`
+	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrOutput `pulumi:"maxSessionDuration"`
-	// The name of the role. If omitted, this provider will assign a random, unique name.
+	// Name of the role policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	// The path to the role.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the role.
+	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value map of tags for the IAM role
+	// Key-value mapping of tags for the IAM role
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The stable and unique string identifying the role.
+	// Stable and unique string identifying the role.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
@@ -172,58 +306,64 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
+	// Amazon Resource Name (ARN) specifying the role.
 	Arn *string `pulumi:"arn"`
-	// The policy that grants an entity permission to assume the role.
+	// Policy that grants an entity permission to assume the role.
 	AssumeRolePolicy *string `pulumi:"assumeRolePolicy"`
-	// The creation date of the IAM role.
+	// Creation date of the IAM role.
 	CreateDate *string `pulumi:"createDate"`
-	// The description of the role.
+	// Description of the role.
 	Description *string `pulumi:"description"`
-	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
-	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
+	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
+	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
-	// The name of the role. If omitted, this provider will assign a random, unique name.
+	// Name of the role policy.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The path to the role.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the role.
+	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value map of tags for the IAM role
+	// Key-value mapping of tags for the IAM role
 	Tags map[string]string `pulumi:"tags"`
-	// The stable and unique string identifying the role.
+	// Stable and unique string identifying the role.
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type RoleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
+	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringPtrInput
-	// The policy that grants an entity permission to assume the role.
+	// Policy that grants an entity permission to assume the role.
 	AssumeRolePolicy pulumi.StringPtrInput
-	// The creation date of the IAM role.
+	// Creation date of the IAM role.
 	CreateDate pulumi.StringPtrInput
-	// The description of the role.
+	// Description of the role.
 	Description pulumi.StringPtrInput
-	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
-	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
+	InlinePolicies RoleInlinePolicyArrayInput
+	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	ManagedPolicyArns pulumi.StringArrayInput
+	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
-	// The name of the role. If omitted, this provider will assign a random, unique name.
+	// Name of the role policy.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The path to the role.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
-	// The ARN of the policy that is used to set the permissions boundary for the role.
+	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value map of tags for the IAM role
+	// Key-value mapping of tags for the IAM role
 	Tags pulumi.StringMapInput
-	// The stable and unique string identifying the role.
+	// Stable and unique string identifying the role.
 	UniqueId pulumi.StringPtrInput
 }
 
@@ -232,47 +372,53 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
-	// The policy that grants an entity permission to assume the role.
+	// Policy that grants an entity permission to assume the role.
 	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
-	// The description of the role.
+	// Description of the role.
 	Description *string `pulumi:"description"`
-	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
-	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
+	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
+	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
-	// The name of the role. If omitted, this provider will assign a random, unique name.
+	// Name of the role policy.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The path to the role.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the role.
+	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value map of tags for the IAM role
+	// Key-value mapping of tags for the IAM role
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
-	// The policy that grants an entity permission to assume the role.
+	// Policy that grants an entity permission to assume the role.
 	AssumeRolePolicy pulumi.Input
-	// The description of the role.
+	// Description of the role.
 	Description pulumi.StringPtrInput
-	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
-	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
+	InlinePolicies RoleInlinePolicyArrayInput
+	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	ManagedPolicyArns pulumi.StringArrayInput
+	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
-	// The name of the role. If omitted, this provider will assign a random, unique name.
+	// Name of the role policy.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The path to the role.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
-	// The ARN of the policy that is used to set the permissions boundary for the role.
+	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value map of tags for the IAM role
+	// Key-value mapping of tags for the IAM role
 	Tags pulumi.StringMapInput
 }
 

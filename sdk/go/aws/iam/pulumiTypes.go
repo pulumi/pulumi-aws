@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type RoleInlinePolicy struct {
+	// Name of the role policy.
+	Name *string `pulumi:"name"`
+	// Policy document as a JSON formatted string.
+	Policy *string `pulumi:"policy"`
+}
+
+// RoleInlinePolicyInput is an input type that accepts RoleInlinePolicyArgs and RoleInlinePolicyOutput values.
+// You can construct a concrete instance of `RoleInlinePolicyInput` via:
+//
+//          RoleInlinePolicyArgs{...}
+type RoleInlinePolicyInput interface {
+	pulumi.Input
+
+	ToRoleInlinePolicyOutput() RoleInlinePolicyOutput
+	ToRoleInlinePolicyOutputWithContext(context.Context) RoleInlinePolicyOutput
+}
+
+type RoleInlinePolicyArgs struct {
+	// Name of the role policy.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Policy document as a JSON formatted string.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+}
+
+func (RoleInlinePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleInlinePolicy)(nil)).Elem()
+}
+
+func (i RoleInlinePolicyArgs) ToRoleInlinePolicyOutput() RoleInlinePolicyOutput {
+	return i.ToRoleInlinePolicyOutputWithContext(context.Background())
+}
+
+func (i RoleInlinePolicyArgs) ToRoleInlinePolicyOutputWithContext(ctx context.Context) RoleInlinePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleInlinePolicyOutput)
+}
+
+// RoleInlinePolicyArrayInput is an input type that accepts RoleInlinePolicyArray and RoleInlinePolicyArrayOutput values.
+// You can construct a concrete instance of `RoleInlinePolicyArrayInput` via:
+//
+//          RoleInlinePolicyArray{ RoleInlinePolicyArgs{...} }
+type RoleInlinePolicyArrayInput interface {
+	pulumi.Input
+
+	ToRoleInlinePolicyArrayOutput() RoleInlinePolicyArrayOutput
+	ToRoleInlinePolicyArrayOutputWithContext(context.Context) RoleInlinePolicyArrayOutput
+}
+
+type RoleInlinePolicyArray []RoleInlinePolicyInput
+
+func (RoleInlinePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleInlinePolicy)(nil)).Elem()
+}
+
+func (i RoleInlinePolicyArray) ToRoleInlinePolicyArrayOutput() RoleInlinePolicyArrayOutput {
+	return i.ToRoleInlinePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RoleInlinePolicyArray) ToRoleInlinePolicyArrayOutputWithContext(ctx context.Context) RoleInlinePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleInlinePolicyArrayOutput)
+}
+
+type RoleInlinePolicyOutput struct{ *pulumi.OutputState }
+
+func (RoleInlinePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleInlinePolicy)(nil)).Elem()
+}
+
+func (o RoleInlinePolicyOutput) ToRoleInlinePolicyOutput() RoleInlinePolicyOutput {
+	return o
+}
+
+func (o RoleInlinePolicyOutput) ToRoleInlinePolicyOutputWithContext(ctx context.Context) RoleInlinePolicyOutput {
+	return o
+}
+
+// Name of the role policy.
+func (o RoleInlinePolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleInlinePolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Policy document as a JSON formatted string.
+func (o RoleInlinePolicyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleInlinePolicy) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type RoleInlinePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleInlinePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleInlinePolicy)(nil)).Elem()
+}
+
+func (o RoleInlinePolicyArrayOutput) ToRoleInlinePolicyArrayOutput() RoleInlinePolicyArrayOutput {
+	return o
+}
+
+func (o RoleInlinePolicyArrayOutput) ToRoleInlinePolicyArrayOutputWithContext(ctx context.Context) RoleInlinePolicyArrayOutput {
+	return o
+}
+
+func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleInlinePolicy {
+		return vs[0].([]RoleInlinePolicy)[vs[1].(int)]
+	}).(RoleInlinePolicyOutput)
+}
+
 type GetGroupUser struct {
 	// The Amazon Resource Name (ARN) specifying the iam user.
 	Arn string `pulumi:"arn"`
@@ -631,6 +737,8 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(RoleInlinePolicyOutput{})
+	pulumi.RegisterOutputType(RoleInlinePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupUserOutput{})
 	pulumi.RegisterOutputType(GetGroupUserArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyDocumentStatementOutput{})

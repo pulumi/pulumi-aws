@@ -23,38 +23,6 @@ class RolePolicy(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides an IAM role inline policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
-                },
-            }],
-        }))
-        test_policy = aws.iam.RolePolicy("testPolicy",
-            role=test_role.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
         ## Import
 
         IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.

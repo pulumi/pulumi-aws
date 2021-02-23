@@ -14,31 +14,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.wafregional.RuleGroup("test", {
- *     metricName: "WAFRuleGroupExample",
- * });
- * const example = new aws.fms.Policy("example", {
+ * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
+ * const examplePolicy = new aws.fms.Policy("examplePolicy", {
  *     excludeResourceTags: false,
  *     remediationEnabled: false,
  *     resourceTypeLists: ["AWS::ElasticLoadBalancingV2::LoadBalancer"],
  *     securityServicePolicyData: {
- *         managedServiceData: pulumi.interpolate`      {
- *         "type": "WAF",
- *         "ruleGroups":
- *           [{
- *             "id":"${test.id}",
- *             "overrideAction" : {
- *               "type": "COUNT"
- *             }
- *           }],
- *         "defaultAction":
- *         {
- *           "type": "BLOCK"
- *         },
- *         "overrideCustomerWebACLAssociation": false
- *       }
- * `,
  *         type: "WAF",
+ *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
+ *             type: "WAF",
+ *             ruleGroups: [{
+ *                 id: id,
+ *                 overrideAction: {
+ *                     type: "COUNT",
+ *                 },
+ *             }],
+ *             defaultAction: {
+ *                 type: "BLOCK",
+ *             },
+ *             overrideCustomerWebACLAssociation: false,
+ *         })),
  *     },
  * });
  * ```

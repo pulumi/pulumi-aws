@@ -303,9 +303,9 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 }
 
 type PolicySecurityServicePolicyData struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData *string `pulumi:"managedServiceData"`
-	// valid values are `BLOCK` or `COUNT`.
+	// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
 	Type string `pulumi:"type"`
 }
 
@@ -321,9 +321,9 @@ type PolicySecurityServicePolicyDataInput interface {
 }
 
 type PolicySecurityServicePolicyDataArgs struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
-	// valid values are `BLOCK` or `COUNT`.
+	// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -404,12 +404,12 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
 
-// valid values are `BLOCK` or `COUNT`.
+// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
 func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -432,7 +432,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePo
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) PolicySecurityServicePolicyData { return *v }).(PolicySecurityServicePolicyDataOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string.
+// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -442,7 +442,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// valid values are `BLOCK` or `COUNT`.
+// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
