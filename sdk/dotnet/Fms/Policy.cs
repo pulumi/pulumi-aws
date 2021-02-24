@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Fms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -22,11 +24,11 @@ namespace Pulumi.Aws.Fms
     /// {
     ///     public MyStack()
     ///     {
-    ///         var test = new Aws.WafRegional.RuleGroup("test", new Aws.WafRegional.RuleGroupArgs
+    ///         var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new Aws.WafRegional.RuleGroupArgs
     ///         {
     ///             MetricName = "WAFRuleGroupExample",
     ///         });
-    ///         var example = new Aws.Fms.Policy("example", new Aws.Fms.PolicyArgs
+    ///         var examplePolicy = new Aws.Fms.Policy("examplePolicy", new Aws.Fms.PolicyArgs
     ///         {
     ///             ExcludeResourceTags = false,
     ///             RemediationEnabled = false,
@@ -36,24 +38,28 @@ namespace Pulumi.Aws.Fms
     ///             },
     ///             SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
     ///             {
-    ///                 ManagedServiceData = test.Id.Apply(id =&gt; @$"      {{
-    ///         ""type"": ""WAF"",
-    ///         ""ruleGroups"":
-    ///           [{{
-    ///             ""id"":""{id}"",
-    ///             ""overrideAction"" : {{
-    ///               ""type"": ""COUNT""
-    ///             }}
-    ///           }}],
-    ///         ""defaultAction"":
-    ///         {{
-    ///           ""type"": ""BLOCK""
-    ///         }},
-    ///         ""overrideCustomerWebACLAssociation"": false
-    ///       }}
-    /// 
-    /// "),
     ///                 Type = "WAF",
+    ///                 ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "type", "WAF" },
+    ///                     { "ruleGroups", new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "id", id },
+    ///                                 { "overrideAction", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "type", "COUNT" },
+    ///                                 } },
+    ///                             },
+    ///                         }
+    ///                      },
+    ///                     { "defaultAction", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "type", "BLOCK" },
+    ///                     } },
+    ///                     { "overrideCustomerWebACLAssociation", false },
+    ///                 })),
     ///             },
     ///         });
     ///     }

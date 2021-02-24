@@ -37,32 +37,29 @@ class Policy(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        test = aws.wafregional.RuleGroup("test", metric_name="WAFRuleGroupExample")
-        example = aws.fms.Policy("example",
+        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
+        example_policy = aws.fms.Policy("examplePolicy",
             exclude_resource_tags=False,
             remediation_enabled=False,
             resource_type_lists=["AWS::ElasticLoadBalancingV2::LoadBalancer"],
             security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
-                managed_service_data=test.id.apply(lambda id: f\"\"\"      {{
-                "type": "WAF",
-                "ruleGroups":
-                  [{{
-                    "id":"{id}",
-                    "overrideAction" : {{
-                      "type": "COUNT"
-                    }}
-                  }}],
-                "defaultAction":
-                {{
-                  "type": "BLOCK"
-                }},
-                "overrideCustomerWebACLAssociation": false
-              }}
-
-        \"\"\"),
                 type="WAF",
+                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                    "type": "WAF",
+                    "ruleGroups": [{
+                        "id": id,
+                        "overrideAction": {
+                            "type": "COUNT",
+                        },
+                    }],
+                    "defaultAction": {
+                        "type": "BLOCK",
+                    },
+                    "overrideCustomerWebACLAssociation": False,
+                })),
             ))
         ```
 

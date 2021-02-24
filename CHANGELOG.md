@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to v3.29.1 of the AWS Terraform Provider
 
 ---
 

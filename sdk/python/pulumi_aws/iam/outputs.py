@@ -11,12 +11,47 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'RoleInlinePolicy',
     'GetGroupUserResult',
     'GetPolicyDocumentStatementResult',
     'GetPolicyDocumentStatementConditionResult',
     'GetPolicyDocumentStatementNotPrincipalResult',
     'GetPolicyDocumentStatementPrincipalResult',
 ]
+
+@pulumi.output_type
+class RoleInlinePolicy(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 policy: Optional[str] = None):
+        """
+        :param str name: Name of the role policy.
+        :param str policy: Policy document as a JSON formatted string.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the role policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[str]:
+        """
+        Policy document as a JSON formatted string.
+        """
+        return pulumi.get(self, "policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class GetGroupUserResult(dict):

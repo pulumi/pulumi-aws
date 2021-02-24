@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
+// 	"encoding/json"
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/fms"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/wafregional"
@@ -28,23 +28,43 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := wafregional.NewRuleGroup(ctx, "test", &wafregional.RuleGroupArgs{
+// 		exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
 // 			MetricName: pulumi.String("WAFRuleGroupExample"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = fms.NewPolicy(ctx, "example", &fms.PolicyArgs{
+// 		_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
 // 			ExcludeResourceTags: pulumi.Bool(false),
 // 			RemediationEnabled:  pulumi.Bool(false),
 // 			ResourceTypeLists: pulumi.StringArray{
 // 				pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
 // 			},
 // 			SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
-// 				ManagedServiceData: test.ID().ApplyT(func(id string) (string, error) {
-// 					return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "      {\n", "        \"type\": \"WAF\",\n", "        \"ruleGroups\":\n", "          [{\n", "            \"id\":\"", id, "\",\n", "            \"overrideAction\" : {\n", "              \"type\": \"COUNT\"\n", "            }\n", "          }],\n", "        \"defaultAction\":\n", "        {\n", "          \"type\": \"BLOCK\"\n", "        },\n", "        \"overrideCustomerWebACLAssociation\": false\n", "      }\n", "\n"), nil
-// 				}).(pulumi.StringOutput),
 // 				Type: pulumi.String("WAF"),
+// 				ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
+// 					var _zero pulumi.String
+// 					tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 						"type": "WAF",
+// 						"ruleGroups": []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"id": id,
+// 								"overrideAction": map[string]interface{}{
+// 									"type": "COUNT",
+// 								},
+// 							},
+// 						},
+// 						"defaultAction": map[string]interface{}{
+// 							"type": "BLOCK",
+// 						},
+// 						"overrideCustomerWebACLAssociation": false,
+// 					})
+// 					if err != nil {
+// 						return _zero, err
+// 					}
+// 					json0 := string(tmpJSON0)
+// 					return pulumi.String(json0), nil
+// 				}).(pulumi.StringOutput),
 // 			},
 // 		})
 // 		if err != nil {

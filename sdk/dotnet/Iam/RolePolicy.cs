@@ -10,68 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Provides an IAM role inline policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "ec2.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = testRole.Id,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "ec2:Describe*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.
