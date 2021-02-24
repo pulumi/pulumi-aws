@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId")]
     public static class GetCanonicalUserId
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var current = Output.Create(Aws.GetCanonicalUserId.InvokeAsync());
+        ///         var current = Output.Create(Aws.S3.GetCanonicalUserId.InvokeAsync());
         ///         this.CanonicalUserId = current.Apply(current =&gt; current.Id);
         ///     }
         /// 

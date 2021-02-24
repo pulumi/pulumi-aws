@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const groups = aws.getAutoscalingGroups({
+ * const groups = aws.autoscaling.getAmiIds({
  *     filters: [
  *         {
  *             name: "key",
@@ -39,7 +39,9 @@ import * as utilities from "./utilities";
  * });
  * ```
  */
+/** @deprecated aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds */
 export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
+    pulumi.log.warn("getAutoscalingGroups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")
     args = args || {};
     if (!opts) {
         opts = {}

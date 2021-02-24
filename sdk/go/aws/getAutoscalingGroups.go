@@ -16,22 +16,21 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		groups, err := aws.GetAutoscalingGroups(ctx, &aws.GetAutoscalingGroupsArgs{
-// 			Filters: []aws.GetAutoscalingGroupsFilter{
-// 				aws.GetAutoscalingGroupsFilter{
+// 		groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
+// 			Filters: []autoscaling.GetAmiIdsFilter{
+// 				autoscaling.GetAmiIdsFilter{
 // 					Name: "key",
 // 					Values: []string{
 // 						"Team",
 // 					},
 // 				},
-// 				aws.GetAutoscalingGroupsFilter{
+// 				autoscaling.GetAmiIdsFilter{
 // 					Name: "value",
 // 					Values: []string{
 // 						"Pets",
@@ -66,6 +65,8 @@ import (
 // 	return pulumiArr
 // }
 // ```
+//
+// Deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
 func GetAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs, opts ...pulumi.InvokeOption) (*GetAutoscalingGroupsResult, error) {
 	var rv GetAutoscalingGroupsResult
 	err := ctx.Invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", args, &rv, opts...)

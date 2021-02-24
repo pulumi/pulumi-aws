@@ -12976,6 +12976,421 @@ func (o VpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) VpnConnec
 	}).(VpnConnectionVgwTelemetryOutput)
 }
 
+type GetAmiBlockDeviceMapping struct {
+	DeviceName  string            `pulumi:"deviceName"`
+	Ebs         map[string]string `pulumi:"ebs"`
+	NoDevice    string            `pulumi:"noDevice"`
+	VirtualName string            `pulumi:"virtualName"`
+}
+
+// GetAmiBlockDeviceMappingInput is an input type that accepts GetAmiBlockDeviceMappingArgs and GetAmiBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `GetAmiBlockDeviceMappingInput` via:
+//
+//          GetAmiBlockDeviceMappingArgs{...}
+type GetAmiBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToGetAmiBlockDeviceMappingOutput() GetAmiBlockDeviceMappingOutput
+	ToGetAmiBlockDeviceMappingOutputWithContext(context.Context) GetAmiBlockDeviceMappingOutput
+}
+
+type GetAmiBlockDeviceMappingArgs struct {
+	DeviceName  pulumi.StringInput    `pulumi:"deviceName"`
+	Ebs         pulumi.StringMapInput `pulumi:"ebs"`
+	NoDevice    pulumi.StringInput    `pulumi:"noDevice"`
+	VirtualName pulumi.StringInput    `pulumi:"virtualName"`
+}
+
+func (GetAmiBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetAmiBlockDeviceMappingArgs) ToGetAmiBlockDeviceMappingOutput() GetAmiBlockDeviceMappingOutput {
+	return i.ToGetAmiBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i GetAmiBlockDeviceMappingArgs) ToGetAmiBlockDeviceMappingOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiBlockDeviceMappingOutput)
+}
+
+// GetAmiBlockDeviceMappingArrayInput is an input type that accepts GetAmiBlockDeviceMappingArray and GetAmiBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `GetAmiBlockDeviceMappingArrayInput` via:
+//
+//          GetAmiBlockDeviceMappingArray{ GetAmiBlockDeviceMappingArgs{...} }
+type GetAmiBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetAmiBlockDeviceMappingArrayOutput() GetAmiBlockDeviceMappingArrayOutput
+	ToGetAmiBlockDeviceMappingArrayOutputWithContext(context.Context) GetAmiBlockDeviceMappingArrayOutput
+}
+
+type GetAmiBlockDeviceMappingArray []GetAmiBlockDeviceMappingInput
+
+func (GetAmiBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetAmiBlockDeviceMappingArray) ToGetAmiBlockDeviceMappingArrayOutput() GetAmiBlockDeviceMappingArrayOutput {
+	return i.ToGetAmiBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetAmiBlockDeviceMappingArray) ToGetAmiBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiBlockDeviceMappingArrayOutput)
+}
+
+type GetAmiBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (GetAmiBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetAmiBlockDeviceMappingOutput) ToGetAmiBlockDeviceMappingOutput() GetAmiBlockDeviceMappingOutput {
+	return o
+}
+
+func (o GetAmiBlockDeviceMappingOutput) ToGetAmiBlockDeviceMappingOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingOutput {
+	return o
+}
+
+func (o GetAmiBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+func (o GetAmiBlockDeviceMappingOutput) Ebs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetAmiBlockDeviceMapping) map[string]string { return v.Ebs }).(pulumi.StringMapOutput)
+}
+
+func (o GetAmiBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
+}
+
+func (o GetAmiBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
+}
+
+type GetAmiBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAmiBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetAmiBlockDeviceMappingArrayOutput) ToGetAmiBlockDeviceMappingArrayOutput() GetAmiBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetAmiBlockDeviceMappingArrayOutput) ToGetAmiBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetAmiBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetAmiBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAmiBlockDeviceMapping {
+		return vs[0].([]GetAmiBlockDeviceMapping)[vs[1].(int)]
+	}).(GetAmiBlockDeviceMappingOutput)
+}
+
+type GetAmiFilter struct {
+	// The name of the AMI that was provided during image creation.
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetAmiFilterInput is an input type that accepts GetAmiFilterArgs and GetAmiFilterOutput values.
+// You can construct a concrete instance of `GetAmiFilterInput` via:
+//
+//          GetAmiFilterArgs{...}
+type GetAmiFilterInput interface {
+	pulumi.Input
+
+	ToGetAmiFilterOutput() GetAmiFilterOutput
+	ToGetAmiFilterOutputWithContext(context.Context) GetAmiFilterOutput
+}
+
+type GetAmiFilterArgs struct {
+	// The name of the AMI that was provided during image creation.
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAmiFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiFilter)(nil)).Elem()
+}
+
+func (i GetAmiFilterArgs) ToGetAmiFilterOutput() GetAmiFilterOutput {
+	return i.ToGetAmiFilterOutputWithContext(context.Background())
+}
+
+func (i GetAmiFilterArgs) ToGetAmiFilterOutputWithContext(ctx context.Context) GetAmiFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiFilterOutput)
+}
+
+// GetAmiFilterArrayInput is an input type that accepts GetAmiFilterArray and GetAmiFilterArrayOutput values.
+// You can construct a concrete instance of `GetAmiFilterArrayInput` via:
+//
+//          GetAmiFilterArray{ GetAmiFilterArgs{...} }
+type GetAmiFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAmiFilterArrayOutput() GetAmiFilterArrayOutput
+	ToGetAmiFilterArrayOutputWithContext(context.Context) GetAmiFilterArrayOutput
+}
+
+type GetAmiFilterArray []GetAmiFilterInput
+
+func (GetAmiFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiFilter)(nil)).Elem()
+}
+
+func (i GetAmiFilterArray) ToGetAmiFilterArrayOutput() GetAmiFilterArrayOutput {
+	return i.ToGetAmiFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAmiFilterArray) ToGetAmiFilterArrayOutputWithContext(ctx context.Context) GetAmiFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiFilterArrayOutput)
+}
+
+type GetAmiFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAmiFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiFilter)(nil)).Elem()
+}
+
+func (o GetAmiFilterOutput) ToGetAmiFilterOutput() GetAmiFilterOutput {
+	return o
+}
+
+func (o GetAmiFilterOutput) ToGetAmiFilterOutputWithContext(ctx context.Context) GetAmiFilterOutput {
+	return o
+}
+
+// The name of the AMI that was provided during image creation.
+func (o GetAmiFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAmiFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAmiFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAmiFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiFilter)(nil)).Elem()
+}
+
+func (o GetAmiFilterArrayOutput) ToGetAmiFilterArrayOutput() GetAmiFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiFilterArrayOutput) ToGetAmiFilterArrayOutputWithContext(ctx context.Context) GetAmiFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiFilterArrayOutput) Index(i pulumi.IntInput) GetAmiFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAmiFilter {
+		return vs[0].([]GetAmiFilter)[vs[1].(int)]
+	}).(GetAmiFilterOutput)
+}
+
+type GetAmiIdsFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetAmiIdsFilterInput is an input type that accepts GetAmiIdsFilterArgs and GetAmiIdsFilterOutput values.
+// You can construct a concrete instance of `GetAmiIdsFilterInput` via:
+//
+//          GetAmiIdsFilterArgs{...}
+type GetAmiIdsFilterInput interface {
+	pulumi.Input
+
+	ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput
+	ToGetAmiIdsFilterOutputWithContext(context.Context) GetAmiIdsFilterOutput
+}
+
+type GetAmiIdsFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAmiIdsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput {
+	return i.ToGetAmiIdsFilterOutputWithContext(context.Background())
+}
+
+func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutputWithContext(ctx context.Context) GetAmiIdsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterOutput)
+}
+
+// GetAmiIdsFilterArrayInput is an input type that accepts GetAmiIdsFilterArray and GetAmiIdsFilterArrayOutput values.
+// You can construct a concrete instance of `GetAmiIdsFilterArrayInput` via:
+//
+//          GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
+type GetAmiIdsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput
+	ToGetAmiIdsFilterArrayOutputWithContext(context.Context) GetAmiIdsFilterArrayOutput
+}
+
+type GetAmiIdsFilterArray []GetAmiIdsFilterInput
+
+func (GetAmiIdsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (i GetAmiIdsFilterArray) ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput {
+	return i.ToGetAmiIdsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAmiIdsFilterArray) ToGetAmiIdsFilterArrayOutputWithContext(ctx context.Context) GetAmiIdsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterArrayOutput)
+}
+
+type GetAmiIdsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutputWithContext(ctx context.Context) GetAmiIdsFilterOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAmiIdsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAmiIdsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutputWithContext(ctx context.Context) GetAmiIdsFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAmiIdsFilter {
+		return vs[0].([]GetAmiIdsFilter)[vs[1].(int)]
+	}).(GetAmiIdsFilterOutput)
+}
+
+type GetAmiProductCode struct {
+	ProductCodeId   string `pulumi:"productCodeId"`
+	ProductCodeType string `pulumi:"productCodeType"`
+}
+
+// GetAmiProductCodeInput is an input type that accepts GetAmiProductCodeArgs and GetAmiProductCodeOutput values.
+// You can construct a concrete instance of `GetAmiProductCodeInput` via:
+//
+//          GetAmiProductCodeArgs{...}
+type GetAmiProductCodeInput interface {
+	pulumi.Input
+
+	ToGetAmiProductCodeOutput() GetAmiProductCodeOutput
+	ToGetAmiProductCodeOutputWithContext(context.Context) GetAmiProductCodeOutput
+}
+
+type GetAmiProductCodeArgs struct {
+	ProductCodeId   pulumi.StringInput `pulumi:"productCodeId"`
+	ProductCodeType pulumi.StringInput `pulumi:"productCodeType"`
+}
+
+func (GetAmiProductCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiProductCode)(nil)).Elem()
+}
+
+func (i GetAmiProductCodeArgs) ToGetAmiProductCodeOutput() GetAmiProductCodeOutput {
+	return i.ToGetAmiProductCodeOutputWithContext(context.Background())
+}
+
+func (i GetAmiProductCodeArgs) ToGetAmiProductCodeOutputWithContext(ctx context.Context) GetAmiProductCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiProductCodeOutput)
+}
+
+// GetAmiProductCodeArrayInput is an input type that accepts GetAmiProductCodeArray and GetAmiProductCodeArrayOutput values.
+// You can construct a concrete instance of `GetAmiProductCodeArrayInput` via:
+//
+//          GetAmiProductCodeArray{ GetAmiProductCodeArgs{...} }
+type GetAmiProductCodeArrayInput interface {
+	pulumi.Input
+
+	ToGetAmiProductCodeArrayOutput() GetAmiProductCodeArrayOutput
+	ToGetAmiProductCodeArrayOutputWithContext(context.Context) GetAmiProductCodeArrayOutput
+}
+
+type GetAmiProductCodeArray []GetAmiProductCodeInput
+
+func (GetAmiProductCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiProductCode)(nil)).Elem()
+}
+
+func (i GetAmiProductCodeArray) ToGetAmiProductCodeArrayOutput() GetAmiProductCodeArrayOutput {
+	return i.ToGetAmiProductCodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAmiProductCodeArray) ToGetAmiProductCodeArrayOutputWithContext(ctx context.Context) GetAmiProductCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiProductCodeArrayOutput)
+}
+
+type GetAmiProductCodeOutput struct{ *pulumi.OutputState }
+
+func (GetAmiProductCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiProductCode)(nil)).Elem()
+}
+
+func (o GetAmiProductCodeOutput) ToGetAmiProductCodeOutput() GetAmiProductCodeOutput {
+	return o
+}
+
+func (o GetAmiProductCodeOutput) ToGetAmiProductCodeOutputWithContext(ctx context.Context) GetAmiProductCodeOutput {
+	return o
+}
+
+func (o GetAmiProductCodeOutput) ProductCodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiProductCode) string { return v.ProductCodeId }).(pulumi.StringOutput)
+}
+
+func (o GetAmiProductCodeOutput) ProductCodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiProductCode) string { return v.ProductCodeType }).(pulumi.StringOutput)
+}
+
+type GetAmiProductCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAmiProductCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiProductCode)(nil)).Elem()
+}
+
+func (o GetAmiProductCodeArrayOutput) ToGetAmiProductCodeArrayOutput() GetAmiProductCodeArrayOutput {
+	return o
+}
+
+func (o GetAmiProductCodeArrayOutput) ToGetAmiProductCodeArrayOutputWithContext(ctx context.Context) GetAmiProductCodeArrayOutput {
+	return o
+}
+
+func (o GetAmiProductCodeArrayOutput) Index(i pulumi.IntInput) GetAmiProductCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAmiProductCode {
+		return vs[0].([]GetAmiProductCode)[vs[1].(int)]
+	}).(GetAmiProductCodeOutput)
+}
+
 type GetCoipPoolFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
@@ -13298,6 +13713,106 @@ func (o GetCustomerGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetCustome
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomerGatewayFilter {
 		return vs[0].([]GetCustomerGatewayFilter)[vs[1].(int)]
 	}).(GetCustomerGatewayFilterOutput)
+}
+
+type GetElasticIpFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetElasticIpFilterInput is an input type that accepts GetElasticIpFilterArgs and GetElasticIpFilterOutput values.
+// You can construct a concrete instance of `GetElasticIpFilterInput` via:
+//
+//          GetElasticIpFilterArgs{...}
+type GetElasticIpFilterInput interface {
+	pulumi.Input
+
+	ToGetElasticIpFilterOutput() GetElasticIpFilterOutput
+	ToGetElasticIpFilterOutputWithContext(context.Context) GetElasticIpFilterOutput
+}
+
+type GetElasticIpFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetElasticIpFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetElasticIpFilter)(nil)).Elem()
+}
+
+func (i GetElasticIpFilterArgs) ToGetElasticIpFilterOutput() GetElasticIpFilterOutput {
+	return i.ToGetElasticIpFilterOutputWithContext(context.Background())
+}
+
+func (i GetElasticIpFilterArgs) ToGetElasticIpFilterOutputWithContext(ctx context.Context) GetElasticIpFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetElasticIpFilterOutput)
+}
+
+// GetElasticIpFilterArrayInput is an input type that accepts GetElasticIpFilterArray and GetElasticIpFilterArrayOutput values.
+// You can construct a concrete instance of `GetElasticIpFilterArrayInput` via:
+//
+//          GetElasticIpFilterArray{ GetElasticIpFilterArgs{...} }
+type GetElasticIpFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetElasticIpFilterArrayOutput() GetElasticIpFilterArrayOutput
+	ToGetElasticIpFilterArrayOutputWithContext(context.Context) GetElasticIpFilterArrayOutput
+}
+
+type GetElasticIpFilterArray []GetElasticIpFilterInput
+
+func (GetElasticIpFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetElasticIpFilter)(nil)).Elem()
+}
+
+func (i GetElasticIpFilterArray) ToGetElasticIpFilterArrayOutput() GetElasticIpFilterArrayOutput {
+	return i.ToGetElasticIpFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetElasticIpFilterArray) ToGetElasticIpFilterArrayOutputWithContext(ctx context.Context) GetElasticIpFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetElasticIpFilterArrayOutput)
+}
+
+type GetElasticIpFilterOutput struct{ *pulumi.OutputState }
+
+func (GetElasticIpFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetElasticIpFilter)(nil)).Elem()
+}
+
+func (o GetElasticIpFilterOutput) ToGetElasticIpFilterOutput() GetElasticIpFilterOutput {
+	return o
+}
+
+func (o GetElasticIpFilterOutput) ToGetElasticIpFilterOutputWithContext(ctx context.Context) GetElasticIpFilterOutput {
+	return o
+}
+
+func (o GetElasticIpFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticIpFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetElasticIpFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetElasticIpFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetElasticIpFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetElasticIpFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetElasticIpFilter)(nil)).Elem()
+}
+
+func (o GetElasticIpFilterArrayOutput) ToGetElasticIpFilterArrayOutput() GetElasticIpFilterArrayOutput {
+	return o
+}
+
+func (o GetElasticIpFilterArrayOutput) ToGetElasticIpFilterArrayOutputWithContext(ctx context.Context) GetElasticIpFilterArrayOutput {
+	return o
+}
+
+func (o GetElasticIpFilterArrayOutput) Index(i pulumi.IntInput) GetElasticIpFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetElasticIpFilter {
+		return vs[0].([]GetElasticIpFilter)[vs[1].(int)]
+	}).(GetElasticIpFilterOutput)
 }
 
 type GetInstanceCreditSpecification struct {
@@ -19001,6 +19516,112 @@ func (o GetNetworkInterfacesFilterArrayOutput) Index(i pulumi.IntInput) GetNetwo
 	}).(GetNetworkInterfacesFilterOutput)
 }
 
+type GetPrefixListFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetPrefixListFilterInput is an input type that accepts GetPrefixListFilterArgs and GetPrefixListFilterOutput values.
+// You can construct a concrete instance of `GetPrefixListFilterInput` via:
+//
+//          GetPrefixListFilterArgs{...}
+type GetPrefixListFilterInput interface {
+	pulumi.Input
+
+	ToGetPrefixListFilterOutput() GetPrefixListFilterOutput
+	ToGetPrefixListFilterOutputWithContext(context.Context) GetPrefixListFilterOutput
+}
+
+type GetPrefixListFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPrefixListFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetPrefixListFilterArgs) ToGetPrefixListFilterOutput() GetPrefixListFilterOutput {
+	return i.ToGetPrefixListFilterOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListFilterArgs) ToGetPrefixListFilterOutputWithContext(ctx context.Context) GetPrefixListFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListFilterOutput)
+}
+
+// GetPrefixListFilterArrayInput is an input type that accepts GetPrefixListFilterArray and GetPrefixListFilterArrayOutput values.
+// You can construct a concrete instance of `GetPrefixListFilterArrayInput` via:
+//
+//          GetPrefixListFilterArray{ GetPrefixListFilterArgs{...} }
+type GetPrefixListFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput
+	ToGetPrefixListFilterArrayOutputWithContext(context.Context) GetPrefixListFilterArrayOutput
+}
+
+type GetPrefixListFilterArray []GetPrefixListFilterInput
+
+func (GetPrefixListFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetPrefixListFilterArray) ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput {
+	return i.ToGetPrefixListFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListFilterArray) ToGetPrefixListFilterArrayOutputWithContext(ctx context.Context) GetPrefixListFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListFilterArrayOutput)
+}
+
+type GetPrefixListFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetPrefixListFilterOutput) ToGetPrefixListFilterOutput() GetPrefixListFilterOutput {
+	return o
+}
+
+func (o GetPrefixListFilterOutput) ToGetPrefixListFilterOutputWithContext(ctx context.Context) GetPrefixListFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+func (o GetPrefixListFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetPrefixListFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPrefixListFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPrefixListFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetPrefixListFilterArrayOutput) ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetPrefixListFilterArrayOutput) ToGetPrefixListFilterArrayOutputWithContext(ctx context.Context) GetPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetPrefixListFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListFilter {
+		return vs[0].([]GetPrefixListFilter)[vs[1].(int)]
+	}).(GetPrefixListFilterOutput)
+}
+
 type GetRouteTableAssociationType struct {
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId string `pulumi:"gatewayId"`
@@ -21557,12 +22178,22 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryArrayOutput{})
+	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetAmiFilterOutput{})
+	pulumi.RegisterOutputType(GetAmiFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAmiIdsFilterOutput{})
+	pulumi.RegisterOutputType(GetAmiIdsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAmiProductCodeOutput{})
+	pulumi.RegisterOutputType(GetAmiProductCodeArrayOutput{})
 	pulumi.RegisterOutputType(GetCoipPoolFilterOutput{})
 	pulumi.RegisterOutputType(GetCoipPoolFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCoipPoolsFilterOutput{})
 	pulumi.RegisterOutputType(GetCoipPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetElasticIpFilterOutput{})
+	pulumi.RegisterOutputType(GetElasticIpFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceEbsBlockDeviceOutput{})
@@ -21663,6 +22294,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkInterfaceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfacesFilterOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfacesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListFilterOutput{})
+	pulumi.RegisterOutputType(GetPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationTypeOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})

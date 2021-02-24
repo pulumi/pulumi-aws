@@ -19,6 +19,7 @@ export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./getBucketObjects";
+export * from "./getCanonicalUserId";
 export * from "./inventory";
 export * from "./objectCopy";
 export * from "./routingRules";

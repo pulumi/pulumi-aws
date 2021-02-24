@@ -346,14 +346,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentUser, err := aws.GetCanonicalUserId(ctx, nil, nil)
+// 		currentUser, err := s3.GetCanonicalUserId(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}

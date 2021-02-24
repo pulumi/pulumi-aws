@@ -16,13 +16,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetCanonicalUserId(ctx, nil, nil)
+// 		current, err := s3.GetCanonicalUserId(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -31,6 +31,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
 func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	var rv GetCanonicalUserIdResult
 	err := ctx.Invoke("aws:index/getCanonicalUserId:getCanonicalUserId", nil, &rv, opts...)

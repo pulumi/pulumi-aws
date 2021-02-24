@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ami = aws.getAmi({
+ * const ami = aws.ec2.getAmi({
  *     mostRecent: true,
  *     filters: [{
  *         name: "name",

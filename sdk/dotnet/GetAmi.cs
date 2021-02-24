@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getAmi has been deprecated in favor of aws.ec2.getAmi")]
     public static class GetAmi
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+        ///         var example = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
         ///         {
         ///             ExecutableUsers = 
         ///             {
@@ -35,7 +36,7 @@ namespace Pulumi.Aws
         ///             },
         ///             Filters = 
         ///             {
-        ///                 new Aws.Inputs.GetAmiFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
         ///                 {
         ///                     Name = "name",
         ///                     Values = 
@@ -43,7 +44,7 @@ namespace Pulumi.Aws
         ///                         "myami-*",
         ///                     },
         ///                 },
-        ///                 new Aws.Inputs.GetAmiFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
         ///                 {
         ///                     Name = "root-device-type",
         ///                     Values = 
@@ -51,7 +52,7 @@ namespace Pulumi.Aws
         ///                         "ebs",
         ///                     },
         ///                 },
-        ///                 new Aws.Inputs.GetAmiFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
         ///                 {
         ///                     Name = "virtualization-type",
         ///                     Values = 

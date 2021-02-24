@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `getPrefixList` provides details about a specific prefix list (PL)
+// `ec2.getPrefixList` provides details about a specific prefix list (PL)
 // in the current region.
 //
 // This can be used both to validate a prefix list given in a variable
@@ -21,7 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -47,7 +46,7 @@ import (
 // 			Egress:       pulumi.Bool(false),
 // 			Protocol:     pulumi.String("tcp"),
 // 			RuleAction:   pulumi.String("allow"),
-// 			CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList aws.GetPrefixListResult) (string, error) {
+// 			CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList ec2.GetPrefixListResult) (string, error) {
 // 				return privateS3PrefixList.CidrBlocks[0], nil
 // 			}).(pulumi.StringOutput),
 // 			FromPort: pulumi.Int(443),
@@ -66,15 +65,15 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetPrefixList(ctx, &aws.GetPrefixListArgs{
-// 			Filters: []aws.GetPrefixListFilter{
-// 				aws.GetPrefixListFilter{
+// 		_, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
+// 			Filters: []ec2.GetPrefixListFilter{
+// 				ec2.GetPrefixListFilter{
 // 					Name: "prefix-list-id",
 // 					Values: []string{
 // 						"pl-68a54001",
@@ -89,6 +88,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	var rv GetPrefixListResult
 	err := ctx.Invoke("aws:index/getPrefixList:getPrefixList", args, &rv, opts...)

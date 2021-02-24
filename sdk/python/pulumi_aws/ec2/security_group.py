@@ -92,7 +92,7 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
-        You can also find a specific Prefix List using the `getPrefixList` data source.
+        You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
 
         ## Import
 

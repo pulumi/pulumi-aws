@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * }]});
  * ```
  *
- * You can also find a specific Prefix List using the `aws.getPrefixList` data source.
+ * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
  *
  * ## Import
  *

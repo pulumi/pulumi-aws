@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds")]
     public static class GetAmiIds
     {
         /// <summary>
@@ -26,11 +27,11 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var ubuntu = Output.Create(Aws.GetAmiIds.InvokeAsync(new Aws.GetAmiIdsArgs
+        ///         var ubuntu = Output.Create(Aws.Ec2.GetAmiIds.InvokeAsync(new Aws.Ec2.GetAmiIdsArgs
         ///         {
         ///             Filters = 
         ///             {
-        ///                 new Aws.Inputs.GetAmiIdsFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetAmiIdsFilterArgs
         ///                 {
         ///                     Name = "name",
         ///                     Values = 

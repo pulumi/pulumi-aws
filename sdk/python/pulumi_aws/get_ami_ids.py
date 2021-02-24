@@ -16,6 +16,8 @@ __all__ = [
     'get_ami_ids',
 ]
 
+warnings.warn("""aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAmiIdsResult:
     """
@@ -113,7 +115,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    ubuntu = aws.get_ami_ids(filters=[aws.GetAmiIdsFilterArgs(
+    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
             name="name",
             values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
         )],
@@ -134,6 +136,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
     :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
     :param bool sort_ascending: Used to sort AMIs by creation time.
     """
+    pulumi.log.warn("get_ami_ids is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds")
     __args__ = dict()
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters

@@ -16,14 +16,14 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "eipalloc-12345678"
-// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 // 			Id: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -39,15 +39,15 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
-// 			Filters: []aws.GetElasticIpFilter{
-// 				aws.GetElasticIpFilter{
+// 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
+// 			Filters: []ec2.GetElasticIpFilter{
+// 				ec2.GetElasticIpFilter{
 // 					Name: "tag:Name",
 // 					Values: []string{
 // 						"exampleNameTagValue",
@@ -68,14 +68,14 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "1.2.3.4"
-// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 // 			PublicIp: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -91,13 +91,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetElasticIp(ctx, &aws.GetElasticIpArgs{
+// 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 // 			Tags: map[string]interface{}{
 // 				"Name": "exampleNameTagValue",
 // 			},
@@ -109,6 +109,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
 func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.InvokeOption) (*GetElasticIpResult, error) {
 	var rv GetElasticIpResult
 	err := ctx.Invoke("aws:index/getElasticIp:getElasticIp", args, &rv, opts...)

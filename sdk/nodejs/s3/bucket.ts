@@ -274,7 +274,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentUser = aws.getCanonicalUserId({});
+ * const currentUser = aws.s3.getCanonicalUserId({});
  * const bucket = new aws.s3.Bucket("bucket", {grants: [
  *     {
  *         id: currentUser.then(currentUser => currentUser.id),

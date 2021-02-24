@@ -13,7 +13,8 @@ import (
 func TestAccWebserverCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "webserver-cs"),
+			RunUpdateTest: false, //this is newly moved to a new namespace
+			Dir:           filepath.Join(getCwd(t), "webserver-cs"),
 		})
 
 	integration.ProgramTest(t, &test)

@@ -25,6 +25,7 @@ __all__ = [
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs',
     'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs',
+    'GetAmiIdsFilterArgs',
 ]
 
 @pulumi.input_type
@@ -890,5 +891,42 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs:
     @resource_label.setter
     def resource_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_label", value)
+
+
+@pulumi.input_type
+class GetAmiIdsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        :param Sequence[str] values: The value of the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 

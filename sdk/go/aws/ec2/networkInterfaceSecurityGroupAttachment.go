@@ -37,7 +37,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -45,10 +44,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
-// 		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 		ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 // 			MostRecent: &opt0,
-// 			Filters: []aws.GetAmiFilter{
-// 				aws.GetAmiFilter{
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
 // 					Name: "name",
 // 					Values: []string{
 // 						"amzn-ami-hvm-*",

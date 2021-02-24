@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * `aws.getPrefixList` provides details about a specific prefix list (PL)
+ * `aws.ec2.getPrefixList` provides details about a specific prefix list (PL)
  * in the current region.
  *
  * This can be used both to validate a prefix list given in a variable
@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     vpcId: aws_vpc.foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.getPrefixList({
+ * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.ec2.getPrefixList({
  *     prefixListId: prefixListId,
  * }));
  * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
@@ -45,7 +45,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.getPrefixList({
+ * const test = pulumi.output(aws.ec2.getPrefixList({
  *     filters: [{
  *         name: "prefix-list-id",
  *         values: ["pl-68a54001"],
@@ -53,7 +53,9 @@ import * as utilities from "./utilities";
  * }, { async: true }));
  * ```
  */
+/** @deprecated aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
+    pulumi.log.warn("getPrefixList is deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")
     args = args || {};
     if (!opts) {
         opts = {}

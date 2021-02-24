@@ -47,8 +47,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ami = aws.get_ami(most_recent=True,
-            filters=[aws.GetAmiFilterArgs(
+        ami = aws.ec2.get_ami(most_recent=True,
+            filters=[aws.ec2.GetAmiFilterArgs(
                 name="name",
                 values=["amzn-ami-hvm-*"],
             )],

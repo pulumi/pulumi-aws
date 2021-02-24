@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./attachment";
+export * from "./getAmiIds";
 export * from "./getGroup";
 export * from "./group";
 export * from "./lifecycleHook";

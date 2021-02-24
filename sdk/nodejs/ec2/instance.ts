@@ -17,7 +17,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = aws.getAmi({
+ * const ubuntu = aws.ec2.getAmi({
  *     mostRecent: true,
  *     filters: [
  *         {

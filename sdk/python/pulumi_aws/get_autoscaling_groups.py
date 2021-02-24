@@ -16,6 +16,8 @@ __all__ = [
     'get_autoscaling_groups',
 ]
 
+warnings.warn("""aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAutoscalingGroupsResult:
     """
@@ -89,12 +91,12 @@ def get_autoscaling_groups(filters: Optional[Sequence[pulumi.InputType['GetAutos
     import pulumi
     import pulumi_aws as aws
 
-    groups = aws.get_autoscaling_groups(filters=[
-        aws.GetAutoscalingGroupsFilterArgs(
+    groups = aws.autoscaling.get_ami_ids(filters=[
+        aws.autoscaling.GetAmiIdsFilterArgs(
             name="key",
             values=["Team"],
         ),
-        aws.GetAutoscalingGroupsFilterArgs(
+        aws.autoscaling.GetAmiIdsFilterArgs(
             name="value",
             values=["Pets"],
         ),
@@ -113,6 +115,7 @@ def get_autoscaling_groups(filters: Optional[Sequence[pulumi.InputType['GetAutos
 
     :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     """
+    pulumi.log.warn("get_autoscaling_groups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")
     __args__ = dict()
     __args__['filters'] = filters
     if opts is None:

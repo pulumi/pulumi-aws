@@ -3711,6 +3711,17 @@ export namespace athena {
 }
 
 export namespace autoscaling {
+    export interface GetAmiIdsFilter {
+        /**
+         * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+         */
+        name: string;
+        /**
+         * The value of the filter.
+         */
+        values: string[];
+    }
+
     export interface GroupInitialLifecycleHook {
         defaultResult?: pulumi.Input<string>;
         heartbeatTimeout?: pulumi.Input<number>;
@@ -7561,6 +7572,19 @@ export namespace ec2 {
         totalTargetCapacity: pulumi.Input<number>;
     }
 
+    export interface GetAmiFilter {
+        /**
+         * The name of the AMI that was provided during image creation.
+         */
+        name: string;
+        values: string[];
+    }
+
+    export interface GetAmiIdsFilter {
+        name: string;
+        values: string[];
+    }
+
     export interface GetCoipPoolFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -7588,6 +7612,11 @@ export namespace ec2 {
     }
 
     export interface GetCustomerGatewayFilter {
+        name: string;
+        values: string[];
+    }
+
+    export interface GetElasticIpFilter {
         name: string;
         values: string[];
     }
@@ -7815,6 +7844,17 @@ export namespace ec2 {
         name: string;
         /**
          * Set of values that are accepted for the given field.
+         */
+        values: string[];
+    }
+
+    export interface GetPrefixListFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
