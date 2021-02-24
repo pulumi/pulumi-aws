@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.29.1 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 3.30.1 (2021-02-24)
+* Update to v3.29.1 of the AWS Terraform Provider
 
 ## 3.30.0 (2021-02-22)
 * Update to v3.29.0 of the AWS Terraform Provider
