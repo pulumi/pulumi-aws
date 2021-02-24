@@ -31,9 +31,9 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_ami = aws.get_ami(most_recent=True,
+        example_ami = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.GetAmiFilterArgs(
+            filters=[aws.ec2.GetAmiFilterArgs(
                 name="name",
                 values=["amzn-ami-vpc-nat*"],
             )])

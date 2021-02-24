@@ -24,10 +24,13 @@ from .eip import *
 from .eip_association import *
 from .fleet import *
 from .flow_log import *
+from .get_ami import *
+from .get_ami_ids import *
 from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *
 from .get_dedicated_host import *
+from .get_elastic_ip import *
 from .get_instance import *
 from .get_instance_type import *
 from .get_instance_type_offering import *
@@ -48,6 +51,7 @@ from .get_nat_gateway import *
 from .get_network_acls import *
 from .get_network_interface import *
 from .get_network_interfaces import *
+from .get_prefix_list import *
 from .get_route import *
 from .get_route_table import *
 from .get_route_tables import *

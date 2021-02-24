@@ -297,7 +297,7 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current_user = aws.get_canonical_user_id()
+        current_user = aws.s3.get_canonical_user_id()
         bucket = aws.s3.Bucket("bucket", grants=[
             aws.s3.BucketGrantArgs(
                 id=current_user.id,

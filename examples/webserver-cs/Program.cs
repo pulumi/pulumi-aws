@@ -15,11 +15,11 @@ class Program
     {
         return Deployment.RunAsync(async () => {
 
-            var ami = await Pulumi.Aws.GetAmi.InvokeAsync(new GetAmiArgs
+            var ami = await Pulumi.Aws.Ec2.GetAmi.InvokeAsync(new Pulumi.Aws.Ec2.GetAmiArgs
             {
                 MostRecent = true,
                 Owners = { "137112412989" },
-                Filters = { new GetAmiFilterArgs { Name = "name", Values = { "amzn-ami-hvm-*" } } },
+                Filters = { new Pulumi.Aws.Ec2.Inputs.GetAmiFilterArgs { Name = "name", Values = { "amzn-ami-hvm-*" } } },
             });
 
 

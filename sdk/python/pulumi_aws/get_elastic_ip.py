@@ -16,6 +16,8 @@ __all__ = [
     'get_elastic_ip',
 ]
 
+warnings.warn("""aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp""", DeprecationWarning)
+
 @pulumi.output_type
 class GetElasticIpResult:
     """
@@ -236,7 +238,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     import pulumi
     import pulumi_aws as aws
 
-    by_allocation_id = aws.get_elastic_ip(id="eipalloc-12345678")
+    by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
     ```
     ### Search By Filters (EC2-Classic or VPC)
 
@@ -244,7 +246,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     import pulumi
     import pulumi_aws as aws
 
-    by_filter = aws.get_elastic_ip(filters=[aws.GetElasticIpFilterArgs(
+    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
         name="tag:Name",
         values=["exampleNameTagValue"],
     )])
@@ -255,7 +257,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     import pulumi
     import pulumi_aws as aws
 
-    by_public_ip = aws.get_elastic_ip(public_ip="1.2.3.4")
+    by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
     ```
     ### Search By Tags (EC2-Classic or VPC)
 
@@ -263,7 +265,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     import pulumi
     import pulumi_aws as aws
 
-    by_tags = aws.get_elastic_ip(tags={
+    by_tags = aws.ec2.get_elastic_ip(tags={
         "Name": "exampleNameTagValue",
     })
     ```
@@ -274,6 +276,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     :param str public_ip: The public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
     """
+    pulumi.log.warn("get_elastic_ip is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id

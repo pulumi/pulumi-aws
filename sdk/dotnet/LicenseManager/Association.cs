@@ -24,7 +24,7 @@ namespace Pulumi.Aws.LicenseManager
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleAmi = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         var exampleAmi = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
     ///         {
     ///             MostRecent = true,
     ///             Owners = 
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.LicenseManager
     ///             },
     ///             Filters = 
     ///             {
-    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
     ///                 {
     ///                     Name = "name",
     ///                     Values = 

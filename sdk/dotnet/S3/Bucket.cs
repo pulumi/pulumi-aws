@@ -420,7 +420,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var currentUser = Output.Create(Aws.GetCanonicalUserId.InvokeAsync());
+    ///         var currentUser = Output.Create(Aws.S3.GetCanonicalUserId.InvokeAsync());
     ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
     ///         {
     ///             Grants = 

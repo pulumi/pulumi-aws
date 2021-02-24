@@ -16,7 +16,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -24,24 +24,24 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		opt1 := "^myami-\\d{3}"
-// 		_, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 		_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 // 			ExecutableUsers: []string{
 // 				"self",
 // 			},
-// 			Filters: []aws.GetAmiFilter{
-// 				aws.GetAmiFilter{
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
 // 					Name: "name",
 // 					Values: []string{
 // 						"myami-*",
 // 					},
 // 				},
-// 				aws.GetAmiFilter{
+// 				ec2.GetAmiFilter{
 // 					Name: "root-device-type",
 // 					Values: []string{
 // 						"ebs",
 // 					},
 // 				},
-// 				aws.GetAmiFilter{
+// 				ec2.GetAmiFilter{
 // 					Name: "virtualization-type",
 // 					Values: []string{
 // 						"hvm",
@@ -61,6 +61,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
 	var rv GetAmiResult
 	err := ctx.Invoke("aws:index/getAmi:getAmi", args, &rv, opts...)

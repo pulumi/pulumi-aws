@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")]
     public static class GetElasticIp
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var byAllocationId = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         var byAllocationId = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
         ///         {
         ///             Id = "eipalloc-12345678",
         ///         }));
@@ -47,11 +48,11 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var byFilter = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         var byFilter = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
         ///         {
         ///             Filters = 
         ///             {
-        ///                 new Aws.Inputs.GetElasticIpFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetElasticIpFilterArgs
         ///                 {
         ///                     Name = "tag:Name",
         ///                     Values = 
@@ -77,7 +78,7 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var byPublicIp = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         var byPublicIp = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
         ///         {
         ///             PublicIp = "1.2.3.4",
         ///         }));
@@ -97,7 +98,7 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var byTags = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         var byTags = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
         ///         {
         ///             Tags = 
         ///             {

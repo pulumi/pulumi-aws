@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
+    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
     ///         {
     ///             MostRecent = true,
     ///             Filters = 
     ///             {
-    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
     ///                 {
     ///                     Name = "name",
     ///                     Values = 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     ///                         "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
     ///                     },
     ///                 },
-    ///                 new Aws.Inputs.GetAmiFilterArgs
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
     ///                 {
     ///                     Name = "virtualization-type",
     ///                     Values = 

@@ -2369,6 +2369,112 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAmiIdsFilter struct {
+	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	Name string `pulumi:"name"`
+	// The value of the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetAmiIdsFilterInput is an input type that accepts GetAmiIdsFilterArgs and GetAmiIdsFilterOutput values.
+// You can construct a concrete instance of `GetAmiIdsFilterInput` via:
+//
+//          GetAmiIdsFilterArgs{...}
+type GetAmiIdsFilterInput interface {
+	pulumi.Input
+
+	ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput
+	ToGetAmiIdsFilterOutputWithContext(context.Context) GetAmiIdsFilterOutput
+}
+
+type GetAmiIdsFilterArgs struct {
+	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAmiIdsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput {
+	return i.ToGetAmiIdsFilterOutputWithContext(context.Background())
+}
+
+func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutputWithContext(ctx context.Context) GetAmiIdsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterOutput)
+}
+
+// GetAmiIdsFilterArrayInput is an input type that accepts GetAmiIdsFilterArray and GetAmiIdsFilterArrayOutput values.
+// You can construct a concrete instance of `GetAmiIdsFilterArrayInput` via:
+//
+//          GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
+type GetAmiIdsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput
+	ToGetAmiIdsFilterArrayOutputWithContext(context.Context) GetAmiIdsFilterArrayOutput
+}
+
+type GetAmiIdsFilterArray []GetAmiIdsFilterInput
+
+func (GetAmiIdsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (i GetAmiIdsFilterArray) ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput {
+	return i.ToGetAmiIdsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAmiIdsFilterArray) ToGetAmiIdsFilterArrayOutputWithContext(ctx context.Context) GetAmiIdsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterArrayOutput)
+}
+
+type GetAmiIdsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutputWithContext(ctx context.Context) GetAmiIdsFilterOutput {
+	return o
+}
+
+// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+func (o GetAmiIdsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the filter.
+func (o GetAmiIdsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAmiIdsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAmiIdsFilter)(nil)).Elem()
+}
+
+func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutputWithContext(ctx context.Context) GetAmiIdsFilterArrayOutput {
+	return o
+}
+
+func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAmiIdsFilter {
+		return vs[0].([]GetAmiIdsFilter)[vs[1].(int)]
+	}).(GetAmiIdsFilterOutput)
+}
+
 type GetGroupLaunchTemplate struct {
 	// Name of the Auto Scaling Group.
 	Id string `pulumi:"id"`
@@ -2512,6 +2618,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GetAmiIdsFilterOutput{})
+	pulumi.RegisterOutputType(GetAmiIdsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateArrayOutput{})
 }

@@ -15,11 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = aws.getCanonicalUserId({});
+ * const current = aws.s3.getCanonicalUserId({});
  * export const canonicalUserId = current.then(current => current.id);
  * ```
  */
+/** @deprecated aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
+    pulumi.log.warn("getCanonicalUserId is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId")
     if (!opts) {
         opts = {}
     }

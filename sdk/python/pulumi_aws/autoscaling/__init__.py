@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .attachment import *
+from .get_ami_ids import *
 from .get_group import *
 from .group import *
 from .lifecycle_hook import *

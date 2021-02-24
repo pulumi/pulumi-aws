@@ -15,15 +15,15 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetAmiIds(ctx, &aws.GetAmiIdsArgs{
-// 			Filters: []aws.GetAmiIdsFilter{
-// 				aws.GetAmiIdsFilter{
+// 		_, err := ec2.GetAmiIds(ctx, &ec2.GetAmiIdsArgs{
+// 			Filters: []ec2.GetAmiIdsFilter{
+// 				ec2.GetAmiIdsFilter{
 // 					Name: "name",
 // 					Values: []string{
 // 						"ubuntu/images/ubuntu-*-*-amd64-server-*",
@@ -41,6 +41,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	var rv GetAmiIdsResult
 	err := ctx.Invoke("aws:index/getAmiIds:getAmiIds", args, &rv, opts...)

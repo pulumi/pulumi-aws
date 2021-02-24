@@ -94,9 +94,12 @@ __all__ = [
     'VpcPeeringConnectionRequesterArgs',
     'VpnConnectionRouteArgs',
     'VpnConnectionVgwTelemetryArgs',
+    'GetAmiFilterArgs',
+    'GetAmiIdsFilterArgs',
     'GetCoipPoolFilterArgs',
     'GetCoipPoolsFilterArgs',
     'GetCustomerGatewayFilterArgs',
+    'GetElasticIpFilterArgs',
     'GetInstanceFilterArgs',
     'GetInstanceTypeFpgaArgs',
     'GetInstanceTypeGpusArgs',
@@ -119,6 +122,7 @@ __all__ = [
     'GetNetworkAclsFilterArgs',
     'GetNetworkInterfaceFilterArgs',
     'GetNetworkInterfacesFilterArgs',
+    'GetPrefixListFilterArgs',
     'GetRouteTableFilterArgs',
     'GetRouteTablesFilterArgs',
     'GetSecurityGroupFilterArgs',
@@ -6572,6 +6576,66 @@ class VpnConnectionVgwTelemetryArgs:
 
 
 @pulumi.input_type
+class GetAmiFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the AMI that was provided during image creation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the AMI that was provided during image creation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetAmiIdsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class GetCoipPoolFilterArgs:
     def __init__(__self__, *,
                  name: str,
@@ -6655,6 +6719,33 @@ class GetCoipPoolsFilterArgs:
 
 @pulumi.input_type
 class GetCustomerGatewayFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetElasticIpFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -7524,6 +7615,43 @@ class GetNetworkInterfacesFilterArgs:
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given field.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetPrefixListFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 

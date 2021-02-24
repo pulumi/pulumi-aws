@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.getAmiIds({
+ * const ubuntu = pulumi.output(aws.ec2.getAmiIds({
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
@@ -23,7 +23,9 @@ import * as utilities from "./utilities";
  * }, { async: true }));
  * ```
  */
+/** @deprecated aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
+    pulumi.log.warn("getAmiIds is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds")
     if (!opts) {
         opts = {}
     }

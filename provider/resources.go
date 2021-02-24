@@ -3487,20 +3487,14 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
-			"aws_ami":                     {Tok: awsDataSource(awsMod, "getAmi")},
-			"aws_ami_ids":                 {Tok: awsDataSource(awsMod, "getAmiIds")},
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
-			"aws_autoscaling_groups":      {Tok: awsDataSource(awsMod, "getAutoscalingGroups")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
 			"aws_availability_zones":      {Tok: awsDataSource(awsMod, "getAvailabilityZones")},
 			"aws_billing_service_account": {Tok: awsDataSource(awsMod, "getBillingServiceAccount")},
 			"aws_caller_identity":         {Tok: awsDataSource(awsMod, "getCallerIdentity")},
-			"aws_canonical_user_id":       {Tok: awsDataSource(awsMod, "getCanonicalUserId")},
 			"aws_cur_report_definition":   {Tok: awsDataSource(curMod, "getReportDefinition")},
-			"aws_eip":                     {Tok: awsDataSource(awsMod, "getElasticIp")},
 			"aws_ip_ranges":               {Tok: awsDataSource(awsMod, "getIpRanges")},
 			"aws_partition":               {Tok: awsDataSource(awsMod, "getPartition")},
-			"aws_prefix_list":             {Tok: awsDataSource(awsMod, "getPrefixList")},
 			"aws_region":                  {Tok: awsDataSource(awsMod, "getRegion")},
 			"aws_regions":                 {Tok: awsDataSource(awsMod, "getRegions")},
 			// AWS Certificate Manager
@@ -4194,6 +4188,20 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		})
+
+	// re-homing top level packages - https://github.com/pulumi/pulumi-aws/issues/1352
+	prov.RenameDataSource("aws_ami", awsDataSource(awsMod, "getAmi"),
+		awsDataSource(ec2Mod, "getAmi"), awsMod, ec2Mod, nil)
+	prov.RenameDataSource("aws_ami_ids", awsDataSource(awsMod, "getAmiIds"),
+		awsDataSource(ec2Mod, "getAmiIds"), awsMod, ec2Mod, nil)
+	prov.RenameDataSource("aws_eip", awsDataSource(awsMod, "getElasticIp"),
+		awsDataSource(ec2Mod, "getElasticIp"), awsMod, ec2Mod, nil)
+	prov.RenameDataSource("aws_prefix_list", awsDataSource(awsMod, "getPrefixList"),
+		awsDataSource(ec2Mod, "getPrefixList"), awsMod, ec2Mod, nil)
+	prov.RenameDataSource("aws_autoscaling_groups", awsDataSource(awsMod, "getAutoscalingGroups"),
+		awsDataSource(autoscalingMod, "getAmiIds"), awsMod, autoscalingMod, nil)
+	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
+		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
 
 	prov.SetAutonaming(255, "-")
 

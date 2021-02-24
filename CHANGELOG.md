@@ -2,7 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Deprecate use of `aws.getAmi` in favor of `aws.ec2.getAmi`
+* Deprecate use of `aws.getAmiIds` in favor of `aws.ec2.getAmiIds`
+* Deprecate use of `aws.getElasticIp` in favor of `aws.ec2.getElasticIp`
+* Deprecate use of `aws.getPrefixList` in favor of `aws.ec2.getPrefixList`
+* Deprecate use of `aws.getAutoscalingGroups` in favor of `aws.autoscaling.getAutoscalingGroups`
+* Deprecate use of `aws.getCanonicalUserId` in favor of `aws.s3.getCanonicalUserId`
 
 ---
 

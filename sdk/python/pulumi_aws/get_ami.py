@@ -16,6 +16,8 @@ __all__ = [
     'get_ami',
 ]
 
+warnings.warn("""aws.getAmi has been deprecated in favor of aws.ec2.getAmi""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAmiResult:
     """
@@ -470,17 +472,17 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.get_ami(executable_users=["self"],
+    example = aws.ec2.get_ami(executable_users=["self"],
         filters=[
-            aws.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArgs(
                 name="name",
                 values=["myami-*"],
             ),
-            aws.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArgs(
                 name="root-device-type",
                 values=["ebs"],
             ),
-            aws.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArgs(
                 name="virtualization-type",
                 values=["hvm"],
             ),
@@ -508,6 +510,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
            * `tags.#.key` - The key name of the tag.
            * `tags.#.value` - The value of the tag.
     """
+    pulumi.log.warn("get_ami is deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi")
     __args__ = dict()
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters

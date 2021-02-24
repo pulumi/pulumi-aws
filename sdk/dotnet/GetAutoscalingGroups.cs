@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")]
     public static class GetAutoscalingGroups
     {
         /// <summary>
@@ -27,11 +28,11 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var groups = Output.Create(Aws.GetAutoscalingGroups.InvokeAsync(new Aws.GetAutoscalingGroupsArgs
+        ///         var groups = Output.Create(Aws.AutoScaling.GetAmiIds.InvokeAsync(new Aws.AutoScaling.GetAmiIdsArgs
         ///         {
         ///             Filters = 
         ///             {
-        ///                 new Aws.Inputs.GetAutoscalingGroupsFilterArgs
+        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
         ///                     Name = "key",
         ///                     Values = 
@@ -39,7 +40,7 @@ namespace Pulumi.Aws
         ///                         "Team",
         ///                     },
         ///                 },
-        ///                 new Aws.Inputs.GetAutoscalingGroupsFilterArgs
+        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
         ///                     Name = "value",
         ///                     Values = 

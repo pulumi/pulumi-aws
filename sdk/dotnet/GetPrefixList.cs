@@ -9,10 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
+    [Obsolete(@"aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")]
     public static class GetPrefixList
     {
         /// <summary>
-        /// `aws.getPrefixList` provides details about a specific prefix list (PL)
+        /// `aws.ec2.getPrefixList` provides details about a specific prefix list (PL)
         /// in the current region.
         /// 
         /// This can be used both to validate a prefix list given in a variable
@@ -37,7 +38,7 @@ namespace Pulumi.Aws
         ///             VpcId = aws_vpc.Foo.Id,
         ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///         });
-        ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.GetPrefixList.InvokeAsync(new Aws.GetPrefixListArgs
+        ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
         ///         {
         ///             PrefixListId = prefixListId,
         ///         }));
@@ -72,11 +73,11 @@ namespace Pulumi.Aws
         /// {
         ///     public MyStack()
         ///     {
-        ///         var test = Output.Create(Aws.GetPrefixList.InvokeAsync(new Aws.GetPrefixListArgs
+        ///         var test = Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
         ///         {
         ///             Filters = 
         ///             {
-        ///                 new Aws.Inputs.GetPrefixListFilterArgs
+        ///                 new Aws.Ec2.Inputs.GetPrefixListFilterArgs
         ///                 {
         ///                     Name = "prefix-list-id",
         ///                     Values = 

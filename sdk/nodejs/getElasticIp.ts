@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byAllocationId = pulumi.output(aws.getElasticIp({
+ * const byAllocationId = pulumi.output(aws.ec2.getElasticIp({
  *     id: "eipalloc-12345678",
  * }, { async: true }));
  * ```
@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byFilter = pulumi.output(aws.getElasticIp({
+ * const byFilter = pulumi.output(aws.ec2.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byPublicIp = pulumi.output(aws.getElasticIp({
+ * const byPublicIp = pulumi.output(aws.ec2.getElasticIp({
  *     publicIp: "1.2.3.4",
  * }, { async: true }));
  * ```
@@ -48,14 +48,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byTags = pulumi.output(aws.getElasticIp({
+ * const byTags = pulumi.output(aws.ec2.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
  * }, { async: true }));
  * ```
  */
+/** @deprecated aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
+    pulumi.log.warn("getElasticIp is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")
     args = args || {};
     if (!opts) {
         opts = {}

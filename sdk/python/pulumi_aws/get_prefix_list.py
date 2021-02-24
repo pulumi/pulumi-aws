@@ -16,6 +16,8 @@ __all__ = [
     'get_prefix_list',
 ]
 
+warnings.warn("""aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrefixListResult:
     """
@@ -91,7 +93,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
     """
-    `getPrefixList` provides details about a specific prefix list (PL)
+    `ec2.getPrefixList` provides details about a specific prefix list (PL)
     in the current region.
 
     This can be used both to validate a prefix list given in a variable
@@ -108,7 +110,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("privateS3VpcEndpoint",
         vpc_id=aws_vpc["foo"]["id"],
         service_name="com.amazonaws.us-west-2.s3")
-    private_s3_prefix_list = private_s3_vpc_endpoint.prefix_list_id.apply(lambda prefix_list_id: aws.get_prefix_list(prefix_list_id=prefix_list_id))
+    private_s3_prefix_list = private_s3_vpc_endpoint.prefix_list_id.apply(lambda prefix_list_id: aws.ec2.get_prefix_list(prefix_list_id=prefix_list_id))
     bar = aws.ec2.NetworkAcl("bar", vpc_id=aws_vpc["foo"]["id"])
     private_s3_network_acl_rule = aws.ec2.NetworkAclRule("privateS3NetworkAclRule",
         network_acl_id=bar.id,
@@ -126,7 +128,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.get_prefix_list(filters=[aws.GetPrefixListFilterArgs(
+    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
         name="prefix-list-id",
         values=["pl-68a54001"],
     )])
@@ -137,6 +139,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
     :param str prefix_list_id: The ID of the prefix list to select.
     """
+    pulumi.log.warn("get_prefix_list is deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
