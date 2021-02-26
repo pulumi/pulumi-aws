@@ -1504,6 +1504,148 @@ func (o StageRouteSettingArrayOutput) Index(i pulumi.IntInput) StageRouteSetting
 	}).(StageRouteSettingOutput)
 }
 
+type GetApiCorsConfiguration struct {
+	// Whether credentials are included in the CORS request.
+	AllowCredentials bool `pulumi:"allowCredentials"`
+	// The set of allowed HTTP headers.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// The set of allowed HTTP methods.
+	AllowMethods []string `pulumi:"allowMethods"`
+	// The set of allowed origins.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// The set of exposed HTTP headers.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results.
+	MaxAge int `pulumi:"maxAge"`
+}
+
+// GetApiCorsConfigurationInput is an input type that accepts GetApiCorsConfigurationArgs and GetApiCorsConfigurationOutput values.
+// You can construct a concrete instance of `GetApiCorsConfigurationInput` via:
+//
+//          GetApiCorsConfigurationArgs{...}
+type GetApiCorsConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApiCorsConfigurationOutput() GetApiCorsConfigurationOutput
+	ToGetApiCorsConfigurationOutputWithContext(context.Context) GetApiCorsConfigurationOutput
+}
+
+type GetApiCorsConfigurationArgs struct {
+	// Whether credentials are included in the CORS request.
+	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
+	// The set of allowed HTTP headers.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// The set of allowed HTTP methods.
+	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
+	// The set of allowed origins.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// The set of exposed HTTP headers.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results.
+	MaxAge pulumi.IntInput `pulumi:"maxAge"`
+}
+
+func (GetApiCorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiCorsConfiguration)(nil)).Elem()
+}
+
+func (i GetApiCorsConfigurationArgs) ToGetApiCorsConfigurationOutput() GetApiCorsConfigurationOutput {
+	return i.ToGetApiCorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApiCorsConfigurationArgs) ToGetApiCorsConfigurationOutputWithContext(ctx context.Context) GetApiCorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationOutput)
+}
+
+// GetApiCorsConfigurationArrayInput is an input type that accepts GetApiCorsConfigurationArray and GetApiCorsConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApiCorsConfigurationArrayInput` via:
+//
+//          GetApiCorsConfigurationArray{ GetApiCorsConfigurationArgs{...} }
+type GetApiCorsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApiCorsConfigurationArrayOutput() GetApiCorsConfigurationArrayOutput
+	ToGetApiCorsConfigurationArrayOutputWithContext(context.Context) GetApiCorsConfigurationArrayOutput
+}
+
+type GetApiCorsConfigurationArray []GetApiCorsConfigurationInput
+
+func (GetApiCorsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiCorsConfiguration)(nil)).Elem()
+}
+
+func (i GetApiCorsConfigurationArray) ToGetApiCorsConfigurationArrayOutput() GetApiCorsConfigurationArrayOutput {
+	return i.ToGetApiCorsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApiCorsConfigurationArray) ToGetApiCorsConfigurationArrayOutputWithContext(ctx context.Context) GetApiCorsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationArrayOutput)
+}
+
+type GetApiCorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApiCorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiCorsConfiguration)(nil)).Elem()
+}
+
+func (o GetApiCorsConfigurationOutput) ToGetApiCorsConfigurationOutput() GetApiCorsConfigurationOutput {
+	return o
+}
+
+func (o GetApiCorsConfigurationOutput) ToGetApiCorsConfigurationOutputWithContext(ctx context.Context) GetApiCorsConfigurationOutput {
+	return o
+}
+
+// Whether credentials are included in the CORS request.
+func (o GetApiCorsConfigurationOutput) AllowCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
+}
+
+// The set of allowed HTTP headers.
+func (o GetApiCorsConfigurationOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed HTTP methods.
+func (o GetApiCorsConfigurationOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed origins.
+func (o GetApiCorsConfigurationOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The set of exposed HTTP headers.
+func (o GetApiCorsConfigurationOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds that the browser should cache preflight request results.
+func (o GetApiCorsConfigurationOutput) MaxAge() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApiCorsConfiguration) int { return v.MaxAge }).(pulumi.IntOutput)
+}
+
+type GetApiCorsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApiCorsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiCorsConfiguration)(nil)).Elem()
+}
+
+func (o GetApiCorsConfigurationArrayOutput) ToGetApiCorsConfigurationArrayOutput() GetApiCorsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApiCorsConfigurationArrayOutput) ToGetApiCorsConfigurationArrayOutputWithContext(ctx context.Context) GetApiCorsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApiCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetApiCorsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiCorsConfiguration {
+		return vs[0].([]GetApiCorsConfiguration)[vs[1].(int)]
+	}).(GetApiCorsConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApiCorsConfigurationPtrOutput{})
@@ -1523,4 +1665,6 @@ func init() {
 	pulumi.RegisterOutputType(StageDefaultRouteSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StageRouteSettingOutput{})
 	pulumi.RegisterOutputType(StageRouteSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetApiCorsConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApiCorsConfigurationArrayOutput{})
 }

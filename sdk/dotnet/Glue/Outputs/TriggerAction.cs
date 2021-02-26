@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Arguments;
         /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `job_name`.
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         /// </summary>
         public readonly string? CrawlerName;
         /// <summary>
-        /// The name of a job to be executed. Conflicts with `crawler_name`.
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
         /// </summary>
         public readonly string? JobName;
         /// <summary>
-        /// Specifies configuration properties of a job run notification. see Notification Property details below.
+        /// Specifies configuration properties of a job run notification. See Notification Property details below.
         /// </summary>
         public readonly Outputs.TriggerActionNotificationProperty? NotificationProperty;
         /// <summary>

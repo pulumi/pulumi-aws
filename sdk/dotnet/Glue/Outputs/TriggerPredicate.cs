@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class TriggerPredicate
     {
         /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. Defined below.
+        /// A list of the conditions that determine when the trigger will fire. See Conditions.
         /// </summary>
         public readonly ImmutableArray<Outputs.TriggerPredicateCondition> Conditions;
         /// <summary>

@@ -1293,6 +1293,33 @@ export namespace apigatewayv2 {
         truststoreVersion?: string;
     }
 
+    export interface GetApiCorsConfiguration {
+        /**
+         * Whether credentials are included in the CORS request.
+         */
+        allowCredentials: boolean;
+        /**
+         * The set of allowed HTTP headers.
+         */
+        allowHeaders: string[];
+        /**
+         * The set of allowed HTTP methods.
+         */
+        allowMethods: string[];
+        /**
+         * The set of allowed origins.
+         */
+        allowOrigins: string[];
+        /**
+         * The set of exposed HTTP headers.
+         */
+        exposeHeaders: string[];
+        /**
+         * The number of seconds that the browser should cache preflight request results.
+         */
+        maxAge: number;
+    }
+
     export interface IntegrationResponseParameter {
         /**
          * A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
@@ -3169,6 +3196,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTls {
+        /**
+         * Whether the policy is enforced. Default is `true`.
+         */
         enforce?: boolean;
         /**
          * One or more ports that the policy is enforced for.
@@ -3231,6 +3261,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+        /**
+         * Whether the policy is enforced. Default is `true`.
+         */
         enforce?: boolean;
         /**
          * One or more ports that the policy is enforced for.
@@ -4060,7 +4093,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplate {
         /**
-         * Nested argument defines the Launch Template. Defined below.
+         * Override the instance launch template specification in the Launch Template.
          */
         launchTemplateSpecification: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
         /**
@@ -4090,9 +4123,28 @@ export namespace autoscaling {
          */
         instanceType?: string;
         /**
+         * Override the instance launch template specification in the Launch Template.
+         */
+        launchTemplateSpecification?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification;
+        /**
          * The number of capacity units, which gives the instance type a proportional weight to other instance types.
          */
         weightedCapacity?: string;
+    }
+
+    export interface GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
+        /**
+         * The ID of the launch template. Conflicts with `launchTemplateName`.
+         */
+        launchTemplateId: string;
+        /**
+         * The name of the launch template. Conflicts with `launchTemplateId`.
+         */
+        launchTemplateName: string;
+        /**
+         * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+         */
+        version?: string;
     }
 
     export interface GroupTag {
@@ -4394,11 +4446,11 @@ export namespace backup {
         /**
          * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
          */
-        backupOptions?: {[key: string]: string};
+        backupOptions: {[key: string]: string};
         /**
          * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
          */
-        resourceType?: string;
+        resourceType: string;
     }
 
     export interface PlanRule {
@@ -10444,6 +10496,35 @@ export namespace ecr {
     }
 }
 
+export namespace ecrpublic {
+    export interface RepositoryCatalogData {
+        /**
+         * A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
+         */
+        aboutText?: string;
+        /**
+         * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+         */
+        architectures?: string[];
+        /**
+         * A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
+         */
+        description?: string;
+        /**
+         * The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
+         */
+        logoImageBlob: string;
+        /**
+         * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+         */
+        operatingSystems?: string[];
+        /**
+         * Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
+         */
+        usageText?: string;
+    }
+}
+
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
         /**
@@ -14115,15 +14196,15 @@ export namespace glue {
          */
         arguments?: {[key: string]: string};
         /**
-         * The name of the crawler to be executed. Conflicts with `jobName`.
+         * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          */
         crawlerName?: string;
         /**
-         * The name of a job to be executed. Conflicts with `crawlerName`.
+         * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
          */
         jobName?: string;
         /**
-         * Specifies configuration properties of a job run notification. see Notification Property details below.
+         * Specifies configuration properties of a job run notification. See Notification Property details below.
          */
         notificationProperty?: outputs.glue.TriggerActionNotificationProperty;
         /**
@@ -14145,7 +14226,7 @@ export namespace glue {
 
     export interface TriggerPredicate {
         /**
-         * A list of the conditions that determine when the trigger will fire. Defined below.
+         * A list of the conditions that determine when the trigger will fire. See Conditions.
          */
         conditions: outputs.glue.TriggerPredicateCondition[];
         /**
@@ -21031,6 +21112,17 @@ export namespace sagemaker {
         name: string;
     }
 
+    export interface AppResourceSpec {
+        /**
+         * The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn: string;
+    }
+
     export interface CodeRepositoryGitConfig {
         /**
          * The default branch for the Git repository.
@@ -21077,16 +21169,16 @@ export namespace sagemaker {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
-        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
     }
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
     }
@@ -21099,7 +21191,7 @@ export namespace sagemaker {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
-        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
     }
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
@@ -21119,11 +21211,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
     }
@@ -21147,16 +21239,16 @@ export namespace sagemaker {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
-        defaultResourceSpec: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
     }
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
     }

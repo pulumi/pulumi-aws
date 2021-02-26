@@ -80,6 +80,7 @@ import * as ec2 from "./ec2";
 import * as ec2clientvpn from "./ec2clientvpn";
 import * as ec2transitgateway from "./ec2transitgateway";
 import * as ecr from "./ecr";
+import * as ecrpublic from "./ecrpublic";
 import * as ecs from "./ecs";
 import * as efs from "./efs";
 import * as eks from "./eks";
@@ -214,6 +215,7 @@ export {
     ec2clientvpn,
     ec2transitgateway,
     ecr,
+    ecrpublic,
     ecs,
     efs,
     eks,

@@ -14,7 +14,7 @@ type PlanAdvancedBackupSetting struct {
 	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 	BackupOptions map[string]string `pulumi:"backupOptions"`
 	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-	ResourceType *string `pulumi:"resourceType"`
+	ResourceType string `pulumi:"resourceType"`
 }
 
 // PlanAdvancedBackupSettingInput is an input type that accepts PlanAdvancedBackupSettingArgs and PlanAdvancedBackupSettingOutput values.
@@ -32,7 +32,7 @@ type PlanAdvancedBackupSettingArgs struct {
 	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 	BackupOptions pulumi.StringMapInput `pulumi:"backupOptions"`
 	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
 func (PlanAdvancedBackupSettingArgs) ElementType() reflect.Type {
@@ -92,8 +92,8 @@ func (o PlanAdvancedBackupSettingOutput) BackupOptions() pulumi.StringMapOutput 
 }
 
 // The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-func (o PlanAdvancedBackupSettingOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PlanAdvancedBackupSetting) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+func (o PlanAdvancedBackupSettingOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanAdvancedBackupSetting) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
 type PlanAdvancedBackupSettingArrayOutput struct{ *pulumi.OutputState }

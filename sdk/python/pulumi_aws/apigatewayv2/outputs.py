@@ -18,6 +18,7 @@ __all__ = [
     'StageAccessLogSettings',
     'StageDefaultRouteSettings',
     'StageRouteSetting',
+    'GetApiCorsConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -485,5 +486,78 @@ class StageRouteSetting(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetApiCorsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 allow_credentials: bool,
+                 allow_headers: Sequence[str],
+                 allow_methods: Sequence[str],
+                 allow_origins: Sequence[str],
+                 expose_headers: Sequence[str],
+                 max_age: int):
+        """
+        :param bool allow_credentials: Whether credentials are included in the CORS request.
+        :param Sequence[str] allow_headers: The set of allowed HTTP headers.
+        :param Sequence[str] allow_methods: The set of allowed HTTP methods.
+        :param Sequence[str] allow_origins: The set of allowed origins.
+        :param Sequence[str] expose_headers: The set of exposed HTTP headers.
+        :param int max_age: The number of seconds that the browser should cache preflight request results.
+        """
+        pulumi.set(__self__, "allow_credentials", allow_credentials)
+        pulumi.set(__self__, "allow_headers", allow_headers)
+        pulumi.set(__self__, "allow_methods", allow_methods)
+        pulumi.set(__self__, "allow_origins", allow_origins)
+        pulumi.set(__self__, "expose_headers", expose_headers)
+        pulumi.set(__self__, "max_age", max_age)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> bool:
+        """
+        Whether credentials are included in the CORS request.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @property
+    @pulumi.getter(name="allowHeaders")
+    def allow_headers(self) -> Sequence[str]:
+        """
+        The set of allowed HTTP headers.
+        """
+        return pulumi.get(self, "allow_headers")
+
+    @property
+    @pulumi.getter(name="allowMethods")
+    def allow_methods(self) -> Sequence[str]:
+        """
+        The set of allowed HTTP methods.
+        """
+        return pulumi.get(self, "allow_methods")
+
+    @property
+    @pulumi.getter(name="allowOrigins")
+    def allow_origins(self) -> Sequence[str]:
+        """
+        The set of allowed origins.
+        """
+        return pulumi.get(self, "allow_origins")
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Sequence[str]:
+        """
+        The set of exposed HTTP headers.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> int:
+        """
+        The number of seconds that the browser should cache preflight request results.
+        """
+        return pulumi.get(self, "max_age")
 
 

@@ -135,7 +135,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     /**
-     * List of actions initiated by this trigger when it fires. Defined below.
+     * List of actions initiated by this trigger when it fires. See Actions Below.
      */
     public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
@@ -147,7 +147,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+     * Start the trigger. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -155,13 +155,17 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
     public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
+    /**
+     * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags
      */
@@ -195,6 +199,7 @@ export class Trigger extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["predicate"] = state ? state.predicate : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
+            inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["workflowName"] = state ? state.workflowName : undefined;
@@ -216,6 +221,7 @@ export class Trigger extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["workflowName"] = args ? args.workflowName : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -229,7 +235,7 @@ export class Trigger extends pulumi.CustomResource {
  */
 export interface TriggerState {
     /**
-     * List of actions initiated by this trigger when it fires. Defined below.
+     * List of actions initiated by this trigger when it fires. See Actions Below.
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
     /**
@@ -241,7 +247,7 @@ export interface TriggerState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+     * Start the trigger. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -249,13 +255,17 @@ export interface TriggerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
     readonly predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     readonly schedule?: pulumi.Input<string>;
+    /**
+     * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+     */
+    readonly state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */
@@ -275,7 +285,7 @@ export interface TriggerState {
  */
 export interface TriggerArgs {
     /**
-     * List of actions initiated by this trigger when it fires. Defined below.
+     * List of actions initiated by this trigger when it fires. See Actions Below.
      */
     readonly actions: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
     /**
@@ -283,7 +293,7 @@ export interface TriggerArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+     * Start the trigger. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -291,7 +301,7 @@ export interface TriggerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
     readonly predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
     /**

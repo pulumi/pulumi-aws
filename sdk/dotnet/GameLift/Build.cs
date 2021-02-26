@@ -63,7 +63,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
         /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
         /// </summary>
         [Input("operatingSystem", required: true)]
         public Input<string> OperatingSystem { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+        /// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }

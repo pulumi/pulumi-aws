@@ -74,6 +74,7 @@ from . import (
     ec2clientvpn,
     ec2transitgateway,
     ecr,
+    ecrpublic,
     ecs,
     efs,
     eks,

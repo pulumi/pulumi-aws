@@ -487,6 +487,156 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type AppResourceSpec struct {
+	// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+}
+
+// AppResourceSpecInput is an input type that accepts AppResourceSpecArgs and AppResourceSpecOutput values.
+// You can construct a concrete instance of `AppResourceSpecInput` via:
+//
+//          AppResourceSpecArgs{...}
+type AppResourceSpecInput interface {
+	pulumi.Input
+
+	ToAppResourceSpecOutput() AppResourceSpecOutput
+	ToAppResourceSpecOutputWithContext(context.Context) AppResourceSpecOutput
+}
+
+type AppResourceSpecArgs struct {
+	// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+}
+
+func (AppResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourceSpec)(nil)).Elem()
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecOutput() AppResourceSpecOutput {
+	return i.ToAppResourceSpecOutputWithContext(context.Background())
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecOutputWithContext(ctx context.Context) AppResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecOutput)
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return i.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecOutput).ToAppResourceSpecPtrOutputWithContext(ctx)
+}
+
+// AppResourceSpecPtrInput is an input type that accepts AppResourceSpecArgs, AppResourceSpecPtr and AppResourceSpecPtrOutput values.
+// You can construct a concrete instance of `AppResourceSpecPtrInput` via:
+//
+//          AppResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type AppResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput
+	ToAppResourceSpecPtrOutputWithContext(context.Context) AppResourceSpecPtrOutput
+}
+
+type appResourceSpecPtrType AppResourceSpecArgs
+
+func AppResourceSpecPtr(v *AppResourceSpecArgs) AppResourceSpecPtrInput {
+	return (*appResourceSpecPtrType)(v)
+}
+
+func (*appResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppResourceSpec)(nil)).Elem()
+}
+
+func (i *appResourceSpecPtrType) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return i.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *appResourceSpecPtrType) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecPtrOutput)
+}
+
+type AppResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (AppResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourceSpec)(nil)).Elem()
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecOutput() AppResourceSpecOutput {
+	return o
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecOutputWithContext(ctx context.Context) AppResourceSpecOutput {
+	return o
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return o.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *AppResourceSpec {
+		return &v
+	}).(AppResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o AppResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+type AppResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AppResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppResourceSpec)(nil)).Elem()
+}
+
+func (o AppResourceSpecPtrOutput) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return o
+}
+
+func (o AppResourceSpecPtrOutput) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return o
+}
+
+func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
+	return o.ApplyT(func(v *AppResourceSpec) AppResourceSpec { return *v }).(AppResourceSpecOutput)
+}
+
+// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o AppResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type CodeRepositoryGitConfig struct {
 	// The default branch for the Git repository.
 	Branch *string `pulumi:"branch"`
@@ -890,7 +1040,7 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
 // DomainDefaultUserSettingsJupyterServerAppSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsArgs and DomainDefaultUserSettingsJupyterServerAppSettingsOutput values.
@@ -906,7 +1056,7 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsInput interface {
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
 func (DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -987,10 +1137,10 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefault
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1019,14 +1169,14 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResou
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 }
 
@@ -1042,9 +1192,9 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 }
 
@@ -1125,14 +1275,14 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
@@ -1159,7 +1309,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1169,7 +1319,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1183,7 +1333,7 @@ type DomainDefaultUserSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
 // DomainDefaultUserSettingsKernelGatewayAppSettingsInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsOutput values.
@@ -1201,7 +1351,7 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
 func (DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -1289,10 +1439,10 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) CustomImages() 
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1331,7 +1481,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResou
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
@@ -1453,9 +1603,9 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 }
 
@@ -1471,9 +1621,9 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 }
 
@@ -1554,14 +1704,14 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
@@ -1588,7 +1738,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1598,7 +1748,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1779,7 +1929,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi
 
 type DomainDefaultUserSettingsTensorBoardAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
 // DomainDefaultUserSettingsTensorBoardAppSettingsInput is an input type that accepts DomainDefaultUserSettingsTensorBoardAppSettingsArgs and DomainDefaultUserSettingsTensorBoardAppSettingsOutput values.
@@ -1795,7 +1945,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsInput interface {
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
 func (DomainDefaultUserSettingsTensorBoardAppSettingsArgs) ElementType() reflect.Type {
@@ -1876,10 +2026,10 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUs
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1908,14 +2058,14 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourc
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 }
 
@@ -1931,9 +2081,9 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput int
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 }
 
@@ -2014,14 +2164,14 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
@@ -2048,7 +2198,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2058,7 +2208,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -5775,6 +5925,8 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput{})
+	pulumi.RegisterOutputType(AppResourceSpecOutput{})
+	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})

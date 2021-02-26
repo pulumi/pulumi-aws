@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class PlanAdvancedBackupSettingArgs : Pulumi.ResourceArgs
     {
-        [Input("backupOptions")]
+        [Input("backupOptions", required: true)]
         private InputMap<string>? _backupOptions;
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace Pulumi.Aws.Backup.Inputs
         /// <summary>
         /// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
 
         public PlanAdvancedBackupSettingArgs()
         {

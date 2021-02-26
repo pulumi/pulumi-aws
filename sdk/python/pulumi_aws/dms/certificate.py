@@ -18,6 +18,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_wallet: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,7 +36,10 @@ class Certificate(pulumi.CustomResource):
         # Create a new certificate
         test = aws.dms.Certificate("test",
             certificate_id="test-dms-certificate-tf",
-            certificate_pem="...")
+            certificate_pem="...",
+            tags={
+                "Name": "test",
+            })
         ```
 
         ## Import
@@ -51,6 +55,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate identifier.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,6 +79,7 @@ class Certificate(pulumi.CustomResource):
             __props__['certificate_id'] = certificate_id
             __props__['certificate_pem'] = certificate_pem
             __props__['certificate_wallet'] = certificate_wallet
+            __props__['tags'] = tags
             __props__['certificate_arn'] = None
         super(Certificate, __self__).__init__(
             'aws:dms/certificate:Certificate',
@@ -88,7 +94,8 @@ class Certificate(pulumi.CustomResource):
             certificate_arn: Optional[pulumi.Input[str]] = None,
             certificate_id: Optional[pulumi.Input[str]] = None,
             certificate_pem: Optional[pulumi.Input[str]] = None,
-            certificate_wallet: Optional[pulumi.Input[str]] = None) -> 'Certificate':
+            certificate_wallet: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,6 +107,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate identifier.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -109,6 +117,7 @@ class Certificate(pulumi.CustomResource):
         __props__["certificate_id"] = certificate_id
         __props__["certificate_pem"] = certificate_pem
         __props__["certificate_wallet"] = certificate_wallet
+        __props__["tags"] = tags
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -142,6 +151,14 @@ class Certificate(pulumi.CustomResource):
         The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
         """
         return pulumi.get(self, "certificate_wallet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

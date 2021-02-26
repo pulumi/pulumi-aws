@@ -2311,9 +2311,9 @@ class TriggerActionArgs:
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        :param pulumi.Input[str] crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
-        :param pulumi.Input[str] job_name: The name of a job to be executed. Conflicts with `crawler_name`.
-        :param pulumi.Input['TriggerActionNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification. see Notification Property details below.
+        :param pulumi.Input[str] crawler_name: The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        :param pulumi.Input[str] job_name: The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        :param pulumi.Input['TriggerActionNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this action.
         :param pulumi.Input[int] timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
@@ -2346,7 +2346,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="crawlerName")
     def crawler_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the crawler to be executed. Conflicts with `job_name`.
+        The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         """
         return pulumi.get(self, "crawler_name")
 
@@ -2358,7 +2358,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="jobName")
     def job_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a job to be executed. Conflicts with `crawler_name`.
+        The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
         """
         return pulumi.get(self, "job_name")
 
@@ -2370,7 +2370,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="notificationProperty")
     def notification_property(self) -> Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']]:
         """
-        Specifies configuration properties of a job run notification. see Notification Property details below.
+        Specifies configuration properties of a job run notification. See Notification Property details below.
         """
         return pulumi.get(self, "notification_property")
 
@@ -2432,7 +2432,7 @@ class TriggerPredicateArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]],
                  logical: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]] conditions: A list of the conditions that determine when the trigger will fire. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
         :param pulumi.Input[str] logical: How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -2443,7 +2443,7 @@ class TriggerPredicateArgs:
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]]:
         """
-        A list of the conditions that determine when the trigger will fire. Defined below.
+        A list of the conditions that determine when the trigger will fire. See Conditions.
         """
         return pulumi.get(self, "conditions")
 

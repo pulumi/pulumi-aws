@@ -3200,6 +3200,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
                  ports: Optional[Sequence[int]] = None):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
         pulumi.set(__self__, "validation", validation)
@@ -3219,6 +3220,9 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
     @property
     @pulumi.getter
     def enforce(self) -> Optional[bool]:
+        """
+        Whether the policy is enforced. Default is `true`.
+        """
         return pulumi.get(self, "enforce")
 
     @property
@@ -3393,6 +3397,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
                  ports: Optional[Sequence[int]] = None):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
         pulumi.set(__self__, "validation", validation)
@@ -3412,6 +3417,9 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
     @property
     @pulumi.getter
     def enforce(self) -> Optional[bool]:
+        """
+        Whether the policy is enforced. Default is `true`.
+        """
         return pulumi.get(self, "enforce")
 
     @property

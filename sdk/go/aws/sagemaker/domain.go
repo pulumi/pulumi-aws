@@ -72,6 +72,69 @@ import (
 // 	})
 // }
 // ```
+// ### Using Custom Images
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sagemaker"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testImage, err := sagemaker.NewImage(ctx, "testImage", &sagemaker.ImageArgs{
+// 			ImageName: pulumi.String("example"),
+// 			RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "testAppImageConfig", &sagemaker.AppImageConfigArgs{
+// 			AppImageConfigName: pulumi.String("example"),
+// 			KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
+// 				KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
+// 					Name: pulumi.String("example"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testImageVersion, err := sagemaker.NewImageVersion(ctx, "testImageVersion", &sagemaker.ImageVersionArgs{
+// 			ImageName: testImage.ID(),
+// 			BaseImage: pulumi.String("base-image"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sagemaker.NewDomain(ctx, "testDomain", &sagemaker.DomainArgs{
+// 			DomainName: pulumi.String("example"),
+// 			AuthMode:   pulumi.String("IAM"),
+// 			VpcId:      pulumi.Any(aws_vpc.Test.Id),
+// 			SubnetIds: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Test.Id),
+// 			},
+// 			DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
+// 				ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
+// 				KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
+// 					CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
+// 						&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
+// 							AppImageConfigName: testAppImageConfig.AppImageConfigName,
+// 							ImageName:          testImageVersion.ImageName,
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

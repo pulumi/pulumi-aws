@@ -29,6 +29,10 @@ namespace Pulumi.Aws.Dms
     ///         {
     ///             CertificateId = "test-dms-certificate-tf",
     ///             CertificatePem = "...",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "test" },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -69,6 +73,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Output("certificateWallet")]
         public Output<string?> CertificateWallet { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,6 +144,18 @@ namespace Pulumi.Aws.Dms
         [Input("certificateWallet")]
         public Input<string>? CertificateWallet { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public CertificateArgs()
         {
         }
@@ -164,6 +186,18 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("certificateWallet")]
         public Input<string>? CertificateWallet { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CertificateState()
         {

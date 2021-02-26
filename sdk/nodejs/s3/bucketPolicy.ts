@@ -32,7 +32,7 @@ import {PolicyDocument} from "../iam";
  *                 `${bucketArn1}/*`,
  *             ],
  *             Condition: {
- *                 IPAddress: {
+ *                 IpAddress: {
  *                     "aws:SourceIp": "8.8.8.8/32",
  *                 },
  *             },

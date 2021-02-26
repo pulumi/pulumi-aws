@@ -70,6 +70,66 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// }
     /// ```
+    /// ### Using Custom Images
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testImage = new Aws.Sagemaker.Image("testImage", new Aws.Sagemaker.ImageArgs
+    ///         {
+    ///             ImageName = "example",
+    ///             RoleArn = aws_iam_role.Test.Arn,
+    ///         });
+    ///         var testAppImageConfig = new Aws.Sagemaker.AppImageConfig("testAppImageConfig", new Aws.Sagemaker.AppImageConfigArgs
+    ///         {
+    ///             AppImageConfigName = "example",
+    ///             KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///             {
+    ///                 KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var testImageVersion = new Aws.Sagemaker.ImageVersion("testImageVersion", new Aws.Sagemaker.ImageVersionArgs
+    ///         {
+    ///             ImageName = testImage.Id,
+    ///             BaseImage = "base-image",
+    ///         });
+    ///         var testDomain = new Aws.Sagemaker.Domain("testDomain", new Aws.Sagemaker.DomainArgs
+    ///         {
+    ///             DomainName = "example",
+    ///             AuthMode = "IAM",
+    ///             VpcId = aws_vpc.Test.Id,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Test.Id,
+    ///             },
+    ///             DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
+    ///             {
+    ///                 ExecutionRole = aws_iam_role.Test.Arn,
+    ///                 KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
+    ///                 {
+    ///                     CustomImages = 
+    ///                     {
+    ///                         new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs
+    ///                         {
+    ///                             AppImageConfigName = testAppImageConfig.AppImageConfigName,
+    ///                             ImageName = testImageVersion.ImageName,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

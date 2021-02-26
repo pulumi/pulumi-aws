@@ -13,6 +13,7 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelGatewayImageConfigFileSystemConfig',
     'AppImageConfigKernelGatewayImageConfigKernelSpec',
+    'AppResourceSpec',
     'CodeRepositoryGitConfig',
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettings',
@@ -162,6 +163,40 @@ class AppImageConfigKernelGatewayImageConfigKernelSpec(dict):
 
 
 @pulumi.output_type
+class AppResourceSpec(dict):
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class CodeRepositoryGitConfig(dict):
     def __init__(__self__, *,
                  repository_url: str,
@@ -290,15 +325,16 @@ class DomainDefaultUserSettings(dict):
 @pulumi.output_type
 class DomainDefaultUserSettingsJupyterServerAppSettings(dict):
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec'):
+                 default_resource_spec: Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec'] = None):
         """
         :param 'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec':
+    def default_resource_spec(self) -> Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec']:
         """
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
@@ -314,8 +350,8 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
                  instance_type: Optional[str] = None,
                  sagemaker_image_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type.
-        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -326,7 +362,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -334,7 +370,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -345,23 +381,16 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
 @pulumi.output_type
 class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec',
-                 custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage']] = None):
+                 custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage']] = None,
+                 default_resource_spec: Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec'] = None):
         """
-        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
-
-    @property
-    @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec':
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        """
-        return pulumi.get(self, "default_resource_spec")
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="customImages")
@@ -370,6 +399,14 @@ class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
         A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         return pulumi.get(self, "custom_images")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -425,8 +462,8 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
                  instance_type: Optional[str] = None,
                  sagemaker_image_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type.
-        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -437,7 +474,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -445,7 +482,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -502,15 +539,16 @@ class DomainDefaultUserSettingsSharingSettings(dict):
 @pulumi.output_type
 class DomainDefaultUserSettingsTensorBoardAppSettings(dict):
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec'):
+                 default_resource_spec: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec'] = None):
         """
         :param 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> 'outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec':
+    def default_resource_spec(self) -> Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec']:
         """
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
@@ -526,8 +564,8 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
                  instance_type: Optional[str] = None,
                  sagemaker_image_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type.
-        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -538,7 +576,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -546,7 +584,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 

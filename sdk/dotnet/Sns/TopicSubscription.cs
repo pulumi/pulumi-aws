@@ -10,18 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sns
 {
     /// <summary>
-    /// Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
-    /// This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
-    /// to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
-    /// probably be SQS queues.
+    /// Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
     /// 
-    /// &gt; **NOTE:** If the SNS topic and SQS queue are in different AWS regions, it is important for the "aws.sns.TopicSubscription" to use an AWS provider that is in the same region of the SNS topic. If the "aws.sns.TopicSubscription" is using a provider with a different region than the SNS topic, the subscription will fail to create.
+    /// &gt; **NOTE:** If the SNS topic and SQS queue are in different AWS regions, the `aws.sns.TopicSubscription` must use an AWS provider that is in the same region as the SNS topic. If the `aws.sns.TopicSubscription` uses a provider with a different region than the SNS topic, this provider will fail to create the subscription.
     /// 
     /// &gt; **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires the provider to have access to BOTH accounts.
     /// 
-    /// &gt; **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws.sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "aws.sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
+    /// &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts but the same region, the `aws.sns.TopicSubscription` must use the AWS provider for the account with the SQS queue. If `aws.sns.TopicSubscription` uses a Provider with a different account than the SQS queue, this provider creates the subscription but does not keep state and tries to re-create the subscription at every `apply`.
     /// 
-    /// &gt; **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+    /// &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts and different AWS regions, the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+    /// 
+    /// &gt; **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
     /// 
     /// ## Example Usage
     /// 
@@ -300,16 +299,22 @@ namespace Pulumi.Aws.Sns
     public partial class TopicSubscription : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the subscription stored as a more user-friendly property
+        /// ARN of the subscription.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
+        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         /// </summary>
         [Output("confirmationTimeoutInMinutes")]
         public Output<int?> ConfirmationTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the subscription confirmation request was authenticated.
+        /// </summary>
+        [Output("confirmationWasAuthenticated")]
+        public Output<bool> ConfirmationWasAuthenticated { get; private set; } = null!;
 
         /// <summary>
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
@@ -318,13 +323,13 @@ namespace Pulumi.Aws.Sns
         public Output<string?> DeliveryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
+        /// Endpoint to send data to. The contents vary with the protocol. See details below.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         /// </summary>
         [Output("endpointAutoConfirms")]
         public Output<bool?> EndpointAutoConfirms { get; private set; } = null!;
@@ -336,13 +341,25 @@ namespace Pulumi.Aws.Sns
         public Output<string?> FilterPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
+        /// AWS account ID of the subscription's owner.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the subscription has not been confirmed.
+        /// </summary>
+        [Output("pendingConfirmation")]
+        public Output<bool> PendingConfirmation { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         /// </summary>
         [Output("rawMessageDelivery")]
         public Output<bool?> RawMessageDelivery { get; private set; } = null!;
@@ -354,7 +371,13 @@ namespace Pulumi.Aws.Sns
         public Output<string?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the SNS topic to subscribe to
+        /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+        /// </summary>
+        [Output("subscriptionRoleArn")]
+        public Output<string?> SubscriptionRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the SNS topic to subscribe to.
         /// </summary>
         [Output("topic")]
         public Output<string> Topic { get; private set; } = null!;
@@ -406,7 +429,7 @@ namespace Pulumi.Aws.Sns
     public sealed class TopicSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
+        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         /// </summary>
         [Input("confirmationTimeoutInMinutes")]
         public Input<int>? ConfirmationTimeoutInMinutes { get; set; }
@@ -418,13 +441,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? DeliveryPolicy { get; set; }
 
         /// <summary>
-        /// The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
+        /// Endpoint to send data to. The contents vary with the protocol. See details below.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         /// </summary>
         [Input("endpointAutoConfirms")]
         public Input<bool>? EndpointAutoConfirms { get; set; }
@@ -436,13 +459,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
+        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         /// </summary>
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }
@@ -454,7 +477,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? RedrivePolicy { get; set; }
 
         /// <summary>
-        /// The ARN of the SNS topic to subscribe to
+        /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+        /// </summary>
+        [Input("subscriptionRoleArn")]
+        public Input<string>? SubscriptionRoleArn { get; set; }
+
+        /// <summary>
+        /// ARN of the SNS topic to subscribe to.
         /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
@@ -467,16 +496,22 @@ namespace Pulumi.Aws.Sns
     public sealed class TopicSubscriptionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the subscription stored as a more user-friendly property
+        /// ARN of the subscription.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
+        /// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         /// </summary>
         [Input("confirmationTimeoutInMinutes")]
         public Input<int>? ConfirmationTimeoutInMinutes { get; set; }
+
+        /// <summary>
+        /// Whether the subscription confirmation request was authenticated.
+        /// </summary>
+        [Input("confirmationWasAuthenticated")]
+        public Input<bool>? ConfirmationWasAuthenticated { get; set; }
 
         /// <summary>
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
@@ -485,13 +520,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? DeliveryPolicy { get; set; }
 
         /// <summary>
-        /// The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
+        /// Endpoint to send data to. The contents vary with the protocol. See details below.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         /// </summary>
         [Input("endpointAutoConfirms")]
         public Input<bool>? EndpointAutoConfirms { get; set; }
@@ -503,13 +538,25 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
+        /// AWS account ID of the subscription's owner.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// Whether the subscription has not been confirmed.
+        /// </summary>
+        [Input("pendingConfirmation")]
+        public Input<bool>? PendingConfirmation { get; set; }
+
+        /// <summary>
+        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         /// </summary>
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }
@@ -521,7 +568,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? RedrivePolicy { get; set; }
 
         /// <summary>
-        /// The ARN of the SNS topic to subscribe to
+        /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+        /// </summary>
+        [Input("subscriptionRoleArn")]
+        public Input<string>? SubscriptionRoleArn { get; set; }
+
+        /// <summary>
+        /// ARN of the SNS topic to subscribe to.
         /// </summary>
         [Input("topic")]
         public Input<string>? Topic { get; set; }

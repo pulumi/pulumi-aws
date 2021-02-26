@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewUserPoolClient(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cognito/userPoolDomain:UserPoolDomain":
 		r, err = NewUserPoolDomain(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cognito/userPoolUICustomization:UserPoolUICustomization":
+		r, err = NewUserPoolUICustomization(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -87,6 +89,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/userPoolDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/userPoolUICustomization",
 		&module{version},
 	)
 }

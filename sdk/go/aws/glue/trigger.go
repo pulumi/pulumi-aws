@@ -189,20 +189,22 @@ import (
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// List of actions initiated by this trigger when it fires. Defined below.
+	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayOutput `pulumi:"actions"`
 	// Amazon Resource Name (ARN) of Glue Trigger
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the new trigger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the trigger.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrOutput `pulumi:"predicate"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
+	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
@@ -246,20 +248,22 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// List of actions initiated by this trigger when it fires. Defined below.
+	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions []TriggerAction `pulumi:"actions"`
 	// Amazon Resource Name (ARN) of Glue Trigger
 	Arn *string `pulumi:"arn"`
 	// A description of the new trigger.
 	Description *string `pulumi:"description"`
-	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the trigger.
 	Name *string `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
+	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	State *string `pulumi:"state"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
@@ -269,20 +273,22 @@ type triggerState struct {
 }
 
 type TriggerState struct {
-	// List of actions initiated by this trigger when it fires. Defined below.
+	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayInput
 	// Amazon Resource Name (ARN) of Glue Trigger
 	Arn pulumi.StringPtrInput
 	// A description of the new trigger.
 	Description pulumi.StringPtrInput
-	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the trigger.
 	Name pulumi.StringPtrInput
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrInput
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput
+	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	State pulumi.StringPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
@@ -296,15 +302,15 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// List of actions initiated by this trigger when it fires. Defined below.
+	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions []TriggerAction `pulumi:"actions"`
 	// A description of the new trigger.
 	Description *string `pulumi:"description"`
-	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the trigger.
 	Name *string `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
@@ -318,15 +324,15 @@ type triggerArgs struct {
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// List of actions initiated by this trigger when it fires. Defined below.
+	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayInput
 	// A description of the new trigger.
 	Description pulumi.StringPtrInput
-	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the trigger.
 	Name pulumi.StringPtrInput
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrInput
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput

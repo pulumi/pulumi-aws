@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Glue
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. Defined below.
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        /// Start the trigger. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         /// </summary>
         [Output("predicate")]
         public Output<Outputs.TriggerPredicate?> Predicate { get; private set; } = null!;
@@ -229,6 +229,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("schedule")]
         public Output<string?> Schedule { get; private set; } = null!;
+
+        /// <summary>
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags
@@ -298,7 +304,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerActionArgs>? _actions;
 
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. Defined below.
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
         /// </summary>
         public InputList<Inputs.TriggerActionArgs> Actions
         {
@@ -313,7 +319,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        /// Start the trigger. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -325,7 +331,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateArgs>? Predicate { get; set; }
@@ -371,7 +377,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerActionGetArgs>? _actions;
 
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. Defined below.
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
         /// </summary>
         public InputList<Inputs.TriggerActionGetArgs> Actions
         {
@@ -392,7 +398,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        /// Start the trigger. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -404,7 +410,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateGetArgs>? Predicate { get; set; }
@@ -414,6 +420,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
+
+        /// <summary>
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

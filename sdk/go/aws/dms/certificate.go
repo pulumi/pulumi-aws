@@ -30,6 +30,9 @@ import (
 // 		_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
 // 			CertificateId:  pulumi.String("test-dms-certificate-tf"),
 // 			CertificatePem: pulumi.String("..."),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("test"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -57,6 +60,8 @@ type Certificate struct {
 	CertificatePem pulumi.StringPtrOutput `pulumi:"certificatePem"`
 	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrOutput `pulumi:"certificateWallet"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +104,8 @@ type certificateState struct {
 	CertificatePem *string `pulumi:"certificatePem"`
 	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet *string `pulumi:"certificateWallet"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CertificateState struct {
@@ -110,6 +117,8 @@ type CertificateState struct {
 	CertificatePem pulumi.StringPtrInput
 	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -123,6 +132,8 @@ type certificateArgs struct {
 	CertificatePem *string `pulumi:"certificatePem"`
 	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet *string `pulumi:"certificateWallet"`
+	// A map of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
@@ -133,6 +144,8 @@ type CertificateArgs struct {
 	CertificatePem pulumi.StringPtrInput
 	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrInput
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
