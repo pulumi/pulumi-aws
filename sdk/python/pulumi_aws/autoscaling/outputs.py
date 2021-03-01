@@ -20,6 +20,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplate',
     'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification',
     'GroupMixedInstancesPolicyLaunchTemplateOverride',
+    'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification',
     'GroupTag',
     'PolicyStepAdjustment',
     'PolicyTargetTrackingConfiguration',
@@ -344,7 +345,7 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
                  launch_template_specification: 'outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification',
                  overrides: Optional[Sequence['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']] = None):
         """
-        :param 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs' launch_template_specification: Nested argument defines the Launch Template. Defined below.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
         :param Sequence['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -355,7 +356,7 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> 'outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification':
         """
-        Nested argument defines the Launch Template. Defined below.
+        Override the instance launch template specification in the Launch Template.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -421,13 +422,17 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
 class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
+                 launch_template_specification: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification'] = None,
                  weighted_capacity: Optional[str] = None):
         """
         :param str instance_type: Override the instance type in the Launch Template.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
         :param str weighted_capacity: The number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if launch_template_specification is not None:
+            pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
@@ -440,12 +445,66 @@ class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="launchTemplateSpecification")
+    def launch_template_specification(self) -> Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification']:
+        """
+        Override the instance launch template specification in the Launch Template.
+        """
+        return pulumi.get(self, "launch_template_specification")
+
+    @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[str]:
         """
         The number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
         return pulumi.get(self, "weighted_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification(dict):
+    def __init__(__self__, *,
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str launch_template_id: The ID of the launch template. Conflicts with `launch_template_name`.
+        :param str launch_template_name: The name of the launch template. Conflicts with `launch_template_id`.
+        :param str version: Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+        """
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[str]:
+        """
+        The ID of the launch template. Conflicts with `launch_template_name`.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[str]:
+        """
+        The name of the launch template. Conflicts with `launch_template_id`.
+        """
+        return pulumi.get(self, "launch_template_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

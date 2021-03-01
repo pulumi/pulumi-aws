@@ -6336,11 +6336,11 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) S3Enc
 type TriggerAction struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments map[string]string `pulumi:"arguments"`
-	// The name of the crawler to be executed. Conflicts with `jobName`.
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 	CrawlerName *string `pulumi:"crawlerName"`
-	// The name of a job to be executed. Conflicts with `crawlerName`.
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 	JobName *string `pulumi:"jobName"`
-	// Specifies configuration properties of a job run notification. see Notification Property details below.
+	// Specifies configuration properties of a job run notification. See Notification Property details below.
 	NotificationProperty *TriggerActionNotificationProperty `pulumi:"notificationProperty"`
 	// The name of the Security Configuration structure to be used with this action.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
@@ -6362,11 +6362,11 @@ type TriggerActionInput interface {
 type TriggerActionArgs struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments pulumi.StringMapInput `pulumi:"arguments"`
-	// The name of the crawler to be executed. Conflicts with `jobName`.
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
-	// The name of a job to be executed. Conflicts with `crawlerName`.
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
-	// Specifies configuration properties of a job run notification. see Notification Property details below.
+	// Specifies configuration properties of a job run notification. See Notification Property details below.
 	NotificationProperty TriggerActionNotificationPropertyPtrInput `pulumi:"notificationProperty"`
 	// The name of the Security Configuration structure to be used with this action.
 	SecurityConfiguration pulumi.StringPtrInput `pulumi:"securityConfiguration"`
@@ -6430,17 +6430,17 @@ func (o TriggerActionOutput) Arguments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TriggerAction) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
-// The name of the crawler to be executed. Conflicts with `jobName`.
+// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 func (o TriggerActionOutput) CrawlerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of a job to be executed. Conflicts with `crawlerName`.
+// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration properties of a job run notification. see Notification Property details below.
+// Specifies configuration properties of a job run notification. See Notification Property details below.
 func (o TriggerActionOutput) NotificationProperty() TriggerActionNotificationPropertyPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *TriggerActionNotificationProperty { return v.NotificationProperty }).(TriggerActionNotificationPropertyPtrOutput)
 }
@@ -6607,7 +6607,7 @@ func (o TriggerActionNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.In
 }
 
 type TriggerPredicate struct {
-	// A list of the conditions that determine when the trigger will fire. Defined below.
+	// A list of the conditions that determine when the trigger will fire. See Conditions.
 	Conditions []TriggerPredicateCondition `pulumi:"conditions"`
 	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 	Logical *string `pulumi:"logical"`
@@ -6625,7 +6625,7 @@ type TriggerPredicateInput interface {
 }
 
 type TriggerPredicateArgs struct {
-	// A list of the conditions that determine when the trigger will fire. Defined below.
+	// A list of the conditions that determine when the trigger will fire. See Conditions.
 	Conditions TriggerPredicateConditionArrayInput `pulumi:"conditions"`
 	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 	Logical pulumi.StringPtrInput `pulumi:"logical"`
@@ -6708,7 +6708,7 @@ func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutputWithContext(ctx conte
 	}).(TriggerPredicatePtrOutput)
 }
 
-// A list of the conditions that determine when the trigger will fire. Defined below.
+// A list of the conditions that determine when the trigger will fire. See Conditions.
 func (o TriggerPredicateOutput) Conditions() TriggerPredicateConditionArrayOutput {
 	return o.ApplyT(func(v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
 }
@@ -6736,7 +6736,7 @@ func (o TriggerPredicatePtrOutput) Elem() TriggerPredicateOutput {
 	return o.ApplyT(func(v *TriggerPredicate) TriggerPredicate { return *v }).(TriggerPredicateOutput)
 }
 
-// A list of the conditions that determine when the trigger will fire. Defined below.
+// A list of the conditions that determine when the trigger will fire. See Conditions.
 func (o TriggerPredicatePtrOutput) Conditions() TriggerPredicateConditionArrayOutput {
 	return o.ApplyT(func(v *TriggerPredicate) []TriggerPredicateCondition {
 		if v == nil {

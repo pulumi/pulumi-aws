@@ -38,6 +38,44 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
+ * ### Using Custom Images
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testImage = new aws.sagemaker.Image("testImage", {
+ *     imageName: "example",
+ *     roleArn: aws_iam_role.test.arn,
+ * });
+ * const testAppImageConfig = new aws.sagemaker.AppImageConfig("testAppImageConfig", {
+ *     appImageConfigName: "example",
+ *     kernelGatewayImageConfig: {
+ *         kernelSpec: {
+ *             name: "example",
+ *         },
+ *     },
+ * });
+ * const testImageVersion = new aws.sagemaker.ImageVersion("testImageVersion", {
+ *     imageName: testImage.id,
+ *     baseImage: "base-image",
+ * });
+ * const testDomain = new aws.sagemaker.Domain("testDomain", {
+ *     domainName: "example",
+ *     authMode: "IAM",
+ *     vpcId: aws_vpc.test.id,
+ *     subnetIds: [aws_subnet.test.id],
+ *     defaultUserSettings: {
+ *         executionRole: aws_iam_role.test.arn,
+ *         kernelGatewayAppSettings: {
+ *             customImages: [{
+ *                 appImageConfigName: testAppImageConfig.appImageConfigName,
+ *                 imageName: testImageVersion.imageName,
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

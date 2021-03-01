@@ -53,7 +53,7 @@ import (
 // 								fmt.Sprintf("%v%v", bucketArn1, "/*"),
 // 							},
 // 							"Condition": map[string]interface{}{
-// 								"IPAddress": map[string]interface{}{
+// 								"IpAddress": map[string]interface{}{
 // 									"aws:SourceIp": "8.8.8.8/32",
 // 								},
 // 							},

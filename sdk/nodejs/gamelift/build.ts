@@ -67,7 +67,7 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      */
     public readonly operatingSystem!: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export interface BuildState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      */
     readonly operatingSystem?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface BuildArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      */
     readonly operatingSystem: pulumi.Input<string>;
     /**

@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./app";
 export * from "./appImageConfig";
 export * from "./codeRepository";
 export * from "./domain";
@@ -21,6 +22,7 @@ export * from "./notebookInstanceLifecycleConfiguration";
 export * from "./userProfile";
 
 // Import resources to register:
+import { App } from "./app";
 import { AppImageConfig } from "./appImageConfig";
 import { CodeRepository } from "./codeRepository";
 import { Domain } from "./domain";
@@ -39,6 +41,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:sagemaker/app:App":
+                return new App(name, <any>undefined, { urn })
             case "aws:sagemaker/appImageConfig:AppImageConfig":
                 return new AppImageConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/codeRepository:CodeRepository":
@@ -70,6 +74,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "sagemaker/app", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/appImageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)

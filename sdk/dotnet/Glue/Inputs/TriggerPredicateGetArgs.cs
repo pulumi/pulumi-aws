@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.TriggerPredicateConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. Defined below.
+        /// A list of the conditions that determine when the trigger will fire. See Conditions.
         /// </summary>
         public InputList<Inputs.TriggerPredicateConditionGetArgs> Conditions
         {

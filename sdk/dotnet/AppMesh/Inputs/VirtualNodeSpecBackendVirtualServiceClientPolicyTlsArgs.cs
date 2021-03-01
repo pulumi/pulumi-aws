@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the policy is enforced. Default is `true`.
+        /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
 

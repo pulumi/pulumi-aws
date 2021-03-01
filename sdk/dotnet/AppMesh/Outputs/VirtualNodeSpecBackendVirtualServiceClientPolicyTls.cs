@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTls
     {
+        /// <summary>
+        /// Whether the policy is enforced. Default is `true`.
+        /// </summary>
         public readonly bool? Enforce;
         /// <summary>
         /// One or more ports that the policy is enforced for.

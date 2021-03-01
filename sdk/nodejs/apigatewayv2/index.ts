@@ -10,6 +10,8 @@ export * from "./apiMapping";
 export * from "./authorizer";
 export * from "./deployment";
 export * from "./domainName";
+export * from "./getApi";
+export * from "./getApis";
 export * from "./integration";
 export * from "./integrationResponse";
 export * from "./model";

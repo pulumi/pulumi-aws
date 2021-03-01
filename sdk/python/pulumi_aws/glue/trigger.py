@@ -127,11 +127,11 @@ class Trigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[str] description: A description of the new trigger.
-        :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
@@ -168,6 +168,7 @@ class Trigger(pulumi.CustomResource):
             __props__['type'] = type
             __props__['workflow_name'] = workflow_name
             __props__['arn'] = None
+            __props__['state'] = None
         super(Trigger, __self__).__init__(
             'aws:glue/trigger:Trigger',
             resource_name,
@@ -185,6 +186,7 @@ class Trigger(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             workflow_name: Optional[pulumi.Input[str]] = None) -> 'Trigger':
@@ -195,13 +197,14 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[str] description: A description of the new trigger.
-        :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        :param pulumi.Input[str] state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
@@ -217,6 +220,7 @@ class Trigger(pulumi.CustomResource):
         __props__["name"] = name
         __props__["predicate"] = predicate
         __props__["schedule"] = schedule
+        __props__["state"] = state
         __props__["tags"] = tags
         __props__["type"] = type
         __props__["workflow_name"] = workflow_name
@@ -226,7 +230,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.TriggerAction']]:
         """
-        List of actions initiated by this trigger when it fires. Defined below.
+        List of actions initiated by this trigger when it fires. See Actions Below.
         """
         return pulumi.get(self, "actions")
 
@@ -250,7 +254,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+        Start the trigger. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -266,7 +270,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def predicate(self) -> pulumi.Output[Optional['outputs.TriggerPredicate']]:
         """
-        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         """
         return pulumi.get(self, "predicate")
 
@@ -277,6 +281,14 @@ class Trigger(pulumi.CustomResource):
         A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         """
         return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

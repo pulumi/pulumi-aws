@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * const test = new aws.dms.Certificate("test", {
  *     certificateId: "test-dms-certificate-tf",
  *     certificatePem: "...",
+ *     tags: {
+ *         Name: "test",
+ *     },
  * });
  * ```
  *
@@ -74,6 +77,10 @@ export class Certificate extends pulumi.CustomResource {
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
      */
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
+    /**
+     * A map of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -92,6 +99,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateId"] = state ? state.certificateId : undefined;
             inputs["certificatePem"] = state ? state.certificatePem : undefined;
             inputs["certificateWallet"] = state ? state.certificateWallet : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.certificateId === undefined) && !opts.urn) {
@@ -100,6 +108,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateId"] = args ? args.certificateId : undefined;
             inputs["certificatePem"] = args ? args.certificatePem : undefined;
             inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["certificateArn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -129,6 +138,10 @@ export interface CertificateState {
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
      */
     readonly certificateWallet?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -147,4 +160,8 @@ export interface CertificateArgs {
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
      */
     readonly certificateWallet?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

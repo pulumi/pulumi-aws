@@ -19,6 +19,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
+        /// Override the instance launch template specification in the Launch Template.
+        /// </summary>
+        [Input("launchTemplateSpecification")]
+        public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs>? LaunchTemplateSpecification { get; set; }
+
+        /// <summary>
         /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
         /// </summary>
         [Input("weightedCapacity")]

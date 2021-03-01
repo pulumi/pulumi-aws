@@ -57,6 +57,40 @@ class Domain(pulumi.CustomResource):
             path="/",
             assume_role_policy=example_policy_document.json)
         ```
+        ### Using Custom Images
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_image = aws.sagemaker.Image("testImage",
+            image_name="example",
+            role_arn=aws_iam_role["test"]["arn"])
+        test_app_image_config = aws.sagemaker.AppImageConfig("testAppImageConfig",
+            app_image_config_name="example",
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+                    name="example",
+                ),
+            ))
+        test_image_version = aws.sagemaker.ImageVersion("testImageVersion",
+            image_name=test_image.id,
+            base_image="base-image")
+        test_domain = aws.sagemaker.Domain("testDomain",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=aws_vpc["test"]["id"],
+            subnet_ids=[aws_subnet["test"]["id"]],
+            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
+                execution_role=aws_iam_role["test"]["arn"],
+                kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
+                    custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
+                        app_image_config_name=test_app_image_config.app_image_config_name,
+                        image_name=test_image_version.image_name,
+                    )],
+                ),
+            ))
+        ```
 
         ## Import
 

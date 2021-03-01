@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         /// </summary>
-        public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec DefaultResourceSpec;
+        public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]
         private DomainDefaultUserSettingsKernelGatewayAppSettings(
             ImmutableArray<Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages,
 
-            Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec)
+            Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? defaultResourceSpec)
         {
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;

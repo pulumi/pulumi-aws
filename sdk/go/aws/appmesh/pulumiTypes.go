@@ -12977,6 +12977,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSp
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTls struct {
+	// Whether the policy is enforced. Default is `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
@@ -12996,6 +12997,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs struct {
+	// Whether the policy is enforced. Default is `true`.
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
@@ -13079,6 +13081,8 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBa
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
+
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
@@ -13115,6 +13119,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualNo
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
 }
 
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool {
 		if v == nil {
@@ -13904,6 +13909,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() Virtual
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTls struct {
+	// Whether the policy is enforced. Default is `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
@@ -13923,6 +13929,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs struct {
+	// Whether the policy is enforced. Default is `true`.
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
@@ -14006,6 +14013,8 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNode
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
 }
+
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
@@ -14042,6 +14051,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Elem() Vir
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
 }
 
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool {
 		if v == nil {

@@ -19,6 +19,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateArgs',
     'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs',
+    'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs',
     'GroupTagArgs',
     'PolicyStepAdjustmentArgs',
     'PolicyTargetTrackingConfigurationArgs',
@@ -416,7 +417,7 @@ class GroupMixedInstancesPolicyLaunchTemplateArgs:
                  launch_template_specification: pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'],
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]]] = None):
         """
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'] launch_template_specification: Nested argument defines the Launch Template. Defined below.
+        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'] launch_template_specification: Override the instance launch template specification in the Launch Template.
         :param pulumi.Input[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -427,7 +428,7 @@ class GroupMixedInstancesPolicyLaunchTemplateArgs:
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs']:
         """
-        Nested argument defines the Launch Template. Defined below.
+        Override the instance launch template specification in the Launch Template.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -507,13 +508,17 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
 class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     def __init__(__self__, *,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 launch_template_specification: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: Override the instance type in the Launch Template.
+        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs'] launch_template_specification: Override the instance launch template specification in the Launch Template.
         :param pulumi.Input[str] weighted_capacity: The number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if launch_template_specification is not None:
+            pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
@@ -530,6 +535,18 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="launchTemplateSpecification")
+    def launch_template_specification(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']]:
+        """
+        Override the instance launch template specification in the Launch Template.
+        """
+        return pulumi.get(self, "launch_template_specification")
+
+    @launch_template_specification.setter
+    def launch_template_specification(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']]):
+        pulumi.set(self, "launch_template_specification", value)
+
+    @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[str]]:
         """
@@ -540,6 +557,61 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     @weighted_capacity.setter
     def weighted_capacity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weighted_capacity", value)
+
+
+@pulumi.input_type
+class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs:
+    def __init__(__self__, *,
+                 launch_template_id: Optional[pulumi.Input[str]] = None,
+                 launch_template_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template. Conflicts with `launch_template_name`.
+        :param pulumi.Input[str] launch_template_name: The name of the launch template. Conflicts with `launch_template_id`.
+        :param pulumi.Input[str] version: Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+        """
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template. Conflicts with `launch_template_name`.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @launch_template_id.setter
+    def launch_template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. Conflicts with `launch_template_id`.
+        """
+        return pulumi.get(self, "launch_template_name")
+
+    @launch_template_name.setter
+    def launch_template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

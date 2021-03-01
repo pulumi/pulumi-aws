@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Update to v3.30.0 of the AWS Terraform Provider
 * Deprecate use of `aws.getAmi` in favor of `aws.ec2.getAmi`
 * Deprecate use of `aws.getAmiIds` in favor of `aws.ec2.getAmiIds`
 * Deprecate use of `aws.getElasticIp` in favor of `aws.ec2.getElasticIp`

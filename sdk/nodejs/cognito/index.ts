@@ -14,6 +14,7 @@ export * from "./userGroup";
 export * from "./userPool";
 export * from "./userPoolClient";
 export * from "./userPoolDomain";
+export * from "./userPoolUICustomization";
 
 // Import resources to register:
 import { IdentityPool } from "./identityPool";
@@ -24,6 +25,7 @@ import { UserGroup } from "./userGroup";
 import { UserPool } from "./userPool";
 import { UserPoolClient } from "./userPoolClient";
 import { UserPoolDomain } from "./userPoolDomain";
+import { UserPoolUICustomization } from "./userPoolUICustomization";
 
 const _module = {
     version: utilities.getVersion(),
@@ -45,6 +47,8 @@ const _module = {
                 return new UserPoolClient(name, <any>undefined, { urn })
             case "aws:cognito/userPoolDomain:UserPoolDomain":
                 return new UserPoolDomain(name, <any>undefined, { urn })
+            case "aws:cognito/userPoolUICustomization:UserPoolUICustomization":
+                return new UserPoolUICustomization(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -58,3 +62,4 @@ pulumi.runtime.registerResourceModule("aws", "cognito/userGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPool", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPoolClient", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPoolDomain", _module)
+pulumi.runtime.registerResourceModule("aws", "cognito/userPoolUICustomization", _module)

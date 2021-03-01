@@ -8,6 +8,8 @@ from .api_mapping import *
 from .authorizer import *
 from .deployment import *
 from .domain_name import *
+from .get_api import *
+from .get_apis import *
 from .integration import *
 from .integration_response import *
 from .model import *

@@ -87,6 +87,7 @@ const (
 	ec2ClientVpnMod          = "Ec2ClientVpn"          // EC2 Client VPN
 	ec2TransitGatewayMod     = "Ec2TransitGateway"     // EC2 Transit Gateway
 	ecrMod                   = "Ecr"                   // Elastic Container Registry
+	ecrPublicMod             = "EcrPublic"             // ECR Public
 	ecsMod                   = "Ecs"                   // Elastic Container Service
 	efsMod                   = "Efs"                   // Elastic Filesystem
 	eksMod                   = "Eks"                   // ECS for Kubernetes
@@ -800,6 +801,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
 			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
 			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
+			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
@@ -1249,6 +1251,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			// ecr public
+			"aws_ecrpublic_repository": {Tok: awsResource(ecrPublicMod, "Repository")},
 			// Elastic Container Service
 			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
 			"aws_ecs_service": {
@@ -2010,6 +2014,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_user_profile":           {Tok: awsResource(sagemakerMod, "UserProfile")},
 			"aws_sagemaker_app_image_config":       {Tok: awsResource(sagemakerMod, "AppImageConfig")},
 			"aws_sagemaker_model_package_group":    {Tok: awsResource(sagemakerMod, "ModelPackageGroup")},
+			"aws_sagemaker_app":                    {Tok: awsResource(sagemakerMod, "App")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -3884,6 +3889,10 @@ func Provider() tfbridge.ProviderInfo {
 			// SSO Admin
 			"aws_ssoadmin_instances":      {Tok: awsDataSource(ssoAdminMod, "getInstances")},
 			"aws_ssoadmin_permission_set": {Tok: awsDataSource(ssoAdminMod, "getPermissionSet")},
+
+			// ApiGateway V2
+			"aws_apigatewayv2_api":  {Tok: awsDataSource(apigatewayv2Mod, "getApi")},
+			"aws_apigatewayv2_apis": {Tok: awsDataSource(apigatewayv2Mod, "getApis")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

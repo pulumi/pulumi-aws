@@ -12,6 +12,7 @@ from .user_group import *
 from .user_pool import *
 from .user_pool_client import *
 from .user_pool_domain import *
+from .user_pool_ui_customization import *
 from ._inputs import *
 from . import outputs
 
@@ -43,6 +44,8 @@ def _register_module():
                 return UserPoolClient(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cognito/userPoolDomain:UserPoolDomain":
                 return UserPoolDomain(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cognito/userPoolUICustomization:UserPoolUICustomization":
+                return UserPoolUICustomization(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -56,5 +59,6 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "cognito/userPool", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cognito/userPoolClient", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cognito/userPoolDomain", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cognito/userPoolUICustomization", _module_instance)
 
 _register_module()
