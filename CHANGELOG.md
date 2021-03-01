@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.31.0 (2021-03-01)
 * Update to v3.30.0 of the AWS Terraform Provider
 * Deprecate use of `aws.getAmi` in favor of `aws.ec2.getAmi`
 * Deprecate use of `aws.getAmiIds` in favor of `aws.ec2.getAmiIds`
@@ -9,8 +14,6 @@ CHANGELOG
 * Deprecate use of `aws.getPrefixList` in favor of `aws.ec2.getPrefixList`
 * Deprecate use of `aws.getAutoscalingGroups` in favor of `aws.autoscaling.getAutoscalingGroups`
 * Deprecate use of `aws.getCanonicalUserId` in favor of `aws.s3.getCanonicalUserId`
-
----
 
 ## 3.30.1 (2021-02-24)
 * Update to v3.29.1 of the AWS Terraform Provider
