@@ -1995,6 +1995,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_route53_health_check":              {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_hosted_zone_dnssec":        {Tok: awsResource(route53Mod, "HostedZoneDnsSec")},
 			"aws_route53_key_signing_key":           {Tok: awsResource(route53Mod, "KeySigningKey")},
 			"aws_route53_resolver_dnssec_config":    {Tok: awsResource(route53Mod, "ResolverDnsSecConfig")},
 			"aws_route53_resolver_query_log_config": {Tok: awsResource(route53Mod, "ResolverQueryLogConfig")},

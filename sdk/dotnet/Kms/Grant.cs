@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> GrantToken { get; private set; } = null!;
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Output("granteePrincipal")]
         public Output<string> GranteePrincipal { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         [Output("operations")]
         public Output<ImmutableArray<string>> Operations { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Kms
         public Output<bool?> RetireOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Output("retiringPrincipal")]
         public Output<string?> RetiringPrincipal { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("granteePrincipal", required: true)]
         public Input<string> GranteePrincipal { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _operations;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         public InputList<string> Operations
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? RetireOnDelete { get; set; }
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? GrantToken { get; set; }
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("granteePrincipal")]
         public Input<string>? GranteePrincipal { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _operations;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         public InputList<string> Operations
         {
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? RetireOnDelete { get; set; }
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }

@@ -92,6 +92,34 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// ### Private Integration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             CredentialsArn = aws_iam_role.Example.Arn,
+    ///             Description = "Example with a load balancer",
+    ///             IntegrationType = "HTTP_PROXY",
+    ///             IntegrationUri = aws_lb_listener.Example.Arn,
+    ///             ConnectionType = "VPC_LINK",
+    ///             ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
+    ///             TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
+    ///             {
+    ///                 ServerNameToVerify = "example.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -160,7 +188,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Output("integrationType")]
         public Output<string> IntegrationType { get; private set; } = null!;
@@ -317,7 +345,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Input("integrationType", required: true)]
         public Input<string> IntegrationType { get; set; } = null!;
@@ -459,7 +487,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Input("integrationType")]
         public Input<string>? IntegrationType { get; set; }

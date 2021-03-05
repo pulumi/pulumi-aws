@@ -23,7 +23,7 @@ class KeySigningKey(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages an Route 53 Key Signing Key. For more information about managing Domain Name System Security Extensions (DNSSEC)in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+        Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
 
         ## Example Usage
 
@@ -66,6 +66,7 @@ class KeySigningKey(pulumi.CustomResource):
         example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
             hosted_zone_id=aws_route53_zone["test"]["id"],
             key_management_service_arn=aws_kms_key["test"]["arn"])
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id)
         ```
 
         ## Import

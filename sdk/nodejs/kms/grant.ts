@@ -98,7 +98,7 @@ export class Grant extends pulumi.CustomResource {
      */
     public /*out*/ readonly grantToken!: pulumi.Output<string>;
     /**
-     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     public readonly granteePrincipal!: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+     * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
     public readonly operations!: pulumi.Output<string[]>;
     /**
@@ -119,7 +119,7 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly retireOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     public readonly retiringPrincipal!: pulumi.Output<string | undefined>;
 
@@ -196,7 +196,7 @@ export interface GrantState {
      */
     readonly grantToken?: pulumi.Input<string>;
     /**
-     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     readonly granteePrincipal?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface GrantState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+     * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
     readonly operations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -217,7 +217,7 @@ export interface GrantState {
      */
     readonly retireOnDelete?: pulumi.Input<boolean>;
     /**
-     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     readonly retiringPrincipal?: pulumi.Input<string>;
 }
@@ -235,7 +235,7 @@ export interface GrantArgs {
      */
     readonly grantCreationTokens?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     readonly granteePrincipal: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface GrantArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+     * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
     readonly operations: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -256,7 +256,7 @@ export interface GrantArgs {
      */
     readonly retireOnDelete?: pulumi.Input<boolean>;
     /**
-     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
     readonly retiringPrincipal?: pulumi.Input<string>;
 }

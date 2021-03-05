@@ -183,11 +183,11 @@ type Cluster struct {
 
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersSaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersSaslScram"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersTls pulumi.StringOutput `pulumi:"bootstrapBrokersTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
@@ -214,7 +214,7 @@ type Cluster struct {
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
 	// A map of tags to assign to the resource
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
 }
 
@@ -258,11 +258,11 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn *string `pulumi:"arn"`
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers *string `pulumi:"bootstrapBrokers"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersSaslScram *string `pulumi:"bootstrapBrokersSaslScram"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersTls *string `pulumi:"bootstrapBrokersTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo *ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
@@ -289,18 +289,18 @@ type clusterState struct {
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
 	// A map of tags to assign to the resource
 	Tags map[string]string `pulumi:"tags"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString *string `pulumi:"zookeeperConnectString"`
 }
 
 type ClusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn pulumi.StringPtrInput
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringPtrInput
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersSaslScram pulumi.StringPtrInput
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersTls pulumi.StringPtrInput
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoPtrInput
@@ -327,7 +327,7 @@ type ClusterState struct {
 	OpenMonitoring ClusterOpenMonitoringPtrInput
 	// A map of tags to assign to the resource
 	Tags pulumi.StringMapInput
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringPtrInput
 }
 

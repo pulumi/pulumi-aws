@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Route 53 Key Signing Key. For more information about managing Domain Name System Security Extensions (DNSSEC)in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+ * Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `aws.route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
  *
  * ## Example Usage
  *
@@ -49,6 +49,7 @@ import * as utilities from "../utilities";
  *     hostedZoneId: aws_route53_zone.test.id,
  *     keyManagementServiceArn: aws_kms_key.test.arn,
  * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
  * ```
  *
  * ## Import

@@ -70,6 +70,37 @@ import (
 // 	})
 // }
 // ```
+// ### Private Integration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigatewayv2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
+// 			ApiId:           pulumi.Any(aws_apigatewayv2_api.Example.Id),
+// 			CredentialsArn:  pulumi.Any(aws_iam_role.Example.Arn),
+// 			Description:     pulumi.String("Example with a load balancer"),
+// 			IntegrationType: pulumi.String("HTTP_PROXY"),
+// 			IntegrationUri:  pulumi.Any(aws_lb_listener.Example.Arn),
+// 			ConnectionType:  pulumi.String("VPC_LINK"),
+// 			ConnectionId:    pulumi.Any(aws_apigatewayv2_vpc_link.Example.Id),
+// 			TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
+// 				ServerNameToVerify: pulumi.String("example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -100,7 +131,7 @@ type Integration struct {
 	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
-	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringOutput `pulumi:"integrationType"`
 	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -180,7 +211,7 @@ type integrationState struct {
 	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
-	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType *string `pulumi:"integrationType"`
 	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -226,7 +257,7 @@ type IntegrationState struct {
 	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
-	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringPtrInput
 	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -274,7 +305,7 @@ type integrationArgs struct {
 	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
-	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType string `pulumi:"integrationType"`
 	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -319,7 +350,7 @@ type IntegrationArgs struct {
 	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
-	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringInput
 	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.

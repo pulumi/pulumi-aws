@@ -52,11 +52,11 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	Arn string `pulumi:"arn"`
-	// A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
+	// A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
 	ClusterName         string `pulumi:"clusterName"`
 	// The provider-assigned unique ID for this managed resource.
@@ -67,6 +67,6 @@ type LookupClusterResult struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
 }

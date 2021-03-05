@@ -91,6 +91,24 @@ class Integration(pulumi.CustomResource):
                 "MessageBody": "$request.body.message",
             })
         ```
+        ### Private Integration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Integration("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            credentials_arn=aws_iam_role["example"]["arn"],
+            description="Example with a load balancer",
+            integration_type="HTTP_PROXY",
+            integration_uri=aws_lb_listener["example"]["arn"],
+            connection_type="VPC_LINK",
+            connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
+            tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
+                server_name_to_verify="example.com",
+            ))
+        ```
 
         ## Import
 
@@ -111,7 +129,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_method: The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
-               Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+               Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
                For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         :param pulumi.Input[str] passthrough_behavior: The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
@@ -212,7 +230,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_response_selection_expression: The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
-               Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+               Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
                For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         :param pulumi.Input[str] passthrough_behavior: The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
@@ -329,7 +347,7 @@ class Integration(pulumi.CustomResource):
     def integration_type(self) -> pulumi.Output[str]:
         """
         The integration type of an integration.
-        Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+        Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         """
         return pulumi.get(self, "integration_type")
 

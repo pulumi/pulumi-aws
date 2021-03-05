@@ -7,9 +7,21 @@ import { input as inputs, output as outputs, enums } from "../types";
 import {RoutingRule} from "../s3";
 
 export interface GetAmiBlockDeviceMapping {
+    /**
+     * The physical name of the device.
+     */
     deviceName: string;
+    /**
+     * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+     */
     ebs: {[key: string]: string};
+    /**
+     * Suppresses the specified device included in the block device mapping of the AMI.
+     */
     noDevice: string;
+    /**
+     * The virtual device name (for instance stores).
+     */
     virtualName: string;
 }
 
@@ -8206,9 +8218,21 @@ export namespace ec2 {
     }
 
     export interface GetAmiBlockDeviceMapping {
+        /**
+         * The physical name of the device.
+         */
         deviceName: string;
+        /**
+         * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+         */
         ebs: {[key: string]: string};
+        /**
+         * Suppresses the specified device included in the block device mapping of the AMI.
+         */
         noDevice: string;
+        /**
+         * The virtual device name (for instance stores).
+         */
         virtualName: string;
     }
 

@@ -62,6 +62,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Private Integration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.apigatewayv2.Integration("example", {
+ *     apiId: aws_apigatewayv2_api.example.id,
+ *     credentialsArn: aws_iam_role.example.arn,
+ *     description: "Example with a load balancer",
+ *     integrationType: "HTTP_PROXY",
+ *     integrationUri: aws_lb_listener.example.arn,
+ *     connectionType: "VPC_LINK",
+ *     connectionId: aws_apigatewayv2_vpc_link.example.id,
+ *     tlsConfig: {
+ *         serverNameToVerify: "example.com",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -137,7 +156,7 @@ export class Integration extends pulumi.CustomResource {
     public readonly integrationSubtype!: pulumi.Output<string | undefined>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      */
     public readonly integrationType!: pulumi.Output<string>;
     /**
@@ -288,7 +307,7 @@ export interface IntegrationState {
     readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      */
     readonly integrationType?: pulumi.Input<string>;
     /**
@@ -369,7 +388,7 @@ export interface IntegrationArgs {
     readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
-     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs).
+     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      */
     readonly integrationType: pulumi.Input<string>;
     /**

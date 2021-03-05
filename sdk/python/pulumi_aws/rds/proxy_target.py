@@ -61,7 +61,7 @@ class ProxyTarget(pulumi.CustomResource):
         example_proxy_target = aws.rds.ProxyTarget("exampleProxyTarget",
             db_instance_identifier=aws_db_instance["example"]["id"],
             db_proxy_name=example_proxy.name,
-            target_group_name=example_proxy_default_target_group.db_proxy_name)
+            target_group_name=example_proxy_default_target_group.name)
         ```
 
         ## Import

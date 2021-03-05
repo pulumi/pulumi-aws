@@ -32,7 +32,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[str] role: The role the policy should be applied to
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,7 +77,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[str] role: The role the policy should be applied to
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -99,7 +99,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        The role the policy should be applied to
+        The name of the IAM role to which the policy should be applied
         """
         return pulumi.get(self, "role")
 

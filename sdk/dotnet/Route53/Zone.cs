@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53
 {
     /// <summary>
-    /// Manages a Route53 Hosted Zone.
+    /// Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
     /// 
     /// ## Example Usage
     /// ### Public Zone

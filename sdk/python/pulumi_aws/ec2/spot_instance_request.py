@@ -116,10 +116,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Customize the credit specification of the instance. See Credit Specification below for more details.
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -137,7 +137,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
-        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -315,10 +315,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Customize the credit specification of the instance. See Credit Specification below for more details.
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestEnclaveOptionsArgs']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[bool] hibernation: If true, the launched EC2 instance will support hibernation.
         :param pulumi.Input[str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
@@ -342,7 +342,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
-        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -506,7 +506,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.SpotInstanceRequestEbsBlockDevice']]:
         """
-        Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         """
         return pulumi.get(self, "ebs_block_devices")
 
@@ -530,7 +530,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.SpotInstanceRequestEphemeralBlockDevice']]:
         """
-        Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         """
         return pulumi.get(self, "ephemeral_block_devices")
 
@@ -714,7 +714,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> pulumi.Output['outputs.SpotInstanceRequestRootBlockDevice']:
         """
-        Customize details about the root block device of the instance. See Block Devices below for details.
+        Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         """
         return pulumi.get(self, "root_block_device")
 

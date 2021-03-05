@@ -83,13 +83,13 @@ type SpotInstanceRequest struct {
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices SpotInstanceRequestEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions SpotInstanceRequestEnclaveOptionsOutput `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
@@ -137,7 +137,7 @@ type SpotInstanceRequest struct {
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
-	// Customize details about the root block device of the instance. See Block Devices below for details.
+	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
@@ -239,13 +239,13 @@ type spotInstanceRequestState struct {
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices []SpotInstanceRequestEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *SpotInstanceRequestEnclaveOptions `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
@@ -293,7 +293,7 @@ type spotInstanceRequestState struct {
 	PublicDns *string `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp *string `pulumi:"publicIp"`
-	// Customize details about the root block device of the instance. See Block Devices below for details.
+	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
@@ -361,13 +361,13 @@ type SpotInstanceRequestState struct {
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices SpotInstanceRequestEbsBlockDeviceArrayInput
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions SpotInstanceRequestEnclaveOptionsPtrInput
-	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
@@ -415,7 +415,7 @@ type SpotInstanceRequestState struct {
 	PublicDns pulumi.StringPtrInput
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp pulumi.StringPtrInput
-	// Customize details about the root block device of the instance. See Block Devices below for details.
+	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
@@ -486,13 +486,13 @@ type spotInstanceRequestArgs struct {
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices []SpotInstanceRequestEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *SpotInstanceRequestEnclaveOptions `pulumi:"enclaveOptions"`
-	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
@@ -527,7 +527,7 @@ type spotInstanceRequestArgs struct {
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
-	// Customize details about the root block device of the instance. See Block Devices below for details.
+	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
@@ -584,13 +584,13 @@ type SpotInstanceRequestArgs struct {
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices SpotInstanceRequestEbsBlockDeviceArrayInput
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized pulumi.BoolPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions SpotInstanceRequestEnclaveOptionsPtrInput
-	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
@@ -625,7 +625,7 @@ type SpotInstanceRequestArgs struct {
 	PlacementGroup pulumi.StringPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
-	// Customize details about the root block device of the instance. See Block Devices below for details.
+	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput

@@ -110,7 +110,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
     /**
-     * Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+     * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
     public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEbsBlockDevice[]>;
     /**
@@ -122,7 +122,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly enclaveOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestEnclaveOptions>;
     /**
-     * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+     * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
     public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEphemeralBlockDevice[]>;
     /**
@@ -210,7 +210,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
-     * Customize details about the root block device of the instance. See Block Devices below for details.
+     * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
     /**
@@ -471,7 +471,7 @@ export interface SpotInstanceRequestState {
      */
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
-     * Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+     * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
     /**
@@ -483,7 +483,7 @@ export interface SpotInstanceRequestState {
      */
     readonly enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
     /**
-     * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+     * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
     /**
@@ -571,7 +571,7 @@ export interface SpotInstanceRequestState {
      */
     readonly publicIp?: pulumi.Input<string>;
     /**
-     * Customize details about the root block device of the instance. See Block Devices below for details.
+     * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
     /**
@@ -693,7 +693,7 @@ export interface SpotInstanceRequestArgs {
      */
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
-     * Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+     * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
     /**
@@ -705,7 +705,7 @@ export interface SpotInstanceRequestArgs {
      */
     readonly enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
     /**
-     * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+     * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
     /**
@@ -774,7 +774,7 @@ export interface SpotInstanceRequestArgs {
      */
     readonly privateIp?: pulumi.Input<string>;
     /**
-     * Customize details about the root block device of the instance. See Block Devices below for details.
+     * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
     /**
