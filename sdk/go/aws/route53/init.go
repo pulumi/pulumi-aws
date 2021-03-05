@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDelegationSet(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:route53/healthCheck:HealthCheck":
 		r, err = NewHealthCheck(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec":
+		r, err = NewHostedZoneDnsSec(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:route53/keySigningKey:KeySigningKey":
 		r, err = NewKeySigningKey(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:route53/queryLog:QueryLog":
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/healthCheck",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/hostedZoneDnsSec",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

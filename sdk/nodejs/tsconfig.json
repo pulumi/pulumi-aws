@@ -915,6 +915,7 @@
         "route53/getResolverRules.ts",
         "route53/getZone.ts",
         "route53/healthCheck.ts",
+        "route53/hostedZoneDnsSec.ts",
         "route53/index.ts",
         "route53/keySigningKey.ts",
         "route53/queryLog.ts",

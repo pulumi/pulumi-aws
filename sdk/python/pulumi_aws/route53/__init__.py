@@ -11,6 +11,7 @@ from .get_resolver_rule import *
 from .get_resolver_rules import *
 from .get_zone import *
 from .health_check import *
+from .hosted_zone_dns_sec import *
 from .key_signing_key import *
 from .query_log import *
 from .record import *
@@ -42,6 +43,8 @@ def _register_module():
                 return DelegationSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/healthCheck:HealthCheck":
                 return HealthCheck(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec":
+                return HostedZoneDnsSec(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/keySigningKey:KeySigningKey":
                 return KeySigningKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:route53/queryLog:QueryLog":
@@ -73,6 +76,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "route53/delegationSet", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/healthCheck", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "route53/hostedZoneDnsSec", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/keySigningKey", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/queryLog", _module_instance)
     pulumi.runtime.register_resource_module("aws", "route53/record", _module_instance)

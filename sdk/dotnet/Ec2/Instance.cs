@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> DisableApiTermination { get; private set; } = null!;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         [Output("ebsBlockDevices")]
         public Output<ImmutableArray<Outputs.InstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.InstanceEnclaveOptions> EnclaveOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         [Output("ephemeralBlockDevices")]
         public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
+        /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.InstanceRootBlockDevice> RootBlockDevice { get; private set; } = null!;
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.InstanceEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         public InputList<Inputs.InstanceEbsBlockDeviceArgs> EbsBlockDevices
         {
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.InstanceEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         public InputList<Inputs.InstanceEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
@@ -621,7 +621,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
+        /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevice { get; set; }
@@ -776,7 +776,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.InstanceEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
+        /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         public InputList<Inputs.InstanceEbsBlockDeviceGetArgs> EbsBlockDevices
         {
@@ -800,7 +800,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         public InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
@@ -947,7 +947,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIp { get; set; }
 
         /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
+        /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }

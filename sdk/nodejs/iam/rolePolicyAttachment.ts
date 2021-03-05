@@ -49,7 +49,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
      */
     public readonly policyArn!: pulumi.Output<ARN>;
     /**
-     * The role the policy should be applied to
+     * The name of the IAM role to which the policy should be applied
      */
     public readonly role!: pulumi.Output<string>;
 
@@ -95,7 +95,7 @@ export interface RolePolicyAttachmentState {
      */
     readonly policyArn?: pulumi.Input<ARN>;
     /**
-     * The role the policy should be applied to
+     * The name of the IAM role to which the policy should be applied
      */
     readonly role?: pulumi.Input<string | Role>;
 }
@@ -109,7 +109,7 @@ export interface RolePolicyAttachmentArgs {
      */
     readonly policyArn: pulumi.Input<ARN>;
     /**
-     * The role the policy should be applied to
+     * The name of the IAM role to which the policy should be applied
      */
     readonly role: pulumi.Input<string | Role>;
 }

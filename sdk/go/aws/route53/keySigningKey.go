@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages an Route 53 Key Signing Key. For more information about managing Domain Name System Security Extensions (DNSSEC)in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+// Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
 //
 // ## Example Usage
 //
@@ -71,9 +71,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
+// 		exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
 // 			HostedZoneId:            pulumi.Any(aws_route53_zone.Test.Id),
 // 			KeyManagementServiceArn: pulumi.Any(aws_kms_key.Test.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
+// 			HostedZoneId: exampleKeySigningKey.HostedZoneId,
 // 		})
 // 		if err != nil {
 // 			return err

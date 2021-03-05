@@ -27,7 +27,7 @@ class Zone(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Route53 Hosted Zone.
+        Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 
         ## Example Usage
         ### Public Zone

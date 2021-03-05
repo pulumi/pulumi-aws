@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> PolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The role the policy should be applied to
+        /// The name of the IAM role to which the policy should be applied
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Iam
         public Input<string> PolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// The role the policy should be applied to
+        /// The name of the IAM role to which the policy should be applied
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? PolicyArn { get; set; }
 
         /// <summary>
-        /// The role the policy should be applied to
+        /// The name of the IAM role to which the policy should be applied
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
