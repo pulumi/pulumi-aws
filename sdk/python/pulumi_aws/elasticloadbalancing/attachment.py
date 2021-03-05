@@ -51,7 +51,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
         """
-        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")
+        pulumi.log.warn("""Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

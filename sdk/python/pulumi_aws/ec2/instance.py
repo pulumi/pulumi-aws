@@ -61,31 +61,6 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 
         ## Example Usage
-        ### Basic Example Using AMI Lookup
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        web = aws.ec2.Instance("web",
-            ami=ubuntu.id,
-            instance_type="t3.micro",
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
         ### Network and Credit Specification Example
 
         ```python
@@ -219,7 +194,7 @@ class Instance(pulumi.CustomResource):
             __props__['secondary_private_ips'] = secondary_private_ips
             if security_groups is not None and not opts.urn:
                 warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
-                pulumi.log.warn("security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")
+                pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
             __props__['security_groups'] = security_groups
             __props__['source_dest_check'] = source_dest_check
             __props__['subnet_id'] = subnet_id

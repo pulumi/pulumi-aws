@@ -154,7 +154,7 @@ class LoadBalancer(pulumi.CustomResource):
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
-        pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer")
+        pulumi.log.warn("""LoadBalancer is deprecated: aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

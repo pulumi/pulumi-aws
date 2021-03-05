@@ -61,7 +61,7 @@ class ListenerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
-        pulumi.log.warn("ListenerCertificate is deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate")
+        pulumi.log.warn("""ListenerCertificate is deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

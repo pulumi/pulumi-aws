@@ -96,7 +96,7 @@ export class ApiKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'apiId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["expires"] = args ? args.expires : undefined;
             inputs["key"] = undefined /*out*/;
         }

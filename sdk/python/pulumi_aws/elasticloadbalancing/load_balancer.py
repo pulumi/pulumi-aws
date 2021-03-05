@@ -140,7 +140,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
-        pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer")
+        pulumi.log.warn("""LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

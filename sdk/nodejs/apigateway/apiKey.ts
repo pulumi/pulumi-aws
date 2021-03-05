@@ -110,7 +110,7 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;

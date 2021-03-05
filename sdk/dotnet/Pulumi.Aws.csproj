@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="version.txt" />
-    <Content Include="version.txt" />
+    <None Include="version.txt" Pack="True" PackagePath="content" />
   </ItemGroup>
 
   <ItemGroup>

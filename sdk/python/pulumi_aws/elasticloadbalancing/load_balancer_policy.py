@@ -112,7 +112,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
         """
-        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy")
+        pulumi.log.warn("""LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -243,26 +243,6 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volume = aws.ebs.get_snapshot(filters=[
-            aws.ebs.GetSnapshotFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
-        ],
-        most_recent=True,
-        owners=["self"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out

@@ -140,7 +140,7 @@ def get_listener(arn: Optional[str] = None,
     :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
     :param int port: The port of the listener. Required if `arn` is not set.
     """
-    pulumi.log.warn("get_listener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener")
+    pulumi.log.warn("""get_listener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener""")
     __args__ = dict()
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn

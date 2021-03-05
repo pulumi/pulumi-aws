@@ -71,7 +71,7 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     pulumi.export("canonicalUserId", current.id)
     ```
     """
-    pulumi.log.warn("get_canonical_user_id is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId")
+    pulumi.log.warn("""get_canonical_user_id is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId""")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

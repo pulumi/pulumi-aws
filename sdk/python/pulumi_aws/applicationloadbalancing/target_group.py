@@ -110,7 +110,7 @@ class TargetGroup(pulumi.CustomResource):
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
-        pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")
+        pulumi.log.warn("""TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

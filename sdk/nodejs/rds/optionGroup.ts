@@ -149,7 +149,7 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) || "Managed by Pulumi";
+            inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
             inputs["options"] = args ? args.options : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;

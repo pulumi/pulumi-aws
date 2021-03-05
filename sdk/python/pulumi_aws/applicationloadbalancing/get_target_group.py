@@ -223,7 +223,7 @@ def get_target_group(arn: Optional[str] = None,
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.
     """
-    pulumi.log.warn("get_target_group is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup")
+    pulumi.log.warn("""get_target_group is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup""")
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name

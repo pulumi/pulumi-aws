@@ -14,48 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
         /// resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var foo = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
-        ///         {
-        ///             Filters = 
-        ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
-        ///                 {
-        ///                     Name = "image-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "ami-xxxxxxxx",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "instance-name-tag",
-        ///                     },
-        ///                 },
-        ///             },
-        ///             InstanceId = "i-instanceid",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());

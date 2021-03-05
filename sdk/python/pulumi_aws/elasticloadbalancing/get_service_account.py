@@ -117,7 +117,7 @@ def get_service_account(region: Optional[str] = None,
     :param str region: Name of the region whose AWS ELB account ID is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    pulumi.log.warn("get_service_account is deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount")
+    pulumi.log.warn("""get_service_account is deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount""")
     __args__ = dict()
     __args__['region'] = region
     if opts is None:

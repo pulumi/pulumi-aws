@@ -81,7 +81,7 @@ def get_hosted_zone_id(region: Optional[str] = None,
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    pulumi.log.warn("get_hosted_zone_id is deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId")
+    pulumi.log.warn("""get_hosted_zone_id is deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId""")
     __args__ = dict()
     __args__['region'] = region
     if opts is None:

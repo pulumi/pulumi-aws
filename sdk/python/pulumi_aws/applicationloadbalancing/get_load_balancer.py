@@ -250,7 +250,7 @@ def get_load_balancer(arn: Optional[str] = None,
     :param str arn: The full ARN of the load balancer.
     :param str name: The unique name of the load balancer.
     """
-    pulumi.log.warn("get_load_balancer is deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer")
+    pulumi.log.warn("""get_load_balancer is deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer""")
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
