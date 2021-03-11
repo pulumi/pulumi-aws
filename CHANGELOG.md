@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.32.1 (2021-03-11)
 * Upgrade to v2.20.0 of pulumi-terraform-bridge  
   **Please Note:** This includes a bug fix that stopped named providers being able to have values that changed the defaults
   so `aws:skipMetadataApiCheck`would always be `true` even if you specified `false` in the provider configuration
-
----
 
 ## 3.32.0 (2021-03-05)
 * Update to v3.31.0 of the AWS Terraform Provider
