@@ -91,7 +91,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
         """
-        pulumi.log.warn("SslNegotiationPolicy is deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy")
+        pulumi.log.warn("""SslNegotiationPolicy is deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

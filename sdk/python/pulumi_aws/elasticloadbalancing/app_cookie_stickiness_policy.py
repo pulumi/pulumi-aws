@@ -67,7 +67,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the stickiness policy.
         """
-        pulumi.log.warn("AppCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy")
+        pulumi.log.warn("""AppCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

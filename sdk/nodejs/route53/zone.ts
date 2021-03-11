@@ -147,7 +147,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            inputs["comment"] = (args ? args.comment : undefined) || "Managed by Pulumi";
+            inputs["comment"] = (args ? args.comment : undefined) ?? "Managed by Pulumi";
             inputs["delegationSetId"] = args ? args.delegationSetId : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["name"] = args ? args.name : undefined;

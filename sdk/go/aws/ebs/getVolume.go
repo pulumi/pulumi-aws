@@ -9,44 +9,6 @@ import (
 
 // Use this data source to get information about an EBS volume for use in other
 // resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
-// 		_, err := ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
-// 			Filters: []ebs.GetVolumeFilter{
-// 				ebs.GetVolumeFilter{
-// 					Name: "volume-type",
-// 					Values: []string{
-// 						"gp2",
-// 					},
-// 				},
-// 				ebs.GetVolumeFilter{
-// 					Name: "tag:Name",
-// 					Values: []string{
-// 						"Example",
-// 					},
-// 				},
-// 			},
-// 			MostRecent: &opt0,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("aws:ebs/getVolume:getVolume", args, &rv, opts...)

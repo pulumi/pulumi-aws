@@ -143,7 +143,7 @@ class FlowLog(pulumi.CustomResource):
             __props__['log_format'] = log_format
             if log_group_name is not None and not opts.urn:
                 warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
-                pulumi.log.warn("log_group_name is deprecated: use 'log_destination' argument instead")
+                pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
             __props__['log_group_name'] = log_group_name
             __props__['max_aggregation_interval'] = max_aggregation_interval
             __props__['subnet_id'] = subnet_id

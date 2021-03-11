@@ -43,21 +43,21 @@ class GetSecretResult:
             raise TypeError("Expected argument 'rotation_enabled' to be a bool")
         if rotation_enabled is not None:
             warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-            pulumi.log.warn("rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+            pulumi.log.warn("""rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
 
         pulumi.set(__self__, "rotation_enabled", rotation_enabled)
         if rotation_lambda_arn and not isinstance(rotation_lambda_arn, str):
             raise TypeError("Expected argument 'rotation_lambda_arn' to be a str")
         if rotation_lambda_arn is not None:
             warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-            pulumi.log.warn("rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+            pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
 
         pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
         if rotation_rules and not isinstance(rotation_rules, list):
             raise TypeError("Expected argument 'rotation_rules' to be a list")
         if rotation_rules is not None:
             warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-            pulumi.log.warn("rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+            pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
 
         pulumi.set(__self__, "rotation_rules", rotation_rules)
         if tags and not isinstance(tags, dict):

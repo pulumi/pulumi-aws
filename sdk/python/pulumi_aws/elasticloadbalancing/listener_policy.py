@@ -108,7 +108,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
-        pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy")
+        pulumi.log.warn("""ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

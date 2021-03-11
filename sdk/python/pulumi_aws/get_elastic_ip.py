@@ -276,7 +276,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     :param str public_ip: The public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
     """
-    pulumi.log.warn("get_elastic_ip is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")
+    pulumi.log.warn("""get_elastic_ip is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp""")
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id

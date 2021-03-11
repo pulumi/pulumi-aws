@@ -106,7 +106,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["family"] = args ? args.family : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;

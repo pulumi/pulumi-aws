@@ -61,7 +61,7 @@ class ConfgurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the configuration set.
         """
-        pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")
+        pulumi.log.warn("""ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

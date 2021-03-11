@@ -104,7 +104,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
         }

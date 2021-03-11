@@ -139,7 +139,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
     :param str prefix_list_id: The ID of the prefix list to select.
     """
-    pulumi.log.warn("get_prefix_list is deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")
+    pulumi.log.warn("""get_prefix_list is deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList""")
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name

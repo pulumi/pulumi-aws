@@ -202,7 +202,7 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
-        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")
+        pulumi.log.warn("""ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

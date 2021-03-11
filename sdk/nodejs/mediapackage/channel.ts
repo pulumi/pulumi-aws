@@ -101,7 +101,7 @@ export class Channel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'channelId'");
             }
             inputs["channelId"] = args ? args.channelId : undefined;
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;

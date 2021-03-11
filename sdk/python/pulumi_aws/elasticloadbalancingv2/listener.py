@@ -210,7 +210,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """
-        pulumi.log.warn("Listener is deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener")
+        pulumi.log.warn("""Listener is deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
