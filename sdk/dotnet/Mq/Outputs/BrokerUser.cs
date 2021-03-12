@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerUser
     {
         /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         /// </summary>
         public readonly bool? ConsoleAccess;
         /// <summary>
-        /// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+        /// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        /// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The username of the user.
+        /// Username of the user.
         /// </summary>
         public readonly string Username;
 

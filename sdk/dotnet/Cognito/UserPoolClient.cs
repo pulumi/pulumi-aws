@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Cognito
     public partial class UserPoolClient : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Output("accessTokenValidity")]
+        public Output<int?> AccessTokenValidity { get; private set; } = null!;
+
+        /// <summary>
         /// List of allowed OAuth flows (code, implicit, client_credentials).
         /// </summary>
         [Output("allowedOauthFlows")]
@@ -163,7 +169,7 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> AllowedOauthScopes { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         /// </summary>
         [Output("analyticsConfiguration")]
         public Output<Outputs.UserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
@@ -175,19 +181,19 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> CallbackUrls { get; private set; } = null!;
 
         /// <summary>
-        /// The client secret of the user pool client.
+        /// Client secret of the user pool client.
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The default redirect URI. Must be in the list of callback URLs.
+        /// Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
         [Output("defaultRedirectUri")]
         public Output<string?> DefaultRedirectUri { get; private set; } = null!;
 
         /// <summary>
-        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         /// </summary>
         [Output("explicitAuthFlows")]
         public Output<ImmutableArray<string>> ExplicitAuthFlows { get; private set; } = null!;
@@ -199,13 +205,19 @@ namespace Pulumi.Aws.Cognito
         public Output<bool?> GenerateSecret { get; private set; } = null!;
 
         /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Output("idTokenValidity")]
+        public Output<int?> IdTokenValidity { get; private set; } = null!;
+
+        /// <summary>
         /// List of allowed logout URLs for the identity providers.
         /// </summary>
         [Output("logoutUrls")]
         public Output<ImmutableArray<string>> LogoutUrls { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application client.
+        /// Name of the application client.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -223,7 +235,7 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// The time limit in days refresh tokens are valid for.
+        /// Time limit in days refresh tokens are valid for.
         /// </summary>
         [Output("refreshTokenValidity")]
         public Output<int?> RefreshTokenValidity { get; private set; } = null!;
@@ -235,7 +247,13 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> SupportedIdentityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool the client belongs to.
+        /// Configuration block for units in which the validity times are represented in. Detailed below.
+        /// </summary>
+        [Output("tokenValidityUnits")]
+        public Output<Outputs.UserPoolClientTokenValidityUnits?> TokenValidityUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// User pool the client belongs to.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -292,6 +310,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserPoolClientArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Input("accessTokenValidity")]
+        public Input<int>? AccessTokenValidity { get; set; }
+
         [Input("allowedOauthFlows")]
         private InputList<string>? _allowedOauthFlows;
 
@@ -323,7 +347,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         /// </summary>
         [Input("analyticsConfiguration")]
         public Input<Inputs.UserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
@@ -341,7 +365,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The default redirect URI. Must be in the list of callback URLs.
+        /// Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
         [Input("defaultRedirectUri")]
         public Input<string>? DefaultRedirectUri { get; set; }
@@ -350,7 +374,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _explicitAuthFlows;
 
         /// <summary>
-        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         /// </summary>
         public InputList<string> ExplicitAuthFlows
         {
@@ -363,6 +387,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("generateSecret")]
         public Input<bool>? GenerateSecret { get; set; }
+
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Input("idTokenValidity")]
+        public Input<int>? IdTokenValidity { get; set; }
 
         [Input("logoutUrls")]
         private InputList<string>? _logoutUrls;
@@ -377,7 +407,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The name of the application client.
+        /// Name of the application client.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -401,7 +431,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The time limit in days refresh tokens are valid for.
+        /// Time limit in days refresh tokens are valid for.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
@@ -419,7 +449,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The user pool the client belongs to.
+        /// Configuration block for units in which the validity times are represented in. Detailed below.
+        /// </summary>
+        [Input("tokenValidityUnits")]
+        public Input<Inputs.UserPoolClientTokenValidityUnitsArgs>? TokenValidityUnits { get; set; }
+
+        /// <summary>
+        /// User pool the client belongs to.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -443,6 +479,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserPoolClientState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Input("accessTokenValidity")]
+        public Input<int>? AccessTokenValidity { get; set; }
+
         [Input("allowedOauthFlows")]
         private InputList<string>? _allowedOauthFlows;
 
@@ -474,7 +516,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         /// </summary>
         [Input("analyticsConfiguration")]
         public Input<Inputs.UserPoolClientAnalyticsConfigurationGetArgs>? AnalyticsConfiguration { get; set; }
@@ -492,13 +534,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The client secret of the user pool client.
+        /// Client secret of the user pool client.
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
-        /// The default redirect URI. Must be in the list of callback URLs.
+        /// Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
         [Input("defaultRedirectUri")]
         public Input<string>? DefaultRedirectUri { get; set; }
@@ -507,7 +549,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _explicitAuthFlows;
 
         /// <summary>
-        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         /// </summary>
         public InputList<string> ExplicitAuthFlows
         {
@@ -520,6 +562,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("generateSecret")]
         public Input<bool>? GenerateSecret { get; set; }
+
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// </summary>
+        [Input("idTokenValidity")]
+        public Input<int>? IdTokenValidity { get; set; }
 
         [Input("logoutUrls")]
         private InputList<string>? _logoutUrls;
@@ -534,7 +582,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The name of the application client.
+        /// Name of the application client.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -558,7 +606,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The time limit in days refresh tokens are valid for.
+        /// Time limit in days refresh tokens are valid for.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
@@ -576,7 +624,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// The user pool the client belongs to.
+        /// Configuration block for units in which the validity times are represented in. Detailed below.
+        /// </summary>
+        [Input("tokenValidityUnits")]
+        public Input<Inputs.UserPoolClientTokenValidityUnitsGetArgs>? TokenValidityUnits { get; set; }
+
+        /// <summary>
+        /// User pool the client belongs to.
         /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }

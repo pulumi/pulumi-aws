@@ -13,43 +13,43 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolSchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        /// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
         /// </summary>
         [Input("attributeDataType", required: true)]
         public Input<string> AttributeDataType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the attribute type is developer only.
+        /// Whether the attribute type is developer only.
         /// </summary>
         [Input("developerOnlyAttribute")]
         public Input<bool>? DeveloperOnlyAttribute { get; set; }
 
         /// <summary>
-        /// Specifies whether the attribute can be changed once it has been created.
+        /// Whether the attribute can be changed once it has been created.
         /// </summary>
         [Input("mutable")]
         public Input<bool>? Mutable { get; set; }
 
         /// <summary>
-        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        /// Name of the attribute.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the constraints for an attribute of the number type.
+        /// Configuration block for the constraints for an attribute of the number type. Detailed below.
         /// </summary>
         [Input("numberAttributeConstraints")]
         public Input<Inputs.UserPoolSchemaNumberAttributeConstraintsArgs>? NumberAttributeConstraints { get; set; }
 
         /// <summary>
-        /// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        /// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// -Specifies the constraints for an attribute of the string type.
+        /// Constraints for an attribute of the string type. Detailed below.
         /// </summary>
         [Input("stringAttributeConstraints")]
         public Input<Inputs.UserPoolSchemaStringAttributeConstraintsArgs>? StringAttributeConstraints { get; set; }

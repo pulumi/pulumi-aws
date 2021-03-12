@@ -76,6 +76,8 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigatewayv2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -83,15 +85,34 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-// 			ApiId:           pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			CredentialsArn:  pulumi.Any(aws_iam_role.Example.Arn),
-// 			Description:     pulumi.String("Example with a load balancer"),
-// 			IntegrationType: pulumi.String("HTTP_PROXY"),
-// 			IntegrationUri:  pulumi.Any(aws_lb_listener.Example.Arn),
-// 			ConnectionType:  pulumi.String("VPC_LINK"),
-// 			ConnectionId:    pulumi.Any(aws_apigatewayv2_vpc_link.Example.Id),
+// 			ApiId:             pulumi.Any(aws_apigatewayv2_api.Example.Id),
+// 			CredentialsArn:    pulumi.Any(aws_iam_role.Example.Arn),
+// 			Description:       pulumi.String("Example with a load balancer"),
+// 			IntegrationType:   pulumi.String("HTTP_PROXY"),
+// 			IntegrationUri:    pulumi.Any(aws_lb_listener.Example.Arn),
+// 			IntegrationMethod: pulumi.String("ANY"),
+// 			ConnectionType:    pulumi.String("VPC_LINK"),
+// 			ConnectionId:      pulumi.Any(aws_apigatewayv2_vpc_link.Example.Id),
 // 			TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
 // 				ServerNameToVerify: pulumi.String("example.com"),
+// 			},
+// 			RequestParameters: pulumi.StringMap{
+// 				"append:header.authforintegration": pulumi.String(fmt.Sprintf("%v%v", "$", "context.authorizer.authorizerResponse")),
+// 				"overwrite:path":                   pulumi.String("staticValueForIntegration"),
+// 			},
+// 			ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
+// 				&apigatewayv2.IntegrationResponseParameterArgs{
+// 					StatusCode: pulumi.String("403"),
+// 					Mappings: pulumi.StringMap{
+// 						"append:header.auth": pulumi.String(fmt.Sprintf("%v%v", "$", "context.authorizer.authorizerResponse")),
+// 					},
+// 				},
+// 				&apigatewayv2.IntegrationResponseParameterArgs{
+// 					StatusCode: pulumi.String("200"),
+// 					Mappings: pulumi.StringMap{
+// 						"overwrite:statuscode": pulumi.String("204"),
+// 					},
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

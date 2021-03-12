@@ -14,6 +14,7 @@ __all__ = [
     'CertificateAuthorityCertificateAuthorityConfigurationSubject',
     'CertificateAuthorityRevocationConfiguration',
     'CertificateAuthorityRevocationConfigurationCrlConfiguration',
+    'CertificateValidity',
     'GetCertificateAuthorityRevocationConfigurationResult',
     'GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult',
 ]
@@ -301,6 +302,38 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
         """
         return pulumi.get(self, "s3_bucket_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CertificateValidity(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        :param str type: Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+        :param str value: If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

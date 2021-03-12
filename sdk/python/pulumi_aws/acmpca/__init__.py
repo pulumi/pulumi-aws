@@ -3,7 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .certificate import *
 from .certificate_authority import *
+from .certificate_authority_certificate import *
+from .get_certificate import *
 from .get_certificate_authority import *
 from ._inputs import *
 from . import outputs
@@ -20,13 +23,19 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:acmpca/certificateAuthority:CertificateAuthority":
+            if typ == "aws:acmpca/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:acmpca/certificateAuthority:CertificateAuthority":
                 return CertificateAuthority(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate":
+                return CertificateAuthorityCertificate(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "acmpca/certificate", _module_instance)
     pulumi.runtime.register_resource_module("aws", "acmpca/certificateAuthority", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "acmpca/certificateAuthorityCertificate", _module_instance)
 
 _register_module()

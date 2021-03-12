@@ -100,8 +100,7 @@ type Instance struct {
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
-	// Customize the credit specification of the instance. See Credit Specification below for more details.
+	CpuThreadsPerCore   pulumi.IntOutput                     `pulumi:"cpuThreadsPerCore"`
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
@@ -227,8 +226,7 @@ type instanceState struct {
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Customize the credit specification of the instance. See Credit Specification below for more details.
+	CpuThreadsPerCore   *int                         `pulumi:"cpuThreadsPerCore"`
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
@@ -320,8 +318,7 @@ type InstanceState struct {
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	CpuThreadsPerCore pulumi.IntPtrInput
-	// Customize the credit specification of the instance. See Credit Specification below for more details.
+	CpuThreadsPerCore   pulumi.IntPtrInput
 	CreditSpecification InstanceCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
@@ -415,8 +412,7 @@ type instanceArgs struct {
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Customize the credit specification of the instance. See Credit Specification below for more details.
+	CpuThreadsPerCore   *int                         `pulumi:"cpuThreadsPerCore"`
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
@@ -493,8 +489,7 @@ type InstanceArgs struct {
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	CpuThreadsPerCore pulumi.IntPtrInput
-	// Customize the credit specification of the instance. See Credit Specification below for more details.
+	CpuThreadsPerCore   pulumi.IntPtrInput
 	CreditSpecification InstanceCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput

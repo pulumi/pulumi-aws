@@ -16,6 +16,7 @@ import {ARN} from "..";
  * > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`aws.kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
  *
  * ## Example Usage
+ * ### Kinesis Stream Input
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -47,6 +48,64 @@ import {ARN} from "..";
  *         },
  *     },
  * }});
+ * ```
+ * ### Starting An Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleLogStream = new aws.cloudwatch.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
+ * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
+ * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
+ *         bucketArn: aws_s3_bucket.example.arn,
+ *         roleArn: aws_iam_role.example.arn,
+ *     },
+ * });
+ * const test = new aws.kinesis.AnalyticsApplication("test", {
+ *     cloudwatchLoggingOptions: {
+ *         logStreamArn: exampleLogStream.arn,
+ *         roleArn: aws_iam_role.example.arn,
+ *     },
+ *     inputs: {
+ *         namePrefix: "example_prefix",
+ *         schema: {
+ *             recordColumns: [{
+ *                 name: "COLUMN_1",
+ *                 sqlType: "INTEGER",
+ *             }],
+ *             recordFormat: {
+ *                 mappingParameters: {
+ *                     csv: {
+ *                         recordColumnDelimiter: ",",
+ *                         recordRowDelimiter: "|",
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         kinesisStream: {
+ *             resourceArn: exampleStream.arn,
+ *             roleArn: aws_iam_role.example.arn,
+ *         },
+ *         startingPositionConfigurations: [{
+ *             startingPosition: "NOW",
+ *         }],
+ *     },
+ *     outputs: [{
+ *         name: "OUTPUT_1",
+ *         schema: {
+ *             recordFormatType: "CSV",
+ *         },
+ *         kinesisFirehose: {
+ *             resourceArn: exampleFirehoseDeliveryStream.arn,
+ *             roleArn: aws_iam_role.example.arn,
+ *         },
+ *     }],
+ *     startApplication: true,
+ * });
  * ```
  *
  * ## Import
@@ -128,6 +187,11 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public readonly referenceDataSources!: pulumi.Output<outputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+     * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     */
+    public readonly startApplication!: pulumi.Output<boolean | undefined>;
+    /**
      * The Status of the application.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -163,6 +227,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["outputs"] = state ? state.outputs : undefined;
             inputs["referenceDataSources"] = state ? state.referenceDataSources : undefined;
+            inputs["startApplication"] = state ? state.startApplication : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -175,6 +240,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
+            inputs["startApplication"] = args ? args.startApplication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
@@ -236,6 +302,11 @@ export interface AnalyticsApplicationState {
      */
     readonly referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
     /**
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+     * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     */
+    readonly startApplication?: pulumi.Input<boolean>;
+    /**
      * The Status of the application.
      */
     readonly status?: pulumi.Input<string>;
@@ -283,6 +354,11 @@ export interface AnalyticsApplicationArgs {
      * See Reference Data Sources below for more details.
      */
     readonly referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    /**
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+     * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     */
+    readonly startApplication?: pulumi.Input<boolean>;
     /**
      * Key-value map of tags for the Kinesis Analytics Application.
      */

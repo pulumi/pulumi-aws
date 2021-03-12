@@ -187,6 +187,7 @@ jobs:
     - name: Restore binary perms
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
+    - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: actions/download-artifact@v2
       with:

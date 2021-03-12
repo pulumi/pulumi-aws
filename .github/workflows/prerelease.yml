@@ -168,7 +168,7 @@ jobs:
       uses: goreleaser/goreleaser-action@v2
       with:
         args: -p 2 release --rm-dist --config=.goreleaser.prerelease.yaml  --timeout
-          90m0s
+          60m0s
         version: latest
   publish_sdk:
     name: publish_sdk
@@ -287,6 +287,7 @@ jobs:
     - name: Restore binary perms
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
+    - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: actions/download-artifact@v2
       with:

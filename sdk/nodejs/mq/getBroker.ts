@@ -63,6 +63,7 @@ export interface GetBrokerArgs {
  */
 export interface GetBrokerResult {
     readonly arn: string;
+    readonly authenticationStrategy: string;
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
@@ -77,10 +78,12 @@ export interface GetBrokerResult {
      */
     readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
+    readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
     readonly logs?: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
+    readonly storageType: string;
     readonly subnetIds: string[];
     readonly tags: {[key: string]: string};
     readonly users: outputs.mq.GetBrokerUser[];

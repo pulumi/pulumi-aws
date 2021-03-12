@@ -482,7 +482,7 @@ func (o ResourceServerScopeArrayOutput) Index(i pulumi.IntInput) ResourceServerS
 }
 
 type UserPoolAccountRecoverySetting struct {
-	// The list of Account Recovery Options of the following structure:
+	// List of Account Recovery Options of the following structure:
 	RecoveryMechanisms []UserPoolAccountRecoverySettingRecoveryMechanism `pulumi:"recoveryMechanisms"`
 }
 
@@ -498,7 +498,7 @@ type UserPoolAccountRecoverySettingInput interface {
 }
 
 type UserPoolAccountRecoverySettingArgs struct {
-	// The list of Account Recovery Options of the following structure:
+	// List of Account Recovery Options of the following structure:
 	RecoveryMechanisms UserPoolAccountRecoverySettingRecoveryMechanismArrayInput `pulumi:"recoveryMechanisms"`
 }
 
@@ -579,7 +579,7 @@ func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPt
 	}).(UserPoolAccountRecoverySettingPtrOutput)
 }
 
-// The list of Account Recovery Options of the following structure:
+// List of Account Recovery Options of the following structure:
 func (o UserPoolAccountRecoverySettingOutput) RecoveryMechanisms() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySetting) []UserPoolAccountRecoverySettingRecoveryMechanism {
 		return v.RecoveryMechanisms
@@ -604,7 +604,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoveryS
 	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) UserPoolAccountRecoverySetting { return *v }).(UserPoolAccountRecoverySettingOutput)
 }
 
-// The list of Account Recovery Options of the following structure:
+// List of Account Recovery Options of the following structure:
 func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
 	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) []UserPoolAccountRecoverySettingRecoveryMechanism {
 		if v == nil {
@@ -615,9 +615,9 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAc
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanism struct {
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name string `pulumi:"name"`
-	// A positive integer specifying priority of a method with 1 being the highest priority.
+	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority int `pulumi:"priority"`
 }
 
@@ -633,9 +633,9 @@ type UserPoolAccountRecoverySettingRecoveryMechanismInput interface {
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A positive integer specifying priority of a method with 1 being the highest priority.
+	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority pulumi.IntInput `pulumi:"priority"`
 }
 
@@ -690,12 +690,12 @@ func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccount
 	return o
 }
 
-// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+// Name of the attribute.
 func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A positive integer specifying priority of a method with 1 being the highest priority.
+// Positive integer specifying priority of a method with 1 being the highest priority.
 func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -723,7 +723,7 @@ func (o UserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) Index(i pulu
 type UserPoolAdminCreateUserConfig struct {
 	// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
-	// The invite message template structure.
+	// Invite message template structure. Detailed below.
 	InviteMessageTemplate *UserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
 }
 
@@ -741,7 +741,7 @@ type UserPoolAdminCreateUserConfigInput interface {
 type UserPoolAdminCreateUserConfigArgs struct {
 	// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
 	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
-	// The invite message template structure.
+	// Invite message template structure. Detailed below.
 	InviteMessageTemplate UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
 }
 
@@ -827,7 +827,7 @@ func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.B
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *bool { return v.AllowAdminCreateUserOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The invite message template structure.
+// Invite message template structure. Detailed below.
 func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfigInviteMessageTemplate {
 		return v.InviteMessageTemplate
@@ -862,7 +862,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) AllowAdminCreateUserOnly() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The invite message template structure.
+// Invite message template structure. Detailed below.
 func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfigInviteMessageTemplate {
 		if v == nil {
@@ -873,11 +873,11 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 }
 
 type UserPoolAdminCreateUserConfigInviteMessageTemplate struct {
-	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 	EmailMessage *string `pulumi:"emailMessage"`
-	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 	EmailSubject *string `pulumi:"emailSubject"`
-	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 	SmsMessage *string `pulumi:"smsMessage"`
 }
 
@@ -893,11 +893,11 @@ type UserPoolAdminCreateUserConfigInviteMessageTemplateInput interface {
 }
 
 type UserPoolAdminCreateUserConfigInviteMessageTemplateArgs struct {
-	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
-	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 	SmsMessage pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
@@ -978,17 +978,17 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdmi
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
 
-// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.EmailMessage }).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
-// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
@@ -1013,7 +1013,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) Elem() User
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
 }
 
-// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -1023,7 +1023,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailMessag
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -1033,7 +1033,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailSubjec
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -1044,13 +1044,13 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) SmsMessage(
 }
 
 type UserPoolClientAnalyticsConfiguration struct {
-	// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	// The application ID for an Amazon Pinpoint application.
+	// Application ID for an Amazon Pinpoint application.
 	ApplicationId *string `pulumi:"applicationId"`
-	// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
 	ExternalId *string `pulumi:"externalId"`
-	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
 	RoleArn *string `pulumi:"roleArn"`
 	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared *bool `pulumi:"userDataShared"`
@@ -1068,13 +1068,13 @@ type UserPoolClientAnalyticsConfigurationInput interface {
 }
 
 type UserPoolClientAnalyticsConfigurationArgs struct {
-	// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
-	// The application ID for an Amazon Pinpoint application.
+	// Application ID for an Amazon Pinpoint application.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
@@ -1157,22 +1157,22 @@ func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsCon
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }
 
-// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
-// The application ID for an Amazon Pinpoint application.
+// Application ID for an Amazon Pinpoint application.
 func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+// ID for the Analytics Configuration. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -1200,7 +1200,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnal
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) UserPoolClientAnalyticsConfiguration { return *v }).(UserPoolClientAnalyticsConfigurationOutput)
 }
 
-// The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1210,7 +1210,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application ID for an Amazon Pinpoint application.
+// Application ID for an Amazon Pinpoint application.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1220,7 +1220,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+// ID for the Analytics Configuration. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1230,7 +1230,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1250,10 +1250,179 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type UserPoolClientTokenValidityUnits struct {
+	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	AccessToken *string `pulumi:"accessToken"`
+	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	IdToken *string `pulumi:"idToken"`
+	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	RefreshToken *string `pulumi:"refreshToken"`
+}
+
+// UserPoolClientTokenValidityUnitsInput is an input type that accepts UserPoolClientTokenValidityUnitsArgs and UserPoolClientTokenValidityUnitsOutput values.
+// You can construct a concrete instance of `UserPoolClientTokenValidityUnitsInput` via:
+//
+//          UserPoolClientTokenValidityUnitsArgs{...}
+type UserPoolClientTokenValidityUnitsInput interface {
+	pulumi.Input
+
+	ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput
+	ToUserPoolClientTokenValidityUnitsOutputWithContext(context.Context) UserPoolClientTokenValidityUnitsOutput
+}
+
+type UserPoolClientTokenValidityUnitsArgs struct {
+	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	IdToken pulumi.StringPtrInput `pulumi:"idToken"`
+	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+}
+
+func (UserPoolClientTokenValidityUnitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput {
+	return i.ToUserPoolClientTokenValidityUnitsOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsOutput)
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsOutput).ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx)
+}
+
+// UserPoolClientTokenValidityUnitsPtrInput is an input type that accepts UserPoolClientTokenValidityUnitsArgs, UserPoolClientTokenValidityUnitsPtr and UserPoolClientTokenValidityUnitsPtrOutput values.
+// You can construct a concrete instance of `UserPoolClientTokenValidityUnitsPtrInput` via:
+//
+//          UserPoolClientTokenValidityUnitsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolClientTokenValidityUnitsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput
+	ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Context) UserPoolClientTokenValidityUnitsPtrOutput
+}
+
+type userPoolClientTokenValidityUnitsPtrType UserPoolClientTokenValidityUnitsArgs
+
+func UserPoolClientTokenValidityUnitsPtr(v *UserPoolClientTokenValidityUnitsArgs) UserPoolClientTokenValidityUnitsPtrInput {
+	return (*userPoolClientTokenValidityUnitsPtrType)(v)
+}
+
+func (*userPoolClientTokenValidityUnitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i *userPoolClientTokenValidityUnitsPtrType) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolClientTokenValidityUnitsPtrType) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+type UserPoolClientTokenValidityUnitsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientTokenValidityUnitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsOutput() UserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *UserPoolClientTokenValidityUnits {
+		return &v
+	}).(UserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+func (o UserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+func (o UserPoolClientTokenValidityUnitsOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.IdToken }).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+func (o UserPoolClientTokenValidityUnitsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolClientTokenValidityUnitsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientTokenValidityUnitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o UserPoolClientTokenValidityUnitsPtrOutput) Elem() UserPoolClientTokenValidityUnitsOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) UserPoolClientTokenValidityUnits { return *v }).(UserPoolClientTokenValidityUnitsOutput)
+}
+
+// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+func (o UserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+func (o UserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+func (o UserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolDeviceConfiguration struct {
-	// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+	// Whether a challenge is required on a new device. Only applicable to a new device.
 	ChallengeRequiredOnNewDevice *bool `pulumi:"challengeRequiredOnNewDevice"`
-	// If true, a device is only remembered on user prompt.
+	// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
 	DeviceOnlyRememberedOnUserPrompt *bool `pulumi:"deviceOnlyRememberedOnUserPrompt"`
 }
 
@@ -1269,9 +1438,9 @@ type UserPoolDeviceConfigurationInput interface {
 }
 
 type UserPoolDeviceConfigurationArgs struct {
-	// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+	// Whether a challenge is required on a new device. Only applicable to a new device.
 	ChallengeRequiredOnNewDevice pulumi.BoolPtrInput `pulumi:"challengeRequiredOnNewDevice"`
-	// If true, a device is only remembered on user prompt.
+	// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
 	DeviceOnlyRememberedOnUserPrompt pulumi.BoolPtrInput `pulumi:"deviceOnlyRememberedOnUserPrompt"`
 }
 
@@ -1352,12 +1521,12 @@ func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationPtrOutpu
 	}).(UserPoolDeviceConfigurationPtrOutput)
 }
 
-// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+// Whether a challenge is required on a new device. Only applicable to a new device.
 func (o UserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.ChallengeRequiredOnNewDevice }).(pulumi.BoolPtrOutput)
 }
 
-// If true, a device is only remembered on user prompt.
+// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
 func (o UserPoolDeviceConfigurationOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.DeviceOnlyRememberedOnUserPrompt }).(pulumi.BoolPtrOutput)
 }
@@ -1380,7 +1549,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) Elem() UserPoolDeviceConfiguration
 	return o.ApplyT(func(v *UserPoolDeviceConfiguration) UserPoolDeviceConfiguration { return *v }).(UserPoolDeviceConfigurationOutput)
 }
 
-// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+// Whether a challenge is required on a new device. Only applicable to a new device.
 func (o UserPoolDeviceConfigurationPtrOutput) ChallengeRequiredOnNewDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolDeviceConfiguration) *bool {
 		if v == nil {
@@ -1390,7 +1559,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) ChallengeRequiredOnNewDevice() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If true, a device is only remembered on user prompt.
+// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
 func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolDeviceConfiguration) *bool {
 		if v == nil {
@@ -1401,13 +1570,15 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 }
 
 type UserPoolEmailConfiguration struct {
-	// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+	// Email configuration set name from SES.
+	ConfigurationSet *string `pulumi:"configurationSet"`
+	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
 	// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
-	// The REPLY-TO email address.
+	// REPLY-TO email address.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
-	// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+	// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn *string `pulumi:"sourceArn"`
 }
 
@@ -1423,13 +1594,15 @@ type UserPoolEmailConfigurationInput interface {
 }
 
 type UserPoolEmailConfigurationArgs struct {
-	// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+	// Email configuration set name from SES.
+	ConfigurationSet pulumi.StringPtrInput `pulumi:"configurationSet"`
+	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
 	// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
-	// The REPLY-TO email address.
+	// REPLY-TO email address.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
-	// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+	// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 }
 
@@ -1510,7 +1683,12 @@ func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutputW
 	}).(UserPoolEmailConfigurationPtrOutput)
 }
 
-// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+// Email configuration set name from SES.
+func (o UserPoolEmailConfigurationOutput) ConfigurationSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
+}
+
+// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
@@ -1520,12 +1698,12 @@ func (o UserPoolEmailConfigurationOutput) FromEmailAddress() pulumi.StringPtrOut
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.FromEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The REPLY-TO email address.
+// REPLY-TO email address.
 func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ReplyToEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
@@ -1548,7 +1726,17 @@ func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOu
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) UserPoolEmailConfiguration { return *v }).(UserPoolEmailConfigurationOutput)
 }
 
-// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+// Email configuration set name from SES.
+func (o UserPoolEmailConfigurationPtrOutput) ConfigurationSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -1568,7 +1756,7 @@ func (o UserPoolEmailConfigurationPtrOutput) FromEmailAddress() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REPLY-TO email address.
+// REPLY-TO email address.
 func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -1578,7 +1766,7 @@ func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -1589,23 +1777,23 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 }
 
 type UserPoolLambdaConfig struct {
-	// The ARN of the lambda creating an authentication challenge.
+	// ARN of the lambda creating an authentication challenge.
 	CreateAuthChallenge *string `pulumi:"createAuthChallenge"`
-	// A custom Message AWS Lambda trigger.
+	// Custom Message AWS Lambda trigger.
 	CustomMessage *string `pulumi:"customMessage"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
-	// A post-authentication AWS Lambda trigger.
+	// Post-authentication AWS Lambda trigger.
 	PostAuthentication *string `pulumi:"postAuthentication"`
-	// A post-confirmation AWS Lambda trigger.
+	// Post-confirmation AWS Lambda trigger.
 	PostConfirmation *string `pulumi:"postConfirmation"`
-	// A pre-authentication AWS Lambda trigger.
+	// Pre-authentication AWS Lambda trigger.
 	PreAuthentication *string `pulumi:"preAuthentication"`
-	// A pre-registration AWS Lambda trigger.
+	// Pre-registration AWS Lambda trigger.
 	PreSignUp *string `pulumi:"preSignUp"`
 	// Allow to customize identity token claims before token generation.
 	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
-	// The user migration Lambda config type.
+	// User migration Lambda config type.
 	UserMigration *string `pulumi:"userMigration"`
 	// Verifies the authentication challenge response.
 	VerifyAuthChallengeResponse *string `pulumi:"verifyAuthChallengeResponse"`
@@ -1623,23 +1811,23 @@ type UserPoolLambdaConfigInput interface {
 }
 
 type UserPoolLambdaConfigArgs struct {
-	// The ARN of the lambda creating an authentication challenge.
+	// ARN of the lambda creating an authentication challenge.
 	CreateAuthChallenge pulumi.StringPtrInput `pulumi:"createAuthChallenge"`
-	// A custom Message AWS Lambda trigger.
+	// Custom Message AWS Lambda trigger.
 	CustomMessage pulumi.StringPtrInput `pulumi:"customMessage"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"defineAuthChallenge"`
-	// A post-authentication AWS Lambda trigger.
+	// Post-authentication AWS Lambda trigger.
 	PostAuthentication pulumi.StringPtrInput `pulumi:"postAuthentication"`
-	// A post-confirmation AWS Lambda trigger.
+	// Post-confirmation AWS Lambda trigger.
 	PostConfirmation pulumi.StringPtrInput `pulumi:"postConfirmation"`
-	// A pre-authentication AWS Lambda trigger.
+	// Pre-authentication AWS Lambda trigger.
 	PreAuthentication pulumi.StringPtrInput `pulumi:"preAuthentication"`
-	// A pre-registration AWS Lambda trigger.
+	// Pre-registration AWS Lambda trigger.
 	PreSignUp pulumi.StringPtrInput `pulumi:"preSignUp"`
 	// Allow to customize identity token claims before token generation.
 	PreTokenGeneration pulumi.StringPtrInput `pulumi:"preTokenGeneration"`
-	// The user migration Lambda config type.
+	// User migration Lambda config type.
 	UserMigration pulumi.StringPtrInput `pulumi:"userMigration"`
 	// Verifies the authentication challenge response.
 	VerifyAuthChallengeResponse pulumi.StringPtrInput `pulumi:"verifyAuthChallengeResponse"`
@@ -1722,12 +1910,12 @@ func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigPtrOutputWithContext(c
 	}).(UserPoolLambdaConfigPtrOutput)
 }
 
-// The ARN of the lambda creating an authentication challenge.
+// ARN of the lambda creating an authentication challenge.
 func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CreateAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
-// A custom Message AWS Lambda trigger.
+// Custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
@@ -1737,22 +1925,22 @@ func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
-// A post-authentication AWS Lambda trigger.
+// Post-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PostAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PostAuthentication }).(pulumi.StringPtrOutput)
 }
 
-// A post-confirmation AWS Lambda trigger.
+// Post-confirmation AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PostConfirmation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PostConfirmation }).(pulumi.StringPtrOutput)
 }
 
-// A pre-authentication AWS Lambda trigger.
+// Pre-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PreAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreAuthentication }).(pulumi.StringPtrOutput)
 }
 
-// A pre-registration AWS Lambda trigger.
+// Pre-registration AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreSignUp }).(pulumi.StringPtrOutput)
 }
@@ -1762,7 +1950,7 @@ func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
 }
 
-// The user migration Lambda config type.
+// User migration Lambda config type.
 func (o UserPoolLambdaConfigOutput) UserMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.UserMigration }).(pulumi.StringPtrOutput)
 }
@@ -1790,7 +1978,7 @@ func (o UserPoolLambdaConfigPtrOutput) Elem() UserPoolLambdaConfigOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) UserPoolLambdaConfig { return *v }).(UserPoolLambdaConfigOutput)
 }
 
-// The ARN of the lambda creating an authentication challenge.
+// ARN of the lambda creating an authentication challenge.
 func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1800,7 +1988,7 @@ func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A custom Message AWS Lambda trigger.
+// Custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1820,7 +2008,7 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A post-authentication AWS Lambda trigger.
+// Post-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PostAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1830,7 +2018,7 @@ func (o UserPoolLambdaConfigPtrOutput) PostAuthentication() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A post-confirmation AWS Lambda trigger.
+// Post-confirmation AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PostConfirmation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1840,7 +2028,7 @@ func (o UserPoolLambdaConfigPtrOutput) PostConfirmation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A pre-authentication AWS Lambda trigger.
+// Pre-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PreAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1850,7 +2038,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreAuthentication() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A pre-registration AWS Lambda trigger.
+// Pre-registration AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1870,7 +2058,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user migration Lambda config type.
+// User migration Lambda config type.
 func (o UserPoolLambdaConfigPtrOutput) UserMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -1891,7 +2079,7 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 }
 
 type UserPoolPasswordPolicy struct {
-	// The minimum length of the password policy that you have set.
+	// Minimum length of the password policy that you have set.
 	MinimumLength *int `pulumi:"minimumLength"`
 	// Whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
@@ -1917,7 +2105,7 @@ type UserPoolPasswordPolicyInput interface {
 }
 
 type UserPoolPasswordPolicyArgs struct {
-	// The minimum length of the password policy that you have set.
+	// Minimum length of the password policy that you have set.
 	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
 	// Whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
@@ -2008,7 +2196,7 @@ func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyPtrOutputWithConte
 	}).(UserPoolPasswordPolicyPtrOutput)
 }
 
-// The minimum length of the password policy that you have set.
+// Minimum length of the password policy that you have set.
 func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.MinimumLength }).(pulumi.IntPtrOutput)
 }
@@ -2056,7 +2244,7 @@ func (o UserPoolPasswordPolicyPtrOutput) Elem() UserPoolPasswordPolicyOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) UserPoolPasswordPolicy { return *v }).(UserPoolPasswordPolicyOutput)
 }
 
-// The minimum length of the password policy that you have set.
+// Minimum length of the password policy that you have set.
 func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {
@@ -2117,19 +2305,19 @@ func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.
 }
 
 type UserPoolSchema struct {
-	// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+	// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
 	AttributeDataType string `pulumi:"attributeDataType"`
-	// Specifies whether the attribute type is developer only.
+	// Whether the attribute type is developer only.
 	DeveloperOnlyAttribute *bool `pulumi:"developerOnlyAttribute"`
-	// Specifies whether the attribute can be changed once it has been created.
+	// Whether the attribute can be changed once it has been created.
 	Mutable *bool `pulumi:"mutable"`
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name string `pulumi:"name"`
-	// Specifies the constraints for an attribute of the number type.
+	// Configuration block for the constraints for an attribute of the number type. Detailed below.
 	NumberAttributeConstraints *UserPoolSchemaNumberAttributeConstraints `pulumi:"numberAttributeConstraints"`
-	// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+	// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 	Required *bool `pulumi:"required"`
-	// -Specifies the constraints for an attribute of the string type.
+	// Constraints for an attribute of the string type. Detailed below.
 	StringAttributeConstraints *UserPoolSchemaStringAttributeConstraints `pulumi:"stringAttributeConstraints"`
 }
 
@@ -2145,19 +2333,19 @@ type UserPoolSchemaInput interface {
 }
 
 type UserPoolSchemaArgs struct {
-	// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+	// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
 	AttributeDataType pulumi.StringInput `pulumi:"attributeDataType"`
-	// Specifies whether the attribute type is developer only.
+	// Whether the attribute type is developer only.
 	DeveloperOnlyAttribute pulumi.BoolPtrInput `pulumi:"developerOnlyAttribute"`
-	// Specifies whether the attribute can be changed once it has been created.
+	// Whether the attribute can be changed once it has been created.
 	Mutable pulumi.BoolPtrInput `pulumi:"mutable"`
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the constraints for an attribute of the number type.
+	// Configuration block for the constraints for an attribute of the number type. Detailed below.
 	NumberAttributeConstraints UserPoolSchemaNumberAttributeConstraintsPtrInput `pulumi:"numberAttributeConstraints"`
-	// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+	// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// -Specifies the constraints for an attribute of the string type.
+	// Constraints for an attribute of the string type. Detailed below.
 	StringAttributeConstraints UserPoolSchemaStringAttributeConstraintsPtrInput `pulumi:"stringAttributeConstraints"`
 }
 
@@ -2212,37 +2400,37 @@ func (o UserPoolSchemaOutput) ToUserPoolSchemaOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
 func (o UserPoolSchemaOutput) AttributeDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSchema) string { return v.AttributeDataType }).(pulumi.StringOutput)
 }
 
-// Specifies whether the attribute type is developer only.
+// Whether the attribute type is developer only.
 func (o UserPoolSchemaOutput) DeveloperOnlyAttribute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *bool { return v.DeveloperOnlyAttribute }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether the attribute can be changed once it has been created.
+// Whether the attribute can be changed once it has been created.
 func (o UserPoolSchemaOutput) Mutable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *bool { return v.Mutable }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+// Name of the attribute.
 func (o UserPoolSchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSchema) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the constraints for an attribute of the number type.
+// Configuration block for the constraints for an attribute of the number type. Detailed below.
 func (o UserPoolSchemaOutput) NumberAttributeConstraints() UserPoolSchemaNumberAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *UserPoolSchemaNumberAttributeConstraints { return v.NumberAttributeConstraints }).(UserPoolSchemaNumberAttributeConstraintsPtrOutput)
 }
 
-// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 func (o UserPoolSchemaOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// -Specifies the constraints for an attribute of the string type.
+// Constraints for an attribute of the string type. Detailed below.
 func (o UserPoolSchemaOutput) StringAttributeConstraints() UserPoolSchemaStringAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchema) *UserPoolSchemaStringAttributeConstraints { return v.StringAttributeConstraints }).(UserPoolSchemaStringAttributeConstraintsPtrOutput)
 }
@@ -2268,9 +2456,9 @@ func (o UserPoolSchemaArrayOutput) Index(i pulumi.IntInput) UserPoolSchemaOutput
 }
 
 type UserPoolSchemaNumberAttributeConstraints struct {
-	// The maximum value of an attribute that is of the number data type.
+	// Maximum value of an attribute that is of the number data type.
 	MaxValue *string `pulumi:"maxValue"`
-	// The minimum value of an attribute that is of the number data type.
+	// Minimum value of an attribute that is of the number data type.
 	MinValue *string `pulumi:"minValue"`
 }
 
@@ -2286,9 +2474,9 @@ type UserPoolSchemaNumberAttributeConstraintsInput interface {
 }
 
 type UserPoolSchemaNumberAttributeConstraintsArgs struct {
-	// The maximum value of an attribute that is of the number data type.
+	// Maximum value of an attribute that is of the number data type.
 	MaxValue pulumi.StringPtrInput `pulumi:"maxValue"`
-	// The minimum value of an attribute that is of the number data type.
+	// Minimum value of an attribute that is of the number data type.
 	MinValue pulumi.StringPtrInput `pulumi:"minValue"`
 }
 
@@ -2369,12 +2557,12 @@ func (o UserPoolSchemaNumberAttributeConstraintsOutput) ToUserPoolSchemaNumberAt
 	}).(UserPoolSchemaNumberAttributeConstraintsPtrOutput)
 }
 
-// The maximum value of an attribute that is of the number data type.
+// Maximum value of an attribute that is of the number data type.
 func (o UserPoolSchemaNumberAttributeConstraintsOutput) MaxValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaNumberAttributeConstraints) *string { return v.MaxValue }).(pulumi.StringPtrOutput)
 }
 
-// The minimum value of an attribute that is of the number data type.
+// Minimum value of an attribute that is of the number data type.
 func (o UserPoolSchemaNumberAttributeConstraintsOutput) MinValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaNumberAttributeConstraints) *string { return v.MinValue }).(pulumi.StringPtrOutput)
 }
@@ -2397,7 +2585,7 @@ func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) Elem() UserPoolSchema
 	return o.ApplyT(func(v *UserPoolSchemaNumberAttributeConstraints) UserPoolSchemaNumberAttributeConstraints { return *v }).(UserPoolSchemaNumberAttributeConstraintsOutput)
 }
 
-// The maximum value of an attribute that is of the number data type.
+// Maximum value of an attribute that is of the number data type.
 func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) MaxValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSchemaNumberAttributeConstraints) *string {
 		if v == nil {
@@ -2407,7 +2595,7 @@ func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) MaxValue() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum value of an attribute that is of the number data type.
+// Minimum value of an attribute that is of the number data type.
 func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) MinValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSchemaNumberAttributeConstraints) *string {
 		if v == nil {
@@ -2418,9 +2606,9 @@ func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) MinValue() pulumi.Str
 }
 
 type UserPoolSchemaStringAttributeConstraints struct {
-	// The maximum length of an attribute value of the string type.
+	// Maximum length of an attribute value of the string type.
 	MaxLength *string `pulumi:"maxLength"`
-	// The minimum length of an attribute value of the string type.
+	// Minimum length of an attribute value of the string type.
 	MinLength *string `pulumi:"minLength"`
 }
 
@@ -2436,9 +2624,9 @@ type UserPoolSchemaStringAttributeConstraintsInput interface {
 }
 
 type UserPoolSchemaStringAttributeConstraintsArgs struct {
-	// The maximum length of an attribute value of the string type.
+	// Maximum length of an attribute value of the string type.
 	MaxLength pulumi.StringPtrInput `pulumi:"maxLength"`
-	// The minimum length of an attribute value of the string type.
+	// Minimum length of an attribute value of the string type.
 	MinLength pulumi.StringPtrInput `pulumi:"minLength"`
 }
 
@@ -2519,12 +2707,12 @@ func (o UserPoolSchemaStringAttributeConstraintsOutput) ToUserPoolSchemaStringAt
 	}).(UserPoolSchemaStringAttributeConstraintsPtrOutput)
 }
 
-// The maximum length of an attribute value of the string type.
+// Maximum length of an attribute value of the string type.
 func (o UserPoolSchemaStringAttributeConstraintsOutput) MaxLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaStringAttributeConstraints) *string { return v.MaxLength }).(pulumi.StringPtrOutput)
 }
 
-// The minimum length of an attribute value of the string type.
+// Minimum length of an attribute value of the string type.
 func (o UserPoolSchemaStringAttributeConstraintsOutput) MinLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaStringAttributeConstraints) *string { return v.MinLength }).(pulumi.StringPtrOutput)
 }
@@ -2547,7 +2735,7 @@ func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) Elem() UserPoolSchema
 	return o.ApplyT(func(v *UserPoolSchemaStringAttributeConstraints) UserPoolSchemaStringAttributeConstraints { return *v }).(UserPoolSchemaStringAttributeConstraintsOutput)
 }
 
-// The maximum length of an attribute value of the string type.
+// Maximum length of an attribute value of the string type.
 func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) MaxLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSchemaStringAttributeConstraints) *string {
 		if v == nil {
@@ -2557,7 +2745,7 @@ func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) MaxLength() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum length of an attribute value of the string type.
+// Minimum length of an attribute value of the string type.
 func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) MinLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSchemaStringAttributeConstraints) *string {
 		if v == nil {
@@ -2568,9 +2756,9 @@ func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) MinLength() pulumi.St
 }
 
 type UserPoolSmsConfiguration struct {
-	// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+	// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 	ExternalId string `pulumi:"externalId"`
-	// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+	// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 	SnsCallerArn string `pulumi:"snsCallerArn"`
 }
 
@@ -2586,9 +2774,9 @@ type UserPoolSmsConfigurationInput interface {
 }
 
 type UserPoolSmsConfigurationArgs struct {
-	// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+	// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+	// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 	SnsCallerArn pulumi.StringInput `pulumi:"snsCallerArn"`
 }
 
@@ -2669,12 +2857,12 @@ func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutputWithC
 	}).(UserPoolSmsConfigurationPtrOutput)
 }
 
-// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 func (o UserPoolSmsConfigurationOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 func (o UserPoolSmsConfigurationOutput) SnsCallerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) string { return v.SnsCallerArn }).(pulumi.StringOutput)
 }
@@ -2697,7 +2885,7 @@ func (o UserPoolSmsConfigurationPtrOutput) Elem() UserPoolSmsConfigurationOutput
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) UserPoolSmsConfiguration { return *v }).(UserPoolSmsConfigurationOutput)
 }
 
-// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 func (o UserPoolSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
 		if v == nil {
@@ -2707,7 +2895,7 @@ func (o UserPoolSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
 		if v == nil {
@@ -2718,7 +2906,7 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput
 }
 
 type UserPoolSoftwareTokenMfaConfiguration struct {
-	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2734,7 +2922,7 @@ type UserPoolSoftwareTokenMfaConfigurationInput interface {
 }
 
 type UserPoolSoftwareTokenMfaConfigurationArgs struct {
-	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2815,7 +3003,7 @@ func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaC
 	}).(UserPoolSoftwareTokenMfaConfigurationPtrOutput)
 }
 
-// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
 func (o UserPoolSoftwareTokenMfaConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v UserPoolSoftwareTokenMfaConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2838,7 +3026,7 @@ func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Elem() UserPoolSoftwareT
 	return o.ApplyT(func(v *UserPoolSoftwareTokenMfaConfiguration) UserPoolSoftwareTokenMfaConfiguration { return *v }).(UserPoolSoftwareTokenMfaConfigurationOutput)
 }
 
-// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
 func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolSoftwareTokenMfaConfiguration) *bool {
 		if v == nil {
@@ -2849,7 +3037,7 @@ func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 }
 
 type UserPoolUserPoolAddOns struct {
-	// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+	// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
 }
 
@@ -2865,7 +3053,7 @@ type UserPoolUserPoolAddOnsInput interface {
 }
 
 type UserPoolUserPoolAddOnsArgs struct {
-	// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+	// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode pulumi.StringInput `pulumi:"advancedSecurityMode"`
 }
 
@@ -2946,7 +3134,7 @@ func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutputWithConte
 	}).(UserPoolUserPoolAddOnsPtrOutput)
 }
 
-// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 func (o UserPoolUserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolUserPoolAddOns) string { return v.AdvancedSecurityMode }).(pulumi.StringOutput)
 }
@@ -2969,7 +3157,7 @@ func (o UserPoolUserPoolAddOnsPtrOutput) Elem() UserPoolUserPoolAddOnsOutput {
 	return o.ApplyT(func(v *UserPoolUserPoolAddOns) UserPoolUserPoolAddOns { return *v }).(UserPoolUserPoolAddOnsOutput)
 }
 
-// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUserPoolAddOns) *string {
 		if v == nil {
@@ -2980,7 +3168,7 @@ func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtr
 }
 
 type UserPoolUsernameConfiguration struct {
-	// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+	// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 	CaseSensitive bool `pulumi:"caseSensitive"`
 }
 
@@ -2996,7 +3184,7 @@ type UserPoolUsernameConfigurationInput interface {
 }
 
 type UserPoolUsernameConfigurationArgs struct {
-	// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+	// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 	CaseSensitive pulumi.BoolInput `pulumi:"caseSensitive"`
 }
 
@@ -3077,7 +3265,7 @@ func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrO
 	}).(UserPoolUsernameConfigurationPtrOutput)
 }
 
-// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolOutput {
 	return o.ApplyT(func(v UserPoolUsernameConfiguration) bool { return v.CaseSensitive }).(pulumi.BoolOutput)
 }
@@ -3100,7 +3288,7 @@ func (o UserPoolUsernameConfigurationPtrOutput) Elem() UserPoolUsernameConfigura
 	return o.ApplyT(func(v *UserPoolUsernameConfiguration) UserPoolUsernameConfiguration { return *v }).(UserPoolUsernameConfigurationOutput)
 }
 
-// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolUsernameConfiguration) *bool {
 		if v == nil {
@@ -3111,17 +3299,17 @@ func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolPtrOu
 }
 
 type UserPoolVerificationMessageTemplate struct {
-	// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+	// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
 	DefaultEmailOption *string `pulumi:"defaultEmailOption"`
-	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 	EmailMessage *string `pulumi:"emailMessage"`
-	// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+	// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
 	EmailMessageByLink *string `pulumi:"emailMessageByLink"`
-	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 	EmailSubject *string `pulumi:"emailSubject"`
-	// The subject line for the email message template for sending a confirmation link to the user.
+	// Subject line for the email message template for sending a confirmation link to the user.
 	EmailSubjectByLink *string `pulumi:"emailSubjectByLink"`
-	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 	SmsMessage *string `pulumi:"smsMessage"`
 }
 
@@ -3137,17 +3325,17 @@ type UserPoolVerificationMessageTemplateInput interface {
 }
 
 type UserPoolVerificationMessageTemplateArgs struct {
-	// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+	// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
 	DefaultEmailOption pulumi.StringPtrInput `pulumi:"defaultEmailOption"`
-	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
-	// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+	// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
 	EmailMessageByLink pulumi.StringPtrInput `pulumi:"emailMessageByLink"`
-	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-	// The subject line for the email message template for sending a confirmation link to the user.
+	// Subject line for the email message template for sending a confirmation link to the user.
 	EmailSubjectByLink pulumi.StringPtrInput `pulumi:"emailSubjectByLink"`
-	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 	SmsMessage pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
@@ -3228,32 +3416,32 @@ func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessage
 	}).(UserPoolVerificationMessageTemplatePtrOutput)
 }
 
-// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
 func (o UserPoolVerificationMessageTemplateOutput) DefaultEmailOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.DefaultEmailOption }).(pulumi.StringPtrOutput)
 }
 
-// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 func (o UserPoolVerificationMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailMessage }).(pulumi.StringPtrOutput)
 }
 
-// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
 func (o UserPoolVerificationMessageTemplateOutput) EmailMessageByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailMessageByLink }).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 func (o UserPoolVerificationMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template for sending a confirmation link to the user.
+// Subject line for the email message template for sending a confirmation link to the user.
 func (o UserPoolVerificationMessageTemplateOutput) EmailSubjectByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailSubjectByLink }).(pulumi.StringPtrOutput)
 }
 
-// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 func (o UserPoolVerificationMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
@@ -3276,7 +3464,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) Elem() UserPoolVerificatio
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) UserPoolVerificationMessageTemplate { return *v }).(UserPoolVerificationMessageTemplateOutput)
 }
 
-// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
 func (o UserPoolVerificationMessageTemplatePtrOutput) DefaultEmailOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3286,7 +3474,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) DefaultEmailOption() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3296,7 +3484,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessage() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessageByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3306,7 +3494,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessageByLink() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3316,7 +3504,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubject() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subject line for the email message template for sending a confirmation link to the user.
+// Subject line for the email message template for sending a confirmation link to the user.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubjectByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3326,7 +3514,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubjectByLink() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
 func (o UserPoolVerificationMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -3355,6 +3543,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})
+	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})

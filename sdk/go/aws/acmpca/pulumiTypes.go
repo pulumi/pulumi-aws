@@ -875,6 +875,156 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3
 	}).(pulumi.StringPtrOutput)
 }
 
+type CertificateValidity struct {
+	// Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+	Type string `pulumi:"type"`
+	// If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+	Value string `pulumi:"value"`
+}
+
+// CertificateValidityInput is an input type that accepts CertificateValidityArgs and CertificateValidityOutput values.
+// You can construct a concrete instance of `CertificateValidityInput` via:
+//
+//          CertificateValidityArgs{...}
+type CertificateValidityInput interface {
+	pulumi.Input
+
+	ToCertificateValidityOutput() CertificateValidityOutput
+	ToCertificateValidityOutputWithContext(context.Context) CertificateValidityOutput
+}
+
+type CertificateValidityArgs struct {
+	// Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateValidityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidity)(nil)).Elem()
+}
+
+func (i CertificateValidityArgs) ToCertificateValidityOutput() CertificateValidityOutput {
+	return i.ToCertificateValidityOutputWithContext(context.Background())
+}
+
+func (i CertificateValidityArgs) ToCertificateValidityOutputWithContext(ctx context.Context) CertificateValidityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityOutput)
+}
+
+func (i CertificateValidityArgs) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
+	return i.ToCertificateValidityPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateValidityArgs) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityOutput).ToCertificateValidityPtrOutputWithContext(ctx)
+}
+
+// CertificateValidityPtrInput is an input type that accepts CertificateValidityArgs, CertificateValidityPtr and CertificateValidityPtrOutput values.
+// You can construct a concrete instance of `CertificateValidityPtrInput` via:
+//
+//          CertificateValidityArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateValidityPtrInput interface {
+	pulumi.Input
+
+	ToCertificateValidityPtrOutput() CertificateValidityPtrOutput
+	ToCertificateValidityPtrOutputWithContext(context.Context) CertificateValidityPtrOutput
+}
+
+type certificateValidityPtrType CertificateValidityArgs
+
+func CertificateValidityPtr(v *CertificateValidityArgs) CertificateValidityPtrInput {
+	return (*certificateValidityPtrType)(v)
+}
+
+func (*certificateValidityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateValidity)(nil)).Elem()
+}
+
+func (i *certificateValidityPtrType) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
+	return i.ToCertificateValidityPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateValidityPtrType) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityPtrOutput)
+}
+
+type CertificateValidityOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidity)(nil)).Elem()
+}
+
+func (o CertificateValidityOutput) ToCertificateValidityOutput() CertificateValidityOutput {
+	return o
+}
+
+func (o CertificateValidityOutput) ToCertificateValidityOutputWithContext(ctx context.Context) CertificateValidityOutput {
+	return o
+}
+
+func (o CertificateValidityOutput) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
+	return o.ToCertificateValidityPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateValidityOutput) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
+	return o.ApplyT(func(v CertificateValidity) *CertificateValidity {
+		return &v
+	}).(CertificateValidityPtrOutput)
+}
+
+// Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+func (o CertificateValidityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateValidity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+func (o CertificateValidityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateValidity) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateValidityPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateValidity)(nil)).Elem()
+}
+
+func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
+	return o
+}
+
+func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
+	return o
+}
+
+func (o CertificateValidityPtrOutput) Elem() CertificateValidityOutput {
+	return o.ApplyT(func(v *CertificateValidity) CertificateValidity { return *v }).(CertificateValidityOutput)
+}
+
+// Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+func (o CertificateValidityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateValidity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+func (o CertificateValidityPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateValidity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCertificateAuthorityRevocationConfiguration struct {
 	CrlConfigurations []GetCertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfigurations"`
 }
@@ -1092,6 +1242,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateValidityOutput{})
+	pulumi.RegisterOutputType(CertificateValidityPtrOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput{})

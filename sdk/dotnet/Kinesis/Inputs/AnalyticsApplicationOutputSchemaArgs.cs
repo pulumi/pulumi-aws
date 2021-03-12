@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Kinesis.Inputs
         /// <summary>
         /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
         /// </summary>
-        [Input("recordFormatType")]
-        public Input<string>? RecordFormatType { get; set; }
+        [Input("recordFormatType", required: true)]
+        public Input<string> RecordFormatType { get; set; } = null!;
 
         public AnalyticsApplicationOutputSchemaArgs()
         {

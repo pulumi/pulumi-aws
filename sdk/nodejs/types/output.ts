@@ -397,6 +397,17 @@ export namespace acmpca {
         s3BucketName?: string;
     }
 
+    export interface CertificateValidity {
+        /**
+         * Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+         */
+        type: string;
+        /**
+         * If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+         */
+        value: string;
+    }
+
     export interface GetCertificateAuthorityRevocationConfiguration {
         crlConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
     }
@@ -1530,11 +1541,11 @@ export namespace appautoscaling {
 
     export interface ScheduledActionScalableTargetAction {
         /**
-         * The maximum capacity.
+         * The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
          */
         maxCapacity?: number;
         /**
-         * The minimum capacity.
+         * The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
          */
         minCapacity?: number;
     }
@@ -6731,18 +6742,18 @@ export namespace cognito {
 
     export interface UserPoolAccountRecoverySetting {
         /**
-         * The list of Account Recovery Options of the following structure:
+         * List of Account Recovery Options of the following structure:
          */
         recoveryMechanisms: outputs.cognito.UserPoolAccountRecoverySettingRecoveryMechanism[];
     }
 
     export interface UserPoolAccountRecoverySettingRecoveryMechanism {
         /**
-         * Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+         * Name of the attribute.
          */
         name: string;
         /**
-         * A positive integer specifying priority of a method with 1 being the highest priority.
+         * Positive integer specifying priority of a method with 1 being the highest priority.
          */
         priority: number;
     }
@@ -6753,41 +6764,41 @@ export namespace cognito {
          */
         allowAdminCreateUserOnly?: boolean;
         /**
-         * The invite message template structure.
+         * Invite message template structure. Detailed below.
          */
         inviteMessageTemplate?: outputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
         /**
-         * The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+         * Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
          */
         emailMessage?: string;
         /**
-         * The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+         * Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
          */
         emailSubject?: string;
         /**
-         * The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+         * SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
          */
         smsMessage?: string;
     }
 
     export interface UserPoolClientAnalyticsConfiguration {
         /**
-         * The application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         * Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
          */
         applicationArn?: string;
         /**
-         * The application ID for an Amazon Pinpoint application.
+         * Application ID for an Amazon Pinpoint application.
          */
         applicationId?: string;
         /**
-         * An ID for the Analytics Configuration. Conflicts with `applicationArn`.
+         * ID for the Analytics Configuration. Conflicts with `applicationArn`.
          */
         externalId?: string;
         /**
-         * The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+         * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
          */
         roleArn: string;
         /**
@@ -6796,20 +6807,39 @@ export namespace cognito {
         userDataShared?: boolean;
     }
 
+    export interface UserPoolClientTokenValidityUnits {
+        /**
+         * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+         */
+        accessToken?: string;
+        /**
+         * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+         */
+        idToken?: string;
+        /**
+         * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+         */
+        refreshToken?: string;
+    }
+
     export interface UserPoolDeviceConfiguration {
         /**
-         * Indicates whether a challenge is required on a new device. Only applicable to a new device.
+         * Whether a challenge is required on a new device. Only applicable to a new device.
          */
         challengeRequiredOnNewDevice?: boolean;
         /**
-         * If true, a device is only remembered on user prompt.
+         * Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `deviceConfiguration` block is "No."
          */
         deviceOnlyRememberedOnUserPrompt?: boolean;
     }
 
     export interface UserPoolEmailConfiguration {
         /**
-         * The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+         * Email configuration set name from SES.
+         */
+        configurationSet?: string;
+        /**
+         * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
          */
         emailSendingAccount?: string;
         /**
@@ -6817,22 +6847,22 @@ export namespace cognito {
          */
         fromEmailAddress?: string;
         /**
-         * The REPLY-TO email address.
+         * REPLY-TO email address.
          */
         replyToEmailAddress?: string;
         /**
-         * The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+         * ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
          */
         sourceArn?: string;
     }
 
     export interface UserPoolLambdaConfig {
         /**
-         * The ARN of the lambda creating an authentication challenge.
+         * ARN of the lambda creating an authentication challenge.
          */
         createAuthChallenge?: string;
         /**
-         * A custom Message AWS Lambda trigger.
+         * Custom Message AWS Lambda trigger.
          */
         customMessage?: string;
         /**
@@ -6840,19 +6870,19 @@ export namespace cognito {
          */
         defineAuthChallenge?: string;
         /**
-         * A post-authentication AWS Lambda trigger.
+         * Post-authentication AWS Lambda trigger.
          */
         postAuthentication?: string;
         /**
-         * A post-confirmation AWS Lambda trigger.
+         * Post-confirmation AWS Lambda trigger.
          */
         postConfirmation?: string;
         /**
-         * A pre-authentication AWS Lambda trigger.
+         * Pre-authentication AWS Lambda trigger.
          */
         preAuthentication?: string;
         /**
-         * A pre-registration AWS Lambda trigger.
+         * Pre-registration AWS Lambda trigger.
          */
         preSignUp?: string;
         /**
@@ -6860,7 +6890,7 @@ export namespace cognito {
          */
         preTokenGeneration?: string;
         /**
-         * The user migration Lambda config type.
+         * User migration Lambda config type.
          */
         userMigration?: string;
         /**
@@ -6871,7 +6901,7 @@ export namespace cognito {
 
     export interface UserPoolPasswordPolicy {
         /**
-         * The minimum length of the password policy that you have set.
+         * Minimum length of the password policy that you have set.
          */
         minimumLength?: number;
         /**
@@ -6898,112 +6928,112 @@ export namespace cognito {
 
     export interface UserPoolSchema {
         /**
-         * The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+         * Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
          */
         attributeDataType: string;
         /**
-         * Specifies whether the attribute type is developer only.
+         * Whether the attribute type is developer only.
          */
         developerOnlyAttribute?: boolean;
         /**
-         * Specifies whether the attribute can be changed once it has been created.
+         * Whether the attribute can be changed once it has been created.
          */
         mutable?: boolean;
         /**
-         * Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+         * Name of the attribute.
          */
         name: string;
         /**
-         * Specifies the constraints for an attribute of the number type.
+         * Configuration block for the constraints for an attribute of the number type. Detailed below.
          */
         numberAttributeConstraints?: outputs.cognito.UserPoolSchemaNumberAttributeConstraints;
         /**
-         * Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+         * Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
          */
         required?: boolean;
         /**
-         * -Specifies the constraints for an attribute of the string type.
+         * Constraints for an attribute of the string type. Detailed below.
          */
         stringAttributeConstraints?: outputs.cognito.UserPoolSchemaStringAttributeConstraints;
     }
 
     export interface UserPoolSchemaNumberAttributeConstraints {
         /**
-         * The maximum value of an attribute that is of the number data type.
+         * Maximum value of an attribute that is of the number data type.
          */
         maxValue?: string;
         /**
-         * The minimum value of an attribute that is of the number data type.
+         * Minimum value of an attribute that is of the number data type.
          */
         minValue?: string;
     }
 
     export interface UserPoolSchemaStringAttributeConstraints {
         /**
-         * The maximum length of an attribute value of the string type.
+         * Maximum length of an attribute value of the string type.
          */
         maxLength?: string;
         /**
-         * The minimum length of an attribute value of the string type.
+         * Minimum length of an attribute value of the string type.
          */
         minLength?: string;
     }
 
     export interface UserPoolSmsConfiguration {
         /**
-         * The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+         * External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
          */
         externalId: string;
         /**
-         * The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+         * ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
          */
         snsCallerArn: string;
     }
 
     export interface UserPoolSoftwareTokenMfaConfiguration {
         /**
-         * Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+         * Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
          */
         enabled: boolean;
     }
 
     export interface UserPoolUserPoolAddOns {
         /**
-         * The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+         * Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
          */
         advancedSecurityMode: string;
     }
 
     export interface UserPoolUsernameConfiguration {
         /**
-         * Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+         * Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
          */
         caseSensitive: boolean;
     }
 
     export interface UserPoolVerificationMessageTemplate {
         /**
-         * The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+         * Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
          */
         defaultEmailOption?: string;
         /**
-         * The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+         * Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
          */
         emailMessage: string;
         /**
-         * The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+         * Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
          */
         emailMessageByLink: string;
         /**
-         * The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+         * Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
          */
         emailSubject: string;
         /**
-         * The subject line for the email message template for sending a confirmation link to the user.
+         * Subject line for the email message template for sending a confirmation link to the user.
          */
         emailSubjectByLink: string;
         /**
-         * The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+         * SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
          */
         smsMessage: string;
     }
@@ -15463,6 +15493,10 @@ export namespace kinesis {
          * The Schema format of the data in the streaming source. See Source Schema below for more details.
          */
         schema: outputs.kinesis.AnalyticsApplicationInputsSchema;
+        /**
+         * The point at which the application starts processing records from the streaming source.
+         * See Starting Position Configuration below for more details.
+         */
         startingPositionConfigurations: outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration[];
         streamNames: string[];
     }
@@ -15590,6 +15624,9 @@ export namespace kinesis {
     }
 
     export interface AnalyticsApplicationInputsStartingPositionConfiguration {
+        /**
+         * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         */
         startingPosition: string;
     }
 
@@ -15659,7 +15696,7 @@ export namespace kinesis {
         /**
          * The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
          */
-        recordFormatType?: string;
+        recordFormatType: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSources {
@@ -18653,11 +18690,11 @@ export namespace mq {
 
     export interface BrokerEncryptionOptions {
         /**
-         * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+         * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
          */
         kmsKeyId: string;
         /**
-         * Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+         * Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
          */
         useAwsOwnedKey?: boolean;
     }
@@ -18668,9 +18705,56 @@ export namespace mq {
         ipAddress: string;
     }
 
+    export interface BrokerLdapServerMetadata {
+        /**
+         * List of a fully qualified domain name of the LDAP server and an optional failover server.
+         */
+        hosts?: string[];
+        /**
+         * Fully qualified name of the directory to search for a user’s groups.
+         */
+        roleBase?: string;
+        /**
+         * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+         */
+        roleName?: string;
+        /**
+         * Search criteria for groups.
+         */
+        roleSearchMatching?: string;
+        /**
+         * Whether the directory search scope is the entire sub-tree.
+         */
+        roleSearchSubtree?: boolean;
+        /**
+         * Service account password.
+         */
+        serviceAccountPassword?: string;
+        /**
+         * Service account username.
+         */
+        serviceAccountUsername?: string;
+        /**
+         * Fully qualified name of the directory where you want to search for users.
+         */
+        userBase?: string;
+        /**
+         * Specifies the name of the LDAP attribute for the user group membership.
+         */
+        userRoleName?: string;
+        /**
+         * Search criteria for users.
+         */
+        userSearchMatching?: string;
+        /**
+         * Whether the directory search scope is the entire sub-tree.
+         */
+        userSearchSubtree?: boolean;
+    }
+
     export interface BrokerLogs {
         /**
-         * Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+         * Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
          */
         audit?: boolean;
         /**
@@ -18681,34 +18765,34 @@ export namespace mq {
 
     export interface BrokerMaintenanceWindowStartTime {
         /**
-         * The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+         * Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
          */
         dayOfWeek: string;
         /**
-         * The time, in 24-hour format. e.g. `02:00`
+         * Time, in 24-hour format, e.g. `02:00`.
          */
         timeOfDay: string;
         /**
-         * The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+         * Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
          */
         timeZone: string;
     }
 
     export interface BrokerUser {
         /**
-         * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+         * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
          */
         consoleAccess?: boolean;
         /**
-         * The list of groups (20 maximum) to which the ActiveMQ user belongs.
+         * List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
          */
         groups?: string[];
         /**
-         * The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+         * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
          */
         password: string;
         /**
-         * The username of the user.
+         * Username of the user.
          */
         username: string;
     }
@@ -18727,6 +18811,20 @@ export namespace mq {
         consoleUrl: string;
         endpoints: string[];
         ipAddress: string;
+    }
+
+    export interface GetBrokerLdapServerMetadata {
+        hosts: string[];
+        roleBase: string;
+        roleName: string;
+        roleSearchMatching: string;
+        roleSearchSubtree: boolean;
+        serviceAccountPassword: string;
+        serviceAccountUsername: string;
+        userBase: string;
+        userRoleName: string;
+        userSearchMatching: string;
+        userSearchSubtree: boolean;
     }
 
     export interface GetBrokerLogs {

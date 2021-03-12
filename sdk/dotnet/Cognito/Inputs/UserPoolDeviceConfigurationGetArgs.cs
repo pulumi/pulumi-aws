@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolDeviceConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+        /// Whether a challenge is required on a new device. Only applicable to a new device.
         /// </summary>
         [Input("challengeRequiredOnNewDevice")]
         public Input<bool>? ChallengeRequiredOnNewDevice { get; set; }
 
         /// <summary>
-        /// If true, a device is only remembered on user prompt.
+        /// Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
         /// </summary>
         [Input("deviceOnlyRememberedOnUserPrompt")]
         public Input<bool>? DeviceOnlyRememberedOnUserPrompt { get; set; }

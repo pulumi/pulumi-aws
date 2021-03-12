@@ -478,7 +478,7 @@ namespace Pulumi.Aws.Rds
         /// RDS console, e.g: rds:production-2015-06-26-06-05.
         /// </summary>
         [Output("snapshotIdentifier")]
-        public Output<string?> SnapshotIdentifier { get; private set; } = null!;
+        public Output<string> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The RDS instance status.

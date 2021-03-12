@@ -45,6 +45,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// The Schema format of the data in the streaming source. See Source Schema below for more details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsSchema Schema;
+        /// <summary>
+        /// The point at which the application starts processing records from the streaming source.
+        /// See Starting Position Configuration below for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyticsApplicationInputsStartingPositionConfiguration> StartingPositionConfigurations;
         public readonly ImmutableArray<string> StreamNames;
 

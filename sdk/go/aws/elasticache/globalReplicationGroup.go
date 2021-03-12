@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an ElastiCache Global Replication Group resource, which manage a replication between 2 or more redis replication group in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
-//
-// ## Example Usage
-// ### Global replication group with a single instance redis replication group
-//
-// To create a single shard primary with single read replica:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-// 			ReplicationGroupDescription: pulumi.String("test example"),
-// 			Engine:                      pulumi.String("redis"),
-// 			EngineVersion:               pulumi.String("5.0.6"),
-// 			NodeType:                    pulumi.String("cache.m5.large"),
-// 			NumberCacheClusters:         pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticache.NewGlobalReplicationGroup(ctx, "replicationGroup", &elasticache.GlobalReplicationGroupArgs{
-// 			GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-// 			PrimaryReplicationGroupId:      primary.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.

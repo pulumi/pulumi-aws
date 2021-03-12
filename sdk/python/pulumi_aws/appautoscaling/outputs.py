@@ -353,8 +353,8 @@ class ScheduledActionScalableTargetAction(dict):
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None):
         """
-        :param int max_capacity: The maximum capacity.
-        :param int min_capacity: The minimum capacity.
+        :param int max_capacity: The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        :param int min_capacity: The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -365,7 +365,7 @@ class ScheduledActionScalableTargetAction(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[int]:
         """
-        The maximum capacity.
+        The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -373,7 +373,7 @@ class ScheduledActionScalableTargetAction(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[int]:
         """
-        The minimum capacity.
+        The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         return pulumi.get(self, "min_capacity")
 

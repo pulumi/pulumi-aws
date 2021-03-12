@@ -74,11 +74,30 @@ import * as utilities from "../utilities";
  *     description: "Example with a load balancer",
  *     integrationType: "HTTP_PROXY",
  *     integrationUri: aws_lb_listener.example.arn,
+ *     integrationMethod: "ANY",
  *     connectionType: "VPC_LINK",
  *     connectionId: aws_apigatewayv2_vpc_link.example.id,
  *     tlsConfig: {
  *         serverNameToVerify: "example.com",
  *     },
+ *     requestParameters: {
+ *         "append:header.authforintegration": `$context.authorizer.authorizerResponse`,
+ *         "overwrite:path": "staticValueForIntegration",
+ *     },
+ *     responseParameters: [
+ *         {
+ *             statusCode: 403,
+ *             mappings: {
+ *                 "append:header.auth": `$context.authorizer.authorizerResponse`,
+ *             },
+ *         },
+ *         {
+ *             statusCode: 200,
+ *             mappings: {
+ *                 "overwrite:statuscode": "204",
+ *             },
+ *         },
+ *     ],
  * });
  * ```
  *

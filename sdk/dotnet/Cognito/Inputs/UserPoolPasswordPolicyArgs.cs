@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolPasswordPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The minimum length of the password policy that you have set.
+        /// Minimum length of the password policy that you have set.
         /// </summary>
         [Input("minimumLength")]
         public Input<int>? MinimumLength { get; set; }

@@ -315,6 +315,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acm_certificate_validation": {Tok: awsResource(acmMod, "CertificateValidation")},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
+			"aws_acmpca_certificate": {
+				Tok: awsResource(acmpcaMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate": {
+						CSharpName: "CertificateDetails",
+					},
+				},
+			},
+			"aws_acmpca_certificate_authority_certificate": {
+				Tok: awsResource(acmpcaMod, "CertificateAuthorityCertificate"),
+			},
 			// AppSync
 			"aws_appsync_api_key": {
 				Tok: awsResource(appsyncMod, "ApiKey"),
@@ -553,9 +564,25 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apigatewayv2_api_mapping":          {Tok: awsResource(apigatewayv2Mod, "ApiMapping")},
 			"aws_apigatewayv2_vpc_link":             {Tok: awsResource(apigatewayv2Mod, "VpcLink")},
 			// Application Auto Scaling
-			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
-			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
-			"aws_appautoscaling_target":           {Tok: awsResource(appautoscalingMod, "Target")},
+			"aws_appautoscaling_policy": {Tok: awsResource(appautoscalingMod, "Policy")},
+			"aws_appautoscaling_scheduled_action": {
+				Tok: awsResource(appautoscalingMod, "ScheduledAction"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"scalable_target_action": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"max_capacity": {
+									Type: "integer",
+								},
+								"min_capacity": {
+									Type: "integer",
+								},
+							},
+						},
+					},
+				},
+			},
+			"aws_appautoscaling_target": {Tok: awsResource(appautoscalingMod, "Target")},
 			// Athena
 			"aws_athena_database": {
 				Tok: awsResource(athenaMod, "Database"),
@@ -695,12 +722,23 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"name"},
 				Tok:      awsResource(cloudwatchMod, "LogGroup"),
 			},
-			"aws_cloudwatch_log_metric_filter":   {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
-			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
-			"aws_cloudwatch_log_stream":          {Tok: awsResource(cloudwatchMod, "LogStream")},
-			"aws_cloudwatch_event_bus":           {Tok: awsResource(cloudwatchMod, "EventBus")},
-			"aws_cloudwatch_composite_alarm":     {Tok: awsResource(cloudwatchMod, "CompositeAlarm")},
-			"aws_cloudwatch_event_archive":       {Tok: awsResource(cloudwatchMod, "EventArchive")},
+			"aws_cloudwatch_log_metric_filter": {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
+			"aws_cloudwatch_log_resource_policy": {
+				Tok: awsResource(cloudwatchMod, "LogResourcePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy_document": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:      "string",
+							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+							Transform: tfbridge.TransformJSONDocument,
+						},
+					},
+				},
+			},
+			"aws_cloudwatch_log_stream":      {Tok: awsResource(cloudwatchMod, "LogStream")},
+			"aws_cloudwatch_event_bus":       {Tok: awsResource(cloudwatchMod, "EventBus")},
+			"aws_cloudwatch_composite_alarm": {Tok: awsResource(cloudwatchMod, "CompositeAlarm")},
+			"aws_cloudwatch_event_archive":   {Tok: awsResource(cloudwatchMod, "EventArchive")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3507,6 +3545,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acm_certificate": {Tok: awsDataSource(acmMod, "getCertificate")},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
+			"aws_acmpca_certificate":           {Tok: awsDataSource(acmpcaMod, "getCertificate")},
 			// API Gateway
 			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},

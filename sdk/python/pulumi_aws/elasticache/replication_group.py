@@ -27,6 +27,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
@@ -142,6 +143,30 @@ class ReplicationGroup(pulumi.CustomResource):
         > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
         and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
         for full details on using Replication Groups.
+        ### Creating a secondary replication group for a global replication group
+
+        A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_description="primary replication group",
+            engine="redis",
+            engine_version="5.0.6",
+            node_type="cache.m5.large",
+            number_cache_clusters=1,
+            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+        example = aws.elasticache.GlobalReplicationGroup("example",
+            global_replication_group_id_suffix="example",
+            primary_replication_group_id=primary.id,
+            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+        secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_description="secondary replication group",
+            global_replication_group_id=example.global_replication_group_id,
+            number_cache_clusters=1)
+        ```
 
         ## Import
 
@@ -168,7 +193,7 @@ class ReplicationGroup(pulumi.CustomResource):
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -220,6 +245,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
             __props__['final_snapshot_identifier'] = final_snapshot_identifier
+            __props__['global_replication_group_id'] = global_replication_group_id
             __props__['kms_key_id'] = kms_key_id
             __props__['maintenance_window'] = maintenance_window
             __props__['multi_az_enabled'] = multi_az_enabled
@@ -270,6 +296,7 @@ class ReplicationGroup(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+            global_replication_group_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -318,7 +345,7 @@ class ReplicationGroup(pulumi.CustomResource):
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: The identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -362,6 +389,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__["engine"] = engine
         __props__["engine_version"] = engine_version
         __props__["final_snapshot_identifier"] = final_snapshot_identifier
+        __props__["global_replication_group_id"] = global_replication_group_id
         __props__["kms_key_id"] = kms_key_id
         __props__["maintenance_window"] = maintenance_window
         __props__["member_clusters"] = member_clusters
@@ -491,6 +519,11 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "final_snapshot_identifier")
 
     @property
+    @pulumi.getter(name="globalReplicationGroupId")
+    def global_replication_group_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "global_replication_group_id")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -528,7 +561,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[str]:
         """
-        The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         """
         return pulumi.get(self, "node_type")
 

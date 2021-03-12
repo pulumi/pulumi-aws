@@ -14,31 +14,31 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolSchema
     {
         /// <summary>
-        /// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        /// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
         /// </summary>
         public readonly string AttributeDataType;
         /// <summary>
-        /// Specifies whether the attribute type is developer only.
+        /// Whether the attribute type is developer only.
         /// </summary>
         public readonly bool? DeveloperOnlyAttribute;
         /// <summary>
-        /// Specifies whether the attribute can be changed once it has been created.
+        /// Whether the attribute can be changed once it has been created.
         /// </summary>
         public readonly bool? Mutable;
         /// <summary>
-        /// Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        /// Name of the attribute.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the constraints for an attribute of the number type.
+        /// Configuration block for the constraints for an attribute of the number type. Detailed below.
         /// </summary>
         public readonly Outputs.UserPoolSchemaNumberAttributeConstraints? NumberAttributeConstraints;
         /// <summary>
-        /// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        /// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
         /// </summary>
         public readonly bool? Required;
         /// <summary>
-        /// -Specifies the constraints for an attribute of the string type.
+        /// Constraints for an attribute of the string type. Detailed below.
         /// </summary>
         public readonly Outputs.UserPoolSchemaStringAttributeConstraints? StringAttributeConstraints;
 

@@ -107,57 +107,57 @@ import (
 type UserPool struct {
 	pulumi.CustomResourceState
 
-	// The accountRecoverySetting configuration.
+	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrOutput `pulumi:"accountRecoverySetting"`
-	// The configuration for AdminCreateUser requests.
+	// Configuration block for creating a new user profile. Detailed below.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigOutput `pulumi:"adminCreateUserConfig"`
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes pulumi.StringArrayOutput `pulumi:"aliasAttributes"`
-	// The ARN of the user pool.
+	// ARN of the user pool.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The attributes to be auto-verified. Possible values: email, phone_number.
+	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
-	// The date the user pool was created.
+	// Date the user pool was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The configuration for the user pool's device tracking.
+	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
-	// The Email Configuration.
+	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrOutput `pulumi:"emailConfiguration"`
-	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringOutput `pulumi:"emailVerificationMessage"`
-	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject pulumi.StringOutput `pulumi:"emailVerificationSubject"`
-	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// A container for the AWS Lambda triggers associated with the user pool.
+	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigOutput `pulumi:"lambdaConfig"`
-	// The date the user pool was last modified.
+	// Date the user pool was last modified.
 	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
-	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
+	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A container for information about the user pool password policy.
+	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
-	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
+	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
-	// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrOutput `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
 	SmsConfiguration UserPoolSmsConfigurationOutput `pulumi:"smsConfiguration"`
-	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// A map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
-	// The Username Configuration.
+	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
-	// The verification message templates configuration.
+	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
 }
 
@@ -190,112 +190,112 @@ func GetUserPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPool resources.
 type userPoolState struct {
-	// The accountRecoverySetting configuration.
+	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
-	// The configuration for AdminCreateUser requests.
+	// Configuration block for creating a new user profile. Detailed below.
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes []string `pulumi:"aliasAttributes"`
-	// The ARN of the user pool.
+	// ARN of the user pool.
 	Arn *string `pulumi:"arn"`
-	// The attributes to be auto-verified. Possible values: email, phone_number.
+	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
-	// The date the user pool was created.
+	// Date the user pool was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// The configuration for the user pool's device tracking.
+	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
-	// The Email Configuration.
+	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
-	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage *string `pulumi:"emailVerificationMessage"`
-	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject *string `pulumi:"emailVerificationSubject"`
-	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint *string `pulumi:"endpoint"`
-	// A container for the AWS Lambda triggers associated with the user pool.
+	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
-	// The date the user pool was last modified.
+	// Date the user pool was last modified.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
+	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name *string `pulumi:"name"`
-	// A container for information about the user pool password policy.
+	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
-	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
+	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
-	// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
 	SmsConfiguration *UserPoolSmsConfiguration `pulumi:"smsConfiguration"`
-	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
-	// The Username Configuration.
+	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
-	// The verification message templates configuration.
+	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
 }
 
 type UserPoolState struct {
-	// The accountRecoverySetting configuration.
+	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrInput
-	// The configuration for AdminCreateUser requests.
+	// Configuration block for creating a new user profile. Detailed below.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes pulumi.StringArrayInput
-	// The ARN of the user pool.
+	// ARN of the user pool.
 	Arn pulumi.StringPtrInput
-	// The attributes to be auto-verified. Possible values: email, phone_number.
+	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes pulumi.StringArrayInput
-	// The date the user pool was created.
+	// Date the user pool was created.
 	CreationDate pulumi.StringPtrInput
-	// The configuration for the user pool's device tracking.
+	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
-	// The Email Configuration.
+	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
-	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringPtrInput
-	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject pulumi.StringPtrInput
-	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint pulumi.StringPtrInput
-	// A container for the AWS Lambda triggers associated with the user pool.
+	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigPtrInput
-	// The date the user pool was last modified.
+	// Date the user pool was last modified.
 	LastModifiedDate pulumi.StringPtrInput
-	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
+	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name pulumi.StringPtrInput
-	// A container for information about the user pool password policy.
+	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
-	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
+	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
-	// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
 	SmsConfiguration UserPoolSmsConfigurationPtrInput
-	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool.
 	Tags pulumi.StringMapInput
-	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
-	// The Username Configuration.
+	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
-	// The verification message templates configuration.
+	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
 }
 
@@ -304,97 +304,97 @@ func (UserPoolState) ElementType() reflect.Type {
 }
 
 type userPoolArgs struct {
-	// The accountRecoverySetting configuration.
+	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
-	// The configuration for AdminCreateUser requests.
+	// Configuration block for creating a new user profile. Detailed below.
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes []string `pulumi:"aliasAttributes"`
-	// The attributes to be auto-verified. Possible values: email, phone_number.
+	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
-	// The configuration for the user pool's device tracking.
+	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
-	// The Email Configuration.
+	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
-	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage *string `pulumi:"emailVerificationMessage"`
-	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject *string `pulumi:"emailVerificationSubject"`
-	// A container for the AWS Lambda triggers associated with the user pool.
+	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
-	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
+	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name *string `pulumi:"name"`
-	// A container for information about the user pool password policy.
+	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
-	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
+	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
-	// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
 	SmsConfiguration *UserPoolSmsConfiguration `pulumi:"smsConfiguration"`
-	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
-	// The Username Configuration.
+	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
-	// The verification message templates configuration.
+	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
 }
 
 // The set of arguments for constructing a UserPool resource.
 type UserPoolArgs struct {
-	// The accountRecoverySetting configuration.
+	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrInput
-	// The configuration for AdminCreateUser requests.
+	// Configuration block for creating a new user profile. Detailed below.
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	// Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
 	AliasAttributes pulumi.StringArrayInput
-	// The attributes to be auto-verified. Possible values: email, phone_number.
+	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes pulumi.StringArrayInput
-	// The configuration for the user pool's device tracking.
+	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
-	// The Email Configuration.
+	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
-	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringPtrInput
-	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject pulumi.StringPtrInput
-	// A container for the AWS Lambda triggers associated with the user pool.
+	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigPtrInput
-	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
+	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
-	// Specifies the recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
+	// Name of the attribute.
 	Name pulumi.StringPtrInput
-	// A container for information about the user pool password policy.
+	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
-	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
+	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
-	// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
 	SmsConfiguration UserPoolSmsConfigurationPtrInput
-	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool.
 	Tags pulumi.StringMapInput
-	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
-	// The Username Configuration.
+	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
-	// The verification message templates configuration.
+	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
 }
 

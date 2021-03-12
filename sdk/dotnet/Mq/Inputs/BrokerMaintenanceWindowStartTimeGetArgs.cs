@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Mq.Inputs
     public sealed class BrokerMaintenanceWindowStartTimeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+        /// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
         /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
 
         /// <summary>
-        /// The time, in 24-hour format. e.g. `02:00`
+        /// Time, in 24-hour format, e.g. `02:00`.
         /// </summary>
         [Input("timeOfDay", required: true)]
         public Input<string> TimeOfDay { get; set; } = null!;
 
         /// <summary>
-        /// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+        /// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
         /// </summary>
         [Input("timeZone", required: true)]
         public Input<string> TimeZone { get; set; } = null!;

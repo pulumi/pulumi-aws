@@ -199,7 +199,9 @@ type AnalyticsApplicationInputs struct {
 	// See Processing Configuration below for more details.
 	ProcessingConfiguration *AnalyticsApplicationInputsProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The Schema format of the data in the streaming source. See Source Schema below for more details.
-	Schema                         AnalyticsApplicationInputsSchema                          `pulumi:"schema"`
+	Schema AnalyticsApplicationInputsSchema `pulumi:"schema"`
+	// The point at which the application starts processing records from the streaming source.
+	// See Starting Position Configuration below for more details.
 	StartingPositionConfigurations []AnalyticsApplicationInputsStartingPositionConfiguration `pulumi:"startingPositionConfigurations"`
 	StreamNames                    []string                                                  `pulumi:"streamNames"`
 }
@@ -233,7 +235,9 @@ type AnalyticsApplicationInputsArgs struct {
 	// See Processing Configuration below for more details.
 	ProcessingConfiguration AnalyticsApplicationInputsProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The Schema format of the data in the streaming source. See Source Schema below for more details.
-	Schema                         AnalyticsApplicationInputsSchemaInput                             `pulumi:"schema"`
+	Schema AnalyticsApplicationInputsSchemaInput `pulumi:"schema"`
+	// The point at which the application starts processing records from the streaming source.
+	// See Starting Position Configuration below for more details.
 	StartingPositionConfigurations AnalyticsApplicationInputsStartingPositionConfigurationArrayInput `pulumi:"startingPositionConfigurations"`
 	StreamNames                    pulumi.StringArrayInput                                           `pulumi:"streamNames"`
 }
@@ -358,6 +362,8 @@ func (o AnalyticsApplicationInputsOutput) Schema() AnalyticsApplicationInputsSch
 	return o.ApplyT(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsSchema { return v.Schema }).(AnalyticsApplicationInputsSchemaOutput)
 }
 
+// The point at which the application starts processing records from the streaming source.
+// See Starting Position Configuration below for more details.
 func (o AnalyticsApplicationInputsOutput) StartingPositionConfigurations() AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) []AnalyticsApplicationInputsStartingPositionConfiguration {
 		return v.StartingPositionConfigurations
@@ -460,6 +466,8 @@ func (o AnalyticsApplicationInputsPtrOutput) Schema() AnalyticsApplicationInputs
 	}).(AnalyticsApplicationInputsSchemaPtrOutput)
 }
 
+// The point at which the application starts processing records from the streaming source.
+// See Starting Position Configuration below for more details.
 func (o AnalyticsApplicationInputsPtrOutput) StartingPositionConfigurations() AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) []AnalyticsApplicationInputsStartingPositionConfiguration {
 		if v == nil {
@@ -2108,6 +2116,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutp
 }
 
 type AnalyticsApplicationInputsStartingPositionConfiguration struct {
+	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	StartingPosition *string `pulumi:"startingPosition"`
 }
 
@@ -2123,6 +2132,7 @@ type AnalyticsApplicationInputsStartingPositionConfigurationInput interface {
 }
 
 type AnalyticsApplicationInputsStartingPositionConfigurationArgs struct {
+	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	StartingPosition pulumi.StringPtrInput `pulumi:"startingPosition"`
 }
 
@@ -2177,6 +2187,7 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) ToAnalyti
 	return o
 }
 
+// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsStartingPositionConfiguration) *string { return v.StartingPosition }).(pulumi.StringPtrOutput)
 }
@@ -2807,7 +2818,7 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) RoleArn() pulumi.StringPtrOut
 
 type AnalyticsApplicationOutputSchema struct {
 	// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
-	RecordFormatType *string `pulumi:"recordFormatType"`
+	RecordFormatType string `pulumi:"recordFormatType"`
 }
 
 // AnalyticsApplicationOutputSchemaInput is an input type that accepts AnalyticsApplicationOutputSchemaArgs and AnalyticsApplicationOutputSchemaOutput values.
@@ -2823,7 +2834,7 @@ type AnalyticsApplicationOutputSchemaInput interface {
 
 type AnalyticsApplicationOutputSchemaArgs struct {
 	// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
-	RecordFormatType pulumi.StringPtrInput `pulumi:"recordFormatType"`
+	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
 }
 
 func (AnalyticsApplicationOutputSchemaArgs) ElementType() reflect.Type {
@@ -2853,8 +2864,8 @@ func (o AnalyticsApplicationOutputSchemaOutput) ToAnalyticsApplicationOutputSche
 }
 
 // The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
-func (o AnalyticsApplicationOutputSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutputSchema) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
+func (o AnalyticsApplicationOutputSchemaOutput) RecordFormatType() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyticsApplicationOutputSchema) string { return v.RecordFormatType }).(pulumi.StringOutput)
 }
 
 type AnalyticsApplicationReferenceDataSources struct {

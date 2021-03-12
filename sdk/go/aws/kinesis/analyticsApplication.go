@@ -18,6 +18,7 @@ import (
 // > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
 //
 // ## Example Usage
+// ### Kinesis Stream Input
 //
 // ```go
 // package main
@@ -73,6 +74,99 @@ import (
 // 	})
 // }
 // ```
+// ### Starting An Application
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
+// 			LogGroupName: exampleLogGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+// 			ShardCount: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
+// 			Destination: pulumi.String("extended_s3"),
+// 			ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+// 				BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kinesis.NewAnalyticsApplication(ctx, "test", &kinesis.AnalyticsApplicationArgs{
+// 			CloudwatchLoggingOptions: &kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs{
+// 				LogStreamArn: exampleLogStream.Arn,
+// 				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 			Inputs: &kinesis.AnalyticsApplicationInputsArgs{
+// 				NamePrefix: pulumi.String("example_prefix"),
+// 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
+// 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
+// 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
+// 							Name:    pulumi.String("COLUMN_1"),
+// 							SqlType: pulumi.String("INTEGER"),
+// 						},
+// 					},
+// 					RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
+// 						MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
+// 							Csv: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{
+// 								RecordColumnDelimiter: pulumi.String(","),
+// 								RecordRowDelimiter:    pulumi.String("|"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 				KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
+// 					ResourceArn: exampleStream.Arn,
+// 					RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+// 				},
+// 				StartingPositionConfigurations: kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArray{
+// 					&kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs{
+// 						StartingPosition: pulumi.String("NOW"),
+// 					},
+// 				},
+// 			},
+// 			Outputs: kinesis.AnalyticsApplicationOutputArray{
+// 				&kinesis.AnalyticsApplicationOutputArgs{
+// 					Name: pulumi.String("OUTPUT_1"),
+// 					Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
+// 						RecordFormatType: pulumi.String("CSV"),
+// 					},
+// 					KinesisFirehose: &kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs{
+// 						ResourceArn: exampleFirehoseDeliveryStream.Arn,
+// 						RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+// 					},
+// 				},
+// 			},
+// 			StartApplication: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -106,6 +200,9 @@ type AnalyticsApplication struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrOutput `pulumi:"referenceDataSources"`
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of tags for the Kinesis Analytics Application.
@@ -165,6 +262,9 @@ type analyticsApplicationState struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	StartApplication *bool `pulumi:"startApplication"`
 	// The Status of the application.
 	Status *string `pulumi:"status"`
 	// Key-value map of tags for the Kinesis Analytics Application.
@@ -196,6 +296,9 @@ type AnalyticsApplicationState struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	StartApplication pulumi.BoolPtrInput
 	// The Status of the application.
 	Status pulumi.StringPtrInput
 	// Key-value map of tags for the Kinesis Analytics Application.
@@ -225,6 +328,9 @@ type analyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	StartApplication *bool `pulumi:"startApplication"`
 	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -247,6 +353,9 @@ type AnalyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	StartApplication pulumi.BoolPtrInput
 	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags pulumi.StringMapInput
 }

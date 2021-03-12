@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolPasswordPolicy
     {
         /// <summary>
-        /// The minimum length of the password policy that you have set.
+        /// Minimum length of the password policy that you have set.
         /// </summary>
         public readonly int? MinimumLength;
         /// <summary>

@@ -24,6 +24,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
                  reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
+                 start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,6 +38,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
 
         ## Example Usage
+        ### Kinesis Stream Input
 
         ```python
         import pulumi
@@ -69,6 +71,62 @@ class AnalyticsApplication(pulumi.CustomResource):
             ),
         ))
         ```
+        ### Starting An Application
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
+        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
+        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+            destination="extended_s3",
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+                bucket_arn=aws_s3_bucket["example"]["arn"],
+                role_arn=aws_iam_role["example"]["arn"],
+            ))
+        test = aws.kinesis.AnalyticsApplication("test",
+            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
+                log_stream_arn=example_log_stream.arn,
+                role_arn=aws_iam_role["example"]["arn"],
+            ),
+            inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
+                name_prefix="example_prefix",
+                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
+                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
+                        name="COLUMN_1",
+                        sql_type="INTEGER",
+                    )],
+                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
+                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
+                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs(
+                                record_column_delimiter=",",
+                                record_row_delimiter="|",
+                            ),
+                        ),
+                    ),
+                ),
+                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
+                    resource_arn=example_stream.arn,
+                    role_arn=aws_iam_role["example"]["arn"],
+                ),
+                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
+                    starting_position="NOW",
+                )],
+            ),
+            outputs=[aws.kinesis.AnalyticsApplicationOutputArgs(
+                name="OUTPUT_1",
+                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArgs(
+                    record_format_type="CSV",
+                ),
+                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
+                    resource_arn=example_firehose_delivery_stream.arn,
+                    role_arn=aws_iam_role["example"]["arn"],
+                ),
+            )],
+            start_application=True)
+        ```
 
         ## Import
 
@@ -89,6 +147,8 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application.
         """
         if __name__ is not None:
@@ -115,6 +175,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             __props__['name'] = name
             __props__['outputs'] = outputs
             __props__['reference_data_sources'] = reference_data_sources
+            __props__['start_application'] = start_application
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['create_timestamp'] = None
@@ -141,6 +202,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
             reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
+            start_application: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'AnalyticsApplication':
@@ -163,6 +225,8 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[str] status: The Status of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application.
         :param pulumi.Input[int] version: The Version of the application.
@@ -181,6 +245,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         __props__["name"] = name
         __props__["outputs"] = outputs
         __props__["reference_data_sources"] = reference_data_sources
+        __props__["start_application"] = start_application
         __props__["status"] = status
         __props__["tags"] = tags
         __props__["version"] = version
@@ -267,6 +332,15 @@ class AnalyticsApplication(pulumi.CustomResource):
         See Reference Data Sources below for more details.
         """
         return pulumi.get(self, "reference_data_sources")
+
+    @property
+    @pulumi.getter(name="startApplication")
+    def start_application(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        """
+        return pulumi.get(self, "start_application")
 
     @property
     @pulumi.getter

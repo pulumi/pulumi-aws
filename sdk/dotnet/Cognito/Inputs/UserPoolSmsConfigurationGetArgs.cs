@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolSmsConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        /// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
         /// </summary>
         [Input("externalId", required: true)]
         public Input<string> ExternalId { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        /// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         /// </summary>
         [Input("snsCallerArn", required: true)]
         public Input<string> SnsCallerArn { get; set; } = null!;

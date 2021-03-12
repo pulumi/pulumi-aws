@@ -6,23 +6,16 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an MQ Broker Resource. This resources also manages users for the broker.
+ * Provides an Amazon MQ broker resource. This resources also manages users for the broker.
  *
- * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+ * > For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
  *
- * Changes to an MQ Broker can occur when you change a
- * parameter, such as `configuration` or `user`, and are reflected in the next maintenance
- * window. Because of this, this provider may report a difference in its planning
- * phase because a modification has not yet taken place. You can use the
- * `applyImmediately` flag to instruct the service to apply the change immediately
- * (see documentation below).
+ * > **NOTE:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, audit logging, or `configuration` blocks. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups. Also, Amazon MQ does not return information about RabbitMQ users so drift detection is not possible.
  *
- * > **Note:** using `applyImmediately` can result in a
- * brief downtime as the broker reboots.
- *
- * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,8 +28,33 @@ import * as utilities from "../utilities";
  *         revision: aws_mq_configuration.test.latest_revision,
  *     },
  *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.0",
+ *     engineVersion: "5.15.9",
  *     hostInstanceType: "mq.t2.micro",
+ *     securityGroups: [aws_security_group.test.id],
+ *     users: [{
+ *         username: "ExampleUser",
+ *         password: "MindTheGap",
+ *     }],
+ * });
+ * ```
+ * ### High-throughput Optimized Example
+ *
+ * This example shows the use of EBS storage for high-throughput optimized performance.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
+ *     configuration: {
+ *         id: aws_mq_configuration.test.id,
+ *         revision: aws_mq_configuration.test.latest_revision,
+ *     },
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.15.9",
+ *     storageType: "ebs",
+ *     hostInstanceType: "mq.m5.large",
  *     securityGroups: [aws_security_group.test.id],
  *     users: [{
  *         username: "ExampleUser",
@@ -82,64 +100,74 @@ export class Broker extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether any broker modifications
-     * are applied immediately, or during the next maintenance window. Default is `false`.
+     * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
-     * The ARN of the broker.
+     * ARN of the broker.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+     * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    public readonly authenticationStrategy!: pulumi.Output<string>;
+    /**
+     * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the broker.
+     * Name of the broker.
      */
     public readonly brokerName!: pulumi.Output<string>;
     /**
-     * Configuration of the broker. See below.
+     * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
      */
     public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration>;
     /**
-     * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+     * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
     public readonly deploymentMode!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block containing encryption options. See below.
+     * Configuration block containing encryption options. Detailed below.
      */
     public readonly encryptionOptions!: pulumi.Output<outputs.mq.BrokerEncryptionOptions | undefined>;
     /**
-     * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     public readonly engineType!: pulumi.Output<string>;
     /**
-     * The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+     * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      */
     public readonly hostInstanceType!: pulumi.Output<string>;
     /**
-     * A list of information about allocated brokers (both active & standby).
+     * List of information about allocated brokers (both active & standby).
      * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
-     * * `instances.0.ip_address` - The IP Address of the broker.
-     * * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+     * * `instances.0.ip_address` - IP Address of the broker.
+     * * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+     * * For `ActiveMQ`:
      * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
      * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
      * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+     * * For `RabbitMQ`:
+     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      */
     public /*out*/ readonly instances!: pulumi.Output<outputs.mq.BrokerInstance[]>;
     /**
-     * Logging configuration of the broker. See below.
+     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+     */
+    public readonly ldapServerMetadata!: pulumi.Output<outputs.mq.BrokerLdapServerMetadata | undefined>;
+    /**
+     * Configuration block for the logging configuration of the broker. Detailed below.
      */
     public readonly logs!: pulumi.Output<outputs.mq.BrokerLogs | undefined>;
     /**
-     * Maintenance window start time. See below.
+     * Configuration block for the maintenance window start time. Detailed below.
      */
     public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
     /**
@@ -147,19 +175,23 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
-     * The list of security group IDs assigned to the broker.
+     * List of security group IDs assigned to the broker.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
-     * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+     * Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     */
+    public readonly storageType!: pulumi.Output<string>;
+    /**
+     * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the broker.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The list of all ActiveMQ usernames for the specified broker. See below.
+     * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      */
     public readonly users!: pulumi.Output<outputs.mq.BrokerUser[]>;
 
@@ -178,6 +210,7 @@ export class Broker extends pulumi.CustomResource {
             const state = argsOrState as BrokerState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["brokerName"] = state ? state.brokerName : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -187,10 +220,12 @@ export class Broker extends pulumi.CustomResource {
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
             inputs["instances"] = state ? state.instances : undefined;
+            inputs["ldapServerMetadata"] = state ? state.ldapServerMetadata : undefined;
             inputs["logs"] = state ? state.logs : undefined;
             inputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
+            inputs["storageType"] = state ? state.storageType : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -208,13 +243,11 @@ export class Broker extends pulumi.CustomResource {
             if ((!args || args.hostInstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if ((!args || args.securityGroups === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'securityGroups'");
-            }
             if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             inputs["brokerName"] = args ? args.brokerName : undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
@@ -223,10 +256,12 @@ export class Broker extends pulumi.CustomResource {
             inputs["engineType"] = args ? args.engineType : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
+            inputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
             inputs["logs"] = args ? args.logs : undefined;
             inputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
+            inputs["storageType"] = args ? args.storageType : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -245,64 +280,74 @@ export class Broker extends pulumi.CustomResource {
  */
 export interface BrokerState {
     /**
-     * Specifies whether any broker modifications
-     * are applied immediately, or during the next maintenance window. Default is `false`.
+     * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * The ARN of the broker.
+     * ARN of the broker.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+     * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    readonly authenticationStrategy?: pulumi.Input<string>;
+    /**
+     * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The name of the broker.
+     * Name of the broker.
      */
     readonly brokerName?: pulumi.Input<string>;
     /**
-     * Configuration of the broker. See below.
+     * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
      */
     readonly configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
     /**
-     * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+     * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
     readonly deploymentMode?: pulumi.Input<string>;
     /**
-     * Configuration block containing encryption options. See below.
+     * Configuration block containing encryption options. Detailed below.
      */
     readonly encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
     /**
-     * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     readonly engineType?: pulumi.Input<string>;
     /**
-     * The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+     * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      */
     readonly hostInstanceType?: pulumi.Input<string>;
     /**
-     * A list of information about allocated brokers (both active & standby).
+     * List of information about allocated brokers (both active & standby).
      * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
-     * * `instances.0.ip_address` - The IP Address of the broker.
-     * * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+     * * `instances.0.ip_address` - IP Address of the broker.
+     * * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+     * * For `ActiveMQ`:
      * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
      * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
      * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+     * * For `RabbitMQ`:
+     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      */
     readonly instances?: pulumi.Input<pulumi.Input<inputs.mq.BrokerInstance>[]>;
     /**
-     * Logging configuration of the broker. See below.
+     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+     */
+    readonly ldapServerMetadata?: pulumi.Input<inputs.mq.BrokerLdapServerMetadata>;
+    /**
+     * Configuration block for the logging configuration of the broker. Detailed below.
      */
     readonly logs?: pulumi.Input<inputs.mq.BrokerLogs>;
     /**
-     * Maintenance window start time. See below.
+     * Configuration block for the maintenance window start time. Detailed below.
      */
     readonly maintenanceWindowStartTime?: pulumi.Input<inputs.mq.BrokerMaintenanceWindowStartTime>;
     /**
@@ -310,19 +355,23 @@ export interface BrokerState {
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The list of security group IDs assigned to the broker.
+     * List of security group IDs assigned to the broker.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+     * Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     */
+    readonly storageType?: pulumi.Input<string>;
+    /**
+     * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the broker.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The list of all ActiveMQ usernames for the specified broker. See below.
+     * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }
@@ -332,48 +381,55 @@ export interface BrokerState {
  */
 export interface BrokerArgs {
     /**
-     * Specifies whether any broker modifications
-     * are applied immediately, or during the next maintenance window. Default is `false`.
+     * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+     * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    readonly authenticationStrategy?: pulumi.Input<string>;
+    /**
+     * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The name of the broker.
+     * Name of the broker.
      */
     readonly brokerName: pulumi.Input<string>;
     /**
-     * Configuration of the broker. See below.
+     * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
      */
     readonly configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
     /**
-     * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+     * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
     readonly deploymentMode?: pulumi.Input<string>;
     /**
-     * Configuration block containing encryption options. See below.
+     * Configuration block containing encryption options. Detailed below.
      */
     readonly encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
     /**
-     * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     readonly engineType: pulumi.Input<string>;
     /**
-     * The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
      */
     readonly engineVersion: pulumi.Input<string>;
     /**
-     * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+     * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      */
     readonly hostInstanceType: pulumi.Input<string>;
     /**
-     * Logging configuration of the broker. See below.
+     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+     */
+    readonly ldapServerMetadata?: pulumi.Input<inputs.mq.BrokerLdapServerMetadata>;
+    /**
+     * Configuration block for the logging configuration of the broker. Detailed below.
      */
     readonly logs?: pulumi.Input<inputs.mq.BrokerLogs>;
     /**
-     * Maintenance window start time. See below.
+     * Configuration block for the maintenance window start time. Detailed below.
      */
     readonly maintenanceWindowStartTime?: pulumi.Input<inputs.mq.BrokerMaintenanceWindowStartTime>;
     /**
@@ -381,19 +437,23 @@ export interface BrokerArgs {
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The list of security group IDs assigned to the broker.
+     * List of security group IDs assigned to the broker.
      */
-    readonly securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+     * Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     */
+    readonly storageType?: pulumi.Input<string>;
+    /**
+     * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the broker.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The list of all ActiveMQ usernames for the specified broker. See below.
+     * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      */
     readonly users: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }

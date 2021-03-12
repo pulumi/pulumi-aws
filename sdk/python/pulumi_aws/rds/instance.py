@@ -1117,7 +1117,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+    def snapshot_identifier(self) -> pulumi.Output[str]:
         """
         Specifies whether or not to create this
         database from a snapshot. This correlates to the snapshot ID you'd find in the

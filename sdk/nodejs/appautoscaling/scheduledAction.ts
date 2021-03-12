@@ -91,7 +91,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     public readonly endTime!: pulumi.Output<string | undefined>;
     /**
@@ -105,23 +105,27 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
      */
-    public readonly scalableDimension!: pulumi.Output<string | undefined>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * The new minimum and maximum capacity. You can set both values or just one. See below
      */
-    public readonly scalableTargetAction!: pulumi.Output<outputs.appautoscaling.ScheduledActionScalableTargetAction | undefined>;
+    public readonly scalableTargetAction!: pulumi.Output<outputs.appautoscaling.ScheduledActionScalableTargetAction>;
     /**
-     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
      */
-    public readonly schedule!: pulumi.Output<string | undefined>;
+    public readonly schedule!: pulumi.Output<string>;
     /**
      * The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
      */
     public readonly serviceNamespace!: pulumi.Output<string>;
     /**
-     * The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+     */
+    public readonly timezone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -145,10 +149,20 @@ export class ScheduledAction extends pulumi.CustomResource {
             inputs["schedule"] = state ? state.schedule : undefined;
             inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
+            inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ScheduledActionArgs | undefined;
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
+            }
+            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scalableDimension'");
+            }
+            if ((!args || args.scalableTargetAction === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scalableTargetAction'");
+            }
+            if ((!args || args.schedule === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'schedule'");
             }
             if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
@@ -161,6 +175,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["timezone"] = args ? args.timezone : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -179,7 +194,7 @@ export interface ScheduledActionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -199,7 +214,7 @@ export interface ScheduledActionState {
      */
     readonly scalableTargetAction?: pulumi.Input<inputs.appautoscaling.ScheduledActionScalableTargetAction>;
     /**
-     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
      */
     readonly schedule?: pulumi.Input<string>;
     /**
@@ -207,9 +222,13 @@ export interface ScheduledActionState {
      */
     readonly serviceNamespace?: pulumi.Input<string>;
     /**
-     * The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     readonly startTime?: pulumi.Input<string>;
+    /**
+     * The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+     */
+    readonly timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -217,7 +236,7 @@ export interface ScheduledActionState {
  */
 export interface ScheduledActionArgs {
     /**
-     * The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -231,21 +250,25 @@ export interface ScheduledActionArgs {
     /**
      * The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
      */
-    readonly scalableDimension?: pulumi.Input<string>;
+    readonly scalableDimension: pulumi.Input<string>;
     /**
      * The new minimum and maximum capacity. You can set both values or just one. See below
      */
-    readonly scalableTargetAction?: pulumi.Input<inputs.appautoscaling.ScheduledActionScalableTargetAction>;
+    readonly scalableTargetAction: pulumi.Input<inputs.appautoscaling.ScheduledActionScalableTargetAction>;
     /**
-     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+     * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
      */
-    readonly schedule?: pulumi.Input<string>;
+    readonly schedule: pulumi.Input<string>;
     /**
      * The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
      */
     readonly serviceNamespace: pulumi.Input<string>;
     /**
-     * The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
+     * The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
     readonly startTime?: pulumi.Input<string>;
+    /**
+     * The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+     */
+    readonly timezone?: pulumi.Input<string>;
 }

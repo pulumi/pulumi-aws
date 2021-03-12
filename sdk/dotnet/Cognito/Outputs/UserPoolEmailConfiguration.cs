@@ -14,7 +14,11 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolEmailConfiguration
     {
         /// <summary>
-        /// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        /// Email configuration set name from SES.
+        /// </summary>
+        public readonly string? ConfigurationSet;
+        /// <summary>
+        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
         /// </summary>
         public readonly string? EmailSendingAccount;
         /// <summary>
@@ -22,16 +26,18 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? FromEmailAddress;
         /// <summary>
-        /// The REPLY-TO email address.
+        /// REPLY-TO email address.
         /// </summary>
         public readonly string? ReplyToEmailAddress;
         /// <summary>
-        /// The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        /// ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
         /// </summary>
         public readonly string? SourceArn;
 
         [OutputConstructor]
         private UserPoolEmailConfiguration(
+            string? configurationSet,
+
             string? emailSendingAccount,
 
             string? fromEmailAddress,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Cognito.Outputs
 
             string? sourceArn)
         {
+            ConfigurationSet = configurationSet;
             EmailSendingAccount = emailSendingAccount;
             FromEmailAddress = fromEmailAddress;
             ReplyToEmailAddress = replyToEmailAddress;
