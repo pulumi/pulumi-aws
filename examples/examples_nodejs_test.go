@@ -401,6 +401,19 @@ func TestAccMultipleRegions(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccFifoSqsQueueTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "ts"),
+			RunUpdateTest: false,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()

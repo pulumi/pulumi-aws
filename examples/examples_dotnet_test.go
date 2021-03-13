@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccWebserverCs(t *testing.T) {
@@ -15,6 +16,19 @@ func TestAccWebserverCs(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			RunUpdateTest: false, //this is newly moved to a new namespace
 			Dir:           filepath.Join(getCwd(t), "webserver-cs"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccFifoSqsQueueCs(t *testing.T) {
+	test := getCSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "csharp"),
+			RunUpdateTest: false,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				assert.Contains(t, stack.Outputs["QueueName"].(string), ".fifo")
+			},
 		})
 
 	integration.ProgramTest(t, &test)
