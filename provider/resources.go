@@ -2190,7 +2190,7 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   7,
 						// If this is a FIFO Queue, it's name must end with `.fifo`
 						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
-							if fifo, hasfifo := res.Properties["fifo"]; hasfifo {
+							if fifo, hasfifo := res.Properties["fifoQueue"]; hasfifo {
 								if fifo.IsBool() && fifo.BoolValue() {
 									return name + ".fifo", nil
 								}

@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccBucketPy(t *testing.T) {
@@ -81,6 +82,19 @@ func TestAccCodeBuildProjectPy(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "codebuild-project-py"),
 			RunUpdateTest: false,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccFifoSqsQueuePy(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "python"),
+			RunUpdateTest: false,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
+			},
 		})
 
 	integration.ProgramTest(t, &test)
