@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fixes a regression where pulumi-aws wasn't appending ".fifo" to autonamed `aws.sqs.Queue`
 
 ---
+
+## 3.32.2 (2021-03-13)
+_(none)_
 
 ## 3.32.1 (2021-03-11)
 * Upgrade to v2.20.0 of pulumi-terraform-bridge  
