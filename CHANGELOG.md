@@ -2,12 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Fixes a regression where pulumi-aws wasn't appending ".fifo" to autonamed `aws.sqs.Queue`
+* Update to v3.32.0 of the AWS Terraform Provider
+* Add the ability to specify `aws.cloudwatch` `LogResourcePolicy` as iam.PolicyDocument
 
 ---
 
 ## 3.32.2 (2021-03-13)
-_(none)_
+* Fixes a regression where pulumi-aws wasn't appending ".fifo" to autonamed `aws.sqs.Queue`
 
 ## 3.32.1 (2021-03-11)
 * Upgrade to v2.20.0 of pulumi-terraform-bridge  

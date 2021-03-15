@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         private InputList<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismGetArgs>? _recoveryMechanisms;
 
         /// <summary>
-        /// The list of Account Recovery Options of the following structure:
+        /// List of Account Recovery Options of the following structure:
         /// </summary>
         public InputList<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismGetArgs> RecoveryMechanisms
         {

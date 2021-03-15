@@ -161,6 +161,8 @@ class AnalyticsApplicationInputsArgs:
                See Parallelism below for more details.
         :param pulumi.Input['AnalyticsApplicationInputsProcessingConfigurationArgs'] processing_configuration: The Processing Configuration to transform records as they are received from the stream.
                See Processing Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]] starting_position_configurations: The point at which the application starts processing records from the streaming source.
+               See Starting Position Configuration below for more details.
         """
         pulumi.set(__self__, "name_prefix", name_prefix)
         pulumi.set(__self__, "schema", schema)
@@ -270,6 +272,10 @@ class AnalyticsApplicationInputsArgs:
     @property
     @pulumi.getter(name="startingPositionConfigurations")
     def starting_position_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]:
+        """
+        The point at which the application starts processing records from the streaming source.
+        See Starting Position Configuration below for more details.
+        """
         return pulumi.get(self, "starting_position_configurations")
 
     @starting_position_configurations.setter
@@ -699,12 +705,18 @@ class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs:
 class AnalyticsApplicationInputsStartingPositionConfigurationArgs:
     def __init__(__self__, *,
                  starting_position: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] starting_position: The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+        """
         if starting_position is not None:
             pulumi.set(__self__, "starting_position", starting_position)
 
     @property
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+        """
         return pulumi.get(self, "starting_position")
 
     @starting_position.setter
@@ -931,23 +943,22 @@ class AnalyticsApplicationOutputLambdaArgs:
 @pulumi.input_type
 class AnalyticsApplicationOutputSchemaArgs:
     def __init__(__self__, *,
-                 record_format_type: Optional[pulumi.Input[str]] = None):
+                 record_format_type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] record_format_type: The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
         """
-        if record_format_type is not None:
-            pulumi.set(__self__, "record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="recordFormatType")
-    def record_format_type(self) -> Optional[pulumi.Input[str]]:
+    def record_format_type(self) -> pulumi.Input[str]:
         """
         The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
         """
         return pulumi.get(self, "record_format_type")
 
     @record_format_type.setter
-    def record_format_type(self, value: Optional[pulumi.Input[str]]):
+    def record_format_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "record_format_type", value)
 
 

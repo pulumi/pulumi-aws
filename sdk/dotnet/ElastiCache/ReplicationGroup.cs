@@ -139,6 +139,47 @@ namespace Pulumi.Aws.ElastiCache
     /// &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
     /// and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
     /// for full details on using Replication Groups.
+    /// ### Creating a secondary replication group for a global replication group
+    /// 
+    /// A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Aws.ElastiCache.ReplicationGroup("primary", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         {
+    ///             ReplicationGroupDescription = "primary replication group",
+    ///             Engine = "redis",
+    ///             EngineVersion = "5.0.6",
+    ///             NodeType = "cache.m5.large",
+    ///             NumberCacheClusters = 1,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Other_region,
+    ///         });
+    ///         var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new Aws.ElastiCache.GlobalReplicationGroupArgs
+    ///         {
+    ///             GlobalReplicationGroupIdSuffix = "example",
+    ///             PrimaryReplicationGroupId = primary.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Other_region,
+    ///         });
+    ///         var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         {
+    ///             ReplicationGroupDescription = "secondary replication group",
+    ///             GlobalReplicationGroupId = example.GlobalReplicationGroupId,
+    ///             NumberCacheClusters = 1,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -229,6 +270,9 @@ namespace Pulumi.Aws.ElastiCache
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
+        [Output("globalReplicationGroupId")]
+        public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         /// </summary>
@@ -256,7 +300,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -483,6 +527,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        [Input("globalReplicationGroupId")]
+        public Input<string>? GlobalReplicationGroupId { get; set; }
+
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         /// </summary>
@@ -504,7 +551,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
@@ -722,6 +769,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        [Input("globalReplicationGroupId")]
+        public Input<string>? GlobalReplicationGroupId { get; set; }
+
         /// <summary>
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         /// </summary>
@@ -755,7 +805,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

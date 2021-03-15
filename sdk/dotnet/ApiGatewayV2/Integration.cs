@@ -109,11 +109,36 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///             Description = "Example with a load balancer",
     ///             IntegrationType = "HTTP_PROXY",
     ///             IntegrationUri = aws_lb_listener.Example.Arn,
+    ///             IntegrationMethod = "ANY",
     ///             ConnectionType = "VPC_LINK",
     ///             ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
     ///             TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
     ///             {
     ///                 ServerNameToVerify = "example.com",
+    ///             },
+    ///             RequestParameters = 
+    ///             {
+    ///                 { "append:header.authforintegration", "$context.authorizer.authorizerResponse" },
+    ///                 { "overwrite:path", "staticValueForIntegration" },
+    ///             },
+    ///             ResponseParameters = 
+    ///             {
+    ///                 new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///                 {
+    ///                     StatusCode = "403",
+    ///                     Mappings = 
+    ///                     {
+    ///                         { "append:header.auth", "$context.authorizer.authorizerResponse" },
+    ///                     },
+    ///                 },
+    ///                 new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///                 {
+    ///                     StatusCode = "200",
+    ///                     Mappings = 
+    ///                     {
+    ///                         { "overwrite:statuscode", "204" },
+    ///                     },
+    ///                 },
     ///             },
     ///         });
     ///     }

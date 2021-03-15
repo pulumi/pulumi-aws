@@ -5,30 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an ElastiCache Global Replication Group resource, which manage a replication between 2 or more redis replication group in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
- *
- * ## Example Usage
- * ### Global replication group with a single instance redis replication group
- *
- * To create a single shard primary with single read replica:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "test example",
- *     engine: "redis",
- *     engineVersion: "5.0.6",
- *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
- * });
- * const replicationGroup = new aws.elasticache.GlobalReplicationGroup("replicationGroup", {
- *     globalReplicationGroupIdSuffix: "example",
- *     primaryReplicationGroupId: primary.id,
- * });
- * ```
- *
  * ## Import
  *
  * ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.

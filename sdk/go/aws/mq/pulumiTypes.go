@@ -161,9 +161,9 @@ func (o BrokerConfigurationPtrOutput) Revision() pulumi.IntPtrOutput {
 }
 
 type BrokerEncryptionOptions struct {
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+	// Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
 	UseAwsOwnedKey *bool `pulumi:"useAwsOwnedKey"`
 }
 
@@ -179,9 +179,9 @@ type BrokerEncryptionOptionsInput interface {
 }
 
 type BrokerEncryptionOptionsArgs struct {
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+	// Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
 	UseAwsOwnedKey pulumi.BoolPtrInput `pulumi:"useAwsOwnedKey"`
 }
 
@@ -262,12 +262,12 @@ func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsPtrOutputWithCon
 	}).(BrokerEncryptionOptionsPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+// Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
 }
@@ -290,7 +290,7 @@ func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
 	return o.ApplyT(func(v *BrokerEncryptionOptions) BrokerEncryptionOptions { return *v }).(BrokerEncryptionOptionsOutput)
 }
 
-// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerEncryptionOptions) *string {
 		if v == nil {
@@ -300,7 +300,7 @@ func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+// Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS-managed CMK aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrokerEncryptionOptions) *bool {
 		if v == nil {
@@ -416,8 +416,329 @@ func (o BrokerInstanceArrayOutput) Index(i pulumi.IntInput) BrokerInstanceOutput
 	}).(BrokerInstanceOutput)
 }
 
+type BrokerLdapServerMetadata struct {
+	// List of a fully qualified domain name of the LDAP server and an optional failover server.
+	Hosts []string `pulumi:"hosts"`
+	// Fully qualified name of the directory to search for a user’s groups.
+	RoleBase *string `pulumi:"roleBase"`
+	// Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+	RoleName *string `pulumi:"roleName"`
+	// Search criteria for groups.
+	RoleSearchMatching *string `pulumi:"roleSearchMatching"`
+	// Whether the directory search scope is the entire sub-tree.
+	RoleSearchSubtree *bool `pulumi:"roleSearchSubtree"`
+	// Service account password.
+	ServiceAccountPassword *string `pulumi:"serviceAccountPassword"`
+	// Service account username.
+	ServiceAccountUsername *string `pulumi:"serviceAccountUsername"`
+	// Fully qualified name of the directory where you want to search for users.
+	UserBase *string `pulumi:"userBase"`
+	// Specifies the name of the LDAP attribute for the user group membership.
+	UserRoleName *string `pulumi:"userRoleName"`
+	// Search criteria for users.
+	UserSearchMatching *string `pulumi:"userSearchMatching"`
+	// Whether the directory search scope is the entire sub-tree.
+	UserSearchSubtree *bool `pulumi:"userSearchSubtree"`
+}
+
+// BrokerLdapServerMetadataInput is an input type that accepts BrokerLdapServerMetadataArgs and BrokerLdapServerMetadataOutput values.
+// You can construct a concrete instance of `BrokerLdapServerMetadataInput` via:
+//
+//          BrokerLdapServerMetadataArgs{...}
+type BrokerLdapServerMetadataInput interface {
+	pulumi.Input
+
+	ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput
+	ToBrokerLdapServerMetadataOutputWithContext(context.Context) BrokerLdapServerMetadataOutput
+}
+
+type BrokerLdapServerMetadataArgs struct {
+	// List of a fully qualified domain name of the LDAP server and an optional failover server.
+	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
+	// Fully qualified name of the directory to search for a user’s groups.
+	RoleBase pulumi.StringPtrInput `pulumi:"roleBase"`
+	// Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// Search criteria for groups.
+	RoleSearchMatching pulumi.StringPtrInput `pulumi:"roleSearchMatching"`
+	// Whether the directory search scope is the entire sub-tree.
+	RoleSearchSubtree pulumi.BoolPtrInput `pulumi:"roleSearchSubtree"`
+	// Service account password.
+	ServiceAccountPassword pulumi.StringPtrInput `pulumi:"serviceAccountPassword"`
+	// Service account username.
+	ServiceAccountUsername pulumi.StringPtrInput `pulumi:"serviceAccountUsername"`
+	// Fully qualified name of the directory where you want to search for users.
+	UserBase pulumi.StringPtrInput `pulumi:"userBase"`
+	// Specifies the name of the LDAP attribute for the user group membership.
+	UserRoleName pulumi.StringPtrInput `pulumi:"userRoleName"`
+	// Search criteria for users.
+	UserSearchMatching pulumi.StringPtrInput `pulumi:"userSearchMatching"`
+	// Whether the directory search scope is the entire sub-tree.
+	UserSearchSubtree pulumi.BoolPtrInput `pulumi:"userSearchSubtree"`
+}
+
+func (BrokerLdapServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput {
+	return i.ToBrokerLdapServerMetadataOutputWithContext(context.Background())
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataOutputWithContext(ctx context.Context) BrokerLdapServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataOutput)
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return i.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataOutput).ToBrokerLdapServerMetadataPtrOutputWithContext(ctx)
+}
+
+// BrokerLdapServerMetadataPtrInput is an input type that accepts BrokerLdapServerMetadataArgs, BrokerLdapServerMetadataPtr and BrokerLdapServerMetadataPtrOutput values.
+// You can construct a concrete instance of `BrokerLdapServerMetadataPtrInput` via:
+//
+//          BrokerLdapServerMetadataArgs{...}
+//
+//  or:
+//
+//          nil
+type BrokerLdapServerMetadataPtrInput interface {
+	pulumi.Input
+
+	ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput
+	ToBrokerLdapServerMetadataPtrOutputWithContext(context.Context) BrokerLdapServerMetadataPtrOutput
+}
+
+type brokerLdapServerMetadataPtrType BrokerLdapServerMetadataArgs
+
+func BrokerLdapServerMetadataPtr(v *BrokerLdapServerMetadataArgs) BrokerLdapServerMetadataPtrInput {
+	return (*brokerLdapServerMetadataPtrType)(v)
+}
+
+func (*brokerLdapServerMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i *brokerLdapServerMetadataPtrType) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return i.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *brokerLdapServerMetadataPtrType) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataPtrOutput)
+}
+
+type BrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (BrokerLdapServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataOutput() BrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataOutputWithContext(ctx context.Context) BrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return o.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *BrokerLdapServerMetadata {
+		return &v
+	}).(BrokerLdapServerMetadataPtrOutput)
+}
+
+// List of a fully qualified domain name of the LDAP server and an optional failover server.
+func (o BrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) []string { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified name of the directory to search for a user’s groups.
+func (o BrokerLdapServerMetadataOutput) RoleBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.RoleBase }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+func (o BrokerLdapServerMetadataOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// Search criteria for groups.
+func (o BrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.RoleSearchMatching }).(pulumi.StringPtrOutput)
+}
+
+// Whether the directory search scope is the entire sub-tree.
+func (o BrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.RoleSearchSubtree }).(pulumi.BoolPtrOutput)
+}
+
+// Service account password.
+func (o BrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.ServiceAccountPassword }).(pulumi.StringPtrOutput)
+}
+
+// Service account username.
+func (o BrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.ServiceAccountUsername }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the directory where you want to search for users.
+func (o BrokerLdapServerMetadataOutput) UserBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.UserBase }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the LDAP attribute for the user group membership.
+func (o BrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.UserRoleName }).(pulumi.StringPtrOutput)
+}
+
+// Search criteria for users.
+func (o BrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.UserSearchMatching }).(pulumi.StringPtrOutput)
+}
+
+// Whether the directory search scope is the entire sub-tree.
+func (o BrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.UserSearchSubtree }).(pulumi.BoolPtrOutput)
+}
+
+type BrokerLdapServerMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (BrokerLdapServerMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
+	return o
+}
+
+func (o BrokerLdapServerMetadataPtrOutput) Elem() BrokerLdapServerMetadataOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) BrokerLdapServerMetadata { return *v }).(BrokerLdapServerMetadataOutput)
+}
+
+// List of a fully qualified domain name of the LDAP server and an optional failover server.
+func (o BrokerLdapServerMetadataPtrOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Hosts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified name of the directory to search for a user’s groups.
+func (o BrokerLdapServerMetadataPtrOutput) RoleBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+func (o BrokerLdapServerMetadataPtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Search criteria for groups.
+func (o BrokerLdapServerMetadataPtrOutput) RoleSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleSearchMatching
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the directory search scope is the entire sub-tree.
+func (o BrokerLdapServerMetadataPtrOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RoleSearchSubtree
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Service account password.
+func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service account username.
+func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the directory where you want to search for users.
+func (o BrokerLdapServerMetadataPtrOutput) UserBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the LDAP attribute for the user group membership.
+func (o BrokerLdapServerMetadataPtrOutput) UserRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Search criteria for users.
+func (o BrokerLdapServerMetadataPtrOutput) UserSearchMatching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserSearchMatching
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the directory search scope is the entire sub-tree.
+func (o BrokerLdapServerMetadataPtrOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserSearchSubtree
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BrokerLogs struct {
-	// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+	// Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 	Audit *bool `pulumi:"audit"`
 	// Enables general logging via CloudWatch. Defaults to `false`.
 	General *bool `pulumi:"general"`
@@ -435,7 +756,7 @@ type BrokerLogsInput interface {
 }
 
 type BrokerLogsArgs struct {
-	// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+	// Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 	Audit pulumi.BoolPtrInput `pulumi:"audit"`
 	// Enables general logging via CloudWatch. Defaults to `false`.
 	General pulumi.BoolPtrInput `pulumi:"general"`
@@ -518,7 +839,7 @@ func (o BrokerLogsOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Context) 
 	}).(BrokerLogsPtrOutput)
 }
 
-// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+// Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsOutput) Audit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
 }
@@ -546,7 +867,7 @@ func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
 	return o.ApplyT(func(v *BrokerLogs) BrokerLogs { return *v }).(BrokerLogsOutput)
 }
 
-// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+// Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsPtrOutput) Audit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrokerLogs) *bool {
 		if v == nil {
@@ -567,11 +888,11 @@ func (o BrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
 }
 
 type BrokerMaintenanceWindowStartTime struct {
-	// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+	// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 	DayOfWeek string `pulumi:"dayOfWeek"`
-	// The time, in 24-hour format. e.g. `02:00`
+	// Time, in 24-hour format, e.g. `02:00`.
 	TimeOfDay string `pulumi:"timeOfDay"`
-	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+	// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
 	TimeZone string `pulumi:"timeZone"`
 }
 
@@ -587,11 +908,11 @@ type BrokerMaintenanceWindowStartTimeInput interface {
 }
 
 type BrokerMaintenanceWindowStartTimeArgs struct {
-	// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+	// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	// The time, in 24-hour format. e.g. `02:00`
+	// Time, in 24-hour format, e.g. `02:00`.
 	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
-	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+	// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
 	TimeZone pulumi.StringInput `pulumi:"timeZone"`
 }
 
@@ -672,17 +993,17 @@ func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTi
 	}).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 func (o BrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
-// The time, in 24-hour format. e.g. `02:00`
+// Time, in 24-hour format, e.g. `02:00`.
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
 
-// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -705,7 +1026,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindo
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) BrokerMaintenanceWindowStartTime { return *v }).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
-// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {
@@ -715,7 +1036,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time, in 24-hour format. e.g. `02:00`
+// Time, in 24-hour format, e.g. `02:00`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {
@@ -725,7 +1046,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {
@@ -736,13 +1057,13 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOu
 }
 
 type BrokerUser struct {
-	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
 	ConsoleAccess *bool `pulumi:"consoleAccess"`
-	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+	// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
 	Groups []string `pulumi:"groups"`
-	// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password string `pulumi:"password"`
-	// The username of the user.
+	// Username of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -758,13 +1079,13 @@ type BrokerUserInput interface {
 }
 
 type BrokerUserArgs struct {
-	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
 	ConsoleAccess pulumi.BoolPtrInput `pulumi:"consoleAccess"`
-	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+	// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username of the user.
+	// Username of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -819,22 +1140,22 @@ func (o BrokerUserOutput) ToBrokerUserOutputWithContext(ctx context.Context) Bro
 	return o
 }
 
-// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
 func (o BrokerUserOutput) ConsoleAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerUser) *bool { return v.ConsoleAccess }).(pulumi.BoolPtrOutput)
 }
 
-// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
 func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username of the user.
+// Username of the user.
 func (o BrokerUserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1120,6 +1441,160 @@ func (o GetBrokerInstanceArrayOutput) Index(i pulumi.IntInput) GetBrokerInstance
 	}).(GetBrokerInstanceOutput)
 }
 
+type GetBrokerLdapServerMetadata struct {
+	Hosts                  []string `pulumi:"hosts"`
+	RoleBase               string   `pulumi:"roleBase"`
+	RoleName               string   `pulumi:"roleName"`
+	RoleSearchMatching     string   `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      bool     `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword string   `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername string   `pulumi:"serviceAccountUsername"`
+	UserBase               string   `pulumi:"userBase"`
+	UserRoleName           string   `pulumi:"userRoleName"`
+	UserSearchMatching     string   `pulumi:"userSearchMatching"`
+	UserSearchSubtree      bool     `pulumi:"userSearchSubtree"`
+}
+
+// GetBrokerLdapServerMetadataInput is an input type that accepts GetBrokerLdapServerMetadataArgs and GetBrokerLdapServerMetadataOutput values.
+// You can construct a concrete instance of `GetBrokerLdapServerMetadataInput` via:
+//
+//          GetBrokerLdapServerMetadataArgs{...}
+type GetBrokerLdapServerMetadataInput interface {
+	pulumi.Input
+
+	ToGetBrokerLdapServerMetadataOutput() GetBrokerLdapServerMetadataOutput
+	ToGetBrokerLdapServerMetadataOutputWithContext(context.Context) GetBrokerLdapServerMetadataOutput
+}
+
+type GetBrokerLdapServerMetadataArgs struct {
+	Hosts                  pulumi.StringArrayInput `pulumi:"hosts"`
+	RoleBase               pulumi.StringInput      `pulumi:"roleBase"`
+	RoleName               pulumi.StringInput      `pulumi:"roleName"`
+	RoleSearchMatching     pulumi.StringInput      `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      pulumi.BoolInput        `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword pulumi.StringInput      `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername pulumi.StringInput      `pulumi:"serviceAccountUsername"`
+	UserBase               pulumi.StringInput      `pulumi:"userBase"`
+	UserRoleName           pulumi.StringInput      `pulumi:"userRoleName"`
+	UserSearchMatching     pulumi.StringInput      `pulumi:"userSearchMatching"`
+	UserSearchSubtree      pulumi.BoolInput        `pulumi:"userSearchSubtree"`
+}
+
+func (GetBrokerLdapServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i GetBrokerLdapServerMetadataArgs) ToGetBrokerLdapServerMetadataOutput() GetBrokerLdapServerMetadataOutput {
+	return i.ToGetBrokerLdapServerMetadataOutputWithContext(context.Background())
+}
+
+func (i GetBrokerLdapServerMetadataArgs) ToGetBrokerLdapServerMetadataOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataOutput)
+}
+
+// GetBrokerLdapServerMetadataArrayInput is an input type that accepts GetBrokerLdapServerMetadataArray and GetBrokerLdapServerMetadataArrayOutput values.
+// You can construct a concrete instance of `GetBrokerLdapServerMetadataArrayInput` via:
+//
+//          GetBrokerLdapServerMetadataArray{ GetBrokerLdapServerMetadataArgs{...} }
+type GetBrokerLdapServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetBrokerLdapServerMetadataArrayOutput() GetBrokerLdapServerMetadataArrayOutput
+	ToGetBrokerLdapServerMetadataArrayOutputWithContext(context.Context) GetBrokerLdapServerMetadataArrayOutput
+}
+
+type GetBrokerLdapServerMetadataArray []GetBrokerLdapServerMetadataInput
+
+func (GetBrokerLdapServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (i GetBrokerLdapServerMetadataArray) ToGetBrokerLdapServerMetadataArrayOutput() GetBrokerLdapServerMetadataArrayOutput {
+	return i.ToGetBrokerLdapServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrokerLdapServerMetadataArray) ToGetBrokerLdapServerMetadataArrayOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataArrayOutput)
+}
+
+type GetBrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerLdapServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o GetBrokerLdapServerMetadataOutput) ToGetBrokerLdapServerMetadataOutput() GetBrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o GetBrokerLdapServerMetadataOutput) ToGetBrokerLdapServerMetadataOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataOutput {
+	return o
+}
+
+func (o GetBrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) []string { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) RoleBase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleBase }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleName }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.RoleSearchMatching }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) bool { return v.RoleSearchSubtree }).(pulumi.BoolOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.ServiceAccountPassword }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.ServiceAccountUsername }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) UserBase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserBase }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserRoleName }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) string { return v.UserSearchMatching }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBrokerLdapServerMetadata) bool { return v.UserSearchSubtree }).(pulumi.BoolOutput)
+}
+
+type GetBrokerLdapServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerLdapServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerLdapServerMetadata)(nil)).Elem()
+}
+
+func (o GetBrokerLdapServerMetadataArrayOutput) ToGetBrokerLdapServerMetadataArrayOutput() GetBrokerLdapServerMetadataArrayOutput {
+	return o
+}
+
+func (o GetBrokerLdapServerMetadataArrayOutput) ToGetBrokerLdapServerMetadataArrayOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataArrayOutput {
+	return o
+}
+
+func (o GetBrokerLdapServerMetadataArrayOutput) Index(i pulumi.IntInput) GetBrokerLdapServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerLdapServerMetadata {
+		return vs[0].([]GetBrokerLdapServerMetadata)[vs[1].(int)]
+	}).(GetBrokerLdapServerMetadataOutput)
+}
+
 type GetBrokerLogs struct {
 	Audit   bool `pulumi:"audit"`
 	General bool `pulumi:"general"`
@@ -1349,6 +1824,8 @@ func init() {
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(BrokerInstanceOutput{})
 	pulumi.RegisterOutputType(BrokerInstanceArrayOutput{})
+	pulumi.RegisterOutputType(BrokerLdapServerMetadataOutput{})
+	pulumi.RegisterOutputType(BrokerLdapServerMetadataPtrOutput{})
 	pulumi.RegisterOutputType(BrokerLogsOutput{})
 	pulumi.RegisterOutputType(BrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowStartTimeOutput{})
@@ -1360,6 +1837,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBrokerEncryptionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerInstanceOutput{})
 	pulumi.RegisterOutputType(GetBrokerInstanceArrayOutput{})
+	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataOutput{})
+	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerLogsOutput{})
 	pulumi.RegisterOutputType(GetBrokerMaintenanceWindowStartTimeOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserOutput{})

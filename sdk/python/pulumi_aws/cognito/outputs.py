@@ -19,6 +19,7 @@ __all__ = [
     'UserPoolAdminCreateUserConfig',
     'UserPoolAdminCreateUserConfigInviteMessageTemplate',
     'UserPoolClientAnalyticsConfiguration',
+    'UserPoolClientTokenValidityUnits',
     'UserPoolDeviceConfiguration',
     'UserPoolEmailConfiguration',
     'UserPoolLambdaConfig',
@@ -226,7 +227,7 @@ class UserPoolAccountRecoverySetting(dict):
     def __init__(__self__, *,
                  recovery_mechanisms: Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']):
         """
-        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: The list of Account Recovery Options of the following structure:
+        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
         pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
@@ -234,7 +235,7 @@ class UserPoolAccountRecoverySetting(dict):
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']:
         """
-        The list of Account Recovery Options of the following structure:
+        List of Account Recovery Options of the following structure:
         """
         return pulumi.get(self, "recovery_mechanisms")
 
@@ -248,8 +249,8 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
                  name: str,
                  priority: int):
         """
-        :param str name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
-        :param int priority: A positive integer specifying priority of a method with 1 being the highest priority.
+        :param str name: Name of the attribute.
+        :param int priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -258,7 +259,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        Name of the attribute.
         """
         return pulumi.get(self, "name")
 
@@ -266,7 +267,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     @pulumi.getter
     def priority(self) -> int:
         """
-        A positive integer specifying priority of a method with 1 being the highest priority.
+        Positive integer specifying priority of a method with 1 being the highest priority.
         """
         return pulumi.get(self, "priority")
 
@@ -281,7 +282,7 @@ class UserPoolAdminCreateUserConfig(dict):
                  invite_message_template: Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate'] = None):
         """
         :param bool allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs' invite_message_template: The invite message template structure.
+        :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs' invite_message_template: Invite message template structure. Detailed below.
         """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
@@ -300,7 +301,7 @@ class UserPoolAdminCreateUserConfig(dict):
     @pulumi.getter(name="inviteMessageTemplate")
     def invite_message_template(self) -> Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate']:
         """
-        The invite message template structure.
+        Invite message template structure. Detailed below.
         """
         return pulumi.get(self, "invite_message_template")
 
@@ -315,9 +316,9 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
                  email_subject: Optional[str] = None,
                  sms_message: Optional[str] = None):
         """
-        :param str email_message: The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        :param str email_subject: The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        :param str sms_message: The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        :param str email_message: Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        :param str email_subject: Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        :param str sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
@@ -330,7 +331,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[str]:
         """
-        The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
         """
         return pulumi.get(self, "email_message")
 
@@ -338,7 +339,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[str]:
         """
-        The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
         """
         return pulumi.get(self, "email_subject")
 
@@ -346,7 +347,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[str]:
         """
-        The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
 
@@ -363,10 +364,10 @@ class UserPoolClientAnalyticsConfiguration(dict):
                  role_arn: Optional[str] = None,
                  user_data_shared: Optional[bool] = None):
         """
-        :param str application_arn: The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        :param str application_id: The application ID for an Amazon Pinpoint application.
-        :param str external_id: An ID for the Analytics Configuration. Conflicts with `application_arn`.
-        :param str role_arn: The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        :param str application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        :param str application_id: Application ID for an Amazon Pinpoint application.
+        :param str external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
+        :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         :param bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         if application_arn is not None:
@@ -384,7 +385,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
         """
-        The application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
         """
         return pulumi.get(self, "application_arn")
 
@@ -392,7 +393,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
         """
-        The application ID for an Amazon Pinpoint application.
+        Application ID for an Amazon Pinpoint application.
         """
         return pulumi.get(self, "application_id")
 
@@ -400,7 +401,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
         """
-        An ID for the Analytics Configuration. Conflicts with `application_arn`.
+        ID for the Analytics Configuration. Conflicts with `application_arn`.
         """
         return pulumi.get(self, "external_id")
 
@@ -408,7 +409,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -425,13 +426,59 @@ class UserPoolClientAnalyticsConfiguration(dict):
 
 
 @pulumi.output_type
+class UserPoolClientTokenValidityUnits(dict):
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 id_token: Optional[str] = None,
+                 refresh_token: Optional[str] = None):
+        """
+        :param str access_token: Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        :param str id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        :param str refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if id_token is not None:
+            pulumi.set(__self__, "id_token", id_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="idToken")
+    def id_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "id_token")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class UserPoolDeviceConfiguration(dict):
     def __init__(__self__, *,
                  challenge_required_on_new_device: Optional[bool] = None,
                  device_only_remembered_on_user_prompt: Optional[bool] = None):
         """
-        :param bool challenge_required_on_new_device: Indicates whether a challenge is required on a new device. Only applicable to a new device.
-        :param bool device_only_remembered_on_user_prompt: If true, a device is only remembered on user prompt.
+        :param bool challenge_required_on_new_device: Whether a challenge is required on a new device. Only applicable to a new device.
+        :param bool device_only_remembered_on_user_prompt: Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
         """
         if challenge_required_on_new_device is not None:
             pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
@@ -442,7 +489,7 @@ class UserPoolDeviceConfiguration(dict):
     @pulumi.getter(name="challengeRequiredOnNewDevice")
     def challenge_required_on_new_device(self) -> Optional[bool]:
         """
-        Indicates whether a challenge is required on a new device. Only applicable to a new device.
+        Whether a challenge is required on a new device. Only applicable to a new device.
         """
         return pulumi.get(self, "challenge_required_on_new_device")
 
@@ -450,7 +497,7 @@ class UserPoolDeviceConfiguration(dict):
     @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
     def device_only_remembered_on_user_prompt(self) -> Optional[bool]:
         """
-        If true, a device is only remembered on user prompt.
+        Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
         """
         return pulumi.get(self, "device_only_remembered_on_user_prompt")
 
@@ -461,16 +508,20 @@ class UserPoolDeviceConfiguration(dict):
 @pulumi.output_type
 class UserPoolEmailConfiguration(dict):
     def __init__(__self__, *,
+                 configuration_set: Optional[str] = None,
                  email_sending_account: Optional[str] = None,
                  from_email_address: Optional[str] = None,
                  reply_to_email_address: Optional[str] = None,
                  source_arn: Optional[str] = None):
         """
-        :param str email_sending_account: The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        :param str configuration_set: Email configuration set name from SES.
+        :param str email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
         :param str from_email_address: Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-        :param str reply_to_email_address: The REPLY-TO email address.
-        :param str source_arn: The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        :param str reply_to_email_address: REPLY-TO email address.
+        :param str source_arn: ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
         """
+        if configuration_set is not None:
+            pulumi.set(__self__, "configuration_set", configuration_set)
         if email_sending_account is not None:
             pulumi.set(__self__, "email_sending_account", email_sending_account)
         if from_email_address is not None:
@@ -481,10 +532,18 @@ class UserPoolEmailConfiguration(dict):
             pulumi.set(__self__, "source_arn", source_arn)
 
     @property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> Optional[str]:
+        """
+        Email configuration set name from SES.
+        """
+        return pulumi.get(self, "configuration_set")
+
+    @property
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> Optional[str]:
         """
-        The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
         """
         return pulumi.get(self, "email_sending_account")
 
@@ -500,7 +559,7 @@ class UserPoolEmailConfiguration(dict):
     @pulumi.getter(name="replyToEmailAddress")
     def reply_to_email_address(self) -> Optional[str]:
         """
-        The REPLY-TO email address.
+        REPLY-TO email address.
         """
         return pulumi.get(self, "reply_to_email_address")
 
@@ -508,7 +567,7 @@ class UserPoolEmailConfiguration(dict):
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[str]:
         """
-        The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
         """
         return pulumi.get(self, "source_arn")
 
@@ -530,15 +589,15 @@ class UserPoolLambdaConfig(dict):
                  user_migration: Optional[str] = None,
                  verify_auth_challenge_response: Optional[str] = None):
         """
-        :param str create_auth_challenge: The ARN of the lambda creating an authentication challenge.
-        :param str custom_message: A custom Message AWS Lambda trigger.
+        :param str create_auth_challenge: ARN of the lambda creating an authentication challenge.
+        :param str custom_message: Custom Message AWS Lambda trigger.
         :param str define_auth_challenge: Defines the authentication challenge.
-        :param str post_authentication: A post-authentication AWS Lambda trigger.
-        :param str post_confirmation: A post-confirmation AWS Lambda trigger.
-        :param str pre_authentication: A pre-authentication AWS Lambda trigger.
-        :param str pre_sign_up: A pre-registration AWS Lambda trigger.
+        :param str post_authentication: Post-authentication AWS Lambda trigger.
+        :param str post_confirmation: Post-confirmation AWS Lambda trigger.
+        :param str pre_authentication: Pre-authentication AWS Lambda trigger.
+        :param str pre_sign_up: Pre-registration AWS Lambda trigger.
         :param str pre_token_generation: Allow to customize identity token claims before token generation.
-        :param str user_migration: The user migration Lambda config type.
+        :param str user_migration: User migration Lambda config type.
         :param str verify_auth_challenge_response: Verifies the authentication challenge response.
         """
         if create_auth_challenge is not None:
@@ -566,7 +625,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="createAuthChallenge")
     def create_auth_challenge(self) -> Optional[str]:
         """
-        The ARN of the lambda creating an authentication challenge.
+        ARN of the lambda creating an authentication challenge.
         """
         return pulumi.get(self, "create_auth_challenge")
 
@@ -574,7 +633,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="customMessage")
     def custom_message(self) -> Optional[str]:
         """
-        A custom Message AWS Lambda trigger.
+        Custom Message AWS Lambda trigger.
         """
         return pulumi.get(self, "custom_message")
 
@@ -590,7 +649,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="postAuthentication")
     def post_authentication(self) -> Optional[str]:
         """
-        A post-authentication AWS Lambda trigger.
+        Post-authentication AWS Lambda trigger.
         """
         return pulumi.get(self, "post_authentication")
 
@@ -598,7 +657,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="postConfirmation")
     def post_confirmation(self) -> Optional[str]:
         """
-        A post-confirmation AWS Lambda trigger.
+        Post-confirmation AWS Lambda trigger.
         """
         return pulumi.get(self, "post_confirmation")
 
@@ -606,7 +665,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preAuthentication")
     def pre_authentication(self) -> Optional[str]:
         """
-        A pre-authentication AWS Lambda trigger.
+        Pre-authentication AWS Lambda trigger.
         """
         return pulumi.get(self, "pre_authentication")
 
@@ -614,7 +673,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preSignUp")
     def pre_sign_up(self) -> Optional[str]:
         """
-        A pre-registration AWS Lambda trigger.
+        Pre-registration AWS Lambda trigger.
         """
         return pulumi.get(self, "pre_sign_up")
 
@@ -630,7 +689,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="userMigration")
     def user_migration(self) -> Optional[str]:
         """
-        The user migration Lambda config type.
+        User migration Lambda config type.
         """
         return pulumi.get(self, "user_migration")
 
@@ -656,7 +715,7 @@ class UserPoolPasswordPolicy(dict):
                  require_uppercase: Optional[bool] = None,
                  temporary_password_validity_days: Optional[int] = None):
         """
-        :param int minimum_length: The minimum length of the password policy that you have set.
+        :param int minimum_length: Minimum length of the password policy that you have set.
         :param bool require_lowercase: Whether you have required users to use at least one lowercase letter in their password.
         :param bool require_numbers: Whether you have required users to use at least one number in their password.
         :param bool require_symbols: Whether you have required users to use at least one symbol in their password.
@@ -680,7 +739,7 @@ class UserPoolPasswordPolicy(dict):
     @pulumi.getter(name="minimumLength")
     def minimum_length(self) -> Optional[int]:
         """
-        The minimum length of the password policy that you have set.
+        Minimum length of the password policy that you have set.
         """
         return pulumi.get(self, "minimum_length")
 
@@ -739,13 +798,13 @@ class UserPoolSchema(dict):
                  required: Optional[bool] = None,
                  string_attribute_constraints: Optional['outputs.UserPoolSchemaStringAttributeConstraints'] = None):
         """
-        :param str attribute_data_type: The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        :param str name: Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
-        :param bool developer_only_attribute: Specifies whether the attribute type is developer only.
-        :param bool mutable: Specifies whether the attribute can be changed once it has been created.
-        :param 'UserPoolSchemaNumberAttributeConstraintsArgs' number_attribute_constraints: Specifies the constraints for an attribute of the number type.
-        :param bool required: Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        :param 'UserPoolSchemaStringAttributeConstraintsArgs' string_attribute_constraints: -Specifies the constraints for an attribute of the string type.
+        :param str attribute_data_type: Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        :param str name: Name of the attribute.
+        :param bool developer_only_attribute: Whether the attribute type is developer only.
+        :param bool mutable: Whether the attribute can be changed once it has been created.
+        :param 'UserPoolSchemaNumberAttributeConstraintsArgs' number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
+        :param bool required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        :param 'UserPoolSchemaStringAttributeConstraintsArgs' string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
         """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "name", name)
@@ -764,7 +823,7 @@ class UserPoolSchema(dict):
     @pulumi.getter(name="attributeDataType")
     def attribute_data_type(self) -> str:
         """
-        The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
         """
         return pulumi.get(self, "attribute_data_type")
 
@@ -772,7 +831,7 @@ class UserPoolSchema(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        Name of the attribute.
         """
         return pulumi.get(self, "name")
 
@@ -780,7 +839,7 @@ class UserPoolSchema(dict):
     @pulumi.getter(name="developerOnlyAttribute")
     def developer_only_attribute(self) -> Optional[bool]:
         """
-        Specifies whether the attribute type is developer only.
+        Whether the attribute type is developer only.
         """
         return pulumi.get(self, "developer_only_attribute")
 
@@ -788,7 +847,7 @@ class UserPoolSchema(dict):
     @pulumi.getter
     def mutable(self) -> Optional[bool]:
         """
-        Specifies whether the attribute can be changed once it has been created.
+        Whether the attribute can be changed once it has been created.
         """
         return pulumi.get(self, "mutable")
 
@@ -796,7 +855,7 @@ class UserPoolSchema(dict):
     @pulumi.getter(name="numberAttributeConstraints")
     def number_attribute_constraints(self) -> Optional['outputs.UserPoolSchemaNumberAttributeConstraints']:
         """
-        Specifies the constraints for an attribute of the number type.
+        Configuration block for the constraints for an attribute of the number type. Detailed below.
         """
         return pulumi.get(self, "number_attribute_constraints")
 
@@ -804,7 +863,7 @@ class UserPoolSchema(dict):
     @pulumi.getter
     def required(self) -> Optional[bool]:
         """
-        Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
         """
         return pulumi.get(self, "required")
 
@@ -812,7 +871,7 @@ class UserPoolSchema(dict):
     @pulumi.getter(name="stringAttributeConstraints")
     def string_attribute_constraints(self) -> Optional['outputs.UserPoolSchemaStringAttributeConstraints']:
         """
-        -Specifies the constraints for an attribute of the string type.
+        Constraints for an attribute of the string type. Detailed below.
         """
         return pulumi.get(self, "string_attribute_constraints")
 
@@ -826,8 +885,8 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
                  max_value: Optional[str] = None,
                  min_value: Optional[str] = None):
         """
-        :param str max_value: The maximum value of an attribute that is of the number data type.
-        :param str min_value: The minimum value of an attribute that is of the number data type.
+        :param str max_value: Maximum value of an attribute that is of the number data type.
+        :param str min_value: Minimum value of an attribute that is of the number data type.
         """
         if max_value is not None:
             pulumi.set(__self__, "max_value", max_value)
@@ -838,7 +897,7 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
     @pulumi.getter(name="maxValue")
     def max_value(self) -> Optional[str]:
         """
-        The maximum value of an attribute that is of the number data type.
+        Maximum value of an attribute that is of the number data type.
         """
         return pulumi.get(self, "max_value")
 
@@ -846,7 +905,7 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
     @pulumi.getter(name="minValue")
     def min_value(self) -> Optional[str]:
         """
-        The minimum value of an attribute that is of the number data type.
+        Minimum value of an attribute that is of the number data type.
         """
         return pulumi.get(self, "min_value")
 
@@ -860,8 +919,8 @@ class UserPoolSchemaStringAttributeConstraints(dict):
                  max_length: Optional[str] = None,
                  min_length: Optional[str] = None):
         """
-        :param str max_length: The maximum length of an attribute value of the string type.
-        :param str min_length: The minimum length of an attribute value of the string type.
+        :param str max_length: Maximum length of an attribute value of the string type.
+        :param str min_length: Minimum length of an attribute value of the string type.
         """
         if max_length is not None:
             pulumi.set(__self__, "max_length", max_length)
@@ -872,7 +931,7 @@ class UserPoolSchemaStringAttributeConstraints(dict):
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[str]:
         """
-        The maximum length of an attribute value of the string type.
+        Maximum length of an attribute value of the string type.
         """
         return pulumi.get(self, "max_length")
 
@@ -880,7 +939,7 @@ class UserPoolSchemaStringAttributeConstraints(dict):
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[str]:
         """
-        The minimum length of an attribute value of the string type.
+        Minimum length of an attribute value of the string type.
         """
         return pulumi.get(self, "min_length")
 
@@ -894,8 +953,8 @@ class UserPoolSmsConfiguration(dict):
                  external_id: str,
                  sns_caller_arn: str):
         """
-        :param str external_id: The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        :param str sns_caller_arn: The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        :param str external_id: External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        :param str sns_caller_arn: ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
@@ -904,7 +963,7 @@ class UserPoolSmsConfiguration(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> str:
         """
-        The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
         """
         return pulumi.get(self, "external_id")
 
@@ -912,7 +971,7 @@ class UserPoolSmsConfiguration(dict):
     @pulumi.getter(name="snsCallerArn")
     def sns_caller_arn(self) -> str:
         """
-        The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         """
         return pulumi.get(self, "sns_caller_arn")
 
@@ -925,7 +984,7 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        :param bool enabled: Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -933,7 +992,7 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
         """
         return pulumi.get(self, "enabled")
 
@@ -946,7 +1005,7 @@ class UserPoolUserPoolAddOns(dict):
     def __init__(__self__, *,
                  advanced_security_mode: str):
         """
-        :param str advanced_security_mode: The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        :param str advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         """
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
 
@@ -954,7 +1013,7 @@ class UserPoolUserPoolAddOns(dict):
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> str:
         """
-        The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         """
         return pulumi.get(self, "advanced_security_mode")
 
@@ -967,7 +1026,7 @@ class UserPoolUsernameConfiguration(dict):
     def __init__(__self__, *,
                  case_sensitive: bool):
         """
-        :param bool case_sensitive: Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        :param bool case_sensitive: Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         """
         pulumi.set(__self__, "case_sensitive", case_sensitive)
 
@@ -975,7 +1034,7 @@ class UserPoolUsernameConfiguration(dict):
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> bool:
         """
-        Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         """
         return pulumi.get(self, "case_sensitive")
 
@@ -993,12 +1052,12 @@ class UserPoolVerificationMessageTemplate(dict):
                  email_subject_by_link: Optional[str] = None,
                  sms_message: Optional[str] = None):
         """
-        :param str default_email_option: The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        :param str email_message: The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        :param str email_message_by_link: The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        :param str email_subject: The subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        :param str email_subject_by_link: The subject line for the email message template for sending a confirmation link to the user.
-        :param str sms_message: The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        :param str default_email_option: Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+        :param str email_message: Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        :param str email_message_by_link: Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+        :param str email_subject: Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        :param str email_subject_by_link: Subject line for the email message template for sending a confirmation link to the user.
+        :param str sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         if default_email_option is not None:
             pulumi.set(__self__, "default_email_option", default_email_option)
@@ -1017,7 +1076,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="defaultEmailOption")
     def default_email_option(self) -> Optional[str]:
         """
-        The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+        Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
         """
         return pulumi.get(self, "default_email_option")
 
@@ -1025,7 +1084,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[str]:
         """
-        The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
         """
         return pulumi.get(self, "email_message")
 
@@ -1033,7 +1092,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="emailMessageByLink")
     def email_message_by_link(self) -> Optional[str]:
         """
-        The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+        Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
         """
         return pulumi.get(self, "email_message_by_link")
 
@@ -1041,7 +1100,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[str]:
         """
-        The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
         """
         return pulumi.get(self, "email_subject")
 
@@ -1049,7 +1108,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="emailSubjectByLink")
     def email_subject_by_link(self) -> Optional[str]:
         """
-        The subject line for the email message template for sending a confirmation link to the user.
+        Subject line for the email message template for sending a confirmation link to the user.
         """
         return pulumi.get(self, "email_subject_by_link")
 
@@ -1057,7 +1116,7 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[str]:
         """
-        The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
 

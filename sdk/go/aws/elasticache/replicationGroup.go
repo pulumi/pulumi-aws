@@ -149,6 +149,49 @@ import (
 // > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
 // and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
 // for full details on using Replication Groups.
+// ### Creating a secondary replication group for a global replication group
+//
+// A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
+// 			ReplicationGroupDescription: pulumi.String("primary replication group"),
+// 			Engine:                      pulumi.String("redis"),
+// 			EngineVersion:               pulumi.String("5.0.6"),
+// 			NodeType:                    pulumi.String("cache.m5.large"),
+// 			NumberCacheClusters:         pulumi.Int(1),
+// 		}, pulumi.Provider(aws.Other_region))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
+// 			GlobalReplicationGroupIdSuffix: pulumi.String("example"),
+// 			PrimaryReplicationGroupId:      primary.ID(),
+// 		}, pulumi.Provider(aws.Other_region))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
+// 			ReplicationGroupDescription: pulumi.String("secondary replication group"),
+// 			GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
+// 			NumberCacheClusters:         pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -185,7 +228,8 @@ type ReplicationGroup struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	FinalSnapshotIdentifier  pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	GlobalReplicationGroupId pulumi.StringOutput    `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
@@ -196,7 +240,7 @@ type ReplicationGroup struct {
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
-	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
@@ -299,7 +343,8 @@ type replicationGroupState struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	FinalSnapshotIdentifier  *string `pulumi:"finalSnapshotIdentifier"`
+	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
@@ -310,7 +355,7 @@ type replicationGroupState struct {
 	MemberClusters []string `pulumi:"memberClusters"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
-	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
@@ -382,7 +427,8 @@ type ReplicationGroupState struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier pulumi.StringPtrInput
+	FinalSnapshotIdentifier  pulumi.StringPtrInput
+	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the weekly time range for when maintenance
@@ -393,7 +439,7 @@ type ReplicationGroupState struct {
 	MemberClusters pulumi.StringArrayInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
-	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
@@ -463,7 +509,8 @@ type replicationGroupArgs struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	FinalSnapshotIdentifier  *string `pulumi:"finalSnapshotIdentifier"`
+	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
@@ -472,7 +519,7 @@ type replicationGroupArgs struct {
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
-	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
@@ -535,7 +582,8 @@ type ReplicationGroupArgs struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier pulumi.StringPtrInput
+	FinalSnapshotIdentifier  pulumi.StringPtrInput
+	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the weekly time range for when maintenance
@@ -544,7 +592,7 @@ type ReplicationGroupArgs struct {
 	MaintenanceWindow pulumi.StringPtrInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
-	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:

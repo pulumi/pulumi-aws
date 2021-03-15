@@ -71,6 +71,7 @@ type LookupBrokerArgs struct {
 // A collection of values returned by getBroker.
 type LookupBrokerResult struct {
 	Arn                     string                      `pulumi:"arn"`
+	AuthenticationStrategy  string                      `pulumi:"authenticationStrategy"`
 	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
 	BrokerId                string                      `pulumi:"brokerId"`
 	BrokerName              string                      `pulumi:"brokerName"`
@@ -83,10 +84,12 @@ type LookupBrokerResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                         string                              `pulumi:"id"`
 	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
+	LdapServerMetadatas        []GetBrokerLdapServerMetadata       `pulumi:"ldapServerMetadatas"`
 	Logs                       *GetBrokerLogs                      `pulumi:"logs"`
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
 	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
 	SecurityGroups             []string                            `pulumi:"securityGroups"`
+	StorageType                string                              `pulumi:"storageType"`
 	SubnetIds                  []string                            `pulumi:"subnetIds"`
 	Tags                       map[string]string                   `pulumi:"tags"`
 	Users                      []GetBrokerUser                     `pulumi:"users"`

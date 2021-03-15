@@ -102,6 +102,35 @@ import * as utilities from "../utilities";
  * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
  * for full details on using Replication Groups.
+ * ### Creating a secondary replication group for a global replication group
+ *
+ * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ *     replicationGroupDescription: "primary replication group",
+ *     engine: "redis",
+ *     engineVersion: "5.0.6",
+ *     nodeType: "cache.m5.large",
+ *     numberCacheClusters: 1,
+ * }, {
+ *     provider: aws.other_region,
+ * });
+ * const example = new aws.elasticache.GlobalReplicationGroup("example", {
+ *     globalReplicationGroupIdSuffix: "example",
+ *     primaryReplicationGroupId: primary.id,
+ * }, {
+ *     provider: aws.other_region,
+ * });
+ * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ *     replicationGroupDescription: "secondary replication group",
+ *     globalReplicationGroupId: example.globalReplicationGroupId,
+ *     numberCacheClusters: 1,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -191,6 +220,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -210,7 +240,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -316,6 +346,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            inputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["memberClusters"] = state ? state.memberClusters : undefined;
@@ -353,6 +384,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            inputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
@@ -442,6 +474,7 @@ export interface ReplicationGroupState {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    readonly globalReplicationGroupId?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -461,7 +494,7 @@ export interface ReplicationGroupState {
      */
     readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
-     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
@@ -586,6 +619,7 @@ export interface ReplicationGroupArgs {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    readonly globalReplicationGroupId?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
@@ -601,7 +635,7 @@ export interface ReplicationGroupArgs {
      */
     readonly multiAzEnabled?: pulumi.Input<boolean>;
     /**
-     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
     readonly nodeType?: pulumi.Input<string>;
     /**

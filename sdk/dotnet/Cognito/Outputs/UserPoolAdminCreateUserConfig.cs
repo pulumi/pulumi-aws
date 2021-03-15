@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly bool? AllowAdminCreateUserOnly;
         /// <summary>
-        /// The invite message template structure.
+        /// Invite message template structure. Detailed below.
         /// </summary>
         public readonly Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate;
 

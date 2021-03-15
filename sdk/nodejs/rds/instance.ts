@@ -378,7 +378,7 @@ export class Instance extends pulumi.CustomResource {
      * database from a snapshot. This correlates to the snapshot ID you'd find in the
      * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
-    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly snapshotIdentifier!: pulumi.Output<string>;
     /**
      * The RDS instance status.
      */

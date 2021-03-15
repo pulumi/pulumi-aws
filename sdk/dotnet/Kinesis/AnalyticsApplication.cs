@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Kinesis
     /// &gt; **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the [`aws.kinesisanalyticsv2.Application`](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html) resource.
     /// 
     /// ## Example Usage
+    /// ### Kinesis Stream Input
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -69,6 +70,103 @@ namespace Pulumi.Aws.Kinesis
     ///                     },
     ///                 },
     ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Starting An Application
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var exampleLogStream = new Aws.CloudWatch.LogStream("exampleLogStream", new Aws.CloudWatch.LogStreamArgs
+    ///         {
+    ///             LogGroupName = exampleLogGroup.Name,
+    ///         });
+    ///         var exampleStream = new Aws.Kinesis.Stream("exampleStream", new Aws.Kinesis.StreamArgs
+    ///         {
+    ///             ShardCount = 1,
+    ///         });
+    ///         var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "extended_s3",
+    ///             ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = aws_s3_bucket.Example.Arn,
+    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///         });
+    ///         var test = new Aws.Kinesis.AnalyticsApplication("test", new Aws.Kinesis.AnalyticsApplicationArgs
+    ///         {
+    ///             CloudwatchLoggingOptions = new Aws.Kinesis.Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs
+    ///             {
+    ///                 LogStreamArn = exampleLogStream.Arn,
+    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///             Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
+    ///             {
+    ///                 NamePrefix = "example_prefix",
+    ///                 Schema = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaArgs
+    ///                 {
+    ///                     RecordColumns = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordColumnArgs
+    ///                         {
+    ///                             Name = "COLUMN_1",
+    ///                             SqlType = "INTEGER",
+    ///                         },
+    ///                     },
+    ///                     RecordFormat = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs
+    ///                     {
+    ///                         MappingParameters = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs
+    ///                         {
+    ///                             Csv = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs
+    ///                             {
+    ///                                 RecordColumnDelimiter = ",",
+    ///                                 RecordRowDelimiter = "|",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
+    ///                 {
+    ///                     ResourceArn = exampleStream.Arn,
+    ///                     RoleArn = aws_iam_role.Example.Arn,
+    ///                 },
+    ///                 StartingPositionConfigurations = 
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.AnalyticsApplicationInputsStartingPositionConfigurationArgs
+    ///                     {
+    ///                         StartingPosition = "NOW",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Outputs = 
+    ///             {
+    ///                 new Aws.Kinesis.Inputs.AnalyticsApplicationOutputArgs
+    ///                 {
+    ///                     Name = "OUTPUT_1",
+    ///                     Schema = new Aws.Kinesis.Inputs.AnalyticsApplicationOutputSchemaArgs
+    ///                     {
+    ///                         RecordFormatType = "CSV",
+    ///                     },
+    ///                     KinesisFirehose = new Aws.Kinesis.Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs
+    ///                     {
+    ///                         ResourceArn = exampleFirehoseDeliveryStream.Arn,
+    ///                         RoleArn = aws_iam_role.Example.Arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             StartApplication = true,
     ///         });
     ///     }
     /// 
@@ -147,6 +245,13 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("referenceDataSources")]
         public Output<Outputs.AnalyticsApplicationReferenceDataSources?> ReferenceDataSources { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        /// </summary>
+        [Output("startApplication")]
+        public Output<bool?> StartApplication { get; private set; } = null!;
 
         /// <summary>
         /// The Status of the application.
@@ -262,6 +367,13 @@ namespace Pulumi.Aws.Kinesis
         [Input("referenceDataSources")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesArgs>? ReferenceDataSources { get; set; }
 
+        /// <summary>
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        /// </summary>
+        [Input("startApplication")]
+        public Input<bool>? StartApplication { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -348,6 +460,13 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("referenceDataSources")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesGetArgs>? ReferenceDataSources { get; set; }
+
+        /// <summary>
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        /// </summary>
+        [Input("startApplication")]
+        public Input<bool>? StartApplication { get; set; }
 
         /// <summary>
         /// The Status of the application.

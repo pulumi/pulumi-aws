@@ -1052,9 +1052,9 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 }
 
 type ScheduledActionScalableTargetAction struct {
-	// The maximum capacity.
+	// The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity.
+	// The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 	MinCapacity *int `pulumi:"minCapacity"`
 }
 
@@ -1070,9 +1070,9 @@ type ScheduledActionScalableTargetActionInput interface {
 }
 
 type ScheduledActionScalableTargetActionArgs struct {
-	// The maximum capacity.
+	// The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity.
+	// The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 }
 
@@ -1153,12 +1153,12 @@ func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTarg
 	}).(ScheduledActionScalableTargetActionPtrOutput)
 }
 
-// The maximum capacity.
+// The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity.
+// The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
@@ -1181,7 +1181,7 @@ func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScal
 	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) ScheduledActionScalableTargetAction { return *v }).(ScheduledActionScalableTargetActionOutput)
 }
 
-// The maximum capacity.
+// The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
 		if v == nil {
@@ -1191,7 +1191,7 @@ func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity.
+// The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
 		if v == nil {

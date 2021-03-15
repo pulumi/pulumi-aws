@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationInputsStartingPositionConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+        /// </summary>
         [Input("startingPosition")]
         public Input<string>? StartingPosition { get; set; }
 

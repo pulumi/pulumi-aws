@@ -13,6 +13,7 @@ __all__ = [
     'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs',
     'CertificateAuthorityRevocationConfigurationArgs',
     'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
+    'CertificateValidityArgs',
     'GetCertificateAuthorityRevocationConfigurationArgs',
     'GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
 ]
@@ -375,6 +376,43 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @s3_bucket_name.setter
     def s3_bucket_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_bucket_name", value)
+
+
+@pulumi.input_type
+class CertificateValidityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+        :param pulumi.Input[str] value: If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

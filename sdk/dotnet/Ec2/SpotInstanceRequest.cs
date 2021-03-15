@@ -103,9 +103,6 @@ namespace Pulumi.Aws.Ec2
         [Output("cpuThreadsPerCore")]
         public Output<int> CpuThreadsPerCore { get; private set; } = null!;
 
-        /// <summary>
-        /// Customize the credit specification of the instance. See Credit Specification below for more details.
-        /// </summary>
         [Output("creditSpecification")]
         public Output<Outputs.SpotInstanceRequestCreditSpecification?> CreditSpecification { get; private set; } = null!;
 
@@ -473,9 +470,6 @@ namespace Pulumi.Aws.Ec2
         [Input("cpuThreadsPerCore")]
         public Input<int>? CpuThreadsPerCore { get; set; }
 
-        /// <summary>
-        /// Customize the credit specification of the instance. See Credit Specification below for more details.
-        /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.SpotInstanceRequestCreditSpecificationArgs>? CreditSpecification { get; set; }
 
@@ -807,9 +801,6 @@ namespace Pulumi.Aws.Ec2
         [Input("cpuThreadsPerCore")]
         public Input<int>? CpuThreadsPerCore { get; set; }
 
-        /// <summary>
-        /// Customize the credit specification of the instance. See Credit Specification below for more details.
-        /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.SpotInstanceRequestCreditSpecificationGetArgs>? CreditSpecification { get; set; }
 

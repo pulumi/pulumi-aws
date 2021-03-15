@@ -72,8 +72,6 @@ class Parameter(pulumi.CustomResource):
             })
         ```
 
-        > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-
         ## Import
 
         SSM Parameters can be imported using the `parameter store name`, e.g.

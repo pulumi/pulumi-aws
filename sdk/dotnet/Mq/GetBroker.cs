@@ -84,6 +84,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerResult
     {
         public readonly string Arn;
+        public readonly string AuthenticationStrategy;
         public readonly bool AutoMinorVersionUpgrade;
         public readonly string BrokerId;
         public readonly string BrokerName;
@@ -98,10 +99,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetBrokerInstanceResult> Instances;
+        public readonly ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> LdapServerMetadatas;
         public readonly Outputs.GetBrokerLogsResult? Logs;
         public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
         public readonly bool PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroups;
+        public readonly string StorageType;
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<Outputs.GetBrokerUserResult> Users;
@@ -109,6 +112,8 @@ namespace Pulumi.Aws.Mq
         [OutputConstructor]
         private GetBrokerResult(
             string arn,
+
+            string authenticationStrategy,
 
             bool autoMinorVersionUpgrade,
 
@@ -132,6 +137,8 @@ namespace Pulumi.Aws.Mq
 
             ImmutableArray<Outputs.GetBrokerInstanceResult> instances,
 
+            ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> ldapServerMetadatas,
+
             Outputs.GetBrokerLogsResult? logs,
 
             Outputs.GetBrokerMaintenanceWindowStartTimeResult maintenanceWindowStartTime,
@@ -140,6 +147,8 @@ namespace Pulumi.Aws.Mq
 
             ImmutableArray<string> securityGroups,
 
+            string storageType,
+
             ImmutableArray<string> subnetIds,
 
             ImmutableDictionary<string, string> tags,
@@ -147,6 +156,7 @@ namespace Pulumi.Aws.Mq
             ImmutableArray<Outputs.GetBrokerUserResult> users)
         {
             Arn = arn;
+            AuthenticationStrategy = authenticationStrategy;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             BrokerId = brokerId;
             BrokerName = brokerName;
@@ -158,10 +168,12 @@ namespace Pulumi.Aws.Mq
             HostInstanceType = hostInstanceType;
             Id = id;
             Instances = instances;
+            LdapServerMetadatas = ldapServerMetadatas;
             Logs = logs;
             MaintenanceWindowStartTime = maintenanceWindowStartTime;
             PubliclyAccessible = publiclyAccessible;
             SecurityGroups = securityGroups;
+            StorageType = storageType;
             SubnetIds = subnetIds;
             Tags = tags;
             Users = users;

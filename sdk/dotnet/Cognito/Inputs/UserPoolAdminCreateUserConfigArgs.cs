@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<bool>? AllowAdminCreateUserOnly { get; set; }
 
         /// <summary>
-        /// The invite message template structure.
+        /// Invite message template structure. Detailed below.
         /// </summary>
         [Input("inviteMessageTemplate")]
         public Input<Inputs.UserPoolAdminCreateUserConfigInviteMessageTemplateArgs>? InviteMessageTemplate { get; set; }

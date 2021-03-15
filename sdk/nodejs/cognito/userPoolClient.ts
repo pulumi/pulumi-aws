@@ -119,6 +119,10 @@ export class UserPoolClient extends pulumi.CustomResource {
     }
 
     /**
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    public readonly accessTokenValidity!: pulumi.Output<number | undefined>;
+    /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
     public readonly allowedOauthFlows!: pulumi.Output<string[] | undefined>;
@@ -131,7 +135,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly allowedOauthScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
     public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
@@ -139,15 +143,15 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
     /**
-     * The client secret of the user pool client.
+     * Client secret of the user pool client.
      */
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
-     * The default redirect URI. Must be in the list of callback URLs.
+     * Default redirect URI. Must be in the list of callback URLs.
      */
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
     /**
@@ -155,11 +159,15 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly generateSecret!: pulumi.Output<boolean | undefined>;
     /**
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    public readonly idTokenValidity!: pulumi.Output<number | undefined>;
+    /**
      * List of allowed logout URLs for the identity providers.
      */
     public readonly logoutUrls!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the application client.
+     * Name of the application client.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -171,7 +179,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly readAttributes!: pulumi.Output<string[] | undefined>;
     /**
-     * The time limit in days refresh tokens are valid for.
+     * Time limit in days refresh tokens are valid for.
      */
     public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -179,7 +187,11 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
     /**
-     * The user pool the client belongs to.
+     * Configuration block for units in which the validity times are represented in. Detailed below.
+     */
+    public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
+    /**
+     * User pool the client belongs to.
      */
     public readonly userPoolId!: pulumi.Output<string>;
     /**
@@ -200,6 +212,7 @@ export class UserPoolClient extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoolClientState | undefined;
+            inputs["accessTokenValidity"] = state ? state.accessTokenValidity : undefined;
             inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
@@ -209,12 +222,14 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
             inputs["explicitAuthFlows"] = state ? state.explicitAuthFlows : undefined;
             inputs["generateSecret"] = state ? state.generateSecret : undefined;
+            inputs["idTokenValidity"] = state ? state.idTokenValidity : undefined;
             inputs["logoutUrls"] = state ? state.logoutUrls : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["preventUserExistenceErrors"] = state ? state.preventUserExistenceErrors : undefined;
             inputs["readAttributes"] = state ? state.readAttributes : undefined;
             inputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
             inputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
+            inputs["tokenValidityUnits"] = state ? state.tokenValidityUnits : undefined;
             inputs["userPoolId"] = state ? state.userPoolId : undefined;
             inputs["writeAttributes"] = state ? state.writeAttributes : undefined;
         } else {
@@ -222,6 +237,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
+            inputs["accessTokenValidity"] = args ? args.accessTokenValidity : undefined;
             inputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = args ? args.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = args ? args.allowedOauthScopes : undefined;
@@ -230,12 +246,14 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
             inputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
             inputs["generateSecret"] = args ? args.generateSecret : undefined;
+            inputs["idTokenValidity"] = args ? args.idTokenValidity : undefined;
             inputs["logoutUrls"] = args ? args.logoutUrls : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
             inputs["readAttributes"] = args ? args.readAttributes : undefined;
             inputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
             inputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
+            inputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             inputs["clientSecret"] = undefined /*out*/;
@@ -252,6 +270,10 @@ export class UserPoolClient extends pulumi.CustomResource {
  */
 export interface UserPoolClientState {
     /**
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    readonly accessTokenValidity?: pulumi.Input<number>;
+    /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
     readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
@@ -264,7 +286,7 @@ export interface UserPoolClientState {
      */
     readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
     readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
     /**
@@ -272,15 +294,15 @@ export interface UserPoolClientState {
      */
     readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The client secret of the user pool client.
+     * Client secret of the user pool client.
      */
     readonly clientSecret?: pulumi.Input<string>;
     /**
-     * The default redirect URI. Must be in the list of callback URLs.
+     * Default redirect URI. Must be in the list of callback URLs.
      */
     readonly defaultRedirectUri?: pulumi.Input<string>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -288,11 +310,15 @@ export interface UserPoolClientState {
      */
     readonly generateSecret?: pulumi.Input<boolean>;
     /**
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    readonly idTokenValidity?: pulumi.Input<number>;
+    /**
      * List of allowed logout URLs for the identity providers.
      */
     readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the application client.
+     * Name of the application client.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -304,7 +330,7 @@ export interface UserPoolClientState {
      */
     readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The time limit in days refresh tokens are valid for.
+     * Time limit in days refresh tokens are valid for.
      */
     readonly refreshTokenValidity?: pulumi.Input<number>;
     /**
@@ -312,7 +338,11 @@ export interface UserPoolClientState {
      */
     readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The user pool the client belongs to.
+     * Configuration block for units in which the validity times are represented in. Detailed below.
+     */
+    readonly tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
+    /**
+     * User pool the client belongs to.
      */
     readonly userPoolId?: pulumi.Input<string>;
     /**
@@ -326,6 +356,10 @@ export interface UserPoolClientState {
  */
 export interface UserPoolClientArgs {
     /**
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    readonly accessTokenValidity?: pulumi.Input<number>;
+    /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
     readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
@@ -338,7 +372,7 @@ export interface UserPoolClientArgs {
      */
     readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
     readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
     /**
@@ -346,11 +380,11 @@ export interface UserPoolClientArgs {
      */
     readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The default redirect URI. Must be in the list of callback URLs.
+     * Default redirect URI. Must be in the list of callback URLs.
      */
     readonly defaultRedirectUri?: pulumi.Input<string>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -358,11 +392,15 @@ export interface UserPoolClientArgs {
      */
     readonly generateSecret?: pulumi.Input<boolean>;
     /**
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     */
+    readonly idTokenValidity?: pulumi.Input<number>;
+    /**
      * List of allowed logout URLs for the identity providers.
      */
     readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the application client.
+     * Name of the application client.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -374,7 +412,7 @@ export interface UserPoolClientArgs {
      */
     readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The time limit in days refresh tokens are valid for.
+     * Time limit in days refresh tokens are valid for.
      */
     readonly refreshTokenValidity?: pulumi.Input<number>;
     /**
@@ -382,7 +420,11 @@ export interface UserPoolClientArgs {
      */
     readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The user pool the client belongs to.
+     * Configuration block for units in which the validity times are represented in. Detailed below.
+     */
+    readonly tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
+    /**
+     * User pool the client belongs to.
      */
     readonly userPoolId: pulumi.Input<string>;
     /**

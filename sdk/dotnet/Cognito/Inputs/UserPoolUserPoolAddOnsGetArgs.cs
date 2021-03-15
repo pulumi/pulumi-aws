@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolUserPoolAddOnsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        /// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         /// </summary>
         [Input("advancedSecurityMode", required: true)]
         public Input<string> AdvancedSecurityMode { get; set; } = null!;

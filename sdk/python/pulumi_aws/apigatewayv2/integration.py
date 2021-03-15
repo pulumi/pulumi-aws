@@ -103,11 +103,30 @@ class Integration(pulumi.CustomResource):
             description="Example with a load balancer",
             integration_type="HTTP_PROXY",
             integration_uri=aws_lb_listener["example"]["arn"],
+            integration_method="ANY",
             connection_type="VPC_LINK",
             connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
             tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
                 server_name_to_verify="example.com",
-            ))
+            ),
+            request_parameters={
+                "append:header.authforintegration": "$context.authorizer.authorizerResponse",
+                "overwrite:path": "staticValueForIntegration",
+            },
+            response_parameters=[
+                aws.apigatewayv2.IntegrationResponseParameterArgs(
+                    status_code=403,
+                    mappings={
+                        "append:header.auth": "$context.authorizer.authorizerResponse",
+                    },
+                ),
+                aws.apigatewayv2.IntegrationResponseParameterArgs(
+                    status_code=200,
+                    mappings={
+                        "overwrite:statuscode": "204",
+                    },
+                ),
+            ])
         ```
 
         ## Import

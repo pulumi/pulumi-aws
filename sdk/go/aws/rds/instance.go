@@ -277,7 +277,7 @@ type Instance struct {
 	// Specifies whether or not to create this
 	// database from a snapshot. This correlates to the snapshot ID you'd find in the
 	// RDS console, e.g: rds:production-2015-06-26-06-05.
-	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
+	SnapshotIdentifier pulumi.StringOutput `pulumi:"snapshotIdentifier"`
 	// The RDS instance status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies whether the DB instance is
