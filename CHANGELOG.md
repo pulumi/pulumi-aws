@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update to v3.32.0 of the AWS Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.21.0
 * Add the ability to specify `aws.cloudwatch` `LogResourcePolicy` as iam.PolicyDocument
 
 ---

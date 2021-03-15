@@ -168,7 +168,7 @@ jobs:
       uses: goreleaser/goreleaser-action@v2
       with:
         args: -p 2 release --rm-dist --config=.goreleaser.prerelease.yaml  --timeout
-          60m0s
+          90m0s
         version: latest
   publish_sdk:
     name: publish_sdk
