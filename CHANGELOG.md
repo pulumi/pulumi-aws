@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.22.1  
+  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
 
 ---
 
