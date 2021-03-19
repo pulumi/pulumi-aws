@@ -13,6 +13,7 @@ __all__ = [
     'access_key',
     'allowed_account_ids',
     'assume_role',
+    'default_tags',
     'endpoints',
     'forbidden_account_ids',
     'ignore_tags',
@@ -41,6 +42,11 @@ The access key for API operations. You can retrieve this from the 'Security & Cr
 allowed_account_ids = __config__.get('allowedAccountIds')
 
 assume_role = __config__.get('assumeRole')
+
+default_tags = __config__.get('defaultTags')
+"""
+Configuration block with settings to default resource tags across all resources.
+"""
 
 endpoints = __config__.get('endpoints')
 

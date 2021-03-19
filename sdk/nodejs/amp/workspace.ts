@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
+ *
+ * > **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const demo = new aws.amp.Workspace("demo", {
+ *     alias: "prometheus-test",
+ * });
+ * ```
+ *
  * ## Import
  *
  * AMP Workspaces can be imported using the identifier, e.g.

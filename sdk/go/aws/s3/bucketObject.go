@@ -185,7 +185,10 @@ type BucketObject struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key      pulumi.StringOutput `pulumi:"key"`
+	Key pulumi.StringOutput `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+	// `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+	// is provided.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -270,7 +273,10 @@ type bucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key      *string `pulumi:"key"`
+	Key *string `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+	// `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+	// is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -324,7 +330,10 @@ type BucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key      pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+	// `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+	// is provided.
 	KmsKeyId pulumi.StringPtrInput
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
@@ -382,7 +391,10 @@ type bucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key      *string `pulumi:"key"`
+	Key *string `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+	// `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+	// is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -434,7 +446,10 @@ type BucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key      pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+	// `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+	// is provided.
 	KmsKeyId pulumi.StringPtrInput
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput

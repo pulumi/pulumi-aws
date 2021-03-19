@@ -13,7 +13,7 @@ import (
 
 // Provides an API Gateway REST API Policy.
 //
-// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 //
 // ## Example Usage
 // ### Basic
@@ -58,6 +58,7 @@ import (
 type RestApiPolicy struct {
 	pulumi.CustomResourceState
 
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The ID of the REST API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
@@ -98,12 +99,14 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestApiPolicy resources.
 type restApiPolicyState struct {
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
 	// The ID of the REST API.
 	RestApiId *string `pulumi:"restApiId"`
 }
 
 type RestApiPolicyState struct {
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
 	// The ID of the REST API.
 	RestApiId pulumi.StringPtrInput
@@ -114,6 +117,7 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 }
 
 type restApiPolicyArgs struct {
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
 	// The ID of the REST API.
 	RestApiId string `pulumi:"restApiId"`
@@ -121,6 +125,7 @@ type restApiPolicyArgs struct {
 
 // The set of arguments for constructing a RestApiPolicy resource.
 type RestApiPolicyArgs struct {
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringInput
 	// The ID of the REST API.
 	RestApiId pulumi.StringInput

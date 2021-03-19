@@ -6,7 +6,9 @@
 from .analytics_application import *
 from .firehose_delivery_stream import *
 from .get_stream import *
+from .get_stream_consumer import *
 from .stream import *
+from .stream_consumer import *
 from .video_stream import *
 from ._inputs import *
 from . import outputs
@@ -29,6 +31,8 @@ def _register_module():
                 return FirehoseDeliveryStream(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:kinesis/stream:Stream":
                 return Stream(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:kinesis/streamConsumer:StreamConsumer":
+                return StreamConsumer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:kinesis/videoStream:VideoStream":
                 return VideoStream(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -39,6 +43,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "kinesis/analyticsApplication", _module_instance)
     pulumi.runtime.register_resource_module("aws", "kinesis/firehoseDeliveryStream", _module_instance)
     pulumi.runtime.register_resource_module("aws", "kinesis/stream", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "kinesis/streamConsumer", _module_instance)
     pulumi.runtime.register_resource_module("aws", "kinesis/videoStream", _module_instance)
 
 _register_module()

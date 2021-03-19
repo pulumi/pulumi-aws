@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
  * ```
  *
- *  Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+ *  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
  */
 export class Component extends pulumi.CustomResource {
     /**
@@ -67,6 +67,9 @@ export class Component extends pulumi.CustomResource {
      * Change description of the component.
      */
     public readonly changeDescription!: pulumi.Output<string | undefined>;
+    /**
+     * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+     */
     public readonly data!: pulumi.Output<string>;
     /**
      * Date the component was created.
@@ -188,6 +191,9 @@ export interface ComponentState {
      * Change description of the component.
      */
     readonly changeDescription?: pulumi.Input<string>;
+    /**
+     * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+     */
     readonly data?: pulumi.Input<string>;
     /**
      * Date the component was created.
@@ -247,6 +253,9 @@ export interface ComponentArgs {
      * Change description of the component.
      */
     readonly changeDescription?: pulumi.Input<string>;
+    /**
+     * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+     */
     readonly data?: pulumi.Input<string>;
     /**
      * Description of the component.

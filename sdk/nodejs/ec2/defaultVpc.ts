@@ -134,6 +134,7 @@ export class DefaultVpc extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DefaultVpc resource with the given unique name, arguments, and options.
@@ -165,6 +166,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DefaultVpcArgs | undefined;
             inputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
@@ -172,6 +174,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assignGeneratedIpv6CidrBlock"] = undefined /*out*/;
             inputs["cidrBlock"] = undefined /*out*/;
@@ -263,6 +266,7 @@ export interface DefaultVpcState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -288,4 +292,5 @@ export interface DefaultVpcArgs {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

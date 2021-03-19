@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectSecondarySourceAuth
     {
         /// <summary>
-        /// Resource value that applies to the specified authorization type.
+        /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         public readonly string Type;
 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
     /// 
-    /// &gt; **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -69,7 +67,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> CertificatePem { get; private set; } = null!;
 
         /// <summary>
-        /// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
         [Output("certificateWallet")]
         public Output<string?> CertificateWallet { get; private set; } = null!;
@@ -139,7 +137,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CertificatePem { get; set; }
 
         /// <summary>
-        /// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
         [Input("certificateWallet")]
         public Input<string>? CertificateWallet { get; set; }
@@ -182,7 +180,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CertificatePem { get; set; }
 
         /// <summary>
-        /// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
         [Input("certificateWallet")]
         public Input<string>? CertificateWallet { get; set; }

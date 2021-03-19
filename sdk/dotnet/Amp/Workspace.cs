@@ -10,6 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amp
 {
     /// <summary>
+    /// Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
+    /// 
+    /// &gt; **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var demo = new Aws.Amp.Workspace("demo", new Aws.Amp.WorkspaceArgs
+    ///         {
+    ///             Alias = "prometheus-test",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// AMP Workspaces can be imported using the identifier, e.g.

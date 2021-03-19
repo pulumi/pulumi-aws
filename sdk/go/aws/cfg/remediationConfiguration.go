@@ -13,7 +13,7 @@ import (
 
 // Provides an AWS Config Remediation Configuration.
 //
-// > **Note:** Config Remediation Configuration requires an existing [Config Rule](https://www.terraform.io/docs/providers/aws/r/config_config_rule.html) to be present.
+// > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
 //
 // ## Example Usage
 //
@@ -77,6 +77,7 @@ import (
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the AWS Config rule
 	ConfigRuleName pulumi.StringOutput `pulumi:"configRuleName"`
@@ -131,6 +132,7 @@ func GetRemediationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemediationConfiguration resources.
 type remediationConfigurationState struct {
+	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
 	Arn *string `pulumi:"arn"`
 	// The name of the AWS Config rule
 	ConfigRuleName *string `pulumi:"configRuleName"`
@@ -148,6 +150,7 @@ type remediationConfigurationState struct {
 }
 
 type RemediationConfigurationState struct {
+	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
 	Arn pulumi.StringPtrInput
 	// The name of the AWS Config rule
 	ConfigRuleName pulumi.StringPtrInput

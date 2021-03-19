@@ -30,7 +30,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway stored iSCSI volume.
 
-        > **NOTE:** The gateway must have a working storage added (e.g. via the [`storagegateway.WorkingStorage`](https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
+        > **NOTE:** The gateway must have a working storage added (e.g. via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
 
         ## Example Usage
         ### Create Empty Stored iSCSI Volume

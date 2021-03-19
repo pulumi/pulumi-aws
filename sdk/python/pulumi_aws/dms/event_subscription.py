@@ -119,6 +119,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
         :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[str] name: Name of event subscription.
@@ -143,6 +144,9 @@ class EventSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the DMS Event Subscription.
+        """
         return pulumi.get(self, "arn")
 
     @property

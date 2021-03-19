@@ -201,6 +201,9 @@ export class Service extends pulumi.CustomResource {
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
+    /**
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -364,6 +367,9 @@ export interface ServiceState {
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     readonly taskDefinition?: pulumi.Input<string>;
+    /**
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
 
@@ -459,5 +465,8 @@ export interface ServiceArgs {
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     readonly taskDefinition?: pulumi.Input<string>;
+    /**
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

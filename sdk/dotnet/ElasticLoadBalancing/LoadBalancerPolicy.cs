@@ -128,22 +128,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// }
     /// ```
-    /// 
-    /// Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy")]
     [AwsResourceType("aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")]

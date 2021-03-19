@@ -21,7 +21,8 @@ namespace Pulumi.Aws.Ec2
     /// management of the VPC Peering Connection and allows options to be set correctly in cross-region and
     /// cross-account scenarios.
     /// 
-    /// Basic usage:
+    /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -62,8 +63,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
-    /// Basic cross-account usage:
+    /// ### Cross-Account Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -100,6 +100,7 @@ namespace Pulumi.Aws.Ec2
     ///             Provider = aws.Accepter,
     ///         });
     ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         // Requester's side of the connection.
     ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
     ///             VpcId = main.Id,
@@ -114,6 +115,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             Provider = aws.Requester,
     ///         });
+    ///         // Accepter's side of the connection.
     ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
     ///         {
     ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,

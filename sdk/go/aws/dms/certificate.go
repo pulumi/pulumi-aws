@@ -13,8 +13,6 @@ import (
 
 // Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
 //
-// > **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
-//
 // ## Example Usage
 //
 // ```go
@@ -58,7 +56,7 @@ type Certificate struct {
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrOutput `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrOutput `pulumi:"certificateWallet"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -102,7 +100,7 @@ type certificateState struct {
 	CertificateId *string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem *string `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet *string `pulumi:"certificateWallet"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -115,7 +113,7 @@ type CertificateState struct {
 	CertificateId pulumi.StringPtrInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrInput
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -130,7 +128,7 @@ type certificateArgs struct {
 	CertificateId string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem *string `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet *string `pulumi:"certificateWallet"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -142,7 +140,7 @@ type CertificateArgs struct {
 	CertificateId pulumi.StringInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrInput
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

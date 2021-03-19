@@ -20,6 +20,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// * The keys can't start with "AWS".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? InputPaths;
+        /// <summary>
+        /// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+        /// </summary>
         public readonly string InputTemplate;
 
         [OutputConstructor]

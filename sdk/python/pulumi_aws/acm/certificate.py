@@ -46,7 +46,7 @@ class Certificate(pulumi.CustomResource):
         of this provider.
 
         ## Example Usage
-        ### Certificate creation
+        ### Create Certificate
 
         ```python
         import pulumi
@@ -59,7 +59,7 @@ class Certificate(pulumi.CustomResource):
             },
             validation_method="DNS")
         ```
-        ### Importing an existing certificate
+        ### Existing Certificate Body Import
 
         ```python
         import pulumi

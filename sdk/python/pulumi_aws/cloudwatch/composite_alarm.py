@@ -27,6 +27,26 @@ class CompositeAlarm(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides a CloudWatch Composite Alarm resource.
+
+        > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.CompositeAlarm("example",
+            alarm_description="This is a composite alarm!",
+            alarm_name="example-composite-alarm",
+            alarm_actions=aws_sns_topic["example"]["arn"],
+            ok_actions=aws_sns_topic["example"]["arn"],
+            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
+        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
+        \"\"\")
+        ```
+
         ## Import
 
         Use the `alarm_name` to import a CloudWatch Composite Alarm. For example

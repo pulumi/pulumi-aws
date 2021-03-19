@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewFirehoseDeliveryStream(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:kinesis/stream:Stream":
 		r, err = NewStream(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:kinesis/streamConsumer:StreamConsumer":
+		r, err = NewStreamConsumer(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:kinesis/videoStream:VideoStream":
 		r, err = NewVideoStream(ctx, name, nil, pulumi.URN_(urn))
 	default:
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kinesis/stream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kinesis/streamConsumer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

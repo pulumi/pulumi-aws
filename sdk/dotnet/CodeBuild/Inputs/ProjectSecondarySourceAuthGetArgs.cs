@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSecondarySourceAuthGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource value that applies to the specified authorization type.
+        /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

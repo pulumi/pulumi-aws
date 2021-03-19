@@ -76,7 +76,7 @@ import (
 //  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
 // ```
 //
-//  If the VPC is in a different region than the Terraform AWS Provider region configuration, the VPC Region can be added to the end. e.g.
+//  If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
 //
 // ```sh
 //  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2

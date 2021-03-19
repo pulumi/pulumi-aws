@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Modes;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         public readonly string? Type;
 

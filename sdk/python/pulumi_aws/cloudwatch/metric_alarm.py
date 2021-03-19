@@ -199,7 +199,7 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Import
 
-        Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+        CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.
 
         ```sh
          $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
@@ -325,7 +325,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] alarm_description: The description for the alarm.
-        :param pulumi.Input[str] arn: The ARN of the cloudwatch metric alarm.
+        :param pulumi.Input[str] arn: The ARN of the CloudWatch Metric Alarm.
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -411,7 +411,7 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the cloudwatch metric alarm.
+        The ARN of the CloudWatch Metric Alarm.
         """
         return pulumi.get(self, "arn")
 

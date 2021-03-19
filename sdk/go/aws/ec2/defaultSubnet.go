@@ -74,7 +74,8 @@ type DefaultSubnet struct {
 	// ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -132,7 +133,8 @@ type defaultSubnetState struct {
 	// ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
 	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -159,7 +161,8 @@ type DefaultSubnetState struct {
 	// ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -177,7 +180,8 @@ type defaultSubnetArgs struct {
 	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
 	OutpostArn          *string `pulumi:"outpostArn"`
 	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -190,7 +194,8 @@ type DefaultSubnetArgs struct {
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	OutpostArn          pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {

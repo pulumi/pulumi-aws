@@ -72,13 +72,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// }
     /// ```
-    /// ## Attributes
-    /// 
-    /// The following additional atttributes are provided:
-    /// 
-    /// * `id` - The name of the Neptune event notification subscription.
-    /// * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
-    /// * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
     /// 
     /// ## Import
     /// 
@@ -91,9 +84,15 @@ namespace Pulumi.Aws.Neptune
     [AwsResourceType("aws:neptune/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name of the Neptune event notification subscription.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS customer account associated with the Neptune event notification subscription.
+        /// </summary>
         [Output("customerAwsId")]
         public Output<string> CustomerAwsId { get; private set; } = null!;
 
@@ -264,9 +263,15 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class EventSubscriptionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name of the Neptune event notification subscription.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The AWS customer account associated with the Neptune event notification subscription.
+        /// </summary>
         [Input("customerAwsId")]
         public Input<string>? CustomerAwsId { get; set; }
 

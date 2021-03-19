@@ -46,8 +46,6 @@ class MysqlLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks MySQL layer resource.
 
-        > **Note:** All arguments including the root password will be stored in the raw state as plain-text.
-
         ## Example Usage
 
         ```python

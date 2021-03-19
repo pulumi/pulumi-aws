@@ -21,6 +21,48 @@ class EncryptionConfig(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Creates and manages an AWS XRay Encryption Config.
+
+        > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.xray.EncryptionConfig("example", type="NONE")
+        ```
+        ### With KMS Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey",
+            description="Some Key",
+            deletion_window_in_days=7,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Id": "kms-tf-1",
+          "Statement": [
+            {
+              "Sid": "Enable IAM User Permissions",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
+            type="KMS",
+            key_id=example_key.arn)
+        ```
+
         ## Import
 
         XRay Encryption Config can be imported using the region name, e.g.

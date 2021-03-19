@@ -5,6 +5,52 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Creates and manages an AWS XRay Encryption Config.
+ *
+ * > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.xray.EncryptionConfig("example", {
+ *     type: "NONE",
+ * });
+ * ```
+ * ### With KMS Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     description: "Some Key",
+ *     deletionWindowInDays: 7,
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Id": "kms-tf-1",
+ *   "Statement": [
+ *     {
+ *       "Sid": "Enable IAM User Permissions",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "AWS": "*"
+ *       },
+ *       "Action": "kms:*",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("exampleEncryptionConfig", {
+ *     type: "KMS",
+ *     keyId: exampleKey.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * XRay Encryption Config can be imported using the region name, e.g.

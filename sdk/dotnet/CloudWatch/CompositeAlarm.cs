@@ -10,6 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch
 {
     /// <summary>
+    /// Provides a CloudWatch Composite Alarm resource.
+    /// 
+    /// &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudWatch.CompositeAlarm("example", new Aws.CloudWatch.CompositeAlarmArgs
+    ///         {
+    ///             AlarmDescription = "This is a composite alarm!",
+    ///             AlarmName = "example-composite-alarm",
+    ///             AlarmActions = aws_sns_topic.Example.Arn,
+    ///             OkActions = aws_sns_topic.Example.Arn,
+    ///             AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
+    /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Use the `alarm_name` to import a CloudWatch Composite Alarm. For example

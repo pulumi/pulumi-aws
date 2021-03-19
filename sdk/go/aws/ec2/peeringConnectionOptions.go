@@ -22,7 +22,8 @@ import (
 // management of the VPC Peering Connection and allows options to be set correctly in cross-region and
 // cross-account scenarios.
 //
-// Basic usage:
+// ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -71,8 +72,7 @@ import (
 // 	})
 // }
 // ```
-//
-// Basic cross-account usage:
+// ### Cross-Account Usage
 //
 // ```go
 // package main

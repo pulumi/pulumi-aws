@@ -20,6 +20,7 @@ class DefaultVpc(pulumi.CustomResource):
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -87,6 +88,7 @@ class DefaultVpc(pulumi.CustomResource):
             __props__['enable_dns_hostnames'] = enable_dns_hostnames
             __props__['enable_dns_support'] = enable_dns_support
             __props__['tags'] = tags
+            __props__['tags_all'] = tags_all
             __props__['arn'] = None
             __props__['assign_generated_ipv6_cidr_block'] = None
             __props__['cidr_block'] = None
@@ -125,7 +127,8 @@ class DefaultVpc(pulumi.CustomResource):
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             main_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DefaultVpc':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DefaultVpc':
         """
         Get an existing DefaultVpc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -175,6 +178,7 @@ class DefaultVpc(pulumi.CustomResource):
         __props__["main_route_table_id"] = main_route_table_id
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
+        __props__["tags_all"] = tags_all
         return DefaultVpc(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -311,6 +315,11 @@ class DefaultVpc(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

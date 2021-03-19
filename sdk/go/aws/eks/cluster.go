@@ -119,7 +119,8 @@ type Cluster struct {
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-	Identities              ClusterIdentityArrayOutput           `pulumi:"identities"`
+	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -184,7 +185,8 @@ type clusterState struct {
 	// The endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-	Identities              []ClusterIdentity               `pulumi:"identities"`
+	Identities []ClusterIdentity `pulumi:"identities"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster.
 	Name *string `pulumi:"name"`
@@ -215,7 +217,8 @@ type ClusterState struct {
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-	Identities              ClusterIdentityArrayInput
+	Identities ClusterIdentityArrayInput
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster.
 	Name pulumi.StringPtrInput
@@ -241,7 +244,8 @@ type clusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
-	EncryptionConfig        *ClusterEncryptionConfig        `pulumi:"encryptionConfig"`
+	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster.
 	Name *string `pulumi:"name"`
@@ -260,7 +264,8 @@ type ClusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
-	EncryptionConfig        ClusterEncryptionConfigPtrInput
+	EncryptionConfig ClusterEncryptionConfigPtrInput
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster.
 	Name pulumi.StringPtrInput

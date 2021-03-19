@@ -78,6 +78,10 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
+     * The AWS account ID of the session owner.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
     public readonly packetLength!: pulumi.Output<number | undefined>;
@@ -118,6 +122,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["packetLength"] = state ? state.packetLength : undefined;
             inputs["sessionNumber"] = state ? state.sessionNumber : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -147,6 +152,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -171,6 +177,10 @@ export interface TrafficMirrorSessionState {
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the session owner.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */

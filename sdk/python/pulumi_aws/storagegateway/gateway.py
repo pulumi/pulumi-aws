@@ -28,6 +28,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
+                 smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
                  smb_guest_password: Optional[pulumi.Input[str]] = None,
                  smb_security_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -100,7 +101,19 @@ class Gateway(pulumi.CustomResource):
          $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
 
-         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+         <<<<<<< HEAD Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. ======= Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_storagegateway_gateway" "example" {
+
+        # ... other configuration ...
+
+         gateway_ip_address = aws_instance.sgw.private_ip
+
+        # There is no Storage Gateway API for reading gateway_ip_address
+
+         lifecycle {
+
+         ignore_changes = ["gateway_ip_address"]
+
+         } } >>>>>>> v3.33.0
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +128,10 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         if __name__ is not None:
@@ -152,6 +166,7 @@ class Gateway(pulumi.CustomResource):
             __props__['gateway_vpc_endpoint'] = gateway_vpc_endpoint
             __props__['medium_changer_type'] = medium_changer_type
             __props__['smb_active_directory_settings'] = smb_active_directory_settings
+            __props__['smb_file_share_visibility'] = smb_file_share_visibility
             __props__['smb_guest_password'] = smb_guest_password
             __props__['smb_security_strategy'] = smb_security_strategy
             __props__['tags'] = tags
@@ -189,6 +204,7 @@ class Gateway(pulumi.CustomResource):
             host_environment: Optional[pulumi.Input[str]] = None,
             medium_changer_type: Optional[pulumi.Input[str]] = None,
             smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
+            smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
             smb_guest_password: Optional[pulumi.Input[str]] = None,
             smb_security_strategy: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -217,9 +233,10 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] host_environment: The type of hypervisor environment used by the host.
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -243,6 +260,7 @@ class Gateway(pulumi.CustomResource):
         __props__["host_environment"] = host_environment
         __props__["medium_changer_type"] = medium_changer_type
         __props__["smb_active_directory_settings"] = smb_active_directory_settings
+        __props__["smb_file_share_visibility"] = smb_file_share_visibility
         __props__["smb_guest_password"] = smb_guest_password
         __props__["smb_security_strategy"] = smb_security_strategy
         __props__["tags"] = tags
@@ -386,6 +404,14 @@ class Gateway(pulumi.CustomResource):
         return pulumi.get(self, "smb_active_directory_settings")
 
     @property
+    @pulumi.getter(name="smbFileShareVisibility")
+    def smb_file_share_visibility(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the shares on this gateway appear when listing shares.
+        """
+        return pulumi.get(self, "smb_file_share_visibility")
+
+    @property
     @pulumi.getter(name="smbGuestPassword")
     def smb_guest_password(self) -> pulumi.Output[Optional[str]]:
         """
@@ -405,7 +431,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value mapping of resource tags
+        Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
 

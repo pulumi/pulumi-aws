@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides a resource to manage an RDS DB proxy default target group resource.
+//
+// The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
+//
 // ## Import
 //
 // DB proxy default target groups can be imported using the `db_proxy_name`, e.g.

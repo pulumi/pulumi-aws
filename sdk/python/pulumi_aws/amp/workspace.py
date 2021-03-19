@@ -20,6 +20,19 @@ class Workspace(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
+
+        > **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        demo = aws.amp.Workspace("demo", alias="prometheus-test")
+        ```
+
         ## Import
 
         AMP Workspaces can be imported using the identifier, e.g.

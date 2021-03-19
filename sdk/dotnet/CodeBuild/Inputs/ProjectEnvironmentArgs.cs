@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectEnvironmentRegistryCredentialArgs>? RegistryCredential { get; set; }
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

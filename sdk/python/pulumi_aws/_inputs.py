@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ProviderAssumeRoleArgs',
+    'ProviderDefaultTagsArgs',
     'ProviderEndpointArgs',
     'ProviderIgnoreTagsArgs',
     'GetAmiFilterArgs',
@@ -125,6 +126,23 @@ class ProviderAssumeRoleArgs:
 
 
 @pulumi.input_type
+class ProviderDefaultTagsArgs:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class ProviderEndpointArgs:
     def __init__(__self__, *,
                  accessanalyzer: Optional[pulumi.Input[str]] = None,
@@ -138,6 +156,7 @@ class ProviderEndpointArgs:
                  appstream: Optional[pulumi.Input[str]] = None,
                  appsync: Optional[pulumi.Input[str]] = None,
                  athena: Optional[pulumi.Input[str]] = None,
+                 auditmanager: Optional[pulumi.Input[str]] = None,
                  autoscaling: Optional[pulumi.Input[str]] = None,
                  autoscalingplans: Optional[pulumi.Input[str]] = None,
                  backup: Optional[pulumi.Input[str]] = None,
@@ -300,6 +319,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "appsync", appsync)
         if athena is not None:
             pulumi.set(__self__, "athena", athena)
+        if auditmanager is not None:
+            pulumi.set(__self__, "auditmanager", auditmanager)
         if autoscaling is not None:
             pulumi.set(__self__, "autoscaling", autoscaling)
         if autoscalingplans is not None:
@@ -679,6 +700,15 @@ class ProviderEndpointArgs:
     @athena.setter
     def athena(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "athena", value)
+
+    @property
+    @pulumi.getter
+    def auditmanager(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "auditmanager")
+
+    @auditmanager.setter
+    def auditmanager(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auditmanager", value)
 
     @property
     @pulumi.getter

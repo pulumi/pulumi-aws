@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an S3 Control Bucket Policy.
  *
- * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the [`aws.s3.BucketPolicy` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html).
+ * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
  *
  * ## Example Usage
  *
@@ -73,6 +73,9 @@ export class BucketPolicy extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * JSON string of the resource policy.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -116,6 +119,9 @@ export interface BucketPolicyState {
      * Amazon Resource Name (ARN) of the bucket.
      */
     readonly bucket?: pulumi.Input<string>;
+    /**
+     * JSON string of the resource policy.
+     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -127,5 +133,8 @@ export interface BucketPolicyArgs {
      * Amazon Resource Name (ARN) of the bucket.
      */
     readonly bucket: pulumi.Input<string>;
+    /**
+     * JSON string of the resource policy.
+     */
     readonly policy: pulumi.Input<string>;
 }

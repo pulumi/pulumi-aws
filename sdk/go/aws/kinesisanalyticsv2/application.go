@@ -14,7 +14,7 @@ import (
 // Manages a Kinesis Analytics v2 Application.
 // This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
 //
-// > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the [`kinesis.AnalyticsApplication`](https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application.html) resource.
+// > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication`resource.
 //
 // ## Example Usage
 // ### Apache Flink Application
@@ -237,7 +237,7 @@ type Application struct {
 	ApplicationConfiguration ApplicationApplicationConfigurationOutput `pulumi:"applicationConfiguration"`
 	// The ARN of the application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
 	// The current timestamp when the application was created.
 	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
@@ -249,7 +249,7 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment pulumi.StringOutput `pulumi:"runtimeEnvironment"`
-	// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringOutput `pulumi:"serviceExecutionRole"`
 	// The status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -298,7 +298,7 @@ type applicationState struct {
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
 	// The ARN of the application.
 	Arn *string `pulumi:"arn"`
-	// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The current timestamp when the application was created.
 	CreateTimestamp *string `pulumi:"createTimestamp"`
@@ -310,7 +310,7 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment *string `pulumi:"runtimeEnvironment"`
-	// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole *string `pulumi:"serviceExecutionRole"`
 	// The status of the application.
 	Status *string `pulumi:"status"`
@@ -325,7 +325,7 @@ type ApplicationState struct {
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
 	// The ARN of the application.
 	Arn pulumi.StringPtrInput
-	// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
 	// The current timestamp when the application was created.
 	CreateTimestamp pulumi.StringPtrInput
@@ -337,7 +337,7 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment pulumi.StringPtrInput
-	// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringPtrInput
 	// The status of the application.
 	Status pulumi.StringPtrInput
@@ -354,7 +354,7 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The application's configuration
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
-	// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// A summary description of the application.
 	Description *string `pulumi:"description"`
@@ -362,7 +362,7 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment string `pulumi:"runtimeEnvironment"`
-	// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
 	// A map of tags to assign to the application.
 	Tags map[string]string `pulumi:"tags"`
@@ -372,7 +372,7 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The application's configuration
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
-	// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
 	// A summary description of the application.
 	Description pulumi.StringPtrInput
@@ -380,7 +380,7 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment pulumi.StringInput
-	// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringInput
 	// A map of tags to assign to the application.
 	Tags pulumi.StringMapInput

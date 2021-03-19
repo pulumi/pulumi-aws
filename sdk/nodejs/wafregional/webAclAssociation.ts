@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
  *
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  *
- * ## Application Load Balancer Association Example
+ * ## Example Usage
+ * ### Application Load Balancer Association
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

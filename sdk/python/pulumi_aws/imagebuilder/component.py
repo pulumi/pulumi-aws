@@ -52,11 +52,12 @@ class Component(pulumi.CustomResource):
          $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
         ```
 
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] change_description: Change description of the component.
+        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] description: Description of the component.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         :param pulumi.Input[str] name: Name of the component.
@@ -136,6 +137,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the component.
         :param pulumi.Input[str] change_description: Change description of the component.
+        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] date_created: Date the component was created.
         :param pulumi.Input[str] description: Description of the component.
         :param pulumi.Input[bool] encrypted: Encryption status of the component.
@@ -189,6 +191,9 @@ class Component(pulumi.CustomResource):
     @property
     @pulumi.getter
     def data(self) -> pulumi.Output[str]:
+        """
+        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "data")
 
     @property

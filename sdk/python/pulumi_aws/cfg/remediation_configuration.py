@@ -29,7 +29,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         """
         Provides an AWS Config Remediation Configuration.
 
-        > **Note:** Config Remediation Configuration requires an existing [Config Rule](https://www.terraform.io/docs/providers/aws/r/config_config_rule.html) to be present.
+        > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
 
         ## Example Usage
 
@@ -137,6 +137,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Config Remediation Configuration.
         :param pulumi.Input[str] config_rule_name: The name of the AWS Config rule
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]] parameters: Can be specified multiple times for each
                parameter. Each parameter block supports fields documented below.
@@ -161,6 +162,9 @@ class RemediationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Config Remediation Configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property

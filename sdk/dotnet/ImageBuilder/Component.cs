@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
     /// ```
     /// 
-    ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+    ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/component:Component")]
     public partial class Component : Pulumi.CustomResource
@@ -59,6 +59,9 @@ namespace Pulumi.Aws.ImageBuilder
         [Output("changeDescription")]
         public Output<string?> ChangeDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 
@@ -186,6 +189,9 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("changeDescription")]
         public Input<string>? ChangeDescription { get; set; }
 
+        /// <summary>
+        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
@@ -268,6 +274,9 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("changeDescription")]
         public Input<string>? ChangeDescription { get; set; }
 
+        /// <summary>
+        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 

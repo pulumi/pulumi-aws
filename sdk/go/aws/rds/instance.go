@@ -28,9 +28,6 @@ import (
 // > **Note:** using `applyImmediately` can result in a brief downtime as the
 // server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
 //
-// > **Note:** All arguments including the username and password will be stored in
-// the raw state as plain-text.
-//
 // ## RDS Instance Class Types
 //
 // Amazon RDS supports three types of instance classes: Standard, Memory Optimized,

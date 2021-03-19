@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// Manages a Kinesis Analytics v2 Application.
     /// This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
     /// 
-    /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the [`aws.kinesis.AnalyticsApplication`](https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application.html) resource.
+    /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication`resource.
     /// 
     /// ## Example Usage
     /// ### Apache Flink Application
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+        /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
         [Output("cloudwatchLoggingOptions")]
         public Output<Outputs.ApplicationCloudwatchLoggingOptions?> CloudwatchLoggingOptions { get; private set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
         [Output("serviceExecutionRole")]
         public Output<string> ServiceExecutionRole { get; private set; } = null!;
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<Inputs.ApplicationApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
 
         /// <summary>
-        /// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+        /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.ApplicationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string> RuntimeEnvironment { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
         [Input("serviceExecutionRole", required: true)]
         public Input<string> ServiceExecutionRole { get; set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A [CloudWatch log stream](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_stream.html) to monitor application configuration errors.
+        /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.ApplicationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? RuntimeEnvironment { get; set; }
 
         /// <summary>
-        /// The ARN of the [IAM role](https://www.terraform.io/docs/providers/aws/r/iam_role.html) used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
         [Input("serviceExecutionRole")]
         public Input<string>? ServiceExecutionRole { get; set; }

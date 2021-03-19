@@ -89,6 +89,7 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -103,6 +104,9 @@ class Trigger(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configurationId")
     def configuration_id(self) -> pulumi.Output[str]:
+        """
+        System-generated unique identifier.
+        """
         return pulumi.get(self, "configuration_id")
 
     @property

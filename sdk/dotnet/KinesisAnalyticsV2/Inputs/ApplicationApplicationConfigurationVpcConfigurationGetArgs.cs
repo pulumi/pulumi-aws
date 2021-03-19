@@ -16,7 +16,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+        /// The Security Group IDs used by the VPC configuration.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+        /// The Subnet IDs used by the VPC configuration.
         /// </summary>
         public InputList<string> SubnetIds
         {

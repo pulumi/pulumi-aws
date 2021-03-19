@@ -33,6 +33,32 @@ class Stage(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
+
+        ## Example Usage
+        ### Managing the API Logging CloudWatch Log Group
+
+        API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
+
+        > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        stage_name = config.get("stageName")
+        if stage_name is None:
+            stage_name = "example"
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
+        # ... other configuration ...
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
+        # ... potentially other configuration ...
+        example_stage = aws.apigateway.Stage("exampleStage", stage_name=stage_name,
+        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
+        # ... other configuration ...
+        ```
+
         ## Import
 
         `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.

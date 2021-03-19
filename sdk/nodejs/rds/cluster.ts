@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
  * for more information.
  *
- * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- *
  * ## Example Usage
  * ### Aurora MySQL 2.x (MySQL 5.7)
  *
@@ -277,7 +275,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -302,7 +300,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
@@ -561,7 +559,7 @@ export interface ClusterState {
      */
     readonly readerEndpoint?: pulumi.Input<string>;
     /**
-     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
@@ -586,7 +584,7 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
@@ -716,7 +714,7 @@ export interface ClusterArgs {
      */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
@@ -741,7 +739,7 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**

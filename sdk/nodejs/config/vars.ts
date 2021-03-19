@@ -15,6 +15,10 @@ let __config = new pulumi.Config("aws");
 export let accessKey: string | undefined = __config.get("accessKey");
 export let allowedAccountIds: string[] | undefined = __config.getObject<string[]>("allowedAccountIds");
 export let assumeRole: outputs.config.AssumeRole | undefined = __config.getObject<outputs.config.AssumeRole>("assumeRole");
+/**
+ * Configuration block with settings to default resource tags across all resources.
+ */
+export let defaultTags: outputs.config.DefaultTags | undefined = __config.getObject<outputs.config.DefaultTags>("defaultTags");
 export let endpoints: outputs.config.Endpoints[] | undefined = __config.getObject<outputs.config.Endpoints[]>("endpoints");
 export let forbiddenAccountIds: string[] | undefined = __config.getObject<string[]>("forbiddenAccountIds");
 /**

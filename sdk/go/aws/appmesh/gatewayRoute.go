@@ -84,7 +84,7 @@ type GatewayRoute struct {
 	Spec GatewayRouteSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringOutput `pulumi:"virtualGatewayName"`
 }
 
@@ -144,7 +144,7 @@ type gatewayRouteState struct {
 	Spec *GatewayRouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName *string `pulumi:"virtualGatewayName"`
 }
 
@@ -167,7 +167,7 @@ type GatewayRouteState struct {
 	Spec GatewayRouteSpecPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringPtrInput
 }
 
@@ -186,7 +186,7 @@ type gatewayRouteArgs struct {
 	Spec GatewayRouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName string `pulumi:"virtualGatewayName"`
 }
 
@@ -202,7 +202,7 @@ type GatewayRouteArgs struct {
 	Spec GatewayRouteSpecInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringInput
 }
 

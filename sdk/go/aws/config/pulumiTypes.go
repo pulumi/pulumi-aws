@@ -101,6 +101,55 @@ func (o AssumeRoleOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssumeRole) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
 }
 
+type DefaultTags struct {
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// DefaultTagsInput is an input type that accepts DefaultTagsArgs and DefaultTagsOutput values.
+// You can construct a concrete instance of `DefaultTagsInput` via:
+//
+//          DefaultTagsArgs{...}
+type DefaultTagsInput interface {
+	pulumi.Input
+
+	ToDefaultTagsOutput() DefaultTagsOutput
+	ToDefaultTagsOutputWithContext(context.Context) DefaultTagsOutput
+}
+
+type DefaultTagsArgs struct {
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (DefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultTags)(nil)).Elem()
+}
+
+func (i DefaultTagsArgs) ToDefaultTagsOutput() DefaultTagsOutput {
+	return i.ToDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i DefaultTagsArgs) ToDefaultTagsOutputWithContext(ctx context.Context) DefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultTagsOutput)
+}
+
+type DefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (DefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultTags)(nil)).Elem()
+}
+
+func (o DefaultTagsOutput) ToDefaultTagsOutput() DefaultTagsOutput {
+	return o
+}
+
+func (o DefaultTagsOutput) ToDefaultTagsOutputWithContext(ctx context.Context) DefaultTagsOutput {
+	return o
+}
+
+func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 type Endpoints struct {
 	Accessanalyzer           *string `pulumi:"accessanalyzer"`
 	Acm                      *string `pulumi:"acm"`
@@ -113,6 +162,7 @@ type Endpoints struct {
 	Appstream                *string `pulumi:"appstream"`
 	Appsync                  *string `pulumi:"appsync"`
 	Athena                   *string `pulumi:"athena"`
+	Auditmanager             *string `pulumi:"auditmanager"`
 	Autoscaling              *string `pulumi:"autoscaling"`
 	Autoscalingplans         *string `pulumi:"autoscalingplans"`
 	Backup                   *string `pulumi:"backup"`
@@ -278,6 +328,7 @@ type EndpointsArgs struct {
 	Appstream                pulumi.StringPtrInput `pulumi:"appstream"`
 	Appsync                  pulumi.StringPtrInput `pulumi:"appsync"`
 	Athena                   pulumi.StringPtrInput `pulumi:"athena"`
+	Auditmanager             pulumi.StringPtrInput `pulumi:"auditmanager"`
 	Autoscaling              pulumi.StringPtrInput `pulumi:"autoscaling"`
 	Autoscalingplans         pulumi.StringPtrInput `pulumi:"autoscalingplans"`
 	Backup                   pulumi.StringPtrInput `pulumi:"backup"`
@@ -513,6 +564,10 @@ func (o EndpointsOutput) Appsync() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Athena() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Athena }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Auditmanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Auditmanager }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Autoscaling() pulumi.StringPtrOutput {
@@ -1152,6 +1207,7 @@ func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AssumeRoleOutput{})
+	pulumi.RegisterOutputType(DefaultTagsOutput{})
 	pulumi.RegisterOutputType(EndpointsOutput{})
 	pulumi.RegisterOutputType(EndpointsArrayOutput{})
 	pulumi.RegisterOutputType(IgnoreTagsOutput{})

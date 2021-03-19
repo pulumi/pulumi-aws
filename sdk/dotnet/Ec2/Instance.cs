@@ -122,6 +122,9 @@ namespace Pulumi.Aws.Ec2
         [Output("cpuThreadsPerCore")]
         public Output<int> CpuThreadsPerCore { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// </summary>
         [Output("creditSpecification")]
         public Output<Outputs.InstanceCreditSpecification?> CreditSpecification { get; private set; } = null!;
 
@@ -423,6 +426,9 @@ namespace Pulumi.Aws.Ec2
         [Input("cpuThreadsPerCore")]
         public Input<int>? CpuThreadsPerCore { get; set; }
 
+        /// <summary>
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.InstanceCreditSpecificationArgs>? CreditSpecification { get; set; }
 
@@ -704,6 +710,9 @@ namespace Pulumi.Aws.Ec2
         [Input("cpuThreadsPerCore")]
         public Input<int>? CpuThreadsPerCore { get; set; }
 
+        /// <summary>
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.InstanceCreditSpecificationGetArgs>? CreditSpecification { get; set; }
 

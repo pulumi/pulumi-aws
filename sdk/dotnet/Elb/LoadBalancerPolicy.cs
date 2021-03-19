@@ -128,22 +128,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// }
     /// ```
-    /// 
-    /// Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancerPolicy:LoadBalancerPolicy")]
     public partial class LoadBalancerPolicy : Pulumi.CustomResource

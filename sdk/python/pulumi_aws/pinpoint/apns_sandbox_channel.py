@@ -30,8 +30,6 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint APNs Sandbox Channel resource.
 
-        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-
         ## Example Usage
 
         ```python

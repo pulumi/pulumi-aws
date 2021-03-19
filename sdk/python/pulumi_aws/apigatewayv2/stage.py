@@ -62,7 +62,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
         :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
+        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] name: The name of the stage. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
@@ -141,7 +141,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
         :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
+        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission` `source_arn` attribute.
                For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -227,7 +227,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[str]:
         """
-        The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
+        The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         """
         return pulumi.get(self, "deployment_id")
 

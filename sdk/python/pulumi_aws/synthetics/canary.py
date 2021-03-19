@@ -37,6 +37,27 @@ class Canary(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides a Synthetics Canary resource.
+
+        > **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        some = aws.synthetics.Canary("some",
+            artifact_s3_location="s3://some-bucket/",
+            execution_role_arn="some-role",
+            handler="exports.handler",
+            runtime_version="syn-1.0",
+            schedule=aws.synthetics.CanaryScheduleArgs(
+                expression="rate(0 minute)",
+            ),
+            zip_file="test-fixtures/lambdatest.zip")
+        ```
+
         ## Import
 
         Synthetics Canaries can be imported using the `name`, e.g.

@@ -60,6 +60,7 @@ from .get_security_groups import *
 from .get_spot_price import *
 from .get_subnet import *
 from .get_subnet_ids import *
+from .get_transit_gateway_route_tables import *
 from .get_vpc import *
 from .get_vpc_dhcp_options import *
 from .get_vpc_endpoint import *

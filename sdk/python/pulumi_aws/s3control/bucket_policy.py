@@ -23,7 +23,7 @@ class BucketPolicy(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Control Bucket Policy.
 
-        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the [`s3.BucketPolicy` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html).
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
 
         ## Example Usage
 
@@ -60,6 +60,7 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,6 +105,7 @@ class BucketPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -124,6 +126,9 @@ class BucketPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        JSON string of the resource policy.
+        """
         return pulumi.get(self, "policy")
 
     def translate_output_property(self, prop):

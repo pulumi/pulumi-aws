@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const service = new aws.ecs.TaskDefinition("service", {
+ *     family: "service",
+ *     containerDefinitions: JSON.stringify([
+ *         {
+ *             name: "first",
+ *             image: "service-first",
+ *             cpu: 10,
+ *             memory: 512,
+ *             essential: true,
+ *             portMappings: [{
+ *                 containerPort: 80,
+ *                 hostPort: 80,
+ *             }],
+ *         },
+ *         {
+ *             name: "second",
+ *             image: "service-second",
+ *             cpu: 10,
+ *             memory: 256,
+ *             essential: true,
+ *             portMappings: [{
+ *                 containerPort: 443,
+ *                 hostPort: 443,
+ *             }],
+ *         },
+ *     ]),
+ *     volumes: [{
+ *         name: "service-storage",
+ *         hostPath: "/ecs/service-storage",
+ *     }],
+ *     placementConstraints: [{
+ *         type: "memberOf",
+ *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+ *     }],
+ * });
+ * ```
  * ### With AppMesh Proxy
  *
  * ```typescript

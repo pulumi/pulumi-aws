@@ -50,6 +50,9 @@ namespace Pulumi.Aws.CodeCommit
     [AwsResourceType("aws:codecommit/trigger:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
+        /// <summary>
+        /// System-generated unique identifier.
+        /// </summary>
         [Output("configurationId")]
         public Output<string> ConfigurationId { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class TriggerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// System-generated unique identifier.
+        /// </summary>
         [Input("configurationId")]
         public Input<string>? ConfigurationId { get; set; }
 

@@ -35,8 +35,6 @@ class Directory(pulumi.CustomResource):
         """
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
-        > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
-
         ## Example Usage
         ### SimpleAD
 

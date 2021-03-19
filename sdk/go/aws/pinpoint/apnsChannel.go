@@ -13,8 +13,6 @@ import (
 
 // Provides a Pinpoint APNs Channel resource.
 //
-// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-//
 // ## Import
 //
 // Pinpoint APNs Channel can be imported using the `application-id`, e.g.

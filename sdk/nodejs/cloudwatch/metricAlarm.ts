@@ -170,7 +170,7 @@ import {Topic} from "../sns";
  *
  * ## Import
  *
- * Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+ * CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
@@ -217,7 +217,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly alarmDescription!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the cloudwatch metric alarm.
+     * The ARN of the CloudWatch Metric Alarm.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -397,7 +397,7 @@ export interface MetricAlarmState {
      */
     readonly alarmDescription?: pulumi.Input<string>;
     /**
-     * The ARN of the cloudwatch metric alarm.
+     * The ARN of the CloudWatch Metric Alarm.
      */
     readonly arn?: pulumi.Input<string>;
     /**

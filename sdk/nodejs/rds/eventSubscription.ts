@@ -43,13 +43,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ## Attributes
- *
- * The following additional atttributes are provided:
- *
- * * `id` - The name of the RDS event notification subscription
- * * `arn` - The Amazon Resource Name of the RDS event notification subscription
- * * `customerAwsId` - The AWS customer account associated with the RDS event notification subscription
  *
  * ## Import
  *
@@ -87,7 +80,13 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name of the RDS event notification subscription
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The AWS customer account associated with the RDS event notification subscription
+     */
     public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
@@ -172,7 +171,13 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
+    /**
+     * The Amazon Resource Name of the RDS event notification subscription
+     */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The AWS customer account associated with the RDS event notification subscription
+     */
     readonly customerAwsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.

@@ -161,6 +161,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+               The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+               this provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: The TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         if __name__ is not None:
@@ -262,6 +265,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+               The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+               this provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: The TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -434,6 +440,11 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="timeoutMilliseconds")
     def timeout_milliseconds(self) -> pulumi.Output[int]:
+        """
+        Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+        The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        this provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "timeout_milliseconds")
 
     @property

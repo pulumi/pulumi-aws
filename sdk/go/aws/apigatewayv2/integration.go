@@ -173,7 +173,10 @@ type Integration struct {
 	ResponseParameters IntegrationResponseParameterArrayOutput `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrOutput `pulumi:"templateSelectionExpression"`
-	TimeoutMilliseconds         pulumi.IntOutput       `pulumi:"timeoutMilliseconds"`
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	// this provider will only perform drift detection of its value when present in a configuration.
+	TimeoutMilliseconds pulumi.IntOutput `pulumi:"timeoutMilliseconds"`
 	// The TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 }
@@ -253,7 +256,10 @@ type integrationState struct {
 	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
-	TimeoutMilliseconds         *int    `pulumi:"timeoutMilliseconds"`
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	// this provider will only perform drift detection of its value when present in a configuration.
+	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// The TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
@@ -299,7 +305,10 @@ type IntegrationState struct {
 	ResponseParameters IntegrationResponseParameterArrayInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
-	TimeoutMilliseconds         pulumi.IntPtrInput
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	// this provider will only perform drift detection of its value when present in a configuration.
+	TimeoutMilliseconds pulumi.IntPtrInput
 	// The TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrInput
 }
@@ -347,7 +356,10 @@ type integrationArgs struct {
 	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
-	TimeoutMilliseconds         *int    `pulumi:"timeoutMilliseconds"`
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	// this provider will only perform drift detection of its value when present in a configuration.
+	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// The TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
@@ -392,7 +404,10 @@ type IntegrationArgs struct {
 	ResponseParameters IntegrationResponseParameterArrayInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
-	TimeoutMilliseconds         pulumi.IntPtrInput
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	// this provider will only perform drift detection of its value when present in a configuration.
+	TimeoutMilliseconds pulumi.IntPtrInput
 	// The TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrInput
 }

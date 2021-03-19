@@ -16,8 +16,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         private InputList<Inputs.ProjectSecondarySourceAuthGetArgs>? _auths;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         /// </summary>
+        [Obsolete(@"Use the aws_codebuild_source_credential resource instead")]
         public InputList<Inputs.ProjectSecondarySourceAuthGetArgs> Auths
         {
             get => _auths ?? (_auths = new InputList<Inputs.ProjectSecondarySourceAuthGetArgs>());
@@ -67,7 +68,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> SourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

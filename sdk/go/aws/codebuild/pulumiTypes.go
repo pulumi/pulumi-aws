@@ -27,7 +27,7 @@ type ProjectArtifacts struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -59,7 +59,7 @@ type ProjectArtifactsArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -180,7 +180,7 @@ func (o ProjectArtifactsOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -283,7 +283,7 @@ func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectArtifacts) *string {
 		if v == nil {
@@ -298,7 +298,7 @@ type ProjectCache struct {
 	Location *string `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes []string `pulumi:"modes"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type *string `pulumi:"type"`
 }
 
@@ -318,7 +318,7 @@ type ProjectCacheArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes pulumi.StringArrayInput `pulumi:"modes"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -409,7 +409,7 @@ func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectCacheOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectCache) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -452,7 +452,7 @@ func (o ProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectCache) *string {
 		if v == nil {
@@ -477,7 +477,7 @@ type ProjectEnvironment struct {
 	PrivilegedMode *bool `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -507,7 +507,7 @@ type ProjectEnvironmentArgs struct {
 	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential ProjectEnvironmentRegistryCredentialPtrInput `pulumi:"registryCredential"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -623,7 +623,7 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistr
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentRegistryCredential { return v.RegistryCredential }).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -716,7 +716,7 @@ func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectEnvironmentRegi
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -729,7 +729,7 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 type ProjectEnvironmentEnvironmentVariable struct {
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name string `pulumi:"name"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type *string `pulumi:"type"`
 	// Environment variable's value.
 	Value string `pulumi:"value"`
@@ -749,7 +749,7 @@ type ProjectEnvironmentEnvironmentVariableInput interface {
 type ProjectEnvironmentEnvironmentVariableArgs struct {
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringInput `pulumi:"name"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Environment variable's value.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -811,7 +811,7 @@ func (o ProjectEnvironmentEnvironmentVariableOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1496,7 +1496,7 @@ type ProjectSecondaryArtifact struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -1528,7 +1528,7 @@ type ProjectSecondaryArtifactArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1623,7 +1623,7 @@ func (o ProjectSecondaryArtifactOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSecondaryArtifactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1649,7 +1649,9 @@ func (o ProjectSecondaryArtifactArrayOutput) Index(i pulumi.IntInput) ProjectSec
 }
 
 type ProjectSecondarySource struct {
-	// Configuration block. Detailed below.
+	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auths []ProjectSecondarySourceAuth `pulumi:"auths"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec *string `pulumi:"buildspec"`
@@ -1665,7 +1667,7 @@ type ProjectSecondarySource struct {
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -1681,7 +1683,9 @@ type ProjectSecondarySourceInput interface {
 }
 
 type ProjectSecondarySourceArgs struct {
-	// Configuration block. Detailed below.
+	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auths ProjectSecondarySourceAuthArrayInput `pulumi:"auths"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
@@ -1697,7 +1701,7 @@ type ProjectSecondarySourceArgs struct {
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1752,7 +1756,9 @@ func (o ProjectSecondarySourceOutput) ToProjectSecondarySourceOutputWithContext(
 	return o
 }
 
-// Configuration block. Detailed below.
+// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceOutput) Auths() ProjectSecondarySourceAuthArrayOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) []ProjectSecondarySourceAuth { return v.Auths }).(ProjectSecondarySourceAuthArrayOutput)
 }
@@ -1794,7 +1800,7 @@ func (o ProjectSecondarySourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSecondarySourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1820,9 +1826,13 @@ func (o ProjectSecondarySourceArrayOutput) Index(i pulumi.IntInput) ProjectSecon
 }
 
 type ProjectSecondarySourceAuth struct {
-	// Resource value that applies to the specified authorization type.
+	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
 }
 
@@ -1838,9 +1848,13 @@ type ProjectSecondarySourceAuthInput interface {
 }
 
 type ProjectSecondarySourceAuthArgs struct {
-	// Resource value that applies to the specified authorization type.
+	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1895,12 +1909,16 @@ func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthOutputWith
 	return o
 }
 
-// Resource value that applies to the specified authorization type.
+// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySourceAuth) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2059,7 +2077,9 @@ func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) FetchSubmodules() pu
 }
 
 type ProjectSource struct {
-	// Configuration block. Detailed below.
+	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auths []ProjectSourceAuth `pulumi:"auths"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec *string `pulumi:"buildspec"`
@@ -2073,7 +2093,7 @@ type ProjectSource struct {
 	Location *string `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -2089,7 +2109,9 @@ type ProjectSourceInput interface {
 }
 
 type ProjectSourceArgs struct {
-	// Configuration block. Detailed below.
+	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auths ProjectSourceAuthArrayInput `pulumi:"auths"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
@@ -2103,7 +2125,7 @@ type ProjectSourceArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2184,7 +2206,9 @@ func (o ProjectSourceOutput) ToProjectSourcePtrOutputWithContext(ctx context.Con
 	}).(ProjectSourcePtrOutput)
 }
 
-// Configuration block. Detailed below.
+// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceOutput) Auths() ProjectSourceAuthArrayOutput {
 	return o.ApplyT(func(v ProjectSource) []ProjectSourceAuth { return v.Auths }).(ProjectSourceAuthArrayOutput)
 }
@@ -2219,7 +2243,7 @@ func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2242,7 +2266,9 @@ func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
 	return o.ApplyT(func(v *ProjectSource) ProjectSource { return *v }).(ProjectSourceOutput)
 }
 
-// Configuration block. Detailed below.
+// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourcePtrOutput) Auths() ProjectSourceAuthArrayOutput {
 	return o.ApplyT(func(v *ProjectSource) []ProjectSourceAuth {
 		if v == nil {
@@ -2312,7 +2338,7 @@ func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
 		if v == nil {
@@ -2323,9 +2349,13 @@ func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ProjectSourceAuth struct {
-	// Resource value that applies to the specified authorization type.
+	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
 }
 
@@ -2341,9 +2371,13 @@ type ProjectSourceAuthInput interface {
 }
 
 type ProjectSourceAuthArgs struct {
-	// Resource value that applies to the specified authorization type.
+	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	//
+	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2398,12 +2432,16 @@ func (o ProjectSourceAuthOutput) ToProjectSourceAuthOutputWithContext(ctx contex
 	return o
 }
 
-// Resource value that applies to the specified authorization type.
+// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+//
+// Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSourceAuth) string { return v.Type }).(pulumi.StringOutput)
 }

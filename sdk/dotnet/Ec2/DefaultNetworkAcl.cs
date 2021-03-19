@@ -10,6 +10,156 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides a resource to manage a VPC's default network ACL. This resource can manage the default network ACL of the default or a non-default VPC.
+    /// 
+    /// &gt; **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultNetworkAcl` behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
+    /// 
+    /// Every VPC has a default network ACL that can be managed but not destroyed. When the provider first adopts the Default Network ACL, it **immediately removes all rules in the ACL**. It then proceeds to create any rules specified in the configuration. This step is required so that only the rules specified in the configuration are created.
+    /// 
+    /// This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diffs being shown. For these reasons, this resource is incompatible with the `aws.ec2.NetworkAclRule` resource.
+    /// 
+    /// For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
+    /// 
+    /// ## Example Usage
+    /// ### Basic Example
+    /// 
+    /// The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///                 {
+    ///                     Protocol = "-1",
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = mainvpc.CidrBlock,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
+    ///                 {
+    ///                     Protocol = "-1",
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = "0.0.0.0/0",
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example: Deny All Egress Traffic, Allow Ingress
+    /// 
+    /// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///                 {
+    ///                     Protocol = "-1",
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = aws_default_vpc.Mainvpc.Cidr_block,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
+    /// 
+    /// This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///         });
+    ///         // no rules defined, deny all traffic in this ACL
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Managing Subnets In A Default Network ACL
+    /// 
+    /// Within a VPC, all Subnets must be associated with a Network ACL. In order to "delete" the association between a Subnet and a non-default Network ACL, the association is destroyed by replacing it with an association between the Subnet and the Default ACL instead.
+    /// 
+    /// When managing the Default Network ACL, you cannot "remove" Subnets. Instead, they must be reassigned to another Network ACL, or the Subnet itself must be destroyed. Because of these requirements, removing the `subnet_ids` attribute from the configuration of a `aws.ec2.DefaultNetworkAcl` resource may result in a reoccurring plan, until the Subnets are reassigned to another Network ACL or are destroyed.
+    /// 
+    /// Because Subnets are by default associated with the Default Network ACL, any non-explicit association will show up as a plan to remove the Subnet. For example: if you have a custom `aws.ec2.NetworkAcl` with two subnets attached, and you remove the `aws.ec2.NetworkAcl` resource, after successfully destroying this resource future plans will show a diff on the managed `aws.ec2.DefaultNetworkAcl`, as those two Subnets have been orphaned by the now destroyed network acl and thus adopted by the Default Network ACL. In order to avoid a reoccurring plan, they will need to be reassigned, destroyed, or added to the `subnet_ids` attribute of the `aws.ec2.DefaultNetworkAcl` entry.
+    /// 
+    /// As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration ...
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration
+    /// 
+    /// Each AWS VPC comes with a Default Network ACL that cannot be deleted. The `aws.ec2.DefaultNetworkAcl` allows you to manage this Network ACL, but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and management, **but will not destroy the Network ACL.** All Subnets associations and ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
+    /// 
     /// ## Import
     /// 
     /// Default Network ACLs can be imported using the `id`, e.g.

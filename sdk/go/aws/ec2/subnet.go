@@ -114,9 +114,9 @@ type Subnet struct {
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -184,9 +184,9 @@ type subnetState struct {
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -221,8 +221,8 @@ type SubnetState struct {
 	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -254,9 +254,9 @@ type subnetArgs struct {
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	OutpostArn *string           `pulumi:"outpostArn"`
+	Tags       map[string]string `pulumi:"tags"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// The VPC ID.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -286,8 +286,8 @@ type SubnetArgs struct {
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringInput
 }

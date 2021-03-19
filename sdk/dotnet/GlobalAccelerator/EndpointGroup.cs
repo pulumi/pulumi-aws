@@ -74,9 +74,16 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Output("healthCheckIntervalSeconds")]
         public Output<int?> HealthCheckIntervalSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Output("healthCheckPath")]
         public Output<string> HealthCheckPath { get; private set; } = null!;
 
+        /// <summary>
+        /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        /// the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Output("healthCheckPort")]
         public Output<int> HealthCheckPort { get; private set; } = null!;
 
@@ -180,9 +187,16 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("healthCheckIntervalSeconds")]
         public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
+        /// <summary>
+        /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        /// the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("healthCheckPort")]
         public Input<int>? HealthCheckPort { get; set; }
 
@@ -259,9 +273,16 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("healthCheckIntervalSeconds")]
         public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
+        /// <summary>
+        /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        /// the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("healthCheckPort")]
         public Input<int>? HealthCheckPort { get; set; }
 

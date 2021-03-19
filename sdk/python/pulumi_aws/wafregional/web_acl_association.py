@@ -25,7 +25,8 @@ class WebAclAssociation(pulumi.CustomResource):
 
         > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
 
-        ## Application Load Balancer Association Example
+        ## Example Usage
+        ### Application Load Balancer Association
 
         ```python
         import pulumi

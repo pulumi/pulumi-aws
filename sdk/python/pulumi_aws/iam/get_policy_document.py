@@ -128,7 +128,39 @@ def get_policy_document(override_json: Optional[str] = None,
                         version: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDocumentResult:
     """
-    Use this data source to access information about an existing resource.
+    Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `iam.Policy`.
+
+    Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+
+    ## Example Usage
+    ### Example with Both Source and Override Documents
+
+    You can also combine `source_json` and `override_json` in the same document.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceholder",
+        actions=["ec2:DescribeAccountAttributes"],
+        resources=["*"],
+    )])
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceholder",
+        actions=["s3:GetObject"],
+        resources=["*"],
+    )])
+    politik = aws.iam.get_policy_document(source_json=source.json,
+        override_json=override.json)
+    ```
+
+    `data.aws_iam_policy_document.politik.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
+
 
     :param str override_json: IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
     :param Sequence[str] override_policy_documents: List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.

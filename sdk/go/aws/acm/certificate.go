@@ -26,7 +26,7 @@ import (
 // of this provider.
 //
 // ## Example Usage
-// ### Certificate creation
+// ### Create Certificate
 //
 // ```go
 // package main
@@ -52,7 +52,7 @@ import (
 // 	})
 // }
 // ```
-// ### Importing an existing certificate
+// ### Existing Certificate Body Import
 //
 // ```go
 // package main

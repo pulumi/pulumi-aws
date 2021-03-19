@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * of this provider.
  *
  * ## Example Usage
- * ### Certificate creation
+ * ### Create Certificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     validationMethod: "DNS",
  * });
  * ```
- * ### Importing an existing certificate
+ * ### Existing Certificate Body Import
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

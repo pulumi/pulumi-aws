@@ -35,7 +35,8 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         management of the VPC Peering Connection and allows options to be set correctly in cross-region and
         cross-account scenarios.
 
-        Basic usage:
+        ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -57,8 +58,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_classic_link_to_remote_vpc=True,
             ))
         ```
-
-        Basic cross-account usage:
+        ### Cross-Account Usage
 
         ```python
         import pulumi
@@ -80,6 +80,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             enable_dns_hostnames=True,
             opts=pulumi.ResourceOptions(provider=aws["accepter"]))
         peer_caller_identity = aws.get_caller_identity()
+        # Requester's side of the connection.
         peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
             vpc_id=main.id,
             peer_vpc_id=peer_vpc.id,
@@ -89,6 +90,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 "Side": "Requester",
             },
             opts=pulumi.ResourceOptions(provider=aws["requester"]))
+        # Accepter's side of the connection.
         peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
             vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,

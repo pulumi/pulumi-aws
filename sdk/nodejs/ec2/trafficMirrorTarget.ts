@@ -79,6 +79,10 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      */
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the AWS account that owns the traffic mirror target.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +104,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TrafficMirrorTargetArgs | undefined;
@@ -108,6 +113,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             inputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -136,6 +142,10 @@ export interface TrafficMirrorTargetState {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the traffic mirror target.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

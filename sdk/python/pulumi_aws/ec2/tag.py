@@ -22,6 +22,31 @@ class Tag(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
+
+        > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `ec2.Vpc` and `ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `ec2.Vpc` resource will try to remove the tag being added by the `ec2.Tag` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            transit_gateway_id=example_transit_gateway.id,
+            type=example_customer_gateway.type)
+        example_tag = aws.ec2.Tag("exampleTag",
+            resource_id=example_vpn_connection.transit_gateway_attachment_id,
+            key="Name",
+            value="Hello World")
+        ```
+
         ## Import
 
         `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.

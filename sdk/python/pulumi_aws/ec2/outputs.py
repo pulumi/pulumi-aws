@@ -163,6 +163,7 @@ __all__ = [
     'GetSpotPriceFilterResult',
     'GetSubnetFilterResult',
     'GetSubnetIdsFilterResult',
+    'GetTransitGatewayRouteTablesFilterResult',
     'GetVpcCidrBlockAssociationResult',
     'GetVpcDhcpOptionsFilterResult',
     'GetVpcEndpointDnsEntryResult',
@@ -3672,6 +3673,8 @@ class SecurityGroupEgress(dict):
                  self: Optional[bool] = None):
         """
         :param int from_port: The start port (or ICMP type number if protocol is "icmp")
+        :param str protocol: The protocol. If you select a protocol of
+               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
         :param int to_port: The end range port (or ICMP code if protocol is "icmp").
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
@@ -3709,6 +3712,10 @@ class SecurityGroupEgress(dict):
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        The protocol. If you select a protocol of
+        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        """
         return pulumi.get(self, "protocol")
 
     @property
@@ -3787,6 +3794,8 @@ class SecurityGroupIngress(dict):
                  self: Optional[bool] = None):
         """
         :param int from_port: The start port (or ICMP type number if protocol is "icmp")
+        :param str protocol: The protocol. If you select a protocol of
+               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
         :param int to_port: The end range port (or ICMP code if protocol is "icmp").
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
@@ -3824,6 +3833,10 @@ class SecurityGroupIngress(dict):
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        The protocol. If you select a protocol of
+        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        """
         return pulumi.get(self, "protocol")
 
     @property
@@ -7868,6 +7881,39 @@ class GetSubnetIdsFilterResult(dict):
         """
         Set of values that are accepted for the given field.
         Subnet IDs will be selected if any one of the given values match.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetTransitGatewayRouteTablesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

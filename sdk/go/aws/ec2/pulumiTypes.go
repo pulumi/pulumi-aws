@@ -8792,7 +8792,9 @@ type SecurityGroupEgress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	Protocol      string   `pulumi:"protocol"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	Protocol string `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -8825,7 +8827,9 @@ type SecurityGroupEgressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol      pulumi.StringInput      `pulumi:"protocol"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -8912,6 +8916,8 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of
+// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -8964,7 +8970,9 @@ type SecurityGroupIngress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	Protocol      string   `pulumi:"protocol"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	Protocol string `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -8997,7 +9005,9 @@ type SecurityGroupIngressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol      pulumi.StringInput      `pulumi:"protocol"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security group Group Names if using
 	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -9084,6 +9094,8 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of
+// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -20720,6 +20732,118 @@ func (o GetSubnetIdsFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetIdsFilt
 	}).(GetSubnetIdsFilterOutput)
 }
 
+type GetTransitGatewayRouteTablesFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetTransitGatewayRouteTablesFilterInput is an input type that accepts GetTransitGatewayRouteTablesFilterArgs and GetTransitGatewayRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetTransitGatewayRouteTablesFilterInput` via:
+//
+//          GetTransitGatewayRouteTablesFilterArgs{...}
+type GetTransitGatewayRouteTablesFilterInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput
+	ToGetTransitGatewayRouteTablesFilterOutputWithContext(context.Context) GetTransitGatewayRouteTablesFilterOutput
+}
+
+type GetTransitGatewayRouteTablesFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetTransitGatewayRouteTablesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetTransitGatewayRouteTablesFilterArgs) ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput {
+	return i.ToGetTransitGatewayRouteTablesFilterOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayRouteTablesFilterArgs) ToGetTransitGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayRouteTablesFilterOutput)
+}
+
+// GetTransitGatewayRouteTablesFilterArrayInput is an input type that accepts GetTransitGatewayRouteTablesFilterArray and GetTransitGatewayRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayRouteTablesFilterArrayInput` via:
+//
+//          GetTransitGatewayRouteTablesFilterArray{ GetTransitGatewayRouteTablesFilterArgs{...} }
+type GetTransitGatewayRouteTablesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput
+	ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(context.Context) GetTransitGatewayRouteTablesFilterArrayOutput
+}
+
+type GetTransitGatewayRouteTablesFilterArray []GetTransitGatewayRouteTablesFilterInput
+
+func (GetTransitGatewayRouteTablesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetTransitGatewayRouteTablesFilterArray) ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput {
+	return i.ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayRouteTablesFilterArray) ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayRouteTablesFilterArrayOutput)
+}
+
+type GetTransitGatewayRouteTablesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayRouteTablesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetTransitGatewayRouteTablesFilterOutput) ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterOutput) ToGetTransitGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+func (o GetTransitGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Transit Gateway Route Table will be selected if any one of the given values matches.
+func (o GetTransitGatewayRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetTransitGatewayRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayRouteTablesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayRouteTablesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitGatewayRouteTablesFilter {
+		return vs[0].([]GetTransitGatewayRouteTablesFilter)[vs[1].(int)]
+	}).(GetTransitGatewayRouteTablesFilterOutput)
+}
+
 type GetVpcCidrBlockAssociation struct {
 	// The association ID for the the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
@@ -22326,6 +22450,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSubnetFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetIdsFilterOutput{})
 	pulumi.RegisterOutputType(GetSubnetIdsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesFilterOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationOutput{})
 	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcDhcpOptionsFilterOutput{})

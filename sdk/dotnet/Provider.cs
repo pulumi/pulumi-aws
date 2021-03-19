@@ -62,6 +62,12 @@ namespace Pulumi.Aws
         [Input("assumeRole", json: true)]
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
 
+        /// <summary>
+        /// Configuration block with settings to default resource tags across all resources.
+        /// </summary>
+        [Input("defaultTags", json: true)]
+        public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
+
         [Input("endpoints", json: true)]
         private InputList<Inputs.ProviderEndpointArgs>? _endpoints;
         public InputList<Inputs.ProviderEndpointArgs> Endpoints

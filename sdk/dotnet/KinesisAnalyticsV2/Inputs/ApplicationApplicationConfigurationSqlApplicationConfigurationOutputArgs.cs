@@ -19,19 +19,19 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs> DestinationSchema { get; set; } = null!;
 
         /// <summary>
-        /// Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+        /// Identifies a Kinesis Data Firehose delivery stream as the destination.
         /// </summary>
         [Input("kinesisFirehoseOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs>? KinesisFirehoseOutput { get; set; }
 
         /// <summary>
-        /// Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+        /// Identifies a Kinesis data stream as the destination.
         /// </summary>
         [Input("kinesisStreamsOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs>? KinesisStreamsOutput { get; set; }
 
         /// <summary>
-        /// Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+        /// Identifies a Lambda function as the destination.
         /// </summary>
         [Input("lambdaOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs>? LambdaOutput { get; set; }

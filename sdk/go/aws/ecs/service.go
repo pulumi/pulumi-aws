@@ -189,8 +189,9 @@ type Service struct {
 	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-	TaskDefinition     pulumi.StringPtrOutput `pulumi:"taskDefinition"`
-	WaitForSteadyState pulumi.BoolPtrOutput   `pulumi:"waitForSteadyState"`
+	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -265,8 +266,9 @@ type serviceState struct {
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-	TaskDefinition     *string `pulumi:"taskDefinition"`
-	WaitForSteadyState *bool   `pulumi:"waitForSteadyState"`
+	TaskDefinition *string `pulumi:"taskDefinition"`
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
 type ServiceState struct {
@@ -313,7 +315,8 @@ type ServiceState struct {
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-	TaskDefinition     pulumi.StringPtrInput
+	TaskDefinition pulumi.StringPtrInput
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 
@@ -365,8 +368,9 @@ type serviceArgs struct {
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-	TaskDefinition     *string `pulumi:"taskDefinition"`
-	WaitForSteadyState *bool   `pulumi:"waitForSteadyState"`
+	TaskDefinition *string `pulumi:"taskDefinition"`
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -414,7 +418,8 @@ type ServiceArgs struct {
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-	TaskDefinition     pulumi.StringPtrInput
+	TaskDefinition pulumi.StringPtrInput
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 

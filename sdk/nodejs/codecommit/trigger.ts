@@ -53,6 +53,9 @@ export class Trigger extends pulumi.CustomResource {
         return obj['__pulumiType'] === Trigger.__pulumiType;
     }
 
+    /**
+     * System-generated unique identifier.
+     */
     public /*out*/ readonly configurationId!: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
@@ -99,6 +102,9 @@ export class Trigger extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Trigger resources.
  */
 export interface TriggerState {
+    /**
+     * System-generated unique identifier.
+     */
     readonly configurationId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.

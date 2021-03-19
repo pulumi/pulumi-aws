@@ -12,6 +12,8 @@ import (
 
 // Provides a AWS Transfer Server resource.
 //
+// ## Example Usage
+//
 // ```go
 // package main
 //

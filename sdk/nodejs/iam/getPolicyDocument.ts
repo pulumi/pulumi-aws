@@ -5,6 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
+ *
+ * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+ *
+ * ## Example Usage
+ * ### Example with Both Source and Override Documents
+ *
+ * You can also combine `sourceJson` and `overrideJson` in the same document.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const source = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "OverridePlaceholder",
+ *         actions: ["ec2:DescribeAccountAttributes"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const override = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "OverridePlaceholder",
+ *         actions: ["s3:GetObject"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
+ *     sourceJson: source.json,
+ *     overrideJson: override.json,
+ * }));
+ * ```
+ *
+ * `data.aws_iam_policy_document.politik.json` will evaluate to:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};
     if (!opts) {

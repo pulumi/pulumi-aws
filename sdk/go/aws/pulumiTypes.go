@@ -241,6 +241,132 @@ func (o ProviderAssumeRolePtrOutput) TransitiveTagKeys() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type ProviderDefaultTags struct {
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ProviderDefaultTagsInput is an input type that accepts ProviderDefaultTagsArgs and ProviderDefaultTagsOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsInput` via:
+//
+//          ProviderDefaultTagsArgs{...}
+type ProviderDefaultTagsInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput
+	ToProviderDefaultTagsOutputWithContext(context.Context) ProviderDefaultTagsOutput
+}
+
+type ProviderDefaultTagsArgs struct {
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ProviderDefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return i.ToProviderDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput).ToProviderDefaultTagsPtrOutputWithContext(ctx)
+}
+
+// ProviderDefaultTagsPtrInput is an input type that accepts ProviderDefaultTagsArgs, ProviderDefaultTagsPtr and ProviderDefaultTagsPtrOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsPtrInput` via:
+//
+//          ProviderDefaultTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderDefaultTagsPtrInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput
+	ToProviderDefaultTagsPtrOutputWithContext(context.Context) ProviderDefaultTagsPtrOutput
+}
+
+type providerDefaultTagsPtrType ProviderDefaultTagsArgs
+
+func ProviderDefaultTagsPtr(v *ProviderDefaultTagsArgs) ProviderDefaultTagsPtrInput {
+	return (*providerDefaultTagsPtrType)(v)
+}
+
+func (*providerDefaultTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
+}
+
+type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o.ApplyT(func(v ProviderDefaultTags) *ProviderDefaultTags {
+		return &v
+	}).(ProviderDefaultTagsPtrOutput)
+}
+func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type ProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags { return *v }).(ProviderDefaultTagsOutput)
+}
+
+func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 type ProviderEndpoint struct {
 	Accessanalyzer           *string `pulumi:"accessanalyzer"`
 	Acm                      *string `pulumi:"acm"`
@@ -253,6 +379,7 @@ type ProviderEndpoint struct {
 	Appstream                *string `pulumi:"appstream"`
 	Appsync                  *string `pulumi:"appsync"`
 	Athena                   *string `pulumi:"athena"`
+	Auditmanager             *string `pulumi:"auditmanager"`
 	Autoscaling              *string `pulumi:"autoscaling"`
 	Autoscalingplans         *string `pulumi:"autoscalingplans"`
 	Backup                   *string `pulumi:"backup"`
@@ -418,6 +545,7 @@ type ProviderEndpointArgs struct {
 	Appstream                pulumi.StringPtrInput `pulumi:"appstream"`
 	Appsync                  pulumi.StringPtrInput `pulumi:"appsync"`
 	Athena                   pulumi.StringPtrInput `pulumi:"athena"`
+	Auditmanager             pulumi.StringPtrInput `pulumi:"auditmanager"`
 	Autoscaling              pulumi.StringPtrInput `pulumi:"autoscaling"`
 	Autoscalingplans         pulumi.StringPtrInput `pulumi:"autoscalingplans"`
 	Backup                   pulumi.StringPtrInput `pulumi:"backup"`
@@ -653,6 +781,10 @@ func (o ProviderEndpointOutput) Appsync() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Athena() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Athena }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Auditmanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Auditmanager }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Autoscaling() pulumi.StringPtrOutput {
@@ -2436,6 +2568,8 @@ func (o GetRegionsFilterArrayOutput) Index(i pulumi.IntInput) GetRegionsFilterOu
 func init() {
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ProviderIgnoreTagsOutput{})

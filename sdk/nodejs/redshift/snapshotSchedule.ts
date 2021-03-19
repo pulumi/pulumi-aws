@@ -53,6 +53,9 @@ export class SnapshotSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SnapshotSchedule.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
@@ -124,6 +127,9 @@ export class SnapshotSchedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotSchedule resources.
  */
 export interface SnapshotScheduleState {
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     */
     readonly arn?: pulumi.Input<string>;
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.

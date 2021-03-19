@@ -26,6 +26,98 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides a resource to manage a VPC's default network ACL. This resource can manage the default network ACL of the default or a non-default VPC.
+
+        > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `ec2.DefaultNetworkAcl` behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
+
+        Every VPC has a default network ACL that can be managed but not destroyed. When the provider first adopts the Default Network ACL, it **immediately removes all rules in the ACL**. It then proceeds to create any rules specified in the configuration. This step is required so that only the rules specified in the configuration are created.
+
+        This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diffs being shown. For these reasons, this resource is incompatible with the `ec2.NetworkAclRule` resource.
+
+        For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
+
+        ## Example Usage
+        ### Basic Example
+
+        The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
+            ingress=[aws.ec2.DefaultNetworkAclIngressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block=mainvpc.cidr_block,
+                from_port=0,
+                to_port=0,
+            )],
+            egress=[aws.ec2.DefaultNetworkAclEgressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block="0.0.0.0/0",
+                from_port=0,
+                to_port=0,
+            )])
+        ```
+        ### Example: Deny All Egress Traffic, Allow Ingress
+
+        The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
+            ingress=[aws.ec2.DefaultNetworkAclIngressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
+                from_port=0,
+                to_port=0,
+            )])
+        ```
+        ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
+
+        This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default", default_network_acl_id=mainvpc.default_network_acl_id)
+        # no rules defined, deny all traffic in this ACL
+        ```
+        ### Managing Subnets In A Default Network ACL
+
+        Within a VPC, all Subnets must be associated with a Network ACL. In order to "delete" the association between a Subnet and a non-default Network ACL, the association is destroyed by replacing it with an association between the Subnet and the Default ACL instead.
+
+        When managing the Default Network ACL, you cannot "remove" Subnets. Instead, they must be reassigned to another Network ACL, or the Subnet itself must be destroyed. Because of these requirements, removing the `subnet_ids` attribute from the configuration of a `ec2.DefaultNetworkAcl` resource may result in a reoccurring plan, until the Subnets are reassigned to another Network ACL or are destroyed.
+
+        Because Subnets are by default associated with the Default Network ACL, any non-explicit association will show up as a plan to remove the Subnet. For example: if you have a custom `ec2.NetworkAcl` with two subnets attached, and you remove the `ec2.NetworkAcl` resource, after successfully destroying this resource future plans will show a diff on the managed `ec2.DefaultNetworkAcl`, as those two Subnets have been orphaned by the now destroyed network acl and thus adopted by the Default Network ACL. In order to avoid a reoccurring plan, they will need to be reassigned, destroyed, or added to the `subnet_ids` attribute of the `ec2.DefaultNetworkAcl` entry.
+
+        As an alternative to the above, you can also specify the following lifecycle configuration in your `ec2.DefaultNetworkAcl` resource:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        default = aws.ec2.DefaultNetworkAcl("default")
+        ```
+        ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
+
+        Each AWS VPC comes with a Default Network ACL that cannot be deleted. The `ec2.DefaultNetworkAcl` allows you to manage this Network ACL, but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and management, **but will not destroy the Network ACL.** All Subnets associations and ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
+
         ## Import
 
         Default Network ACLs can be imported using the `id`, e.g.

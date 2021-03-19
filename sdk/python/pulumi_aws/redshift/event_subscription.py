@@ -55,13 +55,6 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "default",
             })
         ```
-        ## Attributes
-
-        The following additional atttributes are provided:
-
-        * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
-        * `id` - The name of the Redshift event notification subscription
-        * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
 
         ## Import
 
@@ -140,6 +133,8 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift event notification subscription
+        :param pulumi.Input[str] customer_aws_id: The AWS customer account associated with the Redshift event notification subscription
         :param pulumi.Input[bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[str] name: The name of the Redshift event subscription.
@@ -169,11 +164,17 @@ class EventSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Redshift event notification subscription
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="customerAwsId")
     def customer_aws_id(self) -> pulumi.Output[str]:
+        """
+        The AWS customer account associated with the Redshift event notification subscription
+        """
         return pulumi.get(self, "customer_aws_id")
 
     @property

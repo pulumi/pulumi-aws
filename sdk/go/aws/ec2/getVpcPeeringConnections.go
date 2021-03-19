@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to get IDs of Amazon VPC peering connections
+// To get more details on each connection, use the data resource `ec2.VpcPeeringConnection`
 func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetVpcPeeringConnectionsResult, error) {
 	var rv GetVpcPeeringConnectionsResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args, &rv, opts...)
