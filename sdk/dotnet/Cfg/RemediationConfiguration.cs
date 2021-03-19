@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Remediation Configuration.
     /// 
-    /// &gt; **Note:** Config Remediation Configuration requires an existing [Config Rule](https://www.terraform.io/docs/providers/aws/r/config_config_rule.html) to be present.
+    /// &gt; **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
     /// 
     /// ## Example Usage
     /// 
@@ -76,6 +76,9 @@ namespace Pulumi.Aws.Cfg
     [AwsResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
     public partial class RemediationConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Config Remediation Configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -212,6 +215,9 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RemediationConfigurationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Config Remediation Configuration.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

@@ -13,8 +13,6 @@ import (
 
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 //
-// > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
-//
 // ## Example Usage
 //
 // ```go

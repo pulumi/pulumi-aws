@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
 import {Deployment, RestApi} from "./index";
 
 /**
+ * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
+ *
+ * ## Example Usage
+ * ### Managing the API Logging CloudWatch Log Group
+ *
+ * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
+ *
+ * > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const stageName = config.get("stageName") || "example";
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * // ... other configuration ...
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
+ * // ... potentially other configuration ...
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {stageName: stageName}, {
+ *     dependsOn: [exampleLogGroup],
+ * });
+ * // ... other configuration ...
+ * ```
+ *
  * ## Import
  *
  * `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.

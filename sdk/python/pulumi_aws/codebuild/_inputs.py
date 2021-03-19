@@ -44,7 +44,7 @@ class ProjectArtifactsArgs:
                  packaging: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
@@ -76,7 +76,7 @@ class ProjectArtifactsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -190,7 +190,7 @@ class ProjectCacheArgs:
         """
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -227,7 +227,7 @@ class ProjectCacheArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -250,7 +250,7 @@ class ProjectEnvironmentArgs:
         """
         :param pulumi.Input[str] compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
         :param pulumi.Input[str] image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param pulumi.Input[str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
         :param pulumi.Input[str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -299,7 +299,7 @@ class ProjectEnvironmentArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -377,7 +377,7 @@ class ProjectEnvironmentEnvironmentVariableArgs:
         """
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[str] value: Environment variable's value.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -412,7 +412,7 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -621,7 +621,7 @@ class ProjectSecondaryArtifactArgs:
                  path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -663,7 +663,7 @@ class ProjectSecondaryArtifactArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -770,8 +770,8 @@ class ProjectSecondarySourceArgs:
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] source_identifier: Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]] auths: Configuration block. Detailed below.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]] auths: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
@@ -781,6 +781,9 @@ class ProjectSecondarySourceArgs:
         """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
+        if auths is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""auths is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if auths is not None:
             pulumi.set(__self__, "auths", auths)
         if buildspec is not None:
@@ -812,7 +815,7 @@ class ProjectSecondarySourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -824,7 +827,7 @@ class ProjectSecondarySourceArgs:
     @pulumi.getter
     def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]]]:
         """
-        Configuration block. Detailed below.
+        Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
         return pulumi.get(self, "auths")
 
@@ -911,10 +914,16 @@ class ProjectSecondarySourceAuthArgs:
                  type: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
-        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
+        if type is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
         pulumi.set(__self__, "type", type)
+        if resource is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""resource is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
 
@@ -922,7 +931,7 @@ class ProjectSecondarySourceAuthArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -934,7 +943,7 @@ class ProjectSecondarySourceAuthArgs:
     @pulumi.getter
     def resource(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource value that applies to the specified authorization type.
+        Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "resource")
 
@@ -977,8 +986,8 @@ class ProjectSourceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]] auths: Configuration block. Detailed below.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]] auths: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
@@ -987,6 +996,9 @@ class ProjectSourceArgs:
         :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         pulumi.set(__self__, "type", type)
+        if auths is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""auths is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if auths is not None:
             pulumi.set(__self__, "auths", auths)
         if buildspec is not None:
@@ -1006,7 +1018,7 @@ class ProjectSourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -1018,7 +1030,7 @@ class ProjectSourceArgs:
     @pulumi.getter
     def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]]]:
         """
-        Configuration block. Detailed below.
+        Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
         return pulumi.get(self, "auths")
 
@@ -1105,10 +1117,16 @@ class ProjectSourceAuthArgs:
                  type: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`.
-        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type.
+        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
+        if type is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
         pulumi.set(__self__, "type", type)
+        if resource is not None:
+            warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+            pulumi.log.warn("""resource is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
 
@@ -1116,7 +1134,7 @@ class ProjectSourceAuthArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`.
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "type")
 
@@ -1128,7 +1146,7 @@ class ProjectSourceAuthArgs:
     @pulumi.getter
     def resource(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource value that applies to the specified authorization type.
+        Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         return pulumi.get(self, "resource")
 

@@ -37,8 +37,6 @@ class ServerCertificate(pulumi.CustomResource):
         For information about server certificates in IAM, see [Managing Server
         Certificates][2] in AWS Documentation.
 
-        > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
-
         ## Example Usage
 
         **Using certs on file:**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway REST API Policy.
  *
- * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+ * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
  *
  * ## Example Usage
  * ### Basic
@@ -77,6 +77,9 @@ export class RestApiPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestApiPolicy.__pulumiType;
     }
 
+    /**
+     * JSON formatted policy document that controls access to the API Gateway.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The ID of the REST API.
@@ -120,6 +123,9 @@ export class RestApiPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RestApiPolicy resources.
  */
 export interface RestApiPolicyState {
+    /**
+     * JSON formatted policy document that controls access to the API Gateway.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The ID of the REST API.
@@ -131,6 +137,9 @@ export interface RestApiPolicyState {
  * The set of arguments for constructing a RestApiPolicy resource.
  */
 export interface RestApiPolicyArgs {
+    /**
+     * JSON formatted policy document that controls access to the API Gateway.
+     */
     readonly policy: pulumi.Input<string>;
     /**
      * The ID of the REST API.

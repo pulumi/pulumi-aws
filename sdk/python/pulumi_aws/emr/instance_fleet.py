@@ -27,6 +27,55 @@ class InstanceFleet(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides an Elastic MapReduce Cluster Instance Fleet configuration.
+        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+
+        > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
+        web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
+        the provider will resize any Instance Fleet to zero when destroying the resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceFleet("task",
+            cluster_id=aws_emr_cluster["cluster"]["id"],
+            instance_type_configs=[
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.xlarge",
+                    weighted_capacity=1,
+                ),
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.2xlarge",
+                    weighted_capacity=2,
+                ),
+            ],
+            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
+                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
+                    allocation_strategy="capacity-optimized",
+                    block_duration_minutes=0,
+                    timeout_action="TERMINATE_CLUSTER",
+                    timeout_duration_minutes=10,
+                )],
+            ),
+            target_on_demand_capacity=1,
+            target_spot_capacity=1)
+        ```
+
         ## Import
 
         EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console

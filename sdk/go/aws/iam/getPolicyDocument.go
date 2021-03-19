@@ -7,6 +7,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `iam.Policy`.
+//
+// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+//
+// ## Example Usage
+// ### Example with Both Source and Override Documents
+//
+// You can also combine `sourceJson` and `overrideJson` in the same document.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid: "OverridePlaceholder",
+// 					Actions: []string{
+// 						"ec2:DescribeAccountAttributes",
+// 					},
+// 					Resources: []string{
+// 						"*",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid: "OverridePlaceholder",
+// 					Actions: []string{
+// 						"s3:GetObject",
+// 					},
+// 					Resources: []string{
+// 						"*",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := source.Json
+// 		opt1 := override.Json
+// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			SourceJson:   &opt0,
+// 			OverrideJson: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// `data.aws_iam_policy_document.politik.json` will evaluate to:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		return nil
+// 	})
+// }
+// ```
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	var rv GetPolicyDocumentResult
 	err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, opts...)

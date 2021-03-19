@@ -25,13 +25,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldBodyGetArgs>? Body { get; set; }
 
         /// <summary>
-        /// Redact the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldMethodGetArgs>? Method { get; set; }
 
         /// <summary>
-        /// Redact the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldQueryStringGetArgs>? QueryString { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
 
         /// <summary>
-        /// Redact the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldUriPathGetArgs>? UriPath { get; set; }

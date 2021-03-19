@@ -124,7 +124,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("virtualGatewayName")]
         public Output<string> VirtualGatewayName { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualGatewayName", required: true)]
         public Input<string> VirtualGatewayName { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualGatewayName")]
         public Input<string>? VirtualGatewayName { get; set; }

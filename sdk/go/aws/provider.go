@@ -53,11 +53,13 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey           *string             `pulumi:"accessKey"`
-	AllowedAccountIds   []string            `pulumi:"allowedAccountIds"`
-	AssumeRole          *ProviderAssumeRole `pulumi:"assumeRole"`
-	Endpoints           []ProviderEndpoint  `pulumi:"endpoints"`
-	ForbiddenAccountIds []string            `pulumi:"forbiddenAccountIds"`
+	AccessKey         *string             `pulumi:"accessKey"`
+	AllowedAccountIds []string            `pulumi:"allowedAccountIds"`
+	AssumeRole        *ProviderAssumeRole `pulumi:"assumeRole"`
+	// Configuration block with settings to default resource tags across all resources.
+	DefaultTags         *ProviderDefaultTags `pulumi:"defaultTags"`
+	Endpoints           []ProviderEndpoint   `pulumi:"endpoints"`
+	ForbiddenAccountIds []string             `pulumi:"forbiddenAccountIds"`
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags *ProviderIgnoreTags `pulumi:"ignoreTags"`
 	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
@@ -94,9 +96,11 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey           pulumi.StringPtrInput
-	AllowedAccountIds   pulumi.StringArrayInput
-	AssumeRole          ProviderAssumeRolePtrInput
+	AccessKey         pulumi.StringPtrInput
+	AllowedAccountIds pulumi.StringArrayInput
+	AssumeRole        ProviderAssumeRolePtrInput
+	// Configuration block with settings to default resource tags across all resources.
+	DefaultTags         ProviderDefaultTagsPtrInput
 	Endpoints           ProviderEndpointArrayInput
 	ForbiddenAccountIds pulumi.StringArrayInput
 	// Configuration block with settings to ignore resource tags across all resources.

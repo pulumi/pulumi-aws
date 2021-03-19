@@ -104,6 +104,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         :param pulumi.Input[str] description: The description of the snapshot schedule.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
@@ -128,6 +129,9 @@ class SnapshotSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+        """
         return pulumi.get(self, "arn")
 
     @property

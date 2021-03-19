@@ -101,6 +101,9 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     public readonly cpuThreadsPerCore!: pulumi.Output<number>;
+    /**
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     */
     public readonly creditSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCreditSpecification | undefined>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -459,6 +462,9 @@ export interface SpotInstanceRequestState {
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
+    /**
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     */
     readonly creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -678,6 +684,9 @@ export interface SpotInstanceRequestArgs {
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
+    /**
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     */
     readonly creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).

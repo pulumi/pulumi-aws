@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SecretsManager
     public static class GetSecretRotation
     {
         /// <summary>
-        /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html). To retrieve a secret value, see the [`aws.secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+        /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

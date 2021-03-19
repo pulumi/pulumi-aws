@@ -12,7 +12,8 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Maintenance Window Target resource
     /// 
-    /// ## Instance Target Example Usage
+    /// ## Example Usage
+    /// ### Instance Target
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -49,8 +50,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Resource Group Target Example Usage
+    /// ### Resource Group Target
     /// 
     /// ```csharp
     /// using Pulumi;

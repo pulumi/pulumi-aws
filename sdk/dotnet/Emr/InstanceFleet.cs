@@ -10,6 +10,80 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr
 {
     /// <summary>
+    /// Provides an Elastic MapReduce Cluster Instance Fleet configuration.
+    /// See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+    /// 
+    /// &gt; **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
+    /// web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
+    /// the provider will resize any Instance Fleet to zero when destroying the resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var task = new Aws.Emr.InstanceFleet("task", new Aws.Emr.InstanceFleetArgs
+    ///         {
+    ///             ClusterId = aws_emr_cluster.Cluster.Id,
+    ///             InstanceTypeConfigs = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 {
+    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                     EbsConfigs = 
+    ///                     {
+    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         {
+    ///                             Size = 100,
+    ///                             Type = "gp2",
+    ///                             VolumesPerInstance = 1,
+    ///                         },
+    ///                     },
+    ///                     InstanceType = "m4.xlarge",
+    ///                     WeightedCapacity = 1,
+    ///                 },
+    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 {
+    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                     EbsConfigs = 
+    ///                     {
+    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         {
+    ///                             Size = 100,
+    ///                             Type = "gp2",
+    ///                             VolumesPerInstance = 1,
+    ///                         },
+    ///                     },
+    ///                     InstanceType = "m4.2xlarge",
+    ///                     WeightedCapacity = 2,
+    ///                 },
+    ///             },
+    ///             LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
+    ///             {
+    ///                 SpotSpecifications = 
+    ///                 {
+    ///                     new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                     {
+    ///                         AllocationStrategy = "capacity-optimized",
+    ///                         BlockDurationMinutes = 0,
+    ///                         TimeoutAction = "TERMINATE_CLUSTER",
+    ///                         TimeoutDurationMinutes = 10,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TargetOnDemandCapacity = 1,
+    ///             TargetSpotCapacity = 1,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console

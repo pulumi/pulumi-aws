@@ -6,6 +6,47 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource to manage an RDS DB proxy default target group resource.
+ *
+ * The `aws.rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleProxy = new aws.rds.Proxy("exampleProxy", {
+ *     debugLogging: false,
+ *     engineFamily: "MYSQL",
+ *     idleClientTimeout: 1800,
+ *     requireTls: true,
+ *     roleArn: aws_iam_role.example.arn,
+ *     vpcSecurityGroupIds: [aws_security_group.example.id],
+ *     vpcSubnetIds: [aws_subnet.example.id],
+ *     auths: [{
+ *         authScheme: "SECRETS",
+ *         description: "example",
+ *         iamAuth: "DISABLED",
+ *         secretArn: aws_secretsmanager_secret.example.arn,
+ *     }],
+ *     tags: {
+ *         Name: "example",
+ *         Key: "value",
+ *     },
+ * });
+ * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", {
+ *     dbProxyName: exampleProxy.name,
+ *     connectionPoolConfig: {
+ *         connectionBorrowTimeout: 120,
+ *         initQuery: "SET x=1, y=2",
+ *         maxConnectionsPercent: 100,
+ *         maxIdleConnectionsPercent: 50,
+ *         sessionPinningFilters: ["EXCLUDE_VARIABLE_SETS"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * DB proxy default target groups can be imported using the `db_proxy_name`, e.g.

@@ -11,6 +11,314 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides an Auto Scaling Group resource.
+//
+// > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
+//
+// > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
+// both a standalone `autoscaling.Attachment` resource
+// (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
+// with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
+// mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
+// `loadBalancers` or `targetGroupArns`, the `autoscaling.Group` resource must be configured
+// to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
+//
+// ## Example Usage
+// ### With Latest Version Of Launch Template
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foobar, err := ec2.NewLaunchTemplate(ctx, "foobar", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("foobar"),
+// 			ImageId:      pulumi.String("ami-1a2b3c"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(1),
+// 			MinSize:         pulumi.Int(1),
+// 			LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
+// 				Id:      foobar.ID(),
+// 				Version: pulumi.String(fmt.Sprintf("%v%v", "$", "Latest")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Mixed Instances Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("example"),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(1),
+// 			MinSize:         pulumi.Int(1),
+// 			MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
+// 				LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
+// 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
+// 						LaunchTemplateId: exampleLaunchTemplate.ID(),
+// 					},
+// 					Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType:     pulumi.String("c4.large"),
+// 							WeightedCapacity: pulumi.String("3"),
+// 						},
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType:     pulumi.String("c3.large"),
+// 							WeightedCapacity: pulumi.String("2"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
+//
+// When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("example"),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example2, err := ec2.NewLaunchTemplate(ctx, "example2", &ec2.LaunchTemplateArgs{
+// 			NamePrefix: pulumi.String("example2"),
+// 			ImageId:    pulumi.Any(data.Aws_ami.Example2.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(1),
+// 			MinSize:         pulumi.Int(1),
+// 			MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
+// 				LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
+// 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
+// 						LaunchTemplateId: exampleLaunchTemplate.ID(),
+// 					},
+// 					Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType:     pulumi.String("c4.large"),
+// 							WeightedCapacity: pulumi.String("3"),
+// 						},
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType: pulumi.String("c6g.large"),
+// 							LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{
+// 								LaunchTemplateId: example2.ID(),
+// 							},
+// 							WeightedCapacity: pulumi.String("2"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Automatically refresh all instances after the group is updated
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+// 			MostRecent: &opt0,
+// 			Owners: []string{
+// 				"amazon",
+// 			},
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"amzn-ami-hvm-*-x86_64-gp2",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String(exampleAmi.Id),
+// 			InstanceType: pulumi.String("t3.nano"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(2),
+// 			MinSize:         pulumi.Int(1),
+// 			LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
+// 				Id:      exampleLaunchTemplate.ID(),
+// 				Version: exampleLaunchTemplate.LatestVersion,
+// 			},
+// 			Tags: autoscaling.GroupTagArray{
+// 				&autoscaling.GroupTagArgs{
+// 					Key:               pulumi.String("Key"),
+// 					Value:             pulumi.String("Value"),
+// 					PropagateAtLaunch: pulumi.Bool(true),
+// 				},
+// 			},
+// 			InstanceRefresh: &autoscaling.GroupInstanceRefreshArgs{
+// 				Strategy: pulumi.String("Rolling"),
+// 				Preferences: &autoscaling.GroupInstanceRefreshPreferencesArgs{
+// 					MinHealthyPercentage: pulumi.Int(50),
+// 				},
+// 				Triggers: pulumi.StringArray{
+// 					pulumi.String("tag"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Waiting for Capacity
+//
+// A newly-created ASG is initially empty and begins to scale to `minSize` (or
+// `desiredCapacity`, if specified) by launching instances using the provided
+// Launch Configuration. These instances take time to launch and boot.
+//
+// On ASG Update, changes to these values also take time to result in the target
+// number of instances providing service.
+//
+// This provider provides two mechanisms to help consistently manage ASG scale up
+// time across dependent resources.
+//
+// #### Waiting for ASG Capacity
+//
+// The first is default behavior. This provider waits after ASG creation for
+// `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
+// in the ASG before continuing.
+//
+// If `minSize` or `desiredCapacity` are changed in a subsequent update,
+// this provider will also wait for the correct number of healthy instances before
+// continuing.
+//
+// This provider considers an instance "healthy" when the ASG reports `HealthStatus:
+// "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
+// Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
+// for more information on an ASG's lifecycle.
+//
+// This provider will wait for healthy instances for up to
+// `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
+// it's worth investigating for scaling activity errors, which can be caused by
+// problems with the selected Launch Configuration.
+//
+// Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
+//
+// #### Waiting for ELB Capacity
+//
+// The second mechanism is optional, and affects ASGs with attached ELBs specified
+// via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
+//
+// The `minElbCapacity` parameter causes this provider to wait for at least the
+// requested number of instances to show up `"InService"` in all attached ELBs
+// during ASG creation.  It has no effect on ASG updates.
+//
+// If `waitForElbCapacity` is set, this provider will wait for exactly that number
+// of Instances to be `"InService"` in all attached ELBs on both creation and
+// updates.
+//
+// These parameters can be used to ensure that service is being provided before
+// this provider moves on. If new instances don't pass the ELB's health checks for any
+// reason, the deployment will time out, and the ASG will be marked as
+// tainted (i.e. marked to be destroyed in a follow up run).
+//
+// As with ASG Capacity, this provider will wait for up to `waitForCapacityTimeout`
+// for the proper number of instances to be healthy.
+//
+// #### Troubleshooting Capacity Waiting Timeouts
+//
+// If ASG creation takes more than a few minutes, this could indicate one of a
+// number of configuration problems. See the [AWS Docs on Load Balancer
+// Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
+// for more information.
+//
 // ## Import
 //
 // Auto Scaling Groups can be imported using the `name`, e.g.
@@ -70,7 +378,11 @@ type Group struct {
 	MaxSize pulumi.IntOutput `pulumi:"maxSize"`
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrOutput `pulumi:"metricsGranularity"`
-	MinElbCapacity     pulumi.IntPtrOutput    `pulumi:"minElbCapacity"`
+	// Setting this causes the provider to wait for
+	// this number of instances from this Auto Scaling Group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
+	// (See also Waiting for Capacity below.)
+	MinElbCapacity pulumi.IntPtrOutput `pulumi:"minElbCapacity"`
 	// The minimum size of the Auto Scaling Group.
 	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
@@ -108,7 +420,12 @@ type Group struct {
 	// for Capacity below.) Setting this to "0" causes
 	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrOutput `pulumi:"waitForCapacityTimeout"`
-	WaitForElbCapacity     pulumi.IntPtrOutput    `pulumi:"waitForElbCapacity"`
+	// Setting this will cause the provider to wait
+	// for exactly this number of healthy instances from this Auto Scaling Group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `minElbCapacity` behavior.)
+	// (See also Waiting for Capacity below.)
+	WaitForElbCapacity pulumi.IntPtrOutput `pulumi:"waitForElbCapacity"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -195,7 +512,11 @@ type groupState struct {
 	MaxSize *int `pulumi:"maxSize"`
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity *string `pulumi:"metricsGranularity"`
-	MinElbCapacity     *int    `pulumi:"minElbCapacity"`
+	// Setting this causes the provider to wait for
+	// this number of instances from this Auto Scaling Group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
+	// (See also Waiting for Capacity below.)
+	MinElbCapacity *int `pulumi:"minElbCapacity"`
 	// The minimum size of the Auto Scaling Group.
 	// (See also Waiting for Capacity below.)
 	MinSize *int `pulumi:"minSize"`
@@ -233,7 +554,12 @@ type groupState struct {
 	// for Capacity below.) Setting this to "0" causes
 	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
-	WaitForElbCapacity     *int    `pulumi:"waitForElbCapacity"`
+	// Setting this will cause the provider to wait
+	// for exactly this number of healthy instances from this Auto Scaling Group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `minElbCapacity` behavior.)
+	// (See also Waiting for Capacity below.)
+	WaitForElbCapacity *int `pulumi:"waitForElbCapacity"`
 }
 
 type GroupState struct {
@@ -286,7 +612,11 @@ type GroupState struct {
 	MaxSize pulumi.IntPtrInput
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrInput
-	MinElbCapacity     pulumi.IntPtrInput
+	// Setting this causes the provider to wait for
+	// this number of instances from this Auto Scaling Group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
+	// (See also Waiting for Capacity below.)
+	MinElbCapacity pulumi.IntPtrInput
 	// The minimum size of the Auto Scaling Group.
 	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntPtrInput
@@ -324,7 +654,12 @@ type GroupState struct {
 	// for Capacity below.) Setting this to "0" causes
 	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
-	WaitForElbCapacity     pulumi.IntPtrInput
+	// Setting this will cause the provider to wait
+	// for exactly this number of healthy instances from this Auto Scaling Group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `minElbCapacity` behavior.)
+	// (See also Waiting for Capacity below.)
+	WaitForElbCapacity pulumi.IntPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -379,7 +714,11 @@ type groupArgs struct {
 	MaxSize int `pulumi:"maxSize"`
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity *string `pulumi:"metricsGranularity"`
-	MinElbCapacity     *int    `pulumi:"minElbCapacity"`
+	// Setting this causes the provider to wait for
+	// this number of instances from this Auto Scaling Group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
+	// (See also Waiting for Capacity below.)
+	MinElbCapacity *int `pulumi:"minElbCapacity"`
 	// The minimum size of the Auto Scaling Group.
 	// (See also Waiting for Capacity below.)
 	MinSize int `pulumi:"minSize"`
@@ -417,7 +756,12 @@ type groupArgs struct {
 	// for Capacity below.) Setting this to "0" causes
 	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
-	WaitForElbCapacity     *int    `pulumi:"waitForElbCapacity"`
+	// Setting this will cause the provider to wait
+	// for exactly this number of healthy instances from this Auto Scaling Group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `minElbCapacity` behavior.)
+	// (See also Waiting for Capacity below.)
+	WaitForElbCapacity *int `pulumi:"waitForElbCapacity"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -469,7 +813,11 @@ type GroupArgs struct {
 	MaxSize pulumi.IntInput
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrInput
-	MinElbCapacity     pulumi.IntPtrInput
+	// Setting this causes the provider to wait for
+	// this number of instances from this Auto Scaling Group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
+	// (See also Waiting for Capacity below.)
+	MinElbCapacity pulumi.IntPtrInput
 	// The minimum size of the Auto Scaling Group.
 	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntInput
@@ -507,7 +855,12 @@ type GroupArgs struct {
 	// for Capacity below.) Setting this to "0" causes
 	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
-	WaitForElbCapacity     pulumi.IntPtrInput
+	// Setting this will cause the provider to wait
+	// for exactly this number of healthy instances from this Auto Scaling Group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `minElbCapacity` behavior.)
+	// (See also Waiting for Capacity below.)
+	WaitForElbCapacity pulumi.IntPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

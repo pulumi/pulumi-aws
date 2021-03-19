@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ProviderAssumeRole',
+    'ProviderDefaultTags',
     'ProviderEndpoint',
     'ProviderIgnoreTags',
     'GetAmiBlockDeviceMappingResult',
@@ -98,6 +99,22 @@ class ProviderAssumeRole(dict):
 
 
 @pulumi.output_type
+class ProviderDefaultTags(dict):
+    def __init__(__self__, *,
+                 tags: Optional[Mapping[str, str]] = None):
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ProviderEndpoint(dict):
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
@@ -111,6 +128,7 @@ class ProviderEndpoint(dict):
                  appstream: Optional[str] = None,
                  appsync: Optional[str] = None,
                  athena: Optional[str] = None,
+                 auditmanager: Optional[str] = None,
                  autoscaling: Optional[str] = None,
                  autoscalingplans: Optional[str] = None,
                  backup: Optional[str] = None,
@@ -273,6 +291,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "appsync", appsync)
         if athena is not None:
             pulumi.set(__self__, "athena", athena)
+        if auditmanager is not None:
+            pulumi.set(__self__, "auditmanager", auditmanager)
         if autoscaling is not None:
             pulumi.set(__self__, "autoscaling", autoscaling)
         if autoscalingplans is not None:
@@ -608,6 +628,11 @@ class ProviderEndpoint(dict):
     @pulumi.getter
     def athena(self) -> Optional[str]:
         return pulumi.get(self, "athena")
+
+    @property
+    @pulumi.getter
+    def auditmanager(self) -> Optional[str]:
+        return pulumi.get(self, "auditmanager")
 
     @property
     @pulumi.getter

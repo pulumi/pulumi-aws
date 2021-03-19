@@ -29,7 +29,8 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window Target resource
 
-        ## Instance Target Example Usage
+        ## Example Usage
+        ### Instance Target
 
         ```python
         import pulumi
@@ -48,8 +49,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                 values=["acceptance_test"],
             )])
         ```
-
-        ## Resource Group Target Example Usage
+        ### Resource Group Target
 
         ```python
         import pulumi

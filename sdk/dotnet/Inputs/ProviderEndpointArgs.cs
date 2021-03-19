@@ -45,6 +45,9 @@ namespace Pulumi.Aws.Inputs
         [Input("athena")]
         public Input<string>? Athena { get; set; }
 
+        [Input("auditmanager")]
+        public Input<string>? Auditmanager { get; set; }
+
         [Input("autoscaling")]
         public Input<string>? Autoscaling { get; set; }
 

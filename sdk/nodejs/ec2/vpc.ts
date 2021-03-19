@@ -140,10 +140,8 @@ export class Vpc extends pulumi.CustomResource {
      * The ID of the AWS account that owns the VPC.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Vpc resource with the given unique name, arguments, and options.
@@ -175,6 +173,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
             if ((!args || args.cidrBlock === undefined) && !opts.urn) {
@@ -188,6 +187,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             inputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["defaultNetworkAclId"] = undefined /*out*/;
             inputs["defaultRouteTableId"] = undefined /*out*/;
@@ -278,10 +278,8 @@ export interface VpcState {
      * The ID of the AWS account that owns the VPC.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -322,8 +320,6 @@ export interface VpcArgs {
      * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     readonly instanceTenancy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

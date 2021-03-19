@@ -94,7 +94,8 @@ type DefaultVpc struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpc registers a new resource with the given unique name, arguments, and options.
@@ -162,7 +163,8 @@ type defaultVpcState struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcState struct {
@@ -202,7 +204,8 @@ type DefaultVpcState struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcState) ElementType() reflect.Type {
@@ -220,7 +223,8 @@ type defaultVpcArgs struct {
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
@@ -235,7 +239,8 @@ type DefaultVpcArgs struct {
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcArgs) ElementType() reflect.Type {

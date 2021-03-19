@@ -33,6 +33,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// List of Prefix List IDs.
         /// </summary>
         public readonly ImmutableArray<string> PrefixListIds;
+        /// <summary>
+        /// The protocol. If you select a protocol of
+        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        /// </summary>
         public readonly string Protocol;
         /// <summary>
         /// List of security group Group Names if using

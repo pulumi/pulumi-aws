@@ -10,6 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Organizations
 {
     /// <summary>
+    /// Provides a resource to create an organization.
+    /// 
+    /// !&gt; **WARNING:** When migrating from a `feature_set` of `CONSOLIDATED_BILLING` to `ALL`, the Organization account owner will received an email stating the following: "You started the process to enable all features for your AWS organization. As part of that process, all member accounts that joined your organization by invitation must approve the change. You don’t need approval from member accounts that you directly created from within your AWS organization." After all member accounts have accepted the invitation, the Organization account owner must then finalize the changes via the [AWS Console](https://console.aws.amazon.com/organizations/home#/organization/settings/migration-progress). Until these steps are performed, the provider will perpetually show a difference, and the `DescribeOrganization` API will continue to show the `FeatureSet` as `CONSOLIDATED_BILLING`. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) for more information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var org = new Aws.Organizations.Organization("org", new Aws.Organizations.OrganizationArgs
+    ///         {
+    ///             AwsServiceAccessPrincipals = 
+    ///             {
+    ///                 "cloudtrail.amazonaws.com",
+    ///                 "config.amazonaws.com",
+    ///             },
+    ///             FeatureSet = "ALL",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The AWS organization can be imported by using the `id`, e.g.

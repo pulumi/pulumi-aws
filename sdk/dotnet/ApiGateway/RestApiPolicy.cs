@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway REST API Policy.
     /// 
-    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
     /// 
     /// ## Example Usage
     /// ### Basic
@@ -67,6 +67,9 @@ namespace Pulumi.Aws.ApiGateway
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
     public partial class RestApiPolicy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// JSON formatted policy document that controls access to the API Gateway.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -122,6 +125,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON formatted policy document that controls access to the API Gateway.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -138,6 +144,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON formatted policy document that controls access to the API Gateway.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

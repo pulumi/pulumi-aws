@@ -10,6 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `aws.ec2.Vpc` and `aws.ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `aws.ec2.Vpc` resource will try to remove the tag being added by the `aws.ec2.Tag` resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///         });
+    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
+    ///         {
+    ///             BgpAsn = "65000",
+    ///             IpAddress = "172.0.0.1",
+    ///             Type = "ipsec.1",
+    ///         });
+    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
+    ///         {
+    ///             CustomerGatewayId = exampleCustomerGateway.Id,
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             Type = exampleCustomerGateway.Type,
+    ///         });
+    ///         var exampleTag = new Aws.Ec2.Tag("exampleTag", new Aws.Ec2.TagArgs
+    ///         {
+    ///             ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
+    ///             Key = "Name",
+    ///             Value = "Hello World",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.

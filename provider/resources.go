@@ -1708,6 +1708,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
+			"aws_kinesis_stream_consumer":          {Tok: awsResource(kinesisMod, "StreamConsumer")},
 			"aws_kinesis_video_stream":             {Tok: awsResource(kinesisMod, "VideoStream")},
 			"aws_kinesis_analytics_application": {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
@@ -2267,7 +2268,18 @@ func Provider() tfbridge.ProviderInfo {
 					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
-			"aws_sns_topic_policy": {Tok: awsResource(snsMod, "TopicPolicy")},
+			"aws_sns_topic_policy": {
+				Tok: awsResource(snsMod, "TopicPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:      "string",
+							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+							Transform: tfbridge.TransformJSONDocument,
+						},
+					},
+				},
+			},
 			"aws_sns_topic_subscription": {
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3655,8 +3667,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_virtual_interface_groups": {
 				Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterfaceGroups"),
 			},
-			"aws_dedicated_host":          {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
-			"aws_ec2_managed_prefix_list": {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
+			"aws_dedicated_host":                   {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
+			"aws_ec2_managed_prefix_list":          {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
+			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
@@ -3778,7 +3791,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Inspector
 			"aws_inspector_rules_packages": {Tok: awsDataSource(inspectorMod, "getRulesPackages")},
 			// Kinesis
-			"aws_kinesis_stream": {Tok: awsDataSource(kinesisMod, "getStream")},
+			"aws_kinesis_stream":          {Tok: awsDataSource(kinesisMod, "getStream")},
+			"aws_kinesis_stream_consumer": {Tok: awsDataSource(kinesisMod, "getStreamConsumer")},
 			// Key Management Service
 			"aws_kms_alias":      {Tok: awsDataSource(kmsMod, "getAlias")},
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},

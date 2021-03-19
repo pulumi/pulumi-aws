@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
+    /// Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`aws.apigateway.Resource` resource), methods (`aws.apigateway.Method` resource), integrations (`aws.apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `aws.apigateway.Deployment` resource can be used along with the `aws.apigateway.Stage` resource to publish the REST API.
+    /// 
+    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
+    /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.

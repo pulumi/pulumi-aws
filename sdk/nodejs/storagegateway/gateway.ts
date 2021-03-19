@@ -74,7 +74,19 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
  *
- *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+ *  <<<<<<< HEAD Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. ======= Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_storagegateway_gateway" "example" {
+ *
+ * # ... other configuration ...
+ *
+ *  gateway_ip_address = aws_instance.sgw.private_ip
+ *
+ * # There is no Storage Gateway API for reading gateway_ip_address
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = ["gateway_ip_address"]
+ *
+ *  } } >>>>>>> v3.33.0
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -173,6 +185,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
     /**
+     * Specifies whether the shares on this gateway appear when listing shares.
+     */
+    public readonly smbFileShareVisibility!: pulumi.Output<boolean | undefined>;
+    /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
@@ -181,7 +197,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly smbSecurityStrategy!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -219,6 +235,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
             inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
             inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
+            inputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
             inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
             inputs["smbSecurityStrategy"] = state ? state.smbSecurityStrategy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -242,6 +259,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
             inputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
             inputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
+            inputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
             inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
             inputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -333,6 +351,10 @@ export interface GatewayState {
      */
     readonly smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
+     * Specifies whether the shares on this gateway appear when listing shares.
+     */
+    readonly smbFileShareVisibility?: pulumi.Input<boolean>;
+    /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     readonly smbGuestPassword?: pulumi.Input<string>;
@@ -341,7 +363,7 @@ export interface GatewayState {
      */
     readonly smbSecurityStrategy?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -399,6 +421,10 @@ export interface GatewayArgs {
      */
     readonly smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
+     * Specifies whether the shares on this gateway appear when listing shares.
+     */
+    readonly smbFileShareVisibility?: pulumi.Input<boolean>;
+    /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     readonly smbGuestPassword?: pulumi.Input<string>;
@@ -407,7 +433,7 @@ export interface GatewayArgs {
      */
     readonly smbSecurityStrategy?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

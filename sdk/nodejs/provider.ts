@@ -43,6 +43,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
+            inputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
             inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
@@ -77,6 +78,10 @@ export interface ProviderArgs {
     readonly accessKey?: pulumi.Input<string>;
     readonly allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     readonly assumeRole?: pulumi.Input<inputs.ProviderAssumeRole>;
+    /**
+     * Configuration block with settings to default resource tags across all resources.
+     */
+    readonly defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     readonly forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

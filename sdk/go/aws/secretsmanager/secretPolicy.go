@@ -56,7 +56,8 @@ type SecretPolicy struct {
 
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
-	Policy            pulumi.StringOutput  `pulumi:"policy"`
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
@@ -97,8 +98,9 @@ func GetSecretPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SecretPolicy resources.
 type secretPolicyState struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-	BlockPublicPolicy *bool   `pulumi:"blockPublicPolicy"`
-	Policy            *string `pulumi:"policy"`
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy *string `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -106,7 +108,8 @@ type secretPolicyState struct {
 type SecretPolicyState struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	Policy            pulumi.StringPtrInput
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy pulumi.StringPtrInput
 	// Secret ARN.
 	SecretArn pulumi.StringPtrInput
 }
@@ -117,8 +120,9 @@ func (SecretPolicyState) ElementType() reflect.Type {
 
 type secretPolicyArgs struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-	BlockPublicPolicy *bool  `pulumi:"blockPublicPolicy"`
-	Policy            string `pulumi:"policy"`
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy string `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -127,7 +131,8 @@ type secretPolicyArgs struct {
 type SecretPolicyArgs struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	Policy            pulumi.StringInput
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy pulumi.StringInput
 	// Secret ARN.
 	SecretArn pulumi.StringInput
 }

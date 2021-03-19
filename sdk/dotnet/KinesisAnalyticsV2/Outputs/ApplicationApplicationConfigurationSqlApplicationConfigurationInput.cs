@@ -30,11 +30,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema InputSchema;
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> InputStartingPositionConfigurations;
         /// <summary>
-        /// If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput? KinesisFirehoseInput;
         /// <summary>
-        /// If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+        /// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput? KinesisStreamsInput;
         /// <summary>

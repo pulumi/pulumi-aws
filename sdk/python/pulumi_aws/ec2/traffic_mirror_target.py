@@ -79,6 +79,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__['network_load_balancer_arn'] = network_load_balancer_arn
             __props__['tags'] = tags
             __props__['arn'] = None
+            __props__['owner_id'] = None
         super(TrafficMirrorTarget, __self__).__init__(
             'aws:ec2/trafficMirrorTarget:TrafficMirrorTarget',
             resource_name,
@@ -93,6 +94,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
             network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrafficMirrorTarget':
         """
         Get an existing TrafficMirrorTarget resource's state with the given name, id, and optional extra
@@ -105,6 +107,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the traffic mirror target.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,6 +118,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         __props__["description"] = description
         __props__["network_interface_id"] = network_interface_id
         __props__["network_load_balancer_arn"] = network_load_balancer_arn
+        __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         return TrafficMirrorTarget(resource_name, opts=opts, __props__=__props__)
 
@@ -149,6 +153,14 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         """
         return pulumi.get(self, "network_load_balancer_arn")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS account that owns the traffic mirror target.
+        """
+        return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter

@@ -8,14 +8,17 @@ import * as utilities from "../utilities";
 export * from "./analyticsApplication";
 export * from "./firehoseDeliveryStream";
 export * from "./getStream";
+export * from "./getStreamConsumer";
 export * from "./kinesisMixins";
 export * from "./stream";
+export * from "./streamConsumer";
 export * from "./videoStream";
 
 // Import resources to register:
 import { AnalyticsApplication } from "./analyticsApplication";
 import { FirehoseDeliveryStream } from "./firehoseDeliveryStream";
 import { Stream } from "./stream";
+import { StreamConsumer } from "./streamConsumer";
 import { VideoStream } from "./videoStream";
 
 const _module = {
@@ -28,6 +31,8 @@ const _module = {
                 return new FirehoseDeliveryStream(name, <any>undefined, { urn })
             case "aws:kinesis/stream:Stream":
                 return new Stream(name, <any>undefined, { urn })
+            case "aws:kinesis/streamConsumer:StreamConsumer":
+                return new StreamConsumer(name, <any>undefined, { urn })
             case "aws:kinesis/videoStream:VideoStream":
                 return new VideoStream(name, <any>undefined, { urn })
             default:
@@ -38,4 +43,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "kinesis/analyticsApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/firehoseDeliveryStream", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/stream", _module)
+pulumi.runtime.registerResourceModule("aws", "kinesis/streamConsumer", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/videoStream", _module)

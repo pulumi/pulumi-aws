@@ -110,7 +110,19 @@ namespace Pulumi.Aws.StorageGateway
     ///  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
     /// ```
     /// 
-    ///  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+    ///  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. ======= Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_storagegateway_gateway" "example" {
+    /// 
+    /// # ... other configuration ...
+    /// 
+    ///  gateway_ip_address = aws_instance.sgw.private_ip
+    /// 
+    /// # There is no Storage Gateway API for reading gateway_ip_address
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = ["gateway_ip_address"]
+    /// 
+    ///  } } &gt;&gt;&gt;&gt;&gt;&gt;&gt; v3.33.0
     /// </summary>
     [AwsResourceType("aws:storagegateway/gateway:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
@@ -218,6 +230,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<Outputs.GatewaySmbActiveDirectorySettings?> SmbActiveDirectorySettings { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the shares on this gateway appear when listing shares.
+        /// </summary>
+        [Output("smbFileShareVisibility")]
+        public Output<bool?> SmbFileShareVisibility { get; private set; } = null!;
+
+        /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
         [Output("smbGuestPassword")]
@@ -230,7 +248,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> SmbSecurityStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -354,6 +372,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<Inputs.GatewaySmbActiveDirectorySettingsArgs>? SmbActiveDirectorySettings { get; set; }
 
         /// <summary>
+        /// Specifies whether the shares on this gateway appear when listing shares.
+        /// </summary>
+        [Input("smbFileShareVisibility")]
+        public Input<bool>? SmbFileShareVisibility { get; set; }
+
+        /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
         [Input("smbGuestPassword")]
@@ -369,7 +393,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<string> Tags
         {
@@ -499,6 +523,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<Inputs.GatewaySmbActiveDirectorySettingsGetArgs>? SmbActiveDirectorySettings { get; set; }
 
         /// <summary>
+        /// Specifies whether the shares on this gateway appear when listing shares.
+        /// </summary>
+        [Input("smbFileShareVisibility")]
+        public Input<bool>? SmbFileShareVisibility { get; set; }
+
+        /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
         [Input("smbGuestPassword")]
@@ -514,7 +544,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<string> Tags
         {

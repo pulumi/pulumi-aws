@@ -155,7 +155,7 @@ import (
 //
 // ## Import
 //
-// Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+// CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
@@ -169,7 +169,7 @@ type MetricAlarm struct {
 	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
-	// The ARN of the cloudwatch metric alarm.
+	// The ARN of the CloudWatch Metric Alarm.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
@@ -260,7 +260,7 @@ type metricAlarmState struct {
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
-	// The ARN of the cloudwatch metric alarm.
+	// The ARN of the CloudWatch Metric Alarm.
 	Arn *string `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
@@ -317,7 +317,7 @@ type MetricAlarmState struct {
 	AlarmActions pulumi.StringArrayInput
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
-	// The ARN of the cloudwatch metric alarm.
+	// The ARN of the CloudWatch Metric Alarm.
 	Arn pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringPtrInput

@@ -21,6 +21,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -83,6 +84,7 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
             __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
+            __props__['tags_all'] = tags_all
             __props__['arn'] = None
             __props__['assign_ipv6_address_on_creation'] = None
             __props__['availability_zone_id'] = None
@@ -114,6 +116,7 @@ class DefaultSubnet(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'DefaultSubnet':
         """
         Get an existing DefaultSubnet resource's state with the given name, id, and optional extra
@@ -150,6 +153,7 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__["outpost_arn"] = outpost_arn
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
+        __props__["tags_all"] = tags_all
         __props__["vpc_id"] = vpc_id
         return DefaultSubnet(resource_name, opts=opts, __props__=__props__)
 
@@ -242,6 +246,11 @@ class DefaultSubnet(pulumi.CustomResource):
         Map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcId")

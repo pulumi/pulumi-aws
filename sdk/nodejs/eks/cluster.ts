@@ -123,6 +123,9 @@ export class Cluster extends pulumi.CustomResource {
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
      */
     public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    /**
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.
@@ -241,6 +244,9 @@ export interface ClusterState {
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
      */
     readonly identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
+    /**
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     */
     readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.
@@ -284,6 +290,9 @@ export interface ClusterArgs {
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
     readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    /**
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     */
     readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster.

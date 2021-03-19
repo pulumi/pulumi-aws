@@ -57,6 +57,9 @@ namespace Pulumi.Aws.Dms
     [AwsResourceType("aws:dms/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DMS Event Subscription.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class EventSubscriptionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DMS Event Subscription.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

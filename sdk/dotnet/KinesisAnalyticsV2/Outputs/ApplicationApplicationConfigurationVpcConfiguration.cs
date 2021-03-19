@@ -14,11 +14,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationVpcConfiguration
     {
         /// <summary>
-        /// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+        /// The Security Group IDs used by the VPC configuration.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+        /// The Subnet IDs used by the VPC configuration.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string? VpcConfigurationId;

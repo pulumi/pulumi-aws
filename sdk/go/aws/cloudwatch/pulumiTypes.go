@@ -898,8 +898,9 @@ type EventTargetInputTransformer struct {
 	// * You can have as many as 10 key-value pairs.
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
-	InputPaths    map[string]string `pulumi:"inputPaths"`
-	InputTemplate string            `pulumi:"inputTemplate"`
+	InputPaths map[string]string `pulumi:"inputPaths"`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+	InputTemplate string `pulumi:"inputTemplate"`
 }
 
 // EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
@@ -918,8 +919,9 @@ type EventTargetInputTransformerArgs struct {
 	// * You can have as many as 10 key-value pairs.
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
-	InputPaths    pulumi.StringMapInput `pulumi:"inputPaths"`
-	InputTemplate pulumi.StringInput    `pulumi:"inputTemplate"`
+	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
 }
 
 func (EventTargetInputTransformerArgs) ElementType() reflect.Type {
@@ -1007,6 +1009,7 @@ func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
 
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
 func (o EventTargetInputTransformerOutput) InputTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) string { return v.InputTemplate }).(pulumi.StringOutput)
 }
@@ -1042,6 +1045,7 @@ func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
 func (o EventTargetInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) *string {
 		if v == nil {

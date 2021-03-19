@@ -23,7 +23,7 @@ class RestApiPolicy(pulumi.CustomResource):
         """
         Provides an API Gateway REST API Policy.
 
-        > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 [resources](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_api.html).
+        > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 
         ## Example Usage
         ### Basic
@@ -66,6 +66,7 @@ class RestApiPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] rest_api_id: The ID of the REST API.
         """
         if __name__ is not None:
@@ -110,6 +111,7 @@ class RestApiPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] rest_api_id: The ID of the REST API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,6 +125,9 @@ class RestApiPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        JSON formatted policy document that controls access to the API Gateway.
+        """
         return pulumi.get(self, "policy")
 
     @property

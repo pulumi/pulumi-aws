@@ -23,6 +23,7 @@ class Vpc(pulumi.CustomResource):
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -77,7 +78,6 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which
                makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,6 +106,7 @@ class Vpc(pulumi.CustomResource):
             __props__['enable_dns_support'] = enable_dns_support
             __props__['instance_tenancy'] = instance_tenancy
             __props__['tags'] = tags
+            __props__['tags_all'] = tags_all
             __props__['arn'] = None
             __props__['default_network_acl_id'] = None
             __props__['default_route_table_id'] = None
@@ -141,7 +142,8 @@ class Vpc(pulumi.CustomResource):
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             main_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Vpc':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Vpc':
         """
         Get an existing Vpc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -172,7 +174,6 @@ class Vpc(pulumi.CustomResource):
                this VPC. Note that you can change a VPC's main route table by using an
                `ec2.MainRouteTableAssociation`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -195,6 +196,7 @@ class Vpc(pulumi.CustomResource):
         __props__["main_route_table_id"] = main_route_table_id
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
+        __props__["tags_all"] = tags_all
         return Vpc(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,10 +335,12 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

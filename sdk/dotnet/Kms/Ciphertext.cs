@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Kms
     /// is stable across every apply. For a changing ciphertext value each apply, see
     /// the `aws.kms.Ciphertext` data source.
     /// 
-    /// &gt; **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

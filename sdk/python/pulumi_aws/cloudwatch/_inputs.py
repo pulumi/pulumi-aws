@@ -330,6 +330,7 @@ class EventTargetInputTransformerArgs:
                  input_template: pulumi.Input[str],
                  input_paths: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[str] input_template: Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
                * You can have as many as 10 key-value pairs.
                * You must use JSON dot notation, not bracket notation.
@@ -342,6 +343,9 @@ class EventTargetInputTransformerArgs:
     @property
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> pulumi.Input[str]:
+        """
+        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+        """
         return pulumi.get(self, "input_template")
 
     @input_template.setter

@@ -10,6 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
+    /// Connects a custom domain name registered via `aws.apigateway.DomainName`
+    /// with a deployed API so that its methods can be called via the
+    /// custom domain name.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             Deployment = aws_api_gateway_deployment.Example.Id,
+    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///             StageName = "example",
+    ///         });
+    ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
+    ///         {
+    ///             DomainName = "example.com",
+    ///             CertificateName = "example-api",
+    ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
+    ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
+    ///             CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
+    ///         });
+    ///         var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new Aws.ApiGateway.BasePathMappingArgs
+    ///         {
+    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///             StageName = exampleStage.StageName,
+    ///             DomainName = exampleDomainName.Domain,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g. For empty `base_path` (e.g. root path (`/`))

@@ -237,7 +237,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+    /// CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> AlarmDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the cloudwatch metric alarm.
+        /// The ARN of the CloudWatch Metric Alarm.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -646,7 +646,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
-        /// The ARN of the cloudwatch metric alarm.
+        /// The ARN of the CloudWatch Metric Alarm.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

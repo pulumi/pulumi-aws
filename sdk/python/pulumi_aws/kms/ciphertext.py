@@ -27,8 +27,6 @@ class Ciphertext(pulumi.CustomResource):
         is stable across every apply. For a changing ciphertext value each apply, see
         the `kms.Ciphertext` data source.
 
-        > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-
         ## Example Usage
 
         ```python

@@ -23,6 +23,45 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Provides a resource to manage an RDS DB proxy default target group resource.
+
+        The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_proxy = aws.rds.Proxy("exampleProxy",
+            debug_logging=False,
+            engine_family="MYSQL",
+            idle_client_timeout=1800,
+            require_tls=True,
+            role_arn=aws_iam_role["example"]["arn"],
+            vpc_security_group_ids=[aws_security_group["example"]["id"]],
+            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            auths=[aws.rds.ProxyAuthArgs(
+                auth_scheme="SECRETS",
+                description="example",
+                iam_auth="DISABLED",
+                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+            )],
+            tags={
+                "Name": "example",
+                "Key": "value",
+            })
+        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
+            db_proxy_name=example_proxy.name,
+            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
+                connection_borrow_timeout=120,
+                init_query="SET x=1, y=2",
+                max_connections_percent=100,
+                max_idle_connections_percent=50,
+                session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
+            ))
+        ```
+
         ## Import
 
         DB proxy default target groups can be imported using the `db_proxy_name`, e.g.

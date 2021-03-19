@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * prefix the ID with the `origin-access-identity/cloudfront/` special path.
  * The `cloudfrontAccessIdentityPath` allows this to be circumvented.
  * The below snippet demonstrates use with the `s3OriginConfig` structure for the
- * [`aws.cloudfront.Distribution`][3] resource:
+ * `aws.cloudfront.Distribution` resource:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
- * [`aws.s3.Bucket`][4] bucket policy, causing spurious diffs. If
+ * `aws.s3.Bucket` bucket policy, causing spurious diffs. If
  * you see this behaviour, use the `iamArn` instead:
  *
  * ```typescript
@@ -73,8 +73,6 @@ import * as utilities from "../utilities";
  *
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
- * [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
- * [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
  *
  * ## Import
  *

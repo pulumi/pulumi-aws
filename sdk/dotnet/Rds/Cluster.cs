@@ -27,8 +27,6 @@ namespace Pulumi.Aws.Rds
     /// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
     /// for more information.
     /// 
-    /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-    /// 
     /// ## Example Usage
     /// ### Aurora MySQL 2.x (MySQL 5.7)
     /// 
@@ -357,7 +355,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
         /// </summary>
         [Output("replicationSourceIdentifier")]
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
@@ -396,7 +394,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -652,7 +650,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
@@ -691,7 +689,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -951,7 +949,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ReaderEndpoint { get; set; }
 
         /// <summary>
-        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
@@ -990,7 +988,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

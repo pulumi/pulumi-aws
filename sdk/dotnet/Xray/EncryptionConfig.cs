@@ -10,6 +10,69 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Xray
 {
     /// <summary>
+    /// Creates and manages an AWS XRay Encryption Config.
+    /// 
+    /// &gt; **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Xray.EncryptionConfig("example", new Aws.Xray.EncryptionConfigArgs
+    ///         {
+    ///             Type = "NONE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With KMS Key
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "Some Key",
+    ///             DeletionWindowInDays = 7,
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Id"": ""kms-tf-1"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": ""Enable IAM User Permissions"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""AWS"": ""*""
+    ///       },
+    ///       ""Action"": ""kms:*"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new Aws.Xray.EncryptionConfigArgs
+    ///         {
+    ///             Type = "KMS",
+    ///             KeyId = exampleKey.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// XRay Encryption Config can be imported using the region name, e.g.

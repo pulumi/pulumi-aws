@@ -479,7 +479,7 @@ import (
 //  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
 // ```
 //
-//  Since the API does not return the actual values for Kerberos configurations, environments with those this provider configurations will need to use the [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) available to all this provider resources to prevent perpetual differences, e.g. hcl resource "aws_emr_cluster" "example" {
+//  Since the API does not return the actual values for Kerberos configurations, environments with those this provider configurations will need to use the [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) available to all this provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
 //
 // # ... other configuration ...
 //

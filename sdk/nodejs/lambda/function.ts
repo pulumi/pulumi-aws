@@ -8,6 +8,125 @@ import * as utilities from "../utilities";
 import {ARN} from "..";
 
 /**
+ * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
+ *
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+ *
+ * > To give an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
+ *
+ * ## Example Usage
+ * ### Lambda Layers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLayerVersion = new aws.lambda.LayerVersion("exampleLayerVersion", {});
+ * // ... other configuration ...
+ * const exampleFunction = new aws.lambda.Function("exampleFunction", {layers: [exampleLayerVersion.arn]});
+ * ```
+ * ### Lambda File Systems
+ *
+ * Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // EFS file system
+ * const efsForLambda = new aws.efs.FileSystem("efsForLambda", {tags: {
+ *     Name: "efs_for_lambda",
+ * }});
+ * // Mount target connects the file system to the subnet
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: efsForLambda.id,
+ *     subnetId: aws_subnet.subnet_for_lambda.id,
+ *     securityGroups: [aws_security_group.sg_for_lambda.id],
+ * });
+ * // EFS access point used by lambda file system
+ * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
+ *     fileSystemId: efsForLambda.id,
+ *     rootDirectory: {
+ *         path: "/lambda",
+ *         creationInfo: {
+ *             ownerGid: 1000,
+ *             ownerUid: 1000,
+ *             permissions: "777",
+ *         },
+ *     },
+ *     posixUser: {
+ *         gid: 1000,
+ *         uid: 1000,
+ *     },
+ * });
+ * // A lambda function connected to an EFS file system
+ * // ... other configuration ...
+ * const example = new aws.lambda.Function("example", {
+ *     fileSystemConfig: {
+ *         arn: accessPointForLambda.arn,
+ *         localMountPath: "/mnt/efs",
+ *     },
+ *     vpcConfig: {
+ *         subnetIds: [aws_subnet.subnet_for_lambda.id],
+ *         securityGroupIds: [aws_security_group.sg_for_lambda.id],
+ *     },
+ * }, {
+ *     dependsOn: [alpha],
+ * });
+ * ```
+ * ## CloudWatch Logging and Permissions
+ *
+ * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
+ * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+ * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+ * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
+ * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+ * const lambdaLogging = new aws.iam.Policy("lambdaLogging", {
+ *     path: "/",
+ *     description: "IAM policy for logging from a lambda",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "logs:CreateLogGroup",
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents"
+ *       ],
+ *       "Resource": "arn:aws:logs:*:*:*",
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
+ *     role: aws_iam_role.iam_for_lambda.name,
+ *     policyArn: lambdaLogging.arn,
+ * });
+ * const testLambda = new aws.lambda.Function("testLambda", {}, {
+ *     dependsOn: [
+ *         lambdaLogs,
+ *         example,
+ *     ],
+ * });
+ * ```
+ *
+ * ## Specifying the Deployment Package
+ *
+ * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
+ *
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObject` resource to upload it.
+ *
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+ *
  * ## Import
  *
  * Lambda Functions can be imported using the `function_name`, e.g.
@@ -85,9 +204,12 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly imageUri!: pulumi.Output<string | undefined>;
     /**
-     * ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Date this resource was last modified.
@@ -149,6 +271,9 @@ export class Function extends pulumi.CustomResource {
      * ARN of the signing profile version.
      */
     public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -315,9 +440,12 @@ export interface FunctionState {
      */
     readonly imageUri?: pulumi.Input<string>;
     /**
-     * ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
     readonly invokeArn?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * Date this resource was last modified.
@@ -379,6 +507,9 @@ export interface FunctionState {
      * ARN of the signing profile version.
      */
     readonly signingProfileVersionArn?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -447,6 +578,9 @@ export interface FunctionArgs {
      * ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
      */
     readonly imageUri?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
@@ -492,6 +626,9 @@ export interface FunctionArgs {
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the object.

@@ -64,14 +64,6 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
         ```
 
-        Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
-
-        ```python
-        import pulumi
-        ```
-
-        This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_port: The instance port to apply the policy to.

@@ -17,7 +17,8 @@ import * as utilities from "../utilities";
  * management of the VPC Peering Connection and allows options to be set correctly in cross-region and
  * cross-account scenarios.
  *
- * Basic usage:
+ * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -41,8 +42,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * Basic cross-account usage:
+ * ### Cross-Account Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,6 +67,7 @@ import * as utilities from "../utilities";
  *     provider: aws.accepter,
  * });
  * const peerCallerIdentity = aws.getCallerIdentity({});
+ * // Requester's side of the connection.
  * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
  *     vpcId: main.id,
  *     peerVpcId: peerVpc.id,
@@ -78,6 +79,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.requester,
  * });
+ * // Accepter's side of the connection.
  * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,

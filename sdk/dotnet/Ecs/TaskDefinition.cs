@@ -13,6 +13,79 @@ namespace Pulumi.Aws.Ecs
     /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         {
+    ///             Family = "service",
+    ///             ContainerDefinitions = JsonSerializer.Serialize(new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "name", "first" },
+    ///                         { "image", "service-first" },
+    ///                         { "cpu", 10 },
+    ///                         { "memory", 512 },
+    ///                         { "essential", true },
+    ///                         { "portMappings", new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "containerPort", 80 },
+    ///                                     { "hostPort", 80 },
+    ///                                 },
+    ///                             }
+    ///                          },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "name", "second" },
+    ///                         { "image", "service-second" },
+    ///                         { "cpu", 10 },
+    ///                         { "memory", 256 },
+    ///                         { "essential", true },
+    ///                         { "portMappings", new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "containerPort", 443 },
+    ///                                     { "hostPort", 443 },
+    ///                                 },
+    ///                             }
+    ///                          },
+    ///                     },
+    ///                 }
+    ///             ),
+    ///             Volumes = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///                 {
+    ///                     Name = "service-storage",
+    ///                     HostPath = "/ecs/service-storage",
+    ///                 },
+    ///             },
+    ///             PlacementConstraints = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.TaskDefinitionPlacementConstraintArgs
+    ///                 {
+    ///                     Type = "memberOf",
+    ///                     Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### With AppMesh Proxy
     /// 
     /// ```csharp

@@ -10,6 +10,368 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
+    /// Provides an Auto Scaling Group resource.
+    /// 
+    /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+    /// 
+    /// &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
+    /// both a standalone `aws.autoscaling.Attachment` resource
+    /// (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
+    /// with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
+    /// mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
+    /// `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
+    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+    /// 
+    /// ## Example Usage
+    /// ### With Latest Version Of Launch Template
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foobar = new Aws.Ec2.LaunchTemplate("foobar", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "foobar",
+    ///             ImageId = "ami-1a2b3c",
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
+    ///             {
+    ///                 Id = foobar.Id,
+    ///                 Version = "$Latest",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Mixed Instances Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example",
+    ///             ImageId = data.Aws_ami.Example.Id,
+    ///             InstanceType = "c5.large",
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
+    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
+    ///             {
+    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c4.large",
+    ///                             WeightedCapacity = "3",
+    ///                         },
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c3.large",
+    ///                             WeightedCapacity = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example",
+    ///             ImageId = data.Aws_ami.Example.Id,
+    ///             InstanceType = "c5.large",
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             CapacityRebalance = true,
+    ///             DesiredCapacity = 12,
+    ///             MaxSize = 15,
+    ///             MinSize = 12,
+    ///             VpcZoneIdentifiers = 
+    ///             {
+    ///                 aws_subnet.Example1.Id,
+    ///                 aws_subnet.Example2.Id,
+    ///             },
+    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
+    ///             {
+    ///                 InstancesDistribution = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs
+    ///                 {
+    ///                     OnDemandBaseCapacity = 0,
+    ///                     OnDemandPercentageAboveBaseCapacity = 25,
+    ///                     SpotAllocationStrategy = "capacity-optimized",
+    ///                 },
+    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c4.large",
+    ///                             WeightedCapacity = "3",
+    ///                         },
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c3.large",
+    ///                             WeightedCapacity = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
+    /// 
+    /// When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example",
+    ///             ImageId = data.Aws_ami.Example.Id,
+    ///             InstanceType = "c5.large",
+    ///         });
+    ///         var example2 = new Aws.Ec2.LaunchTemplate("example2", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example2",
+    ///             ImageId = data.Aws_ami.Example2.Id,
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
+    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
+    ///             {
+    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c4.large",
+    ///                             WeightedCapacity = "3",
+    ///                         },
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceType = "c6g.large",
+    ///                             LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs
+    ///                             {
+    ///                                 LaunchTemplateId = example2.Id,
+    ///                             },
+    ///                             WeightedCapacity = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Automatically refresh all instances after the group is updated
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleAmi = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Owners = 
+    ///             {
+    ///                 "amazon",
+    ///             },
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "amzn-ami-hvm-*-x86_64-gp2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             ImageId = exampleAmi.Apply(exampleAmi =&gt; exampleAmi.Id),
+    ///             InstanceType = "t3.nano",
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 2,
+    ///             MinSize = 1,
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
+    ///             {
+    ///                 Id = exampleLaunchTemplate.Id,
+    ///                 Version = exampleLaunchTemplate.LatestVersion,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///                 {
+    ///                     Key = "Key",
+    ///                     Value = "Value",
+    ///                     PropagateAtLaunch = true,
+    ///                 },
+    ///             },
+    ///             InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
+    ///             {
+    ///                 Strategy = "Rolling",
+    ///                 Preferences = new Aws.AutoScaling.Inputs.GroupInstanceRefreshPreferencesArgs
+    ///                 {
+    ///                     MinHealthyPercentage = 50,
+    ///                 },
+    ///                 Triggers = 
+    ///                 {
+    ///                     "tag",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Waiting for Capacity
+    /// 
+    /// A newly-created ASG is initially empty and begins to scale to `min_size` (or
+    /// `desired_capacity`, if specified) by launching instances using the provided
+    /// Launch Configuration. These instances take time to launch and boot.
+    /// 
+    /// On ASG Update, changes to these values also take time to result in the target
+    /// number of instances providing service.
+    /// 
+    /// This provider provides two mechanisms to help consistently manage ASG scale up
+    /// time across dependent resources.
+    /// 
+    /// #### Waiting for ASG Capacity
+    /// 
+    /// The first is default behavior. This provider waits after ASG creation for
+    /// `min_size` (or `desired_capacity`, if specified) healthy instances to show up
+    /// in the ASG before continuing.
+    /// 
+    /// If `min_size` or `desired_capacity` are changed in a subsequent update,
+    /// this provider will also wait for the correct number of healthy instances before
+    /// continuing.
+    /// 
+    /// This provider considers an instance "healthy" when the ASG reports `HealthStatus:
+    /// "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
+    /// Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
+    /// for more information on an ASG's lifecycle.
+    /// 
+    /// This provider will wait for healthy instances for up to
+    /// `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
+    /// it's worth investigating for scaling activity errors, which can be caused by
+    /// problems with the selected Launch Configuration.
+    /// 
+    /// Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
+    /// 
+    /// #### Waiting for ELB Capacity
+    /// 
+    /// The second mechanism is optional, and affects ASGs with attached ELBs specified
+    /// via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
+    /// 
+    /// The `min_elb_capacity` parameter causes this provider to wait for at least the
+    /// requested number of instances to show up `"InService"` in all attached ELBs
+    /// during ASG creation.  It has no effect on ASG updates.
+    /// 
+    /// If `wait_for_elb_capacity` is set, this provider will wait for exactly that number
+    /// of Instances to be `"InService"` in all attached ELBs on both creation and
+    /// updates.
+    /// 
+    /// These parameters can be used to ensure that service is being provided before
+    /// this provider moves on. If new instances don't pass the ELB's health checks for any
+    /// reason, the deployment will time out, and the ASG will be marked as
+    /// tainted (i.e. marked to be destroyed in a follow up run).
+    /// 
+    /// As with ASG Capacity, this provider will wait for up to `wait_for_capacity_timeout`
+    /// for the proper number of instances to be healthy.
+    /// 
+    /// #### Troubleshooting Capacity Waiting Timeouts
+    /// 
+    /// If ASG creation takes more than a few minutes, this could indicate one of a
+    /// number of configuration problems. See the [AWS Docs on Load Balancer
+    /// Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
+    /// for more information.
+    /// 
     /// ## Import
     /// 
     /// Auto Scaling Groups can be imported using the `name`, e.g.
@@ -138,6 +500,12 @@ namespace Pulumi.Aws.AutoScaling
         [Output("metricsGranularity")]
         public Output<string?> MetricsGranularity { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting this causes the provider to wait for
+        /// this number of instances from this Auto Scaling Group to show up healthy in the
+        /// ELB only on creation. Updates will not wait on ELB instance number changes.
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Output("minElbCapacity")]
         public Output<int?> MinElbCapacity { get; private set; } = null!;
 
@@ -234,6 +602,13 @@ namespace Pulumi.Aws.AutoScaling
         [Output("waitForCapacityTimeout")]
         public Output<string?> WaitForCapacityTimeout { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting this will cause the provider to wait
+        /// for exactly this number of healthy instances from this Auto Scaling Group in
+        /// all attached load balancers on both create and update operations. (Takes
+        /// precedence over `min_elb_capacity` behavior.)
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Output("waitForElbCapacity")]
         public Output<int?> WaitForElbCapacity { get; private set; } = null!;
 
@@ -418,6 +793,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("metricsGranularity")]
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
+        /// <summary>
+        /// Setting this causes the provider to wait for
+        /// this number of instances from this Auto Scaling Group to show up healthy in the
+        /// ELB only on creation. Updates will not wait on ELB instance number changes.
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Input("minElbCapacity")]
         public Input<int>? MinElbCapacity { get; set; }
 
@@ -550,6 +931,13 @@ namespace Pulumi.Aws.AutoScaling
         [Input("waitForCapacityTimeout")]
         public Input<string>? WaitForCapacityTimeout { get; set; }
 
+        /// <summary>
+        /// Setting this will cause the provider to wait
+        /// for exactly this number of healthy instances from this Auto Scaling Group in
+        /// all attached load balancers on both create and update operations. (Takes
+        /// precedence over `min_elb_capacity` behavior.)
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Input("waitForElbCapacity")]
         public Input<int>? WaitForElbCapacity { get; set; }
 
@@ -701,6 +1089,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("metricsGranularity")]
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
+        /// <summary>
+        /// Setting this causes the provider to wait for
+        /// this number of instances from this Auto Scaling Group to show up healthy in the
+        /// ELB only on creation. Updates will not wait on ELB instance number changes.
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Input("minElbCapacity")]
         public Input<int>? MinElbCapacity { get; set; }
 
@@ -833,6 +1227,13 @@ namespace Pulumi.Aws.AutoScaling
         [Input("waitForCapacityTimeout")]
         public Input<string>? WaitForCapacityTimeout { get; set; }
 
+        /// <summary>
+        /// Setting this will cause the provider to wait
+        /// for exactly this number of healthy instances from this Auto Scaling Group in
+        /// all attached load balancers on both create and update operations. (Takes
+        /// precedence over `min_elb_capacity` behavior.)
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
         [Input("waitForElbCapacity")]
         public Input<int>? WaitForElbCapacity { get; set; }
 

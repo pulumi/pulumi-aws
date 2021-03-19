@@ -114,7 +114,7 @@ import (
 //  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
 // ```
 //
-//  Certain resource arguments, like `force_destroy`, only exist within Terraform. If the argument is set in the Terraform configuration on an imported resource, Terraform will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_rds_global_cluster" "example" {
+//  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
 //
 // # ... other configuration ...
 //
@@ -134,7 +134,8 @@ type GlobalCluster struct {
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	Engine             pulumi.StringOutput  `pulumi:"engine"`
+	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -145,9 +146,11 @@ type GlobalCluster struct {
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayOutput `pulumi:"globalClusterMembers"`
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
-	GlobalClusterResourceId   pulumi.StringOutput `pulumi:"globalClusterResourceId"`
+	GlobalClusterResourceId pulumi.StringOutput `pulumi:"globalClusterResourceId"`
+	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier pulumi.StringOutput `pulumi:"sourceDbClusterIdentifier"`
-	StorageEncrypted          pulumi.BoolOutput   `pulumi:"storageEncrypted"`
+	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 }
 
 // NewGlobalCluster registers a new resource with the given unique name, arguments, and options.
@@ -187,8 +190,9 @@ type globalClusterState struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
-	Engine             *string `pulumi:"engine"`
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -199,9 +203,11 @@ type globalClusterState struct {
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers []GlobalClusterGlobalClusterMember `pulumi:"globalClusterMembers"`
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
-	GlobalClusterResourceId   *string `pulumi:"globalClusterResourceId"`
+	GlobalClusterResourceId *string `pulumi:"globalClusterResourceId"`
+	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	StorageEncrypted          *bool   `pulumi:"storageEncrypted"`
+	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 }
 
 type GlobalClusterState struct {
@@ -211,7 +217,8 @@ type GlobalClusterState struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	Engine             pulumi.StringPtrInput
+	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringPtrInput
@@ -222,9 +229,11 @@ type GlobalClusterState struct {
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayInput
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
-	GlobalClusterResourceId   pulumi.StringPtrInput
+	GlobalClusterResourceId pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	StorageEncrypted          pulumi.BoolPtrInput
+	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+	StorageEncrypted pulumi.BoolPtrInput
 }
 
 func (GlobalClusterState) ElementType() reflect.Type {
@@ -235,17 +244,20 @@ type globalClusterArgs struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
-	Engine             *string `pulumi:"engine"`
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The global cluster identifier.
-	GlobalClusterIdentifier   string  `pulumi:"globalClusterIdentifier"`
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	StorageEncrypted          *bool   `pulumi:"storageEncrypted"`
+	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 }
 
 // The set of arguments for constructing a GlobalCluster resource.
@@ -254,16 +266,19 @@ type GlobalClusterArgs struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	Engine             pulumi.StringPtrInput
+	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringPtrInput
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrInput
 	// The global cluster identifier.
-	GlobalClusterIdentifier   pulumi.StringInput
+	GlobalClusterIdentifier pulumi.StringInput
+	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	StorageEncrypted          pulumi.BoolPtrInput
+	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+	StorageEncrypted pulumi.BoolPtrInput
 }
 
 func (GlobalClusterArgs) ElementType() reflect.Type {

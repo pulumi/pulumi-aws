@@ -13,8 +13,6 @@ import (
 
 // Provides a Pinpoint APNs Sandbox Channel resource.
 //
-// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-//
 // ## Import
 //
 // Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.

@@ -265,6 +265,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Output("timeoutMilliseconds")]
         public Output<int> TimeoutMilliseconds { get; private set; } = null!;
 
@@ -440,6 +445,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
+        /// <summary>
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
 
@@ -582,6 +592,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
+        /// <summary>
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+        /// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         /// </summary>
         [Input("inputLambdaProcessor", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs> InputLambdaProcessor { get; set; } = null!;

@@ -13,7 +13,7 @@ import (
 
 // Provides a resource to manage an S3 Control Bucket Policy.
 //
-// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the [`s3.BucketPolicy` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html).
+// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
 //
 // ## Example Usage
 //
@@ -72,6 +72,7 @@ type BucketPolicy struct {
 
 	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// JSON string of the resource policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -112,12 +113,14 @@ func GetBucketPolicy(ctx *pulumi.Context,
 type bucketPolicyState struct {
 	// Amazon Resource Name (ARN) of the bucket.
 	Bucket *string `pulumi:"bucket"`
+	// JSON string of the resource policy.
 	Policy *string `pulumi:"policy"`
 }
 
 type BucketPolicyState struct {
 	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringPtrInput
+	// JSON string of the resource policy.
 	Policy pulumi.StringPtrInput
 }
 
@@ -128,6 +131,7 @@ func (BucketPolicyState) ElementType() reflect.Type {
 type bucketPolicyArgs struct {
 	// Amazon Resource Name (ARN) of the bucket.
 	Bucket string `pulumi:"bucket"`
+	// JSON string of the resource policy.
 	Policy string `pulumi:"policy"`
 }
 
@@ -135,6 +139,7 @@ type bucketPolicyArgs struct {
 type BucketPolicyArgs struct {
 	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringInput
+	// JSON string of the resource policy.
 	Policy pulumi.StringInput
 }
 

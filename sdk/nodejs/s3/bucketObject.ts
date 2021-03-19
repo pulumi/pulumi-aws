@@ -164,6 +164,11 @@ export class BucketObject extends pulumi.CustomResource {
      * The name of the object once it is in the bucket.
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+     * `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+     * is provided.
+     */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -340,6 +345,11 @@ export interface BucketObjectState {
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+     * `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+     * is provided.
+     */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -443,6 +453,11 @@ export interface BucketObjectArgs {
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+     * `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value
+     * is provided.
+     */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).

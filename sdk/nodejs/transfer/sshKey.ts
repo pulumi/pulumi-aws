@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer User SSH Key resource.
  *
+ * ## Example Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

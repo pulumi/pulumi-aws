@@ -35,13 +35,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Attributes
- *
- * The following additional atttributes are provided:
- *
- * * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
- * * `id` - The name of the Redshift event notification subscription
- * * `customerAwsId` - The AWS customer account associated with the Redshift event notification subscription
  *
  * ## Import
  *
@@ -79,7 +72,13 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The AWS customer account associated with the Redshift event notification subscription
+     */
     public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
@@ -167,7 +166,13 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
+    /**
+     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The AWS customer account associated with the Redshift event notification subscription
+     */
     readonly customerAwsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.

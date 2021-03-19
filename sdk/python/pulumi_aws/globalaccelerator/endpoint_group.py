@@ -60,6 +60,9 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
         :param pulumi.Input[int] health_check_interval_seconds: The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+        :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+               the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
@@ -128,6 +131,9 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
         :param pulumi.Input[int] health_check_interval_seconds: The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+        :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+               the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
@@ -186,11 +192,18 @@ class EndpointGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Output[str]:
+        """
+        If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "health_check_path")
 
     @property
     @pulumi.getter(name="healthCheckPort")
     def health_check_port(self) -> pulumi.Output[int]:
+        """
+        The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        the provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "health_check_port")
 
     @property

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3Control
     /// <summary>
     /// Provides a resource to manage an S3 Control Bucket Policy.
     /// 
-    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the [`aws.s3.BucketPolicy` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html).
+    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -72,6 +72,9 @@ namespace Pulumi.Aws.S3Control
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON string of the resource policy.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.S3Control
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// JSON string of the resource policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -143,6 +149,9 @@ namespace Pulumi.Aws.S3Control
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// JSON string of the resource policy.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

@@ -30,8 +30,6 @@ class ApnsVoipChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint APNs VoIP Channel resource.
 
-        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-
         ## Example Usage
 
         ```python

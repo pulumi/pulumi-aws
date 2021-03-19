@@ -75,6 +75,9 @@ export class SecretPolicy extends pulumi.CustomResource {
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * Secret ARN.
@@ -124,6 +127,9 @@ export interface SecretPolicyState {
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
     readonly blockPublicPolicy?: pulumi.Input<boolean>;
+    /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * Secret ARN.
@@ -139,6 +145,9 @@ export interface SecretPolicyArgs {
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
     readonly blockPublicPolicy?: pulumi.Input<boolean>;
+    /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
     readonly policy: pulumi.Input<string>;
     /**
      * Secret ARN.

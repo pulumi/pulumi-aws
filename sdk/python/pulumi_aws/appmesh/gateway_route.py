@@ -74,7 +74,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']] spec: The gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_gateway_name: The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] virtual_gateway_name: The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,7 +145,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
         :param pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']] spec: The gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_gateway_name: The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] virtual_gateway_name: The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,7 +239,7 @@ class GatewayRoute(pulumi.CustomResource):
     @pulumi.getter(name="virtualGatewayName")
     def virtual_gateway_name(self) -> pulumi.Output[str]:
         """
-        The name of the [virtual gateway](https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway.html) to associate the gateway route with. Must be between 1 and 255 characters in length.
+        The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_gateway_name")
 

@@ -132,10 +132,8 @@ export class Subnet extends pulumi.CustomResource {
      * The ID of the AWS account that owns the subnet.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID.
      */
@@ -167,6 +165,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
@@ -186,6 +185,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
@@ -255,10 +255,8 @@ export interface SubnetState {
      * The ID of the AWS account that owns the subnet.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
@@ -310,10 +308,8 @@ export interface SubnetArgs {
      * The Amazon Resource Name (ARN) of the Outpost.
      */
     readonly outpostArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */

@@ -13,6 +13,8 @@ import (
 
 // Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 //
+// ## Example Usage
+//
 // ```go
 // package main
 //

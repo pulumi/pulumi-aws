@@ -13,6 +13,76 @@ import (
 
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal([]map[string]interface{}{
+// 			map[string]interface{}{
+// 				"name":      "first",
+// 				"image":     "service-first",
+// 				"cpu":       10,
+// 				"memory":    512,
+// 				"essential": true,
+// 				"portMappings": []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"containerPort": 80,
+// 						"hostPort":      80,
+// 					},
+// 				},
+// 			},
+// 			map[string]interface{}{
+// 				"name":      "second",
+// 				"image":     "service-second",
+// 				"cpu":       10,
+// 				"memory":    256,
+// 				"essential": true,
+// 				"portMappings": []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"containerPort": 443,
+// 						"hostPort":      443,
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("service"),
+// 			ContainerDefinitions: pulumi.String(json0),
+// 			Volumes: ecs.TaskDefinitionVolumeArray{
+// 				&ecs.TaskDefinitionVolumeArgs{
+// 					Name:     pulumi.String("service-storage"),
+// 					HostPath: pulumi.String("/ecs/service-storage"),
+// 				},
+// 			},
+// 			PlacementConstraints: ecs.TaskDefinitionPlacementConstraintArray{
+// 				&ecs.TaskDefinitionPlacementConstraintArgs{
+// 					Type:       pulumi.String("memberOf"),
+// 					Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // ECS Task Definitions can be imported via their Amazon Resource Name (ARN)

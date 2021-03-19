@@ -27,8 +27,6 @@ import (
 // brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
 // for more information.
 //
-// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-//
 // ## Example Usage
 // ### Aurora MySQL 2.x (MySQL 5.7)
 //
@@ -236,7 +234,7 @@ type Cluster struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
-	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
@@ -249,7 +247,7 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -353,7 +351,7 @@ type clusterState struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
-	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
 	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
@@ -366,7 +364,7 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -442,7 +440,7 @@ type ClusterState struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
-	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
@@ -455,7 +453,7 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapInput
@@ -524,7 +522,7 @@ type clusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
 	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
@@ -537,7 +535,7 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -603,7 +601,7 @@ type ClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignoreChanges`.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
@@ -616,7 +614,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapInput

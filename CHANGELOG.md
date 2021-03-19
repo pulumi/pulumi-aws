@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Update to v3.33.0 of the AWS Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.22.0
+* Add the ability to specify `sns.TopicPolicy` `Policy` as iam.PolicyDocument
 
 ---
 
@@ -62,7 +64,7 @@ CHANGELOG
   This type and its variants (`*Args`, `*Output`, `*ArrayOutput` etc.) have been renamed to `kinesis.AnalyticsApplicationOutputType<Variant>`.  
   This change is necessary to resolve a name collision which was introduced in 3.13.0 causing compilation breaks.  
   Users upgrading to this or newer version would have to rename their use of the above types.  
-  This should not result in any resource recreation. 
+  This should not result in any resource recreation.
 * [1343](https://github.com/pulumi/pulumi-aws/pull/1343).
    Added references to allow Lambdas to support NodeJS 14
 
@@ -87,7 +89,7 @@ CHANGELOG
 * Add support for `LambdaReadOnlyAccess` as a replacement for `AWSLambdaReadOnlyAccess` IAM policy.
 * Update `aws.lambda.CallbackFunction` to accept a new parameter `includeDeprecatedLambdaFullAccessPolicy`. If this parameter
   is set or if no iam.Policies are set to the CallbackFunction Pulumi will create an IAM Policy that replicates
-  the now deprecated `AWSLambdaFullAccess` policy. This is needed to allow `aws.sqs.QueueEventSubscription` and 
+  the now deprecated `AWSLambdaFullAccess` policy. This is needed to allow `aws.sqs.QueueEventSubscription` and
   `aws.kinesis.StreamEventSubscription` to continue to function.
 
 ## 3.24.0 (2021-01-19)

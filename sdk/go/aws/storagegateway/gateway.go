@@ -127,7 +127,19 @@ import (
 //  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
 // ```
 //
-//  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+//  <<<<<<< HEAD Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. ======= Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_storagegateway_gateway" "example" {
+//
+// # ... other configuration ...
+//
+//  gateway_ip_address = aws_instance.sgw.private_ip
+//
+// # There is no Storage Gateway API for reading gateway_ip_address
+//
+//  lifecycle {
+//
+//  ignore_changes = ["gateway_ip_address"]
+//
+//  } } >>>>>>> v3.33.0
 type Gateway struct {
 	pulumi.CustomResourceState
 
@@ -165,11 +177,13 @@ type Gateway struct {
 	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrOutput `pulumi:"smbActiveDirectorySettings"`
+	// Specifies whether the shares on this gateway appear when listing shares.
+	SmbFileShareVisibility pulumi.BoolPtrOutput `pulumi:"smbFileShareVisibility"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrOutput `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringOutput `pulumi:"smbSecurityStrategy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrOutput `pulumi:"tapeDriveType"`
@@ -244,11 +258,13 @@ type gatewayState struct {
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
+	// Specifies whether the shares on this gateway appear when listing shares.
+	SmbFileShareVisibility *bool `pulumi:"smbFileShareVisibility"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
@@ -289,11 +305,13 @@ type GatewayState struct {
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
+	// Specifies whether the shares on this gateway appear when listing shares.
+	SmbFileShareVisibility pulumi.BoolPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrInput
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput
@@ -326,11 +344,13 @@ type gatewayArgs struct {
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
+	// Specifies whether the shares on this gateway appear when listing shares.
+	SmbFileShareVisibility *bool `pulumi:"smbFileShareVisibility"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
@@ -360,11 +380,13 @@ type GatewayArgs struct {
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
+	// Specifies whether the shares on this gateway appear when listing shares.
+	SmbFileShareVisibility pulumi.BoolPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrInput
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput

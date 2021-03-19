@@ -101,6 +101,7 @@ import (
 type Preset struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Audio parameters object (documented below).
 	Audio PresetAudioPtrOutput `pulumi:"audio"`
@@ -155,6 +156,7 @@ func GetPreset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Preset resources.
 type presetState struct {
+	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
 	Arn *string `pulumi:"arn"`
 	// Audio parameters object (documented below).
 	Audio *PresetAudio `pulumi:"audio"`
@@ -178,6 +180,7 @@ type presetState struct {
 }
 
 type PresetState struct {
+	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
 	Arn pulumi.StringPtrInput
 	// Audio parameters object (documented below).
 	Audio PresetAudioPtrInput

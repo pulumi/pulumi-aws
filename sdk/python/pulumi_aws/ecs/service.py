@@ -143,6 +143,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[bool] wait_for_steady_state: If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -246,6 +247,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[bool] wait_for_steady_state: If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -455,6 +457,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+        """
         return pulumi.get(self, "wait_for_steady_state")
 
     def translate_output_property(self, prop):

@@ -47,7 +47,7 @@ import (
 // prefix the ID with the `origin-access-identity/cloudfront/` special path.
 // The `cloudfrontAccessIdentityPath` allows this to be circumvented.
 // The below snippet demonstrates use with the `s3OriginConfig` structure for the
-// [`cloudfront.Distribution`][3] resource:
+// `cloudfront.Distribution` resource:
 //
 // ```go
 // package main

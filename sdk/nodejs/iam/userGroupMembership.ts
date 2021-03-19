@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource for adding an [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html). This
+ * Provides a resource for adding an IAM User to IAM Groups. This
  * resource can be used multiple times with the same user for non-overlapping
  * groups.
  *
  * To exclusively manage the users in a group, see the
- * [`aws.iam.GroupMembership` resource][3].
+ * `aws.iam.GroupMembership` resource.
  *
  * ## Example Usage
  *
@@ -72,11 +72,11 @@ export class UserGroupMembership extends pulumi.CustomResource {
     }
 
     /**
-     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
+     * A list of IAM Groups to add the user to
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
-     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
+     * The name of the IAM User to add to groups
      */
     public readonly user!: pulumi.Output<string>;
 
@@ -118,11 +118,11 @@ export class UserGroupMembership extends pulumi.CustomResource {
  */
 export interface UserGroupMembershipState {
     /**
-     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
+     * A list of IAM Groups to add the user to
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
+     * The name of the IAM User to add to groups
      */
     readonly user?: pulumi.Input<string>;
 }
@@ -132,11 +132,11 @@ export interface UserGroupMembershipState {
  */
 export interface UserGroupMembershipArgs {
     /**
-     * A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
+     * A list of IAM Groups to add the user to
      */
     readonly groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
+     * The name of the IAM User to add to groups
      */
     readonly user: pulumi.Input<string>;
 }

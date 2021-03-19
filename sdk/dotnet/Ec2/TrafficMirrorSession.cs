@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account ID of the session owner.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         /// </summary>
         [Output("packetLength")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// The AWS account ID of the session owner.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         /// <summary>
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.

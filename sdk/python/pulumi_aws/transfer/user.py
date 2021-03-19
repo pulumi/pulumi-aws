@@ -31,6 +31,8 @@ class User(pulumi.CustomResource):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 
+        ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -11,6 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides an Elastic MapReduce Cluster Instance Fleet configuration.
+// See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+//
+// > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
+// web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
+// the provider will resize any Instance Fleet to zero when destroying the resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/emr"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
+// 			ClusterId: pulumi.Any(aws_emr_cluster.Cluster.Id),
+// 			InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
+// 				&emr.InstanceFleetInstanceTypeConfigArgs{
+// 					BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+// 					EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+// 						&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+// 							Size:               pulumi.Int(100),
+// 							Type:               pulumi.String("gp2"),
+// 							VolumesPerInstance: pulumi.Int(1),
+// 						},
+// 					},
+// 					InstanceType:     pulumi.String("m4.xlarge"),
+// 					WeightedCapacity: pulumi.Int(1),
+// 				},
+// 				&emr.InstanceFleetInstanceTypeConfigArgs{
+// 					BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+// 					EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+// 						&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+// 							Size:               pulumi.Int(100),
+// 							Type:               pulumi.String("gp2"),
+// 							VolumesPerInstance: pulumi.Int(1),
+// 						},
+// 					},
+// 					InstanceType:     pulumi.String("m4.2xlarge"),
+// 					WeightedCapacity: pulumi.Int(2),
+// 				},
+// 			},
+// 			LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
+// 				SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
+// 					&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
+// 						AllocationStrategy:     pulumi.String("capacity-optimized"),
+// 						BlockDurationMinutes:   pulumi.Int(0),
+// 						TimeoutAction:          pulumi.String("TERMINATE_CLUSTER"),
+// 						TimeoutDurationMinutes: pulumi.Int(10),
+// 					},
+// 				},
+// 			},
+// 			TargetOnDemandCapacity: pulumi.Int(1),
+// 			TargetSpotCapacity:     pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console

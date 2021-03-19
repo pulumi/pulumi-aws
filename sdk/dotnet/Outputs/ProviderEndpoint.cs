@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Appstream;
         public readonly string? Appsync;
         public readonly string? Athena;
+        public readonly string? Auditmanager;
         public readonly string? Autoscaling;
         public readonly string? Autoscalingplans;
         public readonly string? Backup;
@@ -188,6 +189,8 @@ namespace Pulumi.Aws.Outputs
             string? appsync,
 
             string? athena,
+
+            string? auditmanager,
 
             string? autoscaling,
 
@@ -480,6 +483,7 @@ namespace Pulumi.Aws.Outputs
             Appstream = appstream;
             Appsync = appsync;
             Athena = athena;
+            Auditmanager = auditmanager;
             Autoscaling = autoscaling;
             Autoscalingplans = autoscalingplans;
             Backup = backup;

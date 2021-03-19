@@ -17,6 +17,11 @@ namespace Pulumi.Aws
 
         public static Pulumi.Aws.Config.Types.AssumeRole? AssumeRole { get; set; } = __config.GetObject<Pulumi.Aws.Config.Types.AssumeRole>("assumeRole");
 
+        /// <summary>
+        /// Configuration block with settings to default resource tags across all resources.
+        /// </summary>
+        public static Pulumi.Aws.Config.Types.DefaultTags? DefaultTags { get; set; } = __config.GetObject<Pulumi.Aws.Config.Types.DefaultTags>("defaultTags");
+
         public static ImmutableArray<Pulumi.Aws.Config.Types.Endpoints> Endpoints { get; set; } = __config.GetObject<ImmutableArray<Pulumi.Aws.Config.Types.Endpoints>>("endpoints");
 
         public static ImmutableArray<string> ForbiddenAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("forbiddenAccountIds");
@@ -107,6 +112,11 @@ namespace Pulumi.Aws
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
             }
 
+             public class DefaultTags
+             {
+                public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
+            }
+
              public class Endpoints
              {
                 public string? Accessanalyzer { get; set; } = null!;
@@ -120,6 +130,7 @@ namespace Pulumi.Aws
                 public string? Appstream { get; set; } = null!;
                 public string? Appsync { get; set; } = null!;
                 public string? Athena { get; set; } = null!;
+                public string? Auditmanager { get; set; } = null!;
                 public string? Autoscaling { get; set; } = null!;
                 public string? Autoscalingplans { get; set; } = null!;
                 public string? Backup { get; set; } = null!;

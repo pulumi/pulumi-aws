@@ -10,6 +10,58 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control
 {
     /// <summary>
+    /// Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
+    /// 
+    /// &gt; **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
+    /// 
+    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.Bucket` resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new Aws.S3Control.BucketLifecycleConfigurationArgs
+    ///         {
+    ///             Bucket = aws_s3control_bucket.Example.Arn,
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///                 {
+    ///                     Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                     {
+    ///                         Days = 365,
+    ///                     },
+    ///                     Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                     {
+    ///                         Prefix = "logs/",
+    ///                     },
+    ///                     Id = "logs",
+    ///                 },
+    ///                 new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///                 {
+    ///                     Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                     {
+    ///                         Days = 7,
+    ///                     },
+    ///                     Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                     {
+    ///                         Prefix = "temp/",
+    ///                     },
+    ///                     Id = "temp",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.

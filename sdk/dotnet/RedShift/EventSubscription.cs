@@ -56,13 +56,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// }
     /// ```
-    /// ## Attributes
-    /// 
-    /// The following additional atttributes are provided:
-    /// 
-    /// * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
-    /// * `id` - The name of the Redshift event notification subscription
-    /// * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
     /// 
     /// ## Import
     /// 
@@ -75,9 +68,15 @@ namespace Pulumi.Aws.RedShift
     [AwsResourceType("aws:redshift/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Redshift event notification subscription
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS customer account associated with the Redshift event notification subscription
+        /// </summary>
         [Output("customerAwsId")]
         public Output<string> CustomerAwsId { get; private set; } = null!;
 
@@ -251,9 +250,15 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class EventSubscriptionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Redshift event notification subscription
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The AWS customer account associated with the Redshift event notification subscription
+        /// </summary>
         [Input("customerAwsId")]
         public Input<string>? CustomerAwsId { get; set; }
 

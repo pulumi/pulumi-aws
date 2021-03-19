@@ -275,6 +275,9 @@ namespace Pulumi.Aws.Ecs
         [Output("taskDefinition")]
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
+        /// <summary>
+        /// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+        /// </summary>
         [Output("waitForSteadyState")]
         public Output<bool?> WaitForSteadyState { get; private set; } = null!;
 
@@ -486,6 +489,9 @@ namespace Pulumi.Aws.Ecs
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 
+        /// <summary>
+        /// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 
@@ -658,6 +664,9 @@ namespace Pulumi.Aws.Ecs
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 
+        /// <summary>
+        /// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 

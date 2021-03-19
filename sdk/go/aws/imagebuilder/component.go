@@ -49,7 +49,7 @@ import (
 //  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
 // ```
 //
-//  Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+//  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -57,7 +57,8 @@ type Component struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
-	Data              pulumi.StringOutput    `pulumi:"data"`
+	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+	Data pulumi.StringOutput `pulumi:"data"`
 	// Date the component was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Description of the component.
@@ -123,7 +124,8 @@ type componentState struct {
 	Arn *string `pulumi:"arn"`
 	// Change description of the component.
 	ChangeDescription *string `pulumi:"changeDescription"`
-	Data              *string `pulumi:"data"`
+	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+	Data *string `pulumi:"data"`
 	// Date the component was created.
 	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the component.
@@ -155,7 +157,8 @@ type ComponentState struct {
 	Arn pulumi.StringPtrInput
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrInput
-	Data              pulumi.StringPtrInput
+	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+	Data pulumi.StringPtrInput
 	// Date the component was created.
 	DateCreated pulumi.StringPtrInput
 	// Description of the component.
@@ -189,7 +192,8 @@ func (ComponentState) ElementType() reflect.Type {
 type componentArgs struct {
 	// Change description of the component.
 	ChangeDescription *string `pulumi:"changeDescription"`
-	Data              *string `pulumi:"data"`
+	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+	Data *string `pulumi:"data"`
 	// Description of the component.
 	Description *string `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
@@ -212,7 +216,8 @@ type componentArgs struct {
 type ComponentArgs struct {
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrInput
-	Data              pulumi.StringPtrInput
+	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+	Data pulumi.StringPtrInput
 	// Description of the component.
 	Description pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.

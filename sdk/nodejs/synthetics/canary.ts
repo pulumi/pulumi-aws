@@ -6,6 +6,28 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Synthetics Canary resource.
+ *
+ * > **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const some = new aws.synthetics.Canary("some", {
+ *     artifactS3Location: "s3://some-bucket/",
+ *     executionRoleArn: "some-role",
+ *     handler: "exports.handler",
+ *     runtimeVersion: "syn-1.0",
+ *     schedule: {
+ *         expression: "rate(0 minute)",
+ *     },
+ *     zipFile: "test-fixtures/lambdatest.zip",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synthetics Canaries can be imported using the `name`, e.g.

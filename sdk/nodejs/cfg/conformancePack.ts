@@ -12,11 +12,10 @@ import * as utilities from "../utilities";
  * [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
  *
  * > **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
- * successfully create or update. See also the
- * [`aws.cfg.Recorder` resource](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html).
+ * successfully create or update. See also the `aws.cfg.Recorder` resource.
  *
  * ## Example Usage
- * ### With Template Body
+ * ### Template Body
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,7 +42,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [aws_config_configuration_recorder.example],
  * });
  * ```
- * ### With Template S3 URI
+ * ### Template S3 URI
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

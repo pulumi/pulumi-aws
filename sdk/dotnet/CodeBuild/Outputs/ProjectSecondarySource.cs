@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectSecondarySource
     {
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ProjectSecondarySourceAuth> Auths;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string SourceIdentifier;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`.
+        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
         public readonly string Type;
 

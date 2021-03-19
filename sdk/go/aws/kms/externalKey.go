@@ -12,8 +12,6 @@ import (
 
 // Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the `kms.Key` resource.
 //
-// > **Note:** All arguments including the key material will be stored in the raw state as plain-text.
-//
 // ## Example Usage
 //
 // ```go

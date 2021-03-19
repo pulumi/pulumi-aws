@@ -111,7 +111,7 @@ type ClusterInstance struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The database engine version
+	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
@@ -217,7 +217,7 @@ type clusterInstanceState struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The database engine version
+	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -289,7 +289,7 @@ type ClusterInstanceState struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The database engine version
+	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion pulumi.StringPtrInput
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
@@ -359,7 +359,7 @@ type clusterInstanceArgs struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The database engine version
+	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -418,7 +418,7 @@ type ClusterInstanceArgs struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The database engine version
+	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion pulumi.StringPtrInput
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput

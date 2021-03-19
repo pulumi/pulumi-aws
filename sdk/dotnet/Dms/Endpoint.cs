@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
     /// 
-    /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

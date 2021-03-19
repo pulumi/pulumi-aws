@@ -11,6 +11,10 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcPeeringConnections
     {
+        /// <summary>
+        /// Use this data source to get IDs of Amazon VPC peering connections
+        /// To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+        /// </summary>
         public static Task<GetVpcPeeringConnectionsResult> InvokeAsync(GetVpcPeeringConnectionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsArgs(), options.WithVersion());
     }

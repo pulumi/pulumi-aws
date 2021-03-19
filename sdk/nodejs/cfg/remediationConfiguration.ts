@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Config Remediation Configuration.
  *
- * > **Note:** Config Remediation Configuration requires an existing [Config Rule](https://www.terraform.io/docs/providers/aws/r/config_config_rule.html) to be present.
+ * > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
  *
  * ## Example Usage
  *
@@ -81,6 +81,9 @@ export class RemediationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RemediationConfiguration.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Config Remediation Configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the AWS Config rule
@@ -158,6 +161,9 @@ export class RemediationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RemediationConfiguration resources.
  */
 export interface RemediationConfigurationState {
+    /**
+     * Amazon Resource Name (ARN) of the Config Remediation Configuration.
+     */
     readonly arn?: pulumi.Input<string>;
     /**
      * The name of the AWS Config rule

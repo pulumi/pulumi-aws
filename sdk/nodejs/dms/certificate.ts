@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
  *
- * > **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -74,7 +72,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificatePem!: pulumi.Output<string | undefined>;
     /**
-     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +133,7 @@ export interface CertificateState {
      */
     readonly certificatePem?: pulumi.Input<string>;
     /**
-     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
     readonly certificateWallet?: pulumi.Input<string>;
     /**
@@ -157,7 +155,7 @@ export interface CertificateArgs {
      */
     readonly certificatePem?: pulumi.Input<string>;
     /**
-     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
     readonly certificateWallet?: pulumi.Input<string>;
     /**

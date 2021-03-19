@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> NetworkLoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the AWS account that owns the traffic mirror target.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
@@ -187,6 +193,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkLoadBalancerArn")]
         public Input<string>? NetworkLoadBalancerArn { get; set; }
+
+        /// <summary>
+        /// The ID of the AWS account that owns the traffic mirror target.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

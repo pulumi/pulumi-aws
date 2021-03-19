@@ -2067,9 +2067,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInput struct 
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 	InputSchema                         ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema                          `pulumi:"inputSchema"`
 	InputStartingPositionConfigurations []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration `pulumi:"inputStartingPositionConfigurations"`
-	// If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 	KinesisFirehoseInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+	// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
 	KinesisStreamsInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput `pulumi:"kinesisStreamsInput"`
 	// The name prefix to use when creating an in-application stream.
 	NamePrefix string `pulumi:"namePrefix"`
@@ -2097,9 +2097,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs str
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 	InputSchema                         ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaInput                             `pulumi:"inputSchema"`
 	InputStartingPositionConfigurations ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput `pulumi:"inputStartingPositionConfigurations"`
-	// If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 	KinesisFirehoseInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+	// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
 	KinesisStreamsInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput `pulumi:"kinesisStreamsInput"`
 	// The name prefix to use when creating an in-application stream.
 	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
@@ -2219,14 +2219,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutpu
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
-// If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		return v.KinesisFirehoseInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		return v.KinesisStreamsInput
@@ -2318,7 +2318,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
-// If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		if v == nil {
@@ -2328,7 +2328,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		if v == nil {
@@ -2484,7 +2484,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration struct {
-	// Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+	// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
 	InputLambdaProcessor ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor `pulumi:"inputLambdaProcessor"`
 }
 
@@ -2500,7 +2500,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPro
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs struct {
-	// Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+	// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
 	InputLambdaProcessor ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorInput `pulumi:"inputLambdaProcessor"`
 }
 
@@ -2581,7 +2581,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
-// Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
 		return v.InputLambdaProcessor
@@ -2608,7 +2608,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput)
 }
 
-// Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) InputLambdaProcessor() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
 		if v == nil {
@@ -4023,11 +4023,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutput struct {
 	// Describes the data format when records are written to the destination.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema `pulumi:"destinationSchema"`
-	// Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+	// Identifies a Kinesis Data Firehose delivery stream as the destination.
 	KinesisFirehoseOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput `pulumi:"kinesisFirehoseOutput"`
-	// Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+	// Identifies a Kinesis data stream as the destination.
 	KinesisStreamsOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput `pulumi:"kinesisStreamsOutput"`
-	// Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+	// Identifies a Lambda function as the destination.
 	LambdaOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput `pulumi:"lambdaOutput"`
 	// The name of the in-application stream.
 	Name     string  `pulumi:"name"`
@@ -4048,11 +4048,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputInput i
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs struct {
 	// Describes the data format when records are written to the destination.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput `pulumi:"destinationSchema"`
-	// Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+	// Identifies a Kinesis Data Firehose delivery stream as the destination.
 	KinesisFirehoseOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrInput `pulumi:"kinesisFirehoseOutput"`
-	// Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+	// Identifies a Kinesis data stream as the destination.
 	KinesisStreamsOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrInput `pulumi:"kinesisStreamsOutput"`
-	// Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+	// Identifies a Lambda function as the destination.
 	LambdaOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrInput `pulumi:"lambdaOutput"`
 	// The name of the in-application stream.
 	Name     pulumi.StringInput    `pulumi:"name"`
@@ -4117,21 +4117,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutp
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput)
 }
 
-// Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+// Identifies a Kinesis Data Firehose delivery stream as the destination.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) KinesisFirehoseOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
 		return v.KinesisFirehoseOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
-// Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+// Identifies a Kinesis data stream as the destination.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) KinesisStreamsOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
 		return v.KinesisStreamsOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
-// Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+// Identifies a Lambda function as the destination.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) LambdaOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
 		return v.LambdaOutput
@@ -5879,9 +5879,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationVpcConfiguration struct {
-	// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+	// The Security Group IDs used by the VPC configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+	// The Subnet IDs used by the VPC configuration.
 	SubnetIds          []string `pulumi:"subnetIds"`
 	VpcConfigurationId *string  `pulumi:"vpcConfigurationId"`
 	VpcId              *string  `pulumi:"vpcId"`
@@ -5899,9 +5899,9 @@ type ApplicationApplicationConfigurationVpcConfigurationInput interface {
 }
 
 type ApplicationApplicationConfigurationVpcConfigurationArgs struct {
-	// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+	// The Security Group IDs used by the VPC configuration.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+	// The Subnet IDs used by the VPC configuration.
 	SubnetIds          pulumi.StringArrayInput `pulumi:"subnetIds"`
 	VpcConfigurationId pulumi.StringPtrInput   `pulumi:"vpcConfigurationId"`
 	VpcId              pulumi.StringPtrInput   `pulumi:"vpcId"`
@@ -5984,12 +5984,12 @@ func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToApplication
 	}).(ApplicationApplicationConfigurationVpcConfigurationPtrOutput)
 }
 
-// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+// The Security Group IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+// The Subnet IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -6022,7 +6022,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) Elem() App
 	}).(ApplicationApplicationConfigurationVpcConfigurationOutput)
 }
 
-// The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+// The Security Group IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) []string {
 		if v == nil {
@@ -6032,7 +6032,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SecurityGr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+// The Subnet IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) []string {
 		if v == nil {

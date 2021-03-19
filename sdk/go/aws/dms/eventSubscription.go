@@ -23,6 +23,7 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the DMS Event Subscription.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether the event subscription should be enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -74,6 +75,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
+	// Amazon Resource Name (ARN) of the DMS Event Subscription.
 	Arn *string `pulumi:"arn"`
 	// Whether the event subscription should be enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -91,6 +93,7 @@ type eventSubscriptionState struct {
 }
 
 type EventSubscriptionState struct {
+	// Amazon Resource Name (ARN) of the DMS Event Subscription.
 	Arn pulumi.StringPtrInput
 	// Whether the event subscription should be enabled.
 	Enabled pulumi.BoolPtrInput

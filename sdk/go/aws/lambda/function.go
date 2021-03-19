@@ -11,6 +11,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
+//
+// For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+//
+// > To give an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
+//
+// ## Example Usage
+// ### Lambda Layers
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLayerVersion, err := lambda.NewLayerVersion(ctx, "exampleLayerVersion", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
+// 			Layers: pulumi.StringArray{
+// 				exampleLayerVersion.Arn,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## CloudWatch Logging and Permissions
+//
+// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		lambdaFunctionName := "lambda_function_name"
+// 		if param := cfg.Get("lambdaFunctionName"); param != "" {
+// 			lambdaFunctionName = param
+// 		}
+// 		example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+// 			RetentionInDays: pulumi.Int(14),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		lambdaLogging, err := iam.NewPolicy(ctx, "lambdaLogging", &iam.PolicyArgs{
+// 			Path:        pulumi.String("/"),
+// 			Description: pulumi.String("IAM policy for logging from a lambda"),
+// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*:*:*\",\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
+// 			Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
+// 			PolicyArn: lambdaLogging.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "testLambda", nil, pulumi.DependsOn([]pulumi.Resource{
+// 			lambdaLogs,
+// 			example,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Specifying the Deployment Package
+//
+// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
+//
+// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
+//
+// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+//
 // ## Import
 //
 // Lambda Functions can be imported using the `function_name`, e.g.
@@ -41,8 +141,9 @@ type Function struct {
 	ImageConfig FunctionImageConfigPtrOutput `pulumi:"imageConfig"`
 	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 	ImageUri pulumi.StringPtrOutput `pulumi:"imageUri"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
-	InvokeArn pulumi.StringOutput    `pulumi:"invokeArn"`
+	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
+	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
@@ -74,7 +175,8 @@ type Function struct {
 	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
-	SourceCodeHash           pulumi.StringOutput `pulumi:"sourceCodeHash"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object.
@@ -142,8 +244,9 @@ type functionState struct {
 	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
 	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 	ImageUri *string `pulumi:"imageUri"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn *string `pulumi:"invokeArn"`
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified *string `pulumi:"lastModified"`
@@ -175,7 +278,8 @@ type functionState struct {
 	SigningJobArn *string `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
-	SourceCodeHash           *string `pulumi:"sourceCodeHash"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object.
@@ -212,8 +316,9 @@ type FunctionState struct {
 	ImageConfig FunctionImageConfigPtrInput
 	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 	ImageUri pulumi.StringPtrInput
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn pulumi.StringPtrInput
 	// Date this resource was last modified.
 	LastModified pulumi.StringPtrInput
@@ -245,7 +350,8 @@ type FunctionState struct {
 	SigningJobArn pulumi.StringPtrInput
 	// ARN of the signing profile version.
 	SigningProfileVersionArn pulumi.StringPtrInput
-	SourceCodeHash           pulumi.StringPtrInput
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
 	// Map of tags to assign to the object.
@@ -283,7 +389,8 @@ type functionArgs struct {
 	// Configuration block. Detailed below.
 	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
 	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri  *string `pulumi:"imageUri"`
+	ImageUri *string `pulumi:"imageUri"`
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers []string `pulumi:"layers"`
@@ -307,7 +414,8 @@ type functionArgs struct {
 	S3Key *string `pulumi:"s3Key"`
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	SourceCodeHash  *string `pulumi:"sourceCodeHash"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object.
 	Tags map[string]string `pulumi:"tags"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
@@ -337,7 +445,8 @@ type FunctionArgs struct {
 	// Configuration block. Detailed below.
 	ImageConfig FunctionImageConfigPtrInput
 	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri  pulumi.StringPtrInput
+	ImageUri pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 	KmsKeyArn pulumi.StringPtrInput
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers pulumi.StringArrayInput
@@ -361,7 +470,8 @@ type FunctionArgs struct {
 	S3Key pulumi.StringPtrInput
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion pulumi.StringPtrInput
-	SourceCodeHash  pulumi.StringPtrInput
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object.
 	Tags pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).

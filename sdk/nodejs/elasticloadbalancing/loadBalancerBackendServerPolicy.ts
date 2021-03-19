@@ -52,14 +52,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
- *
  * @deprecated aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy
  */
 export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {

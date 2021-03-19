@@ -73,6 +73,8 @@ type TrafficMirrorSession struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The AWS account ID of the session owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
@@ -134,6 +136,8 @@ type trafficMirrorSessionState struct {
 	Description *string `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The AWS account ID of the session owner.
+	OwnerId *string `pulumi:"ownerId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength *int `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
@@ -155,6 +159,8 @@ type TrafficMirrorSessionState struct {
 	Description pulumi.StringPtrInput
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// The AWS account ID of the session owner.
+	OwnerId pulumi.StringPtrInput
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrInput
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.

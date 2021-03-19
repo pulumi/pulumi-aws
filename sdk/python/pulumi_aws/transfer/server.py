@@ -32,6 +32,8 @@ class Server(pulumi.CustomResource):
         """
         Provides a AWS Transfer Server resource.
 
+        ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

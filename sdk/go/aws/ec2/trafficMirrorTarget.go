@@ -64,6 +64,8 @@ type TrafficMirrorTarget struct {
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
+	// The ID of the AWS account that owns the traffic mirror target.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -105,6 +107,8 @@ type trafficMirrorTargetState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
+	// The ID of the AWS account that owns the traffic mirror target.
+	OwnerId *string `pulumi:"ownerId"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -118,6 +122,8 @@ type TrafficMirrorTargetState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
+	// The ID of the AWS account that owns the traffic mirror target.
+	OwnerId pulumi.StringPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
 }

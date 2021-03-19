@@ -18,6 +18,11 @@ func GetAllowedAccountIds(ctx *pulumi.Context) string {
 func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRole")
 }
+
+// Configuration block with settings to default resource tags across all resources.
+func GetDefaultTags(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:defaultTags")
+}
 func GetEndpoints(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:endpoints")
 }

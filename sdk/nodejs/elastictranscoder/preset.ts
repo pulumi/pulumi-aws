@@ -106,6 +106,9 @@ export class Preset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Preset.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Audio parameters object (documented below).
@@ -197,6 +200,9 @@ export class Preset extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Preset resources.
  */
 export interface PresetState {
+    /**
+     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     */
     readonly arn?: pulumi.Input<string>;
     /**
      * Audio parameters object (documented below).

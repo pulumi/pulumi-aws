@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Acm
     /// of this provider.
     /// 
     /// ## Example Usage
-    /// ### Certificate creation
+    /// ### Create Certificate
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// }
     /// ```
-    /// ### Importing an existing certificate
+    /// ### Existing Certificate Body Import
     /// 
     /// ```csharp
     /// using Pulumi;

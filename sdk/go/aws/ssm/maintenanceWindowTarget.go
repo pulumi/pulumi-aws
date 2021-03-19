@@ -13,7 +13,8 @@ import (
 
 // Provides an SSM Maintenance Window Target resource
 //
-// ## Instance Target Example Usage
+// ## Example Usage
+// ### Instance Target
 //
 // ```go
 // package main
@@ -53,8 +54,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Resource Group Target Example Usage
+// ### Resource Group Target
 //
 // ```go
 // package main

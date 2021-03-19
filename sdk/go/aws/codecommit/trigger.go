@@ -53,6 +53,7 @@ import (
 type Trigger struct {
 	pulumi.CustomResourceState
 
+	// System-generated unique identifier.
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringOutput       `pulumi:"repositoryName"`
@@ -94,6 +95,7 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
+	// System-generated unique identifier.
 	ConfigurationId *string `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName *string          `pulumi:"repositoryName"`
@@ -101,6 +103,7 @@ type triggerState struct {
 }
 
 type TriggerState struct {
+	// System-generated unique identifier.
 	ConfigurationId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput

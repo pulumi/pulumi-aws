@@ -11,6 +11,93 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetPolicyDocument
     {
+        /// <summary>
+        /// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
+        /// 
+        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Example with Both Source and Override Documents
+        /// 
+        /// You can also combine `source_json` and `override_json` in the same document.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var source = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "OverridePlaceholder",
+        ///                     Actions = 
+        ///                     {
+        ///                         "ec2:DescribeAccountAttributes",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var @override = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Sid = "OverridePlaceholder",
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:GetObject",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         "*",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var politik = Output.Tuple(source, @override).Apply(values =&gt;
+        ///         {
+        ///             var source = values.Item1;
+        ///             var @override = values.Item2;
+        ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///             {
+        ///                 SourceJson = source.Json,
+        ///                 OverrideJson = @override.Json,
+        ///             }));
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.politik.json` will evaluate to:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetPolicyDocumentResult> InvokeAsync(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentArgs(), options.WithVersion());
     }

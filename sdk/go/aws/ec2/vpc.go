@@ -113,9 +113,9 @@ type Vpc struct {
 	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId pulumi.StringOutput `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVpc registers a new resource with the given unique name, arguments, and options.
@@ -188,9 +188,9 @@ type vpcState struct {
 	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId *string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcState struct {
@@ -233,8 +233,8 @@ type VpcState struct {
 	MainRouteTableId pulumi.StringPtrInput
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (VpcState) ElementType() reflect.Type {
@@ -261,9 +261,9 @@ type vpcArgs struct {
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
 	// A tenancy option for instances launched into the VPC. Default is `default`, which
 	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
-	InstanceTenancy *string `pulumi:"instanceTenancy"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceTenancy *string           `pulumi:"instanceTenancy"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Vpc resource.
@@ -288,8 +288,8 @@ type VpcArgs struct {
 	// A tenancy option for instances launched into the VPC. Default is `default`, which
 	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (VpcArgs) ElementType() reflect.Type {

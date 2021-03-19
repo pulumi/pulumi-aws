@@ -8,7 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Maintenance Window Target resource
  *
- * ## Instance Target Example Usage
+ * ## Example Usage
+ * ### Instance Target
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,8 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * ## Resource Group Target Example Usage
+ * ### Resource Group Target
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

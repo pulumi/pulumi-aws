@@ -90,6 +90,10 @@ export interface ProviderAssumeRole {
     transitiveTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface ProviderDefaultTags {
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
 export interface ProviderEndpoint {
     accessanalyzer?: pulumi.Input<string>;
     acm?: pulumi.Input<string>;
@@ -102,6 +106,7 @@ export interface ProviderEndpoint {
     appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
     athena?: pulumi.Input<string>;
+    auditmanager?: pulumi.Input<string>;
     autoscaling?: pulumi.Input<string>;
     autoscalingplans?: pulumi.Input<string>;
     backup?: pulumi.Input<string>;
@@ -5351,6 +5356,9 @@ export namespace cloudwatch {
          * * The keys can't start with "AWS".
          */
         inputPaths?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+         */
         inputTemplate: pulumi.Input<string>;
     }
 
@@ -5516,7 +5524,7 @@ export namespace codebuild {
          */
         path?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type: pulumi.Input<string>;
     }
@@ -5531,7 +5539,7 @@ export namespace codebuild {
          */
         modes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type?: pulumi.Input<string>;
     }
@@ -5566,7 +5574,7 @@ export namespace codebuild {
          */
         registryCredential?: pulumi.Input<inputs.codebuild.ProjectEnvironmentRegistryCredential>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type: pulumi.Input<string>;
     }
@@ -5577,7 +5585,7 @@ export namespace codebuild {
          */
         name: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type?: pulumi.Input<string>;
         /**
@@ -5672,14 +5680,16 @@ export namespace codebuild {
          */
         path?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySource {
         /**
-         * Configuration block. Detailed below.
+         * Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceAuth>[]>;
         /**
@@ -5711,18 +5721,22 @@ export namespace codebuild {
          */
         sourceIdentifier: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySourceAuth {
         /**
-         * Resource value that applies to the specified authorization type.
+         * Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         resource?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         type: pulumi.Input<string>;
     }
@@ -5736,7 +5750,9 @@ export namespace codebuild {
 
     export interface ProjectSource {
         /**
-         * Configuration block. Detailed below.
+         * Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSourceAuth>[]>;
         /**
@@ -5764,18 +5780,22 @@ export namespace codebuild {
          */
         reportBuildStatus?: pulumi.Input<boolean>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ProjectSourceAuth {
         /**
-         * Resource value that applies to the specified authorization type.
+         * Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         resource?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`.
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         *
+         * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         type: pulumi.Input<string>;
     }
@@ -7992,6 +8012,19 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetTransitGatewayRouteTablesFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Transit Gateway Route Table will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetVpcDhcpOptionsFilter {
         /**
          * The name of the field to filter.
@@ -8790,6 +8823,10 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The protocol. If you select a protocol of
+         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+         */
         protocol: pulumi.Input<string>;
         /**
          * List of security group Group Names if using
@@ -8828,6 +8865,10 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The protocol. If you select a protocol of
+         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+         */
         protocol: pulumi.Input<string>;
         /**
          * List of security group Group Names if using
@@ -11944,6 +11985,10 @@ export namespace globalaccelerator {
     }
 
     export interface EndpointGroupEndpointConfiguration {
+        /**
+         * Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
+         * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
+         */
         clientIpPreservationEnabled?: pulumi.Input<boolean>;
         /**
          * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
@@ -15070,11 +15115,11 @@ export namespace kinesisanalyticsv2 {
         inputSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema>;
         inputStartingPositionConfigurations?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration>[]>;
         /**
-         * If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+         * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
          */
         kinesisFirehoseInput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput>;
         /**
-         * If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+         * If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
          */
         kinesisStreamsInput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput>;
         /**
@@ -15092,7 +15137,7 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
         /**
-         * Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+         * Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
          */
         inputLambdaProcessor: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor>;
     }
@@ -15198,15 +15243,15 @@ export namespace kinesisanalyticsv2 {
          */
         destinationSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema>;
         /**
-         * Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+         * Identifies a Kinesis Data Firehose delivery stream as the destination.
          */
         kinesisFirehoseOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput>;
         /**
-         * Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+         * Identifies a Kinesis data stream as the destination.
          */
         kinesisStreamsOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput>;
         /**
-         * Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+         * Identifies a Lambda function as the destination.
          */
         lambdaOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput>;
         /**
@@ -15343,11 +15388,11 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationApplicationConfigurationVpcConfiguration {
         /**
-         * The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+         * The Security Group IDs used by the VPC configuration.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+         * The Subnet IDs used by the VPC configuration.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         vpcConfigurationId?: pulumi.Input<string>;
@@ -27890,18 +27935,22 @@ export namespace wafv2 {
     export interface WebAclLoggingConfigurationRedactedField {
         /**
          * Redact all query arguments.
+         *
+         * @deprecated Not supported by WAFv2 API
          */
         allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldAllQueryArguments>;
         /**
          * Redact the request body, which immediately follows the request headers.
+         *
+         * @deprecated Not supported by WAFv2 API
          */
         body?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldBody>;
         /**
-         * Redact the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         * Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
          */
         method?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldMethod>;
         /**
-         * Redact the query string. This is the part of a URL that appears after a `?` character, if any.
+         * Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
          */
         queryString?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldQueryString>;
         /**
@@ -27910,10 +27959,12 @@ export namespace wafv2 {
         singleHeader?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeader>;
         /**
          * Redact a single query argument. See Single Query Argument below for details.
+         *
+         * @deprecated Not supported by WAFv2 API
          */
         singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleQueryArgument>;
         /**
-         * Redact the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
          */
         uriPath?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldUriPath>;
     }
@@ -27933,6 +27984,8 @@ export namespace wafv2 {
     export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
         /**
          * The name of the query header to redact. This setting must be provided as lower case characters.
+         *
+         * @deprecated Not supported by WAFv2 API
          */
         name: pulumi.Input<string>;
     }
@@ -27940,6 +27993,8 @@ export namespace wafv2 {
     export interface WebAclLoggingConfigurationRedactedFieldSingleQueryArgument {
         /**
          * The name of the query header to redact. This setting must be provided as lower case characters.
+         *
+         * @deprecated Not supported by WAFv2 API
          */
         name: pulumi.Input<string>;
     }

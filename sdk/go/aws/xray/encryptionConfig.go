@@ -11,6 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Creates and manages an AWS XRay Encryption Config.
+//
+// > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/xray"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
+// 			Type: pulumi.String("NONE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### With KMS Key
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/xray"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// 			Description:          pulumi.String("Some Key"),
+// 			DeletionWindowInDays: pulumi.Int(7),
+// 			Policy:               pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"kms-tf-1\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = xray.NewEncryptionConfig(ctx, "exampleEncryptionConfig", &xray.EncryptionConfigArgs{
+// 			Type:  pulumi.String("KMS"),
+// 			KeyId: exampleKey.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // XRay Encryption Config can be imported using the region name, e.g.

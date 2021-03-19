@@ -593,8 +593,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
         :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs' input_parallelism: Describes the number of in-application streams to create.
         :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs' input_processing_configuration: The input processing configuration for the input.
                An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs' kinesis_firehose_input: If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs' kinesis_streams_input: If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs' kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs' kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name_prefix", name_prefix)
@@ -665,7 +665,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
     @pulumi.getter(name="kinesisFirehoseInput")
     def kinesis_firehose_input(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput']:
         """
-        If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+        If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         """
         return pulumi.get(self, "kinesis_firehose_input")
 
@@ -673,7 +673,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
     @pulumi.getter(name="kinesisStreamsInput")
     def kinesis_streams_input(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput']:
         """
-        If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "kinesis_streams_input")
 
@@ -708,7 +708,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
     def __init__(__self__, *,
                  input_lambda_processor: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor'):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs' input_lambda_processor: Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs' input_lambda_processor: Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         """
         pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
@@ -716,7 +716,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
     @pulumi.getter(name="inputLambdaProcessor")
     def input_lambda_processor(self) -> 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor':
         """
-        Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+        Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         """
         return pulumi.get(self, "input_lambda_processor")
 
@@ -1022,9 +1022,9 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
         """
         :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs' destination_schema: Describes the data format when records are written to the destination.
         :param str name: The name of the in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs' kinesis_firehose_output: Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs' kinesis_streams_output: Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs' lambda_output: Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs' kinesis_firehose_output: Identifies a Kinesis Data Firehose delivery stream as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs' kinesis_streams_output: Identifies a Kinesis data stream as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs' lambda_output: Identifies a Lambda function as the destination.
         """
         pulumi.set(__self__, "destination_schema", destination_schema)
         pulumi.set(__self__, "name", name)
@@ -1057,7 +1057,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
     @pulumi.getter(name="kinesisFirehoseOutput")
     def kinesis_firehose_output(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput']:
         """
-        Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+        Identifies a Kinesis Data Firehose delivery stream as the destination.
         """
         return pulumi.get(self, "kinesis_firehose_output")
 
@@ -1065,7 +1065,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
     @pulumi.getter(name="kinesisStreamsOutput")
     def kinesis_streams_output(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput']:
         """
-        Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+        Identifies a Kinesis data stream as the destination.
         """
         return pulumi.get(self, "kinesis_streams_output")
 
@@ -1073,7 +1073,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
     @pulumi.getter(name="lambdaOutput")
     def lambda_output(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput']:
         """
-        Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+        Identifies a Lambda function as the destination.
         """
         return pulumi.get(self, "lambda_output")
 
@@ -1468,8 +1468,8 @@ class ApplicationApplicationConfigurationVpcConfiguration(dict):
                  vpc_configuration_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence[str] security_group_ids: The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
-        :param Sequence[str] subnet_ids: The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+        :param Sequence[str] security_group_ids: The Security Group IDs used by the VPC configuration.
+        :param Sequence[str] subnet_ids: The Subnet IDs used by the VPC configuration.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -1482,7 +1482,7 @@ class ApplicationApplicationConfigurationVpcConfiguration(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+        The Security Group IDs used by the VPC configuration.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1490,7 +1490,7 @@ class ApplicationApplicationConfigurationVpcConfiguration(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+        The Subnet IDs used by the VPC configuration.
         """
         return pulumi.get(self, "subnet_ids")
 
