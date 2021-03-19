@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.22.1  
-  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
+_(none)_
 
 ---
+
+## 3.34.1 (2021-03-19)
+* Upgrade to pulumi-terraform-bridge v2.22.1  
+  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
 
 ## 3.34.0 (2021-03-19)
 * Update to v3.33.0 of the AWS Terraform Provider
