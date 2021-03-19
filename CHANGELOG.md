@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.34.0 (2021-03-19)
 * Update to v3.33.0 of the AWS Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.22.0
 * Add the ability to specify `sns.TopicPolicy` `Policy` as iam.PolicyDocument
-
----
 
 ## 3.33.0 (2021-03-15)
 * Update to v3.32.0 of the AWS Terraform Provider
