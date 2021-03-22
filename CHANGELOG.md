@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Prevent a panic when importing an ACM Certificate and replacing the privateKey
 
 ---
 
