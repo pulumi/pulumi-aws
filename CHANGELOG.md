@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Prevent a panic when importing an ACM Certificate and replacing the privateKey
+_(none)_
 
 ---
+
+## 3.34.2 (2021-03-23)
+* Prevent a panic when importing an ACM Certificate and replacing the privateKey
 
 ## 3.34.1 (2021-03-19)
 * Upgrade to pulumi-terraform-bridge v2.22.1  
