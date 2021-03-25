@@ -17,9 +17,9 @@
 package main
 
 import (
-	aws "github.com/pulumi/pulumi-aws/provider/v3"
-	"github.com/pulumi/pulumi-aws/provider/v3/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
+	aws "github.com/pulumi/pulumi-aws/provider/v4"
+	"github.com/pulumi/pulumi-aws/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
 func main() {
