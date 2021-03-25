@@ -4,7 +4,7 @@
 package ebs
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.

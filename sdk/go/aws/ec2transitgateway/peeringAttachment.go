@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages an EC2 Transit Gateway Peering Attachment.
@@ -20,10 +20,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
