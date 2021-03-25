@@ -53,7 +53,7 @@ setup(name='pulumi_aws',
       },
       install_requires=[
           'parver>=0.2.1',
-          'pulumi>=2.15.0,<3.0.0',
+          'pulumi>=3.0.0a1,<4.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)

@@ -3,7 +3,7 @@ ORG              := pulumi
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
-PROVIDER_PATH    := provider/v3
+PROVIDER_PATH    := provider/v4
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
 
 TFGEN           := pulumi-tfgen-${PACK}

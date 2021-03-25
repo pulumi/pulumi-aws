@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get IDs and VPC membership of Security Groups that are created
