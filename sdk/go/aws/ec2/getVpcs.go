@@ -4,7 +4,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource can be useful for getting back a list of VPC Ids for a region.

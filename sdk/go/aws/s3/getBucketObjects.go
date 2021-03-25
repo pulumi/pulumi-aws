@@ -4,7 +4,7 @@
 package s3
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.

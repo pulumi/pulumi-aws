@@ -4,7 +4,7 @@
 package ebs
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
