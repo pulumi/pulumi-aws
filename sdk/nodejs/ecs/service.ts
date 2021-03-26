@@ -142,6 +142,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     */
+    public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
     public readonly forceNewDeployment!: pulumi.Output<boolean | undefined>;
@@ -226,6 +230,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = state ? state.desiredCount : undefined;
             inputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
+            inputs["enableExecuteCommand"] = state ? state.enableExecuteCommand : undefined;
             inputs["forceNewDeployment"] = state ? state.forceNewDeployment : undefined;
             inputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = state ? state.iamRole : undefined;
@@ -251,6 +256,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = args ? args.desiredCount : undefined;
             inputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
+            inputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
             inputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
             inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = args ? args.iamRole : undefined;
@@ -307,6 +313,10 @@ export interface ServiceState {
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     */
+    readonly enableExecuteCommand?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
@@ -405,6 +415,10 @@ export interface ServiceArgs {
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     */
+    readonly enableExecuteCommand?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */

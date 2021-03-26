@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .connection import *
+from .get_connection import *
 
 def _register_module():
     import pulumi

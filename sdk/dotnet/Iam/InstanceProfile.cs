@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Iam
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
+        /// Map of resource tags for the IAM Instance Profile.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// [Unique ID][1] assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
@@ -172,6 +178,18 @@ namespace Pulumi.Aws.Iam
         [Input("role")]
         public Input<string>? Role { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM Instance Profile.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public InstanceProfileArgs()
         {
         }
@@ -214,6 +232,18 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM Instance Profile.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// [Unique ID][1] assigned by AWS.

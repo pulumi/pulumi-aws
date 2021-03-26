@@ -57,51 +57,55 @@ namespace Pulumi.Aws.Mq
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The broker configuration in XML format.
-        /// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-        /// for supported parameters and format of the XML.
+        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// </summary>
+        [Output("authenticationStrategy")]
+        public Output<string> AuthenticationStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The type of broker engine.
+        /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
         [Output("engineType")]
         public Output<string> EngineType { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the broker engine.
+        /// Version of the broker engine.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The latest revision of the configuration.
+        /// Latest revision of the configuration.
         /// </summary>
         [Output("latestRevision")]
         public Output<int> LatestRevision { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the configuration
+        /// Name of the configuration.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -153,33 +157,37 @@ namespace Pulumi.Aws.Mq
     public sealed class ConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The broker configuration in XML format.
-        /// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-        /// for supported parameters and format of the XML.
+        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// </summary>
+        [Input("authenticationStrategy")]
+        public Input<string>? AuthenticationStrategy { get; set; }
+
+        /// <summary>
+        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
         /// <summary>
-        /// The description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type of broker engine.
+        /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
         [Input("engineType", required: true)]
         public Input<string> EngineType { get; set; } = null!;
 
         /// <summary>
-        /// The version of the broker engine.
+        /// Version of the broker engine.
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
 
         /// <summary>
-        /// The name of the configuration
+        /// Name of the configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -188,7 +196,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -204,45 +212,49 @@ namespace Pulumi.Aws.Mq
     public sealed class ConfigurationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The broker configuration in XML format.
-        /// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-        /// for supported parameters and format of the XML.
+        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// </summary>
+        [Input("authenticationStrategy")]
+        public Input<string>? AuthenticationStrategy { get; set; }
+
+        /// <summary>
+        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
         /// <summary>
-        /// The description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type of broker engine.
+        /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
 
         /// <summary>
-        /// The version of the broker engine.
+        /// Version of the broker engine.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The latest revision of the configuration.
+        /// Latest revision of the configuration.
         /// </summary>
         [Input("latestRevision")]
         public Input<int>? LatestRevision { get; set; }
 
         /// <summary>
-        /// The name of the configuration
+        /// Name of the configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -251,7 +263,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// Identity Notification Topics can be imported using ID of the record. The ID is made up as IDENTITY|TYPE where IDENTITY is the SES Identity and TYPE is the Notification Type. e.g. example.com|Bounce In this example, `example.com` is the SES Identity and `Bounce` is the Notification Type. To import the ID above, it would look as follows
+// Identity Notification Topics can be imported using ID of the record. The ID is made up as IDENTITY|TYPE where IDENTITY is the SES Identity and TYPE is the Notification Type.
 //
 // ```sh
 //  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'

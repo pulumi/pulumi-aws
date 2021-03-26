@@ -54,6 +54,8 @@ type OpenIdConnectProvider struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayOutput `pulumi:"clientIdLists"`
+	// Map of resource tags for the IAM OIDC provider.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayOutput `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -102,6 +104,8 @@ type openIdConnectProviderState struct {
 	Arn *string `pulumi:"arn"`
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists []string `pulumi:"clientIdLists"`
+	// Map of resource tags for the IAM OIDC provider.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -113,6 +117,8 @@ type OpenIdConnectProviderState struct {
 	Arn pulumi.StringPtrInput
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayInput
+	// Map of resource tags for the IAM OIDC provider.
+	Tags pulumi.StringMapInput
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -126,6 +132,8 @@ func (OpenIdConnectProviderState) ElementType() reflect.Type {
 type openIdConnectProviderArgs struct {
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists []string `pulumi:"clientIdLists"`
+	// Map of resource tags for the IAM OIDC provider.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -136,6 +144,8 @@ type openIdConnectProviderArgs struct {
 type OpenIdConnectProviderArgs struct {
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayInput
+	// Map of resource tags for the IAM OIDC provider.
+	Tags pulumi.StringMapInput
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
 	// The URL of the identity provider. Corresponds to the _iss_ claim.

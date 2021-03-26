@@ -16,6 +16,7 @@ import (
 // > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 //
 // ## Example Usage
+// ### Cached and VTL Gateway Type
 //
 // ```go
 // package main
@@ -27,7 +28,46 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewUploadBuffer(ctx, "example", &storagegateway.UploadBufferArgs{
+// 		opt0 := aws_volume_attachment.Test.Device_name
+// 		testLocalDisk, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+// 			DiskNode:   &opt0,
+// 			GatewayArn: aws_storagegateway_gateway.Test.Arn,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = storagegateway.NewUploadBuffer(ctx, "testUploadBuffer", &storagegateway.UploadBufferArgs{
+// 			DiskPath:   pulumi.String(testLocalDisk.DiskPath),
+// 			GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Stored Gateway Type
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := aws_volume_attachment.Test.Device_name
+// 		_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+// 			DiskNode:   &opt0,
+// 			GatewayArn: aws_storagegateway_gateway.Test.Arn,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = storagegateway.NewUploadBuffer(ctx, "example", &storagegateway.UploadBufferArgs{
 // 			DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
 // 			GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
 // 		})
@@ -51,6 +91,8 @@ type UploadBuffer struct {
 
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
+	// Local disk path. For example, `/dev/nvme1n1`.
+	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 }
@@ -62,9 +104,6 @@ func NewUploadBuffer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DiskId == nil {
-		return nil, errors.New("invalid value for required argument 'DiskId'")
-	}
 	if args.GatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayArn'")
 	}
@@ -92,6 +131,8 @@ func GetUploadBuffer(ctx *pulumi.Context,
 type uploadBufferState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId *string `pulumi:"diskId"`
+	// Local disk path. For example, `/dev/nvme1n1`.
+	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 }
@@ -99,6 +140,8 @@ type uploadBufferState struct {
 type UploadBufferState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId pulumi.StringPtrInput
+	// Local disk path. For example, `/dev/nvme1n1`.
+	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
 }
@@ -109,7 +152,9 @@ func (UploadBufferState) ElementType() reflect.Type {
 
 type uploadBufferArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId string `pulumi:"diskId"`
+	DiskId *string `pulumi:"diskId"`
+	// Local disk path. For example, `/dev/nvme1n1`.
+	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 }
@@ -117,7 +162,9 @@ type uploadBufferArgs struct {
 // The set of arguments for constructing a UploadBuffer resource.
 type UploadBufferArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId pulumi.StringInput
+	DiskId pulumi.StringPtrInput
+	// Local disk path. For example, `/dev/nvme1n1`.
+	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
 }

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:lightsail/instance:Instance":
 		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:lightsail/instancePublicPorts:InstancePublicPorts":
+		r, err = NewInstancePublicPorts(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:lightsail/keyPair:KeyPair":
 		r, err = NewKeyPair(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:lightsail/staticIp:StaticIp":
@@ -51,6 +53,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/instancePublicPorts",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

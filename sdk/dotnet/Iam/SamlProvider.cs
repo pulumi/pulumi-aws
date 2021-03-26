@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Iam
         public Output<string> SamlMetadataDocument { get; private set; } = null!;
 
         /// <summary>
+        /// Map of resource tags for the IAM SAML provider.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2006 15:04:05 MST`.
         /// </summary>
         [Output("validUntil")]
@@ -125,6 +131,18 @@ namespace Pulumi.Aws.Iam
         [Input("samlMetadataDocument", required: true)]
         public Input<string> SamlMetadataDocument { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM SAML provider.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public SamlProviderArgs()
         {
         }
@@ -149,6 +167,18 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("samlMetadataDocument")]
         public Input<string>? SamlMetadataDocument { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM SAML provider.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2006 15:04:05 MST`.

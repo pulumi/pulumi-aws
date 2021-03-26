@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
 
         /// <summary>
+        /// Map of resource tags for the IAM OIDC provider.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         [Output("thumbprintLists")]
@@ -129,6 +135,18 @@ namespace Pulumi.Aws.Iam
             set => _clientIdLists = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM OIDC provider.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("thumbprintLists", required: true)]
         private InputList<string>? _thumbprintLists;
 
@@ -170,6 +188,18 @@ namespace Pulumi.Aws.Iam
         {
             get => _clientIdLists ?? (_clientIdLists = new InputList<string>());
             set => _clientIdLists = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM OIDC provider.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         [Input("thumbprintLists")]

@@ -95,6 +95,10 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
+     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     */
+    public readonly configurationSet!: pulumi.Output<string | undefined>;
+    /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -129,6 +133,7 @@ export class EmailChannel extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EmailChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
+            inputs["configurationSet"] = state ? state.configurationSet : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["fromAddress"] = state ? state.fromAddress : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -149,6 +154,7 @@ export class EmailChannel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
+            inputs["configurationSet"] = args ? args.configurationSet : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["fromAddress"] = args ? args.fromAddress : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -170,6 +176,10 @@ export interface EmailChannelState {
      * The application ID.
      */
     readonly applicationId?: pulumi.Input<string>;
+    /**
+     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     */
+    readonly configurationSet?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
@@ -200,6 +210,10 @@ export interface EmailChannelArgs {
      * The application ID.
      */
     readonly applicationId: pulumi.Input<string>;
+    /**
+     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     */
+    readonly configurationSet?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */

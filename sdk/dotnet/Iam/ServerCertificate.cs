@@ -155,6 +155,12 @@ namespace Pulumi.Aws.Iam
         public Output<string?> CertificateChain { get; private set; } = null!;
 
         /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+        /// </summary>
+        [Output("expiration")]
+        public Output<string> Expiration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Server Certificate. Do not include the
         /// path in this value. If omitted, this provider will assign a random, unique name.
         /// </summary>
@@ -182,6 +188,18 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of resource tags for the server certificate.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+        /// </summary>
+        [Output("uploadDate")]
+        public Output<string> UploadDate { get; private set; } = null!;
 
 
         /// <summary>
@@ -230,12 +248,6 @@ namespace Pulumi.Aws.Iam
     public sealed class ServerCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the server certificate.
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
         /// The contents of the public key certificate in
         /// PEM-encoded format.
         /// </summary>
@@ -279,6 +291,18 @@ namespace Pulumi.Aws.Iam
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the server certificate.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public ServerCertificateArgs()
         {
         }
@@ -308,6 +332,12 @@ namespace Pulumi.Aws.Iam
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+        /// </summary>
+        [Input("expiration")]
+        public Input<string>? Expiration { get; set; }
+
+        /// <summary>
         /// The name of the Server Certificate. Do not include the
         /// path in this value. If omitted, this provider will assign a random, unique name.
         /// </summary>
@@ -335,6 +365,24 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the server certificate.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+        /// </summary>
+        [Input("uploadDate")]
+        public Input<string>? UploadDate { get; set; }
 
         public ServerCertificateState()
         {

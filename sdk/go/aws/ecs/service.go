@@ -160,6 +160,8 @@ type Service struct {
 	DesiredCount pulumi.IntPtrOutput `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
+	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrOutput `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
@@ -237,6 +239,8 @@ type serviceState struct {
 	DesiredCount *int `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
+	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
@@ -286,6 +290,8 @@ type ServiceState struct {
 	DesiredCount pulumi.IntPtrInput
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
+	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	EnableExecuteCommand pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
@@ -339,6 +345,8 @@ type serviceArgs struct {
 	DesiredCount *int `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
+	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
@@ -389,6 +397,8 @@ type ServiceArgs struct {
 	DesiredCount pulumi.IntPtrInput
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
+	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	EnableExecuteCommand pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
