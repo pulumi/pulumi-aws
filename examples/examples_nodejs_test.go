@@ -9,9 +9,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 )
@@ -287,39 +284,6 @@ func TestAccRenameSesConfiguration(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccServerlessFunctions(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "serverless_functions"),
-			RunUpdateTest: true,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				// Since we are relying on the AWS credentials file locally, we need to
-				// force this to be used.
-				os.Setenv("AWS_SDK_LOAD_CONFIG", "1")
-
-				cfg := &aws.Config{
-					Region: aws.String("us-west-2"),
-				}
-				sess, err := session.NewSession(cfg)
-				if !assert.NoError(t, err) {
-					return
-				}
-				lambdaSvc := lambda.New(sess)
-				out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
-					FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
-				})
-				if !assert.NoError(t, err) {
-					return
-				}
-
-				if out.FunctionError != nil {
-					assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
-				}
-			}})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccWebserver(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
@@ -374,17 +338,6 @@ func TestAccServerlessRaw(t *testing.T) {
 			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
 			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
 			ExpectRefreshChanges: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccServerless(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "serverless"),
-			RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)
