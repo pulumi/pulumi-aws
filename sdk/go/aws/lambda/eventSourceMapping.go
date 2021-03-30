@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
+// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
 //
 // For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
 // For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -65,7 +65,7 @@ import (
 // 	})
 // }
 // ```
-// ### Managed Streaming for Kafka (MSK)
+// ### Managed Streaming for Apache Kafka (MSK)
 //
 // ```go
 // package main
@@ -171,7 +171,7 @@ type EventSourceMapping struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The result of the last AWS Lambda invocation of your Lambda function.
 	LastProcessingResult pulumi.StringOutput `pulumi:"lastProcessingResult"`
-	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
+	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrOutput `pulumi:"maximumBatchingWindowInSeconds"`
 	MaximumRecordAgeInSeconds      pulumi.IntOutput    `pulumi:"maximumRecordAgeInSeconds"`
 	MaximumRetryAttempts           pulumi.IntOutput    `pulumi:"maximumRetryAttempts"`
@@ -246,7 +246,7 @@ type eventSourceMappingState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// The result of the last AWS Lambda invocation of your Lambda function.
 	LastProcessingResult *string `pulumi:"lastProcessingResult"`
-	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
+	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	MaximumRecordAgeInSeconds      *int `pulumi:"maximumRecordAgeInSeconds"`
 	MaximumRetryAttempts           *int `pulumi:"maximumRetryAttempts"`
@@ -287,7 +287,7 @@ type EventSourceMappingState struct {
 	LastModified pulumi.StringPtrInput
 	// The result of the last AWS Lambda invocation of your Lambda function.
 	LastProcessingResult pulumi.StringPtrInput
-	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
+	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
 	MaximumRecordAgeInSeconds      pulumi.IntPtrInput
 	MaximumRetryAttempts           pulumi.IntPtrInput
@@ -326,7 +326,7 @@ type eventSourceMappingArgs struct {
 	EventSourceArn string `pulumi:"eventSourceArn"`
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName string `pulumi:"functionName"`
-	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
+	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	MaximumRecordAgeInSeconds      *int `pulumi:"maximumRecordAgeInSeconds"`
 	MaximumRetryAttempts           *int `pulumi:"maximumRetryAttempts"`
@@ -356,7 +356,7 @@ type EventSourceMappingArgs struct {
 	EventSourceArn pulumi.StringInput
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName pulumi.StringInput
-	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function.
+	// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
 	MaximumRecordAgeInSeconds      pulumi.IntPtrInput
 	MaximumRetryAttempts           pulumi.IntPtrInput

@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update to v3.34.0 of the AWS Terraform Provider
+* Update `aws.lambda.eventSourceMapping` to only send the required parameters on Updates
 
 ---
 
