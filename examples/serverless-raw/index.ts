@@ -31,7 +31,7 @@ let role = new aws.iam.Role("mylambda-role", {
 }, providerOpts);
 let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
     role: role,
-    policyArn: aws.iam.ManagedPolicy.AWSLambdaFullAccess,
+    policyArn: aws.iam.ManagedPolicy.LambdaFullAccess,
 }, providerOpts);
 let lambda = new aws.lambda.Function("mylambda", {
     code: new asset.AssetArchive({
