@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v3.34.0 of the AWS Terraform Provider
-* Update `aws.lambda.eventSourceMapping` to only send the required parameters on Updates
+_(none)_
 
 ---
+
+## 3.35.0 (2021-03-30)
+* Update to v3.34.0 of the AWS Terraform Provider
+* Update `aws.lambda.eventSourceMapping` to only send the required parameters on Updates
 
 ## 3.34.2 (2021-03-23)
 * Prevent a panic when importing an ACM Certificate and replacing the privateKey
