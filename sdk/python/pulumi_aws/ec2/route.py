@@ -31,42 +31,6 @@ class Route(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a resource to create a routing table entry (a route) in a VPC routing table.
-
-        > **NOTE on Route Tables and Routes:** This provider currently
-        provides both a standalone Route resource and a Route Table resource with routes
-        defined in-line. At this time you cannot use a Route Table with in-line routes
-        in conjunction with any Route resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
-            destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
-        ```
-        ## Example IPv6 Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc",
-            cidr_block="10.1.0.0/16",
-            assign_generated_ipv6_cidr_block=True)
-        egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
-            destination_ipv6_cidr_block="::/0",
-            egress_only_gateway_id=egress.id)
-        ```
-
         ## Import
 
         Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
@@ -222,7 +186,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
-    def egress_only_gateway_id(self) -> pulumi.Output[str]:
+    def egress_only_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a VPC Egress Only Internet Gateway.
         """
@@ -230,7 +194,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> pulumi.Output[str]:
+    def gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a VPC internet gateway or a virtual private gateway.
         """
@@ -251,7 +215,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> pulumi.Output[str]:
+    def local_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a Outpost local gateway.
         """
@@ -259,7 +223,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> pulumi.Output[str]:
+    def nat_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a VPC NAT gateway.
         """

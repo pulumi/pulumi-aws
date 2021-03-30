@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./connection";
+export * from "./getConnection";
 
 // Import resources to register:
 import { Connection } from "./connection";

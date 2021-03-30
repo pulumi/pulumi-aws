@@ -96,6 +96,10 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
+     * Map of resource tags for the IAM Instance Profile.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * [Unique ID][1] assigned by AWS.
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["role"] = state ? state.role : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as InstanceProfileArgs | undefined;
@@ -126,6 +131,7 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["role"] = args ? args.role : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface InstanceProfileState {
      */
     readonly role?: pulumi.Input<string | Role>;
     /**
+     * Map of resource tags for the IAM Instance Profile.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * [Unique ID][1] assigned by AWS.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -191,4 +201,8 @@ export interface InstanceProfileArgs {
      * Name of the role to add to the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
+    /**
+     * Map of resource tags for the IAM Instance Profile.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

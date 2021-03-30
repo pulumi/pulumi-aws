@@ -5,9 +5,12 @@
 # Export this package's modules as members:
 from .domain import *
 from .instance import *
+from .instance_public_ports import *
 from .key_pair import *
 from .static_ip import *
 from .static_ip_attachment import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi
@@ -25,6 +28,8 @@ def _register_module():
                 return Domain(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:lightsail/instance:Instance":
                 return Instance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:lightsail/instancePublicPorts:InstancePublicPorts":
+                return InstancePublicPorts(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:lightsail/keyPair:KeyPair":
                 return KeyPair(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:lightsail/staticIp:StaticIp":
@@ -38,6 +43,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "lightsail/domain", _module_instance)
     pulumi.runtime.register_resource_module("aws", "lightsail/instance", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "lightsail/instancePublicPorts", _module_instance)
     pulumi.runtime.register_resource_module("aws", "lightsail/keyPair", _module_instance)
     pulumi.runtime.register_resource_module("aws", "lightsail/staticIp", _module_instance)
     pulumi.runtime.register_resource_module("aws", "lightsail/staticIpAttachment", _module_instance)

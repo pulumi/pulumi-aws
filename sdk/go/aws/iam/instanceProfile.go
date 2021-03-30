@@ -66,6 +66,8 @@ type InstanceProfile struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
@@ -111,6 +113,8 @@ type instanceProfileState struct {
 	Path *string `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role *string `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile.
+	Tags map[string]string `pulumi:"tags"`
 	// [Unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
@@ -128,6 +132,8 @@ type InstanceProfileState struct {
 	Path pulumi.StringPtrInput
 	// Name of the role to add to the profile.
 	Role pulumi.StringPtrInput
+	// Map of resource tags for the IAM Instance Profile.
+	Tags pulumi.StringMapInput
 	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
@@ -145,6 +151,8 @@ type instanceProfileArgs struct {
 	Path *string `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role interface{} `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
@@ -157,6 +165,8 @@ type InstanceProfileArgs struct {
 	Path pulumi.StringPtrInput
 	// Name of the role to add to the profile.
 	Role pulumi.Input
+	// Map of resource tags for the IAM Instance Profile.
+	Tags pulumi.StringMapInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {

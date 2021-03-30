@@ -43,6 +43,8 @@ type ServerCertificate struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+	Expiration pulumi.StringOutput `pulumi:"expiration"`
 	// The name of the Server Certificate. Do not include the
 	// path in this value. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -56,6 +58,10 @@ type ServerCertificate struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
+	// Map of resource tags for the server certificate.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+	UploadDate pulumi.StringOutput `pulumi:"uploadDate"`
 }
 
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +108,8 @@ type serverCertificateState struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain *string `pulumi:"certificateChain"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+	Expiration *string `pulumi:"expiration"`
 	// The name of the Server Certificate. Do not include the
 	// path in this value. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -115,6 +123,10 @@ type serverCertificateState struct {
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey *string `pulumi:"privateKey"`
+	// Map of resource tags for the server certificate.
+	Tags map[string]string `pulumi:"tags"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+	UploadDate *string `pulumi:"uploadDate"`
 }
 
 type ServerCertificateState struct {
@@ -127,6 +139,8 @@ type ServerCertificateState struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain pulumi.StringPtrInput
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+	Expiration pulumi.StringPtrInput
 	// The name of the Server Certificate. Do not include the
 	// path in this value. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -140,6 +154,10 @@ type ServerCertificateState struct {
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringPtrInput
+	// Map of resource tags for the server certificate.
+	Tags pulumi.StringMapInput
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+	UploadDate pulumi.StringPtrInput
 }
 
 func (ServerCertificateState) ElementType() reflect.Type {
@@ -147,8 +165,6 @@ func (ServerCertificateState) ElementType() reflect.Type {
 }
 
 type serverCertificateArgs struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn *string `pulumi:"arn"`
 	// The contents of the public key certificate in
 	// PEM-encoded format.
 	CertificateBody string `pulumi:"certificateBody"`
@@ -169,12 +185,12 @@ type serverCertificateArgs struct {
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey string `pulumi:"privateKey"`
+	// Map of resource tags for the server certificate.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServerCertificate resource.
 type ServerCertificateArgs struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn pulumi.StringPtrInput
 	// The contents of the public key certificate in
 	// PEM-encoded format.
 	CertificateBody pulumi.StringInput
@@ -195,6 +211,8 @@ type ServerCertificateArgs struct {
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringInput
+	// Map of resource tags for the server certificate.
+	Tags pulumi.StringMapInput
 }
 
 func (ServerCertificateArgs) ElementType() reflect.Type {

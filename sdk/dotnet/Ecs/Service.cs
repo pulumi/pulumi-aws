@@ -186,6 +186,12 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// </summary>
+        [Output("enableExecuteCommand")]
+        public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
+
+        /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// </summary>
         [Output("forceNewDeployment")]
@@ -376,6 +382,12 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
+        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// </summary>
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
+        /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// </summary>
         [Input("forceNewDeployment")]
@@ -549,6 +561,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// </summary>
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
 
         /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.

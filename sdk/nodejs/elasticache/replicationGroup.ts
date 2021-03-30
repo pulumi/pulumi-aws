@@ -179,7 +179,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Whether to enable encryption at rest.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
     /**
      * The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
@@ -189,7 +189,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -220,6 +220,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
@@ -318,7 +321,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Whether to enable encryption in transit.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a ReplicationGroup resource with the given unique name, arguments, and options.
@@ -443,7 +446,7 @@ export interface ReplicationGroupState {
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     readonly automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
@@ -474,6 +477,9 @@ export interface ReplicationGroupState {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     */
     readonly globalReplicationGroupId?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
@@ -596,7 +602,7 @@ export interface ReplicationGroupArgs {
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     readonly automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
@@ -619,6 +625,9 @@ export interface ReplicationGroupArgs {
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     */
     readonly globalReplicationGroupId?: pulumi.Input<string>;
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.

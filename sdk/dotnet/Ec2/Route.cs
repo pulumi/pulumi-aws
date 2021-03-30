@@ -10,70 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a resource to create a routing table entry (a route) in a VPC routing table.
-    /// 
-    /// &gt; **NOTE on Route Tables and Routes:** This provider currently
-    /// provides both a standalone Route resource and a Route Table resource with routes
-    /// defined in-line. At this time you cannot use a Route Table with in-line routes
-    /// in conjunction with any Route resources. Doing so will cause
-    /// a conflict of rule settings and will overwrite rules.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-    ///         {
-    ///             RouteTableId = "rtb-4fbb3ac4",
-    ///             DestinationCidrBlock = "10.0.1.0/22",
-    ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_route_table.Testing,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Example IPv6 Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///             AssignGeneratedIpv6CidrBlock = true,
-    ///         });
-    ///         var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new Aws.Ec2.EgressOnlyInternetGatewayArgs
-    ///         {
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-    ///         {
-    ///             RouteTableId = "rtb-4fbb3ac4",
-    ///             DestinationIpv6CidrBlock = "::/0",
-    ///             EgressOnlyGatewayId = egress.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
@@ -110,13 +46,13 @@ namespace Pulumi.Aws.Ec2
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
         [Output("egressOnlyGatewayId")]
-        public Output<string> EgressOnlyGatewayId { get; private set; } = null!;
+        public Output<string?> EgressOnlyGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of a VPC internet gateway or a virtual private gateway.
         /// </summary>
         [Output("gatewayId")]
-        public Output<string> GatewayId { get; private set; } = null!;
+        public Output<string?> GatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of an EC2 instance.
@@ -131,13 +67,13 @@ namespace Pulumi.Aws.Ec2
         /// Identifier of a Outpost local gateway.
         /// </summary>
         [Output("localGatewayId")]
-        public Output<string> LocalGatewayId { get; private set; } = null!;
+        public Output<string?> LocalGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Output("natGatewayId")]
-        public Output<string> NatGatewayId { get; private set; } = null!;
+        public Output<string?> NatGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of an EC2 network interface.

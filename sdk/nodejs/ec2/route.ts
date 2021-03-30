@@ -5,46 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to create a routing table entry (a route) in a VPC routing table.
- *
- * > **NOTE on Route Tables and Routes:** This provider currently
- * provides both a standalone Route resource and a Route Table resource with routes
- * defined in-line. At this time you cannot use a Route Table with in-line routes
- * in conjunction with any Route resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const route = new aws.ec2.Route("route", {
- *     routeTableId: "rtb-4fbb3ac4",
- *     destinationCidrBlock: "10.0.1.0/22",
- *     vpcPeeringConnectionId: "pcx-45ff3dc1",
- * }, {
- *     dependsOn: [aws_route_table.testing],
- * });
- * ```
- * ## Example IPv6 Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "10.1.0.0/16",
- *     assignGeneratedIpv6CidrBlock: true,
- * });
- * const egress = new aws.ec2.EgressOnlyInternetGateway("egress", {vpcId: vpc.id});
- * const route = new aws.ec2.Route("route", {
- *     routeTableId: "rtb-4fbb3ac4",
- *     destinationIpv6CidrBlock: "::/0",
- *     egressOnlyGatewayId: egress.id,
- * });
- * ```
- *
  * ## Import
  *
  * Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
@@ -99,11 +59,11 @@ export class Route extends pulumi.CustomResource {
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */
-    public readonly egressOnlyGatewayId!: pulumi.Output<string>;
+    public readonly egressOnlyGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway.
      */
-    public readonly gatewayId!: pulumi.Output<string>;
+    public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 instance.
      */
@@ -112,11 +72,11 @@ export class Route extends pulumi.CustomResource {
     /**
      * Identifier of a Outpost local gateway.
      */
-    public readonly localGatewayId!: pulumi.Output<string>;
+    public readonly localGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC NAT gateway.
      */
-    public readonly natGatewayId!: pulumi.Output<string>;
+    public readonly natGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 network interface.
      */

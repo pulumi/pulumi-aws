@@ -4980,7 +4980,7 @@ export namespace cloudfront {
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
+        forwardedValues?: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
         /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
@@ -5149,7 +5149,7 @@ export namespace cloudfront {
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
+        forwardedValues?: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
         /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
@@ -18670,6 +18670,27 @@ export namespace lex {
     }
 }
 
+export namespace lightsail {
+    export interface InstancePublicPortsPortInfo {
+        /**
+         * Set of CIDR blocks.
+         */
+        cidrs: string[];
+        /**
+         * First port in a range of open ports on an instance.
+         */
+        fromPort: number;
+        /**
+         * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+         */
+        protocol: string;
+        /**
+         * Last port in a range of open ports on an instance.
+         */
+        toPort: number;
+    }
+}
+
 export namespace macie {
     export interface S3BucketAssociationClassificationType {
         /**
@@ -30151,8 +30172,6 @@ export namespace wafv2 {
     export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
         /**
          * The name of the query header to redact. This setting must be provided as lower case characters.
-         *
-         * @deprecated Not supported by WAFv2 API
          */
         name: string;
     }

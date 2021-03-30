@@ -16,6 +16,7 @@ class UploadBuffer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_id: Optional[pulumi.Input[str]] = None,
+                 disk_path: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -26,11 +27,26 @@ class UploadBuffer(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
+        ### Cached and VTL Gateway Type
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
+        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
+            disk_path=test_local_disk.disk_path,
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+        ```
+        ### Stored Gateway Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         example = aws.storagegateway.UploadBuffer("example",
             disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
             gateway_arn=aws_storagegateway_gateway["example"]["arn"])
@@ -47,6 +63,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         if __name__ is not None:
@@ -66,9 +83,8 @@ class UploadBuffer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if disk_id is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_id'")
             __props__['disk_id'] = disk_id
+            __props__['disk_path'] = disk_path
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
@@ -83,6 +99,7 @@ class UploadBuffer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             disk_id: Optional[pulumi.Input[str]] = None,
+            disk_path: Optional[pulumi.Input[str]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None) -> 'UploadBuffer':
         """
         Get an existing UploadBuffer resource's state with the given name, id, and optional extra
@@ -92,6 +109,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -99,6 +117,7 @@ class UploadBuffer(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["disk_id"] = disk_id
+        __props__["disk_path"] = disk_path
         __props__["gateway_arn"] = gateway_arn
         return UploadBuffer(resource_name, opts=opts, __props__=__props__)
 
@@ -109,6 +128,14 @@ class UploadBuffer(pulumi.CustomResource):
         Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         """
         return pulumi.get(self, "disk_id")
+
+    @property
+    @pulumi.getter(name="diskPath")
+    def disk_path(self) -> pulumi.Output[str]:
+        """
+        Local disk path. For example, `/dev/nvme1n1`.
+        """
+        return pulumi.get(self, "disk_path")
 
     @property
     @pulumi.getter(name="gatewayArn")

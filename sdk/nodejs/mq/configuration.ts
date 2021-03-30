@@ -68,37 +68,39 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the configuration.
+     * ARN of the configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The broker configuration in XML format.
-     * See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-     * for supported parameters and format of the XML.
+     * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    public readonly authenticationStrategy!: pulumi.Output<string>;
+    /**
+     * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
     public readonly data!: pulumi.Output<string>;
     /**
-     * The description of the configuration.
+     * Description of the configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The type of broker engine.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     public readonly engineType!: pulumi.Output<string>;
     /**
-     * The version of the broker engine.
+     * Version of the broker engine.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The latest revision of the configuration.
+     * Latest revision of the configuration.
      */
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
-     * The name of the configuration
+     * Name of the configuration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -116,6 +118,7 @@ export class Configuration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
             inputs["data"] = state ? state.data : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["engineType"] = state ? state.engineType : undefined;
@@ -134,6 +137,7 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
+            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
             inputs["data"] = args ? args.data : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["engineType"] = args ? args.engineType : undefined;
@@ -155,37 +159,39 @@ export class Configuration extends pulumi.CustomResource {
  */
 export interface ConfigurationState {
     /**
-     * The ARN of the configuration.
+     * ARN of the configuration.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The broker configuration in XML format.
-     * See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-     * for supported parameters and format of the XML.
+     * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    readonly authenticationStrategy?: pulumi.Input<string>;
+    /**
+     * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
     readonly data?: pulumi.Input<string>;
     /**
-     * The description of the configuration.
+     * Description of the configuration.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The type of broker engine.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     readonly engineType?: pulumi.Input<string>;
     /**
-     * The version of the broker engine.
+     * Version of the broker engine.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The latest revision of the configuration.
+     * Latest revision of the configuration.
      */
     readonly latestRevision?: pulumi.Input<number>;
     /**
-     * The name of the configuration
+     * Name of the configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -195,29 +201,31 @@ export interface ConfigurationState {
  */
 export interface ConfigurationArgs {
     /**
-     * The broker configuration in XML format.
-     * See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-     * for supported parameters and format of the XML.
+     * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+     */
+    readonly authenticationStrategy?: pulumi.Input<string>;
+    /**
+     * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
     readonly data: pulumi.Input<string>;
     /**
-     * The description of the configuration.
+     * Description of the configuration.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The type of broker engine.
+     * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
     readonly engineType: pulumi.Input<string>;
     /**
-     * The version of the broker engine.
+     * Version of the broker engine.
      */
     readonly engineVersion: pulumi.Input<string>;
     /**
-     * The name of the configuration
+     * Name of the configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

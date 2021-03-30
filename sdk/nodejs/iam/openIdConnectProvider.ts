@@ -65,6 +65,10 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     public readonly clientIdLists!: pulumi.Output<string[]>;
     /**
+     * Map of resource tags for the IAM OIDC provider.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     public readonly thumbprintLists!: pulumi.Output<string[]>;
@@ -88,6 +92,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             const state = argsOrState as OpenIdConnectProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
@@ -102,6 +107,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
                 throw new Error("Missing required property 'url'");
             }
             inputs["clientIdLists"] = args ? args.clientIdLists : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export interface OpenIdConnectProviderState {
      */
     readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Map of resource tags for the IAM OIDC provider.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
@@ -143,6 +153,10 @@ export interface OpenIdConnectProviderArgs {
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */
     readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of resource tags for the IAM OIDC provider.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */

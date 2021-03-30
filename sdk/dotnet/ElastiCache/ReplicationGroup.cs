@@ -208,7 +208,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Whether to enable encryption at rest.
         /// </summary>
         [Output("atRestEncryptionEnabled")]
-        public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
+        public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Output("automaticFailoverEnabled")]
         public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
@@ -270,6 +270,9 @@ namespace Pulumi.Aws.ElastiCache
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// </summary>
         [Output("globalReplicationGroupId")]
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
 
@@ -413,7 +416,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Whether to enable encryption in transit.
         /// </summary>
         [Output("transitEncryptionEnabled")]
-        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
+        public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -486,7 +489,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
@@ -527,6 +530,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        /// <summary>
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
 
@@ -716,7 +722,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
@@ -769,6 +775,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        /// <summary>
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
 

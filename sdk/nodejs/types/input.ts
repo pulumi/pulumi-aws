@@ -16683,6 +16683,27 @@ export namespace lex {
     }
 }
 
+export namespace lightsail {
+    export interface InstancePublicPortsPortInfo {
+        /**
+         * Set of CIDR blocks.
+         */
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * First port in a range of open ports on an instance.
+         */
+        fromPort: pulumi.Input<number>;
+        /**
+         * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * Last port in a range of open ports on an instance.
+         */
+        toPort: pulumi.Input<number>;
+    }
+}
+
 export namespace macie {
     export interface S3BucketAssociationClassificationType {
         /**
@@ -27984,8 +28005,6 @@ export namespace wafv2 {
     export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
         /**
          * The name of the query header to redact. This setting must be provided as lower case characters.
-         *
-         * @deprecated Not supported by WAFv2 API
          */
         name: pulumi.Input<string>;
     }

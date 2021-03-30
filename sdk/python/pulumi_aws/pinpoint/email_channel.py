@@ -16,6 +16,7 @@ class EmailChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 configuration_set: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  from_address: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,7 @@ class EmailChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] from_address: The email address used to send emails from.
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
@@ -107,6 +109,7 @@ class EmailChannel(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__['application_id'] = application_id
+            __props__['configuration_set'] = configuration_set
             __props__['enabled'] = enabled
             if from_address is None and not opts.urn:
                 raise TypeError("Missing required property 'from_address'")
@@ -129,6 +132,7 @@ class EmailChannel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_id: Optional[pulumi.Input[str]] = None,
+            configuration_set: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             from_address: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[str]] = None,
@@ -142,6 +146,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] from_address: The email address used to send emails from.
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
@@ -153,6 +158,7 @@ class EmailChannel(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["application_id"] = application_id
+        __props__["configuration_set"] = configuration_set
         __props__["enabled"] = enabled
         __props__["from_address"] = from_address
         __props__["identity"] = identity
@@ -167,6 +173,14 @@ class EmailChannel(pulumi.CustomResource):
         The application ID.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        """
+        return pulumi.get(self, "configuration_set")
 
     @property
     @pulumi.getter

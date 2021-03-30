@@ -78,6 +78,8 @@ type EmailChannel struct {
 
 	// The application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ConfigurationSet pulumi.StringPtrOutput `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The email address used to send emails from.
@@ -133,6 +135,8 @@ func GetEmailChannel(ctx *pulumi.Context,
 type emailChannelState struct {
 	// The application ID.
 	ApplicationId *string `pulumi:"applicationId"`
+	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ConfigurationSet *string `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The email address used to send emails from.
@@ -148,6 +152,8 @@ type emailChannelState struct {
 type EmailChannelState struct {
 	// The application ID.
 	ApplicationId pulumi.StringPtrInput
+	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ConfigurationSet pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The email address used to send emails from.
@@ -167,6 +173,8 @@ func (EmailChannelState) ElementType() reflect.Type {
 type emailChannelArgs struct {
 	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
+	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ConfigurationSet *string `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The email address used to send emails from.
@@ -181,6 +189,8 @@ type emailChannelArgs struct {
 type EmailChannelArgs struct {
 	// The application ID.
 	ApplicationId pulumi.StringInput
+	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ConfigurationSet pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The email address used to send emails from.

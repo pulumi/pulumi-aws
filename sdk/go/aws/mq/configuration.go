@@ -53,23 +53,23 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The broker configuration in XML format.
-	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-	// for supported parameters and format of the XML.
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy pulumi.StringOutput `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringOutput `pulumi:"data"`
-	// The description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The type of broker engine.
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringOutput `pulumi:"engineType"`
-	// The version of the broker engine.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The latest revision of the configuration.
+	// Latest revision of the configuration.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
-	// The name of the configuration
+	// Name of the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -111,44 +111,44 @@ func GetConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Configuration resources.
 type configurationState struct {
-	// The ARN of the configuration.
+	// ARN of the configuration.
 	Arn *string `pulumi:"arn"`
-	// The broker configuration in XML format.
-	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-	// for supported parameters and format of the XML.
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data *string `pulumi:"data"`
-	// The description of the configuration.
+	// Description of the configuration.
 	Description *string `pulumi:"description"`
-	// The type of broker engine.
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType *string `pulumi:"engineType"`
-	// The version of the broker engine.
+	// Version of the broker engine.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The latest revision of the configuration.
+	// Latest revision of the configuration.
 	LatestRevision *int `pulumi:"latestRevision"`
-	// The name of the configuration
+	// Name of the configuration.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConfigurationState struct {
-	// The ARN of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringPtrInput
-	// The broker configuration in XML format.
-	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-	// for supported parameters and format of the XML.
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy pulumi.StringPtrInput
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringPtrInput
-	// The description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrInput
-	// The type of broker engine.
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringPtrInput
-	// The version of the broker engine.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringPtrInput
-	// The latest revision of the configuration.
+	// Latest revision of the configuration.
 	LatestRevision pulumi.IntPtrInput
-	// The name of the configuration
+	// Name of the configuration.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -157,37 +157,37 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	// The broker configuration in XML format.
-	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-	// for supported parameters and format of the XML.
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data string `pulumi:"data"`
-	// The description of the configuration.
+	// Description of the configuration.
 	Description *string `pulumi:"description"`
-	// The type of broker engine.
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType string `pulumi:"engineType"`
-	// The version of the broker engine.
+	// Version of the broker engine.
 	EngineVersion string `pulumi:"engineVersion"`
-	// The name of the configuration
+	// Name of the configuration.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
-	// The broker configuration in XML format.
-	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-	// for supported parameters and format of the XML.
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy pulumi.StringPtrInput
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringInput
-	// The description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrInput
-	// The type of broker engine.
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringInput
-	// The version of the broker engine.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringInput
-	// The name of the configuration
+	// Name of the configuration.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 

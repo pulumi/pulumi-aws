@@ -46,12 +46,12 @@ class GetLocalDiskResult:
 
     @property
     @pulumi.getter(name="diskNode")
-    def disk_node(self) -> Optional[str]:
+    def disk_node(self) -> str:
         return pulumi.get(self, "disk_node")
 
     @property
     @pulumi.getter(name="diskPath")
-    def disk_path(self) -> Optional[str]:
+    def disk_path(self) -> str:
         return pulumi.get(self, "disk_path")
 
     @property

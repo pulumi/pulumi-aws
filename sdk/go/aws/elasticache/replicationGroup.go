@@ -208,12 +208,12 @@ type ReplicationGroup struct {
 	// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to enable encryption at rest.
-	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
@@ -228,8 +228,9 @@ type ReplicationGroup struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier  pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	GlobalReplicationGroupId pulumi.StringOutput    `pulumi:"globalReplicationGroupId"`
+	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
@@ -283,7 +284,7 @@ type ReplicationGroup struct {
 	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
-	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewReplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -328,7 +329,7 @@ type replicationGroupState struct {
 	AuthToken *string `pulumi:"authToken"`
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -343,7 +344,8 @@ type replicationGroupState struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier  *string `pulumi:"finalSnapshotIdentifier"`
+	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -412,7 +414,7 @@ type ReplicationGroupState struct {
 	AuthToken pulumi.StringPtrInput
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
@@ -427,7 +429,8 @@ type ReplicationGroupState struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier  pulumi.StringPtrInput
+	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
@@ -498,7 +501,7 @@ type replicationGroupArgs struct {
 	AuthToken *string `pulumi:"authToken"`
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -509,7 +512,8 @@ type replicationGroupArgs struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier  *string `pulumi:"finalSnapshotIdentifier"`
+	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -571,7 +575,7 @@ type ReplicationGroupArgs struct {
 	AuthToken pulumi.StringPtrInput
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
@@ -582,7 +586,8 @@ type ReplicationGroupArgs struct {
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-	FinalSnapshotIdentifier  pulumi.StringPtrInput
+	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput

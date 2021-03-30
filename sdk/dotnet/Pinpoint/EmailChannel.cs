@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// </summary>
+        [Output("configurationSet")]
+        public Output<string?> ConfigurationSet { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
@@ -176,6 +182,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
+        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// </summary>
+        [Input("configurationSet")]
+        public Input<string>? ConfigurationSet { get; set; }
+
+        /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
@@ -211,6 +223,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
+
+        /// <summary>
+        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// </summary>
+        [Input("configurationSet")]
+        public Input<string>? ConfigurationSet { get; set; }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.

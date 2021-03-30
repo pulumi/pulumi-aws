@@ -122,7 +122,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    public readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
@@ -134,6 +134,10 @@ export class ServerCertificate extends pulumi.CustomResource {
      * of the chain.
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     */
+    public /*out*/ readonly expiration!: pulumi.Output<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, this provider will assign a random, unique name.
@@ -155,6 +159,14 @@ export class ServerCertificate extends pulumi.CustomResource {
      * The contents of the private key in PEM-encoded format.
      */
     public readonly privateKey!: pulumi.Output<string>;
+    /**
+     * Map of resource tags for the server certificate.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     */
+    public /*out*/ readonly uploadDate!: pulumi.Output<string>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -172,10 +184,13 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;
+            inputs["expiration"] = state ? state.expiration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["privateKey"] = state ? state.privateKey : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["uploadDate"] = state ? state.uploadDate : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
             if ((!args || args.certificateBody === undefined) && !opts.urn) {
@@ -184,13 +199,16 @@ export class ServerCertificate extends pulumi.CustomResource {
             if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
             inputs["certificateBody"] = args ? args.certificateBody : undefined;
             inputs["certificateChain"] = args ? args.certificateChain : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["expiration"] = undefined /*out*/;
+            inputs["uploadDate"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -219,6 +237,10 @@ export interface ServerCertificateState {
      */
     readonly certificateChain?: pulumi.Input<string>;
     /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     */
+    readonly expiration?: pulumi.Input<string>;
+    /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, this provider will assign a random, unique name.
      */
@@ -239,16 +261,20 @@ export interface ServerCertificateState {
      * The contents of the private key in PEM-encoded format.
      */
     readonly privateKey?: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the server certificate.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     */
+    readonly uploadDate?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServerCertificate resource.
  */
 export interface ServerCertificateArgs {
-    /**
-     * The Amazon Resource Name (ARN) specifying the server certificate.
-     */
-    readonly arn?: pulumi.Input<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
@@ -281,4 +307,8 @@ export interface ServerCertificateArgs {
      * The contents of the private key in PEM-encoded format.
      */
     readonly privateKey: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the server certificate.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

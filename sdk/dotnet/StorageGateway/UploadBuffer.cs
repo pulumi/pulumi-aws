@@ -15,6 +15,7 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
     /// 
     /// ## Example Usage
+    /// ### Cached and VTL Gateway Type
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -24,6 +25,35 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     public MyStack()
     ///     {
+    ///         var testLocalDisk = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
+    ///         {
+    ///             DiskNode = aws_volume_attachment.Test.Device_name,
+    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         }));
+    ///         var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new Aws.StorageGateway.UploadBufferArgs
+    ///         {
+    ///             DiskPath = testLocalDisk.Apply(testLocalDisk =&gt; testLocalDisk.DiskPath),
+    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Stored Gateway Type
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = Output.Create(Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
+    ///         {
+    ///             DiskNode = aws_volume_attachment.Test.Device_name,
+    ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,
+    ///         }));
     ///         var example = new Aws.StorageGateway.UploadBuffer("example", new Aws.StorageGateway.UploadBufferArgs
     ///         {
     ///             DiskId = data.Aws_storagegateway_local_disk.Example.Id,
@@ -50,6 +80,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("diskId")]
         public Output<string> DiskId { get; private set; } = null!;
+
+        /// <summary>
+        /// Local disk path. For example, `/dev/nvme1n1`.
+        /// </summary>
+        [Output("diskPath")]
+        public Output<string> DiskPath { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
@@ -106,8 +142,14 @@ namespace Pulumi.Aws.StorageGateway
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
-        [Input("diskId", required: true)]
-        public Input<string> DiskId { get; set; } = null!;
+        [Input("diskId")]
+        public Input<string>? DiskId { get; set; }
+
+        /// <summary>
+        /// Local disk path. For example, `/dev/nvme1n1`.
+        /// </summary>
+        [Input("diskPath")]
+        public Input<string>? DiskPath { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
@@ -127,6 +169,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("diskId")]
         public Input<string>? DiskId { get; set; }
+
+        /// <summary>
+        /// Local disk path. For example, `/dev/nvme1n1`.
+        /// </summary>
+        [Input("diskPath")]
+        public Input<string>? DiskPath { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.

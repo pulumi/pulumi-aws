@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./domain";
 export * from "./instance";
+export * from "./instancePublicPorts";
 export * from "./keyPair";
 export * from "./staticIp";
 export * from "./staticIpAttachment";
@@ -14,6 +15,7 @@ export * from "./staticIpAttachment";
 // Import resources to register:
 import { Domain } from "./domain";
 import { Instance } from "./instance";
+import { InstancePublicPorts } from "./instancePublicPorts";
 import { KeyPair } from "./keyPair";
 import { StaticIp } from "./staticIp";
 import { StaticIpAttachment } from "./staticIpAttachment";
@@ -26,6 +28,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws:lightsail/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:lightsail/instancePublicPorts:InstancePublicPorts":
+                return new InstancePublicPorts(name, <any>undefined, { urn })
             case "aws:lightsail/keyPair:KeyPair":
                 return new KeyPair(name, <any>undefined, { urn })
             case "aws:lightsail/staticIp:StaticIp":
@@ -39,6 +43,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "lightsail/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/instancePublicPorts", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/keyPair", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIp", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIpAttachment", _module)

@@ -10,11 +10,31 @@ import * as utilities from "../utilities";
  * > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
  *
  * ## Example Usage
+ * ### Cached and VTL Gateway Type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const testLocalDisk = aws.storagegateway.getLocalDisk({
+ *     diskNode: aws_volume_attachment.test.device_name,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * const testUploadBuffer = new aws.storagegateway.UploadBuffer("testUploadBuffer", {
+ *     diskPath: testLocalDisk.then(testLocalDisk => testLocalDisk.diskPath),
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * ```
+ * ### Stored Gateway Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskNode: aws_volume_attachment.test.device_name,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
  * const example = new aws.storagegateway.UploadBuffer("example", {
  *     diskId: data.aws_storagegateway_local_disk.example.id,
  *     gatewayArn: aws_storagegateway_gateway.example.arn,
@@ -62,6 +82,10 @@ export class UploadBuffer extends pulumi.CustomResource {
      */
     public readonly diskId!: pulumi.Output<string>;
     /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
+    public readonly diskPath!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
     public readonly gatewayArn!: pulumi.Output<string>;
@@ -80,16 +104,15 @@ export class UploadBuffer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UploadBufferState | undefined;
             inputs["diskId"] = state ? state.diskId : undefined;
+            inputs["diskPath"] = state ? state.diskPath : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
             const args = argsOrState as UploadBufferArgs | undefined;
-            if ((!args || args.diskId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'diskId'");
-            }
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
             inputs["diskId"] = args ? args.diskId : undefined;
+            inputs["diskPath"] = args ? args.diskPath : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
         if (!opts.version) {
@@ -108,6 +131,10 @@ export interface UploadBufferState {
      */
     readonly diskId?: pulumi.Input<string>;
     /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
+    readonly diskPath?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
     readonly gatewayArn?: pulumi.Input<string>;
@@ -120,7 +147,11 @@ export interface UploadBufferArgs {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId: pulumi.Input<string>;
+    readonly diskId?: pulumi.Input<string>;
+    /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
+    readonly diskPath?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */

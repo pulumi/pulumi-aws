@@ -19,6 +19,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -64,6 +65,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         :param pulumi.Input[str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Instance Profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,6 +88,7 @@ class InstanceProfile(pulumi.CustomResource):
             __props__['name_prefix'] = name_prefix
             __props__['path'] = path
             __props__['role'] = role
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['create_date'] = None
             __props__['unique_id'] = None
@@ -105,6 +108,7 @@ class InstanceProfile(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_id: Optional[pulumi.Input[str]] = None) -> 'InstanceProfile':
         """
         Get an existing InstanceProfile resource's state with the given name, id, and optional extra
@@ -119,6 +123,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
         :param pulumi.Input[str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Instance Profile.
         :param pulumi.Input[str] unique_id: [Unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -131,6 +136,7 @@ class InstanceProfile(pulumi.CustomResource):
         __props__["name_prefix"] = name_prefix
         __props__["path"] = path
         __props__["role"] = role
+        __props__["tags"] = tags
         __props__["unique_id"] = unique_id
         return InstanceProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -181,6 +187,14 @@ class InstanceProfile(pulumi.CustomResource):
         Name of the role to add to the profile.
         """
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of resource tags for the IAM Instance Profile.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="uniqueId")

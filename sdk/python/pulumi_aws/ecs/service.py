@@ -24,6 +24,7 @@ class Service(pulumi.CustomResource):
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  force_new_deployment: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
@@ -128,6 +129,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] deployment_minimum_healthy_percent: The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        :param pulumi.Input[bool] enable_execute_command: Specifies whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
@@ -169,6 +171,7 @@ class Service(pulumi.CustomResource):
             __props__['deployment_minimum_healthy_percent'] = deployment_minimum_healthy_percent
             __props__['desired_count'] = desired_count
             __props__['enable_ecs_managed_tags'] = enable_ecs_managed_tags
+            __props__['enable_execute_command'] = enable_execute_command
             __props__['force_new_deployment'] = force_new_deployment
             __props__['health_check_grace_period_seconds'] = health_check_grace_period_seconds
             __props__['iam_role'] = iam_role
@@ -202,6 +205,7 @@ class Service(pulumi.CustomResource):
             deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
             desired_count: Optional[pulumi.Input[int]] = None,
             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+            enable_execute_command: Optional[pulumi.Input[bool]] = None,
             force_new_deployment: Optional[pulumi.Input[bool]] = None,
             health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
             iam_role: Optional[pulumi.Input[str]] = None,
@@ -232,6 +236,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] deployment_minimum_healthy_percent: The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        :param pulumi.Input[bool] enable_execute_command: Specifies whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
@@ -260,6 +265,7 @@ class Service(pulumi.CustomResource):
         __props__["deployment_minimum_healthy_percent"] = deployment_minimum_healthy_percent
         __props__["desired_count"] = desired_count
         __props__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+        __props__["enable_execute_command"] = enable_execute_command
         __props__["force_new_deployment"] = force_new_deployment
         __props__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
         __props__["iam_role"] = iam_role
@@ -333,6 +339,14 @@ class Service(pulumi.CustomResource):
         Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        """
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter(name="forceNewDeployment")

@@ -1788,11 +1788,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 			// LightSail
-			"aws_lightsail_domain":               {Tok: awsResource(lightsailMod, "Domain")},
-			"aws_lightsail_instance":             {Tok: awsResource(lightsailMod, "Instance")},
-			"aws_lightsail_key_pair":             {Tok: awsResource(lightsailMod, "KeyPair")},
-			"aws_lightsail_static_ip":            {Tok: awsResource(lightsailMod, "StaticIp")},
-			"aws_lightsail_static_ip_attachment": {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			"aws_lightsail_domain":                {Tok: awsResource(lightsailMod, "Domain")},
+			"aws_lightsail_instance":              {Tok: awsResource(lightsailMod, "Instance")},
+			"aws_lightsail_key_pair":              {Tok: awsResource(lightsailMod, "KeyPair")},
+			"aws_lightsail_static_ip":             {Tok: awsResource(lightsailMod, "StaticIp")},
+			"aws_lightsail_static_ip_attachment":  {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			"aws_lightsail_instance_public_ports": {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
@@ -3947,6 +3948,9 @@ func Provider() tfbridge.ProviderInfo {
 			// ApiGateway V2
 			"aws_apigatewayv2_api":  {Tok: awsDataSource(apigatewayv2Mod, "getApi")},
 			"aws_apigatewayv2_apis": {Tok: awsDataSource(apigatewayv2Mod, "getApis")},
+
+			// codestar connections
+			"aws_codestarconnections_connection": {Tok: awsDataSource(codestarConnectionsMod, "getConnection")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
