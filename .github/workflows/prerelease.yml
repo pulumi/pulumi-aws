@@ -12,6 +12,7 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
+  IS_PRERELEASE: true
 jobs:
   build_sdk:
     name: build_sdk
@@ -164,10 +165,16 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.16.x
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.1.0
+      with:
+        repo: pulumi/pulumictl
+    - name: Install Pulumi CLI
+      uses: pulumi/action-install-pulumi-cli@v1.0.1
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 2 release --rm-dist --config=.goreleaser.prerelease.yaml  --timeout
+        args: -p 2 release --rm-dist --config=.goreleaser.prerelease.yml  --timeout
           90m0s
         version: latest
   publish_sdk:
