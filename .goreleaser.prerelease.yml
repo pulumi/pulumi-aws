@@ -27,9 +27,7 @@ builds:
   ldflags:
   - -X github.com/pulumi/pulumi-aws/provider/v4/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-aws/
-changelog:
-  skip: true
 release:
-  disable: true
+  prerelease: auto
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT'
