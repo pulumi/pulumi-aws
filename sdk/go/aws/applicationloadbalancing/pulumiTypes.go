@@ -4320,23 +4320,23 @@ func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type TargetGroupHealthCheck struct {
-	// Boolean to enable / disable `stickiness`. Default is `true`
+	// Whether to enable `stickiness`. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+	// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+	// Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
 	Interval *int `pulumi:"interval"`
-	// The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 	Matcher *string `pulumi:"matcher"`
-	// The destination for the health check request. Applies to only HTTP/HTTPS.
+	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	Path *string `pulumi:"path"`
-	// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+	// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 	Port *string `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
-	// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
 	Timeout *int `pulumi:"timeout"`
-	// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+	// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
 }
 
@@ -4352,23 +4352,23 @@ type TargetGroupHealthCheckInput interface {
 }
 
 type TargetGroupHealthCheckArgs struct {
-	// Boolean to enable / disable `stickiness`. Default is `true`
+	// Whether to enable `stickiness`. Default is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+	// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+	// Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
-	// The destination for the health check request. Applies to only HTTP/HTTPS.
+	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+	// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+	// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
 }
 
@@ -4449,47 +4449,47 @@ func (o TargetGroupHealthCheckOutput) ToTargetGroupHealthCheckPtrOutputWithConte
 	}).(TargetGroupHealthCheckPtrOutput)
 }
 
-// Boolean to enable / disable `stickiness`. Default is `true`
+// Whether to enable `stickiness`. Default is `true`.
 func (o TargetGroupHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 func (o TargetGroupHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+// Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
 func (o TargetGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 func (o TargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Matcher }).(pulumi.StringPtrOutput)
 }
 
-// The destination for the health check request. Applies to only HTTP/HTTPS.
+// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 func (o TargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 func (o TargetGroupHealthCheckOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 func (o TargetGroupHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
 func (o TargetGroupHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 func (o TargetGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
@@ -4512,7 +4512,7 @@ func (o TargetGroupHealthCheckPtrOutput) Elem() TargetGroupHealthCheckOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) TargetGroupHealthCheck { return *v }).(TargetGroupHealthCheckOutput)
 }
 
-// Boolean to enable / disable `stickiness`. Default is `true`
+// Whether to enable `stickiness`. Default is `true`.
 func (o TargetGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *bool {
 		if v == nil {
@@ -4522,7 +4522,7 @@ func (o TargetGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 func (o TargetGroupHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *int {
 		if v == nil {
@@ -4532,7 +4532,7 @@ func (o TargetGroupHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+// Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
 func (o TargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *int {
 		if v == nil {
@@ -4542,7 +4542,7 @@ func (o TargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4552,7 +4552,7 @@ func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination for the health check request. Applies to only HTTP/HTTPS.
+// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4562,7 +4562,7 @@ func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4572,7 +4572,7 @@ func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 func (o TargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4582,7 +4582,7 @@ func (o TargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
 func (o TargetGroupHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *int {
 		if v == nil {
@@ -4592,7 +4592,7 @@ func (o TargetGroupHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 func (o TargetGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *int {
 		if v == nil {
@@ -4605,9 +4605,9 @@ func (o TargetGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutpu
 type TargetGroupStickiness struct {
 	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration *int `pulumi:"cookieDuration"`
-	// Indicates whether  health checks are enabled. Defaults to true.
+	// Whether to enable `stickiness`. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+	// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 	Type string `pulumi:"type"`
 }
 
@@ -4625,9 +4625,9 @@ type TargetGroupStickinessInput interface {
 type TargetGroupStickinessArgs struct {
 	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration pulumi.IntPtrInput `pulumi:"cookieDuration"`
-	// Indicates whether  health checks are enabled. Defaults to true.
+	// Whether to enable `stickiness`. Default is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+	// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4713,12 +4713,12 @@ func (o TargetGroupStickinessOutput) CookieDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *int { return v.CookieDuration }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether  health checks are enabled. Defaults to true.
+// Whether to enable `stickiness`. Default is `true`.
 func (o TargetGroupStickinessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 func (o TargetGroupStickinessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4751,7 +4751,7 @@ func (o TargetGroupStickinessPtrOutput) CookieDuration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether  health checks are enabled. Defaults to true.
+// Whether to enable `stickiness`. Default is `true`.
 func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *bool {
 		if v == nil {
@@ -4761,7 +4761,7 @@ func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 func (o TargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *string {
 		if v == nil {

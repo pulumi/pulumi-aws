@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        /// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

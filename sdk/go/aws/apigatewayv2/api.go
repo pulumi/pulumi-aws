@@ -98,6 +98,8 @@ type Api struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
 	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -173,6 +175,8 @@ type apiState struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn *string `pulumi:"executionArn"`
+	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -217,6 +221,8 @@ type ApiState struct {
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringPtrInput
+	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+	FailOnWarnings pulumi.BoolPtrInput
 	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -257,6 +263,8 @@ type apiArgs struct {
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
 	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
+	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -294,6 +302,8 @@ type ApiArgs struct {
 	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
 	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
+	// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+	FailOnWarnings pulumi.BoolPtrInput
 	// The name of the API. Must be less than or equal to 128 characters in length.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.

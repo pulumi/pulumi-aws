@@ -74,10 +74,16 @@ __all__ = [
     'VirtualGatewaySpecBackendDefaults',
     'VirtualGatewaySpecBackendDefaultsClientPolicy',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTls',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm',
     'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds',
     'VirtualGatewaySpecListener',
     'VirtualGatewaySpecListenerConnectionPool',
     'VirtualGatewaySpecListenerConnectionPoolGrpc',
@@ -89,6 +95,13 @@ __all__ = [
     'VirtualGatewaySpecListenerTlsCertificate',
     'VirtualGatewaySpecListenerTlsCertificateAcm',
     'VirtualGatewaySpecListenerTlsCertificateFile',
+    'VirtualGatewaySpecListenerTlsCertificateSds',
+    'VirtualGatewaySpecListenerTlsValidation',
+    'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames',
+    'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch',
+    'VirtualGatewaySpecListenerTlsValidationTrust',
+    'VirtualGatewaySpecListenerTlsValidationTrustFile',
+    'VirtualGatewaySpecListenerTlsValidationTrustSds',
     'VirtualGatewaySpecLogging',
     'VirtualGatewaySpecLoggingAccessLog',
     'VirtualGatewaySpecLoggingAccessLogFile',
@@ -97,17 +110,29 @@ __all__ = [
     'VirtualNodeSpecBackendDefaults',
     'VirtualNodeSpecBackendDefaultsClientPolicy',
     'VirtualNodeSpecBackendDefaultsClientPolicyTls',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds',
     'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch',
     'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
     'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm',
     'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds',
     'VirtualNodeSpecBackendVirtualService',
     'VirtualNodeSpecBackendVirtualServiceClientPolicy',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTls',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm',
     'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds',
     'VirtualNodeSpecListener',
     'VirtualNodeSpecListenerConnectionPool',
     'VirtualNodeSpecListenerConnectionPoolGrpc',
@@ -135,6 +160,13 @@ __all__ = [
     'VirtualNodeSpecListenerTlsCertificate',
     'VirtualNodeSpecListenerTlsCertificateAcm',
     'VirtualNodeSpecListenerTlsCertificateFile',
+    'VirtualNodeSpecListenerTlsCertificateSds',
+    'VirtualNodeSpecListenerTlsValidation',
+    'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames',
+    'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch',
+    'VirtualNodeSpecListenerTlsValidationTrust',
+    'VirtualNodeSpecListenerTlsValidationTrustFile',
+    'VirtualNodeSpecListenerTlsValidationTrustSds',
     'VirtualNodeSpecLogging',
     'VirtualNodeSpecLoggingAccessLog',
     'VirtualNodeSpecLoggingAccessLogFile',
@@ -2440,13 +2472,18 @@ class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
 class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
+                 certificate: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs' certificate: The listener's TLS certificate.
+        :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
         pulumi.set(__self__, "validation", validation)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
             pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
@@ -2456,13 +2493,24 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
     @pulumi.getter
     def validation(self) -> 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation':
         """
-        The TLS validation context.
+        The listener's Transport Layer Security (TLS) validation context.
         """
         return pulumi.get(self, "validation")
 
     @property
     @pulumi.getter
+    def certificate(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate']:
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
     def enforce(self) -> Optional[bool]:
+        """
+        Whether the policy is enforced. Default is `true`.
+        """
         return pulumi.get(self, "enforce")
 
     @property
@@ -2478,13 +2526,104 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
 
 
 @pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
+                 sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds'] = None):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: A local file certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile']:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds']:
+        """
+        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        :param str private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
     def __init__(__self__, *,
-                 trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust'):
+                 trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
+                 subject_alternative_names: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "trust", trust)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -2494,6 +2633,56 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "trust")
 
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames']:
+        """
+        The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: The criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch':
+        """
+        The criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: The values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        The values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -2502,15 +2691,19 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
-                 file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None):
+                 file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
+                 sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -2524,9 +2717,17 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     @pulumi.getter
     def file(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile']:
         """
-        The TLS validation context trust for a local file.
+        The TLS validation context trust for a local file certificate.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds']:
+        """
+        The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2558,7 +2759,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -2566,9 +2767,30 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2877,13 +3099,17 @@ class VirtualGatewaySpecListenerPortMapping(dict):
 class VirtualGatewaySpecListenerTls(dict):
     def __init__(__self__, *,
                  certificate: 'outputs.VirtualGatewaySpecListenerTlsCertificate',
-                 mode: str):
+                 mode: str,
+                 validation: Optional['outputs.VirtualGatewaySpecListenerTlsValidation'] = None):
         """
         :param 'VirtualGatewaySpecListenerTlsCertificateArgs' certificate: The listener's TLS certificate.
         :param str mode: The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        :param 'VirtualGatewaySpecListenerTlsValidationArgs' validation: The listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
 
     @property
     @pulumi.getter
@@ -2901,6 +3127,14 @@ class VirtualGatewaySpecListenerTls(dict):
         """
         return pulumi.get(self, "mode")
 
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsValidation']:
+        """
+        The listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "validation")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -2909,15 +3143,19 @@ class VirtualGatewaySpecListenerTls(dict):
 class VirtualGatewaySpecListenerTlsCertificate(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm'] = None,
-                 file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None):
+                 file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None,
+                 sds: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateSds'] = None):
         """
         :param 'VirtualGatewaySpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
         :param 'VirtualGatewaySpecListenerTlsCertificateFileArgs' file: A local file certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -2934,6 +3172,14 @@ class VirtualGatewaySpecListenerTlsCertificate(dict):
         A local file certificate.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsCertificateSds']:
+        """
+        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2966,7 +3212,7 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
                  certificate_chain: str,
                  private_key: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -2976,7 +3222,7 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -2987,6 +3233,178 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
         The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsCertificateSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidation(dict):
+    def __init__(__self__, *,
+                 trust: 'outputs.VirtualGatewaySpecListenerTlsValidationTrust',
+                 subject_alternative_names: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustArgs' trust: The TLS validation context trust.
+        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        """
+        pulumi.set(__self__, "trust", trust)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> 'outputs.VirtualGatewaySpecListenerTlsValidationTrust':
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames']:
+        """
+        The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch'):
+        """
+        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: The criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch':
+        """
+        The criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: The values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        The values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidationTrust(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustFile'] = None,
+                 sds: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustSds'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file certificate.
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustSdsArgs' sds: The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustFile']:
+        """
+        The TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustSds']:
+        """
+        The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3196,14 +3614,18 @@ class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
 class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
+                 certificate: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs' certificate: The listener's TLS certificate.
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
         pulumi.set(__self__, "validation", validation)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
             pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
@@ -3213,9 +3635,17 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
     @pulumi.getter
     def validation(self) -> 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation':
         """
-        The TLS validation context.
+        The listener's Transport Layer Security (TLS) validation context.
         """
         return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate']:
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter
@@ -3238,13 +3668,104 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
 
 
 @pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds'] = None):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: A local file certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile']:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds']:
+        """
+        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
     def __init__(__self__, *,
-                 trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust'):
+                 trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
+                 subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: The SANs for a TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -3254,6 +3775,56 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "trust")
 
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames']:
+        """
+        The SANs for a TLS validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: The criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch':
+        """
+        The criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: The values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        The values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -3262,15 +3833,19 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
-                 file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None):
+                 file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -3284,9 +3859,17 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     @pulumi.getter
     def file(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile']:
         """
-        The TLS validation context trust for a local file.
+        The TLS validation context trust for a local file certificate.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds']:
+        """
+        The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3318,7 +3901,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -3326,9 +3909,30 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3393,14 +3997,18 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
+                 certificate: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs' validation: The listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs' certificate: The listener's TLS certificate.
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
         pulumi.set(__self__, "validation", validation)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
             pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
@@ -3410,9 +4018,17 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
     @pulumi.getter
     def validation(self) -> 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation':
         """
-        The TLS validation context.
+        The listener's Transport Layer Security (TLS) validation context.
         """
         return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate']:
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter
@@ -3435,13 +4051,104 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
 
 
 @pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds'] = None):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs' file: A local file certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile']:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds']:
+        """
+        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
     def __init__(__self__, *,
-                 trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust'):
+                 trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
+                 subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: The SANs for a TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -3451,6 +4158,56 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "trust")
 
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames']:
+        """
+        The SANs for a TLS validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: The criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch':
+        """
+        The criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: The values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        The values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -3459,15 +4216,19 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
-                 file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None):
+                 file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds'] = None):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs' sds: The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -3481,9 +4242,17 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
     @pulumi.getter
     def file(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile']:
         """
-        The TLS validation context trust for a local file.
+        The TLS validation context trust for a local file certificate.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds']:
+        """
+        The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3515,7 +4284,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
     def __init__(__self__, *,
                  certificate_chain: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
@@ -3523,9 +4292,30 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4417,13 +5207,17 @@ class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
 class VirtualNodeSpecListenerTls(dict):
     def __init__(__self__, *,
                  certificate: 'outputs.VirtualNodeSpecListenerTlsCertificate',
-                 mode: str):
+                 mode: str,
+                 validation: Optional['outputs.VirtualNodeSpecListenerTlsValidation'] = None):
         """
         :param 'VirtualNodeSpecListenerTlsCertificateArgs' certificate: The listener's TLS certificate.
         :param str mode: The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        :param 'VirtualNodeSpecListenerTlsValidationArgs' validation: The listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
 
     @property
     @pulumi.getter
@@ -4441,6 +5235,14 @@ class VirtualNodeSpecListenerTls(dict):
         """
         return pulumi.get(self, "mode")
 
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.VirtualNodeSpecListenerTlsValidation']:
+        """
+        The listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "validation")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -4449,15 +5251,19 @@ class VirtualNodeSpecListenerTls(dict):
 class VirtualNodeSpecListenerTlsCertificate(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
-                 file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None):
+                 file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecListenerTlsCertificateSds'] = None):
         """
         :param 'VirtualNodeSpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
         :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: A local file certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -4474,6 +5280,14 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
         A local file certificate.
         """
         return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecListenerTlsCertificateSds']:
+        """
+        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4506,7 +5320,7 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
                  certificate_chain: str,
                  private_key: str):
         """
-        :param str certificate_chain: The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -4516,7 +5330,7 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -4527,6 +5341,178 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
         The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsCertificateSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidation(dict):
+    def __init__(__self__, *,
+                 trust: 'outputs.VirtualNodeSpecListenerTlsValidationTrust',
+                 subject_alternative_names: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTlsValidationTrustArgs' trust: The TLS validation context trust.
+        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: The SANs for a TLS validation context.
+        """
+        pulumi.set(__self__, "trust", trust)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> 'outputs.VirtualNodeSpecListenerTlsValidationTrust':
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames']:
+        """
+        The SANs for a TLS validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch'):
+        """
+        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: The criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch':
+        """
+        The criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: The values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        The values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidationTrust(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustFile'] = None,
+                 sds: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustSds'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecListenerTlsValidationTrustSdsArgs' sds: The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustFile']:
+        """
+        The TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustSds']:
+        """
+        The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

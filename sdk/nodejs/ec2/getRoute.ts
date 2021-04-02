@@ -8,14 +8,11 @@ import * as utilities from "../utilities";
 /**
  * `aws.ec2.Route` provides details about a specific Route.
  *
- * This resource can prove useful when finding the resource
- * associated with a CIDR. For example, finding the peering
- * connection associated with a CIDR value.
+ * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
  *
  * ## Example Usage
  *
- * The following example shows how one might use a CIDR value to find a network interface id
- * and use this to create a data source of that network interface.
+ * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -44,8 +41,10 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
+        "carrierGatewayId": args.carrierGatewayId,
         "destinationCidrBlock": args.destinationCidrBlock,
         "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,
+        "destinationPrefixListId": args.destinationPrefixListId,
         "egressOnlyGatewayId": args.egressOnlyGatewayId,
         "gatewayId": args.gatewayId,
         "instanceId": args.instanceId,
@@ -63,47 +62,55 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetRouteArgs {
     /**
-     * The CIDR block of the Route belonging to the Route Table.
+     * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+     */
+    readonly carrierGatewayId?: string;
+    /**
+     * CIDR block of the Route belonging to the Route Table.
      */
     readonly destinationCidrBlock?: string;
     /**
-     * The IPv6 CIDR block of the Route belonging to the Route Table.
+     * IPv6 CIDR block of the Route belonging to the Route Table.
      */
     readonly destinationIpv6CidrBlock?: string;
     /**
-     * The Egress Only Gateway ID of the Route belonging to the Route Table.
+     * The ID of a managed prefix list destination of the Route belonging to the Route Table.
+     */
+    readonly destinationPrefixListId?: string;
+    /**
+     * Egress Only Gateway ID of the Route belonging to the Route Table.
      */
     readonly egressOnlyGatewayId?: string;
     /**
-     * The Gateway ID of the Route belonging to the Route Table.
+     * Gateway ID of the Route belonging to the Route Table.
      */
     readonly gatewayId?: string;
     /**
-     * The Instance ID of the Route belonging to the Route Table.
+     * Instance ID of the Route belonging to the Route Table.
      */
     readonly instanceId?: string;
     /**
-     * The Local Gateway ID of the Route belonging to the Route Table.
+     * Local Gateway ID of the Route belonging to the Route Table.
      */
     readonly localGatewayId?: string;
     /**
-     * The NAT Gateway ID of the Route belonging to the Route Table.
+     * NAT Gateway ID of the Route belonging to the Route Table.
      */
     readonly natGatewayId?: string;
     /**
-     * The Network Interface ID of the Route belonging to the Route Table.
+     * Network Interface ID of the Route belonging to the Route Table.
      */
     readonly networkInterfaceId?: string;
     /**
-     * The id of the specific Route Table containing the Route entry.
+     * The ID of the specific Route Table containing the Route entry.
      */
     readonly routeTableId: string;
     /**
-     * The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+     * EC2 Transit Gateway ID of the Route belonging to the Route Table.
      */
     readonly transitGatewayId?: string;
     /**
-     * The VPC Peering Connection ID of the Route belonging to the Route Table.
+     * VPC Peering Connection ID of the Route belonging to the Route Table.
      */
     readonly vpcPeeringConnectionId?: string;
 }
@@ -112,8 +119,10 @@ export interface GetRouteArgs {
  * A collection of values returned by getRoute.
  */
 export interface GetRouteResult {
+    readonly carrierGatewayId: string;
     readonly destinationCidrBlock: string;
     readonly destinationIpv6CidrBlock: string;
+    readonly destinationPrefixListId: string;
     readonly egressOnlyGatewayId: string;
     readonly gatewayId: string;
     /**

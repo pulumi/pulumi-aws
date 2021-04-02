@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        public Input<string>? DestinationPrefixListId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
         [Input("egressOnlyGatewayId")]

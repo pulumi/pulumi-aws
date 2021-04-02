@@ -33,20 +33,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTable = new aws.ec2.RouteTable("routeTable", {
- *     vpcId: aws_vpc["default"].id,
+ * const example = new aws.ec2.RouteTable("example", {
+ *     vpcId: aws_vpc.example.id,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.main.id,
+ *             gatewayId: aws_internet_gateway.example.id,
  *         },
  *         {
  *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.foo.id,
+ *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
  *         },
  *     ],
  *     tags: {
- *         Name: "main",
+ *         Name: "example",
+ *     },
+ * });
+ * ```
+ *
+ * To subsequently remove all managed routes:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.RouteTable("example", {
+ *     vpcId: aws_vpc.example.id,
+ *     routes: [],
+ *     tags: {
+ *         Name: "example",
  *     },
  * });
  * ```
@@ -88,6 +103,10 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the route table.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ID of the AWS account that owns the route table.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -100,7 +119,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -121,6 +140,7 @@ export class RouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
             inputs["routes"] = state ? state.routes : undefined;
@@ -135,6 +155,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -149,6 +170,10 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableState {
     /**
+     * The ARN of the route table.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The ID of the AWS account that owns the route table.
      */
     readonly ownerId?: pulumi.Input<string>;
@@ -161,7 +186,7 @@ export interface RouteTableState {
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -183,7 +208,7 @@ export interface RouteTableArgs {
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to v3.35.0 of the AWS Terraform Provider
+* Update default `waitForSteadyState` default to 15minutes for `aws.ecs.Service`
 
 ---
 

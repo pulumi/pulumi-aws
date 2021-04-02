@@ -20,10 +20,16 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError("Expected argument 'availability_zone_id' to be a str")
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if availability_zone_name and not isinstance(availability_zone_name, str):
+            raise TypeError("Expected argument 'availability_zone_name' to be a str")
+        pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if creation_token and not isinstance(creation_token, str):
             raise TypeError("Expected argument 'creation_token' to be a str")
         pulumi.set(__self__, "creation_token", creation_token)
@@ -68,6 +74,22 @@ class GetFileSystemResult:
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> str:
+        """
+        The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> str:
+        """
+        The Availability Zone name in which the file system's One Zone storage classes exist.
+        """
+        return pulumi.get(self, "availability_zone_name")
 
     @property
     @pulumi.getter(name="creationToken")
@@ -165,6 +187,8 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             yield self
         return GetFileSystemResult(
             arn=self.arn,
+            availability_zone_id=self.availability_zone_id,
+            availability_zone_name=self.availability_zone_name,
             creation_token=self.creation_token,
             dns_name=self.dns_name,
             encrypted=self.encrypted,
@@ -215,6 +239,8 @@ def get_file_system(creation_token: Optional[str] = None,
 
     return AwaitableGetFileSystemResult(
         arn=__ret__.arn,
+        availability_zone_id=__ret__.availability_zone_id,
+        availability_zone_name=__ret__.availability_zone_name,
         creation_token=__ret__.creation_token,
         dns_name=__ret__.dns_name,
         encrypted=__ret__.encrypted,

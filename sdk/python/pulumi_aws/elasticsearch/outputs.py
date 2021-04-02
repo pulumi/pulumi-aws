@@ -335,21 +335,58 @@ class DomainCognitoOptions(dict):
 @pulumi.output_type
 class DomainDomainEndpointOptions(dict):
     def __init__(__self__, *,
-                 enforce_https: bool,
+                 custom_endpoint: Optional[str] = None,
+                 custom_endpoint_certificate_arn: Optional[str] = None,
+                 custom_endpoint_enabled: Optional[bool] = None,
+                 enforce_https: Optional[bool] = None,
                  tls_security_policy: Optional[str] = None):
         """
-        :param bool enforce_https: Whether or not to require HTTPS
+        :param str custom_endpoint: Fully qualified domain for your custom endpoint
+        :param str custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint
+        :param bool custom_endpoint_enabled: Whether to enable custom endpoint for the Elasticsearch domain
+        :param bool enforce_https: Whether or not to require HTTPS. Defaults to `true`.
         :param str tls_security_policy: The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
         """
-        pulumi.set(__self__, "enforce_https", enforce_https)
+        if custom_endpoint is not None:
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
+        if custom_endpoint_certificate_arn is not None:
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+        if custom_endpoint_enabled is not None:
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
+        if enforce_https is not None:
+            pulumi.set(__self__, "enforce_https", enforce_https)
         if tls_security_policy is not None:
             pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
-    @pulumi.getter(name="enforceHttps")
-    def enforce_https(self) -> bool:
+    @pulumi.getter(name="customEndpoint")
+    def custom_endpoint(self) -> Optional[str]:
         """
-        Whether or not to require HTTPS
+        Fully qualified domain for your custom endpoint
+        """
+        return pulumi.get(self, "custom_endpoint")
+
+    @property
+    @pulumi.getter(name="customEndpointCertificateArn")
+    def custom_endpoint_certificate_arn(self) -> Optional[str]:
+        """
+        ACM certificate ARN for your custom endpoint
+        """
+        return pulumi.get(self, "custom_endpoint_certificate_arn")
+
+    @property
+    @pulumi.getter(name="customEndpointEnabled")
+    def custom_endpoint_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable custom endpoint for the Elasticsearch domain
+        """
+        return pulumi.get(self, "custom_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="enforceHttps")
+    def enforce_https(self) -> Optional[bool]:
+        """
+        Whether or not to require HTTPS. Defaults to `true`.
         """
         return pulumi.get(self, "enforce_https")
 

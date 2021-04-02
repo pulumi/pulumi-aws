@@ -114,7 +114,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
      */
     public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
     /**
@@ -122,19 +122,23 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster!: pulumi.Output<string>;
     /**
-     * Configuration block containing deployment controller configuration. Defined below.
+     * Configuration block for deployment circuit breaker. Detailed below.
+     */
+    public readonly deploymentCircuitBreaker!: pulumi.Output<outputs.ecs.ServiceDeploymentCircuitBreaker | undefined>;
+    /**
+     * Configuration block for deployment controller configuration. Detailed below.
      */
     public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     public readonly deploymentMaximumPercent!: pulumi.Output<number | undefined>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     public readonly deploymentMinimumHealthyPercent!: pulumi.Output<number | undefined>;
     /**
-     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+     * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     public readonly desiredCount!: pulumi.Output<number | undefined>;
     /**
@@ -158,31 +162,31 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly iamRole!: pulumi.Output<string>;
     /**
-     * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
     public readonly launchType!: pulumi.Output<string>;
     /**
-     * A load balancer block. Load balancers documented below.
+     * Configuration block for load balancers. Detailed below.
      */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     /**
-     * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+     * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
      */
     public readonly orderedPlacementStrategies!: pulumi.Output<outputs.ecs.ServiceOrderedPlacementStrategy[] | undefined>;
     /**
-     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
     public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     public readonly platformVersion!: pulumi.Output<string>;
     /**
@@ -190,11 +194,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+     * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistries | undefined>;
     /**
@@ -206,7 +210,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
      */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
 
@@ -225,6 +229,7 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             inputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             inputs["cluster"] = state ? state.cluster : undefined;
+            inputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
             inputs["deploymentController"] = state ? state.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
@@ -251,6 +256,7 @@ export class Service extends pulumi.CustomResource {
             const args = argsOrState as ServiceArgs | undefined;
             inputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
             inputs["deploymentController"] = args ? args.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
@@ -286,7 +292,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
      */
     readonly capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -294,19 +300,23 @@ export interface ServiceState {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
-     * Configuration block containing deployment controller configuration. Defined below.
+     * Configuration block for deployment circuit breaker. Detailed below.
+     */
+    readonly deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    /**
+     * Configuration block for deployment controller configuration. Detailed below.
      */
     readonly deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentController>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
-     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+     * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
     /**
@@ -330,31 +340,31 @@ export interface ServiceState {
      */
     readonly iamRole?: pulumi.Input<string>;
     /**
-     * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
     readonly launchType?: pulumi.Input<string>;
     /**
-     * A load balancer block. Load balancers documented below.
+     * Configuration block for load balancers. Detailed below.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
     /**
-     * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+     * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
     readonly networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
     /**
-     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
     /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     readonly platformVersion?: pulumi.Input<string>;
     /**
@@ -362,11 +372,11 @@ export interface ServiceState {
      */
     readonly propagateTags?: pulumi.Input<string>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+     * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
@@ -378,7 +388,7 @@ export interface ServiceState {
      */
     readonly taskDefinition?: pulumi.Input<string>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
@@ -388,7 +398,7 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
      */
     readonly capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -396,19 +406,23 @@ export interface ServiceArgs {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
-     * Configuration block containing deployment controller configuration. Defined below.
+     * Configuration block for deployment circuit breaker. Detailed below.
+     */
+    readonly deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    /**
+     * Configuration block for deployment controller configuration. Detailed below.
      */
     readonly deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentController>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
-     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+     * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
     /**
@@ -432,31 +446,31 @@ export interface ServiceArgs {
      */
     readonly iamRole?: pulumi.Input<string>;
     /**
-     * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
     readonly launchType?: pulumi.Input<string>;
     /**
-     * A load balancer block. Load balancers documented below.
+     * Configuration block for load balancers. Detailed below.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
     /**
-     * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+     * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
     readonly networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
     /**
-     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
     /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     readonly platformVersion?: pulumi.Input<string>;
     /**
@@ -464,11 +478,11 @@ export interface ServiceArgs {
      */
     readonly propagateTags?: pulumi.Input<string>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+     * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
@@ -480,7 +494,7 @@ export interface ServiceArgs {
      */
     readonly taskDefinition?: pulumi.Input<string>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

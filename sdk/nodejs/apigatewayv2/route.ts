@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -116,6 +117,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The request parameters for the route. Supported only for WebSocket APIs.
+     */
+    public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
+    /**
      * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     public readonly routeKey!: pulumi.Output<string>;
@@ -149,6 +154,7 @@ export class Route extends pulumi.CustomResource {
             inputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
             inputs["operationName"] = state ? state.operationName : undefined;
             inputs["requestModels"] = state ? state.requestModels : undefined;
+            inputs["requestParameters"] = state ? state.requestParameters : undefined;
             inputs["routeKey"] = state ? state.routeKey : undefined;
             inputs["routeResponseSelectionExpression"] = state ? state.routeResponseSelectionExpression : undefined;
             inputs["target"] = state ? state.target : undefined;
@@ -168,6 +174,7 @@ export class Route extends pulumi.CustomResource {
             inputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
             inputs["operationName"] = args ? args.operationName : undefined;
             inputs["requestModels"] = args ? args.requestModels : undefined;
+            inputs["requestParameters"] = args ? args.requestParameters : undefined;
             inputs["routeKey"] = args ? args.routeKey : undefined;
             inputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
             inputs["target"] = args ? args.target : undefined;
@@ -218,6 +225,10 @@ export interface RouteState {
      * The request models for the route. Supported only for WebSocket APIs.
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The request parameters for the route. Supported only for WebSocket APIs.
+     */
+    readonly requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
@@ -271,6 +282,10 @@ export interface RouteArgs {
      * The request models for the route. Supported only for WebSocket APIs.
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The request parameters for the route. Supported only for WebSocket APIs.
+     */
+    readonly requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */

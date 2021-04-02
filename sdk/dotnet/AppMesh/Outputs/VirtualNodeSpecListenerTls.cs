@@ -21,15 +21,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         /// </summary>
         public readonly string Mode;
+        /// <summary>
+        /// The listener's Transport Layer Security (TLS) validation context.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerTlsValidation? Validation;
 
         [OutputConstructor]
         private VirtualNodeSpecListenerTls(
             Outputs.VirtualNodeSpecListenerTlsCertificate certificate,
 
-            string mode)
+            string mode,
+
+            Outputs.VirtualNodeSpecListenerTlsValidation? validation)
         {
             Certificate = certificate;
             Mode = mode;
+            Validation = validation;
         }
     }
 }

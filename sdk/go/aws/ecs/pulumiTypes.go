@@ -612,11 +612,11 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 }
 
 type ServiceCapacityProviderStrategy struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
-	// The short name of the capacity provider.
+	// Short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -632,11 +632,11 @@ type ServiceCapacityProviderStrategyInput interface {
 }
 
 type ServiceCapacityProviderStrategyArgs struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name of the capacity provider.
+	// Short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -691,17 +691,17 @@ func (o ServiceCapacityProviderStrategyOutput) ToServiceCapacityProviderStrategy
 	return o
 }
 
-// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 func (o ServiceCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name of the capacity provider.
+// Short name of the capacity provider.
 func (o ServiceCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
-// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 func (o ServiceCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -724,6 +724,156 @@ func (o ServiceCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) Ser
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCapacityProviderStrategy {
 		return vs[0].([]ServiceCapacityProviderStrategy)[vs[1].(int)]
 	}).(ServiceCapacityProviderStrategyOutput)
+}
+
+type ServiceDeploymentCircuitBreaker struct {
+	// Whether to enable the deployment circuit breaker logic for the service.
+	Enable bool `pulumi:"enable"`
+	// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback bool `pulumi:"rollback"`
+}
+
+// ServiceDeploymentCircuitBreakerInput is an input type that accepts ServiceDeploymentCircuitBreakerArgs and ServiceDeploymentCircuitBreakerOutput values.
+// You can construct a concrete instance of `ServiceDeploymentCircuitBreakerInput` via:
+//
+//          ServiceDeploymentCircuitBreakerArgs{...}
+type ServiceDeploymentCircuitBreakerInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentCircuitBreakerOutput() ServiceDeploymentCircuitBreakerOutput
+	ToServiceDeploymentCircuitBreakerOutputWithContext(context.Context) ServiceDeploymentCircuitBreakerOutput
+}
+
+type ServiceDeploymentCircuitBreakerArgs struct {
+	// Whether to enable the deployment circuit breaker logic for the service.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
+}
+
+func (ServiceDeploymentCircuitBreakerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (i ServiceDeploymentCircuitBreakerArgs) ToServiceDeploymentCircuitBreakerOutput() ServiceDeploymentCircuitBreakerOutput {
+	return i.ToServiceDeploymentCircuitBreakerOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentCircuitBreakerArgs) ToServiceDeploymentCircuitBreakerOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentCircuitBreakerOutput)
+}
+
+func (i ServiceDeploymentCircuitBreakerArgs) ToServiceDeploymentCircuitBreakerPtrOutput() ServiceDeploymentCircuitBreakerPtrOutput {
+	return i.ToServiceDeploymentCircuitBreakerPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentCircuitBreakerArgs) ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentCircuitBreakerOutput).ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentCircuitBreakerPtrInput is an input type that accepts ServiceDeploymentCircuitBreakerArgs, ServiceDeploymentCircuitBreakerPtr and ServiceDeploymentCircuitBreakerPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentCircuitBreakerPtrInput` via:
+//
+//          ServiceDeploymentCircuitBreakerArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceDeploymentCircuitBreakerPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentCircuitBreakerPtrOutput() ServiceDeploymentCircuitBreakerPtrOutput
+	ToServiceDeploymentCircuitBreakerPtrOutputWithContext(context.Context) ServiceDeploymentCircuitBreakerPtrOutput
+}
+
+type serviceDeploymentCircuitBreakerPtrType ServiceDeploymentCircuitBreakerArgs
+
+func ServiceDeploymentCircuitBreakerPtr(v *ServiceDeploymentCircuitBreakerArgs) ServiceDeploymentCircuitBreakerPtrInput {
+	return (*serviceDeploymentCircuitBreakerPtrType)(v)
+}
+
+func (*serviceDeploymentCircuitBreakerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (i *serviceDeploymentCircuitBreakerPtrType) ToServiceDeploymentCircuitBreakerPtrOutput() ServiceDeploymentCircuitBreakerPtrOutput {
+	return i.ToServiceDeploymentCircuitBreakerPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentCircuitBreakerPtrType) ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+type ServiceDeploymentCircuitBreakerOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentCircuitBreakerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreakerOutput() ServiceDeploymentCircuitBreakerOutput {
+	return o
+}
+
+func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreakerOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerOutput {
+	return o
+}
+
+func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreakerPtrOutput() ServiceDeploymentCircuitBreakerPtrOutput {
+	return o.ToServiceDeploymentCircuitBreakerPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *ServiceDeploymentCircuitBreaker {
+		return &v
+	}).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+// Whether to enable the deployment circuit breaker logic for the service.
+func (o ServiceDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+func (o ServiceDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+type ServiceDeploymentCircuitBreakerPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentCircuitBreakerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (o ServiceDeploymentCircuitBreakerPtrOutput) ToServiceDeploymentCircuitBreakerPtrOutput() ServiceDeploymentCircuitBreakerPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentCircuitBreakerPtrOutput) ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentCircuitBreakerPtrOutput) Elem() ServiceDeploymentCircuitBreakerOutput {
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) ServiceDeploymentCircuitBreaker { return *v }).(ServiceDeploymentCircuitBreakerOutput)
+}
+
+// Whether to enable the deployment circuit breaker logic for the service.
+func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Rollback
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ServiceDeploymentController struct {
@@ -858,13 +1008,13 @@ func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceLoadBalancer struct {
-	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
-	// The port on the container to associate with the load balancer.
+	// Port on the container to associate with the load balancer.
 	ContainerPort int `pulumi:"containerPort"`
-	// The name of the ELB (Classic) to associate with the service.
+	// Name of the ELB (Classic) to associate with the service.
 	ElbName *string `pulumi:"elbName"`
-	// The ARN of the Load Balancer target group to associate with the service.
+	// ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
@@ -880,13 +1030,13 @@ type ServiceLoadBalancerInput interface {
 }
 
 type ServiceLoadBalancerArgs struct {
-	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The port on the container to associate with the load balancer.
+	// Port on the container to associate with the load balancer.
 	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
-	// The name of the ELB (Classic) to associate with the service.
+	// Name of the ELB (Classic) to associate with the service.
 	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
-	// The ARN of the Load Balancer target group to associate with the service.
+	// ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
@@ -941,22 +1091,22 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
-// The name of the container to associate with the load balancer (as it appears in a container definition).
+// Name of the container to associate with the load balancer (as it appears in a container definition).
 func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The port on the container to associate with the load balancer.
+// Port on the container to associate with the load balancer.
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
 
-// The name of the ELB (Classic) to associate with the service.
+// Name of the ELB (Classic) to associate with the service.
 func (o ServiceLoadBalancerOutput) ElbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.ElbName }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Load Balancer target group to associate with the service.
+// ARN of the Load Balancer target group to associate with the service.
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -984,9 +1134,9 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 type ServiceNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
-	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The subnets associated with the task or service.
+	// Subnets associated with the task or service.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -1004,9 +1154,9 @@ type ServiceNetworkConfigurationInput interface {
 type ServiceNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
-	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The subnets associated with the task or service.
+	// Subnets associated with the task or service.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -1092,12 +1242,12 @@ func (o ServiceNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o ServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The subnets associated with the task or service.
+// Subnets associated with the task or service.
 func (o ServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1130,7 +1280,7 @@ func (o ServiceNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o ServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
 		if v == nil {
@@ -1140,7 +1290,7 @@ func (o ServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The subnets associated with the task or service.
+// Subnets associated with the task or service.
 func (o ServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
 		if v == nil {
@@ -1156,7 +1306,7 @@ type ServiceOrderedPlacementStrategy struct {
 	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
 	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field *string `pulumi:"field"`
-	// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 	Type string `pulumi:"type"`
 }
 
@@ -1177,7 +1327,7 @@ type ServiceOrderedPlacementStrategyArgs struct {
 	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
 	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1240,7 +1390,7 @@ func (o ServiceOrderedPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 func (o ServiceOrderedPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1266,13 +1416,9 @@ func (o ServiceOrderedPlacementStrategyArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServicePlacementConstraint struct {
-	// Cluster Query Language expression to apply to the constraint. Does not need to be specified
-	// for the `distinctInstance` type.
-	// For more information, see [Cluster Query Language in the Amazon EC2 Container
-	// Service Developer
-	// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression *string `pulumi:"expression"`
-	// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 	Type string `pulumi:"type"`
 }
 
@@ -1288,13 +1434,9 @@ type ServicePlacementConstraintInput interface {
 }
 
 type ServicePlacementConstraintArgs struct {
-	// Cluster Query Language expression to apply to the constraint. Does not need to be specified
-	// for the `distinctInstance` type.
-	// For more information, see [Cluster Query Language in the Amazon EC2 Container
-	// Service Developer
-	// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1349,16 +1491,12 @@ func (o ServicePlacementConstraintOutput) ToServicePlacementConstraintOutputWith
 	return o
 }
 
-// Cluster Query Language expression to apply to the constraint. Does not need to be specified
-// for the `distinctInstance` type.
-// For more information, see [Cluster Query Language in the Amazon EC2 Container
-// Service Developer
-// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 func (o ServicePlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 func (o ServicePlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1384,13 +1522,13 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 }
 
 type ServiceServiceRegistries struct {
-	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	// Container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName *string `pulumi:"containerName"`
-	// The port value, already specified in the task definition, to be used for your service discovery service.
+	// Port value, already specified in the task definition, to be used for your service discovery service.
 	ContainerPort *int `pulumi:"containerPort"`
-	// The port value used if your Service Discovery service specified an SRV record.
+	// Port value used if your Service Discovery service specified an SRV record.
 	Port *int `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+	// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 	RegistryArn string `pulumi:"registryArn"`
 }
 
@@ -1406,13 +1544,13 @@ type ServiceServiceRegistriesInput interface {
 }
 
 type ServiceServiceRegistriesArgs struct {
-	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	// Container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// The port value, already specified in the task definition, to be used for your service discovery service.
+	// Port value, already specified in the task definition, to be used for your service discovery service.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// The port value used if your Service Discovery service specified an SRV record.
+	// Port value used if your Service Discovery service specified an SRV record.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+	// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
 }
 
@@ -1493,22 +1631,22 @@ func (o ServiceServiceRegistriesOutput) ToServiceServiceRegistriesPtrOutputWithC
 	}).(ServiceServiceRegistriesPtrOutput)
 }
 
-// The container name value, already specified in the task definition, to be used for your service discovery service.
+// Container name value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// The port value, already specified in the task definition, to be used for your service discovery service.
+// Port value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// The port value used if your Service Discovery service specified an SRV record.
+// Port value used if your Service Discovery service specified an SRV record.
 func (o ServiceServiceRegistriesOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 func (o ServiceServiceRegistriesOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
 }
@@ -1531,7 +1669,7 @@ func (o ServiceServiceRegistriesPtrOutput) Elem() ServiceServiceRegistriesOutput
 	return o.ApplyT(func(v *ServiceServiceRegistries) ServiceServiceRegistries { return *v }).(ServiceServiceRegistriesOutput)
 }
 
-// The container name value, already specified in the task definition, to be used for your service discovery service.
+// Container name value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceRegistries) *string {
 		if v == nil {
@@ -1541,7 +1679,7 @@ func (o ServiceServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port value, already specified in the task definition, to be used for your service discovery service.
+// Port value, already specified in the task definition, to be used for your service discovery service.
 func (o ServiceServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceRegistries) *int {
 		if v == nil {
@@ -1551,7 +1689,7 @@ func (o ServiceServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The port value used if your Service Discovery service specified an SRV record.
+// Port value used if your Service Discovery service specified an SRV record.
 func (o ServiceServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceRegistries) *int {
 		if v == nil {
@@ -1561,7 +1699,7 @@ func (o ServiceServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceRegistries) *string {
 		if v == nil {
@@ -2775,6 +2913,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})

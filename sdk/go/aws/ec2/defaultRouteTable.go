@@ -31,13 +31,47 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultRouteTable(ctx, "defaultRouteTable", &ec2.DefaultRouteTableArgs{
-// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Foo.Default_route_table_id),
+// 		_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
+// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
 // 			Routes: ec2.DefaultRouteTableRouteArray{
-// 				nil,
+// 				&ec2.DefaultRouteTableRouteArgs{
+// 					CidrBlock: pulumi.String("10.0.1.0/24"),
+// 					GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
+// 				},
+// 				&ec2.DefaultRouteTableRouteArgs{
+// 					Ipv6CidrBlock:       pulumi.String("::/0"),
+// 					EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
+// 				},
 // 			},
 // 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("default table"),
+// 				"Name": pulumi.String("example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// To subsequently remove all managed routes:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
+// 			DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
+// 			Routes:              ec2.DefaultRouteTableRouteArray{},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -60,14 +94,15 @@ import (
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the route table.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the default route table.
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
-	// Configuration block of routes. Detailed below.
-	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
+	PropagatingVgws pulumi.StringArrayOutput          `pulumi:"propagatingVgws"`
+	Routes          DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// ID of the VPC.
@@ -106,14 +141,15 @@ func GetDefaultRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultRouteTable resources.
 type defaultRouteTableState struct {
+	// The ARN of the route table.
+	Arn *string `pulumi:"arn"`
 	// ID of the default route table.
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId *string `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// Configuration block of routes. Detailed below.
-	Routes []DefaultRouteTableRoute `pulumi:"routes"`
+	PropagatingVgws []string                 `pulumi:"propagatingVgws"`
+	Routes          []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the VPC.
@@ -121,14 +157,15 @@ type defaultRouteTableState struct {
 }
 
 type DefaultRouteTableState struct {
+	// The ARN of the route table.
+	Arn pulumi.StringPtrInput
 	// ID of the default route table.
 	DefaultRouteTableId pulumi.StringPtrInput
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringPtrInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// Configuration block of routes. Detailed below.
-	Routes DefaultRouteTableRouteArrayInput
+	Routes          DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// ID of the VPC.
@@ -143,9 +180,8 @@ type defaultRouteTableArgs struct {
 	// ID of the default route table.
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// Configuration block of routes. Detailed below.
-	Routes []DefaultRouteTableRoute `pulumi:"routes"`
+	PropagatingVgws []string                 `pulumi:"propagatingVgws"`
+	Routes          []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -156,8 +192,7 @@ type DefaultRouteTableArgs struct {
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// Configuration block of routes. Detailed below.
-	Routes DefaultRouteTableRouteArrayInput
+	Routes          DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

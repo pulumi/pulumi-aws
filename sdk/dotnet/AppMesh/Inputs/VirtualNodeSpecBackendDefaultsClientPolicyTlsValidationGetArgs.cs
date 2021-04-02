@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The SANs for a TLS validation context.
+        /// </summary>
+        [Input("subjectAlternativeNames")]
+        public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesGetArgs>? SubjectAlternativeNames { get; set; }
+
+        /// <summary>
         /// The TLS validation context trust.
         /// </summary>
         [Input("trust", required: true)]

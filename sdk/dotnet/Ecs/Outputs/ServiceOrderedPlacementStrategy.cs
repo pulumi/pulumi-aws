@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        /// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
         /// </summary>
         public readonly string Type;
 

@@ -95,31 +95,31 @@ namespace Pulumi.Aws.Alb
     public partial class TargetGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Target Group (matches `id`)
+        /// ARN of the Target Group (matches `id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN suffix for use with CloudWatch Metrics.
+        /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
         [Output("arnSuffix")]
         public Output<string> ArnSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Output("deregistrationDelay")]
         public Output<int?> DeregistrationDelay { get; private set; } = null!;
 
         /// <summary>
-        /// A Health Check block. Health Check blocks are documented below.
+        /// Health Check configuration block. Detailed below.
         /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.TargetGroupHealthCheck> HealthCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         /// </summary>
         [Output("lambdaMultiValueHeadersEnabled")]
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the Target Group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,60 +143,61 @@ namespace Pulumi.Aws.Alb
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+        /// </summary>
+        [Output("preserveClientIp")]
+        public Output<string> PreserveClientIp { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// Protocol version. Defaults to `HTTP1`. Specify GRPC to send requests to targets using GRPC, HTTP2 to send requests to targets using HTTP/2, HTTP1 to send requests to targets using HTTP/1.1.
         /// </summary>
         [Output("protocolVersion")]
         public Output<string> ProtocolVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
+        /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         /// </summary>
         [Output("proxyProtocolV2")]
         public Output<bool?> ProxyProtocolV2 { get; private set; } = null!;
 
         /// <summary>
-        /// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
         [Output("slowStart")]
         public Output<int?> SlowStart { get; private set; } = null!;
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below.
+        /// Stickiness configuration block. Detailed below.
         /// </summary>
         [Output("stickiness")]
         public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of target that you must specify when registering targets with this target group.
-        /// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
-        /// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-        /// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
-        /// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-        /// You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
         /// </summary>
         [Output("targetType")]
         public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -252,19 +253,19 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
         public Input<int>? DeregistrationDelay { get; set; }
 
         /// <summary>
-        /// A Health Check block. Health Check blocks are documented below.
+        /// Health Check configuration block. Detailed below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
@@ -276,7 +277,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// The name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the Target Group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -288,37 +289,43 @@ namespace Pulumi.Aws.Alb
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+        /// </summary>
+        [Input("preserveClientIp")]
+        public Input<string>? PreserveClientIp { get; set; }
+
+        /// <summary>
+        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// Protocol version. Defaults to `HTTP1`. Specify GRPC to send requests to targets using GRPC, HTTP2 to send requests to targets using HTTP/2, HTTP1 to send requests to targets using HTTP/1.1.
         /// </summary>
         [Input("protocolVersion")]
         public Input<string>? ProtocolVersion { get; set; }
 
         /// <summary>
-        /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
+        /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         /// </summary>
         [Input("proxyProtocolV2")]
         public Input<bool>? ProxyProtocolV2 { get; set; }
 
         /// <summary>
-        /// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
         [Input("slowStart")]
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below.
+        /// Stickiness configuration block. Detailed below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessArgs>? Stickiness { get; set; }
@@ -327,7 +334,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -336,18 +343,13 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// The type of target that you must specify when registering targets with this target group.
-        /// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
-        /// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-        /// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
-        /// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-        /// You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -360,31 +362,31 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Target Group (matches `id`)
+        /// ARN of the Target Group (matches `id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN suffix for use with CloudWatch Metrics.
+        /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
         [Input("arnSuffix")]
         public Input<string>? ArnSuffix { get; set; }
 
         /// <summary>
-        /// The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
         public Input<int>? DeregistrationDelay { get; set; }
 
         /// <summary>
-        /// A Health Check block. Health Check blocks are documented below.
+        /// Health Check configuration block. Detailed below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
@@ -396,7 +398,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// The name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the Target Group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -408,37 +410,43 @@ namespace Pulumi.Aws.Alb
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+        /// </summary>
+        [Input("preserveClientIp")]
+        public Input<string>? PreserveClientIp { get; set; }
+
+        /// <summary>
+        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+        /// Protocol version. Defaults to `HTTP1`. Specify GRPC to send requests to targets using GRPC, HTTP2 to send requests to targets using HTTP/2, HTTP1 to send requests to targets using HTTP/1.1.
         /// </summary>
         [Input("protocolVersion")]
         public Input<string>? ProtocolVersion { get; set; }
 
         /// <summary>
-        /// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
+        /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         /// </summary>
         [Input("proxyProtocolV2")]
         public Input<bool>? ProxyProtocolV2 { get; set; }
 
         /// <summary>
-        /// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
         [Input("slowStart")]
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below.
+        /// Stickiness configuration block. Detailed below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessGetArgs>? Stickiness { get; set; }
@@ -447,7 +455,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -456,18 +464,13 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// The type of target that you must specify when registering targets with this target group.
-        /// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
-        /// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-        /// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
-        /// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-        /// You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

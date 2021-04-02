@@ -21,15 +21,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// A local file certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateFile? File;
+        /// <summary>
+        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerTlsCertificateSds? Sds;
 
         [OutputConstructor]
         private VirtualNodeSpecListenerTlsCertificate(
             Outputs.VirtualNodeSpecListenerTlsCertificateAcm? acm,
 
-            Outputs.VirtualNodeSpecListenerTlsCertificateFile? file)
+            Outputs.VirtualNodeSpecListenerTlsCertificateFile? file,
+
+            Outputs.VirtualNodeSpecListenerTlsCertificateSds? sds)
         {
             Acm = acm;
             File = file;
+            Sds = sds;
         }
     }
 }

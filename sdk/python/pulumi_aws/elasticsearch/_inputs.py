@@ -393,26 +393,75 @@ class DomainCognitoOptionsArgs:
 @pulumi.input_type
 class DomainDomainEndpointOptionsArgs:
     def __init__(__self__, *,
-                 enforce_https: pulumi.Input[bool],
+                 custom_endpoint: Optional[pulumi.Input[str]] = None,
+                 custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 enforce_https: Optional[pulumi.Input[bool]] = None,
                  tls_security_policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enforce_https: Whether or not to require HTTPS
+        :param pulumi.Input[str] custom_endpoint: Fully qualified domain for your custom endpoint
+        :param pulumi.Input[str] custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint
+        :param pulumi.Input[bool] custom_endpoint_enabled: Whether to enable custom endpoint for the Elasticsearch domain
+        :param pulumi.Input[bool] enforce_https: Whether or not to require HTTPS. Defaults to `true`.
         :param pulumi.Input[str] tls_security_policy: The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
         """
-        pulumi.set(__self__, "enforce_https", enforce_https)
+        if custom_endpoint is not None:
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
+        if custom_endpoint_certificate_arn is not None:
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+        if custom_endpoint_enabled is not None:
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
+        if enforce_https is not None:
+            pulumi.set(__self__, "enforce_https", enforce_https)
         if tls_security_policy is not None:
             pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
-    @pulumi.getter(name="enforceHttps")
-    def enforce_https(self) -> pulumi.Input[bool]:
+    @pulumi.getter(name="customEndpoint")
+    def custom_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not to require HTTPS
+        Fully qualified domain for your custom endpoint
+        """
+        return pulumi.get(self, "custom_endpoint")
+
+    @custom_endpoint.setter
+    def custom_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_endpoint", value)
+
+    @property
+    @pulumi.getter(name="customEndpointCertificateArn")
+    def custom_endpoint_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ACM certificate ARN for your custom endpoint
+        """
+        return pulumi.get(self, "custom_endpoint_certificate_arn")
+
+    @custom_endpoint_certificate_arn.setter
+    def custom_endpoint_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_endpoint_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="customEndpointEnabled")
+    def custom_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable custom endpoint for the Elasticsearch domain
+        """
+        return pulumi.get(self, "custom_endpoint_enabled")
+
+    @custom_endpoint_enabled.setter
+    def custom_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="enforceHttps")
+    def enforce_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to require HTTPS. Defaults to `true`.
         """
         return pulumi.get(self, "enforce_https")
 
     @enforce_https.setter
-    def enforce_https(self, value: pulumi.Input[bool]):
+    def enforce_https(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_https", value)
 
     @property

@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['StackSet']
 
@@ -16,11 +18,13 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
+                 auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 permission_model: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
@@ -95,12 +99,14 @@ class StackSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
+        :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
-        :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[str] template_body: String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         :param pulumi.Input[str] template_url: String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
@@ -122,14 +128,14 @@ class StackSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if administration_role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'administration_role_arn'")
             __props__['administration_role_arn'] = administration_role_arn
+            __props__['auto_deployment'] = auto_deployment
             __props__['capabilities'] = capabilities
             __props__['description'] = description
             __props__['execution_role_name'] = execution_role_name
             __props__['name'] = name
             __props__['parameters'] = parameters
+            __props__['permission_model'] = permission_model
             __props__['tags'] = tags
             __props__['template_body'] = template_body
             __props__['template_url'] = template_url
@@ -147,11 +153,13 @@ class StackSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administration_role_arn: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_role_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            permission_model: Optional[pulumi.Input[str]] = None,
             stack_set_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template_body: Optional[pulumi.Input[str]] = None,
@@ -163,13 +171,15 @@ class StackSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the StackSet.
+        :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
-        :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[str] stack_set_id: Unique identifier of the StackSet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[str] template_body: String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
@@ -181,11 +191,13 @@ class StackSet(pulumi.CustomResource):
 
         __props__["administration_role_arn"] = administration_role_arn
         __props__["arn"] = arn
+        __props__["auto_deployment"] = auto_deployment
         __props__["capabilities"] = capabilities
         __props__["description"] = description
         __props__["execution_role_name"] = execution_role_name
         __props__["name"] = name
         __props__["parameters"] = parameters
+        __props__["permission_model"] = permission_model
         __props__["stack_set_id"] = stack_set_id
         __props__["tags"] = tags
         __props__["template_body"] = template_body
@@ -194,9 +206,9 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administrationRoleArn")
-    def administration_role_arn(self) -> pulumi.Output[str]:
+    def administration_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         """
         return pulumi.get(self, "administration_role_arn")
 
@@ -207,6 +219,14 @@ class StackSet(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the StackSet.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoDeployment")
+    def auto_deployment(self) -> pulumi.Output[Optional['outputs.StackSetAutoDeployment']]:
+        """
+        Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        """
+        return pulumi.get(self, "auto_deployment")
 
     @property
     @pulumi.getter
@@ -226,9 +246,9 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleName")
-    def execution_role_name(self) -> pulumi.Output[Optional[str]]:
+    def execution_role_name(self) -> pulumi.Output[str]:
         """
-        Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "execution_role_name")
 
@@ -247,6 +267,14 @@ class StackSet(pulumi.CustomResource):
         Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="permissionModel")
+    def permission_model(self) -> pulumi.Output[Optional[str]]:
+        """
+        Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+        """
+        return pulumi.get(self, "permission_model")
 
     @property
     @pulumi.getter(name="stackSetId")

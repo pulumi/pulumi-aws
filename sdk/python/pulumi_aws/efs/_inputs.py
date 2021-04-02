@@ -13,6 +13,7 @@ __all__ = [
     'AccessPointRootDirectoryArgs',
     'AccessPointRootDirectoryCreationInfoArgs',
     'FileSystemLifecyclePolicyArgs',
+    'FileSystemSizeInByteArgs',
 ]
 
 @pulumi.input_type
@@ -179,5 +180,60 @@ class FileSystemLifecyclePolicyArgs:
     @transition_to_ia.setter
     def transition_to_ia(self, value: pulumi.Input[str]):
         pulumi.set(self, "transition_to_ia", value)
+
+
+@pulumi.input_type
+class FileSystemSizeInByteArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[int]] = None,
+                 value_in_ia: Optional[pulumi.Input[int]] = None,
+                 value_in_standard: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] value: The latest known metered size (in bytes) of data stored in the file system.
+        :param pulumi.Input[int] value_in_ia: The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+        :param pulumi.Input[int] value_in_standard: The latest known metered size (in bytes) of data stored in the Standard storage class.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_in_ia is not None:
+            pulumi.set(__self__, "value_in_ia", value_in_ia)
+        if value_in_standard is not None:
+            pulumi.set(__self__, "value_in_standard", value_in_standard)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The latest known metered size (in bytes) of data stored in the file system.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueInIa")
+    def value_in_ia(self) -> Optional[pulumi.Input[int]]:
+        """
+        The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+        """
+        return pulumi.get(self, "value_in_ia")
+
+    @value_in_ia.setter
+    def value_in_ia(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value_in_ia", value)
+
+    @property
+    @pulumi.getter(name="valueInStandard")
+    def value_in_standard(self) -> Optional[pulumi.Input[int]]:
+        """
+        The latest known metered size (in bytes) of data stored in the Standard storage class.
+        """
+        return pulumi.get(self, "value_in_standard")
+
+    @value_in_standard.setter
+    def value_in_standard(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value_in_standard", value)
 
 

@@ -24,6 +24,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateFileArgs>? File { get; set; }
 
+        /// <summary>
+        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// </summary>
+        [Input("sds")]
+        public Input<Inputs.VirtualNodeSpecListenerTlsCertificateSdsArgs>? Sds { get; set; }
+
         public VirtualNodeSpecListenerTlsCertificateArgs()
         {
         }

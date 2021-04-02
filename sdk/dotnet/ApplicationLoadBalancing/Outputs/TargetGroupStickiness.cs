@@ -18,11 +18,11 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         /// </summary>
         public readonly int? CookieDuration;
         /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
+        /// Whether to enable `stickiness`. Default is `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        /// Type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
         /// </summary>
         public readonly string Type;
 

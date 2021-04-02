@@ -1016,39 +1016,39 @@ export namespace alb {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Boolean to enable / disable `stickiness`. Default is `true`
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
         healthyThreshold?: number;
         /**
-         * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
         /**
-         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to only HTTP/HTTPS.
+         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path: string;
         /**
-         * The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
-         * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+         * Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
         timeout: number;
         /**
-         * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+         * Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          */
         unhealthyThreshold?: number;
     }
@@ -1059,11 +1059,11 @@ export namespace alb {
          */
         cookieDuration?: number;
         /**
-         * Indicates whether  health checks are enabled. Defaults to true.
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -1365,6 +1365,17 @@ export namespace apigatewayv2 {
          * If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
          */
         serverNameToVerify?: string;
+    }
+
+    export interface RouteRequestParameter {
+        /**
+         * Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+         */
+        requestParameterKey: string;
+        /**
+         * Boolean whether or not the parameter is required.
+         */
+        required: boolean;
     }
 
     export interface StageAccessLogSettings {
@@ -2147,39 +2158,39 @@ export namespace applicationloadbalancing {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Boolean to enable / disable `stickiness`. Default is `true`
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
         healthyThreshold?: number;
         /**
-         * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
         /**
-         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to only HTTP/HTTPS.
+         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path: string;
         /**
-         * The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
-         * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+         * Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
         timeout: number;
         /**
-         * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+         * Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          */
         unhealthyThreshold?: number;
     }
@@ -2190,11 +2201,11 @@ export namespace applicationloadbalancing {
          */
         cookieDuration?: number;
         /**
-         * Indicates whether  health checks are enabled. Defaults to true.
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -2974,22 +2985,76 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTls {
+        /**
+         * The listener's TLS certificate.
+         */
+        certificate?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate;
+        /**
+         * Whether the policy is enforced. Default is `true`.
+         */
         enforce?: boolean;
         /**
          * One or more ports that the policy is enforced for.
          */
         ports?: number[];
         /**
-         * The TLS validation context.
+         * The listener's Transport Layer Security (TLS) validation context.
          */
         validation: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation;
     }
 
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+        /**
+         * A local file certificate.
+         */
+        file?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile;
+        /**
+         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+        /**
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        certificateChain: string;
+        /**
+         * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        privateKey: string;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+        /**
+         * The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
+    }
+
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
+        /**
+         * The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+         */
+        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
         /**
          * The TLS validation context trust.
          */
         trust: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+        /**
+         * The criteria for determining a SAN's match.
+         */
+        match: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+        /**
+         * The values sent must match the specified values exactly.
+         */
+        exacts: string[];
     }
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -2998,9 +3063,13 @@ export namespace appmesh {
          */
         acm?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
         /**
-         * The TLS validation context trust for a local file.
+         * The TLS validation context trust for a local file certificate.
          */
         file?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile;
+        /**
+         * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds;
     }
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
@@ -3012,9 +3081,16 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         certificateChain: string;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+        /**
+         * The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
     }
 
     export interface VirtualGatewaySpecListener {
@@ -3127,6 +3203,10 @@ export namespace appmesh {
          * The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
          */
         mode: string;
+        /**
+         * The listener's Transport Layer Security (TLS) validation context.
+         */
+        validation?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidation;
     }
 
     export interface VirtualGatewaySpecListenerTlsCertificate {
@@ -3138,6 +3218,10 @@ export namespace appmesh {
          * A local file certificate.
          */
         file?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateFile;
+        /**
+         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateSds;
     }
 
     export interface VirtualGatewaySpecListenerTlsCertificateAcm {
@@ -3149,13 +3233,70 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListenerTlsCertificateFile {
         /**
-         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         certificateChain: string;
         /**
          * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         privateKey: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsCertificateSds {
+        /**
+         * The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidation {
+        /**
+         * The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+         */
+        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames;
+        /**
+         * The TLS validation context trust.
+         */
+        trust: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationTrust;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+        /**
+         * The criteria for determining a SAN's match.
+         */
+        match: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+        /**
+         * The values sent must match the specified values exactly.
+         */
+        exacts: string[];
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidationTrust {
+        /**
+         * The TLS validation context trust for a local file certificate.
+         */
+        file?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationTrustFile;
+        /**
+         * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationTrustSds;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidationTrustFile {
+        /**
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        certificateChain: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsValidationTrustSds {
+        /**
+         * The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
     }
 
     export interface VirtualGatewaySpecLogging {
@@ -3225,6 +3366,10 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTls {
         /**
+         * The listener's TLS certificate.
+         */
+        certificate?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate;
+        /**
          * Whether the policy is enforced. Default is `true`.
          */
         enforce?: boolean;
@@ -3233,16 +3378,63 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * The TLS validation context.
+         * The listener's Transport Layer Security (TLS) validation context.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation;
     }
 
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+        /**
+         * A local file certificate.
+         */
+        file?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile;
+        /**
+         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+        /**
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        certificateChain: string;
+        /**
+         * The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        privateKey: string;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
+    }
+
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+        /**
+         * The SANs for a TLS validation context.
+         */
+        subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
         /**
          * The TLS validation context trust.
          */
         trust: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+        /**
+         * The criteria for determining a SAN's match.
+         */
+        match: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+        /**
+         * The values sent must match the specified values exactly.
+         */
+        exacts: string[];
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -3251,9 +3443,13 @@ export namespace appmesh {
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
         /**
-         * The TLS validation context trust for a local file.
+         * The TLS validation context trust for a local file certificate.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile;
+        /**
+         * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds;
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
@@ -3265,9 +3461,16 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         certificateChain: string;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
     }
 
     export interface VirtualNodeSpecBackendVirtualService {
@@ -3290,6 +3493,10 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
         /**
+         * The listener's TLS certificate.
+         */
+        certificate?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate;
+        /**
          * Whether the policy is enforced. Default is `true`.
          */
         enforce?: boolean;
@@ -3298,16 +3505,63 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * The TLS validation context.
+         * The listener's Transport Layer Security (TLS) validation context.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation;
     }
 
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+        /**
+         * A local file certificate.
+         */
+        file?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile;
+        /**
+         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+        /**
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        certificateChain: string;
+        /**
+         * The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        privateKey: string;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
+    }
+
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+        /**
+         * The SANs for a TLS validation context.
+         */
+        subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames;
         /**
          * The TLS validation context trust.
          */
         trust: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+        /**
+         * The criteria for determining a SAN's match.
+         */
+        match: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+        /**
+         * The values sent must match the specified values exactly.
+         */
+        exacts: string[];
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
@@ -3316,9 +3570,13 @@ export namespace appmesh {
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm;
         /**
-         * The TLS validation context trust for a local file.
+         * The TLS validation context trust for a local file certificate.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile;
+        /**
+         * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds;
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
@@ -3330,9 +3588,16 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
         /**
-         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         certificateChain: string;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
     }
 
     export interface VirtualNodeSpecListener {
@@ -3642,6 +3907,10 @@ export namespace appmesh {
          * The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
          */
         mode: string;
+        /**
+         * The listener's Transport Layer Security (TLS) validation context.
+         */
+        validation?: outputs.appmesh.VirtualNodeSpecListenerTlsValidation;
     }
 
     export interface VirtualNodeSpecListenerTlsCertificate {
@@ -3653,6 +3922,10 @@ export namespace appmesh {
          * A local file certificate.
          */
         file?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateFile;
+        /**
+         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateSds;
     }
 
     export interface VirtualNodeSpecListenerTlsCertificateAcm {
@@ -3664,13 +3937,70 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsCertificateFile {
         /**
-         * The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         certificateChain: string;
         /**
          * The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
          */
         privateKey: string;
+    }
+
+    export interface VirtualNodeSpecListenerTlsCertificateSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidation {
+        /**
+         * The SANs for a TLS validation context.
+         */
+        subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames;
+        /**
+         * The TLS validation context trust.
+         */
+        trust: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrust;
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+        /**
+         * The criteria for determining a SAN's match.
+         */
+        match: outputs.appmesh.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch;
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+        /**
+         * The values sent must match the specified values exactly.
+         */
+        exacts: string[];
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidationTrust {
+        /**
+         * The TLS validation context trust for a local file certificate.
+         */
+        file?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrustFile;
+        /**
+         * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         */
+        sds?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrustSds;
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidationTrustFile {
+        /**
+         * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         */
+        certificateChain: string;
+    }
+
+    export interface VirtualNodeSpecListenerTlsValidationTrustSds {
+        /**
+         * The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         */
+        secretName: string;
     }
 
     export interface VirtualNodeSpecLogging {
@@ -4491,6 +4821,10 @@ export namespace backup {
          */
         copyActions?: outputs.backup.PlanRuleCopyAction[];
         /**
+         * Enable continuous backups for supported resources.
+         */
+        enableContinuousBackup?: boolean;
+        /**
          * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
          */
         lifecycle?: outputs.backup.PlanRuleLifecycle;
@@ -4866,6 +5200,19 @@ export namespace cfg {
          * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
          */
         messageType?: string;
+    }
+}
+
+export namespace cloudformation {
+    export interface StackSetAutoDeployment {
+        /**
+         * Whether or not auto-deployment is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * Whether or not to retain stacks when the account is removed.
+         */
+        retainStacksOnAccountRemoval?: boolean;
     }
 }
 
@@ -8045,6 +8392,10 @@ export namespace ec2 {
          */
         cidrBlock?: string;
         /**
+         * The ID of a managed prefix list destination of the route.
+         */
+        destinationPrefixListId?: string;
+        /**
          * Identifier of a VPC Egress Only Internet Gateway.
          */
         egressOnlyGatewayId?: string;
@@ -9004,6 +9355,10 @@ export namespace ec2 {
          */
         cidrBlock: string;
         /**
+         * The ID of a managed prefix list destination of the route.
+         */
+        destinationPrefixListId: string;
+        /**
          * ID of the Egress Only Internet Gateway.
          */
         egressOnlyGatewayId: string;
@@ -9898,9 +10253,17 @@ export namespace ec2 {
 
     export interface RouteTableRoute {
         /**
+         * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+         */
+        carrierGatewayId?: string;
+        /**
          * The CIDR block of the route.
          */
         cidrBlock?: string;
+        /**
+         * The ID of a managed prefix list destination of the route.
+         */
+        destinationPrefixListId?: string;
         /**
          * Identifier of a VPC Egress Only Internet Gateway.
          */
@@ -10697,17 +11060,28 @@ export namespace ecs {
 
     export interface ServiceCapacityProviderStrategy {
         /**
-         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
          */
         base?: number;
         /**
-         * The short name of the capacity provider.
+         * Short name of the capacity provider.
          */
         capacityProvider: string;
         /**
-         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         * Relative percentage of the total number of launched tasks that should use the specified capacity provider.
          */
         weight?: number;
+    }
+
+    export interface ServiceDeploymentCircuitBreaker {
+        /**
+         * Whether to enable the deployment circuit breaker logic for the service.
+         */
+        enable: boolean;
+        /**
+         * Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+         */
+        rollback: boolean;
     }
 
     export interface ServiceDeploymentController {
@@ -10719,19 +11093,19 @@ export namespace ecs {
 
     export interface ServiceLoadBalancer {
         /**
-         * The name of the container to associate with the load balancer (as it appears in a container definition).
+         * Name of the container to associate with the load balancer (as it appears in a container definition).
          */
         containerName: string;
         /**
-         * The port on the container to associate with the load balancer.
+         * Port on the container to associate with the load balancer.
          */
         containerPort: number;
         /**
-         * The name of the ELB (Classic) to associate with the service.
+         * Name of the ELB (Classic) to associate with the service.
          */
         elbName?: string;
         /**
-         * The ARN of the Load Balancer target group to associate with the service.
+         * ARN of the Load Balancer target group to associate with the service.
          */
         targetGroupArn?: string;
     }
@@ -10742,11 +11116,11 @@ export namespace ecs {
          */
         assignPublicIp?: boolean;
         /**
-         * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+         * Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
          */
         securityGroups?: string[];
         /**
-         * The subnets associated with the task or service.
+         * Subnets associated with the task or service.
          */
         subnets: string[];
     }
@@ -10760,41 +11134,37 @@ export namespace ecs {
          */
         field?: string;
         /**
-         * The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+         * Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
          */
         type: string;
     }
 
     export interface ServicePlacementConstraint {
         /**
-         * Cluster Query Language expression to apply to the constraint. Does not need to be specified
-         * for the `distinctInstance` type.
-         * For more information, see [Cluster Query Language in the Amazon EC2 Container
-         * Service Developer
-         * Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+         * Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
          */
         expression?: string;
         /**
-         * The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+         * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
          */
         type: string;
     }
 
     export interface ServiceServiceRegistries {
         /**
-         * The container name value, already specified in the task definition, to be used for your service discovery service.
+         * Container name value, already specified in the task definition, to be used for your service discovery service.
          */
         containerName?: string;
         /**
-         * The port value, already specified in the task definition, to be used for your service discovery service.
+         * Port value, already specified in the task definition, to be used for your service discovery service.
          */
         containerPort?: number;
         /**
-         * The port value used if your Service Discovery service specified an SRV record.
+         * Port value used if your Service Discovery service specified an SRV record.
          */
         port?: number;
         /**
-         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+         * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
          */
         registryArn: string;
     }
@@ -10964,6 +11334,21 @@ export namespace efs {
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
         transitionToIa: string;
+    }
+
+    export interface FileSystemSizeInByte {
+        /**
+         * The latest known metered size (in bytes) of data stored in the file system.
+         */
+        value: number;
+        /**
+         * The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+         */
+        valueInIa: number;
+        /**
+         * The latest known metered size (in bytes) of data stored in the Standard storage class.
+         */
+        valueInStandard: number;
     }
 
     export interface GetAccessPointPosixUser {
@@ -12047,39 +12432,39 @@ export namespace elasticloadbalancingv2 {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Boolean to enable / disable `stickiness`. Default is `true`
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
         healthyThreshold?: number;
         /**
-         * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
         /**
-         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to only HTTP/HTTPS.
+         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path: string;
         /**
-         * The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
-         * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+         * Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
         timeout: number;
         /**
-         * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+         * Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          */
         unhealthyThreshold?: number;
     }
@@ -12090,11 +12475,11 @@ export namespace elasticloadbalancingv2 {
          */
         cookieDuration?: number;
         /**
-         * Indicates whether  health checks are enabled. Defaults to true.
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -12202,9 +12587,21 @@ export namespace elasticsearch {
 
     export interface DomainDomainEndpointOptions {
         /**
-         * Whether or not to require HTTPS
+         * Fully qualified domain for your custom endpoint
          */
-        enforceHttps: boolean;
+        customEndpoint?: string;
+        /**
+         * ACM certificate ARN for your custom endpoint
+         */
+        customEndpointCertificateArn?: string;
+        /**
+         * Whether to enable custom endpoint for the Elasticsearch domain
+         */
+        customEndpointEnabled?: boolean;
+        /**
+         * Whether or not to require HTTPS. Defaults to `true`.
+         */
+        enforceHttps?: boolean;
         /**
          * The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
          */
@@ -18190,39 +18587,39 @@ export namespace lb {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Boolean to enable / disable `stickiness`. Default is `true`
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
         healthyThreshold?: number;
         /**
-         * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
         /**
-         * The response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Applies to Application Load Balancers only (HTTP/HTTPS/GRPC), not Network Load Balancers (TCP).
+         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to only HTTP/HTTPS.
+         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path: string;
         /**
-         * The port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
-         * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+         * Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
         timeout: number;
         /**
-         * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
+         * Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          */
         unhealthyThreshold?: number;
     }
@@ -18233,11 +18630,11 @@ export namespace lb {
          */
         cookieDuration?: number;
         /**
-         * Indicates whether  health checks are enabled. Defaults to true.
+         * Whether to enable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }

@@ -774,6 +774,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_cloudwatch_query_definition": {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
 			// CodeBuild
 			"aws_codebuild_project": {
 				Tok: awsResource(codebuildMod, "Project"),

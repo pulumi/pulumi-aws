@@ -14,9 +14,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class RouteTableRoute
     {
         /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        public readonly string? CarrierGatewayId;
+        /// <summary>
         /// The CIDR block of the route.
         /// </summary>
         public readonly string? CidrBlock;
+        /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
+        public readonly string? DestinationPrefixListId;
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
@@ -60,7 +68,11 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private RouteTableRoute(
+            string? carrierGatewayId,
+
             string? cidrBlock,
+
+            string? destinationPrefixListId,
 
             string? egressOnlyGatewayId,
 
@@ -82,7 +94,9 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? vpcPeeringConnectionId)
         {
+            CarrierGatewayId = carrierGatewayId;
             CidrBlock = cidrBlock;
+            DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
             InstanceId = instanceId;

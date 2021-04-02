@@ -19,13 +19,13 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<int>? CookieDuration { get; set; }
 
         /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
+        /// Whether to enable `stickiness`. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        /// Type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

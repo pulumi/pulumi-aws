@@ -20,11 +20,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultRouteTable = new aws.ec2.DefaultRouteTable("defaultRouteTable", {
- *     defaultRouteTableId: aws_vpc.foo.default_route_table_id,
- *     routes: [{}],
+ * const example = new aws.ec2.DefaultRouteTable("example", {
+ *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
+ *     routes: [
+ *         {
+ *             cidrBlock: "10.0.1.0/24",
+ *             gatewayId: aws_internet_gateway.example.id,
+ *         },
+ *         {
+ *             ipv6CidrBlock: "::/0",
+ *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
+ *         },
+ *     ],
  *     tags: {
- *         Name: "default table",
+ *         Name: "example",
+ *     },
+ * });
+ * ```
+ *
+ * To subsequently remove all managed routes:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.DefaultRouteTable("example", {
+ *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
+ *     routes: [],
+ *     tags: {
+ *         Name: "example",
  *     },
  * });
  * ```
@@ -68,6 +92,10 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the route table.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * ID of the default route table.
      */
     public readonly defaultRouteTableId!: pulumi.Output<string>;
@@ -79,9 +107,6 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * List of virtual gateways for propagation.
      */
     public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
-    /**
-     * Configuration block of routes. Detailed below.
-     */
     public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
      * Map of tags to assign to the resource.
@@ -105,6 +130,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultRouteTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
@@ -120,6 +146,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
@@ -135,6 +162,10 @@ export class DefaultRouteTable extends pulumi.CustomResource {
  */
 export interface DefaultRouteTableState {
     /**
+     * The ARN of the route table.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * ID of the default route table.
      */
     readonly defaultRouteTableId?: pulumi.Input<string>;
@@ -146,9 +177,6 @@ export interface DefaultRouteTableState {
      * List of virtual gateways for propagation.
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Configuration block of routes. Detailed below.
-     */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
      * Map of tags to assign to the resource.
@@ -172,9 +200,6 @@ export interface DefaultRouteTableArgs {
      * List of virtual gateways for propagation.
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Configuration block of routes. Detailed below.
-     */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
      * Map of tags to assign to the resource.

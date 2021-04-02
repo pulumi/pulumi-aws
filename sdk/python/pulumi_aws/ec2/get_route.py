@@ -19,13 +19,19 @@ class GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, carrier_gateway_id=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+        if carrier_gateway_id and not isinstance(carrier_gateway_id, str):
+            raise TypeError("Expected argument 'carrier_gateway_id' to be a str")
+        pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         if destination_cidr_block and not isinstance(destination_cidr_block, str):
             raise TypeError("Expected argument 'destination_cidr_block' to be a str")
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if destination_ipv6_cidr_block and not isinstance(destination_ipv6_cidr_block, str):
             raise TypeError("Expected argument 'destination_ipv6_cidr_block' to be a str")
         pulumi.set(__self__, "destination_ipv6_cidr_block", destination_ipv6_cidr_block)
+        if destination_prefix_list_id and not isinstance(destination_prefix_list_id, str):
+            raise TypeError("Expected argument 'destination_prefix_list_id' to be a str")
+        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id and not isinstance(egress_only_gateway_id, str):
             raise TypeError("Expected argument 'egress_only_gateway_id' to be a str")
         pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
@@ -58,6 +64,11 @@ class GetRouteResult:
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
+    @pulumi.getter(name="carrierGatewayId")
+    def carrier_gateway_id(self) -> str:
+        return pulumi.get(self, "carrier_gateway_id")
+
+    @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> str:
         return pulumi.get(self, "destination_cidr_block")
@@ -66,6 +77,11 @@ class GetRouteResult:
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> str:
         return pulumi.get(self, "destination_ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> str:
+        return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
@@ -127,8 +143,10 @@ class AwaitableGetRouteResult(GetRouteResult):
         if False:
             yield self
         return GetRouteResult(
+            carrier_gateway_id=self.carrier_gateway_id,
             destination_cidr_block=self.destination_cidr_block,
             destination_ipv6_cidr_block=self.destination_ipv6_cidr_block,
+            destination_prefix_list_id=self.destination_prefix_list_id,
             egress_only_gateway_id=self.egress_only_gateway_id,
             gateway_id=self.gateway_id,
             id=self.id,
@@ -141,8 +159,10 @@ class AwaitableGetRouteResult(GetRouteResult):
             vpc_peering_connection_id=self.vpc_peering_connection_id)
 
 
-def get_route(destination_cidr_block: Optional[str] = None,
+def get_route(carrier_gateway_id: Optional[str] = None,
+              destination_cidr_block: Optional[str] = None,
               destination_ipv6_cidr_block: Optional[str] = None,
+              destination_prefix_list_id: Optional[str] = None,
               egress_only_gateway_id: Optional[str] = None,
               gateway_id: Optional[str] = None,
               instance_id: Optional[str] = None,
@@ -156,14 +176,11 @@ def get_route(destination_cidr_block: Optional[str] = None,
     """
     `ec2.Route` provides details about a specific Route.
 
-    This resource can prove useful when finding the resource
-    associated with a CIDR. For example, finding the peering
-    connection associated with a CIDR value.
+    This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
 
     ## Example Usage
 
-    The following example shows how one might use a CIDR value to find a network interface id
-    and use this to create a data source of that network interface.
+    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 
     ```python
     import pulumi
@@ -178,21 +195,25 @@ def get_route(destination_cidr_block: Optional[str] = None,
     ```
 
 
-    :param str destination_cidr_block: The CIDR block of the Route belonging to the Route Table.
-    :param str destination_ipv6_cidr_block: The IPv6 CIDR block of the Route belonging to the Route Table.
-    :param str egress_only_gateway_id: The Egress Only Gateway ID of the Route belonging to the Route Table.
-    :param str gateway_id: The Gateway ID of the Route belonging to the Route Table.
-    :param str instance_id: The Instance ID of the Route belonging to the Route Table.
-    :param str local_gateway_id: The Local Gateway ID of the Route belonging to the Route Table.
-    :param str nat_gateway_id: The NAT Gateway ID of the Route belonging to the Route Table.
-    :param str network_interface_id: The Network Interface ID of the Route belonging to the Route Table.
-    :param str route_table_id: The id of the specific Route Table containing the Route entry.
-    :param str transit_gateway_id: The EC2 Transit Gateway ID of the Route belonging to the Route Table.
-    :param str vpc_peering_connection_id: The VPC Peering Connection ID of the Route belonging to the Route Table.
+    :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+    :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
+    :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
+    :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.
+    :param str egress_only_gateway_id: Egress Only Gateway ID of the Route belonging to the Route Table.
+    :param str gateway_id: Gateway ID of the Route belonging to the Route Table.
+    :param str instance_id: Instance ID of the Route belonging to the Route Table.
+    :param str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
+    :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
+    :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param str route_table_id: The ID of the specific Route Table containing the Route entry.
+    :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
+    :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """
     __args__ = dict()
+    __args__['carrierGatewayId'] = carrier_gateway_id
     __args__['destinationCidrBlock'] = destination_cidr_block
     __args__['destinationIpv6CidrBlock'] = destination_ipv6_cidr_block
+    __args__['destinationPrefixListId'] = destination_prefix_list_id
     __args__['egressOnlyGatewayId'] = egress_only_gateway_id
     __args__['gatewayId'] = gateway_id
     __args__['instanceId'] = instance_id
@@ -209,8 +230,10 @@ def get_route(destination_cidr_block: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
+        carrier_gateway_id=__ret__.carrier_gateway_id,
         destination_cidr_block=__ret__.destination_cidr_block,
         destination_ipv6_cidr_block=__ret__.destination_ipv6_cidr_block,
+        destination_prefix_list_id=__ret__.destination_prefix_list_id,
         egress_only_gateway_id=__ret__.egress_only_gateway_id,
         gateway_id=__ret__.gateway_id,
         id=__ret__.id,

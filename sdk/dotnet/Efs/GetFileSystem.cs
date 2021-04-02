@@ -79,6 +79,14 @@ namespace Pulumi.Aws.Efs
         /// Amazon Resource Name of the file system.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
+        /// </summary>
+        public readonly string AvailabilityZoneId;
+        /// <summary>
+        /// The Availability Zone name in which the file system's One Zone storage classes exist.
+        /// </summary>
+        public readonly string AvailabilityZoneName;
         public readonly string CreationToken;
         /// <summary>
         /// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
@@ -124,6 +132,10 @@ namespace Pulumi.Aws.Efs
         private GetFileSystemResult(
             string arn,
 
+            string availabilityZoneId,
+
+            string availabilityZoneName,
+
             string creationToken,
 
             string dnsName,
@@ -149,6 +161,8 @@ namespace Pulumi.Aws.Efs
             string throughputMode)
         {
             Arn = arn;
+            AvailabilityZoneId = availabilityZoneId;
+            AvailabilityZoneName = availabilityZoneName;
             CreationToken = creationToken;
             DnsName = dnsName;
             Encrypted = encrypted;

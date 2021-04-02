@@ -991,6 +991,112 @@ func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouteRequestParameter struct {
+	// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+	RequestParameterKey string `pulumi:"requestParameterKey"`
+	// Boolean whether or not the parameter is required.
+	Required bool `pulumi:"required"`
+}
+
+// RouteRequestParameterInput is an input type that accepts RouteRequestParameterArgs and RouteRequestParameterOutput values.
+// You can construct a concrete instance of `RouteRequestParameterInput` via:
+//
+//          RouteRequestParameterArgs{...}
+type RouteRequestParameterInput interface {
+	pulumi.Input
+
+	ToRouteRequestParameterOutput() RouteRequestParameterOutput
+	ToRouteRequestParameterOutputWithContext(context.Context) RouteRequestParameterOutput
+}
+
+type RouteRequestParameterArgs struct {
+	// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+	RequestParameterKey pulumi.StringInput `pulumi:"requestParameterKey"`
+	// Boolean whether or not the parameter is required.
+	Required pulumi.BoolInput `pulumi:"required"`
+}
+
+func (RouteRequestParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteRequestParameter)(nil)).Elem()
+}
+
+func (i RouteRequestParameterArgs) ToRouteRequestParameterOutput() RouteRequestParameterOutput {
+	return i.ToRouteRequestParameterOutputWithContext(context.Background())
+}
+
+func (i RouteRequestParameterArgs) ToRouteRequestParameterOutputWithContext(ctx context.Context) RouteRequestParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteRequestParameterOutput)
+}
+
+// RouteRequestParameterArrayInput is an input type that accepts RouteRequestParameterArray and RouteRequestParameterArrayOutput values.
+// You can construct a concrete instance of `RouteRequestParameterArrayInput` via:
+//
+//          RouteRequestParameterArray{ RouteRequestParameterArgs{...} }
+type RouteRequestParameterArrayInput interface {
+	pulumi.Input
+
+	ToRouteRequestParameterArrayOutput() RouteRequestParameterArrayOutput
+	ToRouteRequestParameterArrayOutputWithContext(context.Context) RouteRequestParameterArrayOutput
+}
+
+type RouteRequestParameterArray []RouteRequestParameterInput
+
+func (RouteRequestParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteRequestParameter)(nil)).Elem()
+}
+
+func (i RouteRequestParameterArray) ToRouteRequestParameterArrayOutput() RouteRequestParameterArrayOutput {
+	return i.ToRouteRequestParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RouteRequestParameterArray) ToRouteRequestParameterArrayOutputWithContext(ctx context.Context) RouteRequestParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteRequestParameterArrayOutput)
+}
+
+type RouteRequestParameterOutput struct{ *pulumi.OutputState }
+
+func (RouteRequestParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteRequestParameter)(nil)).Elem()
+}
+
+func (o RouteRequestParameterOutput) ToRouteRequestParameterOutput() RouteRequestParameterOutput {
+	return o
+}
+
+func (o RouteRequestParameterOutput) ToRouteRequestParameterOutputWithContext(ctx context.Context) RouteRequestParameterOutput {
+	return o
+}
+
+// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+func (o RouteRequestParameterOutput) RequestParameterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteRequestParameter) string { return v.RequestParameterKey }).(pulumi.StringOutput)
+}
+
+// Boolean whether or not the parameter is required.
+func (o RouteRequestParameterOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v RouteRequestParameter) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+type RouteRequestParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteRequestParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteRequestParameter)(nil)).Elem()
+}
+
+func (o RouteRequestParameterArrayOutput) ToRouteRequestParameterArrayOutput() RouteRequestParameterArrayOutput {
+	return o
+}
+
+func (o RouteRequestParameterArrayOutput) ToRouteRequestParameterArrayOutputWithContext(ctx context.Context) RouteRequestParameterArrayOutput {
+	return o
+}
+
+func (o RouteRequestParameterArrayOutput) Index(i pulumi.IntInput) RouteRequestParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteRequestParameter {
+		return vs[0].([]RouteRequestParameter)[vs[1].(int)]
+	}).(RouteRequestParameterOutput)
+}
+
 type StageAccessLogSettings struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
 	DestinationArn string `pulumi:"destinationArn"`
@@ -1659,6 +1765,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationResponseParameterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
+	pulumi.RegisterOutputType(RouteRequestParameterOutput{})
+	pulumi.RegisterOutputType(RouteRequestParameterArrayOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StageDefaultRouteSettingsOutput{})

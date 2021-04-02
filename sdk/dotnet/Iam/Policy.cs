@@ -100,6 +100,18 @@ namespace Pulumi.Aws.Iam
         [Output("policy")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy's ID.
+        /// </summary>
+        [Output("policyId")]
+        public Output<string> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of resource tags for the IAM Policy
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Policy resource with the given unique name, arguments, and options.
@@ -177,6 +189,18 @@ namespace Pulumi.Aws.Iam
         [Input("policy", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM Policy
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public PolicyArgs()
         {
         }
@@ -220,6 +244,24 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDocument { get; set; }
+
+        /// <summary>
+        /// The policy's ID.
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags for the IAM Policy
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public PolicyState()
         {

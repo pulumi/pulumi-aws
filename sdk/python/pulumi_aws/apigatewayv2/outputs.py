@@ -15,6 +15,7 @@ __all__ = [
     'DomainNameMutualTlsAuthentication',
     'IntegrationResponseParameter',
     'IntegrationTlsConfig',
+    'RouteRequestParameter',
     'StageAccessLogSettings',
     'StageDefaultRouteSettings',
     'StageRouteSetting',
@@ -292,6 +293,38 @@ class IntegrationTlsConfig(dict):
         If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         """
         return pulumi.get(self, "server_name_to_verify")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteRequestParameter(dict):
+    def __init__(__self__, *,
+                 request_parameter_key: str,
+                 required: bool):
+        """
+        :param str request_parameter_key: Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+        :param bool required: Boolean whether or not the parameter is required.
+        """
+        pulumi.set(__self__, "request_parameter_key", request_parameter_key)
+        pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="requestParameterKey")
+    def request_parameter_key(self) -> str:
+        """
+        Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+        """
+        return pulumi.get(self, "request_parameter_key")
+
+    @property
+    @pulumi.getter
+    def required(self) -> bool:
+        """
+        Boolean whether or not the parameter is required.
+        """
+        return pulumi.get(self, "required")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

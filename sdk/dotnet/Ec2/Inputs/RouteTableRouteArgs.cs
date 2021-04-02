@@ -13,10 +13,22 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class RouteTableRouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        [Input("carrierGatewayId")]
+        public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
         /// The CIDR block of the route.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
+
+        /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        public Input<string>? DestinationPrefixListId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
