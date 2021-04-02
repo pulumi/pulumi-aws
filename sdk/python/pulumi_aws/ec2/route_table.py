@@ -52,20 +52,34 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route_table = aws.ec2.RouteTable("routeTable",
-            vpc_id=aws_vpc["default"]["id"],
+        example = aws.ec2.RouteTable("example",
+            vpc_id=aws_vpc["example"]["id"],
             routes=[
                 aws.ec2.RouteTableRouteArgs(
                     cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["main"]["id"],
+                    gateway_id=aws_internet_gateway["example"]["id"],
                 ),
                 aws.ec2.RouteTableRouteArgs(
                     ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["foo"]["id"],
+                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
                 ),
             ],
             tags={
-                "Name": "main",
+                "Name": "example",
+            })
+        ```
+
+        To subsequently remove all managed routes:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.RouteTable("example",
+            vpc_id=aws_vpc["example"]["id"],
+            routes=[],
+            tags={
+                "Name": "example",
             })
         ```
 
@@ -81,7 +95,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
         if __name__ is not None:
@@ -107,6 +121,7 @@ class RouteTable(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
             __props__['owner_id'] = None
         super(RouteTable, __self__).__init__(
             'aws:ec2/routeTable:RouteTable',
@@ -118,6 +133,7 @@ class RouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
@@ -130,22 +146,32 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the route table.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["owner_id"] = owner_id
         __props__["propagating_vgws"] = propagating_vgws
         __props__["routes"] = routes
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return RouteTable(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the route table.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ownerId")
@@ -175,7 +201,7 @@ class RouteTable(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource.
+        A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

@@ -974,8 +974,14 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type DomainDomainEndpointOptions struct {
-	// Whether or not to require HTTPS
-	EnforceHttps bool `pulumi:"enforceHttps"`
+	// Fully qualified domain for your custom endpoint
+	CustomEndpoint *string `pulumi:"customEndpoint"`
+	// ACM certificate ARN for your custom endpoint
+	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
+	// Whether to enable custom endpoint for the Elasticsearch domain
+	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
+	// Whether or not to require HTTPS. Defaults to `true`.
+	EnforceHttps *bool `pulumi:"enforceHttps"`
 	// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
@@ -992,8 +998,14 @@ type DomainDomainEndpointOptionsInput interface {
 }
 
 type DomainDomainEndpointOptionsArgs struct {
-	// Whether or not to require HTTPS
-	EnforceHttps pulumi.BoolInput `pulumi:"enforceHttps"`
+	// Fully qualified domain for your custom endpoint
+	CustomEndpoint pulumi.StringPtrInput `pulumi:"customEndpoint"`
+	// ACM certificate ARN for your custom endpoint
+	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
+	// Whether to enable custom endpoint for the Elasticsearch domain
+	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
+	// Whether or not to require HTTPS. Defaults to `true`.
+	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
 	// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
@@ -1075,9 +1087,24 @@ func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutpu
 	}).(DomainDomainEndpointOptionsPtrOutput)
 }
 
-// Whether or not to require HTTPS
-func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+// Fully qualified domain for your custom endpoint
+func (o DomainDomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// ACM certificate ARN for your custom endpoint
+func (o DomainDomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable custom endpoint for the Elasticsearch domain
+func (o DomainDomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to require HTTPS. Defaults to `true`.
+func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
@@ -1103,13 +1130,43 @@ func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptions
 	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions { return *v }).(DomainDomainEndpointOptionsOutput)
 }
 
-// Whether or not to require HTTPS
+// Fully qualified domain for your custom endpoint
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// ACM certificate ARN for your custom endpoint
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable custom endpoint for the Elasticsearch domain
+func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to require HTTPS. Defaults to `true`.
 func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.EnforceHttps
+		return v.EnforceHttps
 	}).(pulumi.BoolPtrOutput)
 }
 

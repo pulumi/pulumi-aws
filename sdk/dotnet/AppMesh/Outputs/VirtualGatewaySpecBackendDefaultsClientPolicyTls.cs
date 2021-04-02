@@ -13,24 +13,34 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTls
     {
+        /// <summary>
+        /// The listener's TLS certificate.
+        /// </summary>
+        public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate? Certificate;
+        /// <summary>
+        /// Whether the policy is enforced. Default is `true`.
+        /// </summary>
         public readonly bool? Enforce;
         /// <summary>
         /// One or more ports that the policy is enforced for.
         /// </summary>
         public readonly ImmutableArray<int> Ports;
         /// <summary>
-        /// The TLS validation context.
+        /// The listener's Transport Layer Security (TLS) validation context.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation Validation;
 
         [OutputConstructor]
         private VirtualGatewaySpecBackendDefaultsClientPolicyTls(
+            Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate? certificate,
+
             bool? enforce,
 
             ImmutableArray<int> ports,
 
             Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation)
         {
+            Certificate = certificate;
             Enforce = enforce;
             Ports = ports;
             Validation = validation;

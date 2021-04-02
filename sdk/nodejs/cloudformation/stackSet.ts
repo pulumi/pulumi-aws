@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -105,13 +106,17 @@ export class StackSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+     * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      */
-    public readonly administrationRoleArn!: pulumi.Output<string>;
+    public readonly administrationRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the StackSet.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+     */
+    public readonly autoDeployment!: pulumi.Output<outputs.cloudformation.StackSetAutoDeployment | undefined>;
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
@@ -121,9 +126,9 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
-    public readonly executionRoleName!: pulumi.Output<string | undefined>;
+    public readonly executionRoleName!: pulumi.Output<string>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
@@ -132,6 +137,10 @@ export class StackSet extends pulumi.CustomResource {
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+     */
+    public readonly permissionModel!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier of the StackSet.
      */
@@ -156,7 +165,7 @@ export class StackSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: StackSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -164,26 +173,27 @@ export class StackSet extends pulumi.CustomResource {
             const state = argsOrState as StackSetState | undefined;
             inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["autoDeployment"] = state ? state.autoDeployment : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionRoleName"] = state ? state.executionRoleName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["permissionModel"] = state ? state.permissionModel : undefined;
             inputs["stackSetId"] = state ? state.stackSetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["templateBody"] = state ? state.templateBody : undefined;
             inputs["templateUrl"] = state ? state.templateUrl : undefined;
         } else {
             const args = argsOrState as StackSetArgs | undefined;
-            if ((!args || args.administrationRoleArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administrationRoleArn'");
-            }
             inputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
+            inputs["autoDeployment"] = args ? args.autoDeployment : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["permissionModel"] = args ? args.permissionModel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["templateBody"] = args ? args.templateBody : undefined;
             inputs["templateUrl"] = args ? args.templateUrl : undefined;
@@ -202,13 +212,17 @@ export class StackSet extends pulumi.CustomResource {
  */
 export interface StackSetState {
     /**
-     * Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+     * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      */
     readonly administrationRoleArn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the StackSet.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+     */
+    readonly autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
@@ -218,7 +232,7 @@ export interface StackSetState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
     readonly executionRoleName?: pulumi.Input<string>;
     /**
@@ -229,6 +243,10 @@ export interface StackSetState {
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+     */
+    readonly permissionModel?: pulumi.Input<string>;
     /**
      * Unique identifier of the StackSet.
      */
@@ -252,9 +270,13 @@ export interface StackSetState {
  */
 export interface StackSetArgs {
     /**
-     * Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+     * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      */
-    readonly administrationRoleArn: pulumi.Input<string>;
+    readonly administrationRoleArn?: pulumi.Input<string>;
+    /**
+     * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+     */
+    readonly autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
@@ -264,7 +286,7 @@ export interface StackSetArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
     readonly executionRoleName?: pulumi.Input<string>;
     /**
@@ -275,6 +297,10 @@ export interface StackSetArgs {
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+     */
+    readonly permissionModel?: pulumi.Input<string>;
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
      */

@@ -14,9 +14,21 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainDomainEndpointOptions
     {
         /// <summary>
-        /// Whether or not to require HTTPS
+        /// Fully qualified domain for your custom endpoint
         /// </summary>
-        public readonly bool EnforceHttps;
+        public readonly string? CustomEndpoint;
+        /// <summary>
+        /// ACM certificate ARN for your custom endpoint
+        /// </summary>
+        public readonly string? CustomEndpointCertificateArn;
+        /// <summary>
+        /// Whether to enable custom endpoint for the Elasticsearch domain
+        /// </summary>
+        public readonly bool? CustomEndpointEnabled;
+        /// <summary>
+        /// Whether or not to require HTTPS. Defaults to `true`.
+        /// </summary>
+        public readonly bool? EnforceHttps;
         /// <summary>
         /// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
@@ -24,10 +36,19 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
         [OutputConstructor]
         private DomainDomainEndpointOptions(
-            bool enforceHttps,
+            string? customEndpoint,
+
+            string? customEndpointCertificateArn,
+
+            bool? customEndpointEnabled,
+
+            bool? enforceHttps,
 
             string? tlsSecurityPolicy)
         {
+            CustomEndpoint = customEndpoint;
+            CustomEndpointCertificateArn = customEndpointCertificateArn;
+            CustomEndpointEnabled = customEndpointEnabled;
             EnforceHttps = enforceHttps;
             TlsSecurityPolicy = tlsSecurityPolicy;
         }

@@ -28,16 +28,49 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var defaultRouteTable = new Aws.Ec2.DefaultRouteTable("defaultRouteTable", new Aws.Ec2.DefaultRouteTableArgs
+    ///         var example = new Aws.Ec2.DefaultRouteTable("example", new Aws.Ec2.DefaultRouteTableArgs
     ///         {
-    ///             DefaultRouteTableId = aws_vpc.Foo.Default_route_table_id,
+    ///             DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
     ///             Routes = 
     ///             {
-    ///                 ,
+    ///                 new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
+    ///                 {
+    ///                     CidrBlock = "10.0.1.0/24",
+    ///                     GatewayId = aws_internet_gateway.Example.Id,
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
+    ///                 {
+    ///                     Ipv6CidrBlock = "::/0",
+    ///                     EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 },
     ///             },
     ///             Tags = 
     ///             {
-    ///                 { "Name", "default table" },
+    ///                 { "Name", "example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// To subsequently remove all managed routes:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.DefaultRouteTable("example", new Aws.Ec2.DefaultRouteTableArgs
+    ///         {
+    ///             DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///             Routes = {},
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example" },
     ///             },
     ///         });
     ///     }
@@ -59,6 +92,12 @@ namespace Pulumi.Aws.Ec2
     public partial class DefaultRouteTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the route table.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the default route table.
         /// </summary>
         [Output("defaultRouteTableId")]
@@ -76,9 +115,6 @@ namespace Pulumi.Aws.Ec2
         [Output("propagatingVgws")]
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block of routes. Detailed below.
-        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.DefaultRouteTableRoute>> Routes { get; private set; } = null!;
 
@@ -160,10 +196,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteArgs>? _routes;
-
-        /// <summary>
-        /// Configuration block of routes. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultRouteTableRouteArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteArgs>());
@@ -190,6 +222,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class DefaultRouteTableState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the route table.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// ID of the default route table.
         /// </summary>
         [Input("defaultRouteTableId")]
@@ -215,10 +253,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteGetArgs>? _routes;
-
-        /// <summary>
-        /// Configuration block of routes. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultRouteTableRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteGetArgs>());

@@ -9518,10 +9518,13 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualGat
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTls struct {
+	// The listener's TLS certificate.
+	Certificate *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate `pulumi:"certificate"`
+	// Whether the policy is enforced. Default is `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -9537,10 +9540,13 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs struct {
+	// The listener's TLS certificate.
+	Certificate VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
+	// Whether the policy is enforced. Default is `true`.
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -9620,6 +9626,15 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) ToVirtualGateway
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
+
+// The listener's TLS certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Certificate() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+		return v.Certificate
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
@@ -9629,7 +9644,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.I
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -9656,6 +9671,17 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() Virtua
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput)
 }
 
+// The listener's TLS certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+// Whether the policy is enforced. Default is `true`.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *bool {
 		if v == nil {
@@ -9675,7 +9701,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulum
 	}).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -9685,7 +9711,452 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() 
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate struct {
+	// A local file certificate.
+	File *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds `pulumi:"sds"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs struct {
+	// A local file certificate.
+	File VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+// A local file certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return v.File
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return v.Sds
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput)
+}
+
+// A local file certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation struct {
+	// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
 }
@@ -9702,6 +10173,8 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs struct {
+	// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
 }
@@ -9783,6 +10256,13 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirt
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
+// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) Trust() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -9810,6 +10290,16 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Ele
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
+// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -9820,11 +10310,283 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Tru
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
 
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return v.Match
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
+	// The values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
+	// The values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput values.
@@ -9841,8 +10603,10 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput interf
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -9929,11 +10693,18 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) A
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return v.Sds
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
@@ -9966,7 +10737,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -9974,6 +10745,16 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 		}
 		return v.File
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm struct {
@@ -10112,7 +10893,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOut
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -10128,7 +10909,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileInput in
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -10209,7 +10990,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutpu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -10236,13 +11017,146 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{...}
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput).ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs, VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtr and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput` via:
+//
+//          VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
+	ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
+}
+
+type virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs
+
+func VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtr(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput {
+	return (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType)(v)
+}
+
+func (*virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return &v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return *v
+	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11427,6 +12341,8 @@ type VirtualGatewaySpecListenerTls struct {
 	Certificate VirtualGatewaySpecListenerTlsCertificate `pulumi:"certificate"`
 	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode string `pulumi:"mode"`
+	// The listener's Transport Layer Security (TLS) validation context.
+	Validation *VirtualGatewaySpecListenerTlsValidation `pulumi:"validation"`
 }
 
 // VirtualGatewaySpecListenerTlsInput is an input type that accepts VirtualGatewaySpecListenerTlsArgs and VirtualGatewaySpecListenerTlsOutput values.
@@ -11445,6 +12361,8 @@ type VirtualGatewaySpecListenerTlsArgs struct {
 	Certificate VirtualGatewaySpecListenerTlsCertificateInput `pulumi:"certificate"`
 	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode pulumi.StringInput `pulumi:"mode"`
+	// The listener's Transport Layer Security (TLS) validation context.
+	Validation VirtualGatewaySpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
 func (VirtualGatewaySpecListenerTlsArgs) ElementType() reflect.Type {
@@ -11534,6 +12452,11 @@ func (o VirtualGatewaySpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+// The listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecListenerTlsOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation { return v.Validation }).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
+}
+
 type VirtualGatewaySpecListenerTlsPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySpecListenerTlsPtrOutput) ElementType() reflect.Type {
@@ -11572,11 +12495,23 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecListenerTlsPtrOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
+}
+
 type VirtualGatewaySpecListenerTlsCertificate struct {
 	// An AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualGatewaySpecListenerTlsCertificateAcm `pulumi:"acm"`
 	// A local file certificate.
 	File *VirtualGatewaySpecListenerTlsCertificateFile `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualGatewaySpecListenerTlsCertificateSds `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecListenerTlsCertificateInput is an input type that accepts VirtualGatewaySpecListenerTlsCertificateArgs and VirtualGatewaySpecListenerTlsCertificateOutput values.
@@ -11595,6 +12530,8 @@ type VirtualGatewaySpecListenerTlsCertificateArgs struct {
 	Acm VirtualGatewaySpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
 	// A local file certificate.
 	File VirtualGatewaySpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualGatewaySpecListenerTlsCertificateSdsPtrInput `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -11688,6 +12625,13 @@ func (o VirtualGatewaySpecListenerTlsCertificateOutput) File() VirtualGatewaySpe
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecListenerTlsCertificateOutput) Sds() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateSds {
+		return v.Sds
+	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
+}
+
 type VirtualGatewaySpecListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySpecListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
@@ -11724,6 +12668,16 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) File() VirtualGateway
 		}
 		return v.File
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Sds() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
 }
 
 type VirtualGatewaySpecListenerTlsCertificateAcm struct {
@@ -11860,7 +12814,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) CertificateArn() p
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFile struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey string `pulumi:"privateKey"`
@@ -11878,7 +12832,7 @@ type VirtualGatewaySpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFileArgs struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
@@ -11961,7 +12915,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -11991,7 +12945,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerTlsCertificateFileOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -12008,6 +12962,983 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulu
 			return nil
 		}
 		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsCertificateSds struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualGatewaySpecListenerTlsCertificateSdsInput is an input type that accepts VirtualGatewaySpecListenerTlsCertificateSdsArgs and VirtualGatewaySpecListenerTlsCertificateSdsOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsCertificateSdsInput` via:
+//
+//          VirtualGatewaySpecListenerTlsCertificateSdsArgs{...}
+type VirtualGatewaySpecListenerTlsCertificateSdsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsCertificateSdsOutput() VirtualGatewaySpecListenerTlsCertificateSdsOutput
+	ToVirtualGatewaySpecListenerTlsCertificateSdsOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsCertificateSdsOutput
+}
+
+type VirtualGatewaySpecListenerTlsCertificateSdsArgs struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualGatewaySpecListenerTlsCertificateSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsCertificateSdsArgs) ToVirtualGatewaySpecListenerTlsCertificateSdsOutput() VirtualGatewaySpecListenerTlsCertificateSdsOutput {
+	return i.ToVirtualGatewaySpecListenerTlsCertificateSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsCertificateSdsArgs) ToVirtualGatewaySpecListenerTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsCertificateSdsOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsCertificateSdsArgs) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutput() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsCertificateSdsArgs) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsCertificateSdsOutput).ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsCertificateSdsPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsCertificateSdsArgs, VirtualGatewaySpecListenerTlsCertificateSdsPtr and VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsCertificateSdsPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsCertificateSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsCertificateSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutput() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput
+	ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsCertificateSdsPtrType VirtualGatewaySpecListenerTlsCertificateSdsArgs
+
+func VirtualGatewaySpecListenerTlsCertificateSdsPtr(v *VirtualGatewaySpecListenerTlsCertificateSdsArgs) VirtualGatewaySpecListenerTlsCertificateSdsPtrInput {
+	return (*virtualGatewaySpecListenerTlsCertificateSdsPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsCertificateSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsCertificateSdsPtrType) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutput() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsCertificateSdsPtrType) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsCertificateSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsCertificateSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsOutput() VirtualGatewaySpecListenerTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutput() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateSds) *VirtualGatewaySpecListenerTlsCertificateSds {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutput() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualGatewaySpecListenerTlsCertificateSdsOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateSds) VirtualGatewaySpecListenerTlsCertificateSds {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsCertificateSdsOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidation struct {
+	// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
+	// The TLS validation context trust.
+	Trust VirtualGatewaySpecListenerTlsValidationTrust `pulumi:"trust"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationArgs and VirtualGatewaySpecListenerTlsValidationOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationArgs{...}
+type VirtualGatewaySpecListenerTlsValidationInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationOutput() VirtualGatewaySpecListenerTlsValidationOutput
+	ToVirtualGatewaySpecListenerTlsValidationOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationArgs struct {
+	// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
+	// The TLS validation context trust.
+	Trust VirtualGatewaySpecListenerTlsValidationTrustInput `pulumi:"trust"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationArgs) ToVirtualGatewaySpecListenerTlsValidationOutput() VirtualGatewaySpecListenerTlsValidationOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationArgs) ToVirtualGatewaySpecListenerTlsValidationOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationArgs) ToVirtualGatewaySpecListenerTlsValidationPtrOutput() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationArgs) ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationOutput).ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationArgs, VirtualGatewaySpecListenerTlsValidationPtr and VirtualGatewaySpecListenerTlsValidationPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationPtrOutput() VirtualGatewaySpecListenerTlsValidationPtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationPtrType VirtualGatewaySpecListenerTlsValidationArgs
+
+func VirtualGatewaySpecListenerTlsValidationPtr(v *VirtualGatewaySpecListenerTlsValidationArgs) VirtualGatewaySpecListenerTlsValidationPtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationPtrType) ToVirtualGatewaySpecListenerTlsValidationPtrOutput() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationPtrType) ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListenerTlsValidationOutput() VirtualGatewaySpecListenerTlsValidationOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListenerTlsValidationOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListenerTlsValidationPtrOutput() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidation {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
+}
+
+// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecListenerTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualGatewaySpecListenerTlsValidationOutput) Trust() VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) VirtualGatewaySpecListenerTlsValidationTrust {
+		return v.Trust
+	}).(VirtualGatewaySpecListenerTlsValidationTrustOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) ToVirtualGatewaySpecListenerTlsValidationPtrOutput() VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) VirtualGatewaySpecListenerTlsValidation { return *v }).(VirtualGatewaySpecListenerTlsValidationOutput)
+}
+
+// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Trust() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs and VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs{...}
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput).ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs, VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtr and VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrType VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs
+
+func VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtr(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrType) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrType) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) Match() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return v.Match
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch struct {
+	// The values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs and VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs{...}
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs struct {
+	// The values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput).ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs, VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtr and VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs
+
+func VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtr(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrust struct {
+	// The TLS validation context trust for a local file certificate.
+	File *VirtualGatewaySpecListenerTlsValidationTrustFile `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualGatewaySpecListenerTlsValidationTrustSds `pulumi:"sds"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustArgs and VirtualGatewaySpecListenerTlsValidationTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustArgs{...}
+type VirtualGatewaySpecListenerTlsValidationTrustInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustOutput() VirtualGatewaySpecListenerTlsValidationTrustOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustArgs struct {
+	// The TLS validation context trust for a local file certificate.
+	File VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustArgs) ToVirtualGatewaySpecListenerTlsValidationTrustOutput() VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustArgs) ToVirtualGatewaySpecListenerTlsValidationTrustOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustArgs) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustArgs) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustOutput).ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustArgs, VirtualGatewaySpecListenerTlsValidationTrustPtr and VirtualGatewaySpecListenerTlsValidationTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationTrustPtrType VirtualGatewaySpecListenerTlsValidationTrustArgs
+
+func VirtualGatewaySpecListenerTlsValidationTrustPtr(v *VirtualGatewaySpecListenerTlsValidationTrustArgs) VirtualGatewaySpecListenerTlsValidationTrustPtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationTrustPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustPtrType) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustPtrType) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpecListenerTlsValidationTrustOutput() VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpecListenerTlsValidationTrustOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrust {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput)
+}
+
+// The TLS validation context trust for a local file certificate.
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) File() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustFile {
+		return v.File
+	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) Sds() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustSds {
+		return v.Sds
+	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) VirtualGatewaySpecListenerTlsValidationTrust {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustOutput)
+}
+
+// The TLS validation context trust for a local file certificate.
+func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) File() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Sds() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustFile struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustFileInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustFileArgs and VirtualGatewaySpecListenerTlsValidationTrustFileOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustFileInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustFileArgs{...}
+type VirtualGatewaySpecListenerTlsValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustFileOutput() VirtualGatewaySpecListenerTlsValidationTrustFileOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustFileOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustFileOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustFileArgs struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustFileArgs) ToVirtualGatewaySpecListenerTlsValidationTrustFileOutput() VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustFileArgs) ToVirtualGatewaySpecListenerTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustFileOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustFileArgs) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustFileArgs) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustFileOutput).ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustFileArgs, VirtualGatewaySpecListenerTlsValidationTrustFilePtr and VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationTrustFilePtrType VirtualGatewaySpecListenerTlsValidationTrustFileArgs
+
+func VirtualGatewaySpecListenerTlsValidationTrustFilePtr(v *VirtualGatewaySpecListenerTlsValidationTrustFileArgs) VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationTrustFilePtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationTrustFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustFilePtrType) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustFilePtrType) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFileOutput() VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustFile) *VirtualGatewaySpecListenerTlsValidationTrustFile {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustFile) VirtualGatewaySpecListenerTlsValidationTrustFile {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustFileOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustSds struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustSdsInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustSdsArgs and VirtualGatewaySpecListenerTlsValidationTrustSdsOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustSdsInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustSdsArgs{...}
+type VirtualGatewaySpecListenerTlsValidationTrustSdsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsOutput
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustSdsArgs struct {
+	// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput)
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput).ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustSdsArgs, VirtualGatewaySpecListenerTlsValidationTrustSdsPtr and VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput` via:
+//
+//          VirtualGatewaySpecListenerTlsValidationTrustSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput
+	ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput
+}
+
+type virtualGatewaySpecListenerTlsValidationTrustSdsPtrType VirtualGatewaySpecListenerTlsValidationTrustSdsArgs
+
+func VirtualGatewaySpecListenerTlsValidationTrustSdsPtr(v *VirtualGatewaySpecListenerTlsValidationTrustSdsArgs) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput {
+	return (*virtualGatewaySpecListenerTlsValidationTrustSdsPtrType)(v)
+}
+
+func (*virtualGatewaySpecListenerTlsValidationTrustSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustSdsPtrType) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecListenerTlsValidationTrustSdsPtrType) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustSds) *VirtualGatewaySpecListenerTlsValidationTrustSds {
+		return &v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustSds) VirtualGatewaySpecListenerTlsValidationTrustSds {
+		return *v
+	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput)
+}
+
+// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12977,11 +14908,13 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSp
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTls struct {
+	// The listener's TLS certificate.
+	Certificate *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate `pulumi:"certificate"`
 	// Whether the policy is enforced. Default is `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -12997,11 +14930,13 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs struct {
+	// The listener's TLS certificate.
+	Certificate VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
 	// Whether the policy is enforced. Default is `true`.
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -13082,6 +15017,13 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBa
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
 
+// The listener's TLS certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Certificate() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+		return v.Certificate
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
 // Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
@@ -13092,7 +15034,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.IntA
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -13119,6 +15061,16 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualNo
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
 }
 
+// The listener's TLS certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
 // Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool {
@@ -13139,7 +15091,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.I
 	}).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -13149,7 +15101,450 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() Vir
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate struct {
+	// A local file certificate.
+	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds `pulumi:"sds"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs struct {
+	// A local file certificate.
+	File VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return v.File
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return v.Sds
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
 }
@@ -13166,6 +15561,8 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
 }
@@ -13247,6 +15644,13 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtual
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -13274,6 +15678,16 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Elem()
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
@@ -13284,11 +15698,283 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust(
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
 
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return v.Match
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
+	// The values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
+	// The values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput values.
@@ -13305,8 +15991,10 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput interface
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -13393,11 +16081,18 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Acm(
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return v.Sds
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
@@ -13430,7 +16125,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) A
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -13438,6 +16133,16 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) F
 		}
 		return v.File
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm struct {
@@ -13576,7 +16281,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -13592,7 +16297,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput inter
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -13673,7 +16378,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) 
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -13700,13 +16405,146 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13909,11 +16747,13 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() Virtual
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTls struct {
+	// The listener's TLS certificate.
+	Certificate *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate `pulumi:"certificate"`
 	// Whether the policy is enforced. Default is `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -13929,11 +16769,13 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs struct {
+	// The listener's TLS certificate.
+	Certificate VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
 	// Whether the policy is enforced. Default is `true`.
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// The TLS validation context.
+	// The listener's Transport Layer Security (TLS) validation context.
 	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -14014,6 +16856,13 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNode
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
 }
 
+// The listener's TLS certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Certificate() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+		return v.Certificate
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
+}
+
 // Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
@@ -14024,7 +16873,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Ports() pulum
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		return v.Validation
@@ -14051,6 +16900,16 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Elem() Vir
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
 }
 
+// The listener's TLS certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Certificate() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
+}
+
 // Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool {
@@ -14071,7 +16930,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Ports() pu
 	}).(pulumi.IntArrayOutput)
 }
 
-// The TLS validation context.
+// The listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		if v == nil {
@@ -14081,7 +16940,452 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
 }
 
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate struct {
+	// A local file certificate.
+	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds `pulumi:"sds"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs struct {
+	// A local file certificate.
+	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+		return v.File
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+		return v.Sds
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust `pulumi:"trust"`
 }
@@ -14098,6 +17402,8 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput interfac
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// The TLS validation context trust.
 	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput `pulumi:"trust"`
 }
@@ -14179,6 +17485,13 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToV
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
 }
 
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
@@ -14206,6 +17519,16 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
 }
 
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
 // The TLS validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
@@ -14216,11 +17539,283 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
 }
 
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return v.Match
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
+	// The values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
+	// The values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput values.
@@ -14237,8 +17832,10 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput int
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs struct {
 	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// The TLS validation context trust for a local file.
+	// The TLS validation context trust for a local file certificate.
 	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -14325,11 +17922,18 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+		return v.Sds
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
@@ -14362,7 +17966,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// The TLS validation context trust for a local file.
+// The TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -14370,6 +17974,16 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 		}
 		return v.File
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm struct {
@@ -14508,7 +18122,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -14524,7 +18138,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -14605,7 +18219,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOu
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -14632,13 +18246,148 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) string {
+		return v.SecretName
+	}).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18342,6 +22091,8 @@ type VirtualNodeSpecListenerTls struct {
 	Certificate VirtualNodeSpecListenerTlsCertificate `pulumi:"certificate"`
 	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode string `pulumi:"mode"`
+	// The listener's Transport Layer Security (TLS) validation context.
+	Validation *VirtualNodeSpecListenerTlsValidation `pulumi:"validation"`
 }
 
 // VirtualNodeSpecListenerTlsInput is an input type that accepts VirtualNodeSpecListenerTlsArgs and VirtualNodeSpecListenerTlsOutput values.
@@ -18360,6 +22111,8 @@ type VirtualNodeSpecListenerTlsArgs struct {
 	Certificate VirtualNodeSpecListenerTlsCertificateInput `pulumi:"certificate"`
 	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode pulumi.StringInput `pulumi:"mode"`
+	// The listener's Transport Layer Security (TLS) validation context.
+	Validation VirtualNodeSpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
 func (VirtualNodeSpecListenerTlsArgs) ElementType() reflect.Type {
@@ -18449,6 +22202,11 @@ func (o VirtualNodeSpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+// The listener's Transport Layer Security (TLS) validation context.
+func (o VirtualNodeSpecListenerTlsOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation { return v.Validation }).(VirtualNodeSpecListenerTlsValidationPtrOutput)
+}
+
 type VirtualNodeSpecListenerTlsPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerTlsPtrOutput) ElementType() reflect.Type {
@@ -18487,11 +22245,23 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The listener's Transport Layer Security (TLS) validation context.
+func (o VirtualNodeSpecListenerTlsPtrOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(VirtualNodeSpecListenerTlsValidationPtrOutput)
+}
+
 type VirtualNodeSpecListenerTlsCertificate struct {
 	// An AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecListenerTlsCertificateAcm `pulumi:"acm"`
 	// A local file certificate.
 	File *VirtualNodeSpecListenerTlsCertificateFile `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecListenerTlsCertificateSds `pulumi:"sds"`
 }
 
 // VirtualNodeSpecListenerTlsCertificateInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateArgs and VirtualNodeSpecListenerTlsCertificateOutput values.
@@ -18510,6 +22280,8 @@ type VirtualNodeSpecListenerTlsCertificateArgs struct {
 	Acm VirtualNodeSpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
 	// A local file certificate.
 	File VirtualNodeSpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
+	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecListenerTlsCertificateSdsPtrInput `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -18601,6 +22373,11 @@ func (o VirtualNodeSpecListenerTlsCertificateOutput) File() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecListenerTlsCertificateOutput) Sds() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateSds { return v.Sds }).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
+}
+
 type VirtualNodeSpecListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
@@ -18637,6 +22414,16 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) File() VirtualNodeSpecLi
 		}
 		return v.File
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
+}
+
+// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Sds() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
 }
 
 type VirtualNodeSpecListenerTlsCertificateAcm struct {
@@ -18771,7 +22558,7 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulu
 }
 
 type VirtualNodeSpecListenerTlsCertificateFile struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey string `pulumi:"privateKey"`
@@ -18789,7 +22576,7 @@ type VirtualNodeSpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateFileArgs struct {
-	// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
@@ -18872,7 +22659,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -18902,7 +22689,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerTlsCertificateFileOutput)
 }
 
-// The certificate chain for the certificate. Must be between 1 and 255 characters in length.
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -18919,6 +22706,979 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.
 			return nil
 		}
 		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecListenerTlsCertificateSdsInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateSdsArgs and VirtualNodeSpecListenerTlsCertificateSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateSdsInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateSdsArgs{...}
+type VirtualNodeSpecListenerTlsCertificateSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateSdsOutput() VirtualNodeSpecListenerTlsCertificateSdsOutput
+	ToVirtualNodeSpecListenerTlsCertificateSdsOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateSdsOutput
+}
+
+type VirtualNodeSpecListenerTlsCertificateSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecListenerTlsCertificateSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateSdsArgs) ToVirtualNodeSpecListenerTlsCertificateSdsOutput() VirtualNodeSpecListenerTlsCertificateSdsOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateSdsArgs) ToVirtualNodeSpecListenerTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateSdsArgs) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutput() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateSdsArgs) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateSdsOutput).ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsCertificateSdsPtrInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateSdsArgs, VirtualNodeSpecListenerTlsCertificateSdsPtr and VirtualNodeSpecListenerTlsCertificateSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateSdsPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsCertificateSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutput() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput
+	ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput
+}
+
+type virtualNodeSpecListenerTlsCertificateSdsPtrType VirtualNodeSpecListenerTlsCertificateSdsArgs
+
+func VirtualNodeSpecListenerTlsCertificateSdsPtr(v *VirtualNodeSpecListenerTlsCertificateSdsArgs) VirtualNodeSpecListenerTlsCertificateSdsPtrInput {
+	return (*virtualNodeSpecListenerTlsCertificateSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsCertificateSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateSdsPtrType) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutput() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateSdsPtrType) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListenerTlsCertificateSdsOutput() VirtualNodeSpecListenerTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListenerTlsCertificateSdsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutput() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateSds) *VirtualNodeSpecListenerTlsCertificateSds {
+		return &v
+	}).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutput() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) VirtualNodeSpecListenerTlsCertificateSds { return *v }).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidation struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecListenerTlsValidationTrust `pulumi:"trust"`
+}
+
+// VirtualNodeSpecListenerTlsValidationInput is an input type that accepts VirtualNodeSpecListenerTlsValidationArgs and VirtualNodeSpecListenerTlsValidationOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationArgs{...}
+type VirtualNodeSpecListenerTlsValidationInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationOutput() VirtualNodeSpecListenerTlsValidationOutput
+	ToVirtualNodeSpecListenerTlsValidationOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationArgs struct {
+	// The SANs for a TLS validation context.
+	SubjectAlternativeNames VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecListenerTlsValidationTrustInput `pulumi:"trust"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationArgs) ToVirtualNodeSpecListenerTlsValidationOutput() VirtualNodeSpecListenerTlsValidationOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationArgs) ToVirtualNodeSpecListenerTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationArgs) ToVirtualNodeSpecListenerTlsValidationPtrOutput() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationArgs) ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationOutput).ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationPtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationArgs, VirtualNodeSpecListenerTlsValidationPtr and VirtualNodeSpecListenerTlsValidationPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationPtrOutput() VirtualNodeSpecListenerTlsValidationPtrOutput
+	ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationPtrType VirtualNodeSpecListenerTlsValidationArgs
+
+func VirtualNodeSpecListenerTlsValidationPtr(v *VirtualNodeSpecListenerTlsValidationArgs) VirtualNodeSpecListenerTlsValidationPtrInput {
+	return (*virtualNodeSpecListenerTlsValidationPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationPtrType) ToVirtualNodeSpecListenerTlsValidationPtrOutput() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationPtrType) ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTlsValidationOutput() VirtualNodeSpecListenerTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTlsValidationPtrOutput() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidation {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationPtrOutput)
+}
+
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecListenerTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecListenerTlsValidationOutput) Trust() VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) VirtualNodeSpecListenerTlsValidationTrust { return v.Trust }).(VirtualNodeSpecListenerTlsValidationTrustOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationPtrOutput) ToVirtualNodeSpecListenerTlsValidationPtrOutput() VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationPtrOutput) ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) VirtualNodeSpecListenerTlsValidation { return *v }).(VirtualNodeSpecListenerTlsValidationOutput)
+}
+
+// The SANs for a TLS validation context.
+func (o VirtualNodeSpecListenerTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Trust() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualNodeSpecListenerTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
+}
+
+// VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesInput is an input type that accepts VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs and VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs{...}
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs struct {
+	// The criteria for determining a SAN's match.
+	Match VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput).ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs, VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtr and VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrType VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs
+
+func VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtr(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput {
+	return (*virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrType) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return v.Match
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+		return *v
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput)
+}
+
+// The criteria for determining a SAN's match.
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch struct {
+	// The values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput is an input type that accepts VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs and VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs{...}
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs struct {
+	// The values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput).ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs, VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtr and VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput
+	ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs
+
+func VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtr(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrInput {
+	return (*virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrType) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+		return *v
+	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
+}
+
+// The values sent must match the specified values exactly.
+func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrust struct {
+	// The TLS validation context trust for a local file certificate.
+	File *VirtualNodeSpecListenerTlsValidationTrustFile `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds *VirtualNodeSpecListenerTlsValidationTrustSds `pulumi:"sds"`
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustArgs and VirtualNodeSpecListenerTlsValidationTrustOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustArgs{...}
+type VirtualNodeSpecListenerTlsValidationTrustInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustOutput() VirtualNodeSpecListenerTlsValidationTrustOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustArgs struct {
+	// The TLS validation context trust for a local file certificate.
+	File VirtualNodeSpecListenerTlsValidationTrustFilePtrInput `pulumi:"file"`
+	// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustArgs) ToVirtualNodeSpecListenerTlsValidationTrustOutput() VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustArgs) ToVirtualNodeSpecListenerTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustArgs) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutput() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustArgs) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustOutput).ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustPtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustArgs, VirtualNodeSpecListenerTlsValidationTrustPtr and VirtualNodeSpecListenerTlsValidationTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustPtrOutput() VirtualNodeSpecListenerTlsValidationTrustPtrOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationTrustPtrType VirtualNodeSpecListenerTlsValidationTrustArgs
+
+func VirtualNodeSpecListenerTlsValidationTrustPtr(v *VirtualNodeSpecListenerTlsValidationTrustArgs) VirtualNodeSpecListenerTlsValidationTrustPtrInput {
+	return (*virtualNodeSpecListenerTlsValidationTrustPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustPtrType) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutput() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustPtrType) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListenerTlsValidationTrustOutput() VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListenerTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutput() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrust {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationTrustPtrOutput)
+}
+
+// The TLS validation context trust for a local file certificate.
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) File() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustFile {
+		return v.File
+	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecListenerTlsValidationTrustOutput) Sds() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustSds {
+		return v.Sds
+	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutput() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) VirtualNodeSpecListenerTlsValidationTrust {
+		return *v
+	}).(VirtualNodeSpecListenerTlsValidationTrustOutput)
+}
+
+// The TLS validation context trust for a local file certificate.
+func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) File() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustSds {
+		if v == nil {
+			return nil
+		}
+		return v.Sds
+	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustFile struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustFileInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustFileArgs and VirtualNodeSpecListenerTlsValidationTrustFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustFileInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustFileArgs{...}
+type VirtualNodeSpecListenerTlsValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustFileOutput() VirtualNodeSpecListenerTlsValidationTrustFileOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustFileOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustFileOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustFileArgs struct {
+	// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustFileArgs) ToVirtualNodeSpecListenerTlsValidationTrustFileOutput() VirtualNodeSpecListenerTlsValidationTrustFileOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustFileArgs) ToVirtualNodeSpecListenerTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustFileOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustFileArgs) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutput() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustFileArgs) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustFileOutput).ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustFilePtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustFileArgs, VirtualNodeSpecListenerTlsValidationTrustFilePtr and VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustFilePtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationTrustFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutput() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationTrustFilePtrType VirtualNodeSpecListenerTlsValidationTrustFileArgs
+
+func VirtualNodeSpecListenerTlsValidationTrustFilePtr(v *VirtualNodeSpecListenerTlsValidationTrustFileArgs) VirtualNodeSpecListenerTlsValidationTrustFilePtrInput {
+	return (*virtualNodeSpecListenerTlsValidationTrustFilePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationTrustFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustFilePtrType) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutput() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustFilePtrType) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecListenerTlsValidationTrustFileOutput() VirtualNodeSpecListenerTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecListenerTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutput() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustFile) *VirtualNodeSpecListenerTlsValidationTrustFile {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutput() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustFile) VirtualNodeSpecListenerTlsValidationTrustFile {
+		return *v
+	}).(VirtualNodeSpecListenerTlsValidationTrustFileOutput)
+}
+
+// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustSds struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustSdsInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustSdsArgs and VirtualNodeSpecListenerTlsValidationTrustSdsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustSdsInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustSdsArgs{...}
+type VirtualNodeSpecListenerTlsValidationTrustSdsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustSdsOutput() VirtualNodeSpecListenerTlsValidationTrustSdsOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustSdsOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsOutput
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustSdsArgs struct {
+	// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualNodeSpecListenerTlsValidationTrustSdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustSdsArgs) ToVirtualNodeSpecListenerTlsValidationTrustSdsOutput() VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustSdsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustSdsArgs) ToVirtualNodeSpecListenerTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustSdsArgs) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsValidationTrustSdsArgs) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput).ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustSdsArgs, VirtualNodeSpecListenerTlsValidationTrustSdsPtr and VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsValidationTrustSdsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput
+	ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput
+}
+
+type virtualNodeSpecListenerTlsValidationTrustSdsPtrType VirtualNodeSpecListenerTlsValidationTrustSdsArgs
+
+func VirtualNodeSpecListenerTlsValidationTrustSdsPtr(v *VirtualNodeSpecListenerTlsValidationTrustSdsArgs) VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput {
+	return (*virtualNodeSpecListenerTlsValidationTrustSdsPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsValidationTrustSdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustSdsPtrType) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsValidationTrustSdsPtrType) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustSdsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsOutput() VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustSds) *VirtualNodeSpecListenerTlsValidationTrustSds {
+		return &v
+	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsValidationTrustSds)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustSds) VirtualNodeSpecListenerTlsValidationTrustSds {
+		return *v
+	}).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput)
+}
+
+// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustSds) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20861,14 +25621,26 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolOutput{})
@@ -20891,6 +25663,20 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateFileOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateSdsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogOutput{})
@@ -20907,27 +25693,51 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolOutput{})
@@ -20982,6 +25792,20 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateFileOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustSdsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogOutput{})

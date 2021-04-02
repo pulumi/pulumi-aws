@@ -8,6 +8,8 @@ from .get_stack import *
 from .stack import *
 from .stack_set import *
 from .stack_set_instance import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi

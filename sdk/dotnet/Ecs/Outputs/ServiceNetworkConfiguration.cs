@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly bool? AssignPublicIp;
         /// <summary>
-        /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        /// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The subnets associated with the task or service.
+        /// Subnets associated with the task or service.
         /// </summary>
         public readonly ImmutableArray<string> Subnets;
 

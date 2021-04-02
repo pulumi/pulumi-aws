@@ -39,11 +39,34 @@ class DefaultRouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_route_table = aws.ec2.DefaultRouteTable("defaultRouteTable",
-            default_route_table_id=aws_vpc["foo"]["default_route_table_id"],
-            routes=[aws.ec2.DefaultRouteTableRouteArgs()],
+        example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            routes=[
+                aws.ec2.DefaultRouteTableRouteArgs(
+                    cidr_block="10.0.1.0/24",
+                    gateway_id=aws_internet_gateway["example"]["id"],
+                ),
+                aws.ec2.DefaultRouteTableRouteArgs(
+                    ipv6_cidr_block="::/0",
+                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                ),
+            ],
             tags={
-                "Name": "default table",
+                "Name": "example",
+            })
+        ```
+
+        To subsequently remove all managed routes:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            routes=[],
+            tags={
+                "Name": "example",
             })
         ```
 
@@ -61,7 +84,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Configuration block of routes. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -87,6 +109,7 @@ class DefaultRouteTable(pulumi.CustomResource):
             __props__['propagating_vgws'] = propagating_vgws
             __props__['routes'] = routes
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['owner_id'] = None
             __props__['vpc_id'] = None
         super(DefaultRouteTable, __self__).__init__(
@@ -99,6 +122,7 @@ class DefaultRouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             default_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -112,10 +136,10 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the route table.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Configuration block of routes. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: ID of the VPC.
         """
@@ -123,6 +147,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["default_route_table_id"] = default_route_table_id
         __props__["owner_id"] = owner_id
         __props__["propagating_vgws"] = propagating_vgws
@@ -130,6 +155,14 @@ class DefaultRouteTable(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return DefaultRouteTable(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the route table.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
@@ -158,9 +191,6 @@ class DefaultRouteTable(pulumi.CustomResource):
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.DefaultRouteTableRoute']]:
-        """
-        Configuration block of routes. Detailed below.
-        """
         return pulumi.get(self, "routes")
 
     @property

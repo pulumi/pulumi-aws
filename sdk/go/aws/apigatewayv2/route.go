@@ -120,6 +120,8 @@ type Route struct {
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
 	// The request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
+	// The request parameters for the route. Supported only for WebSocket APIs.
+	RequestParameters RouteRequestParameterArrayOutput `pulumi:"requestParameters"`
 	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringOutput `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
@@ -182,6 +184,8 @@ type routeState struct {
 	OperationName *string `pulumi:"operationName"`
 	// The request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
+	// The request parameters for the route. Supported only for WebSocket APIs.
+	RequestParameters []RouteRequestParameter `pulumi:"requestParameters"`
 	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey *string `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
@@ -210,6 +214,8 @@ type RouteState struct {
 	OperationName pulumi.StringPtrInput
 	// The request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
+	// The request parameters for the route. Supported only for WebSocket APIs.
+	RequestParameters RouteRequestParameterArrayInput
 	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringPtrInput
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
@@ -242,6 +248,8 @@ type routeArgs struct {
 	OperationName *string `pulumi:"operationName"`
 	// The request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
+	// The request parameters for the route. Supported only for WebSocket APIs.
+	RequestParameters []RouteRequestParameter `pulumi:"requestParameters"`
 	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey string `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
@@ -271,6 +279,8 @@ type RouteArgs struct {
 	OperationName pulumi.StringPtrInput
 	// The request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
+	// The request parameters for the route. Supported only for WebSocket APIs.
+	RequestParameters RouteRequestParameterArrayInput
 	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringInput
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.

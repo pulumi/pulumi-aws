@@ -14,6 +14,7 @@ __all__ = [
     'AccessPointRootDirectory',
     'AccessPointRootDirectoryCreationInfo',
     'FileSystemLifecyclePolicy',
+    'FileSystemSizeInByte',
     'GetAccessPointPosixUserResult',
     'GetAccessPointRootDirectoryResult',
     'GetAccessPointRootDirectoryCreationInfoResult',
@@ -157,6 +158,52 @@ class FileSystemLifecyclePolicy(dict):
         Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         """
         return pulumi.get(self, "transition_to_ia")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FileSystemSizeInByte(dict):
+    def __init__(__self__, *,
+                 value: Optional[int] = None,
+                 value_in_ia: Optional[int] = None,
+                 value_in_standard: Optional[int] = None):
+        """
+        :param int value: The latest known metered size (in bytes) of data stored in the file system.
+        :param int value_in_ia: The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+        :param int value_in_standard: The latest known metered size (in bytes) of data stored in the Standard storage class.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_in_ia is not None:
+            pulumi.set(__self__, "value_in_ia", value_in_ia)
+        if value_in_standard is not None:
+            pulumi.set(__self__, "value_in_standard", value_in_standard)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        """
+        The latest known metered size (in bytes) of data stored in the file system.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueInIa")
+    def value_in_ia(self) -> Optional[int]:
+        """
+        The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+        """
+        return pulumi.get(self, "value_in_ia")
+
+    @property
+    @pulumi.getter(name="valueInStandard")
+    def value_in_standard(self) -> Optional[int]:
+        """
+        The latest known metered size (in bytes) of data stored in the Standard storage class.
+        """
+        return pulumi.get(self, "value_in_standard")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

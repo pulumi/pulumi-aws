@@ -629,6 +629,121 @@ func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type FileSystemSizeInByte struct {
+	// The latest known metered size (in bytes) of data stored in the file system.
+	Value *int `pulumi:"value"`
+	// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+	ValueInIa *int `pulumi:"valueInIa"`
+	// The latest known metered size (in bytes) of data stored in the Standard storage class.
+	ValueInStandard *int `pulumi:"valueInStandard"`
+}
+
+// FileSystemSizeInByteInput is an input type that accepts FileSystemSizeInByteArgs and FileSystemSizeInByteOutput values.
+// You can construct a concrete instance of `FileSystemSizeInByteInput` via:
+//
+//          FileSystemSizeInByteArgs{...}
+type FileSystemSizeInByteInput interface {
+	pulumi.Input
+
+	ToFileSystemSizeInByteOutput() FileSystemSizeInByteOutput
+	ToFileSystemSizeInByteOutputWithContext(context.Context) FileSystemSizeInByteOutput
+}
+
+type FileSystemSizeInByteArgs struct {
+	// The latest known metered size (in bytes) of data stored in the file system.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+	// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+	ValueInIa pulumi.IntPtrInput `pulumi:"valueInIa"`
+	// The latest known metered size (in bytes) of data stored in the Standard storage class.
+	ValueInStandard pulumi.IntPtrInput `pulumi:"valueInStandard"`
+}
+
+func (FileSystemSizeInByteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemSizeInByte)(nil)).Elem()
+}
+
+func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutput() FileSystemSizeInByteOutput {
+	return i.ToFileSystemSizeInByteOutputWithContext(context.Background())
+}
+
+func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutputWithContext(ctx context.Context) FileSystemSizeInByteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteOutput)
+}
+
+// FileSystemSizeInByteArrayInput is an input type that accepts FileSystemSizeInByteArray and FileSystemSizeInByteArrayOutput values.
+// You can construct a concrete instance of `FileSystemSizeInByteArrayInput` via:
+//
+//          FileSystemSizeInByteArray{ FileSystemSizeInByteArgs{...} }
+type FileSystemSizeInByteArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemSizeInByteArrayOutput() FileSystemSizeInByteArrayOutput
+	ToFileSystemSizeInByteArrayOutputWithContext(context.Context) FileSystemSizeInByteArrayOutput
+}
+
+type FileSystemSizeInByteArray []FileSystemSizeInByteInput
+
+func (FileSystemSizeInByteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemSizeInByte)(nil)).Elem()
+}
+
+func (i FileSystemSizeInByteArray) ToFileSystemSizeInByteArrayOutput() FileSystemSizeInByteArrayOutput {
+	return i.ToFileSystemSizeInByteArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemSizeInByteArray) ToFileSystemSizeInByteArrayOutputWithContext(ctx context.Context) FileSystemSizeInByteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteArrayOutput)
+}
+
+type FileSystemSizeInByteOutput struct{ *pulumi.OutputState }
+
+func (FileSystemSizeInByteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemSizeInByte)(nil)).Elem()
+}
+
+func (o FileSystemSizeInByteOutput) ToFileSystemSizeInByteOutput() FileSystemSizeInByteOutput {
+	return o
+}
+
+func (o FileSystemSizeInByteOutput) ToFileSystemSizeInByteOutputWithContext(ctx context.Context) FileSystemSizeInByteOutput {
+	return o
+}
+
+// The latest known metered size (in bytes) of data stored in the file system.
+func (o FileSystemSizeInByteOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemSizeInByte) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+func (o FileSystemSizeInByteOutput) ValueInIa() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemSizeInByte) *int { return v.ValueInIa }).(pulumi.IntPtrOutput)
+}
+
+// The latest known metered size (in bytes) of data stored in the Standard storage class.
+func (o FileSystemSizeInByteOutput) ValueInStandard() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemSizeInByte) *int { return v.ValueInStandard }).(pulumi.IntPtrOutput)
+}
+
+type FileSystemSizeInByteArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemSizeInByteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemSizeInByte)(nil)).Elem()
+}
+
+func (o FileSystemSizeInByteArrayOutput) ToFileSystemSizeInByteArrayOutput() FileSystemSizeInByteArrayOutput {
+	return o
+}
+
+func (o FileSystemSizeInByteArrayOutput) ToFileSystemSizeInByteArrayOutputWithContext(ctx context.Context) FileSystemSizeInByteArrayOutput {
+	return o
+}
+
+func (o FileSystemSizeInByteArrayOutput) Index(i pulumi.IntInput) FileSystemSizeInByteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemSizeInByte {
+		return vs[0].([]FileSystemSizeInByte)[vs[1].(int)]
+	}).(FileSystemSizeInByteOutput)
+}
+
 type GetAccessPointPosixUser struct {
 	// Group ID
 	Gid int `pulumi:"gid"`
@@ -1026,6 +1141,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})
+	pulumi.RegisterOutputType(FileSystemSizeInByteArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPosixUserArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryOutput{})

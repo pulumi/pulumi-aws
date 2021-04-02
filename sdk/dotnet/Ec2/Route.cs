@@ -23,10 +23,22 @@ namespace Pulumi.Aws.Ec2
     /// ```sh
     ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
     /// ```
+    /// 
+    ///  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        [Output("carrierGatewayId")]
+        public Output<string?> CarrierGatewayId { get; private set; } = null!;
+
         /// <summary>
         /// The destination CIDR block.
         /// </summary>
@@ -39,8 +51,11 @@ namespace Pulumi.Aws.Ec2
         [Output("destinationIpv6CidrBlock")]
         public Output<string?> DestinationIpv6CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of a managed prefix list destination.
+        /// </summary>
         [Output("destinationPrefixListId")]
-        public Output<string> DestinationPrefixListId { get; private set; } = null!;
+        public Output<string?> DestinationPrefixListId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
@@ -60,6 +75,9 @@ namespace Pulumi.Aws.Ec2
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the owner of the EC2 instance.
+        /// </summary>
         [Output("instanceOwnerId")]
         public Output<string> InstanceOwnerId { get; private set; } = null!;
 
@@ -81,6 +99,9 @@ namespace Pulumi.Aws.Ec2
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+        /// </summary>
         [Output("origin")]
         public Output<string> Origin { get; private set; } = null!;
 
@@ -90,6 +111,9 @@ namespace Pulumi.Aws.Ec2
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the route - `active` or `blackhole`.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -158,6 +182,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        [Input("carrierGatewayId")]
+        public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
         /// The destination CIDR block.
         /// </summary>
         [Input("destinationCidrBlock")]
@@ -168,6 +198,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("destinationIpv6CidrBlock")]
         public Input<string>? DestinationIpv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// The ID of a managed prefix list destination.
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        public Input<string>? DestinationPrefixListId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
@@ -237,6 +273,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class RouteState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        [Input("carrierGatewayId")]
+        public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
         /// The destination CIDR block.
         /// </summary>
         [Input("destinationCidrBlock")]
@@ -248,6 +290,9 @@ namespace Pulumi.Aws.Ec2
         [Input("destinationIpv6CidrBlock")]
         public Input<string>? DestinationIpv6CidrBlock { get; set; }
 
+        /// <summary>
+        /// The ID of a managed prefix list destination.
+        /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
 
@@ -269,6 +314,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// The AWS account ID of the owner of the EC2 instance.
+        /// </summary>
         [Input("instanceOwnerId")]
         public Input<string>? InstanceOwnerId { get; set; }
 
@@ -290,6 +338,9 @@ namespace Pulumi.Aws.Ec2
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+        /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
 
@@ -299,6 +350,9 @@ namespace Pulumi.Aws.Ec2
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
+        /// <summary>
+        /// The state of the route - `active` or `blackhole`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

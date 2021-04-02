@@ -80,6 +80,7 @@ type LookupTargetGroupResult struct {
 	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
 	Name                           string                   `pulumi:"name"`
 	Port                           int                      `pulumi:"port"`
+	PreserveClientIp               string                   `pulumi:"preserveClientIp"`
 	Protocol                       string                   `pulumi:"protocol"`
 	ProtocolVersion                string                   `pulumi:"protocolVersion"`
 	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`

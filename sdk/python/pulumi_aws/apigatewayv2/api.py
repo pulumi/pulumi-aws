@@ -23,6 +23,7 @@ class Api(pulumi.CustomResource):
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
+                 fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
@@ -78,6 +79,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.
                By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
                To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         :param pulumi.Input[str] name: The name of the API. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         :param pulumi.Input[str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
@@ -112,6 +114,7 @@ class Api(pulumi.CustomResource):
             __props__['credentials_arn'] = credentials_arn
             __props__['description'] = description
             __props__['disable_execute_api_endpoint'] = disable_execute_api_endpoint
+            __props__['fail_on_warnings'] = fail_on_warnings
             __props__['name'] = name
             if protocol_type is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol_type'")
@@ -143,6 +146,7 @@ class Api(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
+            fail_on_warnings: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
             route_key: Optional[pulumi.Input[str]] = None,
@@ -172,6 +176,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
                or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         :param pulumi.Input[str] name: The name of the API. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         :param pulumi.Input[str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
@@ -196,6 +201,7 @@ class Api(pulumi.CustomResource):
         __props__["description"] = description
         __props__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
         __props__["execution_arn"] = execution_arn
+        __props__["fail_on_warnings"] = fail_on_warnings
         __props__["name"] = name
         __props__["protocol_type"] = protocol_type
         __props__["route_key"] = route_key
@@ -282,6 +288,14 @@ class Api(pulumi.CustomResource):
         See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         """
         return pulumi.get(self, "execution_arn")
+
+    @property
+    @pulumi.getter(name="failOnWarnings")
+    def fail_on_warnings(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        """
+        return pulumi.get(self, "fail_on_warnings")
 
     @property
     @pulumi.getter

@@ -15,8 +15,10 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -45,10 +47,18 @@ class Route(pulumi.CustomResource):
          $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
         ```
 
+         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+
+        ```sh
+         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -77,8 +87,10 @@ class Route(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['carrier_gateway_id'] = carrier_gateway_id
             __props__['destination_cidr_block'] = destination_cidr_block
             __props__['destination_ipv6_cidr_block'] = destination_ipv6_cidr_block
+            __props__['destination_prefix_list_id'] = destination_prefix_list_id
             __props__['egress_only_gateway_id'] = egress_only_gateway_id
             __props__['gateway_id'] = gateway_id
             __props__['instance_id'] = instance_id
@@ -91,7 +103,6 @@ class Route(pulumi.CustomResource):
             __props__['transit_gateway_id'] = transit_gateway_id
             __props__['vpc_endpoint_id'] = vpc_endpoint_id
             __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
-            __props__['destination_prefix_list_id'] = None
             __props__['instance_owner_id'] = None
             __props__['origin'] = None
             __props__['state'] = None
@@ -105,6 +116,7 @@ class Route(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            carrier_gateway_id: Optional[pulumi.Input[str]] = None,
             destination_cidr_block: Optional[pulumi.Input[str]] = None,
             destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -128,15 +140,20 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
+        :param pulumi.Input[str] instance_owner_id: The AWS account ID of the owner of the EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
+        :param pulumi.Input[str] state: The state of the route - `active` or `blackhole`.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
@@ -145,6 +162,7 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["carrier_gateway_id"] = carrier_gateway_id
         __props__["destination_cidr_block"] = destination_cidr_block
         __props__["destination_ipv6_cidr_block"] = destination_ipv6_cidr_block
         __props__["destination_prefix_list_id"] = destination_prefix_list_id
@@ -164,6 +182,14 @@ class Route(pulumi.CustomResource):
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="carrierGatewayId")
+    def carrier_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        """
+        return pulumi.get(self, "carrier_gateway_id")
+
+    @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
@@ -181,7 +207,10 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> pulumi.Output[str]:
+    def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a managed prefix list destination.
+        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
@@ -211,6 +240,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceOwnerId")
     def instance_owner_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the owner of the EC2 instance.
+        """
         return pulumi.get(self, "instance_owner_id")
 
     @property
@@ -240,6 +272,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def origin(self) -> pulumi.Output[str]:
+        """
+        How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+        """
         return pulumi.get(self, "origin")
 
     @property
@@ -253,6 +288,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the route - `active` or `blackhole`.
+        """
         return pulumi.get(self, "state")
 
     @property

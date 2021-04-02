@@ -20,7 +20,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetTargetGroupResult:
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if preserve_client_ip and not isinstance(preserve_client_ip, str):
+            raise TypeError("Expected argument 'preserve_client_ip' to be a str")
+        pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
@@ -122,6 +125,11 @@ class GetTargetGroupResult:
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="preserveClientIp")
+    def preserve_client_ip(self) -> str:
+        return pulumi.get(self, "preserve_client_ip")
+
+    @property
     @pulumi.getter
     def protocol(self) -> str:
         return pulumi.get(self, "protocol")
@@ -177,6 +185,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             load_balancing_algorithm_type=self.load_balancing_algorithm_type,
             name=self.name,
             port=self.port,
+            preserve_client_ip=self.preserve_client_ip,
             protocol=self.protocol,
             protocol_version=self.protocol_version,
             proxy_protocol_v2=self.proxy_protocol_v2,
@@ -241,6 +250,7 @@ def get_target_group(arn: Optional[str] = None,
         load_balancing_algorithm_type=__ret__.load_balancing_algorithm_type,
         name=__ret__.name,
         port=__ret__.port,
+        preserve_client_ip=__ret__.preserve_client_ip,
         protocol=__ret__.protocol,
         protocol_version=__ret__.protocol_version,
         proxy_protocol_v2=__ret__.proxy_protocol_v2,

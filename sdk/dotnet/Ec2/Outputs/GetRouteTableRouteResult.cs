@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
+        public readonly string DestinationPrefixListId;
+        /// <summary>
         /// ID of the Egress Only Internet Gateway.
         /// </summary>
         public readonly string EgressOnlyGatewayId;
@@ -68,6 +72,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string cidrBlock,
 
+            string destinationPrefixListId,
+
             string egressOnlyGatewayId,
 
             string gatewayId,
@@ -90,6 +96,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             CarrierGatewayId = carrierGatewayId;
             CidrBlock = cidrBlock;
+            DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
             InstanceId = instanceId;

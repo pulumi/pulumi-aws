@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewLogSubscriptionFilter(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudwatch/metricAlarm:MetricAlarm":
 		r, err = NewMetricAlarm(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cloudwatch/queryDefinition:QueryDefinition":
+		r, err = NewQueryDefinition(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -136,6 +138,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/metricAlarm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/queryDefinition",
 		&module{version},
 	)
 }

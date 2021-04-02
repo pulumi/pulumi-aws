@@ -133,6 +133,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> RequestModels { get; private set; } = null!;
 
         /// <summary>
+        /// The request parameters for the route. Supported only for WebSocket APIs.
+        /// </summary>
+        [Output("requestParameters")]
+        public Output<ImmutableArray<Outputs.RouteRequestParameter>> RequestParameters { get; private set; } = null!;
+
+        /// <summary>
         /// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         /// </summary>
         [Output("routeKey")]
@@ -259,6 +265,18 @@ namespace Pulumi.Aws.ApiGatewayV2
             set => _requestModels = value;
         }
 
+        [Input("requestParameters")]
+        private InputList<Inputs.RouteRequestParameterArgs>? _requestParameters;
+
+        /// <summary>
+        /// The request parameters for the route. Supported only for WebSocket APIs.
+        /// </summary>
+        public InputList<Inputs.RouteRequestParameterArgs> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputList<Inputs.RouteRequestParameterArgs>());
+            set => _requestParameters = value;
+        }
+
         /// <summary>
         /// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         /// </summary>
@@ -345,6 +363,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         {
             get => _requestModels ?? (_requestModels = new InputMap<string>());
             set => _requestModels = value;
+        }
+
+        [Input("requestParameters")]
+        private InputList<Inputs.RouteRequestParameterGetArgs>? _requestParameters;
+
+        /// <summary>
+        /// The request parameters for the route. Supported only for WebSocket APIs.
+        /// </summary>
+        public InputList<Inputs.RouteRequestParameterGetArgs> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputList<Inputs.RouteRequestParameterGetArgs>());
+            set => _requestParameters = value;
         }
 
         /// <summary>

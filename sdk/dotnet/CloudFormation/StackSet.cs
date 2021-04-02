@@ -124,16 +124,22 @@ namespace Pulumi.Aws.CloudFormation
     public partial class StackSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
         [Output("administrationRoleArn")]
-        public Output<string> AdministrationRoleArn { get; private set; } = null!;
+        public Output<string?> AdministrationRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        /// </summary>
+        [Output("autoDeployment")]
+        public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
@@ -148,10 +154,10 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Output("executionRoleName")]
-        public Output<string?> ExecutionRoleName { get; private set; } = null!;
+        public Output<string> ExecutionRoleName { get; private set; } = null!;
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -164,6 +170,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+        /// </summary>
+        [Output("permissionModel")]
+        public Output<string?> PermissionModel { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier of the StackSet.
@@ -197,7 +209,7 @@ namespace Pulumi.Aws.CloudFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public StackSet(string name, StackSetArgs args, CustomResourceOptions? options = null)
+        public StackSet(string name, StackSetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:cloudformation/stackSet:StackSet", name, args ?? new StackSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -236,10 +248,16 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class StackSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
-        [Input("administrationRoleArn", required: true)]
-        public Input<string> AdministrationRoleArn { get; set; } = null!;
+        [Input("administrationRoleArn")]
+        public Input<string>? AdministrationRoleArn { get; set; }
+
+        /// <summary>
+        /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        /// </summary>
+        [Input("autoDeployment")]
+        public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
 
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -260,7 +278,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
@@ -282,6 +300,12 @@ namespace Pulumi.Aws.CloudFormation
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+        /// </summary>
+        [Input("permissionModel")]
+        public Input<string>? PermissionModel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -315,7 +339,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class StackSetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account.
+        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
         [Input("administrationRoleArn")]
         public Input<string>? AdministrationRoleArn { get; set; }
@@ -325,6 +349,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        /// </summary>
+        [Input("autoDeployment")]
+        public Input<Inputs.StackSetAutoDeploymentGetArgs>? AutoDeployment { get; set; }
 
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -345,7 +375,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
@@ -367,6 +397,12 @@ namespace Pulumi.Aws.CloudFormation
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+        /// </summary>
+        [Input("permissionModel")]
+        public Input<string>? PermissionModel { get; set; }
 
         /// <summary>
         /// Unique identifier of the StackSet.

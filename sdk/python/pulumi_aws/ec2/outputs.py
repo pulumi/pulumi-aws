@@ -867,6 +867,7 @@ class DefaultNetworkAclIngress(dict):
 class DefaultRouteTableRoute(dict):
     def __init__(__self__, *,
                  cidr_block: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
                  egress_only_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
                  instance_id: Optional[str] = None,
@@ -878,6 +879,7 @@ class DefaultRouteTableRoute(dict):
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str cidr_block: The CIDR block of the route.
+        :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param str instance_id: Identifier of an EC2 instance.
@@ -890,6 +892,8 @@ class DefaultRouteTableRoute(dict):
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
@@ -916,6 +920,14 @@ class DefaultRouteTableRoute(dict):
         The CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[str]:
+        """
+        The ID of a managed prefix list destination of the route.
+        """
+        return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
@@ -3520,7 +3532,9 @@ class PeeringConnectionOptionsRequester(dict):
 @pulumi.output_type
 class RouteTableRoute(dict):
     def __init__(__self__, *,
+                 carrier_gateway_id: Optional[str] = None,
                  cidr_block: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
                  egress_only_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
                  instance_id: Optional[str] = None,
@@ -3532,7 +3546,9 @@ class RouteTableRoute(dict):
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_peering_connection_id: Optional[str] = None):
         """
+        :param str carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param str cidr_block: The CIDR block of the route.
+        :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param str instance_id: Identifier of an EC2 instance.
@@ -3544,8 +3560,12 @@ class RouteTableRoute(dict):
         :param str vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param str vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
+        if carrier_gateway_id is not None:
+            pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
@@ -3568,12 +3588,28 @@ class RouteTableRoute(dict):
             pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
+    @pulumi.getter(name="carrierGatewayId")
+    def carrier_gateway_id(self) -> Optional[str]:
+        """
+        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        """
+        return pulumi.get(self, "carrier_gateway_id")
+
+    @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[str]:
         """
         The CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[str]:
+        """
+        The ID of a managed prefix list destination of the route.
+        """
+        return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
@@ -7573,6 +7609,7 @@ class GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  carrier_gateway_id: str,
                  cidr_block: str,
+                 destination_prefix_list_id: str,
                  egress_only_gateway_id: str,
                  gateway_id: str,
                  instance_id: str,
@@ -7586,6 +7623,7 @@ class GetRouteTableRouteResult(dict):
         """
         :param str carrier_gateway_id: ID of the Carrier Gateway.
         :param str cidr_block: CIDR block of the route.
+        :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: ID of the Egress Only Internet Gateway.
         :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         :param str instance_id: EC2 instance ID.
@@ -7599,6 +7637,7 @@ class GetRouteTableRouteResult(dict):
         """
         pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -7625,6 +7664,14 @@ class GetRouteTableRouteResult(dict):
         CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> str:
+        """
+        The ID of a managed prefix list destination of the route.
+        """
+        return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")

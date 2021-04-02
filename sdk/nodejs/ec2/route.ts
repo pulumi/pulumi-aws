@@ -18,6 +18,12 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
  * ```
+ *
+ *  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -48,6 +54,10 @@ export class Route extends pulumi.CustomResource {
     }
 
     /**
+     * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+     */
+    public readonly carrierGatewayId!: pulumi.Output<string | undefined>;
+    /**
      * The destination CIDR block.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
@@ -55,7 +65,10 @@ export class Route extends pulumi.CustomResource {
      * The destination IPv6 CIDR block.
      */
     public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly destinationPrefixListId!: pulumi.Output<string>;
+    /**
+     * The ID of a managed prefix list destination.
+     */
+    public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */
@@ -68,6 +81,9 @@ export class Route extends pulumi.CustomResource {
      * Identifier of an EC2 instance.
      */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * The AWS account ID of the owner of the EC2 instance.
+     */
     public /*out*/ readonly instanceOwnerId!: pulumi.Output<string>;
     /**
      * Identifier of a Outpost local gateway.
@@ -81,11 +97,17 @@ export class Route extends pulumi.CustomResource {
      * Identifier of an EC2 network interface.
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
+    /**
+     * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+     */
     public /*out*/ readonly origin!: pulumi.Output<string>;
     /**
      * The ID of the routing table.
      */
     public readonly routeTableId!: pulumi.Output<string>;
+    /**
+     * The state of the route - `active` or `blackhole`.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Identifier of an EC2 Transit Gateway.
@@ -113,6 +135,7 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
+            inputs["carrierGatewayId"] = state ? state.carrierGatewayId : undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
             inputs["destinationPrefixListId"] = state ? state.destinationPrefixListId : undefined;
@@ -134,8 +157,10 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
+            inputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             inputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
+            inputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
             inputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
             inputs["gatewayId"] = args ? args.gatewayId : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
@@ -146,7 +171,6 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
-            inputs["destinationPrefixListId"] = undefined /*out*/;
             inputs["instanceOwnerId"] = undefined /*out*/;
             inputs["origin"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
@@ -163,6 +187,10 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteState {
     /**
+     * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+     */
+    readonly carrierGatewayId?: pulumi.Input<string>;
+    /**
      * The destination CIDR block.
      */
     readonly destinationCidrBlock?: pulumi.Input<string>;
@@ -170,6 +198,9 @@ export interface RouteState {
      * The destination IPv6 CIDR block.
      */
     readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The ID of a managed prefix list destination.
+     */
     readonly destinationPrefixListId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
@@ -183,6 +214,9 @@ export interface RouteState {
      * Identifier of an EC2 instance.
      */
     readonly instanceId?: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the owner of the EC2 instance.
+     */
     readonly instanceOwnerId?: pulumi.Input<string>;
     /**
      * Identifier of a Outpost local gateway.
@@ -196,11 +230,17 @@ export interface RouteState {
      * Identifier of an EC2 network interface.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+     */
     readonly origin?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
      */
     readonly routeTableId?: pulumi.Input<string>;
+    /**
+     * The state of the route - `active` or `blackhole`.
+     */
     readonly state?: pulumi.Input<string>;
     /**
      * Identifier of an EC2 Transit Gateway.
@@ -221,6 +261,10 @@ export interface RouteState {
  */
 export interface RouteArgs {
     /**
+     * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+     */
+    readonly carrierGatewayId?: pulumi.Input<string>;
+    /**
      * The destination CIDR block.
      */
     readonly destinationCidrBlock?: pulumi.Input<string>;
@@ -228,6 +272,10 @@ export interface RouteArgs {
      * The destination IPv6 CIDR block.
      */
     readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The ID of a managed prefix list destination.
+     */
+    readonly destinationPrefixListId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */

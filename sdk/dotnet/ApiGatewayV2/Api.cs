@@ -125,6 +125,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// </summary>
+        [Output("failOnWarnings")]
+        public Output<bool?> FailOnWarnings { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Output("name")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("failOnWarnings")]
+        public Input<bool>? FailOnWarnings { get; set; }
+
+        /// <summary>
         /// The name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
@@ -372,6 +384,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("executionArn")]
         public Input<string>? ExecutionArn { get; set; }
+
+        /// <summary>
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("failOnWarnings")]
+        public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
         /// The name of the API. Must be less than or equal to 128 characters in length.

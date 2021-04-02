@@ -57,6 +57,7 @@ class PlanRule(dict):
                  target_vault_name: str,
                  completion_window: Optional[int] = None,
                  copy_actions: Optional[Sequence['outputs.PlanRuleCopyAction']] = None,
+                 enable_continuous_backup: Optional[bool] = None,
                  lifecycle: Optional['outputs.PlanRuleLifecycle'] = None,
                  recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule: Optional[str] = None,
@@ -66,6 +67,7 @@ class PlanRule(dict):
         :param str target_vault_name: The name of a logical container where backups are stored.
         :param int completion_window: The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
         :param Sequence['PlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
+        :param bool enable_continuous_backup: Enable continuous backups for supported resources.
         :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         :param Mapping[str, str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
@@ -77,6 +79,8 @@ class PlanRule(dict):
             pulumi.set(__self__, "completion_window", completion_window)
         if copy_actions is not None:
             pulumi.set(__self__, "copy_actions", copy_actions)
+        if enable_continuous_backup is not None:
+            pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
@@ -117,6 +121,14 @@ class PlanRule(dict):
         Configuration block(s) with copy operation settings. Detailed below.
         """
         return pulumi.get(self, "copy_actions")
+
+    @property
+    @pulumi.getter(name="enableContinuousBackup")
+    def enable_continuous_backup(self) -> Optional[bool]:
+        """
+        Enable continuous backups for supported resources.
+        """
+        return pulumi.get(self, "enable_continuous_backup")
 
     @property
     @pulumi.getter

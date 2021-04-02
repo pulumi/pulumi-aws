@@ -30,6 +30,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetPolicyArgs {
      * ARN of the IAM policy.
      */
     readonly arn: string;
+    /**
+     * Key-value mapping of tags for the IAM Policy
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -71,4 +76,12 @@ export interface GetPolicyResult {
      * The policy document of the policy.
      */
     readonly policy: string;
+    /**
+     * The policy's ID.
+     */
+    readonly policyId: string;
+    /**
+     * Key-value mapping of tags for the IAM Policy
+     */
+    readonly tags: {[key: string]: string};
 }

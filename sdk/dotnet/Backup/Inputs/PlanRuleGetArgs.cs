@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
+        /// Enable continuous backups for supported resources.
+        /// </summary>
+        [Input("enableContinuousBackup")]
+        public Input<bool>? EnableContinuousBackup { get; set; }
+
+        /// <summary>
         /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         /// </summary>
         [Input("lifecycle")]

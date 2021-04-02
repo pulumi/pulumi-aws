@@ -95,6 +95,7 @@ namespace Pulumi.Aws.Alb
         public readonly string LoadBalancingAlgorithmType;
         public readonly string Name;
         public readonly int Port;
+        public readonly string PreserveClientIp;
         public readonly string Protocol;
         public readonly string ProtocolVersion;
         public readonly bool ProxyProtocolV2;
@@ -124,6 +125,8 @@ namespace Pulumi.Aws.Alb
 
             int port,
 
+            string preserveClientIp,
+
             string protocol,
 
             string protocolVersion,
@@ -149,6 +152,7 @@ namespace Pulumi.Aws.Alb
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
             Name = name;
             Port = port;
+            PreserveClientIp = preserveClientIp;
             Protocol = protocol;
             ProtocolVersion = protocolVersion;
             ProxyProtocolV2 = proxyProtocolV2;

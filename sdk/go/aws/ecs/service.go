@@ -146,17 +146,19 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
-	// Configuration block containing deployment controller configuration. Defined below.
+	// Configuration block for deployment circuit breaker. Detailed below.
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrOutput `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment controller configuration. Detailed below.
 	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent pulumi.IntPtrOutput `pulumi:"deploymentMaximumPercent"`
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent pulumi.IntPtrOutput `pulumi:"deploymentMinimumHealthyPercent"`
-	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrOutput `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
@@ -168,31 +170,31 @@ type Service struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
-	// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
 	LaunchType pulumi.StringOutput `pulumi:"launchType"`
-	// A load balancer block. Load balancers documented below.
+	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
-	// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
 	OrderedPlacementStrategies ServiceOrderedPlacementStrategyArrayOutput `pulumi:"orderedPlacementStrategies"`
-	// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints ServicePlacementConstraintArrayOutput `pulumi:"placementConstraints"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
 	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
 }
 
@@ -225,17 +227,19 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster
 	Cluster *string `pulumi:"cluster"`
-	// Configuration block containing deployment controller configuration. Defined below.
+	// Configuration block for deployment circuit breaker. Detailed below.
+	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment controller configuration. Detailed below.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent *int `pulumi:"deploymentMaximumPercent"`
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent *int `pulumi:"deploymentMinimumHealthyPercent"`
-	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount *int `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
@@ -247,46 +251,48 @@ type serviceState struct {
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole *string `pulumi:"iamRole"`
-	// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
-	// A load balancer block. Load balancers documented below.
+	// Configuration block for load balancers. Detailed below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
-	// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
 	OrderedPlacementStrategies []ServiceOrderedPlacementStrategy `pulumi:"orderedPlacementStrategies"`
-	// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
 type ServiceState struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster
 	Cluster pulumi.StringPtrInput
-	// Configuration block containing deployment controller configuration. Defined below.
+	// Configuration block for deployment circuit breaker. Detailed below.
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput
+	// Configuration block for deployment controller configuration. Detailed below.
 	DeploymentController ServiceDeploymentControllerPtrInput
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent pulumi.IntPtrInput
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent pulumi.IntPtrInput
-	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrInput
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
@@ -298,31 +304,31 @@ type ServiceState struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringPtrInput
-	// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
-	// A load balancer block. Load balancers documented below.
+	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayInput
-	// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
 	OrderedPlacementStrategies ServiceOrderedPlacementStrategyArrayInput
-	// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints ServicePlacementConstraintArrayInput
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 
@@ -331,17 +337,19 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster
 	Cluster *string `pulumi:"cluster"`
-	// Configuration block containing deployment controller configuration. Defined below.
+	// Configuration block for deployment circuit breaker. Detailed below.
+	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// Configuration block for deployment controller configuration. Detailed below.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent *int `pulumi:"deploymentMaximumPercent"`
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent *int `pulumi:"deploymentMinimumHealthyPercent"`
-	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount *int `pulumi:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
@@ -353,47 +361,49 @@ type serviceArgs struct {
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole *string `pulumi:"iamRole"`
-	// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
-	// A load balancer block. Load balancers documented below.
+	// Configuration block for load balancers. Detailed below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
-	// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
 	OrderedPlacementStrategies []ServiceOrderedPlacementStrategy `pulumi:"orderedPlacementStrategies"`
-	// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster
 	Cluster pulumi.StringPtrInput
-	// Configuration block containing deployment controller configuration. Defined below.
+	// Configuration block for deployment circuit breaker. Detailed below.
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput
+	// Configuration block for deployment controller configuration. Detailed below.
 	DeploymentController ServiceDeploymentControllerPtrInput
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent pulumi.IntPtrInput
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent pulumi.IntPtrInput
-	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrInput
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
@@ -405,31 +415,31 @@ type ServiceArgs struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringPtrInput
-	// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
-	// A load balancer block. Load balancers documented below.
+	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayInput
-	// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Detailed below.
 	OrderedPlacementStrategies ServiceOrderedPlacementStrategyArrayInput
-	// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
+	// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Detailed below.
 	PlacementConstraints ServicePlacementConstraintArrayInput
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`) before continuing. Default `false`.
+	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 

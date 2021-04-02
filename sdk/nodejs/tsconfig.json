@@ -208,6 +208,7 @@
         "cloudwatch/logStream.ts",
         "cloudwatch/logSubscriptionFilter.ts",
         "cloudwatch/metricAlarm.ts",
+        "cloudwatch/queryDefinition.ts",
         "codeartifact/domain.ts",
         "codeartifact/domainPermissions.ts",
         "codeartifact/getAuthorizationToken.ts",

@@ -14,13 +14,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation
     {
         /// <summary>
+        /// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        /// </summary>
+        public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? SubjectAlternativeNames;
+        /// <summary>
         /// The TLS validation context trust.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust Trust;
 
         [OutputConstructor]
-        private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust)
+        private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(
+            Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? subjectAlternativeNames,
+
+            Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust)
         {
+            SubjectAlternativeNames = subjectAlternativeNames;
             Trust = trust;
         }
     }

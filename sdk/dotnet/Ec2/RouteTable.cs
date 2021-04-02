@@ -41,25 +41,49 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var routeTable = new Aws.Ec2.RouteTable("routeTable", new Aws.Ec2.RouteTableArgs
+    ///         var example = new Aws.Ec2.RouteTable("example", new Aws.Ec2.RouteTableArgs
     ///         {
-    ///             VpcId = aws_vpc.Default.Id,
+    ///             VpcId = aws_vpc.Example.Id,
     ///             Routes = 
     ///             {
     ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///                 {
     ///                     CidrBlock = "10.0.1.0/24",
-    ///                     GatewayId = aws_internet_gateway.Main.Id,
+    ///                     GatewayId = aws_internet_gateway.Example.Id,
     ///                 },
     ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///                 {
     ///                     Ipv6CidrBlock = "::/0",
-    ///                     EgressOnlyGatewayId = aws_egress_only_internet_gateway.Foo.Id,
+    ///                     EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
     ///                 },
     ///             },
     ///             Tags = 
     ///             {
-    ///                 { "Name", "main" },
+    ///                 { "Name", "example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// To subsequently remove all managed routes:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.RouteTable("example", new Aws.Ec2.RouteTableArgs
+    ///         {
+    ///             VpcId = aws_vpc.Example.Id,
+    ///             Routes = {},
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example" },
     ///             },
     ///         });
     ///     }
@@ -79,6 +103,12 @@ namespace Pulumi.Aws.Ec2
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the route table.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the AWS account that owns the route table.
         /// </summary>
         [Output("ownerId")]
@@ -97,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -182,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -203,6 +233,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class RouteTableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the route table.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The ID of the AWS account that owns the route table.
         /// </summary>
@@ -237,7 +273,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

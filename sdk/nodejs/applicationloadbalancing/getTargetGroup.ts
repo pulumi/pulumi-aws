@@ -78,6 +78,7 @@ export interface GetTargetGroupResult {
     readonly loadBalancingAlgorithmType: string;
     readonly name: string;
     readonly port: number;
+    readonly preserveClientIp: string;
     readonly protocol: string;
     readonly protocolVersion: string;
     readonly proxyProtocolV2: boolean;

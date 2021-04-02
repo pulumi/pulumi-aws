@@ -79,6 +79,10 @@ type Policy struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The policy's ID.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// Map of resource tags for the IAM Policy
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +130,10 @@ type policyState struct {
 	Path *string `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
+	// The policy's ID.
+	PolicyId *string `pulumi:"policyId"`
+	// Map of resource tags for the IAM Policy
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PolicyState struct {
@@ -142,6 +150,10 @@ type PolicyState struct {
 	Path pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
+	// The policy's ID.
+	PolicyId pulumi.StringPtrInput
+	// Map of resource tags for the IAM Policy
+	Tags pulumi.StringMapInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -160,6 +172,8 @@ type policyArgs struct {
 	Path *string `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
+	// Map of resource tags for the IAM Policy
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -175,6 +189,8 @@ type PolicyArgs struct {
 	Path pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
+	// Map of resource tags for the IAM Policy
+	Tags pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

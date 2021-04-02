@@ -112,6 +112,10 @@ export class Api extends pulumi.CustomResource {
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
+     * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+     */
+    public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the API. Must be less than or equal to 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class Api extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
             inputs["executionArn"] = state ? state.executionArn : undefined;
+            inputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protocolType"] = state ? state.protocolType : undefined;
             inputs["routeKey"] = state ? state.routeKey : undefined;
@@ -183,6 +188,7 @@ export class Api extends pulumi.CustomResource {
             inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
+            inputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocolType"] = args ? args.protocolType : undefined;
             inputs["routeKey"] = args ? args.routeKey : undefined;
@@ -248,6 +254,10 @@ export interface ApiState {
      */
     readonly executionArn?: pulumi.Input<string>;
     /**
+     * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+     */
+    readonly failOnWarnings?: pulumi.Input<boolean>;
+    /**
      * The name of the API. Must be less than or equal to 128 characters in length.
      */
     readonly name?: pulumi.Input<string>;
@@ -312,6 +322,10 @@ export interface ApiArgs {
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      */
     readonly disableExecuteApiEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+     */
+    readonly failOnWarnings?: pulumi.Input<boolean>;
     /**
      * The name of the API. Must be less than or equal to 128 characters in length.
      */

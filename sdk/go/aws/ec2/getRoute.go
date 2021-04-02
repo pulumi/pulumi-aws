@@ -9,14 +9,11 @@ import (
 
 // `ec2.Route` provides details about a specific Route.
 //
-// This resource can prove useful when finding the resource
-// associated with a CIDR. For example, finding the peering
-// connection associated with a CIDR value.
+// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
 //
 // ## Example Usage
 //
-// The following example shows how one might use a CIDR value to find a network interface id
-// and use this to create a data source of that network interface.
+// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 //
 // ```go
 // package main
@@ -68,34 +65,40 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getRoute.
 type LookupRouteArgs struct {
-	// The CIDR block of the Route belonging to the Route Table.
+	// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
+	// CIDR block of the Route belonging to the Route Table.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	// The IPv6 CIDR block of the Route belonging to the Route Table.
+	// IPv6 CIDR block of the Route belonging to the Route Table.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
-	// The Egress Only Gateway ID of the Route belonging to the Route Table.
+	// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// Egress Only Gateway ID of the Route belonging to the Route Table.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
-	// The Gateway ID of the Route belonging to the Route Table.
+	// Gateway ID of the Route belonging to the Route Table.
 	GatewayId *string `pulumi:"gatewayId"`
-	// The Instance ID of the Route belonging to the Route Table.
+	// Instance ID of the Route belonging to the Route Table.
 	InstanceId *string `pulumi:"instanceId"`
-	// The Local Gateway ID of the Route belonging to the Route Table.
+	// Local Gateway ID of the Route belonging to the Route Table.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
-	// The NAT Gateway ID of the Route belonging to the Route Table.
+	// NAT Gateway ID of the Route belonging to the Route Table.
 	NatGatewayId *string `pulumi:"natGatewayId"`
-	// The Network Interface ID of the Route belonging to the Route Table.
+	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The id of the specific Route Table containing the Route entry.
+	// The ID of the specific Route Table containing the Route entry.
 	RouteTableId string `pulumi:"routeTableId"`
-	// The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// The VPC Peering Connection ID of the Route belonging to the Route Table.
+	// VPC Peering Connection ID of the Route belonging to the Route Table.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
 // A collection of values returned by getRoute.
 type LookupRouteResult struct {
+	CarrierGatewayId         string `pulumi:"carrierGatewayId"`
 	DestinationCidrBlock     string `pulumi:"destinationCidrBlock"`
 	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
+	DestinationPrefixListId  string `pulumi:"destinationPrefixListId"`
 	EgressOnlyGatewayId      string `pulumi:"egressOnlyGatewayId"`
 	GatewayId                string `pulumi:"gatewayId"`
 	// The provider-assigned unique ID for this managed resource.

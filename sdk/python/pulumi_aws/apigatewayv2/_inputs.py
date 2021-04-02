@@ -15,6 +15,7 @@ __all__ = [
     'DomainNameMutualTlsAuthenticationArgs',
     'IntegrationResponseParameterArgs',
     'IntegrationTlsConfigArgs',
+    'RouteRequestParameterArgs',
     'StageAccessLogSettingsArgs',
     'StageDefaultRouteSettingsArgs',
     'StageRouteSettingArgs',
@@ -348,6 +349,43 @@ class IntegrationTlsConfigArgs:
     @server_name_to_verify.setter
     def server_name_to_verify(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_name_to_verify", value)
+
+
+@pulumi.input_type
+class RouteRequestParameterArgs:
+    def __init__(__self__, *,
+                 request_parameter_key: pulumi.Input[str],
+                 required: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] request_parameter_key: Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+        :param pulumi.Input[bool] required: Boolean whether or not the parameter is required.
+        """
+        pulumi.set(__self__, "request_parameter_key", request_parameter_key)
+        pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="requestParameterKey")
+    def request_parameter_key(self) -> pulumi.Input[str]:
+        """
+        Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+        """
+        return pulumi.get(self, "request_parameter_key")
+
+    @request_parameter_key.setter
+    def request_parameter_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "request_parameter_key", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[bool]:
+        """
+        Boolean whether or not the parameter is required.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "required", value)
 
 
 @pulumi.input_type

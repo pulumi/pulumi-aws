@@ -45,6 +45,8 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 type LookupPolicyArgs struct {
 	// ARN of the IAM policy.
 	Arn string `pulumi:"arn"`
+	// Key-value mapping of tags for the IAM Policy
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPolicy.
@@ -61,4 +63,8 @@ type LookupPolicyResult struct {
 	Path string `pulumi:"path"`
 	// The policy document of the policy.
 	Policy string `pulumi:"policy"`
+	// The policy's ID.
+	PolicyId string `pulumi:"policyId"`
+	// Key-value mapping of tags for the IAM Policy
+	Tags map[string]string `pulumi:"tags"`
 }

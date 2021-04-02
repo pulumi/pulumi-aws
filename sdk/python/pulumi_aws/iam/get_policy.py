@@ -19,7 +19,7 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, policy=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, policy=None, policy_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,12 @@ class GetPolicyResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if policy_id and not isinstance(policy_id, str):
+            raise TypeError("Expected argument 'policy_id' to be a str")
+        pulumi.set(__self__, "policy_id", policy_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -87,6 +93,22 @@ class GetPolicyResult:
         """
         return pulumi.get(self, "policy")
 
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> str:
+        """
+        The policy's ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Key-value mapping of tags for the IAM Policy
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
@@ -99,10 +121,13 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             id=self.id,
             name=self.name,
             path=self.path,
-            policy=self.policy)
+            policy=self.policy,
+            policy_id=self.policy_id,
+            tags=self.tags)
 
 
 def get_policy(arn: Optional[str] = None,
+               tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     This data source can be used to fetch information about a specific
@@ -119,9 +144,11 @@ def get_policy(arn: Optional[str] = None,
 
 
     :param str arn: ARN of the IAM policy.
+    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -134,4 +161,6 @@ def get_policy(arn: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         path=__ret__.path,
-        policy=__ret__.policy)
+        policy=__ret__.policy,
+        policy_id=__ret__.policy_id,
+        tags=__ret__.tags)

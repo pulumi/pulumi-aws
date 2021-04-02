@@ -20,6 +20,7 @@ class Policy(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -62,6 +63,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +89,9 @@ class Policy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
+            __props__['tags'] = tags
             __props__['arn'] = None
+            __props__['policy_id'] = None
         super(Policy, __self__).__init__(
             'aws:iam/policy:Policy',
             resource_name,
@@ -103,7 +107,9 @@ class Policy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
-            policy: Optional[pulumi.Input[str]] = None) -> 'Policy':
+            policy: Optional[pulumi.Input[str]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,6 +124,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] policy_id: The policy's ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -129,6 +137,8 @@ class Policy(pulumi.CustomResource):
         __props__["name_prefix"] = name_prefix
         __props__["path"] = path
         __props__["policy"] = policy
+        __props__["policy_id"] = policy_id
+        __props__["tags"] = tags
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -179,6 +189,22 @@ class Policy(pulumi.CustomResource):
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Output[str]:
+        """
+        The policy's ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of resource tags for the IAM Policy
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -121,6 +121,8 @@ type PlanRule struct {
 	CompletionWindow *int `pulumi:"completionWindow"`
 	// Configuration block(s) with copy operation settings. Detailed below.
 	CopyActions []PlanRuleCopyAction `pulumi:"copyActions"`
+	// Enable continuous backups for supported resources.
+	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
@@ -151,6 +153,8 @@ type PlanRuleArgs struct {
 	CompletionWindow pulumi.IntPtrInput `pulumi:"completionWindow"`
 	// Configuration block(s) with copy operation settings. Detailed below.
 	CopyActions PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	// Enable continuous backups for supported resources.
+	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
@@ -224,6 +228,11 @@ func (o PlanRuleOutput) CompletionWindow() pulumi.IntPtrOutput {
 // Configuration block(s) with copy operation settings. Detailed below.
 func (o PlanRuleOutput) CopyActions() PlanRuleCopyActionArrayOutput {
 	return o.ApplyT(func(v PlanRule) []PlanRuleCopyAction { return v.CopyActions }).(PlanRuleCopyActionArrayOutput)
+}
+
+// Enable continuous backups for supported resources.
+func (o PlanRuleOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PlanRule) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
 // The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.

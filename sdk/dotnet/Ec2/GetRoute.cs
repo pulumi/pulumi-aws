@@ -14,16 +14,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Route` provides details about a specific Route.
         /// 
-        /// This resource can prove useful when finding the resource
-        /// associated with a CIDR. For example, finding the peering
-        /// connection associated with a CIDR value.
+        /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id
-        /// and use this to create a data source of that network interface.
+        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -63,67 +60,79 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetRouteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The CIDR block of the Route belonging to the Route Table.
+        /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("carrierGatewayId")]
+        public string? CarrierGatewayId { get; set; }
+
+        /// <summary>
+        /// CIDR block of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationCidrBlock")]
         public string? DestinationCidrBlock { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR block of the Route belonging to the Route Table.
+        /// IPv6 CIDR block of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationIpv6CidrBlock")]
         public string? DestinationIpv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The Egress Only Gateway ID of the Route belonging to the Route Table.
+        /// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        public string? DestinationPrefixListId { get; set; }
+
+        /// <summary>
+        /// Egress Only Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("egressOnlyGatewayId")]
         public string? EgressOnlyGatewayId { get; set; }
 
         /// <summary>
-        /// The Gateway ID of the Route belonging to the Route Table.
+        /// Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("gatewayId")]
         public string? GatewayId { get; set; }
 
         /// <summary>
-        /// The Instance ID of the Route belonging to the Route Table.
+        /// Instance ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("instanceId")]
         public string? InstanceId { get; set; }
 
         /// <summary>
-        /// The Local Gateway ID of the Route belonging to the Route Table.
+        /// Local Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("localGatewayId")]
         public string? LocalGatewayId { get; set; }
 
         /// <summary>
-        /// The NAT Gateway ID of the Route belonging to the Route Table.
+        /// NAT Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("natGatewayId")]
         public string? NatGatewayId { get; set; }
 
         /// <summary>
-        /// The Network Interface ID of the Route belonging to the Route Table.
+        /// Network Interface ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("networkInterfaceId")]
         public string? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The id of the specific Route Table containing the Route entry.
+        /// The ID of the specific Route Table containing the Route entry.
         /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
 
         /// <summary>
-        /// The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+        /// EC2 Transit Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("transitGatewayId")]
         public string? TransitGatewayId { get; set; }
 
         /// <summary>
-        /// The VPC Peering Connection ID of the Route belonging to the Route Table.
+        /// VPC Peering Connection ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public string? VpcPeeringConnectionId { get; set; }
@@ -137,8 +146,10 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetRouteResult
     {
+        public readonly string CarrierGatewayId;
         public readonly string DestinationCidrBlock;
         public readonly string DestinationIpv6CidrBlock;
+        public readonly string DestinationPrefixListId;
         public readonly string EgressOnlyGatewayId;
         public readonly string GatewayId;
         /// <summary>
@@ -155,9 +166,13 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetRouteResult(
+            string carrierGatewayId,
+
             string destinationCidrBlock,
 
             string destinationIpv6CidrBlock,
+
+            string destinationPrefixListId,
 
             string egressOnlyGatewayId,
 
@@ -179,8 +194,10 @@ namespace Pulumi.Aws.Ec2
 
             string vpcPeeringConnectionId)
         {
+            CarrierGatewayId = carrierGatewayId;
             DestinationCidrBlock = destinationCidrBlock;
             DestinationIpv6CidrBlock = destinationIpv6CidrBlock;
+            DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
             Id = id;

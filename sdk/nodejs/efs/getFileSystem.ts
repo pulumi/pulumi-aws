@@ -60,6 +60,14 @@ export interface GetFileSystemResult {
      * Amazon Resource Name of the file system.
      */
     readonly arn: string;
+    /**
+     * The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * The Availability Zone name in which the file system's One Zone storage classes exist.
+     */
+    readonly availabilityZoneName: string;
     readonly creationToken: string;
     /**
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).

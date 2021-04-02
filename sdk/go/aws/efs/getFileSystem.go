@@ -59,8 +59,12 @@ type LookupFileSystemArgs struct {
 // A collection of values returned by getFileSystem.
 type LookupFileSystemResult struct {
 	// Amazon Resource Name of the file system.
-	Arn           string `pulumi:"arn"`
-	CreationToken string `pulumi:"creationToken"`
+	Arn string `pulumi:"arn"`
+	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// The Availability Zone name in which the file system's One Zone storage classes exist.
+	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
+	CreationToken        string `pulumi:"creationToken"`
 	// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName string `pulumi:"dnsName"`
 	// Whether EFS is encrypted.

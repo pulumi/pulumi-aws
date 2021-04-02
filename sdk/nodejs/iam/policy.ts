@@ -90,6 +90,14 @@ export class Policy extends pulumi.CustomResource {
      * The policy document. This is a JSON formatted string.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The policy's ID.
+     */
+    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    /**
+     * Map of resource tags for the IAM Policy
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -110,6 +118,8 @@ export class Policy extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["policy"] = state ? state.policy : undefined;
+            inputs["policyId"] = state ? state.policyId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -120,7 +130,9 @@ export class Policy extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["policyId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -158,6 +170,14 @@ export interface PolicyState {
      * The policy document. This is a JSON formatted string.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The policy's ID.
+     */
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the IAM Policy
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -185,4 +205,8 @@ export interface PolicyArgs {
      * The policy document. This is a JSON formatted string.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
+    /**
+     * Map of resource tags for the IAM Policy
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

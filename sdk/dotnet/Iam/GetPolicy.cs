@@ -51,6 +51,18 @@ namespace Pulumi.Aws.Iam
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of tags for the IAM Policy
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetPolicyArgs()
         {
         }
@@ -84,6 +96,14 @@ namespace Pulumi.Aws.Iam
         /// The policy document of the policy.
         /// </summary>
         public readonly string Policy;
+        /// <summary>
+        /// The policy's ID.
+        /// </summary>
+        public readonly string PolicyId;
+        /// <summary>
+        /// Key-value mapping of tags for the IAM Policy
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetPolicyResult(
@@ -97,7 +117,11 @@ namespace Pulumi.Aws.Iam
 
             string path,
 
-            string policy)
+            string policy,
+
+            string policyId,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Description = description;
@@ -105,6 +129,8 @@ namespace Pulumi.Aws.Iam
             Name = name;
             Path = path;
             Policy = policy;
+            PolicyId = policyId;
+            Tags = tags;
         }
     }
 }

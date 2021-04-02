@@ -19,10 +19,16 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmGetArgs>? Acm { get; set; }
 
         /// <summary>
-        /// The TLS validation context trust for a local file.
+        /// The TLS validation context trust for a local file certificate.
         /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileGetArgs>? File { get; set; }
+
+        /// <summary>
+        /// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// </summary>
+        [Input("sds")]
+        public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsGetArgs>? Sds { get; set; }
 
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustGetArgs()
         {

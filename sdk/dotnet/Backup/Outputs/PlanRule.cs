@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanRuleCopyAction> CopyActions;
         /// <summary>
+        /// Enable continuous backups for supported resources.
+        /// </summary>
+        public readonly bool? EnableContinuousBackup;
+        /// <summary>
         /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         /// </summary>
         public readonly Outputs.PlanRuleLifecycle? Lifecycle;
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.Backup.Outputs
 
             ImmutableArray<Outputs.PlanRuleCopyAction> copyActions,
 
+            bool? enableContinuousBackup,
+
             Outputs.PlanRuleLifecycle? lifecycle,
 
             ImmutableDictionary<string, string>? recoveryPointTags,
@@ -66,6 +72,7 @@ namespace Pulumi.Aws.Backup.Outputs
         {
             CompletionWindow = completionWindow;
             CopyActions = copyActions;
+            EnableContinuousBackup = enableContinuousBackup;
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;

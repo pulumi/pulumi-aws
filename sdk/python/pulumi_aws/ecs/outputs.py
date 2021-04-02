@@ -15,6 +15,7 @@ __all__ = [
     'ClusterDefaultCapacityProviderStrategy',
     'ClusterSetting',
     'ServiceCapacityProviderStrategy',
+    'ServiceDeploymentCircuitBreaker',
     'ServiceDeploymentController',
     'ServiceLoadBalancer',
     'ServiceNetworkConfiguration',
@@ -230,9 +231,9 @@ class ServiceCapacityProviderStrategy(dict):
                  base: Optional[int] = None,
                  weight: Optional[int] = None):
         """
-        :param str capacity_provider: The short name of the capacity provider.
-        :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        :param str capacity_provider: Short name of the capacity provider.
+        :param int base: Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        :param int weight: Relative percentage of the total number of launched tasks that should use the specified capacity provider.
         """
         pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
@@ -244,7 +245,7 @@ class ServiceCapacityProviderStrategy(dict):
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> str:
         """
-        The short name of the capacity provider.
+        Short name of the capacity provider.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -252,7 +253,7 @@ class ServiceCapacityProviderStrategy(dict):
     @pulumi.getter
     def base(self) -> Optional[int]:
         """
-        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         """
         return pulumi.get(self, "base")
 
@@ -260,9 +261,41 @@ class ServiceCapacityProviderStrategy(dict):
     @pulumi.getter
     def weight(self) -> Optional[int]:
         """
-        The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        Relative percentage of the total number of launched tasks that should use the specified capacity provider.
         """
         return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceDeploymentCircuitBreaker(dict):
+    def __init__(__self__, *,
+                 enable: bool,
+                 rollback: bool):
+        """
+        :param bool enable: Whether to enable the deployment circuit breaker logic for the service.
+        :param bool rollback: Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        Whether to enable the deployment circuit breaker logic for the service.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def rollback(self) -> bool:
+        """
+        Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        return pulumi.get(self, "rollback")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -298,10 +331,10 @@ class ServiceLoadBalancer(dict):
                  elb_name: Optional[str] = None,
                  target_group_arn: Optional[str] = None):
         """
-        :param str container_name: The name of the container to associate with the load balancer (as it appears in a container definition).
-        :param int container_port: The port on the container to associate with the load balancer.
-        :param str elb_name: The name of the ELB (Classic) to associate with the service.
-        :param str target_group_arn: The ARN of the Load Balancer target group to associate with the service.
+        :param str container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
+        :param int container_port: Port on the container to associate with the load balancer.
+        :param str elb_name: Name of the ELB (Classic) to associate with the service.
+        :param str target_group_arn: ARN of the Load Balancer target group to associate with the service.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
@@ -314,7 +347,7 @@ class ServiceLoadBalancer(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        The name of the container to associate with the load balancer (as it appears in a container definition).
+        Name of the container to associate with the load balancer (as it appears in a container definition).
         """
         return pulumi.get(self, "container_name")
 
@@ -322,7 +355,7 @@ class ServiceLoadBalancer(dict):
     @pulumi.getter(name="containerPort")
     def container_port(self) -> int:
         """
-        The port on the container to associate with the load balancer.
+        Port on the container to associate with the load balancer.
         """
         return pulumi.get(self, "container_port")
 
@@ -330,7 +363,7 @@ class ServiceLoadBalancer(dict):
     @pulumi.getter(name="elbName")
     def elb_name(self) -> Optional[str]:
         """
-        The name of the ELB (Classic) to associate with the service.
+        Name of the ELB (Classic) to associate with the service.
         """
         return pulumi.get(self, "elb_name")
 
@@ -338,7 +371,7 @@ class ServiceLoadBalancer(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
-        The ARN of the Load Balancer target group to associate with the service.
+        ARN of the Load Balancer target group to associate with the service.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -353,9 +386,9 @@ class ServiceNetworkConfiguration(dict):
                  assign_public_ip: Optional[bool] = None,
                  security_groups: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] subnets: The subnets associated with the task or service.
+        :param Sequence[str] subnets: Subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-        :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
@@ -367,7 +400,7 @@ class ServiceNetworkConfiguration(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        The subnets associated with the task or service.
+        Subnets associated with the task or service.
         """
         return pulumi.get(self, "subnets")
 
@@ -383,7 +416,7 @@ class ServiceNetworkConfiguration(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         return pulumi.get(self, "security_groups")
 
@@ -397,7 +430,7 @@ class ServiceOrderedPlacementStrategy(dict):
                  type: str,
                  field: Optional[str] = None):
         """
-        :param str type: The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        :param str type: Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
         :param str field: For the `spread` placement strategy, valid values are `instanceId` (or `host`,
                which has the same effect), or any platform or custom attribute that is applied to a container instance.
                For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
@@ -411,7 +444,7 @@ class ServiceOrderedPlacementStrategy(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
         """
         return pulumi.get(self, "type")
 
@@ -436,12 +469,8 @@ class ServicePlacementConstraint(dict):
                  type: str,
                  expression: Optional[str] = None):
         """
-        :param str type: The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        :param str expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified
-               for the `distinctInstance` type.
-               For more information, see [Cluster Query Language in the Amazon EC2 Container
-               Service Developer
-               Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        :param str type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        :param str expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
         pulumi.set(__self__, "type", type)
         if expression is not None:
@@ -451,7 +480,7 @@ class ServicePlacementConstraint(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
         """
         return pulumi.get(self, "type")
 
@@ -459,11 +488,7 @@ class ServicePlacementConstraint(dict):
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        Cluster Query Language expression to apply to the constraint. Does not need to be specified
-        for the `distinctInstance` type.
-        For more information, see [Cluster Query Language in the Amazon EC2 Container
-        Service Developer
-        Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
         return pulumi.get(self, "expression")
 
@@ -479,10 +504,10 @@ class ServiceServiceRegistries(dict):
                  container_port: Optional[int] = None,
                  port: Optional[int] = None):
         """
-        :param str registry_arn: The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
-        :param str container_name: The container name value, already specified in the task definition, to be used for your service discovery service.
-        :param int container_port: The port value, already specified in the task definition, to be used for your service discovery service.
-        :param int port: The port value used if your Service Discovery service specified an SRV record.
+        :param str registry_arn: ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+        :param str container_name: Container name value, already specified in the task definition, to be used for your service discovery service.
+        :param int container_port: Port value, already specified in the task definition, to be used for your service discovery service.
+        :param int port: Port value used if your Service Discovery service specified an SRV record.
         """
         pulumi.set(__self__, "registry_arn", registry_arn)
         if container_name is not None:
@@ -496,7 +521,7 @@ class ServiceServiceRegistries(dict):
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> str:
         """
-        The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+        ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
         """
         return pulumi.get(self, "registry_arn")
 
@@ -504,7 +529,7 @@ class ServiceServiceRegistries(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
-        The container name value, already specified in the task definition, to be used for your service discovery service.
+        Container name value, already specified in the task definition, to be used for your service discovery service.
         """
         return pulumi.get(self, "container_name")
 
@@ -512,7 +537,7 @@ class ServiceServiceRegistries(dict):
     @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[int]:
         """
-        The port value, already specified in the task definition, to be used for your service discovery service.
+        Port value, already specified in the task definition, to be used for your service discovery service.
         """
         return pulumi.get(self, "container_port")
 
@@ -520,7 +545,7 @@ class ServiceServiceRegistries(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port value used if your Service Discovery service specified an SRV record.
+        Port value used if your Service Discovery service specified an SRV record.
         """
         return pulumi.get(self, "port")
 
